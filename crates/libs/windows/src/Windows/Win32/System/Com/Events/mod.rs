@@ -243,13 +243,13 @@ impl IEventClass2 {
     {
         (::windows_core::Interface::vtable(self).SetMultiInterfacePublisherFilterCLSID)(::windows_core::Interface::as_raw(self), bstrpubfilclsid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowInprocActivation(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AllowInprocActivation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllowInprocActivation<P0>(&self, fallowinprocactivation: P0) -> ::windows_core::Result<()>
     where
@@ -257,13 +257,13 @@ impl IEventClass2 {
     {
         (::windows_core::Interface::vtable(self).SetAllowInprocActivation)(::windows_core::Interface::as_raw(self), fallowinprocactivation.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FireInParallel(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FireInParallel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFireInParallel<P0>(&self, ffireinparallel: P0) -> ::windows_core::Result<()>
     where
@@ -315,13 +315,13 @@ impl IEventControl {
     {
         (::windows_core::Interface::vtable(self).SetPublisherFilter)(::windows_core::Interface::as_raw(self), methodname.into_param().abi(), ppublisherfilter.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowInprocActivation(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AllowInprocActivation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllowInprocActivation<P0>(&self, fallowinprocactivation: P0) -> ::windows_core::Result<()>
     where
@@ -440,7 +440,7 @@ impl IEventObjectCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item<P0>(&self, objectid: P0) -> ::windows_core::Result<super::super::Variant::VARIANT>
     where
@@ -457,7 +457,7 @@ impl IEventObjectCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Add<P0>(&self, item: *const super::super::Variant::VARIANT, objectid: P0) -> ::windows_core::Result<()>
     where
@@ -510,13 +510,13 @@ impl IEventProperty {
     {
         (::windows_core::Interface::vtable(self).SetName)(::windows_core::Interface::as_raw(self), propertyname.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Value(&self) -> ::windows_core::Result<super::super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetValue(&self, propertyvalue: *const super::super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValue)(::windows_core::Interface::as_raw(self), propertyvalue).ok()
@@ -598,7 +598,7 @@ impl IEventPublisher {
     {
         (::windows_core::Interface::vtable(self).SetDescription)(::windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetDefaultProperty<P0>(&self, bstrpropertyname: P0) -> ::windows_core::Result<super::super::Variant::VARIANT>
     where
@@ -607,7 +607,7 @@ impl IEventPublisher {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDefaultProperty)(::windows_core::Interface::as_raw(self), bstrpropertyname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutDefaultProperty<P0>(&self, bstrpropertyname: P0, propertyvalue: *const super::super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -732,13 +732,13 @@ impl IEventSubscription {
     {
         (::windows_core::Interface::vtable(self).SetSubscriberInterface)(::windows_core::Interface::as_raw(self), psubscriberinterface.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PerUser(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PerUser)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPerUser<P0>(&self, fperuser: P0) -> ::windows_core::Result<()>
     where
@@ -756,13 +756,13 @@ impl IEventSubscription {
     {
         (::windows_core::Interface::vtable(self).SetOwnerSID)(::windows_core::Interface::as_raw(self), bstrownersid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Enabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnabled<P0>(&self, fenabled: P0) -> ::windows_core::Result<()>
     where
@@ -790,7 +790,7 @@ impl IEventSubscription {
     {
         (::windows_core::Interface::vtable(self).SetMachineName)(::windows_core::Interface::as_raw(self), bstrmachinename.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPublisherProperty<P0>(&self, bstrpropertyname: P0) -> ::windows_core::Result<super::super::Variant::VARIANT>
     where
@@ -799,7 +799,7 @@ impl IEventSubscription {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPublisherProperty)(::windows_core::Interface::as_raw(self), bstrpropertyname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutPublisherProperty<P0>(&self, bstrpropertyname: P0, propertyvalue: *const super::super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -817,7 +817,7 @@ impl IEventSubscription {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPublisherPropertyCollection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetSubscriberProperty<P0>(&self, bstrpropertyname: P0) -> ::windows_core::Result<super::super::Variant::VARIANT>
     where
@@ -826,7 +826,7 @@ impl IEventSubscription {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSubscriberProperty)(::windows_core::Interface::as_raw(self), bstrpropertyname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutSubscriberProperty<P0>(&self, bstrpropertyname: P0, propertyvalue: *const super::super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -1039,13 +1039,13 @@ impl IMultiInterfaceEventControl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetDefaultQuery)(::windows_core::Interface::as_raw(self), eventiid, bstrmethodname.into_param().abi(), bstrcriteria.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowInprocActivation(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AllowInprocActivation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllowInprocActivation<P0>(&self, fallowinprocactivation: P0) -> ::windows_core::Result<()>
     where
@@ -1053,13 +1053,13 @@ impl IMultiInterfaceEventControl {
     {
         (::windows_core::Interface::vtable(self).SetAllowInprocActivation)(::windows_core::Interface::as_raw(self), fallowinprocactivation.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FireInParallel(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FireInParallel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFireInParallel<P0>(&self, ffireinparallel: P0) -> ::windows_core::Result<()>
     where

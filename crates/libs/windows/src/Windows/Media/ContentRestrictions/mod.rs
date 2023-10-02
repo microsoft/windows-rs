@@ -137,7 +137,7 @@ impl ContentRestrictionsBrowsePolicy {
             (::windows_core::Interface::vtable(this).GeographicRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MaxBrowsableAgeRating(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -146,7 +146,7 @@ impl ContentRestrictionsBrowsePolicy {
             (::windows_core::Interface::vtable(this).MaxBrowsableAgeRating)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PreferredAgeRating(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -197,7 +197,7 @@ impl RatedContentDescription {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetTitle)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Image(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -206,7 +206,7 @@ impl RatedContentDescription {
             (::windows_core::Interface::vtable(this).Image)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetImage<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -226,7 +226,7 @@ impl RatedContentDescription {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCategory)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Ratings(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -235,7 +235,7 @@ impl RatedContentDescription {
             (::windows_core::Interface::vtable(this).Ratings)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetRatings<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -282,7 +282,7 @@ impl RatedContentRestrictions {
         static SHARED: ::windows_core::imp::FactoryCache<RatedContentRestrictions, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetBrowsePolicyAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ContentRestrictionsBrowsePolicy>> {
         let this = self;
@@ -291,7 +291,7 @@ impl RatedContentRestrictions {
             (::windows_core::Interface::vtable(this).GetBrowsePolicyAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetRestrictionLevelAsync<P0>(&self, ratedcontentdescription: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ContentAccessRestrictionLevel>>
     where
@@ -303,7 +303,7 @@ impl RatedContentRestrictions {
             (::windows_core::Interface::vtable(this).GetRestrictionLevelAsync)(::windows_core::Interface::as_raw(this), ratedcontentdescription.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestContentAccessAsync<P0>(&self, ratedcontentdescription: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -315,7 +315,7 @@ impl RatedContentRestrictions {
             (::windows_core::Interface::vtable(this).RequestContentAccessAsync)(::windows_core::Interface::as_raw(this), ratedcontentdescription.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RestrictionsChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -327,7 +327,7 @@ impl RatedContentRestrictions {
             (::windows_core::Interface::vtable(this).RestrictionsChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRestrictionsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;

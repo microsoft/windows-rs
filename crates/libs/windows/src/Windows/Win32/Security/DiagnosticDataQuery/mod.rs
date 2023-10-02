@@ -76,7 +76,7 @@ pub unsafe fn DdqGetDiagnosticDataAccessLevelAllowed() -> ::windows_core::Result
     let mut result__ = ::std::mem::zeroed();
     DdqGetDiagnosticDataAccessLevelAllowed(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqGetDiagnosticRecordAtIndex<P0>(hrecord: P0, index: u32, record: *mut DIAGNOSTIC_DATA_RECORD) -> ::windows_core::Result<()>
@@ -149,7 +149,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     DdqGetDiagnosticRecordLocaleTags(hsession.into_param().abi(), locale.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqGetDiagnosticRecordPage<P0>(hsession: P0, searchcriteria: *const DIAGNOSTIC_DATA_SEARCH_CRITERIA, offset: u32, pagerecordcount: u32, baserowid: i64) -> ::windows_core::Result<super::HDIAGNOSTIC_RECORD>
@@ -206,7 +206,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     DdqGetDiagnosticRecordProducers(hsession.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqGetDiagnosticRecordStats<P0>(hsession: P0, searchcriteria: *const DIAGNOSTIC_DATA_SEARCH_CRITERIA, recordcount: *mut u32, minrowid: *mut i64, maxrowid: *mut i64) -> ::windows_core::Result<()>
@@ -241,7 +241,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     DdqGetDiagnosticReport(hsession.into_param().abi(), reportstoretype, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqGetDiagnosticReportAtIndex<P0>(hreport: P0, index: u32, report: *mut DIAGNOSTIC_REPORT_DATA) -> ::windows_core::Result<()>
@@ -287,7 +287,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     DdqGetTranscriptConfiguration(hsession.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqIsDiagnosticRecordSampledIn<P0, P1, P2>(hsession: P0, providergroup: *const ::windows_core::GUID, providerid: ::core::option::Option<*const ::windows_core::GUID>, providername: P1, eventid: ::core::option::Option<*const u32>, eventname: P2, eventversion: ::core::option::Option<*const u32>, eventkeywords: ::core::option::Option<*const u64>) -> ::windows_core::Result<super::super::Foundation::BOOL>
@@ -550,7 +550,7 @@ impl ::core::default::Default for DIAGNOSTIC_DATA_GENERAL_STATS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_DATA_RECORD {
     pub rowId: i64,
@@ -616,7 +616,7 @@ impl ::core::default::Default for DIAGNOSTIC_DATA_RECORD {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     pub producerNames: *const ::windows_core::PCWSTR,
@@ -661,7 +661,7 @@ impl ::core::default::Default for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_REPORT_DATA {
     pub signature: DIAGNOSTIC_REPORT_SIGNATURE,

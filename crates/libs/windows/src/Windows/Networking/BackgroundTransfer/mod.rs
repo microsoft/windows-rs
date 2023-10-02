@@ -179,7 +179,7 @@ impl IBackgroundTransferBase {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetRequestHeader)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(headername), ::core::mem::transmute_copy(headervalue)).ok() }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
@@ -188,7 +188,7 @@ impl IBackgroundTransferBase {
             (::windows_core::Interface::vtable(this).ServerCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetServerCredential<P0>(&self, credential: P0) -> ::windows_core::Result<()>
     where
@@ -197,7 +197,7 @@ impl IBackgroundTransferBase {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetServerCredential)(::windows_core::Interface::as_raw(this), credential.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
@@ -206,7 +206,7 @@ impl IBackgroundTransferBase {
             (::windows_core::Interface::vtable(this).ProxyCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetProxyCredential<P0>(&self, credential: P0) -> ::windows_core::Result<()>
     where
@@ -226,7 +226,7 @@ impl IBackgroundTransferBase {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetMethod)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Group(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -235,7 +235,7 @@ impl IBackgroundTransferBase {
             (::windows_core::Interface::vtable(this).Group)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SetGroup(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = self;
@@ -462,7 +462,7 @@ impl IBackgroundTransferOperation {
             (::windows_core::Interface::vtable(this).Guid)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestedUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -478,7 +478,7 @@ impl IBackgroundTransferOperation {
             (::windows_core::Interface::vtable(this).Method)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Group(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -498,7 +498,7 @@ impl IBackgroundTransferOperation {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCostPolicy)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetResultStreamAt(&self, position: u64) -> ::windows_core::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
@@ -1091,7 +1091,7 @@ impl BackgroundDownloader {
         static SHARED: ::windows_core::imp::FactoryCache<BackgroundDownloader, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`, `Storage`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn CreateDownload<P0, P1>(&self, uri: P0, resultfile: P1) -> ::windows_core::Result<DownloadOperation>
     where
@@ -1104,7 +1104,7 @@ impl BackgroundDownloader {
             (::windows_core::Interface::vtable(this).CreateDownload)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), resultfile.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn CreateDownloadFromFile<P0, P1, P2>(&self, uri: P0, resultfile: P1, requestbodyfile: P2) -> ::windows_core::Result<DownloadOperation>
     where
@@ -1118,7 +1118,7 @@ impl BackgroundDownloader {
             (::windows_core::Interface::vtable(this).CreateDownloadFromFile)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), resultfile.try_into_param()?.abi(), requestbodyfile.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn CreateDownloadAsync<P0, P1, P2>(&self, uri: P0, resultfile: P1, requestbodystream: P2) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DownloadOperation>>
     where
@@ -1146,7 +1146,7 @@ impl BackgroundDownloader {
         let this = &::windows_core::ComInterface::cast::<IBackgroundDownloader2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetTransferGroup)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `UI_Notifications`"]
+    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SuccessToastNotification(&self) -> ::windows_core::Result<super::super::UI::Notifications::ToastNotification> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundDownloader2>(self)?;
@@ -1155,7 +1155,7 @@ impl BackgroundDownloader {
             (::windows_core::Interface::vtable(this).SuccessToastNotification)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_Notifications`"]
+    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SetSuccessToastNotification<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1164,7 +1164,7 @@ impl BackgroundDownloader {
         let this = &::windows_core::ComInterface::cast::<IBackgroundDownloader2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSuccessToastNotification)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `UI_Notifications`"]
+    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn FailureToastNotification(&self) -> ::windows_core::Result<super::super::UI::Notifications::ToastNotification> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundDownloader2>(self)?;
@@ -1173,7 +1173,7 @@ impl BackgroundDownloader {
             (::windows_core::Interface::vtable(this).FailureToastNotification)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_Notifications`"]
+    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SetFailureToastNotification<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1182,7 +1182,7 @@ impl BackgroundDownloader {
         let this = &::windows_core::ComInterface::cast::<IBackgroundDownloader2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetFailureToastNotification)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `UI_Notifications`"]
+    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SuccessTileNotification(&self) -> ::windows_core::Result<super::super::UI::Notifications::TileNotification> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundDownloader2>(self)?;
@@ -1191,7 +1191,7 @@ impl BackgroundDownloader {
             (::windows_core::Interface::vtable(this).SuccessTileNotification)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_Notifications`"]
+    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SetSuccessTileNotification<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1200,7 +1200,7 @@ impl BackgroundDownloader {
         let this = &::windows_core::ComInterface::cast::<IBackgroundDownloader2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSuccessTileNotification)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `UI_Notifications`"]
+    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn FailureTileNotification(&self) -> ::windows_core::Result<super::super::UI::Notifications::TileNotification> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundDownloader2>(self)?;
@@ -1209,7 +1209,7 @@ impl BackgroundDownloader {
             (::windows_core::Interface::vtable(this).FailureTileNotification)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_Notifications`"]
+    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SetFailureTileNotification<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1234,7 +1234,7 @@ impl BackgroundDownloader {
             (::windows_core::Interface::vtable(this).CreateWithCompletionGroup)(::windows_core::Interface::as_raw(this), completiongroup.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentDownloadsAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>> {
         Self::IBackgroundDownloaderStaticMethods(|this| unsafe {
@@ -1242,7 +1242,7 @@ impl BackgroundDownloader {
             (::windows_core::Interface::vtable(this).GetCurrentDownloadsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetCurrentDownloadsForGroupAsync(group: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>> {
         Self::IBackgroundDownloaderStaticMethods(|this| unsafe {
@@ -1250,7 +1250,7 @@ impl BackgroundDownloader {
             (::windows_core::Interface::vtable(this).GetCurrentDownloadsForGroupAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(group), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentDownloadsForTransferGroupAsync<P0>(group: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>>
     where
@@ -1261,7 +1261,7 @@ impl BackgroundDownloader {
             (::windows_core::Interface::vtable(this).GetCurrentDownloadsForTransferGroupAsync)(::windows_core::Interface::as_raw(this), group.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn RequestUnconstrainedDownloadsAsync<P0>(operations: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>>
     where
@@ -1276,7 +1276,7 @@ impl BackgroundDownloader {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetRequestHeader)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(headername), ::core::mem::transmute_copy(headervalue)).ok() }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferBase>(self)?;
@@ -1285,7 +1285,7 @@ impl BackgroundDownloader {
             (::windows_core::Interface::vtable(this).ServerCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetServerCredential<P0>(&self, credential: P0) -> ::windows_core::Result<()>
     where
@@ -1294,7 +1294,7 @@ impl BackgroundDownloader {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetServerCredential)(::windows_core::Interface::as_raw(this), credential.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferBase>(self)?;
@@ -1303,7 +1303,7 @@ impl BackgroundDownloader {
             (::windows_core::Interface::vtable(this).ProxyCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetProxyCredential<P0>(&self, credential: P0) -> ::windows_core::Result<()>
     where
@@ -1323,7 +1323,7 @@ impl BackgroundDownloader {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetMethod)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Group(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferBase>(self)?;
@@ -1332,7 +1332,7 @@ impl BackgroundDownloader {
             (::windows_core::Interface::vtable(this).Group)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SetGroup(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferBase>(self)?;
@@ -1398,7 +1398,7 @@ impl BackgroundTransferCompletionGroup {
         static SHARED: ::windows_core::imp::FactoryCache<BackgroundTransferCompletionGroup, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `ApplicationModel_Background`"]
+    #[doc = "Required features: `\"ApplicationModel_Background\"`"]
     #[cfg(feature = "ApplicationModel_Background")]
     pub fn Trigger(&self) -> ::windows_core::Result<super::super::ApplicationModel::Background::IBackgroundTrigger> {
         let this = self;
@@ -1438,7 +1438,7 @@ unsafe impl ::core::marker::Sync for BackgroundTransferCompletionGroup {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BackgroundTransferCompletionGroupTriggerDetails(::windows_core::IUnknown);
 impl BackgroundTransferCompletionGroupTriggerDetails {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Downloads(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<DownloadOperation>> {
         let this = self;
@@ -1447,7 +1447,7 @@ impl BackgroundTransferCompletionGroupTriggerDetails {
             (::windows_core::Interface::vtable(this).Downloads)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Uploads(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UploadOperation>> {
         let this = self;
@@ -1491,7 +1491,7 @@ impl BackgroundTransferContentPart {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Storage`"]
+    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn SetFile<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1535,7 +1535,7 @@ unsafe impl ::core::marker::Send for BackgroundTransferContentPart {}
 unsafe impl ::core::marker::Sync for BackgroundTransferContentPart {}
 pub struct BackgroundTransferError;
 impl BackgroundTransferError {
-    #[doc = "Required features: `Web`"]
+    #[doc = "Required features: `\"Web\"`"]
     #[cfg(feature = "Web")]
     pub fn GetStatus(hresult: i32) -> ::windows_core::Result<super::super::Web::WebErrorStatus> {
         Self::IBackgroundTransferErrorStaticMethods(|this| unsafe {
@@ -1612,7 +1612,7 @@ impl BackgroundTransferRangesDownloadedEventArgs {
             (::windows_core::Interface::vtable(this).WasDownloadRestarted)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddedRanges(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<BackgroundTransferFileRange>> {
         let this = self;
@@ -1621,7 +1621,7 @@ impl BackgroundTransferRangesDownloadedEventArgs {
             (::windows_core::Interface::vtable(this).AddedRanges)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -1661,7 +1661,7 @@ impl BackgroundUploader {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetRequestHeader)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(headername), ::core::mem::transmute_copy(headervalue)).ok() }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferBase>(self)?;
@@ -1670,7 +1670,7 @@ impl BackgroundUploader {
             (::windows_core::Interface::vtable(this).ServerCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetServerCredential<P0>(&self, credential: P0) -> ::windows_core::Result<()>
     where
@@ -1679,7 +1679,7 @@ impl BackgroundUploader {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetServerCredential)(::windows_core::Interface::as_raw(this), credential.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferBase>(self)?;
@@ -1688,7 +1688,7 @@ impl BackgroundUploader {
             (::windows_core::Interface::vtable(this).ProxyCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetProxyCredential<P0>(&self, credential: P0) -> ::windows_core::Result<()>
     where
@@ -1708,7 +1708,7 @@ impl BackgroundUploader {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetMethod)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Group(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferBase>(self)?;
@@ -1717,7 +1717,7 @@ impl BackgroundUploader {
             (::windows_core::Interface::vtable(this).Group)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SetGroup(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferBase>(self)?;
@@ -1734,7 +1734,7 @@ impl BackgroundUploader {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetCostPolicy)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Storage`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn CreateUpload<P0, P1>(&self, uri: P0, sourcefile: P1) -> ::windows_core::Result<UploadOperation>
     where
@@ -1747,7 +1747,7 @@ impl BackgroundUploader {
             (::windows_core::Interface::vtable(this).CreateUpload)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), sourcefile.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn CreateUploadFromStreamAsync<P0, P1>(&self, uri: P0, sourcestream: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
     where
@@ -1760,7 +1760,7 @@ impl BackgroundUploader {
             (::windows_core::Interface::vtable(this).CreateUploadFromStreamAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), sourcestream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateUploadWithFormDataAndAutoBoundaryAsync<P0, P1>(&self, uri: P0, parts: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
     where
@@ -1773,7 +1773,7 @@ impl BackgroundUploader {
             (::windows_core::Interface::vtable(this).CreateUploadWithFormDataAndAutoBoundaryAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), parts.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateUploadWithSubTypeAsync<P0, P1>(&self, uri: P0, parts: P1, subtype: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
     where
@@ -1786,7 +1786,7 @@ impl BackgroundUploader {
             (::windows_core::Interface::vtable(this).CreateUploadWithSubTypeAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), parts.try_into_param()?.abi(), ::core::mem::transmute_copy(subtype), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateUploadWithSubTypeAndBoundaryAsync<P0, P1>(&self, uri: P0, parts: P1, subtype: &::windows_core::HSTRING, boundary: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
     where
@@ -1813,7 +1813,7 @@ impl BackgroundUploader {
         let this = &::windows_core::ComInterface::cast::<IBackgroundUploader2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetTransferGroup)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `UI_Notifications`"]
+    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SuccessToastNotification(&self) -> ::windows_core::Result<super::super::UI::Notifications::ToastNotification> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundUploader2>(self)?;
@@ -1822,7 +1822,7 @@ impl BackgroundUploader {
             (::windows_core::Interface::vtable(this).SuccessToastNotification)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_Notifications`"]
+    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SetSuccessToastNotification<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1831,7 +1831,7 @@ impl BackgroundUploader {
         let this = &::windows_core::ComInterface::cast::<IBackgroundUploader2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSuccessToastNotification)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `UI_Notifications`"]
+    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn FailureToastNotification(&self) -> ::windows_core::Result<super::super::UI::Notifications::ToastNotification> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundUploader2>(self)?;
@@ -1840,7 +1840,7 @@ impl BackgroundUploader {
             (::windows_core::Interface::vtable(this).FailureToastNotification)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_Notifications`"]
+    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SetFailureToastNotification<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1849,7 +1849,7 @@ impl BackgroundUploader {
         let this = &::windows_core::ComInterface::cast::<IBackgroundUploader2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetFailureToastNotification)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `UI_Notifications`"]
+    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SuccessTileNotification(&self) -> ::windows_core::Result<super::super::UI::Notifications::TileNotification> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundUploader2>(self)?;
@@ -1858,7 +1858,7 @@ impl BackgroundUploader {
             (::windows_core::Interface::vtable(this).SuccessTileNotification)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_Notifications`"]
+    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SetSuccessTileNotification<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1867,7 +1867,7 @@ impl BackgroundUploader {
         let this = &::windows_core::ComInterface::cast::<IBackgroundUploader2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSuccessTileNotification)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `UI_Notifications`"]
+    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn FailureTileNotification(&self) -> ::windows_core::Result<super::super::UI::Notifications::TileNotification> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundUploader2>(self)?;
@@ -1876,7 +1876,7 @@ impl BackgroundUploader {
             (::windows_core::Interface::vtable(this).FailureTileNotification)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_Notifications`"]
+    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SetFailureTileNotification<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1901,7 +1901,7 @@ impl BackgroundUploader {
             (::windows_core::Interface::vtable(this).CreateWithCompletionGroup)(::windows_core::Interface::as_raw(this), completiongroup.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentUploadsAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>> {
         Self::IBackgroundUploaderStaticMethods(|this| unsafe {
@@ -1909,7 +1909,7 @@ impl BackgroundUploader {
             (::windows_core::Interface::vtable(this).GetCurrentUploadsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetCurrentUploadsForGroupAsync(group: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>> {
         Self::IBackgroundUploaderStaticMethods(|this| unsafe {
@@ -1917,7 +1917,7 @@ impl BackgroundUploader {
             (::windows_core::Interface::vtable(this).GetCurrentUploadsForGroupAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(group), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentUploadsForTransferGroupAsync<P0>(group: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>>
     where
@@ -1928,7 +1928,7 @@ impl BackgroundUploader {
             (::windows_core::Interface::vtable(this).GetCurrentUploadsForTransferGroupAsync)(::windows_core::Interface::as_raw(this), group.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn RequestUnconstrainedUploadsAsync<P0>(operations: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>>
     where
@@ -1979,7 +1979,7 @@ unsafe impl ::core::marker::Send for BackgroundUploader {}
 unsafe impl ::core::marker::Sync for BackgroundUploader {}
 pub struct ContentPrefetcher;
 impl ContentPrefetcher {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContentUris() -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         Self::IContentPrefetcher(|this| unsafe {
@@ -1987,7 +1987,7 @@ impl ContentPrefetcher {
             (::windows_core::Interface::vtable(this).ContentUris)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetIndirectContentUri<P0>(value: P0) -> ::windows_core::Result<()>
     where
@@ -1995,7 +1995,7 @@ impl ContentPrefetcher {
     {
         Self::IContentPrefetcher(|this| unsafe { (::windows_core::Interface::vtable(this).SetIndirectContentUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn IndirectContentUri() -> ::windows_core::Result<super::super::Foundation::Uri> {
         Self::IContentPrefetcher(|this| unsafe {
@@ -2003,7 +2003,7 @@ impl ContentPrefetcher {
             (::windows_core::Interface::vtable(this).IndirectContentUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LastSuccessfulPrefetchTime() -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         Self::IContentPrefetcherTime(|this| unsafe {
@@ -2036,7 +2036,7 @@ impl DownloadOperation {
             (::windows_core::Interface::vtable(this).Guid)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestedUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferOperation>(self)?;
@@ -2052,7 +2052,7 @@ impl DownloadOperation {
             (::windows_core::Interface::vtable(this).Method)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Group(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferOperation>(self)?;
@@ -2072,7 +2072,7 @@ impl DownloadOperation {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetCostPolicy)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetResultStreamAt(&self, position: u64) -> ::windows_core::Result<super::super::Storage::Streams::IInputStream> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferOperation>(self)?;
@@ -2099,7 +2099,7 @@ impl DownloadOperation {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferOperationPriority>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetPriority)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Storage`"]
+    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn ResultFile(&self) -> ::windows_core::Result<super::super::Storage::IStorageFile> {
         let this = self;
@@ -2115,7 +2115,7 @@ impl DownloadOperation {
             (::windows_core::Interface::vtable(this).Progress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DownloadOperation, DownloadOperation>> {
         let this = self;
@@ -2124,7 +2124,7 @@ impl DownloadOperation {
             (::windows_core::Interface::vtable(this).StartAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AttachAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DownloadOperation, DownloadOperation>> {
         let this = self;
@@ -2159,7 +2159,7 @@ impl DownloadOperation {
         let this = &::windows_core::ComInterface::cast::<IDownloadOperation3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetIsRandomAccessRequired)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetResultRandomAccessStreamReference(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows_core::ComInterface::cast::<IDownloadOperation3>(self)?;
@@ -2168,7 +2168,7 @@ impl DownloadOperation {
             (::windows_core::Interface::vtable(this).GetResultRandomAccessStreamReference)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetDownloadedRanges(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<BackgroundTransferFileRange>> {
         let this = &::windows_core::ComInterface::cast::<IDownloadOperation3>(self)?;
@@ -2177,7 +2177,7 @@ impl DownloadOperation {
             (::windows_core::Interface::vtable(this).GetDownloadedRanges)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RangesDownloaded<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2189,13 +2189,13 @@ impl DownloadOperation {
             (::windows_core::Interface::vtable(this).RangesDownloaded)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRangesDownloaded(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IDownloadOperation3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRangesDownloaded)(::windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetRequestedUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2204,7 +2204,7 @@ impl DownloadOperation {
         let this = &::windows_core::ComInterface::cast::<IDownloadOperation3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetRequestedUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Web`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Web\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Web"))]
     pub fn RecoverableWebErrorStatuses(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Web::WebErrorStatus>> {
         let this = &::windows_core::ComInterface::cast::<IDownloadOperation3>(self)?;
@@ -2213,7 +2213,7 @@ impl DownloadOperation {
             (::windows_core::Interface::vtable(this).RecoverableWebErrorStatuses)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web"))]
     pub fn CurrentWebErrorStatus(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Web::WebErrorStatus>> {
         let this = &::windows_core::ComInterface::cast::<IDownloadOperation3>(self)?;
@@ -2263,7 +2263,7 @@ impl ResponseInformation {
             (::windows_core::Interface::vtable(this).IsResumable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ActualUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2279,7 +2279,7 @@ impl ResponseInformation {
             (::windows_core::Interface::vtable(this).StatusCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Headers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::HSTRING>> {
         let this = self;
@@ -2304,14 +2304,14 @@ impl ::windows_core::RuntimeName for ResponseInformation {
 ::windows_core::imp::interface_hierarchy!(ResponseInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ResponseInformation {}
 unsafe impl ::core::marker::Sync for ResponseInformation {}
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UnconstrainedTransferRequestResult(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl UnconstrainedTransferRequestResult {
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn IsUnconstrained(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -2354,7 +2354,7 @@ impl UploadOperation {
             (::windows_core::Interface::vtable(this).Guid)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestedUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferOperation>(self)?;
@@ -2370,7 +2370,7 @@ impl UploadOperation {
             (::windows_core::Interface::vtable(this).Method)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Group(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferOperation>(self)?;
@@ -2390,7 +2390,7 @@ impl UploadOperation {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetCostPolicy)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetResultStreamAt(&self, position: u64) -> ::windows_core::Result<super::super::Storage::Streams::IInputStream> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferOperation>(self)?;
@@ -2417,7 +2417,7 @@ impl UploadOperation {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTransferOperationPriority>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetPriority)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Storage`"]
+    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn SourceFile(&self) -> ::windows_core::Result<super::super::Storage::IStorageFile> {
         let this = self;
@@ -2433,7 +2433,7 @@ impl UploadOperation {
             (::windows_core::Interface::vtable(this).Progress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<UploadOperation, UploadOperation>> {
         let this = self;
@@ -2442,7 +2442,7 @@ impl UploadOperation {
             (::windows_core::Interface::vtable(this).StartAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AttachAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<UploadOperation, UploadOperation>> {
         let this = self;

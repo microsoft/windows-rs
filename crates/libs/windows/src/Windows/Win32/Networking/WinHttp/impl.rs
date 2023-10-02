@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWinHttpRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetProxy(&self, proxysetting: i32, proxyserver: &super::super::System::Variant::VARIANT, bypasslist: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
@@ -202,7 +202,7 @@ impl IWinHttpRequest_Vtbl {
         *iid == <IWinHttpRequest as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWinHttpRequestEvents_Impl: Sized {
     fn OnResponseStart(&self, status: i32, contenttype: &::windows_core::BSTR);

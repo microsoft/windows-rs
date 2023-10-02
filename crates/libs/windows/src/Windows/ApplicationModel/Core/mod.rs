@@ -202,7 +202,7 @@ pub struct ICoreApplicationExit_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICoreApplicationUnhandledError(::windows_core::IUnknown);
 impl ICoreApplicationUnhandledError {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn UnhandledErrorDetected<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -214,7 +214,7 @@ impl ICoreApplicationUnhandledError {
             (::windows_core::Interface::vtable(this).UnhandledErrorDetected)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUnhandledErrorDetected(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -473,7 +473,7 @@ impl IFrameworkView {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Initialize)(::windows_core::Interface::as_raw(this), applicationview.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `UI_Core`"]
+    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn SetWindow<P0>(&self, window: P0) -> ::windows_core::Result<()>
     where
@@ -609,7 +609,7 @@ impl AppListEntry {
             (::windows_core::Interface::vtable(this).DisplayInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -625,7 +625,7 @@ impl AppListEntry {
             (::windows_core::Interface::vtable(this).AppUserModelId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `System`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"System\"`"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn LaunchForUserAsync<P0>(&self, user: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -668,7 +668,7 @@ impl CoreApplication {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Suspending<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -679,12 +679,12 @@ impl CoreApplication {
             (::windows_core::Interface::vtable(this).Suspending)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSuspending(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::ICoreApplication(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveSuspending)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Resuming<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -695,12 +695,12 @@ impl CoreApplication {
             (::windows_core::Interface::vtable(this).Resuming)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveResuming(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::ICoreApplication(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveResuming)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties() -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         Self::ICoreApplication(|this| unsafe {
@@ -720,7 +720,7 @@ impl CoreApplication {
     {
         Self::ICoreApplication(|this| unsafe { (::windows_core::Interface::vtable(this).Run)(::windows_core::Interface::as_raw(this), viewsource.try_into_param()?.abi()).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RunWithActivationFactories<P0>(activationfactorycallback: P0) -> ::windows_core::Result<()>
     where
@@ -728,7 +728,7 @@ impl CoreApplication {
     {
         Self::ICoreApplication(|this| unsafe { (::windows_core::Interface::vtable(this).RunWithActivationFactories)(::windows_core::Interface::as_raw(this), activationfactorycallback.try_into_param()?.abi()).ok() })
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
     pub fn BackgroundActivated<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -739,12 +739,12 @@ impl CoreApplication {
             (::windows_core::Interface::vtable(this).BackgroundActivated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBackgroundActivated(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::ICoreApplication2(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveBackgroundActivated)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LeavingBackground<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -755,12 +755,12 @@ impl CoreApplication {
             (::windows_core::Interface::vtable(this).LeavingBackground)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveLeavingBackground(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::ICoreApplication2(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveLeavingBackground)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn EnteredBackground<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -771,7 +771,7 @@ impl CoreApplication {
             (::windows_core::Interface::vtable(this).EnteredBackground)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnteredBackground(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::ICoreApplication2(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveEnteredBackground)(::windows_core::Interface::as_raw(this), token).ok() })
@@ -779,7 +779,7 @@ impl CoreApplication {
     pub fn EnablePrelaunch(value: bool) -> ::windows_core::Result<()> {
         Self::ICoreApplication2(|this| unsafe { (::windows_core::Interface::vtable(this).EnablePrelaunch)(::windows_core::Interface::as_raw(this), value).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestRestartAsync(launcharguments: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>> {
         Self::ICoreApplication3(|this| unsafe {
@@ -787,7 +787,7 @@ impl CoreApplication {
             (::windows_core::Interface::vtable(this).RequestRestartAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(launcharguments), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `System`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"System\"`"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn RequestRestartForUserAsync<P0>(user: P0, launcharguments: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>>
     where
@@ -801,7 +801,7 @@ impl CoreApplication {
     pub fn Exit() -> ::windows_core::Result<()> {
         Self::ICoreApplicationExit(|this| unsafe { (::windows_core::Interface::vtable(this).Exit)(::windows_core::Interface::as_raw(this)).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Exiting<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -812,12 +812,12 @@ impl CoreApplication {
             (::windows_core::Interface::vtable(this).Exiting)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveExiting(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::ICoreApplicationExit(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveExiting)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn UnhandledErrorDetected<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -828,7 +828,7 @@ impl CoreApplication {
             (::windows_core::Interface::vtable(this).UnhandledErrorDetected)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUnhandledErrorDetected(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::ICoreApplicationUnhandledError(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveUnhandledErrorDetected)(::windows_core::Interface::as_raw(this), token).ok() })
@@ -839,7 +839,7 @@ impl CoreApplication {
     pub fn DecrementApplicationUseCount() -> ::windows_core::Result<()> {
         Self::ICoreApplicationUseCount(|this| unsafe { (::windows_core::Interface::vtable(this).DecrementApplicationUseCount)(::windows_core::Interface::as_raw(this)).ok() })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Views() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<CoreApplicationView>> {
         Self::ICoreImmersiveApplication(|this| unsafe {
@@ -927,7 +927,7 @@ impl ::windows_core::RuntimeName for CoreApplication {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CoreApplicationView(::windows_core::IUnknown);
 impl CoreApplicationView {
-    #[doc = "Required features: `UI_Core`"]
+    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn CoreWindow(&self) -> ::windows_core::Result<super::super::UI::Core::CoreWindow> {
         let this = self;
@@ -936,7 +936,7 @@ impl CoreApplicationView {
             (::windows_core::Interface::vtable(this).CoreWindow)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
     pub fn Activated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -948,7 +948,7 @@ impl CoreApplicationView {
             (::windows_core::Interface::vtable(this).Activated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveActivated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -968,7 +968,7 @@ impl CoreApplicationView {
             (::windows_core::Interface::vtable(this).IsHosted)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_Core`"]
+    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows_core::Result<super::super::UI::Core::CoreDispatcher> {
         let this = &::windows_core::ComInterface::cast::<ICoreApplicationView2>(self)?;
@@ -991,7 +991,7 @@ impl CoreApplicationView {
             (::windows_core::Interface::vtable(this).TitleBar)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn HostedViewClosing<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1003,13 +1003,13 @@ impl CoreApplicationView {
             (::windows_core::Interface::vtable(this).HostedViewClosing)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHostedViewClosing(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ICoreApplicationView3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveHostedViewClosing)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = &::windows_core::ComInterface::cast::<ICoreApplicationView5>(self)?;
@@ -1018,7 +1018,7 @@ impl CoreApplicationView {
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows_core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows_core::ComInterface::cast::<ICoreApplicationView6>(self)?;
@@ -1077,7 +1077,7 @@ impl CoreApplicationViewTitleBar {
             (::windows_core::Interface::vtable(this).Height)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LayoutMetricsChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1089,7 +1089,7 @@ impl CoreApplicationViewTitleBar {
             (::windows_core::Interface::vtable(this).LayoutMetricsChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveLayoutMetricsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1102,7 +1102,7 @@ impl CoreApplicationViewTitleBar {
             (::windows_core::Interface::vtable(this).IsVisible)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn IsVisibleChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1114,7 +1114,7 @@ impl CoreApplicationViewTitleBar {
             (::windows_core::Interface::vtable(this).IsVisibleChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveIsVisibleChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1138,7 +1138,7 @@ impl ::windows_core::RuntimeName for CoreApplicationViewTitleBar {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HostedViewClosingEventArgs(::windows_core::IUnknown);
 impl HostedViewClosingEventArgs {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;

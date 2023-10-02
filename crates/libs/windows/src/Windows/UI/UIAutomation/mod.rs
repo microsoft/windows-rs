@@ -1,5 +1,5 @@
 #[cfg(feature = "UI_UIAutomation_Core")]
-#[doc = "Required features: `UI_UIAutomation_Core`"]
+#[doc = "Required features: `\"UI_UIAutomation_Core\"`"]
 pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]

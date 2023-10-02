@@ -97,7 +97,7 @@ pub struct ISystemSupportInfoStatics2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct OemSupportInfo(::windows_core::IUnknown);
 impl OemSupportInfo {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SupportLink(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -106,7 +106,7 @@ impl OemSupportInfo {
             (::windows_core::Interface::vtable(this).SupportLink)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SupportAppLink(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;

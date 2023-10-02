@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetDiagExtensibleHelper_Impl: Sized {
     fn ResolveAttributes(&self, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> ::windows_core::Result<()>;
@@ -19,7 +19,7 @@ impl INetDiagExtensibleHelper_Vtbl {
         *iid == <INetDiagExtensibleHelper as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetDiagHelper_Impl: Sized {
     fn Initialize(&self, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> ::windows_core::Result<()>;
@@ -180,7 +180,7 @@ impl INetDiagHelper_Vtbl {
         *iid == <INetDiagHelper as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetDiagHelperEx_Impl: Sized {
     fn ReconfirmLowHealth(&self, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut ::windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows_core::Result<()>;

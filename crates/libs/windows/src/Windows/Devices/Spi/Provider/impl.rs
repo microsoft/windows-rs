@@ -27,7 +27,7 @@ impl ISpiControllerProvider_Vtbl {
         *iid == <ISpiControllerProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait ISpiDeviceProvider_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
     fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -102,7 +102,7 @@ impl ISpiDeviceProvider_Vtbl {
         *iid == <ISpiDeviceProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation_Collections`"]
+#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait ISpiProvider_Impl: Sized {
     fn GetControllersAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>>;

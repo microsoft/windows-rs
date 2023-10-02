@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 pub trait IXMLGraphBuilder_Impl: Sized {
     fn BuildFromXML(&self, pgraph: ::core::option::Option<&super::IGraphBuilder>, pxml: ::core::option::Option<&super::super::super::Data::Xml::MsXml::IXMLElement>) -> ::windows_core::Result<()>;

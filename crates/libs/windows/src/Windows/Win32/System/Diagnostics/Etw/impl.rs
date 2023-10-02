@@ -147,7 +147,7 @@ impl ITraceEventCallback_Vtbl {
         *iid == <ITraceEventCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITraceRelogger_Impl: Sized {
     fn AddLogfileTraceStream(&self, logfilename: &::windows_core::BSTR, usercontext: *const ::core::ffi::c_void) -> ::windows_core::Result<RELOGSTREAM_HANDLE>;

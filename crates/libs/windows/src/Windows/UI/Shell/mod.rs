@@ -360,7 +360,7 @@ impl FocusSessionManager {
             (::windows_core::Interface::vtable(this).TryStartFocusSession)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryStartFocusSession2(&self, endtime: super::super::Foundation::DateTime) -> ::windows_core::Result<FocusSession> {
         let this = self;
@@ -373,7 +373,7 @@ impl FocusSessionManager {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).DeactivateFocus)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn IsFocusActiveChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -385,7 +385,7 @@ impl FocusSessionManager {
             (::windows_core::Interface::vtable(this).IsFocusActiveChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveIsFocusActiveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -435,7 +435,7 @@ impl SecurityAppManager {
         static SHARED: ::windows_core::imp::FactoryCache<SecurityAppManager, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Register<P0>(&self, kind: SecurityAppKind, displayname: &::windows_core::HSTRING, detailsuri: P0, registerperuser: bool) -> ::windows_core::Result<::windows_core::GUID>
     where
@@ -451,7 +451,7 @@ impl SecurityAppManager {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Unregister)(::windows_core::Interface::as_raw(this), kind, guidregistration).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateState<P0>(&self, kind: SecurityAppKind, guidregistration: ::windows_core::GUID, state: SecurityAppState, substatus: SecurityAppSubstatus, detailsuri: P0) -> ::windows_core::Result<()>
     where
@@ -530,7 +530,7 @@ impl ShareWindowCommandSource {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).ReportCommandChanged)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CommandRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -542,13 +542,13 @@ impl ShareWindowCommandSource {
             (::windows_core::Interface::vtable(this).CommandRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCommandRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCommandRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CommandInvoked<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -560,7 +560,7 @@ impl ShareWindowCommandSource {
             (::windows_core::Interface::vtable(this).CommandInvoked)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCommandInvoked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -611,7 +611,7 @@ impl TaskbarManager {
             (::windows_core::Interface::vtable(this).IsPinningAllowed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn IsCurrentAppPinnedAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -620,7 +620,7 @@ impl TaskbarManager {
             (::windows_core::Interface::vtable(this).IsCurrentAppPinnedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Core`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel_Core\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
     pub fn IsAppListEntryPinnedAsync<P0>(&self, applistentry: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -632,7 +632,7 @@ impl TaskbarManager {
             (::windows_core::Interface::vtable(this).IsAppListEntryPinnedAsync)(::windows_core::Interface::as_raw(this), applistentry.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPinCurrentAppAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -641,7 +641,7 @@ impl TaskbarManager {
             (::windows_core::Interface::vtable(this).RequestPinCurrentAppAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Core`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel_Core\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
     pub fn RequestPinAppListEntryAsync<P0>(&self, applistentry: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -653,7 +653,7 @@ impl TaskbarManager {
             (::windows_core::Interface::vtable(this).RequestPinAppListEntryAsync)(::windows_core::Interface::as_raw(this), applistentry.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn IsSecondaryTilePinnedAsync(&self, tileid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<ITaskbarManager2>(self)?;
@@ -662,7 +662,7 @@ impl TaskbarManager {
             (::windows_core::Interface::vtable(this).IsSecondaryTilePinnedAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `UI_StartScreen`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_StartScreen\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_StartScreen"))]
     pub fn RequestPinSecondaryTileAsync<P0>(&self, secondarytile: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -674,7 +674,7 @@ impl TaskbarManager {
             (::windows_core::Interface::vtable(this).RequestPinSecondaryTileAsync)(::windows_core::Interface::as_raw(this), secondarytile.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryUnpinSecondaryTileAsync(&self, tileid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<ITaskbarManager2>(self)?;

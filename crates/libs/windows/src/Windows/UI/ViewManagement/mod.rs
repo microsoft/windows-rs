@@ -1,5 +1,5 @@
 #[cfg(feature = "UI_ViewManagement_Core")]
-#[doc = "Required features: `UI_ViewManagement_Core`"]
+#[doc = "Required features: `\"UI_ViewManagement_Core\"`"]
 pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1265,7 +1265,7 @@ impl AccessibilitySettings {
             (::windows_core::Interface::vtable(this).HighContrastScheme)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn HighContrastChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1277,7 +1277,7 @@ impl AccessibilitySettings {
             (::windows_core::Interface::vtable(this).HighContrastChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHighContrastChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1303,7 +1303,7 @@ unsafe impl ::core::marker::Sync for AccessibilitySettings {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ActivationViewSwitcher(::windows_core::IUnknown);
 impl ActivationViewSwitcher {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAsStandaloneAsync(&self, viewid: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1312,7 +1312,7 @@ impl ActivationViewSwitcher {
             (::windows_core::Interface::vtable(this).ShowAsStandaloneAsync)(::windows_core::Interface::as_raw(this), viewid, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAsStandaloneWithSizePreferenceAsync(&self, viewid: i32, sizepreference: ViewSizePreference) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1369,7 +1369,7 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).AdjacentToRightDisplayEdge)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn IsFullScreen(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -1414,7 +1414,7 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Consolidated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1426,13 +1426,13 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).Consolidated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveConsolidated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveConsolidated)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SuppressSystemOverlays(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IApplicationView2>(self)?;
@@ -1441,13 +1441,13 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).SuppressSystemOverlays)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SetSuppressSystemOverlays(&self, value: bool) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IApplicationView2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSuppressSystemOverlays)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn VisibleBounds(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IApplicationView2>(self)?;
@@ -1456,7 +1456,7 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).VisibleBounds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn VisibleBoundsChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1468,7 +1468,7 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).VisibleBoundsChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVisibleBoundsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IApplicationView2>(self)?;
@@ -1528,7 +1528,7 @@ impl ApplicationView {
         let this = &::windows_core::ComInterface::cast::<IApplicationView3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).ShowStandardSystemOverlays)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryResizeView(&self, value: super::super::Foundation::Size) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IApplicationView3>(self)?;
@@ -1537,7 +1537,7 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).TryResizeView)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPreferredMinSize(&self, minsize: super::super::Foundation::Size) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IApplicationView3>(self)?;
@@ -1557,7 +1557,7 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).IsViewModeSupported)(::windows_core::Interface::as_raw(this), viewmode, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryEnterViewModeAsync(&self, viewmode: ApplicationViewMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<IApplicationView4>(self)?;
@@ -1566,7 +1566,7 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).TryEnterViewModeAsync)(::windows_core::Interface::as_raw(this), viewmode, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryEnterViewModeWithPreferencesAsync<P0>(&self, viewmode: ApplicationViewMode, viewmodepreferences: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -1578,7 +1578,7 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).TryEnterViewModeWithPreferencesAsync)(::windows_core::Interface::as_raw(this), viewmode, viewmodepreferences.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryConsolidateAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<IApplicationView4>(self)?;
@@ -1598,7 +1598,7 @@ impl ApplicationView {
         let this = &::windows_core::ComInterface::cast::<IApplicationView7>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetPersistedStateId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `UI_WindowManagement`"]
+    #[doc = "Required features: `\"UI_WindowManagement\"`"]
     #[cfg(feature = "UI_WindowManagement")]
     pub fn WindowingEnvironment(&self) -> ::windows_core::Result<super::WindowManagement::WindowingEnvironment> {
         let this = &::windows_core::ComInterface::cast::<IApplicationView9>(self)?;
@@ -1607,7 +1607,7 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).WindowingEnvironment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `UI_WindowManagement`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"UI_WindowManagement\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_WindowManagement"))]
     pub fn GetDisplayRegions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::WindowManagement::DisplayRegion>> {
         let this = &::windows_core::ComInterface::cast::<IApplicationView9>(self)?;
@@ -1616,7 +1616,7 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).GetDisplayRegions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn TryUnsnapToFullscreen() -> ::windows_core::Result<bool> {
         Self::IApplicationViewFullscreenStatics(|this| unsafe {
@@ -1624,7 +1624,7 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).TryUnsnapToFullscreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `UI_Core`"]
+    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn GetApplicationViewIdForWindow<P0>(window: P0) -> ::windows_core::Result<i32>
     where
@@ -1635,7 +1635,7 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).GetApplicationViewIdForWindow)(::windows_core::Interface::as_raw(this), window.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Value() -> ::windows_core::Result<ApplicationViewState> {
         Self::IApplicationViewStatics(|this| unsafe {
@@ -1643,7 +1643,7 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn TryUnsnap() -> ::windows_core::Result<bool> {
         Self::IApplicationViewStatics(|this| unsafe {
@@ -1675,7 +1675,7 @@ impl ApplicationView {
     pub fn SetPreferredLaunchWindowingMode(value: ApplicationViewWindowingMode) -> ::windows_core::Result<()> {
         Self::IApplicationViewStatics3(|this| unsafe { (::windows_core::Interface::vtable(this).SetPreferredLaunchWindowingMode)(::windows_core::Interface::as_raw(this), value).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PreferredLaunchViewSize() -> ::windows_core::Result<super::super::Foundation::Size> {
         Self::IApplicationViewStatics3(|this| unsafe {
@@ -1683,7 +1683,7 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).PreferredLaunchViewSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPreferredLaunchViewSize(value: super::super::Foundation::Size) -> ::windows_core::Result<()> {
         Self::IApplicationViewStatics3(|this| unsafe { (::windows_core::Interface::vtable(this).SetPreferredLaunchViewSize)(::windows_core::Interface::as_raw(this), value).ok() })
@@ -1823,7 +1823,7 @@ impl ApplicationViewSwitcher {
     pub fn DisableShowingMainViewOnActivation() -> ::windows_core::Result<()> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe { (::windows_core::Interface::vtable(this).DisableShowingMainViewOnActivation)(::windows_core::Interface::as_raw(this)).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryShowAsStandaloneAsync(viewid: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe {
@@ -1831,7 +1831,7 @@ impl ApplicationViewSwitcher {
             (::windows_core::Interface::vtable(this).TryShowAsStandaloneAsync)(::windows_core::Interface::as_raw(this), viewid, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryShowAsStandaloneWithSizePreferenceAsync(viewid: i32, sizepreference: ViewSizePreference) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe {
@@ -1839,7 +1839,7 @@ impl ApplicationViewSwitcher {
             (::windows_core::Interface::vtable(this).TryShowAsStandaloneWithSizePreferenceAsync)(::windows_core::Interface::as_raw(this), viewid, sizepreference, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync(viewid: i32, sizepreference: ViewSizePreference, anchorviewid: i32, anchorsizepreference: ViewSizePreference) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe {
@@ -1847,7 +1847,7 @@ impl ApplicationViewSwitcher {
             (::windows_core::Interface::vtable(this).TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync)(::windows_core::Interface::as_raw(this), viewid, sizepreference, anchorviewid, anchorsizepreference, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SwitchAsync(viewid: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe {
@@ -1855,7 +1855,7 @@ impl ApplicationViewSwitcher {
             (::windows_core::Interface::vtable(this).SwitchAsync)(::windows_core::Interface::as_raw(this), viewid, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SwitchFromViewAsync(toviewid: i32, fromviewid: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe {
@@ -1863,7 +1863,7 @@ impl ApplicationViewSwitcher {
             (::windows_core::Interface::vtable(this).SwitchFromViewAsync)(::windows_core::Interface::as_raw(this), toviewid, fromviewid, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SwitchFromViewWithOptionsAsync(toviewid: i32, fromviewid: i32, options: ApplicationViewSwitchingOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe {
@@ -1871,7 +1871,7 @@ impl ApplicationViewSwitcher {
             (::windows_core::Interface::vtable(this).SwitchFromViewWithOptionsAsync)(::windows_core::Interface::as_raw(this), toviewid, fromviewid, options, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PrepareForCustomAnimatedSwitchAsync(toviewid: i32, fromviewid: i32, options: ApplicationViewSwitchingOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe {
@@ -1882,7 +1882,7 @@ impl ApplicationViewSwitcher {
     pub fn DisableSystemViewActivationPolicy() -> ::windows_core::Result<()> {
         Self::IApplicationViewSwitcherStatics2(|this| unsafe { (::windows_core::Interface::vtable(this).DisableSystemViewActivationPolicy)(::windows_core::Interface::as_raw(this)).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryShowAsViewModeAsync(viewid: i32, viewmode: ApplicationViewMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IApplicationViewSwitcherStatics3(|this| unsafe {
@@ -1890,7 +1890,7 @@ impl ApplicationViewSwitcher {
             (::windows_core::Interface::vtable(this).TryShowAsViewModeAsync)(::windows_core::Interface::as_raw(this), viewid, viewmode, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryShowAsViewModeWithPreferencesAsync<P0>(viewid: i32, viewmode: ApplicationViewMode, viewmodepreferences: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -1924,7 +1924,7 @@ impl ::windows_core::RuntimeName for ApplicationViewSwitcher {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ApplicationViewTitleBar(::windows_core::IUnknown);
 impl ApplicationViewTitleBar {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1933,7 +1933,7 @@ impl ApplicationViewTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetForegroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ForegroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1942,7 +1942,7 @@ impl ApplicationViewTitleBar {
             (::windows_core::Interface::vtable(this).ForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1951,7 +1951,7 @@ impl ApplicationViewTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetBackgroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1960,7 +1960,7 @@ impl ApplicationViewTitleBar {
             (::windows_core::Interface::vtable(this).BackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1969,7 +1969,7 @@ impl ApplicationViewTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetButtonForegroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonForegroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1978,7 +1978,7 @@ impl ApplicationViewTitleBar {
             (::windows_core::Interface::vtable(this).ButtonForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1987,7 +1987,7 @@ impl ApplicationViewTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetButtonBackgroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonBackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1996,7 +1996,7 @@ impl ApplicationViewTitleBar {
             (::windows_core::Interface::vtable(this).ButtonBackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonHoverForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2005,7 +2005,7 @@ impl ApplicationViewTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetButtonHoverForegroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonHoverForegroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -2014,7 +2014,7 @@ impl ApplicationViewTitleBar {
             (::windows_core::Interface::vtable(this).ButtonHoverForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonHoverBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2023,7 +2023,7 @@ impl ApplicationViewTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetButtonHoverBackgroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonHoverBackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -2032,7 +2032,7 @@ impl ApplicationViewTitleBar {
             (::windows_core::Interface::vtable(this).ButtonHoverBackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonPressedForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2041,7 +2041,7 @@ impl ApplicationViewTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetButtonPressedForegroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonPressedForegroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -2050,7 +2050,7 @@ impl ApplicationViewTitleBar {
             (::windows_core::Interface::vtable(this).ButtonPressedForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonPressedBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2059,7 +2059,7 @@ impl ApplicationViewTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetButtonPressedBackgroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonPressedBackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -2068,7 +2068,7 @@ impl ApplicationViewTitleBar {
             (::windows_core::Interface::vtable(this).ButtonPressedBackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetInactiveForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2077,7 +2077,7 @@ impl ApplicationViewTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetInactiveForegroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn InactiveForegroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -2086,7 +2086,7 @@ impl ApplicationViewTitleBar {
             (::windows_core::Interface::vtable(this).InactiveForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetInactiveBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2095,7 +2095,7 @@ impl ApplicationViewTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetInactiveBackgroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn InactiveBackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -2104,7 +2104,7 @@ impl ApplicationViewTitleBar {
             (::windows_core::Interface::vtable(this).InactiveBackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonInactiveForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2113,7 +2113,7 @@ impl ApplicationViewTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetButtonInactiveForegroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonInactiveForegroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -2122,7 +2122,7 @@ impl ApplicationViewTitleBar {
             (::windows_core::Interface::vtable(this).ButtonInactiveForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonInactiveBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2131,7 +2131,7 @@ impl ApplicationViewTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetButtonInactiveBackgroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonInactiveBackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -2207,7 +2207,7 @@ impl ::windows_core::RuntimeName for ApplicationViewTransferContext {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InputPane(::windows_core::IUnknown);
 impl InputPane {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Showing<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2219,13 +2219,13 @@ impl InputPane {
             (::windows_core::Interface::vtable(this).Showing)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveShowing(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveShowing)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Hiding<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2237,13 +2237,13 @@ impl InputPane {
             (::windows_core::Interface::vtable(this).Hiding)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHiding(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveHiding)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn OccludedRect(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -2320,7 +2320,7 @@ impl ::windows_core::RuntimeName for InputPane {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InputPaneVisibilityEventArgs(::windows_core::IUnknown);
 impl InputPaneVisibilityEventArgs {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn OccludedRect(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -2356,7 +2356,7 @@ impl ::windows_core::RuntimeName for InputPaneVisibilityEventArgs {
 ::windows_core::imp::interface_hierarchy!(InputPaneVisibilityEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 pub struct ProjectionManager;
 impl ProjectionManager {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartProjectingAsync(projectionviewid: i32, anchorviewid: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::IProjectionManagerStatics(|this| unsafe {
@@ -2364,7 +2364,7 @@ impl ProjectionManager {
             (::windows_core::Interface::vtable(this).StartProjectingAsync)(::windows_core::Interface::as_raw(this), projectionviewid, anchorviewid, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SwapDisplaysForViewsAsync(projectionviewid: i32, anchorviewid: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::IProjectionManagerStatics(|this| unsafe {
@@ -2372,7 +2372,7 @@ impl ProjectionManager {
             (::windows_core::Interface::vtable(this).SwapDisplaysForViewsAsync)(::windows_core::Interface::as_raw(this), projectionviewid, anchorviewid, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StopProjectingAsync(projectionviewid: i32, anchorviewid: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::IProjectionManagerStatics(|this| unsafe {
@@ -2386,7 +2386,7 @@ impl ProjectionManager {
             (::windows_core::Interface::vtable(this).ProjectionDisplayAvailable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProjectionDisplayAvailableChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2397,12 +2397,12 @@ impl ProjectionManager {
             (::windows_core::Interface::vtable(this).ProjectionDisplayAvailableChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProjectionDisplayAvailableChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IProjectionManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveProjectionDisplayAvailableChanged)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `Devices_Enumeration`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
     pub fn StartProjectingWithDeviceInfoAsync<P0>(projectionviewid: i32, anchorviewid: i32, displaydeviceinfo: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -2413,7 +2413,7 @@ impl ProjectionManager {
             (::windows_core::Interface::vtable(this).StartProjectingWithDeviceInfoAsync)(::windows_core::Interface::as_raw(this), projectionviewid, anchorviewid, displaydeviceinfo.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestStartProjectingAsync(projectionviewid: i32, anchorviewid: i32, selection: super::super::Foundation::Rect) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IProjectionManagerStatics2(|this| unsafe {
@@ -2421,7 +2421,7 @@ impl ProjectionManager {
             (::windows_core::Interface::vtable(this).RequestStartProjectingAsync)(::windows_core::Interface::as_raw(this), projectionviewid, anchorviewid, selection, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `UI_Popups`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Popups\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn RequestStartProjectingWithPlacementAsync(projectionviewid: i32, anchorviewid: i32, selection: super::super::Foundation::Rect, prefferedplacement: super::Popups::Placement) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IProjectionManagerStatics2(|this| unsafe {
@@ -2453,7 +2453,7 @@ impl ::windows_core::RuntimeName for ProjectionManager {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StatusBar(::windows_core::IUnknown);
 impl StatusBar {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2462,7 +2462,7 @@ impl StatusBar {
             (::windows_core::Interface::vtable(this).ShowAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn HideAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2482,7 +2482,7 @@ impl StatusBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetBackgroundOpacity)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ForegroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -2491,7 +2491,7 @@ impl StatusBar {
             (::windows_core::Interface::vtable(this).ForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2500,7 +2500,7 @@ impl StatusBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetForegroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -2509,7 +2509,7 @@ impl StatusBar {
             (::windows_core::Interface::vtable(this).BackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2525,7 +2525,7 @@ impl StatusBar {
             (::windows_core::Interface::vtable(this).ProgressIndicator)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn OccludedRect(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -2534,7 +2534,7 @@ impl StatusBar {
             (::windows_core::Interface::vtable(this).OccludedRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Showing<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2546,13 +2546,13 @@ impl StatusBar {
             (::windows_core::Interface::vtable(this).Showing)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveShowing(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveShowing)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Hiding<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2564,7 +2564,7 @@ impl StatusBar {
             (::windows_core::Interface::vtable(this).Hiding)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHiding(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -2601,7 +2601,7 @@ unsafe impl ::core::marker::Sync for StatusBar {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StatusBarProgressIndicator(::windows_core::IUnknown);
 impl StatusBarProgressIndicator {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2610,7 +2610,7 @@ impl StatusBarProgressIndicator {
             (::windows_core::Interface::vtable(this).ShowAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn HideAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2630,7 +2630,7 @@ impl StatusBarProgressIndicator {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProgressValue(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -2639,7 +2639,7 @@ impl StatusBarProgressIndicator {
             (::windows_core::Interface::vtable(this).ProgressValue)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetProgressValue<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2682,7 +2682,7 @@ impl UISettings {
             (::windows_core::Interface::vtable(this).HandPreference)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CursorSize(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -2691,7 +2691,7 @@ impl UISettings {
             (::windows_core::Interface::vtable(this).CursorSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ScrollBarSize(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -2700,7 +2700,7 @@ impl UISettings {
             (::windows_core::Interface::vtable(this).ScrollBarSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ScrollBarArrowSize(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -2709,7 +2709,7 @@ impl UISettings {
             (::windows_core::Interface::vtable(this).ScrollBarArrowSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ScrollBarThumbBoxSize(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -2781,7 +2781,7 @@ impl UISettings {
             (::windows_core::Interface::vtable(this).TextScaleFactor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TextScaleFactorChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2793,7 +2793,7 @@ impl UISettings {
             (::windows_core::Interface::vtable(this).TextScaleFactorChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTextScaleFactorChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IUISettings2>(self)?;
@@ -2806,7 +2806,7 @@ impl UISettings {
             (::windows_core::Interface::vtable(this).GetColorValue)(::windows_core::Interface::as_raw(this), desiredcolor, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ColorValuesChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2818,7 +2818,7 @@ impl UISettings {
             (::windows_core::Interface::vtable(this).ColorValuesChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveColorValuesChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IUISettings3>(self)?;
@@ -2831,7 +2831,7 @@ impl UISettings {
             (::windows_core::Interface::vtable(this).AdvancedEffectsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AdvancedEffectsEnabledChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2843,7 +2843,7 @@ impl UISettings {
             (::windows_core::Interface::vtable(this).AdvancedEffectsEnabledChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdvancedEffectsEnabledChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IUISettings4>(self)?;
@@ -2856,7 +2856,7 @@ impl UISettings {
             (::windows_core::Interface::vtable(this).AutoHideScrollBars)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AutoHideScrollBarsChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2868,13 +2868,13 @@ impl UISettings {
             (::windows_core::Interface::vtable(this).AutoHideScrollBarsChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAutoHideScrollBarsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IUISettings5>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAutoHideScrollBarsChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AnimationsEnabledChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2886,13 +2886,13 @@ impl UISettings {
             (::windows_core::Interface::vtable(this).AnimationsEnabledChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAnimationsEnabledChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IUISettings6>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAnimationsEnabledChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MessageDurationChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2904,7 +2904,7 @@ impl UISettings {
             (::windows_core::Interface::vtable(this).MessageDurationChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMessageDurationChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IUISettings6>(self)?;
@@ -3036,7 +3036,7 @@ impl ViewModePreferences {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetViewSizePreference)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CustomSize(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -3045,7 +3045,7 @@ impl ViewModePreferences {
             (::windows_core::Interface::vtable(this).CustomSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetCustomSize(&self, value: super::super::Foundation::Size) -> ::windows_core::Result<()> {
         let this = self;
@@ -3163,7 +3163,7 @@ impl ::core::fmt::Debug for ApplicationViewOrientation {
 impl ::windows_core::RuntimeType for ApplicationViewOrientation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewOrientation;i4)");
 }
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

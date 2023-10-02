@@ -53,7 +53,7 @@ pub unsafe fn JsCreateArray(length: u32, result: *mut *mut ::core::ffi::c_void) 
     ::windows_targets::link!("chakra.dll" "system" fn JsCreateArray(length : u32, result : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
     JsCreateArray(length, result)
 }
-#[doc = "Required features: `Win32_System_Diagnostics_Debug_ActiveScript`"]
+#[doc = "Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
@@ -64,7 +64,7 @@ where
     ::windows_targets::link!("chakra.dll" "system" fn JsCreateContext(runtime : *const ::core::ffi::c_void, debugapplication : * mut::core::ffi::c_void, newcontext : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
     JsCreateContext(runtime, debugapplication.into_param().abi(), newcontext)
 }
-#[doc = "Required features: `Win32_System_Diagnostics_Debug_ActiveScript`"]
+#[doc = "Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
@@ -160,7 +160,7 @@ pub unsafe fn JsEnableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> J
     ::windows_targets::link!("chakra.dll" "system" fn JsEnableRuntimeExecution(runtime : *const ::core::ffi::c_void) -> JsErrorCode);
     JsEnableRuntimeExecution(runtime)
 }
-#[doc = "Required features: `Win32_System_Diagnostics_Debug_ActiveScript`"]
+#[doc = "Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
 pub unsafe fn JsEnumerateHeap(enumerator: *mut ::core::option::Option<super::Diagnostics::Debug::ActiveScript::IActiveScriptProfilerHeapEnum>) -> JsErrorCode {
@@ -429,7 +429,7 @@ pub unsafe fn JsSetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memor
     ::windows_targets::link!("chakra.dll" "system" fn JsSetRuntimeMemoryLimit(runtime : *const ::core::ffi::c_void, memorylimit : usize) -> JsErrorCode);
     JsSetRuntimeMemoryLimit(runtime, memorylimit)
 }
-#[doc = "Required features: `Win32_System_Diagnostics_Debug_ActiveScript`"]
+#[doc = "Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
@@ -440,7 +440,7 @@ where
     ::windows_targets::link!("chakra.dll" "system" fn JsStartDebugging(debugapplication : * mut::core::ffi::c_void) -> JsErrorCode);
     JsStartDebugging(debugapplication.into_param().abi())
 }
-#[doc = "Required features: `Win32_System_Diagnostics_Debug_ActiveScript`"]
+#[doc = "Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
@@ -451,7 +451,7 @@ where
     ::windows_targets::link!("chakra.dll" "system" fn JsStartDebugging(debugapplication : * mut::core::ffi::c_void) -> JsErrorCode);
     JsStartDebugging(debugapplication.into_param().abi())
 }
-#[doc = "Required features: `Win32_System_Diagnostics_Debug_ActiveScript`"]
+#[doc = "Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
 pub unsafe fn JsStartProfiling<P0>(callback: P0, eventmask: super::Diagnostics::Debug::ActiveScript::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode
@@ -476,14 +476,14 @@ pub unsafe fn JsStringToPointer(value: *const ::core::ffi::c_void, stringvalue: 
     ::windows_targets::link!("chakra.dll" "system" fn JsStringToPointer(value : *const ::core::ffi::c_void, stringvalue : *mut *mut u16, stringlength : *mut usize) -> JsErrorCode);
     JsStringToPointer(value, stringvalue, stringlength)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut super::Variant::VARIANT) -> JsErrorCode {
     ::windows_targets::link!("chakra.dll" "system" fn JsValueToVariant(object : *const ::core::ffi::c_void, variant : *mut super::Variant:: VARIANT) -> JsErrorCode);
     JsValueToVariant(object, variant)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn JsVariantToValue(variant: *const super::Variant::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {

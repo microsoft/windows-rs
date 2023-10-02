@@ -55,7 +55,7 @@ pub struct IWsbApplicationBackupSupport_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWsbApplicationRestoreSupport(::windows_core::IUnknown);
 impl IWsbApplicationRestoreSupport {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PreRestore<P0, P1, P2, P3>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, bnorollforward: P3) -> ::windows_core::Result<()>
     where
@@ -66,7 +66,7 @@ impl IWsbApplicationRestoreSupport {
     {
         (::windows_core::Interface::vtable(self).PreRestore)(::windows_core::Interface::as_raw(self), wszwritermetadata.into_param().abi(), wszcomponentname.into_param().abi(), wszcomponentlogicalpath.into_param().abi(), bnorollforward.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PostRestore<P0, P1, P2, P3>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, bnorollforward: P3) -> ::windows_core::Result<()>
     where
@@ -140,7 +140,7 @@ impl ::core::fmt::Debug for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSB_OB_REGISTRATION_INFO {
     pub m_wszResourceDLL: ::windows_core::PWSTR,

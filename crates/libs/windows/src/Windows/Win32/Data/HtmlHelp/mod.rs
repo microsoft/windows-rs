@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HtmlHelpA<P0, P1>(hwndcaller: P0, pszfile: P1, ucommand: HTML_HELP_COMMAND, dwdata: usize) -> super::super::Foundation::HWND
@@ -9,7 +9,7 @@ where
     ::windows_targets::link!("htmlhelp.dll" "system" fn HtmlHelpA(hwndcaller : super::super::Foundation:: HWND, pszfile : ::windows_core::PCSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
     HtmlHelpA(hwndcaller.into_param().abi(), pszfile.into_param().abi(), ucommand.0 as _, dwdata)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HtmlHelpW<P0, P1>(hwndcaller: P0, pszfile: P1, ucommand: HTML_HELP_COMMAND, dwdata: usize) -> super::super::Foundation::HWND
@@ -40,7 +40,7 @@ impl IITDatabase {
     pub unsafe fn GetObject(&self, dwobjinstance: u32, riid: *const ::windows_core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetObject)(::windows_core::Interface::as_raw(self), dwobjinstance, riid, ppvobj).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectPersistence<P0, P1>(&self, lpwszobject: P0, dwobjinstance: u32, ppvpersistence: *mut *mut ::core::ffi::c_void, fstream: P1) -> ::windows_core::Result<()>
     where
@@ -70,25 +70,25 @@ pub struct IITDatabase_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetObjectPersistence: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IITPropList(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IITPropList {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsDirty(&self) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).base__.IsDirty)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Load<P0>(&self, pstm: P0) -> ::windows_core::Result<()>
     where
@@ -96,7 +96,7 @@ impl IITPropList {
     {
         (::windows_core::Interface::vtable(self).base__.Load)(::windows_core::Interface::as_raw(self), pstm.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Save<P0, P1>(&self, pstm: P0, fcleardirty: P1) -> ::windows_core::Result<()>
     where
@@ -105,13 +105,13 @@ impl IITPropList {
     {
         (::windows_core::Interface::vtable(self).base__.Save)(::windows_core::Interface::as_raw(self), pstm.into_param().abi(), fcleardirty.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSizeMax(&self) -> ::windows_core::Result<u64> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSizeMax)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitNew(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.InitNew)(::windows_core::Interface::as_raw(self)).ok()
@@ -128,12 +128,12 @@ impl IITPropList {
     pub unsafe fn Set3(&self, propid: u32, dwdata: u32, dwoperation: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Set3)(::windows_core::Interface::as_raw(self), propid, dwdata, dwoperation).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Add(&self, prop: *mut CProperty) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), prop).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Get(&self, propid: u32, property: *mut CProperty) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Get)(::windows_core::Interface::as_raw(self), propid, property).ok()
@@ -141,7 +141,7 @@ impl IITPropList {
     pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPersist<P0>(&self, fpersist: P0) -> ::windows_core::Result<()>
     where
@@ -149,7 +149,7 @@ impl IITPropList {
     {
         (::windows_core::Interface::vtable(self).SetPersist)(::windows_core::Interface::as_raw(self), fpersist.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPersist2<P0>(&self, propid: u32, fpersist: P0) -> ::windows_core::Result<()>
     where
@@ -157,12 +157,12 @@ impl IITPropList {
     {
         (::windows_core::Interface::vtable(self).SetPersist2)(::windows_core::Interface::as_raw(self), propid, fpersist.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFirst(&self, property: *mut CProperty) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFirst)(::windows_core::Interface::as_raw(self), property).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNext(&self, property: *mut CProperty) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetNext)(::windows_core::Interface::as_raw(self), property).ok()
@@ -182,7 +182,7 @@ impl IITPropList {
     pub unsafe fn GetDataSize(&self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, dwdatasize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDataSize)(::windows_core::Interface::as_raw(self), lpvheader, dwhdrsize, dwdatasize).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveDataToStream<P0>(&self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, pstream: P0) -> ::windows_core::Result<()>
     where
@@ -310,7 +310,7 @@ impl IITResultSet {
     {
         (::windows_core::Interface::vtable(self).AppendRows)(::windows_core::Interface::as_raw(self), pressrc.into_param().abi(), lrowsrcfirst, csrcrows, lrowfirstdest).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Get(&self, lrowindex: i32, lcolumnindex: i32, prop: *mut CProperty) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Get)(::windows_core::Interface::as_raw(self), lrowindex, lcolumnindex, prop).ok()
@@ -351,7 +351,7 @@ impl IITResultSet {
     pub unsafe fn Cancel(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Cancel)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Pause<P0>(&self, fpause: P0) -> ::windows_core::Result<()>
     where
@@ -461,7 +461,7 @@ impl IStemmerConfig {
     pub unsafe fn GetControlInfo(&self, pgrfstemflags: *mut u32, pdwreserved: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetControlInfo)(::windows_core::Interface::as_raw(self), pgrfstemflags, pdwreserved).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadExternalStemmerData<P0>(&self, pstream: P0, dwextdatatype: u32) -> ::windows_core::Result<()>
     where
@@ -512,7 +512,7 @@ impl IWordBreakerConfig {
     pub unsafe fn GetControlInfo(&self, pgrfbreakflags: *mut u32, pdwreserved: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetControlInfo)(::windows_core::Interface::as_raw(self), pgrfbreakflags, pdwreserved).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadExternalBreakerData<P0>(&self, pstream: P0, dwextdatatype: u32) -> ::windows_core::Result<()>
     where
@@ -520,7 +520,7 @@ impl IWordBreakerConfig {
     {
         (::windows_core::Interface::vtable(self).LoadExternalBreakerData)(::windows_core::Interface::as_raw(self), pstream.into_param().abi(), dwextdatatype).ok()
     }
-    #[doc = "Required features: `Win32_System_Search`"]
+    #[doc = "Required features: `\"Win32_System_Search\"`"]
     #[cfg(feature = "Win32_System_Search")]
     pub unsafe fn SetWordStemmer<P0>(&self, rclsid: *const ::windows_core::GUID, pstemmer: P0) -> ::windows_core::Result<()>
     where
@@ -528,7 +528,7 @@ impl IWordBreakerConfig {
     {
         (::windows_core::Interface::vtable(self).SetWordStemmer)(::windows_core::Interface::as_raw(self), rclsid, pstemmer.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Search`"]
+    #[doc = "Required features: `\"Win32_System_Search\"`"]
     #[cfg(feature = "Win32_System_Search")]
     pub unsafe fn GetWordStemmer(&self) -> ::windows_core::Result<super::super::System::Search::IStemmer> {
         let mut result__ = ::std::mem::zeroed();
@@ -950,7 +950,7 @@ impl ::core::default::Default for COLUMNSTATUS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CProperty {
     pub dwPropID: u32,
@@ -978,7 +978,7 @@ impl ::core::default::Default for CProperty {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union CProperty_0 {
     pub lpszwData: ::windows_core::PWSTR,
@@ -1004,7 +1004,7 @@ impl ::core::default::Default for CProperty_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct HHNTRACK {
     pub hdr: super::super::UI::Controls::NMHDR,
@@ -1045,7 +1045,7 @@ impl ::core::default::Default for HHNTRACK {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct HHN_NOTIFY {
     pub hdr: super::super::UI::Controls::NMHDR,
@@ -1084,7 +1084,7 @@ impl ::core::default::Default for HHN_NOTIFY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HH_AKLINK {
     pub cbStruct: i32,
@@ -1193,7 +1193,7 @@ impl ::core::default::Default for HH_ENUM_IT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HH_FTS_QUERY {
     pub cbStruct: i32,
@@ -1238,7 +1238,7 @@ impl ::core::default::Default for HH_FTS_QUERY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct HH_GLOBAL_PROPERTY {
     pub id: HH_GPROPID,
@@ -1261,7 +1261,7 @@ impl ::core::default::Default for HH_GLOBAL_PROPERTY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HH_POPUP {
     pub cbStruct: i32,
@@ -1338,7 +1338,7 @@ impl ::core::default::Default for HH_SET_INFOTYPE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HH_WINTYPE {
     pub cbStruct: i32,

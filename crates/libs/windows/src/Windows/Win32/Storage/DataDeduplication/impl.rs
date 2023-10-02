@@ -15,7 +15,7 @@ impl IDedupBackupSupport_Vtbl {
         *iid == <IDedupBackupSupport as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDedupChunkLibrary_Impl: Sized {
     fn InitializeForPushBuffers(&self) -> ::windows_core::Result<()>;
@@ -66,7 +66,7 @@ impl IDedupChunkLibrary_Vtbl {
         *iid == <IDedupChunkLibrary as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDedupDataPort_Impl: Sized {
     fn GetStatus(&self, pstatus: *mut DedupDataPortVolumeStatus, pdataheadroommb: *mut u32) -> ::windows_core::Result<()>;

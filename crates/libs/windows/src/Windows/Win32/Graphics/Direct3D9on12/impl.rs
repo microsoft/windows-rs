@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
 pub trait IDirect3DDevice9On12_Impl: Sized {
     fn GetD3D12Device(&self, riid: *const ::windows_core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;

@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_System_WindowsProgramming`"]
+#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceBlockBackup<P0>(pipe: P0) -> ::windows_core::Result<()>
@@ -8,7 +8,7 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceBlockBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_core::HRESULT);
     FhServiceBlockBackup(pipe.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_System_WindowsProgramming`"]
+#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceClosePipe<P0>(pipe: P0) -> ::windows_core::Result<()>
@@ -18,7 +18,7 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceClosePipe(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_core::HRESULT);
     FhServiceClosePipe(pipe.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_WindowsProgramming`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn FhServiceOpenPipe<P0>(startserviceifstopped: P0) -> ::windows_core::Result<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>
@@ -29,7 +29,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     FhServiceOpenPipe(startserviceifstopped.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_System_WindowsProgramming`"]
+#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceReloadConfiguration<P0>(pipe: P0) -> ::windows_core::Result<()>
@@ -39,7 +39,7 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceReloadConfiguration(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_core::HRESULT);
     FhServiceReloadConfiguration(pipe.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_WindowsProgramming`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn FhServiceStartBackup<P0, P1>(pipe: P0, lowpriorityio: P1) -> ::windows_core::Result<()>
@@ -50,7 +50,7 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStartBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE, lowpriorityio : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     FhServiceStartBackup(pipe.into_param().abi(), lowpriorityio.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_WindowsProgramming`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn FhServiceStopBackup<P0, P1>(pipe: P0, stoptracking: P1) -> ::windows_core::Result<()>
@@ -61,7 +61,7 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStopBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE, stoptracking : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     FhServiceStopBackup(pipe.into_param().abi(), stoptracking.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_System_WindowsProgramming`"]
+#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceUnblockBackup<P0>(pipe: P0) -> ::windows_core::Result<()>
@@ -78,7 +78,7 @@ impl IFhConfigMgr {
     pub unsafe fn LoadConfiguration(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LoadConfiguration)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDefaultConfiguration<P0>(&self, overwriteifexists: P0) -> ::windows_core::Result<()>
     where
@@ -89,7 +89,7 @@ impl IFhConfigMgr {
     pub unsafe fn SaveConfiguration(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SaveConfiguration)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddRemoveExcludeRule<P0, P1>(&self, add: P0, category: FH_PROTECTED_ITEM_CATEGORY, item: P1) -> ::windows_core::Result<()>
     where
@@ -98,7 +98,7 @@ impl IFhConfigMgr {
     {
         (::windows_core::Interface::vtable(self).AddRemoveExcludeRule)(::windows_core::Interface::as_raw(self), add.into_param().abi(), category, item.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIncludeExcludeRules<P0>(&self, include: P0, category: FH_PROTECTED_ITEM_CATEGORY) -> ::windows_core::Result<IFhScopeIterator>
     where
@@ -139,7 +139,7 @@ impl IFhConfigMgr {
     {
         (::windows_core::Interface::vtable(self).ProvisionAndSetNewTarget)(::windows_core::Interface::as_raw(self), targeturl.into_param().abi(), targetname.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeDefaultTargetRecommendation<P0>(&self, recommend: P0) -> ::windows_core::Result<()>
     where
@@ -206,7 +206,7 @@ impl IFhReassociation {
     {
         (::windows_core::Interface::vtable(self).ScanTargetForConfigurations)(::windows_core::Interface::as_raw(self), targeturl.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetConfigurationDetails(&self, index: u32, username: *mut ::windows_core::BSTR, pcname: *mut ::windows_core::BSTR, backuptime: *mut super::super::Foundation::FILETIME) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetConfigurationDetails)(::windows_core::Interface::as_raw(self), index, ::core::mem::transmute(username), ::core::mem::transmute(pcname), backuptime).ok()
@@ -214,7 +214,7 @@ impl IFhReassociation {
     pub unsafe fn SelectConfiguration(&self, index: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SelectConfiguration)(::windows_core::Interface::as_raw(self), index).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PerformReassociation<P0>(&self, overwriteifexists: P0) -> ::windows_core::Result<()>
     where

@@ -1,11 +1,11 @@
 #[cfg(feature = "UI_Input_Inking_Analysis")]
-#[doc = "Required features: `UI_Input_Inking_Analysis`"]
+#[doc = "Required features: `\"UI_Input_Inking_Analysis\"`"]
 pub mod Analysis;
 #[cfg(feature = "UI_Input_Inking_Core")]
-#[doc = "Required features: `UI_Input_Inking_Core`"]
+#[doc = "Required features: `\"UI_Input_Inking_Core\"`"]
 pub mod Core;
 #[cfg(feature = "UI_Input_Inking_Preview")]
-#[doc = "Required features: `UI_Input_Inking_Preview`"]
+#[doc = "Required features: `\"UI_Input_Inking_Preview\"`"]
 pub mod Preview;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -313,7 +313,7 @@ pub struct IInkPoint2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkPointFactory(::windows_core::IUnknown);
 impl IInkPointFactory {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateInkPoint(&self, position: super::super::super::Foundation::Point, pressure: f32) -> ::windows_core::Result<InkPoint> {
         let this = self;
@@ -602,7 +602,7 @@ impl IInkPresenterStencil {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetForegroundColor)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Transform(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Matrix3x2> {
         let this = self;
@@ -611,7 +611,7 @@ impl IInkPresenterStencil {
             (::windows_core::Interface::vtable(this).Transform)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransform(&self, value: super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows_core::Result<()> {
         let this = self;
@@ -702,7 +702,7 @@ impl IInkRecognizerContainer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDefaultRecognizer)(::windows_core::Interface::as_raw(this), recognizer.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RecognizeAsync<P0>(&self, strokecollection: P0, recognitiontarget: InkRecognitionTarget) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>
     where
@@ -714,7 +714,7 @@ impl IInkRecognizerContainer {
             (::windows_core::Interface::vtable(this).RecognizeAsync)(::windows_core::Interface::as_raw(this), strokecollection.into_param().abi(), recognitiontarget, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetRecognizers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkRecognizer>> {
         let this = self;
@@ -917,7 +917,7 @@ pub struct IInkStrokeBuilder3_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkStrokeContainer(::windows_core::IUnknown);
 impl IInkStrokeContainer {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BoundingRect(&self) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -933,7 +933,7 @@ impl IInkStrokeContainer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).AddStroke)(::windows_core::Interface::as_raw(this), stroke.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteSelected(&self) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -942,7 +942,7 @@ impl IInkStrokeContainer {
             (::windows_core::Interface::vtable(this).DeleteSelected)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MoveSelected(&self, translation: super::super::super::Foundation::Point) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -951,7 +951,7 @@ impl IInkStrokeContainer {
             (::windows_core::Interface::vtable(this).MoveSelected)(::windows_core::Interface::as_raw(this), translation, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SelectWithPolyLine<P0>(&self, polyline: P0) -> ::windows_core::Result<super::super::super::Foundation::Rect>
     where
@@ -963,7 +963,7 @@ impl IInkStrokeContainer {
             (::windows_core::Interface::vtable(this).SelectWithPolyLine)(::windows_core::Interface::as_raw(this), polyline.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SelectWithLine(&self, from: super::super::super::Foundation::Point, to: super::super::super::Foundation::Point) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -976,7 +976,7 @@ impl IInkStrokeContainer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).CopySelectedToClipboard)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PasteFromClipboard(&self, position: super::super::super::Foundation::Point) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -992,7 +992,7 @@ impl IInkStrokeContainer {
             (::windows_core::Interface::vtable(this).CanPasteFromClipboard)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn LoadAsync<P0>(&self, inputstream: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>
     where
@@ -1004,7 +1004,7 @@ impl IInkStrokeContainer {
             (::windows_core::Interface::vtable(this).LoadAsync)(::windows_core::Interface::as_raw(this), inputstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn SaveAsync<P0>(&self, outputstream: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
@@ -1016,7 +1016,7 @@ impl IInkStrokeContainer {
             (::windows_core::Interface::vtable(this).SaveAsync)(::windows_core::Interface::as_raw(this), outputstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UpdateRecognitionResults<P0>(&self, recognitionresults: P0) -> ::windows_core::Result<()>
     where
@@ -1025,7 +1025,7 @@ impl IInkStrokeContainer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).UpdateRecognitionResults)(::windows_core::Interface::as_raw(this), recognitionresults.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStrokes(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkStroke>> {
         let this = self;
@@ -1034,7 +1034,7 @@ impl IInkStrokeContainer {
             (::windows_core::Interface::vtable(this).GetStrokes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetRecognitionResults(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>> {
         let this = self;
@@ -1441,7 +1441,7 @@ impl InkDrawingAttributes {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPenTip)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Size(&self) -> ::windows_core::Result<super::super::super::Foundation::Size> {
         let this = self;
@@ -1450,7 +1450,7 @@ impl InkDrawingAttributes {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetSize(&self, value: super::super::super::Foundation::Size) -> ::windows_core::Result<()> {
         let this = self;
@@ -1478,7 +1478,7 @@ impl InkDrawingAttributes {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetFitToCurve)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn PenTipTransform(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Matrix3x2> {
         let this = &::windows_core::ComInterface::cast::<IInkDrawingAttributes2>(self)?;
@@ -1487,7 +1487,7 @@ impl InkDrawingAttributes {
             (::windows_core::Interface::vtable(this).PenTipTransform)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPenTipTransform(&self, value: super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IInkDrawingAttributes2>(self)?;
@@ -1728,7 +1728,7 @@ impl InkManager {
             (::windows_core::Interface::vtable(this).ProcessPointerUpdate)(::windows_core::Interface::as_raw(this), pointerpoint.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProcessPointerUp<P0>(&self, pointerpoint: P0) -> ::windows_core::Result<super::super::super::Foundation::Rect>
     where
@@ -1747,7 +1747,7 @@ impl InkManager {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDefaultDrawingAttributes)(::windows_core::Interface::as_raw(this), drawingattributes.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RecognizeAsync2(&self, recognitiontarget: InkRecognitionTarget) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>> {
         let this = self;
@@ -1763,7 +1763,7 @@ impl InkManager {
         let this = &::windows_core::ComInterface::cast::<IInkRecognizerContainer>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetDefaultRecognizer)(::windows_core::Interface::as_raw(this), recognizer.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RecognizeAsync<P0>(&self, strokecollection: P0, recognitiontarget: InkRecognitionTarget) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>
     where
@@ -1775,7 +1775,7 @@ impl InkManager {
             (::windows_core::Interface::vtable(this).RecognizeAsync)(::windows_core::Interface::as_raw(this), strokecollection.into_param().abi(), recognitiontarget, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetRecognizers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkRecognizer>> {
         let this = &::windows_core::ComInterface::cast::<IInkRecognizerContainer>(self)?;
@@ -1784,7 +1784,7 @@ impl InkManager {
             (::windows_core::Interface::vtable(this).GetRecognizers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BoundingRect(&self) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IInkStrokeContainer>(self)?;
@@ -1800,7 +1800,7 @@ impl InkManager {
         let this = &::windows_core::ComInterface::cast::<IInkStrokeContainer>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).AddStroke)(::windows_core::Interface::as_raw(this), stroke.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteSelected(&self) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IInkStrokeContainer>(self)?;
@@ -1809,7 +1809,7 @@ impl InkManager {
             (::windows_core::Interface::vtable(this).DeleteSelected)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MoveSelected(&self, translation: super::super::super::Foundation::Point) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IInkStrokeContainer>(self)?;
@@ -1818,7 +1818,7 @@ impl InkManager {
             (::windows_core::Interface::vtable(this).MoveSelected)(::windows_core::Interface::as_raw(this), translation, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SelectWithPolyLine<P0>(&self, polyline: P0) -> ::windows_core::Result<super::super::super::Foundation::Rect>
     where
@@ -1830,7 +1830,7 @@ impl InkManager {
             (::windows_core::Interface::vtable(this).SelectWithPolyLine)(::windows_core::Interface::as_raw(this), polyline.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SelectWithLine(&self, from: super::super::super::Foundation::Point, to: super::super::super::Foundation::Point) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IInkStrokeContainer>(self)?;
@@ -1843,7 +1843,7 @@ impl InkManager {
         let this = &::windows_core::ComInterface::cast::<IInkStrokeContainer>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).CopySelectedToClipboard)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PasteFromClipboard(&self, position: super::super::super::Foundation::Point) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IInkStrokeContainer>(self)?;
@@ -1859,7 +1859,7 @@ impl InkManager {
             (::windows_core::Interface::vtable(this).CanPasteFromClipboard)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn LoadAsync<P0>(&self, inputstream: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>
     where
@@ -1871,7 +1871,7 @@ impl InkManager {
             (::windows_core::Interface::vtable(this).LoadAsync)(::windows_core::Interface::as_raw(this), inputstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn SaveAsync<P0>(&self, outputstream: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
@@ -1883,7 +1883,7 @@ impl InkManager {
             (::windows_core::Interface::vtable(this).SaveAsync)(::windows_core::Interface::as_raw(this), outputstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UpdateRecognitionResults<P0>(&self, recognitionresults: P0) -> ::windows_core::Result<()>
     where
@@ -1892,7 +1892,7 @@ impl InkManager {
         let this = &::windows_core::ComInterface::cast::<IInkStrokeContainer>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).UpdateRecognitionResults)(::windows_core::Interface::as_raw(this), recognitionresults.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStrokes(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkStroke>> {
         let this = &::windows_core::ComInterface::cast::<IInkStrokeContainer>(self)?;
@@ -1901,7 +1901,7 @@ impl InkManager {
             (::windows_core::Interface::vtable(this).GetStrokes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetRecognitionResults(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>> {
         let this = &::windows_core::ComInterface::cast::<IInkStrokeContainer>(self)?;
@@ -1930,7 +1930,7 @@ impl ::windows_core::CanTryInto<IInkStrokeContainer> for InkManager {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkModelerAttributes(::windows_core::IUnknown);
 impl InkModelerAttributes {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PredictionTime(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1939,7 +1939,7 @@ impl InkModelerAttributes {
             (::windows_core::Interface::vtable(this).PredictionTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPredictionTime(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
@@ -1987,7 +1987,7 @@ unsafe impl ::core::marker::Sync for InkModelerAttributes {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkPoint(::windows_core::IUnknown);
 impl InkPoint {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -2024,7 +2024,7 @@ impl InkPoint {
             (::windows_core::Interface::vtable(this).Timestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateInkPoint(position: super::super::super::Foundation::Point, pressure: f32) -> ::windows_core::Result<InkPoint> {
         Self::IInkPointFactory(|this| unsafe {
@@ -2032,7 +2032,7 @@ impl InkPoint {
             (::windows_core::Interface::vtable(this).CreateInkPoint)(::windows_core::Interface::as_raw(this), position, pressure, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateInkPointWithTiltAndTimestamp(position: super::super::super::Foundation::Point, pressure: f32, tiltx: f32, tilty: f32, timestamp: u64) -> ::windows_core::Result<InkPoint> {
         Self::IInkPointFactory2(|this| unsafe {
@@ -2081,7 +2081,7 @@ impl InkPresenter {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIsInputEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `UI_Core`"]
+    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn InputDeviceTypes(&self) -> ::windows_core::Result<super::super::Core::CoreInputDeviceTypes> {
         let this = self;
@@ -2090,7 +2090,7 @@ impl InkPresenter {
             (::windows_core::Interface::vtable(this).InputDeviceTypes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_Core`"]
+    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn SetInputDeviceTypes(&self, value: super::super::Core::CoreInputDeviceTypes) -> ::windows_core::Result<()> {
         let this = self;
@@ -2156,7 +2156,7 @@ impl InkPresenter {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPredefinedConfiguration)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StrokesCollected<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -2168,13 +2168,13 @@ impl InkPresenter {
             (::windows_core::Interface::vtable(this).StrokesCollected)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStrokesCollected(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStrokesCollected)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StrokesErased<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -2186,7 +2186,7 @@ impl InkPresenter {
             (::windows_core::Interface::vtable(this).StrokesErased)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStrokesErased(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -2356,7 +2356,7 @@ impl InkPresenterProtractor {
         let this = &::windows_core::ComInterface::cast::<IInkPresenterStencil>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetForegroundColor)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Transform(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Matrix3x2> {
         let this = &::windows_core::ComInterface::cast::<IInkPresenterStencil>(self)?;
@@ -2365,7 +2365,7 @@ impl InkPresenterProtractor {
             (::windows_core::Interface::vtable(this).Transform)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransform(&self, value: super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IInkPresenterStencil>(self)?;
@@ -2490,7 +2490,7 @@ impl InkPresenterRuler {
         let this = &::windows_core::ComInterface::cast::<IInkPresenterStencil>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetForegroundColor)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Transform(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Matrix3x2> {
         let this = &::windows_core::ComInterface::cast::<IInkPresenterStencil>(self)?;
@@ -2499,7 +2499,7 @@ impl InkPresenterRuler {
             (::windows_core::Interface::vtable(this).Transform)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransform(&self, value: super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IInkPresenterStencil>(self)?;
@@ -2531,7 +2531,7 @@ unsafe impl ::core::marker::Sync for InkPresenterRuler {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkRecognitionResult(::windows_core::IUnknown);
 impl InkRecognitionResult {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BoundingRect(&self) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -2540,7 +2540,7 @@ impl InkRecognitionResult {
             (::windows_core::Interface::vtable(this).BoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetTextCandidates(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -2549,7 +2549,7 @@ impl InkRecognitionResult {
             (::windows_core::Interface::vtable(this).GetTextCandidates)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStrokes(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkStroke>> {
         let this = self;
@@ -2617,7 +2617,7 @@ impl InkRecognizerContainer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDefaultRecognizer)(::windows_core::Interface::as_raw(this), recognizer.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RecognizeAsync<P0>(&self, strokecollection: P0, recognitiontarget: InkRecognitionTarget) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>
     where
@@ -2629,7 +2629,7 @@ impl InkRecognizerContainer {
             (::windows_core::Interface::vtable(this).RecognizeAsync)(::windows_core::Interface::as_raw(this), strokecollection.into_param().abi(), recognitiontarget, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetRecognizers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkRecognizer>> {
         let this = self;
@@ -2671,7 +2671,7 @@ impl InkStroke {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDrawingAttributes)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BoundingRect(&self) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -2698,7 +2698,7 @@ impl InkStroke {
             (::windows_core::Interface::vtable(this).Recognized)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetRenderingSegments(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkStrokeRenderingSegment>> {
         let this = self;
@@ -2714,7 +2714,7 @@ impl InkStroke {
             (::windows_core::Interface::vtable(this).Clone)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn PointTransform(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Matrix3x2> {
         let this = &::windows_core::ComInterface::cast::<IInkStroke2>(self)?;
@@ -2723,13 +2723,13 @@ impl InkStroke {
             (::windows_core::Interface::vtable(this).PointTransform)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPointTransform(&self, value: super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IInkStroke2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetPointTransform)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetInkPoints(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkPoint>> {
         let this = &::windows_core::ComInterface::cast::<IInkStroke2>(self)?;
@@ -2745,7 +2745,7 @@ impl InkStroke {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StrokeStartedTime(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = &::windows_core::ComInterface::cast::<IInkStroke3>(self)?;
@@ -2754,7 +2754,7 @@ impl InkStroke {
             (::windows_core::Interface::vtable(this).StrokeStartedTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetStrokeStartedTime<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2763,7 +2763,7 @@ impl InkStroke {
         let this = &::windows_core::ComInterface::cast::<IInkStroke3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetStrokeStartedTime)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StrokeDuration(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<IInkStroke3>(self)?;
@@ -2772,7 +2772,7 @@ impl InkStroke {
             (::windows_core::Interface::vtable(this).StrokeDuration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetStrokeDuration<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2842,7 +2842,7 @@ impl InkStrokeBuilder {
             (::windows_core::Interface::vtable(this).EndStroke)(::windows_core::Interface::as_raw(this), pointerpoint.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateStroke<P0>(&self, points: P0) -> ::windows_core::Result<InkStroke>
     where
@@ -2861,7 +2861,7 @@ impl InkStrokeBuilder {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDefaultDrawingAttributes)(::windows_core::Interface::as_raw(this), drawingattributes.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Foundation_Numerics\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics"))]
     pub fn CreateStrokeFromInkPoints<P0>(&self, inkpoints: P0, transform: super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows_core::Result<InkStroke>
     where
@@ -2873,7 +2873,7 @@ impl InkStrokeBuilder {
             (::windows_core::Interface::vtable(this).CreateStrokeFromInkPoints)(::windows_core::Interface::as_raw(this), inkpoints.try_into_param()?.abi(), transform, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Foundation_Numerics\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics"))]
     pub fn CreateStrokeFromInkPoints2<P0, P1, P2>(&self, inkpoints: P0, transform: super::super::super::Foundation::Numerics::Matrix3x2, strokestartedtime: P1, strokeduration: P2) -> ::windows_core::Result<InkStroke>
     where
@@ -2912,7 +2912,7 @@ impl InkStrokeContainer {
         static SHARED: ::windows_core::imp::FactoryCache<InkStrokeContainer, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BoundingRect(&self) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -2928,7 +2928,7 @@ impl InkStrokeContainer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).AddStroke)(::windows_core::Interface::as_raw(this), stroke.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteSelected(&self) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -2937,7 +2937,7 @@ impl InkStrokeContainer {
             (::windows_core::Interface::vtable(this).DeleteSelected)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MoveSelected(&self, translation: super::super::super::Foundation::Point) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -2946,7 +2946,7 @@ impl InkStrokeContainer {
             (::windows_core::Interface::vtable(this).MoveSelected)(::windows_core::Interface::as_raw(this), translation, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SelectWithPolyLine<P0>(&self, polyline: P0) -> ::windows_core::Result<super::super::super::Foundation::Rect>
     where
@@ -2958,7 +2958,7 @@ impl InkStrokeContainer {
             (::windows_core::Interface::vtable(this).SelectWithPolyLine)(::windows_core::Interface::as_raw(this), polyline.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SelectWithLine(&self, from: super::super::super::Foundation::Point, to: super::super::super::Foundation::Point) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -2971,7 +2971,7 @@ impl InkStrokeContainer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).CopySelectedToClipboard)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PasteFromClipboard(&self, position: super::super::super::Foundation::Point) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -2987,7 +2987,7 @@ impl InkStrokeContainer {
             (::windows_core::Interface::vtable(this).CanPasteFromClipboard)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn LoadAsync<P0>(&self, inputstream: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>
     where
@@ -2999,7 +2999,7 @@ impl InkStrokeContainer {
             (::windows_core::Interface::vtable(this).LoadAsync)(::windows_core::Interface::as_raw(this), inputstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn SaveAsync<P0>(&self, outputstream: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
@@ -3011,7 +3011,7 @@ impl InkStrokeContainer {
             (::windows_core::Interface::vtable(this).SaveAsync)(::windows_core::Interface::as_raw(this), outputstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UpdateRecognitionResults<P0>(&self, recognitionresults: P0) -> ::windows_core::Result<()>
     where
@@ -3020,7 +3020,7 @@ impl InkStrokeContainer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).UpdateRecognitionResults)(::windows_core::Interface::as_raw(this), recognitionresults.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStrokes(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkStroke>> {
         let this = self;
@@ -3029,7 +3029,7 @@ impl InkStrokeContainer {
             (::windows_core::Interface::vtable(this).GetStrokes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetRecognitionResults(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>> {
         let this = self;
@@ -3038,7 +3038,7 @@ impl InkStrokeContainer {
             (::windows_core::Interface::vtable(this).GetRecognitionResults)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddStrokes<P0>(&self, strokes: P0) -> ::windows_core::Result<()>
     where
@@ -3051,7 +3051,7 @@ impl InkStrokeContainer {
         let this = &::windows_core::ComInterface::cast::<IInkStrokeContainer2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Clear)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn SaveWithFormatAsync<P0>(&self, outputstream: P0, inkpersistenceformat: InkPersistenceFormat) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
@@ -3089,7 +3089,7 @@ impl ::windows_core::CanTryInto<IInkStrokeContainer> for InkStrokeContainer {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkStrokeInput(::windows_core::IUnknown);
 impl InkStrokeInput {
-    #[doc = "Required features: `Foundation`, `UI_Core`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Core\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     pub fn StrokeStarted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3101,13 +3101,13 @@ impl InkStrokeInput {
             (::windows_core::Interface::vtable(this).StrokeStarted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStrokeStarted(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStrokeStarted)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`, `UI_Core`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Core\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     pub fn StrokeContinued<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3119,13 +3119,13 @@ impl InkStrokeInput {
             (::windows_core::Interface::vtable(this).StrokeContinued)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStrokeContinued(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStrokeContinued)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`, `UI_Core`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Core\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     pub fn StrokeEnded<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3137,13 +3137,13 @@ impl InkStrokeInput {
             (::windows_core::Interface::vtable(this).StrokeEnded)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStrokeEnded(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStrokeEnded)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`, `UI_Core`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Core\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     pub fn StrokeCanceled<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3155,7 +3155,7 @@ impl InkStrokeInput {
             (::windows_core::Interface::vtable(this).StrokeCanceled)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStrokeCanceled(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -3188,7 +3188,7 @@ unsafe impl ::core::marker::Sync for InkStrokeInput {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkStrokeRenderingSegment(::windows_core::IUnknown);
 impl InkStrokeRenderingSegment {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -3197,7 +3197,7 @@ impl InkStrokeRenderingSegment {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BezierControlPoint1(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -3206,7 +3206,7 @@ impl InkStrokeRenderingSegment {
             (::windows_core::Interface::vtable(this).BezierControlPoint1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BezierControlPoint2(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -3263,7 +3263,7 @@ unsafe impl ::core::marker::Sync for InkStrokeRenderingSegment {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkStrokesCollectedEventArgs(::windows_core::IUnknown);
 impl InkStrokesCollectedEventArgs {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Strokes(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkStroke>> {
         let this = self;
@@ -3290,7 +3290,7 @@ impl ::windows_core::RuntimeName for InkStrokesCollectedEventArgs {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkStrokesErasedEventArgs(::windows_core::IUnknown);
 impl InkStrokesErasedEventArgs {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Strokes(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkStroke>> {
         let this = self;
@@ -3317,7 +3317,7 @@ impl ::windows_core::RuntimeName for InkStrokesErasedEventArgs {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkSynchronizer(::windows_core::IUnknown);
 impl InkSynchronizer {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn BeginDry(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkStroke>> {
         let this = self;
@@ -3348,7 +3348,7 @@ impl ::windows_core::RuntimeName for InkSynchronizer {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkUnprocessedInput(::windows_core::IUnknown);
 impl InkUnprocessedInput {
-    #[doc = "Required features: `Foundation`, `UI_Core`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Core\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     pub fn PointerEntered<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3360,13 +3360,13 @@ impl InkUnprocessedInput {
             (::windows_core::Interface::vtable(this).PointerEntered)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerEntered(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePointerEntered)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`, `UI_Core`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Core\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     pub fn PointerHovered<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3378,13 +3378,13 @@ impl InkUnprocessedInput {
             (::windows_core::Interface::vtable(this).PointerHovered)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerHovered(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePointerHovered)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`, `UI_Core`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Core\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     pub fn PointerExited<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3396,13 +3396,13 @@ impl InkUnprocessedInput {
             (::windows_core::Interface::vtable(this).PointerExited)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerExited(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePointerExited)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`, `UI_Core`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Core\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     pub fn PointerPressed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3414,13 +3414,13 @@ impl InkUnprocessedInput {
             (::windows_core::Interface::vtable(this).PointerPressed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerPressed(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePointerPressed)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`, `UI_Core`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Core\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     pub fn PointerMoved<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3432,13 +3432,13 @@ impl InkUnprocessedInput {
             (::windows_core::Interface::vtable(this).PointerMoved)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerMoved(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePointerMoved)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`, `UI_Core`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Core\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     pub fn PointerReleased<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3450,13 +3450,13 @@ impl InkUnprocessedInput {
             (::windows_core::Interface::vtable(this).PointerReleased)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerReleased(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePointerReleased)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`, `UI_Core`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Core\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     pub fn PointerLost<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3468,7 +3468,7 @@ impl InkUnprocessedInput {
             (::windows_core::Interface::vtable(this).PointerLost)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerLost(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;

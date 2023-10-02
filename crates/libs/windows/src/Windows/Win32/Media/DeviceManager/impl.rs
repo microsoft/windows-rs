@@ -25,7 +25,7 @@ impl IComponentAuthenticate_Vtbl {
         *iid == <IComponentAuthenticate as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IMDSPDevice_Impl: Sized {
     fn GetName(&self, pwszname: ::windows_core::PWSTR, nmaxchars: u32) -> ::windows_core::Result<()>;
@@ -149,7 +149,7 @@ impl IMDSPDevice_Vtbl {
         *iid == <IMDSPDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`, `Win32_System_Ole`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
 pub trait IMDSPDevice2_Impl: Sized + IMDSPDevice_Impl {
     fn GetStorage(&self, pszstoragename: &::windows_core::PCWSTR) -> ::windows_core::Result<IMDSPStorage>;
@@ -200,7 +200,7 @@ impl IMDSPDevice2_Vtbl {
         *iid == <IMDSPDevice2 as ::windows_core::ComInterface>::IID || *iid == <IMDSPDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMDSPDevice3_Impl: Sized + IMDSPDevice2_Impl {
     fn GetProperty(&self, pwszpropname: &::windows_core::PCWSTR) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
@@ -270,7 +270,7 @@ impl IMDSPDevice3_Vtbl {
         *iid == <IMDSPDevice3 as ::windows_core::ComInterface>::IID || *iid == <IMDSPDevice as ::windows_core::ComInterface>::IID || *iid == <IMDSPDevice2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IMDSPDeviceControl_Impl: Sized {
     fn GetDCStatus(&self) -> ::windows_core::Result<u32>;
@@ -689,7 +689,7 @@ impl IMDSPRevoked_Vtbl {
         *iid == <IMDSPRevoked as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IMDSPStorage_Impl: Sized {
     fn SetAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows_core::Result<()>;
@@ -800,7 +800,7 @@ impl IMDSPStorage_Vtbl {
         *iid == <IMDSPStorage as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IMDSPStorage2_Impl: Sized + IMDSPStorage_Impl {
     fn GetStorage(&self, pszstoragename: &::windows_core::PCWSTR) -> ::windows_core::Result<IMDSPStorage>;
@@ -857,7 +857,7 @@ impl IMDSPStorage2_Vtbl {
         *iid == <IMDSPStorage2 as ::windows_core::ComInterface>::IID || *iid == <IMDSPStorage as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IMDSPStorage3_Impl: Sized + IMDSPStorage2_Impl {
     fn GetMetadata(&self, pmetadata: ::core::option::Option<&IWMDMMetaData>) -> ::windows_core::Result<()>;
@@ -888,7 +888,7 @@ impl IMDSPStorage3_Vtbl {
         *iid == <IMDSPStorage3 as ::windows_core::ComInterface>::IID || *iid == <IMDSPStorage as ::windows_core::ComInterface>::IID || *iid == <IMDSPStorage2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IMDSPStorage4_Impl: Sized + IMDSPStorage3_Impl {
     fn SetReferences(&self, dwrefs: u32, ppispstorage: *const ::core::option::Option<IMDSPStorage>) -> ::windows_core::Result<()>;
@@ -1440,7 +1440,7 @@ impl ISCPSession_Vtbl {
         *iid == <ISCPSession as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IWMDMDevice_Impl: Sized {
     fn GetName(&self, pwszname: ::windows_core::PWSTR, nmaxchars: u32) -> ::windows_core::Result<()>;
@@ -1564,7 +1564,7 @@ impl IWMDMDevice_Vtbl {
         *iid == <IWMDMDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`, `Win32_System_Ole`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
 pub trait IWMDMDevice2_Impl: Sized + IWMDMDevice_Impl {
     fn GetStorage(&self, pszstoragename: &::windows_core::PCWSTR) -> ::windows_core::Result<IWMDMStorage>;
@@ -1615,7 +1615,7 @@ impl IWMDMDevice2_Vtbl {
         *iid == <IWMDMDevice2 as ::windows_core::ComInterface>::IID || *iid == <IWMDMDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWMDMDevice3_Impl: Sized + IWMDMDevice2_Impl {
     fn GetProperty(&self, pwszpropname: &::windows_core::PCWSTR) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
@@ -1685,7 +1685,7 @@ impl IWMDMDevice3_Vtbl {
         *iid == <IWMDMDevice3 as ::windows_core::ComInterface>::IID || *iid == <IWMDMDevice as ::windows_core::ComInterface>::IID || *iid == <IWMDMDevice2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IWMDMDeviceControl_Impl: Sized {
     fn GetStatus(&self) -> ::windows_core::Result<u32>;
@@ -1903,7 +1903,7 @@ impl IWMDMEnumStorage_Vtbl {
         *iid == <IWMDMEnumStorage as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMLogger_Impl: Sized {
     fn IsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -2145,7 +2145,7 @@ impl IWMDMObjectInfo_Vtbl {
         *iid == <IWMDMObjectInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IWMDMOperation_Impl: Sized {
     fn BeginRead(&self) -> ::windows_core::Result<()>;
@@ -2232,7 +2232,7 @@ impl IWMDMOperation_Vtbl {
         *iid == <IWMDMOperation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IWMDMOperation2_Impl: Sized + IWMDMOperation_Impl {
     fn SetObjectAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> ::windows_core::Result<()>;
@@ -2263,7 +2263,7 @@ impl IWMDMOperation2_Vtbl {
         *iid == <IWMDMOperation2 as ::windows_core::ComInterface>::IID || *iid == <IWMDMOperation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IWMDMOperation3_Impl: Sized + IWMDMOperation_Impl {
     fn TransferObjectDataOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> ::windows_core::Result<()>;
@@ -2389,7 +2389,7 @@ impl IWMDMRevoked_Vtbl {
         *iid == <IWMDMRevoked as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IWMDMStorage_Impl: Sized {
     fn SetAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows_core::Result<()>;
@@ -2487,7 +2487,7 @@ impl IWMDMStorage_Vtbl {
         *iid == <IWMDMStorage as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IWMDMStorage2_Impl: Sized + IWMDMStorage_Impl {
     fn GetStorage(&self, pszstoragename: &::windows_core::PCWSTR) -> ::windows_core::Result<IWMDMStorage>;
@@ -2531,7 +2531,7 @@ impl IWMDMStorage2_Vtbl {
         *iid == <IWMDMStorage2 as ::windows_core::ComInterface>::IID || *iid == <IWMDMStorage as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IWMDMStorage3_Impl: Sized + IWMDMStorage2_Impl {
     fn GetMetadata(&self) -> ::windows_core::Result<IWMDMMetaData>;
@@ -2588,7 +2588,7 @@ impl IWMDMStorage3_Vtbl {
         *iid == <IWMDMStorage3 as ::windows_core::ComInterface>::IID || *iid == <IWMDMStorage as ::windows_core::ComInterface>::IID || *iid == <IWMDMStorage2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IWMDMStorage4_Impl: Sized + IWMDMStorage3_Impl {
     fn SetReferences(&self, dwrefs: u32, ppiwmdmstorage: *const ::core::option::Option<IWMDMStorage>) -> ::windows_core::Result<()>;

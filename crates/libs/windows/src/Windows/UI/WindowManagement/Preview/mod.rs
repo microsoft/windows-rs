@@ -36,7 +36,7 @@ pub struct IWindowManagementPreviewStatics_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WindowManagementPreview(::windows_core::IUnknown);
 impl WindowManagementPreview {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPreferredMinSize<P0>(window: P0, preferredframeminsize: super::super::super::Foundation::Size) -> ::windows_core::Result<()>
     where

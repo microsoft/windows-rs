@@ -22,28 +22,28 @@ where
     ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawCreateEx(lpguid : *mut ::windows_core::GUID, lplpdd : *mut *mut ::core::ffi::c_void, iid : *const ::windows_core::GUID, punkouter : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     DirectDrawCreateEx(lpguid, lplpdd, iid, punkouter.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
     ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateA(lpcallback : LPDDENUMCALLBACKA, lpcontext : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     DirectDrawEnumerateA(lpcallback, lpcontext).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExA(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateExA(lpcallback : LPDDENUMCALLBACKEXA, lpcontext : *mut ::core::ffi::c_void, dwflags : u32) -> ::windows_core::HRESULT);
     DirectDrawEnumerateExA(lpcallback, lpcontext, dwflags).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExW(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateExW(lpcallback : LPDDENUMCALLBACKEXW, lpcontext : *mut ::core::ffi::c_void, dwflags : u32) -> ::windows_core::HRESULT);
     DirectDrawEnumerateExW(lpcallback, lpcontext, dwflags).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateW(lpcallback: LPDDENUMCALLBACKW, lpcontext: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -66,7 +66,7 @@ impl IDDVideoPortContainer {
     pub unsafe fn GetVideoPortConnectInfo(&self, param0: u32, pcinfo: *mut u32, param2: ::core::option::Option<*mut DDVIDEOPORTCONNECT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoPortConnectInfo)(::windows_core::Interface::as_raw(self), param0, pcinfo, ::core::mem::transmute(param2.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryVideoPortStatus(&self, param0: u32, param1: *mut DDVIDEOPORTSTATUS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryVideoPortStatus)(::windows_core::Interface::as_raw(self), param0, param1).ok()
@@ -104,7 +104,7 @@ impl IDirectDraw {
     {
         (::windows_core::Interface::vtable(self).CreateClipper)(::windows_core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreatePalette<P0>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: P0) -> ::windows_core::Result<()>
     where
@@ -153,7 +153,7 @@ impl IDirectDraw {
     pub unsafe fn GetScanLine(&self, param0: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetScanLine)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVerticalBlankStatus)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -164,7 +164,7 @@ impl IDirectDraw {
     pub unsafe fn RestoreDisplayMode(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RestoreDisplayMode)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> ::windows_core::Result<()>
     where
@@ -175,7 +175,7 @@ impl IDirectDraw {
     pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDisplayMode)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WaitForVerticalBlank<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
@@ -241,7 +241,7 @@ impl IDirectDraw2 {
     {
         (::windows_core::Interface::vtable(self).CreateClipper)(::windows_core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreatePalette<P0>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: P0) -> ::windows_core::Result<()>
     where
@@ -290,7 +290,7 @@ impl IDirectDraw2 {
     pub unsafe fn GetScanLine(&self, param0: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetScanLine)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVerticalBlankStatus)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -301,7 +301,7 @@ impl IDirectDraw2 {
     pub unsafe fn RestoreDisplayMode(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RestoreDisplayMode)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> ::windows_core::Result<()>
     where
@@ -312,7 +312,7 @@ impl IDirectDraw2 {
     pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDisplayMode)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3, param4).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WaitForVerticalBlank<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
@@ -382,7 +382,7 @@ impl IDirectDraw4 {
     {
         (::windows_core::Interface::vtable(self).CreateClipper)(::windows_core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreatePalette<P0>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: P0) -> ::windows_core::Result<()>
     where
@@ -431,7 +431,7 @@ impl IDirectDraw4 {
     pub unsafe fn GetScanLine(&self, param0: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetScanLine)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVerticalBlankStatus)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -442,7 +442,7 @@ impl IDirectDraw4 {
     pub unsafe fn RestoreDisplayMode(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RestoreDisplayMode)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> ::windows_core::Result<()>
     where
@@ -453,7 +453,7 @@ impl IDirectDraw4 {
     pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDisplayMode)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3, param4).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WaitForVerticalBlank<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
@@ -464,7 +464,7 @@ impl IDirectDraw4 {
     pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAvailableVidMem)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetSurfaceFromDC<P0>(&self, param0: P0) -> ::windows_core::Result<IDirectDrawSurface4>
     where
@@ -548,7 +548,7 @@ impl IDirectDraw7 {
     {
         (::windows_core::Interface::vtable(self).CreateClipper)(::windows_core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreatePalette<P0>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: P0) -> ::windows_core::Result<()>
     where
@@ -597,7 +597,7 @@ impl IDirectDraw7 {
     pub unsafe fn GetScanLine(&self, param0: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetScanLine)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVerticalBlankStatus)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -608,7 +608,7 @@ impl IDirectDraw7 {
     pub unsafe fn RestoreDisplayMode(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RestoreDisplayMode)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> ::windows_core::Result<()>
     where
@@ -619,7 +619,7 @@ impl IDirectDraw7 {
     pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDisplayMode)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3, param4).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WaitForVerticalBlank<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
@@ -630,7 +630,7 @@ impl IDirectDraw7 {
     pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAvailableVidMem)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetSurfaceFromDC<P0>(&self, param0: P0) -> ::windows_core::Result<IDirectDrawSurface7>
     where
@@ -648,7 +648,7 @@ impl IDirectDraw7 {
     pub unsafe fn GetDeviceIdentifier(&self, param0: *mut DDDEVICEIDENTIFIER2, param1: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDeviceIdentifier)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartModeTest(&self, param0: *mut super::super::Foundation::SIZE, param1: u32, param2: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).StartModeTest)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
@@ -718,12 +718,12 @@ pub struct IDirectDraw7_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawClipper(::windows_core::IUnknown);
 impl IDirectDrawClipper {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetClipList(&self, param0: *mut super::super::Foundation::RECT, param1: *mut super::Gdi::RGNDATA, param2: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetClipList)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHWnd(&self, param0: *mut super::super::Foundation::HWND) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetHWnd)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -734,17 +734,17 @@ impl IDirectDrawClipper {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsClipListChanged(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsClipListChanged)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn SetClipList(&self, param0: *mut super::Gdi::RGNDATA, param1: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetClipList)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHWnd<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
@@ -872,12 +872,12 @@ impl IDirectDrawPalette {
     pub unsafe fn GetCaps(&self, param0: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCaps)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetEntries)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *mut super::Gdi::PALETTEENTRY) -> ::windows_core::Result<()>
     where
@@ -885,7 +885,7 @@ impl IDirectDrawPalette {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetEntries)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
@@ -926,12 +926,12 @@ impl IDirectDrawSurface {
     {
         (::windows_core::Interface::vtable(self).AddAttachedSurface)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddOverlayDirtyRect)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Blt<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows_core::Result<()>
     where
@@ -939,12 +939,12 @@ impl IDirectDrawSurface {
     {
         (::windows_core::Interface::vtable(self).Blt)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).BltBatch)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltFast<P0>(&self, param0: u32, param1: u32, param2: P0, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows_core::Result<()>
     where
@@ -986,7 +986,7 @@ impl IDirectDrawSurface {
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetColorKey)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDC)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -1016,7 +1016,7 @@ impl IDirectDrawSurface {
     pub unsafe fn IsLost(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsLost)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Lock<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: P0) -> ::windows_core::Result<()>
     where
@@ -1024,7 +1024,7 @@ impl IDirectDrawSurface {
     {
         (::windows_core::Interface::vtable(self).Lock)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
@@ -1056,7 +1056,7 @@ impl IDirectDrawSurface {
     pub unsafe fn Unlock(&self, param0: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Unlock)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateOverlay<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows_core::Result<()>
     where
@@ -1153,12 +1153,12 @@ impl IDirectDrawSurface2 {
     {
         (::windows_core::Interface::vtable(self).AddAttachedSurface)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddOverlayDirtyRect)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Blt<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows_core::Result<()>
     where
@@ -1166,12 +1166,12 @@ impl IDirectDrawSurface2 {
     {
         (::windows_core::Interface::vtable(self).Blt)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).BltBatch)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltFast<P0>(&self, param0: u32, param1: u32, param2: P0, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows_core::Result<()>
     where
@@ -1213,7 +1213,7 @@ impl IDirectDrawSurface2 {
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetColorKey)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDC)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -1243,7 +1243,7 @@ impl IDirectDrawSurface2 {
     pub unsafe fn IsLost(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsLost)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Lock<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: P0) -> ::windows_core::Result<()>
     where
@@ -1251,7 +1251,7 @@ impl IDirectDrawSurface2 {
     {
         (::windows_core::Interface::vtable(self).Lock)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
@@ -1283,7 +1283,7 @@ impl IDirectDrawSurface2 {
     pub unsafe fn Unlock(&self, param0: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Unlock)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateOverlay<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows_core::Result<()>
     where
@@ -1392,12 +1392,12 @@ impl IDirectDrawSurface3 {
     {
         (::windows_core::Interface::vtable(self).AddAttachedSurface)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddOverlayDirtyRect)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Blt<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows_core::Result<()>
     where
@@ -1405,12 +1405,12 @@ impl IDirectDrawSurface3 {
     {
         (::windows_core::Interface::vtable(self).Blt)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).BltBatch)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltFast<P0>(&self, param0: u32, param1: u32, param2: P0, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows_core::Result<()>
     where
@@ -1452,7 +1452,7 @@ impl IDirectDrawSurface3 {
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetColorKey)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDC)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -1482,7 +1482,7 @@ impl IDirectDrawSurface3 {
     pub unsafe fn IsLost(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsLost)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Lock<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: P0) -> ::windows_core::Result<()>
     where
@@ -1490,7 +1490,7 @@ impl IDirectDrawSurface3 {
     {
         (::windows_core::Interface::vtable(self).Lock)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
@@ -1522,7 +1522,7 @@ impl IDirectDrawSurface3 {
     pub unsafe fn Unlock(&self, param0: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Unlock)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateOverlay<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows_core::Result<()>
     where
@@ -1635,12 +1635,12 @@ impl IDirectDrawSurface4 {
     {
         (::windows_core::Interface::vtable(self).AddAttachedSurface)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddOverlayDirtyRect)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Blt<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows_core::Result<()>
     where
@@ -1648,12 +1648,12 @@ impl IDirectDrawSurface4 {
     {
         (::windows_core::Interface::vtable(self).Blt)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).BltBatch)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltFast<P0>(&self, param0: u32, param1: u32, param2: P0, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows_core::Result<()>
     where
@@ -1695,7 +1695,7 @@ impl IDirectDrawSurface4 {
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetColorKey)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDC)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -1725,7 +1725,7 @@ impl IDirectDrawSurface4 {
     pub unsafe fn IsLost(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsLost)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Lock<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: P0) -> ::windows_core::Result<()>
     where
@@ -1733,7 +1733,7 @@ impl IDirectDrawSurface4 {
     {
         (::windows_core::Interface::vtable(self).Lock)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
@@ -1762,12 +1762,12 @@ impl IDirectDrawSurface4 {
     {
         (::windows_core::Interface::vtable(self).SetPalette)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Unlock(&self, param0: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Unlock)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateOverlay<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows_core::Result<()>
     where
@@ -1903,12 +1903,12 @@ impl IDirectDrawSurface7 {
     {
         (::windows_core::Interface::vtable(self).AddAttachedSurface)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddOverlayDirtyRect)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Blt<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows_core::Result<()>
     where
@@ -1916,12 +1916,12 @@ impl IDirectDrawSurface7 {
     {
         (::windows_core::Interface::vtable(self).Blt)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).BltBatch)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltFast<P0>(&self, param0: u32, param1: u32, param2: P0, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows_core::Result<()>
     where
@@ -1963,7 +1963,7 @@ impl IDirectDrawSurface7 {
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetColorKey)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDC)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -1993,7 +1993,7 @@ impl IDirectDrawSurface7 {
     pub unsafe fn IsLost(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsLost)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Lock<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: P0) -> ::windows_core::Result<()>
     where
@@ -2001,7 +2001,7 @@ impl IDirectDrawSurface7 {
     {
         (::windows_core::Interface::vtable(self).Lock)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
@@ -2030,12 +2030,12 @@ impl IDirectDrawSurface7 {
     {
         (::windows_core::Interface::vtable(self).SetPalette)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Unlock(&self, param0: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Unlock)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateOverlay<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows_core::Result<()>
     where
@@ -2224,7 +2224,7 @@ impl IDirectDrawVideoPort {
     pub unsafe fn GetOutputFormats(&self, param0: *mut DDPIXELFORMAT, lpnumformats: *mut u32, param2: ::core::option::Option<*mut DDPIXELFORMAT>, param3: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetOutputFormats)(::windows_core::Interface::as_raw(self), param0, lpnumformats, ::core::mem::transmute(param2.unwrap_or(::std::ptr::null_mut())), param3).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFieldPolarity(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFieldPolarity)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -2244,7 +2244,7 @@ impl IDirectDrawVideoPort {
     {
         (::windows_core::Interface::vtable(self).SetTargetSurface)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartVideo(&self, param0: *mut DDVIDEOPORTINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).StartVideo)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -2252,7 +2252,7 @@ impl IDirectDrawVideoPort {
     pub unsafe fn StopVideo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).StopVideo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateVideo(&self, param0: *mut DDVIDEOPORTINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UpdateVideo)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -2300,12 +2300,12 @@ pub struct IDirectDrawVideoPort_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawVideoPortNotify(::windows_core::IUnknown);
 impl IDirectDrawVideoPortNotify {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AcquireNotification(&self, param0: *mut super::super::Foundation::HANDLE, param1: *mut DDVIDEOPORTNOTIFY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AcquireNotification)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReleaseNotification<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
@@ -3273,7 +3273,7 @@ pub const VMEMHEAP_LINEAR: i32 = 1i32;
 pub const VMEMHEAP_RECTANGULAR: i32 = 2i32;
 pub const _FACDD: u32 = 2166u32;
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct ACCESSRECTLIST {
     pub lpLink: *mut ACCESSRECTLIST,
@@ -3316,7 +3316,7 @@ impl ::core::default::Default for ACCESSRECTLIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct ATTACHLIST {
     pub dwFlags: u32,
@@ -3357,7 +3357,7 @@ impl ::core::default::Default for ATTACHLIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DBLNODE {
     pub next: *mut DBLNODE,
@@ -3461,7 +3461,7 @@ impl ::core::default::Default for DDARGB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DDBLTBATCH {
     pub lprDest: *mut super::super::Foundation::RECT,
@@ -5022,7 +5022,7 @@ impl ::core::default::Default for DDGETTRANSFERSTATUSOUTINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHALDDRAWFNS {
     pub dwSize: u32,
@@ -5055,7 +5055,7 @@ impl ::core::default::Default for DDHALDDRAWFNS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHALINFO {
     pub dwSize: u32,
@@ -5134,7 +5134,7 @@ impl ::core::default::Default for DDHALMODEINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_ADDATTACHEDSURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -5168,7 +5168,7 @@ impl ::core::default::Default for DDHAL_ADDATTACHEDSURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_BEGINMOCOMPFRAMEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -5206,7 +5206,7 @@ impl ::core::default::Default for DDHAL_BEGINMOCOMPFRAMEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_BLTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -5242,7 +5242,7 @@ impl ::core::default::Default for DDHAL_BLTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_CALLBACKS {
     pub cbDDCallbacks: DDHAL_DDCALLBACKS,
@@ -5293,7 +5293,7 @@ impl ::core::default::Default for DDHAL_CALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_CANCREATESURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -5327,7 +5327,7 @@ impl ::core::default::Default for DDHAL_CANCREATESURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_CANCREATEVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -5360,7 +5360,7 @@ impl ::core::default::Default for DDHAL_CANCREATEVPORTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_COLORCONTROLDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -5395,7 +5395,7 @@ impl ::core::default::Default for DDHAL_COLORCONTROLDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_CREATEMOCOMPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -5428,7 +5428,7 @@ impl ::core::default::Default for DDHAL_CREATEMOCOMPDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_CREATEPALETTEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -5463,7 +5463,7 @@ impl ::core::default::Default for DDHAL_CREATEPALETTEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_CREATESURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -5498,7 +5498,7 @@ impl ::core::default::Default for DDHAL_CREATESURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_CREATESURFACEEXDATA {
     pub dwFlags: u32,
@@ -5539,7 +5539,7 @@ impl ::core::default::Default for DDHAL_CREATESURFACEEXDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_CREATEVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -5573,7 +5573,7 @@ impl ::core::default::Default for DDHAL_CREATEVPORTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDCALLBACKS {
     pub dwSize: u32,
@@ -5614,7 +5614,7 @@ impl ::core::default::Default for DDHAL_DDCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDCOLORCONTROLCALLBACKS {
     pub dwSize: u32,
@@ -5646,7 +5646,7 @@ impl ::core::default::Default for DDHAL_DDCOLORCONTROLCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDEXEBUFCALLBACKS {
     pub dwSize: u32,
@@ -5682,7 +5682,7 @@ impl ::core::default::Default for DDHAL_DDEXEBUFCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDKERNELCALLBACKS {
     pub dwSize: u32,
@@ -5715,7 +5715,7 @@ impl ::core::default::Default for DDHAL_DDKERNELCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDMISCELLANEOUS2CALLBACKS {
     pub dwSize: u32,
@@ -5750,7 +5750,7 @@ impl ::core::default::Default for DDHAL_DDMISCELLANEOUS2CALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDMISCELLANEOUSCALLBACKS {
     pub dwSize: u32,
@@ -5785,7 +5785,7 @@ impl ::core::default::Default for DDHAL_DDMISCELLANEOUSCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDMOTIONCOMPCALLBACKS {
     pub dwSize: u32,
@@ -5826,7 +5826,7 @@ impl ::core::default::Default for DDHAL_DDMOTIONCOMPCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDPALETTECALLBACKS {
     pub dwSize: u32,
@@ -5859,7 +5859,7 @@ impl ::core::default::Default for DDHAL_DDPALETTECALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDSURFACECALLBACKS {
     pub dwSize: u32,
@@ -5904,7 +5904,7 @@ impl ::core::default::Default for DDHAL_DDSURFACECALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDVIDEOPORTCALLBACKS {
     pub dwSize: u32,
@@ -5951,7 +5951,7 @@ impl ::core::default::Default for DDHAL_DDVIDEOPORTCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DESTROYDDLOCALDATA {
     pub dwFlags: u32,
@@ -5991,7 +5991,7 @@ impl ::core::default::Default for DDHAL_DESTROYDDLOCALDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DESTROYDRIVERDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -6023,7 +6023,7 @@ impl ::core::default::Default for DDHAL_DESTROYDRIVERDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DESTROYMOCOMPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -6056,7 +6056,7 @@ impl ::core::default::Default for DDHAL_DESTROYMOCOMPDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DESTROYPALETTEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -6089,7 +6089,7 @@ impl ::core::default::Default for DDHAL_DESTROYPALETTEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DESTROYSURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -6122,7 +6122,7 @@ impl ::core::default::Default for DDHAL_DESTROYSURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DESTROYVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -6155,7 +6155,7 @@ impl ::core::default::Default for DDHAL_DESTROYVPORTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DRVSETCOLORKEYDATA {
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
@@ -6189,7 +6189,7 @@ impl ::core::default::Default for DDHAL_DRVSETCOLORKEYDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_ENDMOCOMPFRAMEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -6224,7 +6224,7 @@ impl ::core::default::Default for DDHAL_ENDMOCOMPFRAMEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_FLIPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -6261,7 +6261,7 @@ impl ::core::default::Default for DDHAL_FLIPDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_FLIPTOGDISURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -6295,7 +6295,7 @@ impl ::core::default::Default for DDHAL_FLIPTOGDISURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_FLIPVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -6330,7 +6330,7 @@ impl ::core::default::Default for DDHAL_FLIPVPORTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETAVAILDRIVERMEMORYDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -6360,7 +6360,7 @@ impl ::core::default::Default for DDHAL_GETAVAILDRIVERMEMORYDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETBLTSTATUSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -6470,7 +6470,7 @@ impl ::core::default::Default for DDHAL_GETDRIVERSTATEDATA_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETFLIPSTATUSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -6526,7 +6526,7 @@ impl ::core::default::Default for DDHAL_GETHEAPALIGNMENTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETINTERNALMOCOMPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -6557,7 +6557,7 @@ impl ::core::default::Default for DDHAL_GETINTERNALMOCOMPDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETMOCOMPCOMPBUFFDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -6589,7 +6589,7 @@ impl ::core::default::Default for DDHAL_GETMOCOMPCOMPBUFFDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETMOCOMPFORMATSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -6624,7 +6624,7 @@ impl ::core::default::Default for DDHAL_GETMOCOMPFORMATSDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETMOCOMPGUIDSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -6658,7 +6658,7 @@ impl ::core::default::Default for DDHAL_GETMOCOMPGUIDSDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETSCANLINEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -6691,7 +6691,7 @@ impl ::core::default::Default for DDHAL_GETSCANLINEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETVPORTBANDWIDTHDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -6729,7 +6729,7 @@ impl ::core::default::Default for DDHAL_GETVPORTBANDWIDTHDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETVPORTCONNECTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -6764,7 +6764,7 @@ impl ::core::default::Default for DDHAL_GETVPORTCONNECTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETVPORTFIELDDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -6798,7 +6798,7 @@ impl ::core::default::Default for DDHAL_GETVPORTFIELDDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETVPORTFLIPSTATUSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -6831,7 +6831,7 @@ impl ::core::default::Default for DDHAL_GETVPORTFLIPSTATUSDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETVPORTINPUTFORMATDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -6867,7 +6867,7 @@ impl ::core::default::Default for DDHAL_GETVPORTINPUTFORMATDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETVPORTLINEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -6901,7 +6901,7 @@ impl ::core::default::Default for DDHAL_GETVPORTLINEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETVPORTOUTPUTFORMATDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -6938,7 +6938,7 @@ impl ::core::default::Default for DDHAL_GETVPORTOUTPUTFORMATDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETVPORTSIGNALDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -6972,7 +6972,7 @@ impl ::core::default::Default for DDHAL_GETVPORTSIGNALDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_LOCKDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -7009,7 +7009,7 @@ impl ::core::default::Default for DDHAL_LOCKDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_QUERYMOCOMPSTATUSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -7044,7 +7044,7 @@ impl ::core::default::Default for DDHAL_QUERYMOCOMPSTATUSDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_RENDERMOCOMPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -7084,7 +7084,7 @@ impl ::core::default::Default for DDHAL_RENDERMOCOMPDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_SETCLIPLISTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -7117,7 +7117,7 @@ impl ::core::default::Default for DDHAL_SETCLIPLISTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_SETCOLORKEYDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -7152,7 +7152,7 @@ impl ::core::default::Default for DDHAL_SETCOLORKEYDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_SETENTRIESDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -7188,7 +7188,7 @@ impl ::core::default::Default for DDHAL_SETENTRIESDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_SETEXCLUSIVEMODEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -7222,7 +7222,7 @@ impl ::core::default::Default for DDHAL_SETEXCLUSIVEMODEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_SETMODEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -7257,7 +7257,7 @@ impl ::core::default::Default for DDHAL_SETMODEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_SETOVERLAYPOSITIONDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -7293,7 +7293,7 @@ impl ::core::default::Default for DDHAL_SETOVERLAYPOSITIONDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_SETPALETTEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -7328,7 +7328,7 @@ impl ::core::default::Default for DDHAL_SETPALETTEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_SYNCSURFACEDATA {
     pub dwSize: u32,
@@ -7396,7 +7396,7 @@ impl ::core::default::Default for DDHAL_SYNCSURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_SYNCVIDEOPORTDATA {
     pub dwSize: u32,
@@ -7443,7 +7443,7 @@ impl ::core::default::Default for DDHAL_SYNCVIDEOPORTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_UNLOCKDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -7476,7 +7476,7 @@ impl ::core::default::Default for DDHAL_UNLOCKDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_UPDATENONLOCALHEAPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -7512,7 +7512,7 @@ impl ::core::default::Default for DDHAL_UPDATENONLOCALHEAPDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_UPDATEOVERLAYDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -7542,7 +7542,7 @@ impl ::core::default::Default for DDHAL_UPDATEOVERLAYDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_UPDATEVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -7581,7 +7581,7 @@ impl ::core::default::Default for DDHAL_UPDATEVPORTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_VPORTCOLORDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -7616,7 +7616,7 @@ impl ::core::default::Default for DDHAL_VPORTCOLORDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_WAITFORVERTICALBLANKDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -7651,7 +7651,7 @@ impl ::core::default::Default for DDHAL_WAITFORVERTICALBLANKDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_WAITFORVPORTSYNCDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -7776,7 +7776,7 @@ impl ::core::default::Default for DDLOCKOUTINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDMCBUFFERINFO {
     pub dwSize: u32,
@@ -7878,7 +7878,7 @@ impl ::core::default::Default for DDMDL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DDMOCOMPBUFFERINFO {
     pub dwSize: u32,
@@ -8510,7 +8510,7 @@ impl ::core::default::Default for DDPIXELFORMAT_4 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDMOTIONCOMP_INT {
     pub lpVtbl: *mut ::core::ffi::c_void,
@@ -8551,7 +8551,7 @@ impl ::core::default::Default for DDRAWI_DDMOTIONCOMP_INT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDMOTIONCOMP_LCL {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -8589,7 +8589,7 @@ impl ::core::default::Default for DDRAWI_DDMOTIONCOMP_LCL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWCLIPPER_GBL {
     pub dwRefCnt: u32,
@@ -8633,7 +8633,7 @@ impl ::core::default::Default for DDRAWI_DDRAWCLIPPER_GBL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWCLIPPER_INT {
     pub lpVtbl: *mut ::core::ffi::c_void,
@@ -8674,7 +8674,7 @@ impl ::core::default::Default for DDRAWI_DDRAWCLIPPER_INT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWCLIPPER_LCL {
     pub lpClipMore: u32,
@@ -8717,7 +8717,7 @@ impl ::core::default::Default for DDRAWI_DDRAWCLIPPER_LCL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWPALETTE_GBL {
     pub dwRefCnt: u32,
@@ -8750,7 +8750,7 @@ impl ::core::default::Default for DDRAWI_DDRAWPALETTE_GBL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union DDRAWI_DDRAWPALETTE_GBL_0 {
     pub dwReserved1: usize,
@@ -8775,7 +8775,7 @@ impl ::core::default::Default for DDRAWI_DDRAWPALETTE_GBL_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWPALETTE_INT {
     pub lpVtbl: *mut ::core::ffi::c_void,
@@ -8816,7 +8816,7 @@ impl ::core::default::Default for DDRAWI_DDRAWPALETTE_INT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWPALETTE_LCL {
     pub lpPalMore: u32,
@@ -8861,7 +8861,7 @@ impl ::core::default::Default for DDRAWI_DDRAWPALETTE_LCL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWSURFACE_GBL {
     pub dwRefCnt: u32,
@@ -8896,7 +8896,7 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union DDRAWI_DDRAWSURFACE_GBL_0 {
     pub lpRectList: *mut ACCESSRECTLIST,
@@ -8922,7 +8922,7 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union DDRAWI_DDRAWSURFACE_GBL_1 {
     pub lpVidMemHeap: *mut VMEMHEAP,
@@ -8947,7 +8947,7 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union DDRAWI_DDRAWSURFACE_GBL_2 {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -8972,7 +8972,7 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union DDRAWI_DDRAWSURFACE_GBL_3 {
     pub lPitch: i32,
@@ -9052,7 +9052,7 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWSURFACE_INT {
     pub lpVtbl: *mut ::core::ffi::c_void,
@@ -9093,7 +9093,7 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_INT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWSURFACE_LCL {
     pub lpSurfMore: *mut DDRAWI_DDRAWSURFACE_MORE,
@@ -9143,7 +9143,7 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_LCL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union DDRAWI_DDRAWSURFACE_LCL_0 {
     pub lpDDPalette: *mut DDRAWI_DDRAWPALETTE_INT,
@@ -9168,7 +9168,7 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_LCL_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union DDRAWI_DDRAWSURFACE_LCL_1 {
     pub lpDDClipper: *mut DDRAWI_DDRAWCLIPPER_LCL,
@@ -9193,7 +9193,7 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_LCL_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWSURFACE_MORE {
     pub dwSize: u32,
@@ -9247,7 +9247,7 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_MORE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDVIDEOPORT_INT {
     pub lpVtbl: *mut ::core::ffi::c_void,
@@ -9289,7 +9289,7 @@ impl ::core::default::Default for DDRAWI_DDVIDEOPORT_INT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDVIDEOPORT_LCL {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -9392,7 +9392,7 @@ impl ::core::default::Default for DDRAWI_DDVIDEOPORT_LCL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DIRECTDRAW_GBL {
     pub dwRefCnt: u32,
@@ -9485,7 +9485,7 @@ impl ::core::default::Default for DDRAWI_DIRECTDRAW_GBL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DIRECTDRAW_INT {
     pub lpVtbl: *mut ::core::ffi::c_void,
@@ -9526,7 +9526,7 @@ impl ::core::default::Default for DDRAWI_DIRECTDRAW_INT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DIRECTDRAW_LCL {
     pub lpDDMore: u32,
@@ -9775,7 +9775,7 @@ impl ::core::default::Default for DDSETSTATEININFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DDSETSTATEOUTINFO {
     pub bSoftwareAutoflip: super::super::Foundation::BOOL,
@@ -9845,7 +9845,7 @@ impl ::core::default::Default for DDSKIPNEXTFIELDINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DDSTEREOMODE {
     pub dwSize: u32,
@@ -10522,7 +10522,7 @@ impl ::core::default::Default for DDVIDEOPORTDESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DDVIDEOPORTINFO {
     pub dwSize: u32,
@@ -10618,7 +10618,7 @@ impl ::core::default::Default for DDVIDEOPORTNOTIFY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DDVIDEOPORTSTATUS {
     pub dwSize: u32,
@@ -10662,7 +10662,7 @@ impl ::core::default::Default for DDVIDEOPORTSTATUS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_ADDATTACHEDSURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -10704,7 +10704,7 @@ impl ::core::default::Default for DD_ADDATTACHEDSURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_ATTACHLIST {
     pub lpLink: *mut DD_ATTACHLIST,
@@ -10743,7 +10743,7 @@ impl ::core::default::Default for DD_ATTACHLIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_BEGINMOCOMPFRAMEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -10788,7 +10788,7 @@ impl ::core::default::Default for DD_BEGINMOCOMPFRAMEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_BLTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -10826,7 +10826,7 @@ impl ::core::default::Default for DD_BLTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DD_CALLBACKS {
     pub dwSize: u32,
@@ -10989,7 +10989,7 @@ impl ::core::default::Default for DD_CLIPPER_LOCAL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_COLORCONTROLCALLBACKS {
     pub dwSize: u32,
@@ -11021,7 +11021,7 @@ impl ::core::default::Default for DD_COLORCONTROLCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_COLORCONTROLDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -11090,7 +11090,7 @@ impl ::core::default::Default for DD_CREATEMOCOMPDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DD_CREATEPALETTEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -11133,7 +11133,7 @@ impl ::core::default::Default for DD_CREATEPALETTEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_CREATESURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -11176,7 +11176,7 @@ impl ::core::default::Default for DD_CREATESURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_CREATESURFACEEXDATA {
     pub dwFlags: u32,
@@ -11217,7 +11217,7 @@ impl ::core::default::Default for DD_CREATESURFACEEXDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_CREATEVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -11259,7 +11259,7 @@ impl ::core::default::Default for DD_CREATEVPORTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_D3DBUFCALLBACKS {
     pub dwSize: u32,
@@ -11389,7 +11389,7 @@ impl ::core::default::Default for DD_DESTROYPALETTEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_DESTROYSURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -11430,7 +11430,7 @@ impl ::core::default::Default for DD_DESTROYSURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_DESTROYVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -11532,7 +11532,7 @@ impl ::core::default::Default for DD_DIRECTDRAW_LOCAL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_DRVSETCOLORKEYDATA {
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -11607,7 +11607,7 @@ impl ::core::default::Default for DD_ENDMOCOMPFRAMEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_FLIPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -11685,7 +11685,7 @@ impl ::core::default::Default for DD_FLIPTOGDISURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_FLIPVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -11728,7 +11728,7 @@ impl ::core::default::Default for DD_FLIPVPORTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_FREEDRIVERMEMORYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -11803,7 +11803,7 @@ impl ::core::default::Default for DD_GETAVAILDRIVERMEMORYDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_GETBLTSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -11922,7 +11922,7 @@ impl ::core::default::Default for DD_GETDRIVERSTATEDATA_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_GETFLIPSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -12132,7 +12132,7 @@ impl ::core::default::Default for DD_GETSCANLINEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_GETVPORTBANDWIDTHDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -12212,7 +12212,7 @@ impl ::core::default::Default for DD_GETVPORTCONNECTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_GETVPORTFIELDDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -12286,7 +12286,7 @@ impl ::core::default::Default for DD_GETVPORTFLIPSTATUSDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_GETVPORTINPUTFORMATDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -12330,7 +12330,7 @@ impl ::core::default::Default for DD_GETVPORTINPUTFORMATDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_GETVPORTLINEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -12372,7 +12372,7 @@ impl ::core::default::Default for DD_GETVPORTLINEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_GETVPORTOUTPUTFORMATDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -12417,7 +12417,7 @@ impl ::core::default::Default for DD_GETVPORTOUTPUTFORMATDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_GETVPORTSIGNALDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -12459,7 +12459,7 @@ impl ::core::default::Default for DD_GETVPORTSIGNALDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_HALINFO {
     pub dwSize: u32,
@@ -12512,7 +12512,7 @@ impl ::core::default::Default for DD_HALINFO_V4 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_KERNELCALLBACKS {
     pub dwSize: u32,
@@ -12545,7 +12545,7 @@ impl ::core::default::Default for DD_KERNELCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_LOCKDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -12591,7 +12591,7 @@ impl ::core::default::Default for DD_LOCKDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_MAPMEMORYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -12633,7 +12633,7 @@ impl ::core::default::Default for DD_MAPMEMORYDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_MISCELLANEOUS2CALLBACKS {
     pub dwSize: u32,
@@ -12769,7 +12769,7 @@ impl ::core::default::Default for DD_MORESURFACECAPS_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_MOTIONCOMPCALLBACKS {
     pub dwSize: u32,
@@ -12872,7 +12872,7 @@ impl ::core::default::Default for DD_NONLOCALVIDMEMCAPS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_NTCALLBACKS {
     pub dwSize: u32,
@@ -12936,7 +12936,7 @@ impl ::core::default::Default for DD_NTPRIVATEDRIVERCAPS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct DD_PALETTECALLBACKS {
     pub dwSize: u32,
@@ -13028,7 +13028,7 @@ impl ::core::default::Default for DD_PALETTE_LOCAL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_QUERYMOCOMPSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -13070,7 +13070,7 @@ impl ::core::default::Default for DD_QUERYMOCOMPSTATUSDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_RENDERMOCOMPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -13117,7 +13117,7 @@ impl ::core::default::Default for DD_RENDERMOCOMPDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SETCLIPLISTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -13158,7 +13158,7 @@ impl ::core::default::Default for DD_SETCLIPLISTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SETCOLORKEYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -13201,7 +13201,7 @@ impl ::core::default::Default for DD_SETCOLORKEYDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct DD_SETENTRIESDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -13278,7 +13278,7 @@ impl ::core::default::Default for DD_SETEXCLUSIVEMODEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SETOVERLAYPOSITIONDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -13322,7 +13322,7 @@ impl ::core::default::Default for DD_SETOVERLAYPOSITIONDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SETPALETTEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -13365,7 +13365,7 @@ impl ::core::default::Default for DD_SETPALETTEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_STEREOMODE {
     pub dwSize: u32,
@@ -13408,7 +13408,7 @@ impl ::core::default::Default for DD_STEREOMODE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SURFACECALLBACKS {
     pub dwSize: u32,
@@ -13453,7 +13453,7 @@ impl ::core::default::Default for DD_SURFACECALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SURFACE_GLOBAL {
     pub Anonymous1: DD_SURFACE_GLOBAL_0,
@@ -13488,7 +13488,7 @@ impl ::core::default::Default for DD_SURFACE_GLOBAL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DD_SURFACE_GLOBAL_0 {
     pub dwBlockSizeY: u32,
@@ -13513,7 +13513,7 @@ impl ::core::default::Default for DD_SURFACE_GLOBAL_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DD_SURFACE_GLOBAL_1 {
     pub lpVidMemHeap: *mut VIDEOMEMORY,
@@ -13539,7 +13539,7 @@ impl ::core::default::Default for DD_SURFACE_GLOBAL_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DD_SURFACE_GLOBAL_2 {
     pub lPitch: i32,
@@ -13564,7 +13564,7 @@ impl ::core::default::Default for DD_SURFACE_GLOBAL_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SURFACE_INT {
     pub lpLcl: *mut DD_SURFACE_LOCAL,
@@ -13602,7 +13602,7 @@ impl ::core::default::Default for DD_SURFACE_INT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SURFACE_LOCAL {
     pub lpGbl: *mut DD_SURFACE_GLOBAL,
@@ -13635,7 +13635,7 @@ impl ::core::default::Default for DD_SURFACE_LOCAL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DD_SURFACE_LOCAL_0 {
     pub ddckCKSrcOverlay: DDCOLORKEY,
@@ -13660,7 +13660,7 @@ impl ::core::default::Default for DD_SURFACE_LOCAL_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DD_SURFACE_LOCAL_1 {
     pub ddckCKDestOverlay: DDCOLORKEY,
@@ -13685,7 +13685,7 @@ impl ::core::default::Default for DD_SURFACE_LOCAL_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SURFACE_MORE {
     pub dwMipMapCount: u32,
@@ -13713,7 +13713,7 @@ impl ::core::default::Default for DD_SURFACE_MORE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SYNCSURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -13773,7 +13773,7 @@ impl ::core::default::Default for DD_SYNCSURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SYNCVIDEOPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -13819,7 +13819,7 @@ impl ::core::default::Default for DD_SYNCVIDEOPORTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_UNLOCKDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -13895,7 +13895,7 @@ impl ::core::default::Default for DD_UPDATENONLOCALHEAPDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_UPDATEOVERLAYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -13925,7 +13925,7 @@ impl ::core::default::Default for DD_UPDATEOVERLAYDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_UPDATEVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -13972,7 +13972,7 @@ impl ::core::default::Default for DD_UPDATEVPORTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_VIDEOPORTCALLBACKS {
     pub dwSize: u32,
@@ -14019,7 +14019,7 @@ impl ::core::default::Default for DD_VIDEOPORTCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_VIDEOPORT_LOCAL {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -14066,7 +14066,7 @@ impl ::core::default::Default for DD_VIDEOPORT_LOCAL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_VPORTCOLORDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -14143,7 +14143,7 @@ impl ::core::default::Default for DD_WAITFORVERTICALBLANKDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_WAITFORVPORTSYNCDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -14187,7 +14187,7 @@ impl ::core::default::Default for DD_WAITFORVPORTSYNCDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXAPI_INTERFACE {
     pub Size: u16,
@@ -14605,7 +14605,7 @@ impl ::core::default::Default for SURFACEALIGNMENT_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VIDEOMEMORY {
     pub dwFlags: u32,
@@ -14634,7 +14634,7 @@ impl ::core::default::Default for VIDEOMEMORY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union VIDEOMEMORY_0 {
     pub fpEnd: usize,
@@ -14659,7 +14659,7 @@ impl ::core::default::Default for VIDEOMEMORY_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union VIDEOMEMORY_1 {
     pub lpHeap: *mut VMEMHEAP,
@@ -14713,7 +14713,7 @@ impl ::core::default::Default for VIDEOMEMORYINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VIDMEM {
     pub dwFlags: u32,
@@ -14742,7 +14742,7 @@ impl ::core::default::Default for VIDMEM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union VIDMEM_0 {
     pub fpEnd: usize,
@@ -14767,7 +14767,7 @@ impl ::core::default::Default for VIDMEM_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union VIDMEM_1 {
     pub lpHeap: *mut VMEMHEAP,
@@ -14792,7 +14792,7 @@ impl ::core::default::Default for VIDMEM_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VIDMEMINFO {
     pub fpPrimary: usize,
@@ -14828,7 +14828,7 @@ impl ::core::default::Default for VIDMEMINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VMEMHEAP {
     pub dwFlags: u32,
@@ -14868,7 +14868,7 @@ impl ::core::default::Default for VMEMHEAP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VMEML {
     pub next: *mut VMEML,
@@ -14909,7 +14909,7 @@ impl ::core::default::Default for VMEML {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VMEMR {
     pub next: *mut VMEMR,
@@ -14960,20 +14960,20 @@ impl ::core::default::Default for VMEMR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPCLIPPERCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpddclipper: ::core::option::Option<IDirectDrawClipper>, hwnd: super::super::Foundation::HWND, code: u32, lpcontext: *mut ::core::ffi::c_void) -> u32>;
 pub type LPDD32BITDRIVERINIT = ::core::option::Option<unsafe extern "system" fn(dwcontext: u32) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDDENUMCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows_core::GUID, param1: ::windows_core::PCSTR, param2: ::windows_core::PCSTR, param3: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDENUMCALLBACKEXA = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows_core::GUID, param1: ::windows_core::PCSTR, param2: ::windows_core::PCSTR, param3: *mut ::core::ffi::c_void, param4: super::Gdi::HMONITOR) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDENUMCALLBACKEXW = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows_core::GUID, param1: ::windows_core::PCWSTR, param2: ::windows_core::PCWSTR, param3: *mut ::core::ffi::c_void, param4: super::Gdi::HMONITOR) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDDENUMCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows_core::GUID, param1: ::windows_core::PCWSTR, param2: ::windows_core::PCWSTR, param3: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type LPDDENUMMODESCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDSURFACEDESC, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
@@ -14983,249 +14983,249 @@ pub type LPDDENUMSURFACESCALLBACK2 = ::core::option::Option<unsafe extern "syste
 pub type LPDDENUMSURFACESCALLBACK7 = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<IDirectDrawSurface7>, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 pub type LPDDENUMVIDEOCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDVIDEOPORTCAPS, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 pub type LPDDGAMMACALIBRATORPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDGAMMARAMP, param1: *mut u8) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALCOLORCB_COLORCONTROL = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_COLORCONTROLDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALEXEBUFCB_CANCREATEEXEBUF = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_CANCREATESURFACEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALEXEBUFCB_CREATEEXEBUF = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_CREATESURFACEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALEXEBUFCB_DESTROYEXEBUF = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_DESTROYSURFACEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALEXEBUFCB_LOCKEXEBUF = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_LOCKDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALEXEBUFCB_UNLOCKEXEBUF = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_UNLOCKDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALKERNELCB_SYNCSURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_SYNCSURFACEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALKERNELCB_SYNCVIDEOPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_SYNCVIDEOPORTDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_BEGINFRAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_BEGINMOCOMPFRAMEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_CREATE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_CREATEMOCOMPDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_DESTROY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_DESTROYMOCOMPDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_ENDFRAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_ENDMOCOMPFRAMEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_GETCOMPBUFFINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETMOCOMPCOMPBUFFDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_GETFORMATS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETMOCOMPFORMATSDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_GETGUIDS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETMOCOMPGUIDSDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_GETINTERNALINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETINTERNALMOCOMPDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_QUERYSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_QUERYMOCOMPSTATUSDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_RENDER = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_RENDERMOCOMPDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALPALCB_DESTROYPALETTE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_DESTROYPALETTEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALPALCB_SETENTRIES = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_SETENTRIESDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_ADDATTACHEDSURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_ADDATTACHEDSURFACEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_BLT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_BLTDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_DESTROYSURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_DESTROYSURFACEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_FLIP = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_FLIPDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_GETBLTSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETBLTSTATUSDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_GETFLIPSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETFLIPSTATUSDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_LOCK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_LOCKDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_SETCLIPLIST = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_SETCLIPLISTDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_SETCOLORKEY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_SETCOLORKEYDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_SETOVERLAYPOSITION = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_SETOVERLAYPOSITIONDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_SETPALETTE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_SETPALETTEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_UNLOCK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_UNLOCKDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_UPDATEOVERLAY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_UPDATEOVERLAYDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_CANCREATEVIDEOPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_CANCREATEVPORTDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_COLORCONTROL = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_VPORTCOLORDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_CREATEVIDEOPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_CREATEVPORTDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_DESTROYVPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_DESTROYVPORTDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_FLIP = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_FLIPVPORTDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_GETBANDWIDTH = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETVPORTBANDWIDTHDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_GETFIELD = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETVPORTFIELDDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_GETFLIPSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETVPORTFLIPSTATUSDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_GETINPUTFORMATS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETVPORTINPUTFORMATDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_GETLINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETVPORTLINEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_GETOUTPUTFORMATS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETVPORTOUTPUTFORMATDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_GETSIGNALSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETVPORTSIGNALDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_GETVPORTCONNECT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETVPORTCONNECTDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_UPDATE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_UPDATEVPORTDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_WAITFORSYNC = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_WAITFORVPORTSYNCDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_CANCREATESURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_CANCREATESURFACEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_CREATEPALETTE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_CREATEPALETTEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_CREATESURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_CREATESURFACEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_CREATESURFACEEX = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_CREATESURFACEEXDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_DESTROYDDLOCAL = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_DESTROYDDLOCALDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_DESTROYDRIVER = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_DESTROYDRIVERDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_FLIPTOGDISURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_FLIPTOGDISURFACEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_GETAVAILDRIVERMEMORY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETAVAILDRIVERMEMORYDATA) -> u32>;
 pub type LPDDHAL_GETDRIVERINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETDRIVERINFODATA) -> u32>;
 pub type LPDDHAL_GETDRIVERSTATE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETDRIVERSTATEDATA) -> u32>;
 pub type LPDDHAL_GETHEAPALIGNMENT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETHEAPALIGNMENTDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_GETSCANLINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETSCANLINEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_SETCOLORKEY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_DRVSETCOLORKEYDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_SETEXCLUSIVEMODE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_SETEXCLUSIVEMODEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_SETINFO = ::core::option::Option<unsafe extern "system" fn(lpddhalinfo: *mut DDHALINFO, reset: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_SETMODE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_SETMODEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_UPDATENONLOCALHEAP = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_UPDATENONLOCALHEAPDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_VIDMEMALLOC = ::core::option::Option<unsafe extern "system" fn(lpdd: *mut DDRAWI_DIRECTDRAW_GBL, heap: i32, dwwidth: u32, dwheight: u32) -> usize>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_VIDMEMFREE = ::core::option::Option<unsafe extern "system" fn(lpdd: *mut DDRAWI_DIRECTDRAW_GBL, heap: i32, fpmem: usize) -> ()>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_WAITFORVERTICALBLANK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_WAITFORVERTICALBLANKDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHEL_INIT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDRAWI_DIRECTDRAW_GBL, param1: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDIRECTDRAWENUMERATEEXA = ::core::option::Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDIRECTDRAWENUMERATEEXW = ::core::option::Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_ALPHABLT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_BLTDATA) -> u32>;
 pub type PDD_CANCREATESURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_CANCREATESURFACEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_COLORCB_COLORCONTROL = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_COLORCONTROLDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type PDD_CREATEPALETTE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_CREATEPALETTEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_CREATESURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_CREATESURFACEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_CREATESURFACEEX = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_CREATESURFACEEXDATA) -> u32>;
 pub type PDD_DESTROYDDLOCAL = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_DESTROYDDLOCALDATA) -> u32>;
 pub type PDD_DESTROYDRIVER = ::core::option::Option<unsafe extern "system" fn(param0: PDD_DESTROYDRIVERDATA) -> u32>;
 pub type PDD_FLIPTOGDISURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_FLIPTOGDISURFACEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_FREEDRIVERMEMORY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_FREEDRIVERMEMORYDATA) -> u32>;
 pub type PDD_GETAVAILDRIVERMEMORY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETAVAILDRIVERMEMORYDATA) -> u32>;
 pub type PDD_GETDRIVERINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETDRIVERINFODATA) -> u32>;
 pub type PDD_GETDRIVERSTATE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETDRIVERSTATEDATA) -> u32>;
 pub type PDD_GETSCANLINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETSCANLINEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_KERNELCB_SYNCSURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_SYNCSURFACEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_KERNELCB_SYNCVIDEOPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_SYNCVIDEOPORTDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_MAPMEMORY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_MAPMEMORYDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_MOCOMPCB_BEGINFRAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_BEGINMOCOMPFRAMEDATA) -> u32>;
 pub type PDD_MOCOMPCB_CREATE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_CREATEMOCOMPDATA) -> u32>;
@@ -15235,98 +15235,98 @@ pub type PDD_MOCOMPCB_GETCOMPBUFFINFO = ::core::option::Option<unsafe extern "sy
 pub type PDD_MOCOMPCB_GETFORMATS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETMOCOMPFORMATSDATA) -> u32>;
 pub type PDD_MOCOMPCB_GETGUIDS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETMOCOMPGUIDSDATA) -> u32>;
 pub type PDD_MOCOMPCB_GETINTERNALINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETINTERNALMOCOMPDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_MOCOMPCB_QUERYSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_QUERYMOCOMPSTATUSDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_MOCOMPCB_RENDER = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_RENDERMOCOMPDATA) -> u32>;
 pub type PDD_PALCB_DESTROYPALETTE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_DESTROYPALETTEDATA) -> u32>;
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type PDD_PALCB_SETENTRIES = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_SETENTRIESDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SETCOLORKEY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_DRVSETCOLORKEYDATA) -> u32>;
 pub type PDD_SETEXCLUSIVEMODE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_SETEXCLUSIVEMODEDATA) -> u32>;
 pub type PDD_SETMODE = ::core::option::Option<unsafe extern "system" fn(param0: PDD_SETMODEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_ADDATTACHEDSURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_ADDATTACHEDSURFACEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_BLT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_BLTDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_DESTROYSURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_DESTROYSURFACEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_FLIP = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_FLIPDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_GETBLTSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETBLTSTATUSDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_GETFLIPSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETFLIPSTATUSDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_LOCK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_LOCKDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_SETCLIPLIST = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_SETCLIPLISTDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_SETCOLORKEY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_SETCOLORKEYDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_SETOVERLAYPOSITION = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_SETOVERLAYPOSITIONDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_SETPALETTE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_SETPALETTEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_UNLOCK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_UNLOCKDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_UPDATEOVERLAY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_UPDATEOVERLAYDATA) -> u32>;
 pub type PDD_VPORTCB_CANCREATEVIDEOPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_CANCREATEVPORTDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_COLORCONTROL = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_VPORTCOLORDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_CREATEVIDEOPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_CREATEVPORTDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_DESTROYVPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_DESTROYVPORTDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_FLIP = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_FLIPVPORTDATA) -> u32>;
 pub type PDD_VPORTCB_GETAUTOFLIPSURF = ::core::option::Option<unsafe extern "system" fn(param0: PDD_GETVPORTAUTOFLIPSURFACEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_GETBANDWIDTH = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETVPORTBANDWIDTHDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_GETFIELD = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETVPORTFIELDDATA) -> u32>;
 pub type PDD_VPORTCB_GETFLIPSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETVPORTFLIPSTATUSDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_GETINPUTFORMATS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETVPORTINPUTFORMATDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_GETLINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETVPORTLINEDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_GETOUTPUTFORMATS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETVPORTOUTPUTFORMATDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_GETSIGNALSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETVPORTSIGNALDATA) -> u32>;
 pub type PDD_VPORTCB_GETVPORTCONNECT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETVPORTCONNECTDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_UPDATE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_UPDATEVPORTDATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_WAITFORSYNC = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_WAITFORVPORTSYNCDATA) -> u32>;
 pub type PDD_WAITFORVERTICALBLANK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_WAITFORVERTICALBLANKDATA) -> u32>;
@@ -15341,7 +15341,7 @@ pub type PDX_GETPREVIOUSAUTOFLIP = ::core::option::Option<unsafe extern "system"
 pub type PDX_GETTRANSFERSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void, param2: *mut DDGETTRANSFERSTATUSOUTINFO) -> u32>;
 pub type PDX_IRQCALLBACK = ::core::option::Option<unsafe extern "system" fn(pirqdata: *mut DX_IRQDATA) -> ()>;
 pub type PDX_LOCK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut DDLOCKININFO, param2: *mut DDLOCKOUTINFO) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDX_SETSTATE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut DDSETSTATEININFO, param2: *mut DDSETSTATEOUTINFO) -> u32>;
 pub type PDX_SKIPNEXTFIELD = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut DDSKIPNEXTFIELDINFO, param2: *mut ::core::ffi::c_void) -> u32>;

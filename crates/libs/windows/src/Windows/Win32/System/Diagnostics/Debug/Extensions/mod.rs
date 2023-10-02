@@ -55,7 +55,7 @@ impl DebugBaseEventCallbacks {
     {
         (::windows_core::Interface::vtable(self).base__.Breakpoint)(::windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Exception)(::windows_core::Interface::as_raw(self), exception, firstchance).ok()
@@ -131,7 +131,7 @@ impl DebugBaseEventCallbacksWide {
     {
         (::windows_core::Interface::vtable(self).base__.Breakpoint)(::windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Exception)(::windows_core::Interface::as_raw(self), exception, firstchance).ok()
@@ -323,13 +323,13 @@ impl IDataModelManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateDataModelObject)(::windows_core::Interface::as_raw(self), datamodel.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const super::super::super::Variant::VARIANT) -> ::windows_core::Result<IModelObject> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateIntrinsicObject)(::windows_core::Interface::as_raw(self), objectkind, intrinsicdata, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateTypedIntrinsicObject<P0>(&self, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: P0) -> ::windows_core::Result<IModelObject>
     where
@@ -497,13 +497,13 @@ impl IDataModelManager2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateDataModelObject)(::windows_core::Interface::as_raw(self), datamodel.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const super::super::super::Variant::VARIANT) -> ::windows_core::Result<IModelObject> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateIntrinsicObject)(::windows_core::Interface::as_raw(self), objectkind, intrinsicdata, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateTypedIntrinsicObject<P0>(&self, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: P0) -> ::windows_core::Result<IModelObject>
     where
@@ -594,7 +594,7 @@ impl IDataModelManager2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AcquireSubNamespace)(::windows_core::Interface::as_raw(self), modelname.into_param().abi(), subnamespacemodelname.into_param().abi(), accessname.into_param().abi(), metadata.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateTypedIntrinsicObjectEx<P0, P1>(&self, context: P0, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: P1) -> ::windows_core::Result<IModelObject>
     where
@@ -685,7 +685,7 @@ impl IDataModelScript {
     {
         (::windows_core::Interface::vtable(self).Rename)(::windows_core::Interface::as_raw(self), scriptname.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Populate<P0>(&self, contentstream: P0) -> ::windows_core::Result<()>
     where
@@ -1255,7 +1255,7 @@ impl IDataModelScriptTemplate {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetContent(&self) -> ::windows_core::Result<super::super::super::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
@@ -5617,12 +5617,12 @@ impl IDebugControl {
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetInterruptTimeout)(::windows_core::Interface::as_raw(self), seconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogFile(&self, buffer: ::core::option::Option<&mut [u8]>, filesize: ::core::option::Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLogFile)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(filesize.unwrap_or(::std::ptr::null_mut())), append).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> ::windows_core::Result<()>
     where
@@ -5727,7 +5727,7 @@ impl IDebugControl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNearInstruction)(::windows_core::Interface::as_raw(self), offset, delta, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME], framesfilled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStackTrace)(::windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -5736,7 +5736,7 @@ impl IDebugControl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReturnOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: ::core::option::Option<&[DEBUG_STACK_FRAME]>, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputStackTrace)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len() as _), flags).ok()
@@ -5865,7 +5865,7 @@ impl IDebugControl {
     pub unsafe fn SetRadix(&self, radix: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetRadix)(::windows_core::Interface::as_raw(self), radix).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Evaluate<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
     where
@@ -5873,12 +5873,12 @@ impl IDebugControl {
     {
         (::windows_core::Interface::vtable(self).Evaluate)(::windows_core::Interface::as_raw(self), expression.into_param().abi(), desiredtype, value, ::core::mem::transmute(remainderindex.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CoerceValue)(::windows_core::Interface::as_raw(self), r#in, outtype, out).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CoerceValues)(::windows_core::Interface::as_raw(self), count, r#in, outtypes, out).ok()
@@ -5944,7 +5944,7 @@ impl IDebugControl {
     {
         (::windows_core::Interface::vtable(self).CallExtension)(::windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> ::windows_core::Result<()>
     where
@@ -5952,12 +5952,12 @@ impl IDebugControl {
     {
         (::windows_core::Interface::vtable(self).GetExtensionFunction)(::windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
     }
-    #[doc = "Required features: `Win32_System_Kernel`"]
+    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "Required features: `Win32_System_Kernel`"]
+    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(::windows_core::Interface::as_raw(self), api).ok()
@@ -6177,12 +6177,12 @@ impl IDebugControl2 {
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetInterruptTimeout)(::windows_core::Interface::as_raw(self), seconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogFile(&self, buffer: ::core::option::Option<&mut [u8]>, filesize: ::core::option::Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLogFile)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(filesize.unwrap_or(::std::ptr::null_mut())), append).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> ::windows_core::Result<()>
     where
@@ -6287,7 +6287,7 @@ impl IDebugControl2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNearInstruction)(::windows_core::Interface::as_raw(self), offset, delta, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME], framesfilled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStackTrace)(::windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -6296,7 +6296,7 @@ impl IDebugControl2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReturnOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: ::core::option::Option<&[DEBUG_STACK_FRAME]>, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputStackTrace)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len() as _), flags).ok()
@@ -6425,7 +6425,7 @@ impl IDebugControl2 {
     pub unsafe fn SetRadix(&self, radix: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetRadix)(::windows_core::Interface::as_raw(self), radix).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Evaluate<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
     where
@@ -6433,12 +6433,12 @@ impl IDebugControl2 {
     {
         (::windows_core::Interface::vtable(self).Evaluate)(::windows_core::Interface::as_raw(self), expression.into_param().abi(), desiredtype, value, ::core::mem::transmute(remainderindex.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CoerceValue)(::windows_core::Interface::as_raw(self), r#in, outtype, out).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CoerceValues)(::windows_core::Interface::as_raw(self), count, r#in, outtypes, out).ok()
@@ -6504,7 +6504,7 @@ impl IDebugControl2 {
     {
         (::windows_core::Interface::vtable(self).CallExtension)(::windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> ::windows_core::Result<()>
     where
@@ -6512,12 +6512,12 @@ impl IDebugControl2 {
     {
         (::windows_core::Interface::vtable(self).GetExtensionFunction)(::windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
     }
-    #[doc = "Required features: `Win32_System_Kernel`"]
+    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "Required features: `Win32_System_Kernel`"]
+    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(::windows_core::Interface::as_raw(self), api).ok()
@@ -6791,12 +6791,12 @@ impl IDebugControl3 {
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetInterruptTimeout)(::windows_core::Interface::as_raw(self), seconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogFile(&self, buffer: ::core::option::Option<&mut [u8]>, filesize: ::core::option::Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLogFile)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(filesize.unwrap_or(::std::ptr::null_mut())), append).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> ::windows_core::Result<()>
     where
@@ -6901,7 +6901,7 @@ impl IDebugControl3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNearInstruction)(::windows_core::Interface::as_raw(self), offset, delta, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME], framesfilled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStackTrace)(::windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -6910,7 +6910,7 @@ impl IDebugControl3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReturnOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: ::core::option::Option<&[DEBUG_STACK_FRAME]>, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputStackTrace)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len() as _), flags).ok()
@@ -7039,7 +7039,7 @@ impl IDebugControl3 {
     pub unsafe fn SetRadix(&self, radix: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetRadix)(::windows_core::Interface::as_raw(self), radix).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Evaluate<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
     where
@@ -7047,12 +7047,12 @@ impl IDebugControl3 {
     {
         (::windows_core::Interface::vtable(self).Evaluate)(::windows_core::Interface::as_raw(self), expression.into_param().abi(), desiredtype, value, ::core::mem::transmute(remainderindex.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CoerceValue)(::windows_core::Interface::as_raw(self), r#in, outtype, out).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CoerceValues)(::windows_core::Interface::as_raw(self), count, r#in, outtypes, out).ok()
@@ -7118,7 +7118,7 @@ impl IDebugControl3 {
     {
         (::windows_core::Interface::vtable(self).CallExtension)(::windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> ::windows_core::Result<()>
     where
@@ -7126,12 +7126,12 @@ impl IDebugControl3 {
     {
         (::windows_core::Interface::vtable(self).GetExtensionFunction)(::windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
     }
-    #[doc = "Required features: `Win32_System_Kernel`"]
+    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "Required features: `Win32_System_Kernel`"]
+    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(::windows_core::Interface::as_raw(self), api).ok()
@@ -7479,12 +7479,12 @@ impl IDebugControl4 {
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetInterruptTimeout)(::windows_core::Interface::as_raw(self), seconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogFile(&self, buffer: ::core::option::Option<&mut [u8]>, filesize: ::core::option::Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLogFile)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(filesize.unwrap_or(::std::ptr::null_mut())), append).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> ::windows_core::Result<()>
     where
@@ -7589,7 +7589,7 @@ impl IDebugControl4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNearInstruction)(::windows_core::Interface::as_raw(self), offset, delta, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME], framesfilled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStackTrace)(::windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -7598,7 +7598,7 @@ impl IDebugControl4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReturnOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: ::core::option::Option<&[DEBUG_STACK_FRAME]>, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputStackTrace)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len() as _), flags).ok()
@@ -7727,7 +7727,7 @@ impl IDebugControl4 {
     pub unsafe fn SetRadix(&self, radix: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetRadix)(::windows_core::Interface::as_raw(self), radix).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Evaluate<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
     where
@@ -7735,12 +7735,12 @@ impl IDebugControl4 {
     {
         (::windows_core::Interface::vtable(self).Evaluate)(::windows_core::Interface::as_raw(self), expression.into_param().abi(), desiredtype, value, ::core::mem::transmute(remainderindex.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CoerceValue)(::windows_core::Interface::as_raw(self), r#in, outtype, out).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CoerceValues)(::windows_core::Interface::as_raw(self), count, r#in, outtypes, out).ok()
@@ -7806,7 +7806,7 @@ impl IDebugControl4 {
     {
         (::windows_core::Interface::vtable(self).CallExtension)(::windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> ::windows_core::Result<()>
     where
@@ -7814,12 +7814,12 @@ impl IDebugControl4 {
     {
         (::windows_core::Interface::vtable(self).GetExtensionFunction)(::windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
     }
-    #[doc = "Required features: `Win32_System_Kernel`"]
+    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "Required features: `Win32_System_Kernel`"]
+    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(::windows_core::Interface::as_raw(self), api).ok()
@@ -7994,12 +7994,12 @@ impl IDebugControl4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetNextEventIndex)(::windows_core::Interface::as_raw(self), relation, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogFileWide(&self, buffer: ::core::option::Option<&mut [u16]>, filesize: ::core::option::Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLogFileWide)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(filesize.unwrap_or(::std::ptr::null_mut())), append).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenLogFileWide<P0, P1>(&self, file: P0, append: P1) -> ::windows_core::Result<()>
     where
@@ -8088,7 +8088,7 @@ impl IDebugControl4 {
     {
         (::windows_core::Interface::vtable(self).SetTextMacroWide)(::windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EvaluateWide<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
     where
@@ -8147,7 +8147,7 @@ impl IDebugControl4 {
     {
         (::windows_core::Interface::vtable(self).CallExtensionWide)(::windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExtensionFunctionWide<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> ::windows_core::Result<()>
     where
@@ -8276,12 +8276,12 @@ impl IDebugControl4 {
     pub unsafe fn GetSystemVersionStringWide(&self, which: u32, buffer: ::core::option::Option<&mut [u16]>, stringsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSystemVersionStringWide)(::windows_core::Interface::as_raw(self), which, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(stringsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContextStackTrace(&self, startcontext: ::core::option::Option<*const ::core::ffi::c_void>, startcontextsize: u32, frames: ::core::option::Option<&mut [DEBUG_STACK_FRAME]>, framecontexts: ::core::option::Option<*mut ::core::ffi::c_void>, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetContextStackTrace)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(startcontext.unwrap_or(::std::ptr::null())), startcontextsize, ::core::mem::transmute(frames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(framecontexts.unwrap_or(::std::ptr::null_mut())), framecontextssize, framecontextsentrysize, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputContextStackTrace(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME], framecontexts: *const ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputContextStackTrace)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, framecontexts, framecontextssize, framecontextsentrysize, flags).ok()
@@ -8542,12 +8542,12 @@ impl IDebugControl5 {
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetInterruptTimeout)(::windows_core::Interface::as_raw(self), seconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogFile(&self, buffer: ::core::option::Option<&mut [u8]>, filesize: ::core::option::Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLogFile)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(filesize.unwrap_or(::std::ptr::null_mut())), append).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> ::windows_core::Result<()>
     where
@@ -8652,7 +8652,7 @@ impl IDebugControl5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNearInstruction)(::windows_core::Interface::as_raw(self), offset, delta, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME], framesfilled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStackTrace)(::windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -8661,7 +8661,7 @@ impl IDebugControl5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReturnOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: ::core::option::Option<&[DEBUG_STACK_FRAME]>, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputStackTrace)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len() as _), flags).ok()
@@ -8790,7 +8790,7 @@ impl IDebugControl5 {
     pub unsafe fn SetRadix(&self, radix: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetRadix)(::windows_core::Interface::as_raw(self), radix).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Evaluate<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
     where
@@ -8798,12 +8798,12 @@ impl IDebugControl5 {
     {
         (::windows_core::Interface::vtable(self).Evaluate)(::windows_core::Interface::as_raw(self), expression.into_param().abi(), desiredtype, value, ::core::mem::transmute(remainderindex.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CoerceValue)(::windows_core::Interface::as_raw(self), r#in, outtype, out).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CoerceValues)(::windows_core::Interface::as_raw(self), count, r#in, outtypes, out).ok()
@@ -8869,7 +8869,7 @@ impl IDebugControl5 {
     {
         (::windows_core::Interface::vtable(self).CallExtension)(::windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> ::windows_core::Result<()>
     where
@@ -8877,12 +8877,12 @@ impl IDebugControl5 {
     {
         (::windows_core::Interface::vtable(self).GetExtensionFunction)(::windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
     }
-    #[doc = "Required features: `Win32_System_Kernel`"]
+    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "Required features: `Win32_System_Kernel`"]
+    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(::windows_core::Interface::as_raw(self), api).ok()
@@ -9057,12 +9057,12 @@ impl IDebugControl5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetNextEventIndex)(::windows_core::Interface::as_raw(self), relation, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogFileWide(&self, buffer: ::core::option::Option<&mut [u16]>, filesize: ::core::option::Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLogFileWide)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(filesize.unwrap_or(::std::ptr::null_mut())), append).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenLogFileWide<P0, P1>(&self, file: P0, append: P1) -> ::windows_core::Result<()>
     where
@@ -9151,7 +9151,7 @@ impl IDebugControl5 {
     {
         (::windows_core::Interface::vtable(self).SetTextMacroWide)(::windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EvaluateWide<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
     where
@@ -9210,7 +9210,7 @@ impl IDebugControl5 {
     {
         (::windows_core::Interface::vtable(self).CallExtensionWide)(::windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExtensionFunctionWide<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> ::windows_core::Result<()>
     where
@@ -9339,12 +9339,12 @@ impl IDebugControl5 {
     pub unsafe fn GetSystemVersionStringWide(&self, which: u32, buffer: ::core::option::Option<&mut [u16]>, stringsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSystemVersionStringWide)(::windows_core::Interface::as_raw(self), which, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(stringsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContextStackTrace(&self, startcontext: ::core::option::Option<*const ::core::ffi::c_void>, startcontextsize: u32, frames: ::core::option::Option<&mut [DEBUG_STACK_FRAME]>, framecontexts: ::core::option::Option<*mut ::core::ffi::c_void>, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetContextStackTrace)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(startcontext.unwrap_or(::std::ptr::null())), startcontextsize, ::core::mem::transmute(frames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(framecontexts.unwrap_or(::std::ptr::null_mut())), framecontextssize, framecontextsentrysize, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputContextStackTrace(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME], framecontexts: *const ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputContextStackTrace)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, framecontexts, framecontextssize, framecontextsentrysize, flags).ok()
@@ -9361,22 +9361,22 @@ impl IDebugControl5 {
     pub unsafe fn ResetManagedStatus(&self, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ResetManagedStatus)(::windows_core::Interface::as_raw(self), flags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStackTraceEx(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME_EX], framesfilled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStackTraceEx)(::windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputStackTraceEx(&self, outputcontrol: u32, frames: ::core::option::Option<&[DEBUG_STACK_FRAME_EX]>, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputStackTraceEx)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len() as _), flags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContextStackTraceEx(&self, startcontext: ::core::option::Option<*const ::core::ffi::c_void>, startcontextsize: u32, frames: ::core::option::Option<&mut [DEBUG_STACK_FRAME_EX]>, framecontexts: ::core::option::Option<*mut ::core::ffi::c_void>, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetContextStackTraceEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(startcontext.unwrap_or(::std::ptr::null())), startcontextsize, ::core::mem::transmute(frames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(framecontexts.unwrap_or(::std::ptr::null_mut())), framecontextssize, framecontextsentrysize, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME_EX], framecontexts: *const ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputContextStackTraceEx)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, framecontexts, framecontextssize, framecontextsentrysize, flags).ok()
@@ -9646,12 +9646,12 @@ impl IDebugControl6 {
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetInterruptTimeout)(::windows_core::Interface::as_raw(self), seconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogFile(&self, buffer: ::core::option::Option<&mut [u8]>, filesize: ::core::option::Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLogFile)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(filesize.unwrap_or(::std::ptr::null_mut())), append).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> ::windows_core::Result<()>
     where
@@ -9756,7 +9756,7 @@ impl IDebugControl6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNearInstruction)(::windows_core::Interface::as_raw(self), offset, delta, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME], framesfilled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStackTrace)(::windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -9765,7 +9765,7 @@ impl IDebugControl6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReturnOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: ::core::option::Option<&[DEBUG_STACK_FRAME]>, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputStackTrace)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len() as _), flags).ok()
@@ -9894,7 +9894,7 @@ impl IDebugControl6 {
     pub unsafe fn SetRadix(&self, radix: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetRadix)(::windows_core::Interface::as_raw(self), radix).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Evaluate<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
     where
@@ -9902,12 +9902,12 @@ impl IDebugControl6 {
     {
         (::windows_core::Interface::vtable(self).Evaluate)(::windows_core::Interface::as_raw(self), expression.into_param().abi(), desiredtype, value, ::core::mem::transmute(remainderindex.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CoerceValue)(::windows_core::Interface::as_raw(self), r#in, outtype, out).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CoerceValues)(::windows_core::Interface::as_raw(self), count, r#in, outtypes, out).ok()
@@ -9973,7 +9973,7 @@ impl IDebugControl6 {
     {
         (::windows_core::Interface::vtable(self).CallExtension)(::windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> ::windows_core::Result<()>
     where
@@ -9981,12 +9981,12 @@ impl IDebugControl6 {
     {
         (::windows_core::Interface::vtable(self).GetExtensionFunction)(::windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
     }
-    #[doc = "Required features: `Win32_System_Kernel`"]
+    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "Required features: `Win32_System_Kernel`"]
+    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(::windows_core::Interface::as_raw(self), api).ok()
@@ -10161,12 +10161,12 @@ impl IDebugControl6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetNextEventIndex)(::windows_core::Interface::as_raw(self), relation, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogFileWide(&self, buffer: ::core::option::Option<&mut [u16]>, filesize: ::core::option::Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLogFileWide)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(filesize.unwrap_or(::std::ptr::null_mut())), append).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenLogFileWide<P0, P1>(&self, file: P0, append: P1) -> ::windows_core::Result<()>
     where
@@ -10255,7 +10255,7 @@ impl IDebugControl6 {
     {
         (::windows_core::Interface::vtable(self).SetTextMacroWide)(::windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EvaluateWide<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
     where
@@ -10314,7 +10314,7 @@ impl IDebugControl6 {
     {
         (::windows_core::Interface::vtable(self).CallExtensionWide)(::windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExtensionFunctionWide<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> ::windows_core::Result<()>
     where
@@ -10443,12 +10443,12 @@ impl IDebugControl6 {
     pub unsafe fn GetSystemVersionStringWide(&self, which: u32, buffer: ::core::option::Option<&mut [u16]>, stringsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSystemVersionStringWide)(::windows_core::Interface::as_raw(self), which, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(stringsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContextStackTrace(&self, startcontext: ::core::option::Option<*const ::core::ffi::c_void>, startcontextsize: u32, frames: ::core::option::Option<&mut [DEBUG_STACK_FRAME]>, framecontexts: ::core::option::Option<*mut ::core::ffi::c_void>, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetContextStackTrace)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(startcontext.unwrap_or(::std::ptr::null())), startcontextsize, ::core::mem::transmute(frames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(framecontexts.unwrap_or(::std::ptr::null_mut())), framecontextssize, framecontextsentrysize, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputContextStackTrace(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME], framecontexts: *const ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputContextStackTrace)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, framecontexts, framecontextssize, framecontextsentrysize, flags).ok()
@@ -10465,22 +10465,22 @@ impl IDebugControl6 {
     pub unsafe fn ResetManagedStatus(&self, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ResetManagedStatus)(::windows_core::Interface::as_raw(self), flags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStackTraceEx(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME_EX], framesfilled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStackTraceEx)(::windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputStackTraceEx(&self, outputcontrol: u32, frames: ::core::option::Option<&[DEBUG_STACK_FRAME_EX]>, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputStackTraceEx)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len() as _), flags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContextStackTraceEx(&self, startcontext: ::core::option::Option<*const ::core::ffi::c_void>, startcontextsize: u32, frames: ::core::option::Option<&mut [DEBUG_STACK_FRAME_EX]>, framecontexts: ::core::option::Option<*mut ::core::ffi::c_void>, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetContextStackTraceEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(startcontext.unwrap_or(::std::ptr::null())), startcontextsize, ::core::mem::transmute(frames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(framecontexts.unwrap_or(::std::ptr::null_mut())), framecontextssize, framecontextsentrysize, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME_EX], framecontexts: *const ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputContextStackTraceEx)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, framecontexts, framecontextssize, framecontextsentrysize, flags).ok()
@@ -10759,12 +10759,12 @@ impl IDebugControl7 {
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetInterruptTimeout)(::windows_core::Interface::as_raw(self), seconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogFile(&self, buffer: ::core::option::Option<&mut [u8]>, filesize: ::core::option::Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLogFile)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(filesize.unwrap_or(::std::ptr::null_mut())), append).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> ::windows_core::Result<()>
     where
@@ -10869,7 +10869,7 @@ impl IDebugControl7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNearInstruction)(::windows_core::Interface::as_raw(self), offset, delta, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME], framesfilled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStackTrace)(::windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -10878,7 +10878,7 @@ impl IDebugControl7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReturnOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: ::core::option::Option<&[DEBUG_STACK_FRAME]>, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputStackTrace)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len() as _), flags).ok()
@@ -11007,7 +11007,7 @@ impl IDebugControl7 {
     pub unsafe fn SetRadix(&self, radix: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetRadix)(::windows_core::Interface::as_raw(self), radix).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Evaluate<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
     where
@@ -11015,12 +11015,12 @@ impl IDebugControl7 {
     {
         (::windows_core::Interface::vtable(self).Evaluate)(::windows_core::Interface::as_raw(self), expression.into_param().abi(), desiredtype, value, ::core::mem::transmute(remainderindex.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CoerceValue)(::windows_core::Interface::as_raw(self), r#in, outtype, out).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CoerceValues)(::windows_core::Interface::as_raw(self), count, r#in, outtypes, out).ok()
@@ -11086,7 +11086,7 @@ impl IDebugControl7 {
     {
         (::windows_core::Interface::vtable(self).CallExtension)(::windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> ::windows_core::Result<()>
     where
@@ -11094,12 +11094,12 @@ impl IDebugControl7 {
     {
         (::windows_core::Interface::vtable(self).GetExtensionFunction)(::windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
     }
-    #[doc = "Required features: `Win32_System_Kernel`"]
+    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "Required features: `Win32_System_Kernel`"]
+    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(::windows_core::Interface::as_raw(self), api).ok()
@@ -11274,12 +11274,12 @@ impl IDebugControl7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetNextEventIndex)(::windows_core::Interface::as_raw(self), relation, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogFileWide(&self, buffer: ::core::option::Option<&mut [u16]>, filesize: ::core::option::Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLogFileWide)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(filesize.unwrap_or(::std::ptr::null_mut())), append).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenLogFileWide<P0, P1>(&self, file: P0, append: P1) -> ::windows_core::Result<()>
     where
@@ -11368,7 +11368,7 @@ impl IDebugControl7 {
     {
         (::windows_core::Interface::vtable(self).SetTextMacroWide)(::windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EvaluateWide<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
     where
@@ -11427,7 +11427,7 @@ impl IDebugControl7 {
     {
         (::windows_core::Interface::vtable(self).CallExtensionWide)(::windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExtensionFunctionWide<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> ::windows_core::Result<()>
     where
@@ -11556,12 +11556,12 @@ impl IDebugControl7 {
     pub unsafe fn GetSystemVersionStringWide(&self, which: u32, buffer: ::core::option::Option<&mut [u16]>, stringsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSystemVersionStringWide)(::windows_core::Interface::as_raw(self), which, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(stringsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContextStackTrace(&self, startcontext: ::core::option::Option<*const ::core::ffi::c_void>, startcontextsize: u32, frames: ::core::option::Option<&mut [DEBUG_STACK_FRAME]>, framecontexts: ::core::option::Option<*mut ::core::ffi::c_void>, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetContextStackTrace)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(startcontext.unwrap_or(::std::ptr::null())), startcontextsize, ::core::mem::transmute(frames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(framecontexts.unwrap_or(::std::ptr::null_mut())), framecontextssize, framecontextsentrysize, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputContextStackTrace(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME], framecontexts: *const ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputContextStackTrace)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, framecontexts, framecontextssize, framecontextsentrysize, flags).ok()
@@ -11578,22 +11578,22 @@ impl IDebugControl7 {
     pub unsafe fn ResetManagedStatus(&self, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ResetManagedStatus)(::windows_core::Interface::as_raw(self), flags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStackTraceEx(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME_EX], framesfilled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStackTraceEx)(::windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputStackTraceEx(&self, outputcontrol: u32, frames: ::core::option::Option<&[DEBUG_STACK_FRAME_EX]>, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputStackTraceEx)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len() as _), flags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContextStackTraceEx(&self, startcontext: ::core::option::Option<*const ::core::ffi::c_void>, startcontextsize: u32, frames: ::core::option::Option<&mut [DEBUG_STACK_FRAME_EX]>, framecontexts: ::core::option::Option<*mut ::core::ffi::c_void>, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetContextStackTraceEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(startcontext.unwrap_or(::std::ptr::null())), startcontextsize, ::core::mem::transmute(frames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(framecontexts.unwrap_or(::std::ptr::null_mut())), framecontextssize, framecontextsentrysize, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME_EX], framecontexts: *const ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputContextStackTraceEx)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, framecontexts, framecontextssize, framecontextsentrysize, flags).ok()
@@ -12040,7 +12040,7 @@ impl IDebugDataSpaces2 {
     pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *const ::core::ffi::c_void, patternsize: u32, filled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).FillPhysical)(::windows_core::Interface::as_raw(self), start, size, pattern, patternsize, ::core::mem::transmute(filled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_System_Memory`"]
+    #[doc = "Required features: `\"Win32_System_Memory\"`"]
     #[cfg(feature = "Win32_System_Memory")]
     pub unsafe fn QueryVirtual(&self, offset: u64, info: *mut super::super::super::Memory::MEMORY_BASIC_INFORMATION64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryVirtual)(::windows_core::Interface::as_raw(self), offset, info).ok()
@@ -12169,12 +12169,12 @@ impl IDebugDataSpaces3 {
     pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *const ::core::ffi::c_void, patternsize: u32, filled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).FillPhysical)(::windows_core::Interface::as_raw(self), start, size, pattern, patternsize, ::core::mem::transmute(filled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_System_Memory`"]
+    #[doc = "Required features: `\"Win32_System_Memory\"`"]
     #[cfg(feature = "Win32_System_Memory")]
     pub unsafe fn QueryVirtual(&self, offset: u64, info: *mut super::super::super::Memory::MEMORY_BASIC_INFORMATION64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryVirtual)(::windows_core::Interface::as_raw(self), offset, info).ok()
     }
-    #[doc = "Required features: `Win32_System_SystemInformation`"]
+    #[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
     #[cfg(feature = "Win32_System_SystemInformation")]
     pub unsafe fn ReadImageNtHeaders(&self, imagebase: u64, headers: *mut super::IMAGE_NT_HEADERS64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReadImageNtHeaders)(::windows_core::Interface::as_raw(self), imagebase, headers).ok()
@@ -12324,12 +12324,12 @@ impl IDebugDataSpaces4 {
     pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *const ::core::ffi::c_void, patternsize: u32, filled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).FillPhysical)(::windows_core::Interface::as_raw(self), start, size, pattern, patternsize, ::core::mem::transmute(filled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_System_Memory`"]
+    #[doc = "Required features: `\"Win32_System_Memory\"`"]
     #[cfg(feature = "Win32_System_Memory")]
     pub unsafe fn QueryVirtual(&self, offset: u64, info: *mut super::super::super::Memory::MEMORY_BASIC_INFORMATION64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryVirtual)(::windows_core::Interface::as_raw(self), offset, info).ok()
     }
-    #[doc = "Required features: `Win32_System_SystemInformation`"]
+    #[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
     #[cfg(feature = "Win32_System_SystemInformation")]
     pub unsafe fn ReadImageNtHeaders(&self, imagebase: u64, headers: *mut super::IMAGE_NT_HEADERS64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReadImageNtHeaders)(::windows_core::Interface::as_raw(self), imagebase, headers).ok()
@@ -12453,7 +12453,7 @@ impl IDebugEventCallbacks {
     {
         (::windows_core::Interface::vtable(self).Breakpoint)(::windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Exception)(::windows_core::Interface::as_raw(self), exception, firstchance).ok()
@@ -12546,7 +12546,7 @@ impl IDebugEventCallbacksWide {
     {
         (::windows_core::Interface::vtable(self).Breakpoint)(::windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Exception)(::windows_core::Interface::as_raw(self), exception, firstchance).ok()
@@ -12639,7 +12639,7 @@ impl IDebugEventContextCallbacks {
     {
         (::windows_core::Interface::vtable(self).Breakpoint)(::windows_core::Interface::as_raw(self), bp.into_param().abi(), context, contextsize).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Exception)(::windows_core::Interface::as_raw(self), exception, firstchance, context, contextsize).ok()
@@ -12746,7 +12746,7 @@ impl IDebugFAEntryTags {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTagByName)(::windows_core::Interface::as_raw(self), pluginid.into_param().abi(), tagname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsValidTagToSet(&self, tag: DEBUG_FLR_PARAM_TYPE) -> super::super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsValidTagToSet)(::windows_core::Interface::as_raw(self), tag)
@@ -12905,7 +12905,7 @@ impl IDebugFailureAnalysis2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDebugFATagControl)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn GetAnalysisXml(&self) -> ::windows_core::Result<super::super::super::super::Data::Xml::MsXml::IXMLDOMElement> {
         let mut result__ = ::std::mem::zeroed();
@@ -13036,7 +13036,7 @@ impl IDebugFailureAnalysis3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDebugFATagControl)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn GetAnalysisXml(&self) -> ::windows_core::Result<super::super::super::super::Data::Xml::MsXml::IXMLDOMElement> {
         let mut result__ = ::std::mem::zeroed();
@@ -13054,7 +13054,7 @@ impl IDebugFailureAnalysis3 {
     {
         (::windows_core::Interface::vtable(self).AddThreads)(::windows_core::Interface::as_raw(self), pdebugfailurethreadenum.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AttributeGet(&self, nindex: u32) -> ::windows_core::Result<super::super::super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -13064,7 +13064,7 @@ impl IDebugFailureAnalysis3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AttributeGetName)(::windows_core::Interface::as_raw(self), nindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AttributeSet(&self, nindex: u32, value: super::super::super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AttributeSet)(::windows_core::Interface::as_raw(self), nindex, ::core::mem::transmute(value)).ok()
@@ -13100,7 +13100,7 @@ impl IDebugFailureAnalysis3 {
     pub unsafe fn BlameETHREAD(&self, address: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).BlameETHREAD)(::windows_core::Interface::as_raw(self), address).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProblemClassIsSet(&self, nindex: u32) -> ::windows_core::Result<super::super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13329,7 +13329,7 @@ impl IDebugHostConstant {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareAgainst)(::windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self) -> ::windows_core::Result<super::super::super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -13423,7 +13423,7 @@ impl IDebugHostData {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLocation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self) -> ::windows_core::Result<super::super::super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -13630,7 +13630,7 @@ impl IDebugHostField {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLocation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self) -> ::windows_core::Result<super::super::super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -14929,22 +14929,22 @@ impl IDebugRegisters {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIndexByName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetValue(&self, register: u32, value: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), register, value).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValue(&self, register: u32, value: *const DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValue)(::windows_core::Interface::as_raw(self), register, value).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetValues(&self, count: u32, indices: ::core::option::Option<*const u32>, start: u32, values: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetValues)(::windows_core::Interface::as_raw(self), count, ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, values).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValues(&self, count: u32, indices: ::core::option::Option<*const u32>, start: u32, values: *const DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValues)(::windows_core::Interface::as_raw(self), count, ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, values).ok()
@@ -15018,22 +15018,22 @@ impl IDebugRegisters2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIndexByName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetValue(&self, register: u32, value: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), register, value).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValue(&self, register: u32, value: *const DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValue)(::windows_core::Interface::as_raw(self), register, value).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetValues(&self, count: u32, indices: ::core::option::Option<*const u32>, start: u32, values: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetValues)(::windows_core::Interface::as_raw(self), count, ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, values).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValues(&self, count: u32, indices: ::core::option::Option<*const u32>, start: u32, values: *const DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValues)(::windows_core::Interface::as_raw(self), count, ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, values).ok()
@@ -15087,22 +15087,22 @@ impl IDebugRegisters2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPseudoIndexByNameWide)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPseudoValues(&self, source: u32, count: u32, indices: ::core::option::Option<*const u32>, start: u32, values: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPseudoValues)(::windows_core::Interface::as_raw(self), source, count, ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, values).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPseudoValues(&self, source: u32, count: u32, indices: ::core::option::Option<*const u32>, start: u32, values: *const DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPseudoValues)(::windows_core::Interface::as_raw(self), source, count, ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, values).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetValues2(&self, source: u32, count: u32, indices: ::core::option::Option<*const u32>, start: u32, values: *mut DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetValues2)(::windows_core::Interface::as_raw(self), source, count, ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, values).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValues2(&self, source: u32, count: u32, indices: ::core::option::Option<*const u32>, start: u32, values: *const DEBUG_VALUE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValues2)(::windows_core::Interface::as_raw(self), source, count, ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, values).ok()
@@ -15214,7 +15214,7 @@ impl IDebugSymbolGroup {
     pub unsafe fn GetSymbolParameters(&self, start: u32, params: &mut [DEBUG_SYMBOL_PARAMETERS]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSymbolParameters)(::windows_core::Interface::as_raw(self), start, params.len() as _, ::core::mem::transmute(params.as_ptr())).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExpandSymbol<P0>(&self, index: u32, expand: P0) -> ::windows_core::Result<()>
     where
@@ -15292,7 +15292,7 @@ impl IDebugSymbolGroup2 {
     pub unsafe fn GetSymbolParameters(&self, start: u32, params: &mut [DEBUG_SYMBOL_PARAMETERS]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSymbolParameters)(::windows_core::Interface::as_raw(self), start, params.len() as _, ::core::mem::transmute(params.as_ptr())).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExpandSymbol<P0>(&self, index: u32, expand: P0) -> ::windows_core::Result<()>
     where
@@ -15539,12 +15539,12 @@ impl IDebugSymbols {
     pub unsafe fn OutputTypedDataPhysical(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputTypedDataPhysical)(::windows_core::Interface::as_raw(self), outputcontrol, offset, module, typeid, flags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetScope(&self, instructionoffset: ::core::option::Option<*mut u64>, scopeframe: ::core::option::Option<*mut DEBUG_STACK_FRAME>, scopecontext: ::core::option::Option<*mut ::core::ffi::c_void>, scopecontextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetScope)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(instructionoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(scopeframe.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(scopecontext.unwrap_or(::std::ptr::null_mut())), scopecontextsize).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetScope(&self, instructionoffset: u64, scopeframe: ::core::option::Option<*const DEBUG_STACK_FRAME>, scopecontext: ::core::option::Option<*const ::core::ffi::c_void>, scopecontextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetScope)(::windows_core::Interface::as_raw(self), instructionoffset, ::core::mem::transmute(scopeframe.unwrap_or(::std::ptr::null())), ::core::mem::transmute(scopecontext.unwrap_or(::std::ptr::null())), scopecontextsize).ok()
@@ -15841,12 +15841,12 @@ impl IDebugSymbols2 {
     pub unsafe fn OutputTypedDataPhysical(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputTypedDataPhysical)(::windows_core::Interface::as_raw(self), outputcontrol, offset, module, typeid, flags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetScope(&self, instructionoffset: ::core::option::Option<*mut u64>, scopeframe: ::core::option::Option<*mut DEBUG_STACK_FRAME>, scopecontext: ::core::option::Option<*mut ::core::ffi::c_void>, scopecontextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetScope)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(instructionoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(scopeframe.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(scopecontext.unwrap_or(::std::ptr::null_mut())), scopecontextsize).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetScope(&self, instructionoffset: u64, scopeframe: ::core::option::Option<*const DEBUG_STACK_FRAME>, scopecontext: ::core::option::Option<*const ::core::ffi::c_void>, scopecontextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetScope)(::windows_core::Interface::as_raw(self), instructionoffset, ::core::mem::transmute(scopeframe.unwrap_or(::std::ptr::null())), ::core::mem::transmute(scopecontext.unwrap_or(::std::ptr::null())), scopecontextsize).ok()
@@ -16179,12 +16179,12 @@ impl IDebugSymbols3 {
     pub unsafe fn OutputTypedDataPhysical(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputTypedDataPhysical)(::windows_core::Interface::as_raw(self), outputcontrol, offset, module, typeid, flags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetScope(&self, instructionoffset: ::core::option::Option<*mut u64>, scopeframe: ::core::option::Option<*mut DEBUG_STACK_FRAME>, scopecontext: ::core::option::Option<*mut ::core::ffi::c_void>, scopecontextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetScope)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(instructionoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(scopeframe.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(scopecontext.unwrap_or(::std::ptr::null_mut())), scopecontextsize).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetScope(&self, instructionoffset: u64, scopeframe: ::core::option::Option<*const DEBUG_STACK_FRAME>, scopecontext: ::core::option::Option<*const ::core::ffi::c_void>, scopecontextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetScope)(::windows_core::Interface::as_raw(self), instructionoffset, ::core::mem::transmute(scopeframe.unwrap_or(::std::ptr::null())), ::core::mem::transmute(scopecontext.unwrap_or(::std::ptr::null())), scopecontextsize).ok()
@@ -16887,12 +16887,12 @@ impl IDebugSymbols4 {
     pub unsafe fn OutputTypedDataPhysical(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputTypedDataPhysical)(::windows_core::Interface::as_raw(self), outputcontrol, offset, module, typeid, flags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetScope(&self, instructionoffset: ::core::option::Option<*mut u64>, scopeframe: ::core::option::Option<*mut DEBUG_STACK_FRAME>, scopecontext: ::core::option::Option<*mut ::core::ffi::c_void>, scopecontextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetScope)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(instructionoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(scopeframe.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(scopecontext.unwrap_or(::std::ptr::null_mut())), scopecontextsize).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetScope(&self, instructionoffset: u64, scopeframe: ::core::option::Option<*const DEBUG_STACK_FRAME>, scopecontext: ::core::option::Option<*const ::core::ffi::c_void>, scopecontextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetScope)(::windows_core::Interface::as_raw(self), instructionoffset, ::core::mem::transmute(scopeframe.unwrap_or(::std::ptr::null())), ::core::mem::transmute(scopecontext.unwrap_or(::std::ptr::null())), scopecontextsize).ok()
@@ -17322,12 +17322,12 @@ impl IDebugSymbols4 {
     pub unsafe fn GetSourceEntryBySourceEntry(&self, fromentry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, toentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSourceEntryBySourceEntry)(::windows_core::Interface::as_raw(self), fromentry, flags, toentry).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetScopeEx(&self, instructionoffset: ::core::option::Option<*mut u64>, scopeframe: ::core::option::Option<*mut DEBUG_STACK_FRAME_EX>, scopecontext: ::core::option::Option<*mut ::core::ffi::c_void>, scopecontextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetScopeEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(instructionoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(scopeframe.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(scopecontext.unwrap_or(::std::ptr::null_mut())), scopecontextsize).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetScopeEx(&self, instructionoffset: u64, scopeframe: ::core::option::Option<*const DEBUG_STACK_FRAME_EX>, scopecontext: ::core::option::Option<*const ::core::ffi::c_void>, scopecontextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetScopeEx)(::windows_core::Interface::as_raw(self), instructionoffset, ::core::mem::transmute(scopeframe.unwrap_or(::std::ptr::null())), ::core::mem::transmute(scopecontext.unwrap_or(::std::ptr::null())), scopecontextsize).ok()
@@ -17633,12 +17633,12 @@ impl IDebugSymbols5 {
     pub unsafe fn OutputTypedDataPhysical(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputTypedDataPhysical)(::windows_core::Interface::as_raw(self), outputcontrol, offset, module, typeid, flags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetScope(&self, instructionoffset: ::core::option::Option<*mut u64>, scopeframe: ::core::option::Option<*mut DEBUG_STACK_FRAME>, scopecontext: ::core::option::Option<*mut ::core::ffi::c_void>, scopecontextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetScope)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(instructionoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(scopeframe.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(scopecontext.unwrap_or(::std::ptr::null_mut())), scopecontextsize).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetScope(&self, instructionoffset: u64, scopeframe: ::core::option::Option<*const DEBUG_STACK_FRAME>, scopecontext: ::core::option::Option<*const ::core::ffi::c_void>, scopecontextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetScope)(::windows_core::Interface::as_raw(self), instructionoffset, ::core::mem::transmute(scopeframe.unwrap_or(::std::ptr::null())), ::core::mem::transmute(scopecontext.unwrap_or(::std::ptr::null())), scopecontextsize).ok()
@@ -18068,12 +18068,12 @@ impl IDebugSymbols5 {
     pub unsafe fn GetSourceEntryBySourceEntry(&self, fromentry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, toentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSourceEntryBySourceEntry)(::windows_core::Interface::as_raw(self), fromentry, flags, toentry).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetScopeEx(&self, instructionoffset: ::core::option::Option<*mut u64>, scopeframe: ::core::option::Option<*mut DEBUG_STACK_FRAME_EX>, scopecontext: ::core::option::Option<*mut ::core::ffi::c_void>, scopecontextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetScopeEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(instructionoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(scopeframe.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(scopecontext.unwrap_or(::std::ptr::null_mut())), scopecontextsize).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetScopeEx(&self, instructionoffset: u64, scopeframe: ::core::option::Option<*const DEBUG_STACK_FRAME_EX>, scopecontext: ::core::option::Option<*const ::core::ffi::c_void>, scopecontextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetScopeEx)(::windows_core::Interface::as_raw(self), instructionoffset, ::core::mem::transmute(scopeframe.unwrap_or(::std::ptr::null())), ::core::mem::transmute(scopecontext.unwrap_or(::std::ptr::null())), scopecontextsize).ok()
@@ -19502,13 +19502,13 @@ impl IModelObject {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetIntrinsicValue(&self) -> ::windows_core::Result<super::super::super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIntrinsicValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetIntrinsicValueAs(&self, vt: super::super::super::Variant::VARENUM) -> ::windows_core::Result<super::super::super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -22440,7 +22440,7 @@ impl ::core::default::Default for CKCL_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CKCL_LISTHEAD {
     pub LogEventListHead: *mut CKCL_DATA,
@@ -22545,7 +22545,7 @@ impl ::core::default::Default for CPU_INFO_v2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct DBGKD_DEBUG_DATA_HEADER32 {
     pub List: super::super::super::Kernel::LIST_ENTRY32,
@@ -22585,7 +22585,7 @@ impl ::core::default::Default for DBGKD_DEBUG_DATA_HEADER32 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct DBGKD_DEBUG_DATA_HEADER64 {
     pub List: super::super::super::Kernel::LIST_ENTRY64,
@@ -23052,7 +23052,7 @@ impl ::core::default::Default for DEBUG_CREATE_PROCESS_OPTIONS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_DECODE_ERROR {
     pub SizeOfStruct: u32,
@@ -23094,7 +23094,7 @@ impl ::core::default::Default for DEBUG_DECODE_ERROR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_DEVICE_OBJECT_INFO {
     pub SizeOfStruct: u32,
@@ -23470,7 +23470,7 @@ impl ::core::default::Default for DEBUG_LAST_EVENT_INFO_BREAKPOINT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_LAST_EVENT_INFO_EXCEPTION {
     pub ExceptionRecord: super::EXCEPTION_RECORD64,
@@ -24358,7 +24358,7 @@ impl ::core::default::Default for DEBUG_SPECIFIC_FILTER_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_STACK_FRAME {
     pub InstructionOffset: u64,
@@ -24404,7 +24404,7 @@ impl ::core::default::Default for DEBUG_STACK_FRAME {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_STACK_FRAME_EX {
     pub InstructionOffset: u64,
@@ -24719,7 +24719,7 @@ impl ::core::default::Default for DEBUG_TYPED_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_VALUE {
     pub Anonymous: DEBUG_VALUE_0,
@@ -24745,7 +24745,7 @@ impl ::core::default::Default for DEBUG_VALUE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DEBUG_VALUE_0 {
     pub I8: u8,
@@ -24786,7 +24786,7 @@ impl ::core::default::Default for DEBUG_VALUE_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_VALUE_0_0 {
     pub I64: u64,
@@ -24825,7 +24825,7 @@ impl ::core::default::Default for DEBUG_VALUE_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_VALUE_0_1 {
     pub LowPart: u64,
@@ -24864,7 +24864,7 @@ impl ::core::default::Default for DEBUG_VALUE_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_VALUE_0_2 {
     pub LowPart: u32,
@@ -25097,7 +25097,7 @@ impl ::core::default::Default for EXT_CAB_XML_DATA_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXT_FIND_FILE {
     pub FileName: ::windows_core::PCWSTR,
@@ -25851,7 +25851,7 @@ impl ::core::default::Default for IOSPACE_EX64 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct KDDEBUGGER_DATA32 {
     pub Header: DBGKD_DEBUG_DATA_HEADER32,
@@ -26086,7 +26086,7 @@ impl ::core::default::Default for KDDEBUGGER_DATA32 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct KDDEBUGGER_DATA64 {
     pub Header: DBGKD_DEBUG_DATA_HEADER64,
@@ -26612,7 +26612,7 @@ impl ::core::default::Default for KDDEBUGGER_DATA64 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KDEXTS_LOCK_INFO {
     pub SizeOfStruct: u32,
@@ -26741,7 +26741,7 @@ impl ::core::default::Default for KDEXT_FILELOCK_OWNER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KDEXT_HANDLE_INFORMATION {
     pub HandleTableEntry: u64,
@@ -27495,7 +27495,7 @@ impl ::core::default::Default for STACK_SRC_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STACK_SYM_FRAME_INFO {
     pub StackFrameEx: DEBUG_STACK_FRAME_EX,
@@ -28058,7 +28058,7 @@ impl ::core::default::Default for WDBGEXTS_THREAD_OS_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct WINDBG_EXTENSION_APIS {
     pub nSize: u32,
@@ -28099,7 +28099,7 @@ impl ::core::default::Default for WINDBG_EXTENSION_APIS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct WINDBG_EXTENSION_APIS32 {
     pub nSize: u32,
@@ -28140,7 +28140,7 @@ impl ::core::default::Default for WINDBG_EXTENSION_APIS32 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct WINDBG_EXTENSION_APIS64 {
     pub nSize: u32,
@@ -28280,15 +28280,15 @@ pub type ENTRY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(entry
 pub type EXTDLL_ITERATERTLBALANCEDNODES = ::core::option::Option<unsafe extern "system" fn(rootnode: u64, entryoffset: u32, callback: ENTRY_CALLBACK, callbackcontext: *mut ::core::ffi::c_void) -> ()>;
 pub type EXTDLL_QUERYDATABYTAG = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient4>, dwdatatag: u32, pqueryinfo: *const ::core::ffi::c_void, pdata: *mut u8, cbdata: u32) -> ::windows_core::HRESULT>;
 pub type EXTDLL_QUERYDATABYTAGEX = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient4>, dwdatatag: u32, pqueryinfo: *const ::core::ffi::c_void, pdata: *mut u8, cbdata: u32, pdataex: *mut u8, cbdataex: u32) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type EXTS_JOB_PROCESS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(job: u64, process: u64, context: *mut ::core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type EXTS_TABLE_ENTRY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(entry: u64, context: *mut ::core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
 pub type EXT_ANALYSIS_PLUGIN = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient4>, callphase: FA_EXTENSION_PLUGIN_PHASE, panalysis: ::core::option::Option<IDebugFailureAnalysis2>) -> ::windows_core::HRESULT>;
 pub type EXT_ANALYZER = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, bucketsuffix: ::windows_core::PSTR, cbbucketsuffix: u32, debugtext: ::windows_core::PSTR, cbdebugtext: u32, flags: *const u32, panalysis: ::core::option::Option<IDebugFailureAnalysis>) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type EXT_DECODE_ERROR = ::core::option::Option<unsafe extern "system" fn(pdecodeerror: *mut DEBUG_DECODE_ERROR) -> ()>;
 pub type EXT_GET_DEBUG_FAILURE_ANALYSIS = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient4>, flags: u32, classid: ::windows_core::GUID, ppanalysis: *mut ::core::option::Option<IDebugFailureAnalysis2>) -> ::windows_core::HRESULT>;
@@ -28300,10 +28300,10 @@ pub type EXT_RELOAD_TRIAGER = ::core::option::Option<unsafe extern "system" fn(c
 pub type EXT_TARGET_INFO = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient4>, ptargetinfo: *mut TARGET_DEBUG_INFO) -> ::windows_core::HRESULT>;
 pub type EXT_TRIAGE_FOLLOWUP = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient4>, symbolname: ::windows_core::PCSTR, ownerinfo: *mut DEBUG_TRIAGE_FOLLOWUP_INFO) -> u32>;
 pub type EXT_XML_DATA = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient4>, pxmpdata: *mut EXT_CAB_XML_DATA) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type KDEXTS_LOCK_CALLBACKROUTINE = ::core::option::Option<unsafe extern "system" fn(plock: *mut KDEXTS_LOCK_INFO, context: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type KDEXT_DUMP_HANDLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(handleinfo: *const KDEXT_HANDLE_INFORMATION, flags: u32, context: *mut ::core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
 pub type PDEBUG_EXTENSION_CALL = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, args: ::windows_core::PCSTR) -> ::windows_core::HRESULT>;
@@ -28318,22 +28318,22 @@ pub type PDEBUG_EXTENSION_UNINITIALIZE = ::core::option::Option<unsafe extern "s
 pub type PDEBUG_EXTENSION_UNLOAD = ::core::option::Option<unsafe extern "system" fn() -> ()>;
 pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = ::core::option::Option<unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows_core::HRESULT>;
 pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = ::core::option::Option<unsafe extern "system" fn() -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = ::core::option::Option<unsafe extern "system" fn(stacksymframes: *const STACK_SYM_FRAME_INFO) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = ::core::option::Option<unsafe extern "system" fn(systemthreadid: u32, nativeframes: *const DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUMERATE_HANDLES = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, process: u64, handletodump: u64, flags: u32, callback: KDEXT_DUMP_HANDLE_CALLBACK, context: *const ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUMERATE_HASH_TABLE = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, hashtable: u64, callback: EXTS_TABLE_ENTRY_CALLBACK, context: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUMERATE_JOB_PROCESSES = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, job: u64, callback: EXTS_JOB_PROCESS_CALLBACK, context: *const ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUMERATE_SYSTEM_LOCKS = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, flags: u32, callback: KDEXTS_LOCK_CALLBACKROUTINE, context: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 pub type PFIND_FILELOCK_OWNERINFO = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, pfilelockowner: *mut KDEXT_FILELOCK_OWNER) -> ::windows_core::HRESULT>;
@@ -28341,7 +28341,7 @@ pub type PFIND_MATCHING_PROCESS = ::core::option::Option<unsafe extern "system" 
 pub type PFIND_MATCHING_THREAD = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, threadinfo: *mut KDEXT_THREAD_FIND_PARAMS) -> ::windows_core::HRESULT>;
 pub type PGET_CPU_MICROCODE_VERSION = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, pcpumicrocodeversion: *mut DEBUG_CPU_MICROCODE_VERSION) -> ::windows_core::HRESULT>;
 pub type PGET_CPU_PSPEED_INFO = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, pcpuspeedinfo: *mut DEBUG_CPU_SPEED_INFO) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_DEVICE_OBJECT_INFO = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, deviceobject: u64, pdevobjinfo: *mut DEBUG_DEVICE_OBJECT_INFO) -> ::windows_core::HRESULT>;
 pub type PGET_DRIVER_OBJECT_INFO = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, driverobject: u64, pdrvobjinfo: *mut DEBUG_DRIVER_OBJECT_INFO) -> ::windows_core::HRESULT>;
@@ -28361,22 +28361,22 @@ pub type PWINDBG_DISASM = ::core::option::Option<unsafe extern "system" fn(lpoff
 pub type PWINDBG_DISASM32 = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut u32, lpbuffer: ::windows_core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
 pub type PWINDBG_DISASM64 = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut u64, lpbuffer: ::windows_core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
 pub type PWINDBG_EXTENSION_API_VERSION = ::core::option::Option<unsafe extern "system" fn() -> *mut EXT_API_VERSION>;
-#[doc = "Required features: `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_EXTENSION_DLL_INIT = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS, majorversion: u16, minorversion: u16) -> ()>;
-#[doc = "Required features: `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_EXTENSION_DLL_INIT32 = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS32, majorversion: u16, minorversion: u16) -> ()>;
-#[doc = "Required features: `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_EXTENSION_DLL_INIT64 = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS64, majorversion: u16, minorversion: u16) -> ()>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: ::windows_core::PCSTR) -> ()>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_EXTENSION_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: ::windows_core::PCSTR) -> ()>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_EXTENSION_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u64, dwprocessor: u32, lpargumentstring: ::windows_core::PCSTR) -> ()>;
 pub type PWINDBG_GET_EXPRESSION = ::core::option::Option<unsafe extern "system" fn(lpexpression: ::windows_core::PCSTR) -> usize>;
@@ -28385,21 +28385,21 @@ pub type PWINDBG_GET_EXPRESSION64 = ::core::option::Option<unsafe extern "system
 pub type PWINDBG_GET_SYMBOL = ::core::option::Option<unsafe extern "system" fn(offset: *mut ::core::ffi::c_void, pchbuffer: ::windows_core::PCSTR, pdisplacement: *mut usize) -> ()>;
 pub type PWINDBG_GET_SYMBOL32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, pchbuffer: ::windows_core::PCSTR, pdisplacement: *mut u32) -> ()>;
 pub type PWINDBG_GET_SYMBOL64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, pchbuffer: ::windows_core::PCSTR, pdisplacement: *mut u64) -> ()>;
-#[doc = "Required features: `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::CONTEXT, cbsizeofcontext: u32) -> u32>;
 pub type PWINDBG_IOCTL_ROUTINE = ::core::option::Option<unsafe extern "system" fn(ioctltype: u16, lpvdata: *mut ::core::ffi::c_void, cbsize: u32) -> u32>;
 pub type PWINDBG_OLDKD_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_OLDKD_EXTENSION_APIS, lpargumentstring: ::windows_core::PCSTR) -> ()>;
 pub type PWINDBG_OLDKD_READ_PHYSICAL_MEMORY = ::core::option::Option<unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, count: u32, bytesread: *mut u32) -> u32>;
 pub type PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY = ::core::option::Option<unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, length: u32, byteswritten: *mut u32) -> u32>;
-#[doc = "Required features: `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_OLD_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_EXTENSION_APIS, lpargumentstring: ::windows_core::PCSTR) -> ()>;
 pub type PWINDBG_OUTPUT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpformat: ::windows_core::PCSTR) -> ()>;
 pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(offset: usize, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
 pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
 pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
-#[doc = "Required features: `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::CONTEXT, cbsizeofcontext: u32) -> u32>;
 pub type PWINDBG_STACKTRACE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE, frames: u32) -> u32>;

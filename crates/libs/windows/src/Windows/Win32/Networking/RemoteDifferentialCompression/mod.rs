@@ -28,7 +28,7 @@ pub struct IFindSimilarResults_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRdcComparator(::windows_core::IUnknown);
 impl IRdcComparator {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Process<P0>(&self, endofinput: P0, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffer: *mut RdcNeedPointer, rdc_errorcode: *mut RDC_ErrorCode) -> ::windows_core::Result<()>
     where
@@ -61,7 +61,7 @@ impl IRdcFileReader {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFileSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Read(&self, offsetfilestart: u64, bytestoread: u32, bytesactuallyread: *mut u32, buffer: *mut u8, eof: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Read)(::windows_core::Interface::as_raw(self), offsetfilestart, bytestoread, bytesactuallyread, buffer, eof).ok()
@@ -97,7 +97,7 @@ impl IRdcFileWriter {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetFileSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Read(&self, offsetfilestart: u64, bytestoread: u32, bytesactuallyread: *mut u32, buffer: *mut u8, eof: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Read)(::windows_core::Interface::as_raw(self), offsetfilestart, bytestoread, bytesactuallyread, buffer, eof).ok()
@@ -140,7 +140,7 @@ impl IRdcGenerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetGeneratorParameters)(::windows_core::Interface::as_raw(self), level, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Process<P0>(&self, endofinput: P0, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffers: &mut [*mut RdcBufferPointer], rdc_errorcode: *mut RDC_ErrorCode) -> ::windows_core::Result<()>
     where
@@ -301,7 +301,7 @@ impl IRdcSignatureReader {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReadHeader)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReadSignatures(&self, rdcsignaturepointer: *mut RdcSignaturePointer, endofoutput: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReadSignatures)(::windows_core::Interface::as_raw(self), rdcsignaturepointer, endofoutput).ok()
@@ -354,7 +354,7 @@ pub struct IRdcSimilarityGenerator_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISimilarity(::windows_core::IUnknown);
 impl ISimilarity {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTable<P0, P1>(&self, path: P0, truncate: P1, securitydescriptor: *const u8, recordsize: u32) -> ::windows_core::Result<RdcCreatedTables>
     where
@@ -364,7 +364,7 @@ impl ISimilarity {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTable)(::windows_core::Interface::as_raw(self), path.into_param().abi(), truncate.into_param().abi(), securitydescriptor, recordsize, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTableIndirect<P0, P1, P2>(&self, mapping: P0, fileidfile: P1, truncate: P2, recordsize: u32) -> ::windows_core::Result<RdcCreatedTables>
     where
@@ -375,7 +375,7 @@ impl ISimilarity {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTableIndirect)(::windows_core::Interface::as_raw(self), mapping.into_param().abi(), fileidfile.into_param().abi(), truncate.into_param().abi(), recordsize, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CloseTable<P0>(&self, isvalid: P0) -> ::windows_core::Result<()>
     where
@@ -434,7 +434,7 @@ pub struct ISimilarity_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISimilarityFileIdTable(::windows_core::IUnknown);
 impl ISimilarityFileIdTable {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTable<P0, P1>(&self, path: P0, truncate: P1, securitydescriptor: *const u8, recordsize: u32) -> ::windows_core::Result<RdcCreatedTables>
     where
@@ -444,7 +444,7 @@ impl ISimilarityFileIdTable {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTable)(::windows_core::Interface::as_raw(self), path.into_param().abi(), truncate.into_param().abi(), securitydescriptor, recordsize, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTableIndirect<P0, P1>(&self, fileidfile: P0, truncate: P1, recordsize: u32) -> ::windows_core::Result<RdcCreatedTables>
     where
@@ -454,7 +454,7 @@ impl ISimilarityFileIdTable {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTableIndirect)(::windows_core::Interface::as_raw(self), fileidfile.into_param().abi(), truncate.into_param().abi(), recordsize, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CloseTable<P0>(&self, isvalid: P0) -> ::windows_core::Result<()>
     where
@@ -530,7 +530,7 @@ pub struct ISimilarityReportProgress_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISimilarityTableDumpState(::windows_core::IUnknown);
 impl ISimilarityTableDumpState {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNextData(&self, resultssize: u32, resultsused: *mut u32, eof: *mut super::super::Foundation::BOOL, results: *mut SimilarityDumpData) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetNextData)(::windows_core::Interface::as_raw(self), resultssize, resultsused, eof, results).ok()
@@ -562,7 +562,7 @@ impl ISimilarityTraitsMappedView {
     pub unsafe fn Unmap(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Unmap)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Get<P0>(&self, index: u64, dirty: P0, numelements: u32) -> ::windows_core::Result<SimilarityMappedViewInfo>
     where
@@ -649,7 +649,7 @@ pub struct ISimilarityTraitsMapping_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISimilarityTraitsTable(::windows_core::IUnknown);
 impl ISimilarityTraitsTable {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTable<P0, P1>(&self, path: P0, truncate: P1, securitydescriptor: *const u8) -> ::windows_core::Result<RdcCreatedTables>
     where
@@ -659,7 +659,7 @@ impl ISimilarityTraitsTable {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTable)(::windows_core::Interface::as_raw(self), path.into_param().abi(), truncate.into_param().abi(), securitydescriptor, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTableIndirect<P0, P1>(&self, mapping: P0, truncate: P1) -> ::windows_core::Result<RdcCreatedTables>
     where
@@ -669,7 +669,7 @@ impl ISimilarityTraitsTable {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTableIndirect)(::windows_core::Interface::as_raw(self), mapping.into_param().abi(), truncate.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CloseTable<P0>(&self, isvalid: P0) -> ::windows_core::Result<()>
     where

@@ -356,7 +356,7 @@ pub struct IXboxLiveQualityOfServicePrivatePayloadResult_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XboxLiveDeviceAddress(::windows_core::IUnknown);
 impl XboxLiveDeviceAddress {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SnapshotChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -368,7 +368,7 @@ impl XboxLiveDeviceAddress {
             (::windows_core::Interface::vtable(this).SnapshotChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSnapshotChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -381,7 +381,7 @@ impl XboxLiveDeviceAddress {
             (::windows_core::Interface::vtable(this).GetSnapshotAsBase64)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetSnapshotAsBuffer(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -431,7 +431,7 @@ impl XboxLiveDeviceAddress {
             (::windows_core::Interface::vtable(this).CreateFromSnapshotBase64)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(base64), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromSnapshotBuffer<P0>(buffer: P0) -> ::windows_core::Result<XboxLiveDeviceAddress>
     where
@@ -485,7 +485,7 @@ unsafe impl ::core::marker::Sync for XboxLiveDeviceAddress {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XboxLiveEndpointPair(::windows_core::IUnknown);
 impl XboxLiveEndpointPair {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -497,13 +497,13 @@ impl XboxLiveEndpointPair {
             (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -692,7 +692,7 @@ unsafe impl ::core::marker::Sync for XboxLiveEndpointPairStateChangedEventArgs {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XboxLiveEndpointPairTemplate(::windows_core::IUnknown);
 impl XboxLiveEndpointPairTemplate {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn InboundEndpointPairCreated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -704,13 +704,13 @@ impl XboxLiveEndpointPairTemplate {
             (::windows_core::Interface::vtable(this).InboundEndpointPairCreated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveInboundEndpointPairCreated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveInboundEndpointPairCreated)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateEndpointPairDefaultAsync<P0>(&self, deviceaddress: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
     where
@@ -722,7 +722,7 @@ impl XboxLiveEndpointPairTemplate {
             (::windows_core::Interface::vtable(this).CreateEndpointPairDefaultAsync)(::windows_core::Interface::as_raw(this), deviceaddress.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateEndpointPairWithBehaviorsAsync<P0>(&self, deviceaddress: P0, behaviors: XboxLiveEndpointPairCreationBehaviors) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
     where
@@ -734,7 +734,7 @@ impl XboxLiveEndpointPairTemplate {
             (::windows_core::Interface::vtable(this).CreateEndpointPairWithBehaviorsAsync)(::windows_core::Interface::as_raw(this), deviceaddress.into_param().abi(), behaviors, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateEndpointPairForPortsDefaultAsync<P0>(&self, deviceaddress: P0, initiatorport: &::windows_core::HSTRING, acceptorport: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
     where
@@ -746,7 +746,7 @@ impl XboxLiveEndpointPairTemplate {
             (::windows_core::Interface::vtable(this).CreateEndpointPairForPortsDefaultAsync)(::windows_core::Interface::as_raw(this), deviceaddress.into_param().abi(), ::core::mem::transmute_copy(initiatorport), ::core::mem::transmute_copy(acceptorport), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateEndpointPairForPortsWithBehaviorsAsync<P0>(&self, deviceaddress: P0, initiatorport: &::windows_core::HSTRING, acceptorport: &::windows_core::HSTRING, behaviors: XboxLiveEndpointPairCreationBehaviors) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
     where
@@ -800,7 +800,7 @@ impl XboxLiveEndpointPairTemplate {
             (::windows_core::Interface::vtable(this).AcceptorBoundPortRangeUpper)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EndpointPairs(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveEndpointPair>> {
         let this = self;
@@ -815,7 +815,7 @@ impl XboxLiveEndpointPairTemplate {
             (::windows_core::Interface::vtable(this).GetTemplateByName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Templates() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveEndpointPairTemplate>> {
         Self::IXboxLiveEndpointPairTemplateStatics(|this| unsafe {
@@ -882,7 +882,7 @@ impl XboxLiveQualityOfServiceMeasurement {
         static SHARED: ::windows_core::imp::FactoryCache<XboxLiveQualityOfServiceMeasurement, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MeasureAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -891,7 +891,7 @@ impl XboxLiveQualityOfServiceMeasurement {
             (::windows_core::Interface::vtable(this).MeasureAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMetricResultsForDevice<P0>(&self, deviceaddress: P0) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>
     where
@@ -903,7 +903,7 @@ impl XboxLiveQualityOfServiceMeasurement {
             (::windows_core::Interface::vtable(this).GetMetricResultsForDevice)(::windows_core::Interface::as_raw(this), deviceaddress.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMetricResultsForMetric(&self, metric: XboxLiveQualityOfServiceMetric) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>> {
         let this = self;
@@ -932,7 +932,7 @@ impl XboxLiveQualityOfServiceMeasurement {
             (::windows_core::Interface::vtable(this).GetPrivatePayloadResult)(::windows_core::Interface::as_raw(this), deviceaddress.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Metrics(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<XboxLiveQualityOfServiceMetric>> {
         let this = self;
@@ -941,7 +941,7 @@ impl XboxLiveQualityOfServiceMeasurement {
             (::windows_core::Interface::vtable(this).Metrics)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DeviceAddresses(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<XboxLiveDeviceAddress>> {
         let this = self;
@@ -990,7 +990,7 @@ impl XboxLiveQualityOfServiceMeasurement {
             (::windows_core::Interface::vtable(this).NumberOfResultsPending)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MetricResults(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>> {
         let this = self;
@@ -999,7 +999,7 @@ impl XboxLiveQualityOfServiceMeasurement {
             (::windows_core::Interface::vtable(this).MetricResults)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PrivatePayloadResults(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServicePrivatePayloadResult>> {
         let this = self;
@@ -1041,7 +1041,7 @@ impl XboxLiveQualityOfServiceMeasurement {
     pub fn SetIsSystemInboundBandwidthConstrained(value: bool) -> ::windows_core::Result<()> {
         Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows_core::Interface::vtable(this).SetIsSystemInboundBandwidthConstrained)(::windows_core::Interface::as_raw(this), value).ok() })
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn PublishedPrivatePayload() -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe {
@@ -1049,7 +1049,7 @@ impl XboxLiveQualityOfServiceMeasurement {
             (::windows_core::Interface::vtable(this).PublishedPrivatePayload)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetPublishedPrivatePayload<P0>(value: P0) -> ::windows_core::Result<()>
     where
@@ -1150,7 +1150,7 @@ impl XboxLiveQualityOfServicePrivatePayloadResult {
             (::windows_core::Interface::vtable(this).DeviceAddress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Value(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;

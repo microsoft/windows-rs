@@ -614,7 +614,7 @@ pub struct IVolumeChangeRequestedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CurrentTimeChangeRequestedEventArgs(::windows_core::IUnknown);
 impl CurrentTimeChangeRequestedEventArgs {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Time(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -662,14 +662,14 @@ impl ::windows_core::RuntimeName for MuteChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.MuteChangeRequestedEventArgs";
 }
 ::windows_core::imp::interface_hierarchy!(MuteChangeRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlayToConnection(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PlayToConnection {
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn State(&self) -> ::windows_core::Result<PlayToConnectionState> {
         let this = self;
@@ -678,7 +678,7 @@ impl PlayToConnection {
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn StateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -690,13 +690,13 @@ impl PlayToConnection {
             (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn Transferred<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -708,13 +708,13 @@ impl PlayToConnection {
             (::windows_core::Interface::vtable(this).Transferred)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveTransferred(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveTransferred)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn Error<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -726,7 +726,7 @@ impl PlayToConnection {
             (::windows_core::Interface::vtable(this).Error)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveError(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -755,14 +755,14 @@ impl ::windows_core::RuntimeName for PlayToConnection {
 unsafe impl ::core::marker::Send for PlayToConnection {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToConnection {}
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlayToConnectionErrorEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PlayToConnectionErrorEventArgs {
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Code(&self) -> ::windows_core::Result<PlayToConnectionError> {
         let this = self;
@@ -771,7 +771,7 @@ impl PlayToConnectionErrorEventArgs {
             (::windows_core::Interface::vtable(this).Code)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Message(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -803,14 +803,14 @@ impl ::windows_core::RuntimeName for PlayToConnectionErrorEventArgs {
 unsafe impl ::core::marker::Send for PlayToConnectionErrorEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToConnectionErrorEventArgs {}
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlayToConnectionStateChangedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PlayToConnectionStateChangedEventArgs {
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn PreviousState(&self) -> ::windows_core::Result<PlayToConnectionState> {
         let this = self;
@@ -819,7 +819,7 @@ impl PlayToConnectionStateChangedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn CurrentState(&self) -> ::windows_core::Result<PlayToConnectionState> {
         let this = self;
@@ -851,14 +851,14 @@ impl ::windows_core::RuntimeName for PlayToConnectionStateChangedEventArgs {
 unsafe impl ::core::marker::Send for PlayToConnectionStateChangedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToConnectionStateChangedEventArgs {}
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlayToConnectionTransferredEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PlayToConnectionTransferredEventArgs {
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn PreviousSource(&self) -> ::windows_core::Result<PlayToSource> {
         let this = self;
@@ -867,7 +867,7 @@ impl PlayToConnectionTransferredEventArgs {
             (::windows_core::Interface::vtable(this).PreviousSource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn CurrentSource(&self) -> ::windows_core::Result<PlayToSource> {
         let this = self;
@@ -899,14 +899,14 @@ impl ::windows_core::RuntimeName for PlayToConnectionTransferredEventArgs {
 unsafe impl ::core::marker::Send for PlayToConnectionTransferredEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToConnectionTransferredEventArgs {}
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlayToManager(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PlayToManager {
-    #[doc = "Required features: `Foundation`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SourceRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -918,13 +918,13 @@ impl PlayToManager {
             (::windows_core::Interface::vtable(this).SourceRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveSourceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSourceRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SourceSelected<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -936,19 +936,19 @@ impl PlayToManager {
             (::windows_core::Interface::vtable(this).SourceSelected)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveSourceSelected(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSourceSelected)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SetDefaultSourceSelection(&self, value: bool) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDefaultSourceSelection)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn DefaultSourceSelection(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -957,7 +957,7 @@ impl PlayToManager {
             (::windows_core::Interface::vtable(this).DefaultSourceSelection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn GetForCurrentView() -> ::windows_core::Result<PlayToManager> {
         Self::IPlayToManagerStatics(|this| unsafe {
@@ -965,7 +965,7 @@ impl PlayToManager {
             (::windows_core::Interface::vtable(this).GetForCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ShowPlayToUI() -> ::windows_core::Result<()> {
         Self::IPlayToManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).ShowPlayToUI)(::windows_core::Interface::as_raw(this)).ok() })
@@ -1010,7 +1010,7 @@ impl PlayToReceiver {
         static SHARED: ::windows_core::imp::FactoryCache<PlayToReceiver, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PlayRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1022,13 +1022,13 @@ impl PlayToReceiver {
             (::windows_core::Interface::vtable(this).PlayRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePlayRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePlayRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PauseRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1040,13 +1040,13 @@ impl PlayToReceiver {
             (::windows_core::Interface::vtable(this).PauseRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePauseRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePauseRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SourceChangeRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1058,13 +1058,13 @@ impl PlayToReceiver {
             (::windows_core::Interface::vtable(this).SourceChangeRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSourceChangeRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSourceChangeRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PlaybackRateChangeRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1076,13 +1076,13 @@ impl PlayToReceiver {
             (::windows_core::Interface::vtable(this).PlaybackRateChangeRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePlaybackRateChangeRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePlaybackRateChangeRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CurrentTimeChangeRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1094,13 +1094,13 @@ impl PlayToReceiver {
             (::windows_core::Interface::vtable(this).CurrentTimeChangeRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCurrentTimeChangeRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCurrentTimeChangeRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MuteChangeRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1112,13 +1112,13 @@ impl PlayToReceiver {
             (::windows_core::Interface::vtable(this).MuteChangeRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMuteChangeRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveMuteChangeRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn VolumeChangeRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1130,13 +1130,13 @@ impl PlayToReceiver {
             (::windows_core::Interface::vtable(this).VolumeChangeRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVolumeChangeRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveVolumeChangeRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeUpdateRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1148,13 +1148,13 @@ impl PlayToReceiver {
             (::windows_core::Interface::vtable(this).TimeUpdateRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTimeUpdateRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveTimeUpdateRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StopRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1166,7 +1166,7 @@ impl PlayToReceiver {
             (::windows_core::Interface::vtable(this).StopRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1184,13 +1184,13 @@ impl PlayToReceiver {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).NotifyLoadedMetadata)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn NotifyTimeUpdate(&self, currenttime: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).NotifyTimeUpdate)(::windows_core::Interface::as_raw(this), currenttime).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn NotifyDurationChange(&self, duration: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
@@ -1268,7 +1268,7 @@ impl PlayToReceiver {
             (::windows_core::Interface::vtable(this).SupportsVideo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
@@ -1277,7 +1277,7 @@ impl PlayToReceiver {
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1286,7 +1286,7 @@ impl PlayToReceiver {
             (::windows_core::Interface::vtable(this).StartAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StopAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1309,14 +1309,14 @@ impl ::windows_core::RuntimeName for PlayToReceiver {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToReceiver";
 }
 ::windows_core::imp::interface_hierarchy!(PlayToReceiver, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlayToSource(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PlayToSource {
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Connection(&self) -> ::windows_core::Result<PlayToConnection> {
         let this = self;
@@ -1325,7 +1325,7 @@ impl PlayToSource {
             (::windows_core::Interface::vtable(this).Connection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Next(&self) -> ::windows_core::Result<PlayToSource> {
         let this = self;
@@ -1334,7 +1334,7 @@ impl PlayToSource {
             (::windows_core::Interface::vtable(this).Next)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SetNext<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1343,13 +1343,13 @@ impl PlayToSource {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetNext)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn PlayNext(&self) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).PlayNext)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn PreferredSourceUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<IPlayToSourceWithPreferredSourceUri>(self)?;
@@ -1358,7 +1358,7 @@ impl PlayToSource {
             (::windows_core::Interface::vtable(this).PreferredSourceUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SetPreferredSourceUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1390,14 +1390,14 @@ impl ::windows_core::RuntimeName for PlayToSource {
 unsafe impl ::core::marker::Send for PlayToSource {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToSource {}
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlayToSourceDeferral(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PlayToSourceDeferral {
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Complete(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -1426,14 +1426,14 @@ impl ::windows_core::RuntimeName for PlayToSourceDeferral {
 unsafe impl ::core::marker::Send for PlayToSourceDeferral {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToSourceDeferral {}
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlayToSourceRequest(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PlayToSourceRequest {
-    #[doc = "Required features: `Foundation`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn Deadline(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1442,13 +1442,13 @@ impl PlayToSourceRequest {
             (::windows_core::Interface::vtable(this).Deadline)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn DisplayErrorString(&self, errorstring: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).DisplayErrorString)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(errorstring)).ok() }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<PlayToSourceDeferral> {
         let this = self;
@@ -1457,7 +1457,7 @@ impl PlayToSourceRequest {
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SetSource<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1489,14 +1489,14 @@ impl ::windows_core::RuntimeName for PlayToSourceRequest {
 unsafe impl ::core::marker::Send for PlayToSourceRequest {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToSourceRequest {}
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlayToSourceRequestedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PlayToSourceRequestedEventArgs {
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SourceRequest(&self) -> ::windows_core::Result<PlayToSourceRequest> {
         let this = self;
@@ -1528,14 +1528,14 @@ impl ::windows_core::RuntimeName for PlayToSourceRequestedEventArgs {
 unsafe impl ::core::marker::Send for PlayToSourceRequestedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToSourceRequestedEventArgs {}
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlayToSourceSelectedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PlayToSourceSelectedEventArgs {
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn FriendlyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1544,7 +1544,7 @@ impl PlayToSourceSelectedEventArgs {
             (::windows_core::Interface::vtable(this).FriendlyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`, `deprecated`"]
+    #[doc = "Required features: `\"Storage_Streams\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn Icon(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = self;
@@ -1553,7 +1553,7 @@ impl PlayToSourceSelectedEventArgs {
             (::windows_core::Interface::vtable(this).Icon)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SupportsImage(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -1562,7 +1562,7 @@ impl PlayToSourceSelectedEventArgs {
             (::windows_core::Interface::vtable(this).SupportsImage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SupportsAudio(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -1571,7 +1571,7 @@ impl PlayToSourceSelectedEventArgs {
             (::windows_core::Interface::vtable(this).SupportsAudio)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SupportsVideo(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -1632,7 +1632,7 @@ impl ::windows_core::RuntimeName for PlaybackRateChangeRequestedEventArgs {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SourceChangeRequestedEventArgs(::windows_core::IUnknown);
 impl SourceChangeRequestedEventArgs {
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Stream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = self;
@@ -1676,7 +1676,7 @@ impl SourceChangeRequestedEventArgs {
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Date(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -1685,7 +1685,7 @@ impl SourceChangeRequestedEventArgs {
             (::windows_core::Interface::vtable(this).Date)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Thumbnail(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -1694,7 +1694,7 @@ impl SourceChangeRequestedEventArgs {
             (::windows_core::Interface::vtable(this).Thumbnail)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Rating(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -1703,7 +1703,7 @@ impl SourceChangeRequestedEventArgs {
             (::windows_core::Interface::vtable(this).Rating)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = self;
@@ -1751,7 +1751,7 @@ impl ::windows_core::RuntimeName for VolumeChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.VolumeChangeRequestedEventArgs";
 }
 ::windows_core::imp::interface_hierarchy!(VolumeChangeRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1792,7 +1792,7 @@ impl ::core::fmt::Debug for PlayToConnectionError {
 impl ::windows_core::RuntimeType for PlayToConnectionError {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionError;i4)");
 }
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

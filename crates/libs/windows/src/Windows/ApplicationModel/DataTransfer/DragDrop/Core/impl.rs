@@ -1,4 +1,4 @@
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait ICoreDropOperationTarget_Impl: Sized {
     fn EnterAsync(&self, draginfo: ::core::option::Option<&CoreDragInfo>, draguioverride: ::core::option::Option<&CoreDragUIOverride>) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;

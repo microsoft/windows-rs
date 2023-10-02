@@ -92,7 +92,7 @@ impl IStorageItemAccessList {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).AddOrReplace)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), file.try_into_param()?.abi(), ::core::mem::transmute_copy(metadata)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetItemAsync(&self, token: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>> {
         let this = self;
@@ -101,7 +101,7 @@ impl IStorageItemAccessList {
             (::windows_core::Interface::vtable(this).GetItemAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetFileAsync(&self, token: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = self;
@@ -110,7 +110,7 @@ impl IStorageItemAccessList {
             (::windows_core::Interface::vtable(this).GetFileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetFolderAsync(&self, token: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = self;
@@ -119,7 +119,7 @@ impl IStorageItemAccessList {
             (::windows_core::Interface::vtable(this).GetFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetItemWithOptionsAsync(&self, token: &::windows_core::HSTRING, options: AccessCacheOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>> {
         let this = self;
@@ -128,7 +128,7 @@ impl IStorageItemAccessList {
             (::windows_core::Interface::vtable(this).GetItemWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetFileWithOptionsAsync(&self, token: &::windows_core::HSTRING, options: AccessCacheOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = self;
@@ -137,7 +137,7 @@ impl IStorageItemAccessList {
             (::windows_core::Interface::vtable(this).GetFileWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetFolderWithOptionsAsync(&self, token: &::windows_core::HSTRING, options: AccessCacheOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = self;
@@ -171,7 +171,7 @@ impl IStorageItemAccessList {
             (::windows_core::Interface::vtable(this).CheckAccess)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Entries(&self) -> ::windows_core::Result<AccessListEntryView> {
         let this = self;
@@ -280,14 +280,14 @@ pub struct IStorageItemMostRecentlyUsedList2_Vtbl {
     pub AddWithMetadataAndVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, metadata: ::std::mem::MaybeUninit<::windows_core::HSTRING>, visibility: RecentStorageItemVisibility, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub AddOrReplaceWithMetadataAndVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: ::std::mem::MaybeUninit<::windows_core::HSTRING>, file: *mut ::core::ffi::c_void, metadata: ::std::mem::MaybeUninit<::windows_core::HSTRING>, visibility: RecentStorageItemVisibility) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Foundation_Collections`"]
+#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AccessListEntryView(::windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl AccessListEntryView {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IIterator<AccessListEntry>> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IIterable<AccessListEntry>>(self)?;
@@ -296,7 +296,7 @@ impl AccessListEntryView {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<AccessListEntry> {
         let this = self;
@@ -305,7 +305,7 @@ impl AccessListEntryView {
             (::windows_core::Interface::vtable(this).GetAt)(::windows_core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -314,7 +314,7 @@ impl AccessListEntryView {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows_core::Result<bool>
     where
@@ -326,7 +326,7 @@ impl AccessListEntryView {
             (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [AccessListEntry]) -> ::windows_core::Result<u32> {
         let this = self;
@@ -413,7 +413,7 @@ impl StorageApplicationPermissions {
             (::windows_core::Interface::vtable(this).MostRecentlyUsedList)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetFutureAccessListForUser<P0>(user: P0) -> ::windows_core::Result<StorageItemAccessList>
     where
@@ -424,7 +424,7 @@ impl StorageApplicationPermissions {
             (::windows_core::Interface::vtable(this).GetFutureAccessListForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetMostRecentlyUsedListForUser<P0>(user: P0) -> ::windows_core::Result<StorageItemMostRecentlyUsedList>
     where
@@ -487,7 +487,7 @@ impl StorageItemAccessList {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).AddOrReplace)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), file.try_into_param()?.abi(), ::core::mem::transmute_copy(metadata)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetItemAsync(&self, token: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>> {
         let this = self;
@@ -496,7 +496,7 @@ impl StorageItemAccessList {
             (::windows_core::Interface::vtable(this).GetItemAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetFileAsync(&self, token: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = self;
@@ -505,7 +505,7 @@ impl StorageItemAccessList {
             (::windows_core::Interface::vtable(this).GetFileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetFolderAsync(&self, token: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = self;
@@ -514,7 +514,7 @@ impl StorageItemAccessList {
             (::windows_core::Interface::vtable(this).GetFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetItemWithOptionsAsync(&self, token: &::windows_core::HSTRING, options: AccessCacheOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>> {
         let this = self;
@@ -523,7 +523,7 @@ impl StorageItemAccessList {
             (::windows_core::Interface::vtable(this).GetItemWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetFileWithOptionsAsync(&self, token: &::windows_core::HSTRING, options: AccessCacheOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = self;
@@ -532,7 +532,7 @@ impl StorageItemAccessList {
             (::windows_core::Interface::vtable(this).GetFileWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetFolderWithOptionsAsync(&self, token: &::windows_core::HSTRING, options: AccessCacheOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = self;
@@ -566,7 +566,7 @@ impl StorageItemAccessList {
             (::windows_core::Interface::vtable(this).CheckAccess)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Entries(&self) -> ::windows_core::Result<AccessListEntryView> {
         let this = self;
@@ -635,7 +635,7 @@ impl StorageItemMostRecentlyUsedList {
         let this = &::windows_core::ComInterface::cast::<IStorageItemAccessList>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).AddOrReplace)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), file.try_into_param()?.abi(), ::core::mem::transmute_copy(metadata)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetItemAsync(&self, token: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>> {
         let this = &::windows_core::ComInterface::cast::<IStorageItemAccessList>(self)?;
@@ -644,7 +644,7 @@ impl StorageItemMostRecentlyUsedList {
             (::windows_core::Interface::vtable(this).GetItemAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetFileAsync(&self, token: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = &::windows_core::ComInterface::cast::<IStorageItemAccessList>(self)?;
@@ -653,7 +653,7 @@ impl StorageItemMostRecentlyUsedList {
             (::windows_core::Interface::vtable(this).GetFileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetFolderAsync(&self, token: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = &::windows_core::ComInterface::cast::<IStorageItemAccessList>(self)?;
@@ -662,7 +662,7 @@ impl StorageItemMostRecentlyUsedList {
             (::windows_core::Interface::vtable(this).GetFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetItemWithOptionsAsync(&self, token: &::windows_core::HSTRING, options: AccessCacheOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>> {
         let this = &::windows_core::ComInterface::cast::<IStorageItemAccessList>(self)?;
@@ -671,7 +671,7 @@ impl StorageItemMostRecentlyUsedList {
             (::windows_core::Interface::vtable(this).GetItemWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetFileWithOptionsAsync(&self, token: &::windows_core::HSTRING, options: AccessCacheOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = &::windows_core::ComInterface::cast::<IStorageItemAccessList>(self)?;
@@ -680,7 +680,7 @@ impl StorageItemMostRecentlyUsedList {
             (::windows_core::Interface::vtable(this).GetFileWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetFolderWithOptionsAsync(&self, token: &::windows_core::HSTRING, options: AccessCacheOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = &::windows_core::ComInterface::cast::<IStorageItemAccessList>(self)?;
@@ -714,7 +714,7 @@ impl StorageItemMostRecentlyUsedList {
             (::windows_core::Interface::vtable(this).CheckAccess)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Entries(&self) -> ::windows_core::Result<AccessListEntryView> {
         let this = &::windows_core::ComInterface::cast::<IStorageItemAccessList>(self)?;
@@ -730,7 +730,7 @@ impl StorageItemMostRecentlyUsedList {
             (::windows_core::Interface::vtable(this).MaximumItemsAllowed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ItemRemoved<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -742,7 +742,7 @@ impl StorageItemMostRecentlyUsedList {
             (::windows_core::Interface::vtable(this).ItemRemoved)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveItemRemoved(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;

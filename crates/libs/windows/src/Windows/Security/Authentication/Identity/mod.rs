@@ -1,5 +1,5 @@
 #[cfg(feature = "Security_Authentication_Identity_Core")]
-#[doc = "Required features: `Security_Authentication_Identity_Core`"]
+#[doc = "Required features: `\"Security_Authentication_Identity_Core\"`"]
 pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -115,7 +115,7 @@ unsafe impl ::core::marker::Sync for EnterpriseKeyCredentialRegistrationInfo {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EnterpriseKeyCredentialRegistrationManager(::windows_core::IUnknown);
 impl EnterpriseKeyCredentialRegistrationManager {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetRegistrationsAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>> {
         let this = self;

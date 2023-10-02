@@ -1,4 +1,4 @@
-#[doc = "Required features: `Foundation_Collections`, `Storage_Streams`"]
+#[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 pub trait IContactInformation_Impl: Sized {
     fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -206,7 +206,7 @@ impl IContactInformation_Vtbl {
         *iid == <IContactInformation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait IContactInformation2_Impl: Sized {
     fn DisplayPictureDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime>;

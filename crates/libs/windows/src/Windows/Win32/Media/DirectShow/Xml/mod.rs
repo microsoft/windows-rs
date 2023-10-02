@@ -2,7 +2,7 @@
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLGraphBuilder(::windows_core::IUnknown);
 impl IXMLGraphBuilder {
-    #[doc = "Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn BuildFromXML<P0, P1>(&self, pgraph: P0, pxml: P1) -> ::windows_core::Result<()>
     where

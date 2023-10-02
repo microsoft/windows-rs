@@ -1,5 +1,5 @@
 #[cfg(feature = "Win32_System_Performance_HardwareCounterProfiling")]
-#[doc = "Required features: `Win32_System_Performance_HardwareCounterProfiling`"]
+#[doc = "Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`"]
 pub mod HardwareCounterProfiling;
 #[inline]
 pub unsafe fn BackupPerfRegistryToFileW<P0, P1>(szfilename: P0, szcommentstring: P1) -> u32
@@ -28,7 +28,7 @@ where
     ::windows_targets::link!("loadperf.dll" "system" fn InstallPerfDllW(szcomputername : ::windows_core::PCWSTR, lpinifile : ::windows_core::PCWSTR, dwflags : usize) -> u32);
     InstallPerfDllW(szcomputername.into_param().abi(), lpinifile.into_param().abi(), dwflags)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadPerfCounterTextStringsA<P0, P1>(lpcommandline: P0, bquietmodearg: P1) -> u32
@@ -39,7 +39,7 @@ where
     ::windows_targets::link!("loadperf.dll" "system" fn LoadPerfCounterTextStringsA(lpcommandline : ::windows_core::PCSTR, bquietmodearg : super::super::Foundation:: BOOL) -> u32);
     LoadPerfCounterTextStringsA(lpcommandline.into_param().abi(), bquietmodearg.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadPerfCounterTextStringsW<P0, P1>(lpcommandline: P0, bquietmodearg: P1) -> u32
@@ -98,35 +98,35 @@ where
     ::windows_targets::link!("pdh.dll" "system" fn PdhBindInputDataSourceW(phdatasource : *mut isize, logfilenamelist : ::windows_core::PCWSTR) -> u32);
     PdhBindInputDataSourceW(phdatasource, logfilenamelist.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhBrowseCountersA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_A) -> u32 {
     ::windows_targets::link!("pdh.dll" "system" fn PdhBrowseCountersA(pbrowsedlgdata : *const PDH_BROWSE_DLG_CONFIG_A) -> u32);
     PdhBrowseCountersA(pbrowsedlgdata)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhBrowseCountersHA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HA) -> u32 {
     ::windows_targets::link!("pdh.dll" "system" fn PdhBrowseCountersHA(pbrowsedlgdata : *const PDH_BROWSE_DLG_CONFIG_HA) -> u32);
     PdhBrowseCountersHA(pbrowsedlgdata)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhBrowseCountersHW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HW) -> u32 {
     ::windows_targets::link!("pdh.dll" "system" fn PdhBrowseCountersHW(pbrowsedlgdata : *const PDH_BROWSE_DLG_CONFIG_HW) -> u32);
     PdhBrowseCountersHW(pbrowsedlgdata)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhBrowseCountersW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_W) -> u32 {
     ::windows_targets::link!("pdh.dll" "system" fn PdhBrowseCountersW(pbrowsedlgdata : *const PDH_BROWSE_DLG_CONFIG_W) -> u32);
     PdhBrowseCountersW(pbrowsedlgdata)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhCalculateCounterFromRawValue(hcounter: isize, dwformat: PDH_FMT, rawvalue1: *const PDH_RAW_COUNTER, rawvalue2: *const PDH_RAW_COUNTER, fmtvalue: *mut PDH_FMT_COUNTERVALUE) -> u32 {
@@ -148,7 +148,7 @@ pub unsafe fn PdhCollectQueryData(hquery: isize) -> u32 {
     ::windows_targets::link!("pdh.dll" "system" fn PdhCollectQueryData(hquery : isize) -> u32);
     PdhCollectQueryData(hquery)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhCollectQueryDataEx<P0>(hquery: isize, dwintervaltime: u32, hnewdataevent: P0) -> u32
@@ -163,7 +163,7 @@ pub unsafe fn PdhCollectQueryDataWithTime(hquery: isize, plltimestamp: *mut i64)
     ::windows_targets::link!("pdh.dll" "system" fn PdhCollectQueryDataWithTime(hquery : isize, plltimestamp : *mut i64) -> u32);
     PdhCollectQueryDataWithTime(hquery, plltimestamp)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhComputeCounterStatistics(hcounter: isize, dwformat: PDH_FMT, dwfirstentry: u32, dwnumentries: u32, lprawvaluearray: *const PDH_RAW_COUNTER, data: *mut PDH_STATISTICS) -> u32 {
@@ -282,7 +282,7 @@ where
     ::windows_targets::link!("pdh.dll" "system" fn PdhEnumObjectItemsW(szdatasource : ::windows_core::PCWSTR, szmachinename : ::windows_core::PCWSTR, szobjectname : ::windows_core::PCWSTR, mszcounterlist : ::windows_core::PWSTR, pcchcounterlistlength : *mut u32, mszinstancelist : ::windows_core::PWSTR, pcchinstancelistlength : *mut u32, dwdetaillevel : PERF_DETAIL, dwflags : u32) -> u32);
     PdhEnumObjectItemsW(szdatasource.into_param().abi(), szmachinename.into_param().abi(), szobjectname.into_param().abi(), ::core::mem::transmute(mszcounterlist), pcchcounterlistlength, ::core::mem::transmute(mszinstancelist), pcchinstancelistlength, dwdetaillevel, dwflags)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectsA<P0, P1, P2>(szdatasource: P0, szmachinename: P1, mszobjectlist: ::windows_core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P2) -> u32
@@ -294,7 +294,7 @@ where
     ::windows_targets::link!("pdh.dll" "system" fn PdhEnumObjectsA(szdatasource : ::windows_core::PCSTR, szmachinename : ::windows_core::PCSTR, mszobjectlist : ::windows_core::PSTR, pcchbuffersize : *mut u32, dwdetaillevel : PERF_DETAIL, brefresh : super::super::Foundation:: BOOL) -> u32);
     PdhEnumObjectsA(szdatasource.into_param().abi(), szmachinename.into_param().abi(), ::core::mem::transmute(mszobjectlist), pcchbuffersize, dwdetaillevel, brefresh.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectsHA<P0, P1>(hdatasource: isize, szmachinename: P0, mszobjectlist: ::windows_core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P1) -> u32
@@ -305,7 +305,7 @@ where
     ::windows_targets::link!("pdh.dll" "system" fn PdhEnumObjectsHA(hdatasource : isize, szmachinename : ::windows_core::PCSTR, mszobjectlist : ::windows_core::PSTR, pcchbuffersize : *mut u32, dwdetaillevel : PERF_DETAIL, brefresh : super::super::Foundation:: BOOL) -> u32);
     PdhEnumObjectsHA(hdatasource, szmachinename.into_param().abi(), ::core::mem::transmute(mszobjectlist), pcchbuffersize, dwdetaillevel, brefresh.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectsHW<P0, P1>(hdatasource: isize, szmachinename: P0, mszobjectlist: ::windows_core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P1) -> u32
@@ -316,7 +316,7 @@ where
     ::windows_targets::link!("pdh.dll" "system" fn PdhEnumObjectsHW(hdatasource : isize, szmachinename : ::windows_core::PCWSTR, mszobjectlist : ::windows_core::PWSTR, pcchbuffersize : *mut u32, dwdetaillevel : PERF_DETAIL, brefresh : super::super::Foundation:: BOOL) -> u32);
     PdhEnumObjectsHW(hdatasource, szmachinename.into_param().abi(), ::core::mem::transmute(mszobjectlist), pcchbuffersize, dwdetaillevel, brefresh.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectsW<P0, P1, P2>(szdatasource: P0, szmachinename: P1, mszobjectlist: ::windows_core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P2) -> u32
@@ -378,14 +378,14 @@ where
     ::windows_targets::link!("pdh.dll" "system" fn PdhExpandWildCardPathW(szdatasource : ::windows_core::PCWSTR, szwildcardpath : ::windows_core::PCWSTR, mszexpandedpathlist : ::windows_core::PWSTR, pcchpathlistlength : *mut u32, dwflags : u32) -> u32);
     PdhExpandWildCardPathW(szdatasource.into_param().abi(), szwildcardpath.into_param().abi(), ::core::mem::transmute(mszexpandedpathlist), pcchpathlistlength, dwflags)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptimebase: ::core::option::Option<*const i64>, prawvalue1: *const PDH_RAW_COUNTER, prawvalue2: *const PDH_RAW_COUNTER, pfmtvalue: *mut PDH_FMT_COUNTERVALUE) -> u32 {
     ::windows_targets::link!("pdh.dll" "system" fn PdhFormatFromRawValue(dwcountertype : u32, dwformat : PDH_FMT, ptimebase : *const i64, prawvalue1 : *const PDH_RAW_COUNTER, prawvalue2 : *const PDH_RAW_COUNTER, pfmtvalue : *mut PDH_FMT_COUNTERVALUE) -> u32);
     PdhFormatFromRawValue(dwcountertype, dwformat, ::core::mem::transmute(ptimebase.unwrap_or(::std::ptr::null())), prawvalue1, prawvalue2, pfmtvalue)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetCounterInfoA<P0>(hcounter: isize, bretrieveexplaintext: P0, pdwbuffersize: *mut u32, lpbuffer: ::core::option::Option<*mut PDH_COUNTER_INFO_A>) -> u32
@@ -395,7 +395,7 @@ where
     ::windows_targets::link!("pdh.dll" "system" fn PdhGetCounterInfoA(hcounter : isize, bretrieveexplaintext : super::super::Foundation:: BOOLEAN, pdwbuffersize : *mut u32, lpbuffer : *mut PDH_COUNTER_INFO_A) -> u32);
     PdhGetCounterInfoA(hcounter, bretrieveexplaintext.into_param().abi(), pdwbuffersize, ::core::mem::transmute(lpbuffer.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetCounterInfoW<P0>(hcounter: isize, bretrieveexplaintext: P0, pdwbuffersize: *mut u32, lpbuffer: ::core::option::Option<*mut PDH_COUNTER_INFO_W>) -> u32
@@ -533,28 +533,28 @@ pub unsafe fn PdhGetLogSetGUID(hlog: isize, pguid: ::core::option::Option<*mut :
     ::windows_targets::link!("pdh.dll" "system" fn PdhGetLogSetGUID(hlog : isize, pguid : *mut ::windows_core::GUID, prunid : *mut i32) -> u32);
     PdhGetLogSetGUID(hlog, ::core::mem::transmute(pguid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(prunid.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetRawCounterArrayA(hcounter: isize, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: ::core::option::Option<*mut PDH_RAW_COUNTER_ITEM_A>) -> u32 {
     ::windows_targets::link!("pdh.dll" "system" fn PdhGetRawCounterArrayA(hcounter : isize, lpdwbuffersize : *mut u32, lpdwitemcount : *mut u32, itembuffer : *mut PDH_RAW_COUNTER_ITEM_A) -> u32);
     PdhGetRawCounterArrayA(hcounter, lpdwbuffersize, lpdwitemcount, ::core::mem::transmute(itembuffer.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetRawCounterArrayW(hcounter: isize, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: ::core::option::Option<*mut PDH_RAW_COUNTER_ITEM_W>) -> u32 {
     ::windows_targets::link!("pdh.dll" "system" fn PdhGetRawCounterArrayW(hcounter : isize, lpdwbuffersize : *mut u32, lpdwitemcount : *mut u32, itembuffer : *mut PDH_RAW_COUNTER_ITEM_W) -> u32);
     PdhGetRawCounterArrayW(hcounter, lpdwbuffersize, lpdwitemcount, ::core::mem::transmute(itembuffer.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetRawCounterValue(hcounter: isize, lpdwtype: ::core::option::Option<*mut u32>, pvalue: *mut PDH_RAW_COUNTER) -> u32 {
     ::windows_targets::link!("pdh.dll" "system" fn PdhGetRawCounterValue(hcounter : isize, lpdwtype : *mut u32, pvalue : *mut PDH_RAW_COUNTER) -> u32);
     PdhGetRawCounterValue(hcounter, ::core::mem::transmute(lpdwtype.unwrap_or(::std::ptr::null_mut())), pvalue)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhIsRealTimeQuery(hquery: isize) -> super::super::Foundation::BOOL {
@@ -676,7 +676,7 @@ where
     ::windows_targets::link!("pdh.dll" "system" fn PdhParseInstanceNameW(szinstancestring : ::windows_core::PCWSTR, szinstancename : ::windows_core::PWSTR, pcchinstancenamelength : *mut u32, szparentname : ::windows_core::PWSTR, pcchparentnamelength : *mut u32, lpindex : *mut u32) -> u32);
     PdhParseInstanceNameW(szinstancestring.into_param().abi(), ::core::mem::transmute(szinstancename), pcchinstancenamelength, ::core::mem::transmute(szparentname), pcchparentnamelength, lpindex)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhReadRawLogRecord(hlog: isize, ftrecord: super::super::Foundation::FILETIME, prawlogrecord: ::core::option::Option<*mut PDH_RAW_LOG_RECORD>, pdwbufferlength: *mut u32) -> u32 {
@@ -688,7 +688,7 @@ pub unsafe fn PdhRemoveCounter(hcounter: isize) -> u32 {
     ::windows_targets::link!("pdh.dll" "system" fn PdhRemoveCounter(hcounter : isize) -> u32);
     PdhRemoveCounter(hcounter)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhSelectDataSourceA<P0>(hwndowner: P0, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: ::windows_core::PSTR, pcchbufferlength: *mut u32) -> u32
@@ -698,7 +698,7 @@ where
     ::windows_targets::link!("pdh.dll" "system" fn PdhSelectDataSourceA(hwndowner : super::super::Foundation:: HWND, dwflags : PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource : ::windows_core::PSTR, pcchbufferlength : *mut u32) -> u32);
     PdhSelectDataSourceA(hwndowner.into_param().abi(), dwflags, ::core::mem::transmute(szdatasource), pcchbufferlength)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhSelectDataSourceW<P0>(hwndowner: P0, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: ::windows_core::PWSTR, pcchbufferlength: *mut u32) -> u32
@@ -797,7 +797,7 @@ where
     ::windows_targets::link!("pdh.dll" "system" fn PdhVerifySQLDBW(szdatasource : ::windows_core::PCWSTR) -> u32);
     PdhVerifySQLDBW(szdatasource.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfAddCounters<P0>(hquery: P0, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32
@@ -807,7 +807,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn PerfAddCounters(hquery : super::super::Foundation:: HANDLE, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32) -> u32);
     PerfAddCounters(hquery.into_param().abi(), pcounters, cbcounters)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfCloseQueryHandle<P0>(hquery: P0) -> u32
@@ -817,7 +817,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn PerfCloseQueryHandle(hquery : super::super::Foundation:: HANDLE) -> u32);
     PerfCloseQueryHandle(hquery.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfCreateInstance<P0, P1>(providerhandle: P0, countersetguid: *const ::windows_core::GUID, name: P1, id: u32) -> *mut PERF_COUNTERSET_INSTANCE
@@ -828,7 +828,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn PerfCreateInstance(providerhandle : super::super::Foundation:: HANDLE, countersetguid : *const ::windows_core::GUID, name : ::windows_core::PCWSTR, id : u32) -> *mut PERF_COUNTERSET_INSTANCE);
     PerfCreateInstance(providerhandle.into_param().abi(), countersetguid, name.into_param().abi(), id)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfDecrementULongCounterValue<P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32
@@ -838,7 +838,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn PerfDecrementULongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u32) -> u32);
     PerfDecrementULongCounterValue(provider.into_param().abi(), instance, counterid, value)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfDecrementULongLongCounterValue<P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32
@@ -848,7 +848,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn PerfDecrementULongLongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u64) -> u32);
     PerfDecrementULongLongCounterValue(provider.into_param().abi(), instance, counterid, value)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfDeleteCounters<P0>(hquery: P0, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32
@@ -858,7 +858,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn PerfDeleteCounters(hquery : super::super::Foundation:: HANDLE, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32) -> u32);
     PerfDeleteCounters(hquery.into_param().abi(), pcounters, cbcounters)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfDeleteInstance<P0>(provider: P0, instanceblock: *const PERF_COUNTERSET_INSTANCE) -> u32
@@ -884,7 +884,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn PerfEnumerateCounterSetInstances(szmachine : ::windows_core::PCWSTR, pcountersetid : *const ::windows_core::GUID, pinstances : *mut PERF_INSTANCE_HEADER, cbinstances : u32, pcbinstancesactual : *mut u32) -> u32);
     PerfEnumerateCounterSetInstances(szmachine.into_param().abi(), pcountersetid, ::core::mem::transmute(pinstances.unwrap_or(::std::ptr::null_mut())), cbinstances, pcbinstancesactual)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfIncrementULongCounterValue<P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32
@@ -894,7 +894,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn PerfIncrementULongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u32) -> u32);
     PerfIncrementULongCounterValue(provider.into_param().abi(), instance, counterid, value)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfIncrementULongLongCounterValue<P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32
@@ -904,7 +904,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn PerfIncrementULongLongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u64) -> u32);
     PerfIncrementULongLongCounterValue(provider.into_param().abi(), instance, counterid, value)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfOpenQueryHandle<P0>(szmachine: P0, phquery: *mut super::super::Foundation::HANDLE) -> u32
@@ -914,7 +914,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn PerfOpenQueryHandle(szmachine : ::windows_core::PCWSTR, phquery : *mut super::super::Foundation:: HANDLE) -> u32);
     PerfOpenQueryHandle(szmachine.into_param().abi(), phquery)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfQueryCounterData<P0>(hquery: P0, pcounterblock: ::core::option::Option<*mut PERF_DATA_HEADER>, cbcounterblock: u32, pcbcounterblockactual: *mut u32) -> u32
@@ -924,7 +924,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn PerfQueryCounterData(hquery : super::super::Foundation:: HANDLE, pcounterblock : *mut PERF_DATA_HEADER, cbcounterblock : u32, pcbcounterblockactual : *mut u32) -> u32);
     PerfQueryCounterData(hquery.into_param().abi(), ::core::mem::transmute(pcounterblock.unwrap_or(::std::ptr::null_mut())), cbcounterblock, pcbcounterblockactual)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfQueryCounterInfo<P0>(hquery: P0, pcounters: ::core::option::Option<*mut PERF_COUNTER_IDENTIFIER>, cbcounters: u32, pcbcountersactual: *mut u32) -> u32
@@ -942,7 +942,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn PerfQueryCounterSetRegistrationInfo(szmachine : ::windows_core::PCWSTR, pcountersetid : *const ::windows_core::GUID, requestcode : PerfRegInfoType, requestlangid : u32, pbreginfo : *mut u8, cbreginfo : u32, pcbreginfoactual : *mut u32) -> u32);
     PerfQueryCounterSetRegistrationInfo(szmachine.into_param().abi(), pcountersetid, requestcode, requestlangid, ::core::mem::transmute(pbreginfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbreginfo.as_deref().map_or(0, |slice| slice.len() as _), pcbreginfoactual)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfQueryInstance<P0, P1>(providerhandle: P0, countersetguid: *const ::windows_core::GUID, name: P1, id: u32) -> *mut PERF_COUNTERSET_INSTANCE
@@ -953,7 +953,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn PerfQueryInstance(providerhandle : super::super::Foundation:: HANDLE, countersetguid : *const ::windows_core::GUID, name : ::windows_core::PCWSTR, id : u32) -> *mut PERF_COUNTERSET_INSTANCE);
     PerfQueryInstance(providerhandle.into_param().abi(), countersetguid, name.into_param().abi(), id)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfSetCounterRefValue<P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, address: *const ::core::ffi::c_void) -> u32
@@ -963,7 +963,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn PerfSetCounterRefValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, address : *const ::core::ffi::c_void) -> u32);
     PerfSetCounterRefValue(provider.into_param().abi(), instance, counterid, address)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfSetCounterSetInfo<P0>(providerhandle: P0, template: *mut PERF_COUNTERSET_INFO, templatesize: u32) -> u32
@@ -973,7 +973,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn PerfSetCounterSetInfo(providerhandle : super::super::Foundation:: HANDLE, template : *mut PERF_COUNTERSET_INFO, templatesize : u32) -> u32);
     PerfSetCounterSetInfo(providerhandle.into_param().abi(), template, templatesize)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfSetULongCounterValue<P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32
@@ -983,7 +983,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn PerfSetULongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u32) -> u32);
     PerfSetULongCounterValue(provider.into_param().abi(), instance, counterid, value)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfSetULongLongCounterValue<P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32
@@ -993,21 +993,21 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn PerfSetULongLongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u64) -> u32);
     PerfSetULongLongCounterValue(provider.into_param().abi(), instance, counterid, value)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfStartProvider(providerguid: *const ::windows_core::GUID, controlcallback: PERFLIBREQUEST, phprovider: *mut super::super::Foundation::HANDLE) -> u32 {
     ::windows_targets::link!("advapi32.dll" "system" fn PerfStartProvider(providerguid : *const ::windows_core::GUID, controlcallback : PERFLIBREQUEST, phprovider : *mut super::super::Foundation:: HANDLE) -> u32);
     PerfStartProvider(providerguid, controlcallback, phprovider)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfStartProviderEx(providerguid: *const ::windows_core::GUID, providercontext: ::core::option::Option<*const PERF_PROVIDER_CONTEXT>, provider: *mut super::super::Foundation::HANDLE) -> u32 {
     ::windows_targets::link!("advapi32.dll" "system" fn PerfStartProviderEx(providerguid : *const ::windows_core::GUID, providercontext : *const PERF_PROVIDER_CONTEXT, provider : *mut super::super::Foundation:: HANDLE) -> u32);
     PerfStartProviderEx(providerguid, ::core::mem::transmute(providercontext.unwrap_or(::std::ptr::null())), provider)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfStopProvider<P0>(providerhandle: P0) -> u32
@@ -1017,14 +1017,14 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn PerfStopProvider(providerhandle : super::super::Foundation:: HANDLE) -> u32);
     PerfStopProvider(providerhandle.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryPerformanceCounter(lpperformancecount: *mut i64) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn QueryPerformanceCounter(lpperformancecount : *mut i64) -> super::super::Foundation:: BOOL);
     QueryPerformanceCounter(lpperformancecount).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryPerformanceFrequency(lpfrequency: *mut i64) -> ::windows_core::Result<()> {
@@ -1058,7 +1058,7 @@ where
     ::windows_targets::link!("loadperf.dll" "system" fn SetServiceAsTrustedW(szreserved : ::windows_core::PCWSTR, szservicename : ::windows_core::PCWSTR) -> u32);
     SetServiceAsTrustedW(szreserved.into_param().abi(), szservicename.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnloadPerfCounterTextStringsA<P0, P1>(lpcommandline: P0, bquietmodearg: P1) -> u32
@@ -1069,7 +1069,7 @@ where
     ::windows_targets::link!("loadperf.dll" "system" fn UnloadPerfCounterTextStringsA(lpcommandline : ::windows_core::PCSTR, bquietmodearg : super::super::Foundation:: BOOL) -> u32);
     UnloadPerfCounterTextStringsA(lpcommandline.into_param().abi(), bquietmodearg.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnloadPerfCounterTextStringsW<P0, P1>(lpcommandline: P0, bquietmodearg: P1) -> u32
@@ -1100,7 +1100,7 @@ where
     ::windows_targets::link!("loadperf.dll" "system" fn UpdatePerfNameFilesW(sznewctrfilepath : ::windows_core::PCWSTR, sznewhlpfilepath : ::windows_core::PCWSTR, szlanguageid : ::windows_core::PCWSTR, dwflags : usize) -> u32);
     UpdatePerfNameFilesW(sznewctrfilepath.into_param().abi(), sznewhlpfilepath.into_param().abi(), szlanguageid.into_param().abi(), dwflags)
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1123,7 +1123,7 @@ unsafe impl ::windows_core::ComInterface for DICounterItem {
 pub struct DICounterItem_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1146,7 +1146,7 @@ unsafe impl ::windows_core::ComInterface for DILogFileItem {
 pub struct DILogFileItem_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1169,7 +1169,7 @@ unsafe impl ::windows_core::ComInterface for DISystemMonitor {
 pub struct DISystemMonitor_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1192,7 +1192,7 @@ unsafe impl ::windows_core::ComInterface for DISystemMonitorEvents {
 pub struct DISystemMonitorEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1215,20 +1215,20 @@ unsafe impl ::windows_core::ComInterface for DISystemMonitorInternal {
 pub struct DISystemMonitorInternal_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAlertDataCollector(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAlertDataCollector {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DataCollectorSet(&self) -> ::windows_core::Result<IDataCollectorSet> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DataCollectorSet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDataCollectorSet<P0>(&self, group: P0) -> ::windows_core::Result<()>
     where
@@ -1277,13 +1277,13 @@ impl IAlertDataCollector {
     {
         (::windows_core::Interface::vtable(self).base__.SetLatestOutputLocation)(::windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogAppend(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.LogAppend)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogAppend<P0>(&self, append: P0) -> ::windows_core::Result<()>
     where
@@ -1291,13 +1291,13 @@ impl IAlertDataCollector {
     {
         (::windows_core::Interface::vtable(self).base__.SetLogAppend)(::windows_core::Interface::as_raw(self), append.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogCircular(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.LogCircular)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogCircular<P0>(&self, circular: P0) -> ::windows_core::Result<()>
     where
@@ -1305,13 +1305,13 @@ impl IAlertDataCollector {
     {
         (::windows_core::Interface::vtable(self).base__.SetLogCircular)(::windows_core::Interface::as_raw(self), circular.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogOverwrite(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.LogOverwrite)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogOverwrite<P0>(&self, overwrite: P0) -> ::windows_core::Result<()>
     where
@@ -1344,7 +1344,7 @@ impl IAlertDataCollector {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Xml)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetXml<P0>(&self, xml: P0) -> ::windows_core::Result<IValueMap>
     where
@@ -1353,7 +1353,7 @@ impl IAlertDataCollector {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SetXml)(::windows_core::Interface::as_raw(self), xml.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOutputLocation<P0>(&self, latest: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -1362,24 +1362,24 @@ impl IAlertDataCollector {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateOutputLocation)(::windows_core::Interface::as_raw(self), latest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AlertThresholds(&self) -> ::windows_core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AlertThresholds)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetAlertThresholds(&self, alerts: *const super::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAlertThresholds)(::windows_core::Interface::as_raw(self), alerts).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EventLog(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EventLog)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEventLog<P0>(&self, log: P0) -> ::windows_core::Result<()>
     where
@@ -1404,13 +1404,13 @@ impl IAlertDataCollector {
     {
         (::windows_core::Interface::vtable(self).SetTask)(::windows_core::Interface::as_raw(self), task.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TaskRunAsSelf(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TaskRunAsSelf)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTaskRunAsSelf<P0>(&self, runasself: P0) -> ::windows_core::Result<()>
     where
@@ -1499,20 +1499,20 @@ pub struct IAlertDataCollector_Vtbl {
     pub TriggerDataCollectorSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetTriggerDataCollectorSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IApiTracingDataCollector(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IApiTracingDataCollector {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DataCollectorSet(&self) -> ::windows_core::Result<IDataCollectorSet> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DataCollectorSet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDataCollectorSet<P0>(&self, group: P0) -> ::windows_core::Result<()>
     where
@@ -1561,13 +1561,13 @@ impl IApiTracingDataCollector {
     {
         (::windows_core::Interface::vtable(self).base__.SetLatestOutputLocation)(::windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogAppend(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.LogAppend)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogAppend<P0>(&self, append: P0) -> ::windows_core::Result<()>
     where
@@ -1575,13 +1575,13 @@ impl IApiTracingDataCollector {
     {
         (::windows_core::Interface::vtable(self).base__.SetLogAppend)(::windows_core::Interface::as_raw(self), append.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogCircular(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.LogCircular)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogCircular<P0>(&self, circular: P0) -> ::windows_core::Result<()>
     where
@@ -1589,13 +1589,13 @@ impl IApiTracingDataCollector {
     {
         (::windows_core::Interface::vtable(self).base__.SetLogCircular)(::windows_core::Interface::as_raw(self), circular.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogOverwrite(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.LogOverwrite)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogOverwrite<P0>(&self, overwrite: P0) -> ::windows_core::Result<()>
     where
@@ -1628,7 +1628,7 @@ impl IApiTracingDataCollector {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Xml)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetXml<P0>(&self, xml: P0) -> ::windows_core::Result<IValueMap>
     where
@@ -1637,7 +1637,7 @@ impl IApiTracingDataCollector {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SetXml)(::windows_core::Interface::as_raw(self), xml.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOutputLocation<P0>(&self, latest: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -1646,13 +1646,13 @@ impl IApiTracingDataCollector {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateOutputLocation)(::windows_core::Interface::as_raw(self), latest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogApiNamesOnly(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LogApiNamesOnly)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogApiNamesOnly<P0>(&self, logapinames: P0) -> ::windows_core::Result<()>
     where
@@ -1660,13 +1660,13 @@ impl IApiTracingDataCollector {
     {
         (::windows_core::Interface::vtable(self).SetLogApiNamesOnly)(::windows_core::Interface::as_raw(self), logapinames.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogApisRecursively(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LogApisRecursively)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogApisRecursively<P0>(&self, logrecursively: P0) -> ::windows_core::Result<()>
     where
@@ -1694,35 +1694,35 @@ impl IApiTracingDataCollector {
     {
         (::windows_core::Interface::vtable(self).SetLogFilePath)(::windows_core::Interface::as_raw(self), logfilepath.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IncludeModules(&self) -> ::windows_core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IncludeModules)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetIncludeModules(&self, includemodules: *const super::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetIncludeModules)(::windows_core::Interface::as_raw(self), includemodules).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IncludeApis(&self) -> ::windows_core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IncludeApis)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetIncludeApis(&self, includeapis: *const super::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetIncludeApis)(::windows_core::Interface::as_raw(self), includeapis).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ExcludeApis(&self) -> ::windows_core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ExcludeApis)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetExcludeApis(&self, excludeapis: *const super::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetExcludeApis)(::windows_core::Interface::as_raw(self), excludeapis).ok()
@@ -1788,20 +1788,20 @@ pub struct IApiTracingDataCollector_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetExcludeApis: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConfigurationDataCollector(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IConfigurationDataCollector {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DataCollectorSet(&self) -> ::windows_core::Result<IDataCollectorSet> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DataCollectorSet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDataCollectorSet<P0>(&self, group: P0) -> ::windows_core::Result<()>
     where
@@ -1850,13 +1850,13 @@ impl IConfigurationDataCollector {
     {
         (::windows_core::Interface::vtable(self).base__.SetLatestOutputLocation)(::windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogAppend(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.LogAppend)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogAppend<P0>(&self, append: P0) -> ::windows_core::Result<()>
     where
@@ -1864,13 +1864,13 @@ impl IConfigurationDataCollector {
     {
         (::windows_core::Interface::vtable(self).base__.SetLogAppend)(::windows_core::Interface::as_raw(self), append.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogCircular(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.LogCircular)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogCircular<P0>(&self, circular: P0) -> ::windows_core::Result<()>
     where
@@ -1878,13 +1878,13 @@ impl IConfigurationDataCollector {
     {
         (::windows_core::Interface::vtable(self).base__.SetLogCircular)(::windows_core::Interface::as_raw(self), circular.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogOverwrite(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.LogOverwrite)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogOverwrite<P0>(&self, overwrite: P0) -> ::windows_core::Result<()>
     where
@@ -1917,7 +1917,7 @@ impl IConfigurationDataCollector {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Xml)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetXml<P0>(&self, xml: P0) -> ::windows_core::Result<IValueMap>
     where
@@ -1926,7 +1926,7 @@ impl IConfigurationDataCollector {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SetXml)(::windows_core::Interface::as_raw(self), xml.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOutputLocation<P0>(&self, latest: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -1956,35 +1956,35 @@ impl IConfigurationDataCollector {
     pub unsafe fn SetFileMaxTotalSize(&self, size: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFileMaxTotalSize)(::windows_core::Interface::as_raw(self), size).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Files(&self) -> ::windows_core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Files)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFiles(&self, files: *const super::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFiles)(::windows_core::Interface::as_raw(self), files).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ManagementQueries(&self) -> ::windows_core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ManagementQueries)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetManagementQueries(&self, queries: *const super::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetManagementQueries)(::windows_core::Interface::as_raw(self), queries).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryNetworkAdapters(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryNetworkAdapters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetQueryNetworkAdapters<P0>(&self, network: P0) -> ::windows_core::Result<()>
     where
@@ -1992,13 +1992,13 @@ impl IConfigurationDataCollector {
     {
         (::windows_core::Interface::vtable(self).SetQueryNetworkAdapters)(::windows_core::Interface::as_raw(self), network.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RegistryKeys(&self) -> ::windows_core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RegistryKeys)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRegistryKeys(&self, query: *const super::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetRegistryKeys)(::windows_core::Interface::as_raw(self), query).ok()
@@ -2196,7 +2196,7 @@ impl ICounterItem2 {
     pub unsafe fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetStatistics)(::windows_core::Interface::as_raw(self), max, min, avg, status).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSelected<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -2204,13 +2204,13 @@ impl ICounterItem2 {
     {
         (::windows_core::Interface::vtable(self).SetSelected)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Selected(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Selected)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVisible<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -2218,13 +2218,13 @@ impl ICounterItem2 {
     {
         (::windows_core::Interface::vtable(self).SetVisible)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Visible(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Visible)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -2263,7 +2263,7 @@ pub struct ICounterItem2_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetDataAt: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2278,13 +2278,13 @@ impl ICounters {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, index: super::Variant::VARIANT) -> ::windows_core::Result<DICounterItem> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pathname: P0) -> ::windows_core::Result<DICounterItem>
     where
@@ -2293,7 +2293,7 @@ impl ICounters {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pathname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, index: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
@@ -2329,20 +2329,20 @@ pub struct ICounters_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Remove: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataCollector(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDataCollector {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DataCollectorSet(&self) -> ::windows_core::Result<IDataCollectorSet> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DataCollectorSet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDataCollectorSet<P0>(&self, group: P0) -> ::windows_core::Result<()>
     where
@@ -2391,13 +2391,13 @@ impl IDataCollector {
     {
         (::windows_core::Interface::vtable(self).SetLatestOutputLocation)(::windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogAppend(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LogAppend)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogAppend<P0>(&self, append: P0) -> ::windows_core::Result<()>
     where
@@ -2405,13 +2405,13 @@ impl IDataCollector {
     {
         (::windows_core::Interface::vtable(self).SetLogAppend)(::windows_core::Interface::as_raw(self), append.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogCircular(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LogCircular)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogCircular<P0>(&self, circular: P0) -> ::windows_core::Result<()>
     where
@@ -2419,13 +2419,13 @@ impl IDataCollector {
     {
         (::windows_core::Interface::vtable(self).SetLogCircular)(::windows_core::Interface::as_raw(self), circular.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogOverwrite(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LogOverwrite)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogOverwrite<P0>(&self, overwrite: P0) -> ::windows_core::Result<()>
     where
@@ -2458,7 +2458,7 @@ impl IDataCollector {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Xml)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetXml<P0>(&self, xml: P0) -> ::windows_core::Result<IValueMap>
     where
@@ -2467,7 +2467,7 @@ impl IDataCollector {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetXml)(::windows_core::Interface::as_raw(self), xml.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOutputLocation<P0>(&self, latest: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -2548,7 +2548,7 @@ pub struct IDataCollector_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CreateOutputLocation: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2559,7 +2559,7 @@ impl IDataCollectorCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, index: super::Variant::VARIANT) -> ::windows_core::Result<IDataCollector> {
         let mut result__ = ::std::mem::zeroed();
@@ -2569,7 +2569,7 @@ impl IDataCollectorCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, collector: P0) -> ::windows_core::Result<()>
     where
@@ -2577,7 +2577,7 @@ impl IDataCollectorCollection {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), collector.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, collector: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(collector)).ok()
@@ -2585,7 +2585,7 @@ impl IDataCollectorCollection {
     pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddRange<P0>(&self, collectors: P0) -> ::windows_core::Result<()>
     where
@@ -2593,7 +2593,7 @@ impl IDataCollectorCollection {
     {
         (::windows_core::Interface::vtable(self).AddRange)(::windows_core::Interface::as_raw(self), collectors.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDataCollectorFromXml<P0>(&self, bstrxml: P0, pvalidation: *mut ::core::option::Option<IValueMap>, pcollector: *mut ::core::option::Option<IDataCollector>) -> ::windows_core::Result<()>
     where
@@ -2601,7 +2601,7 @@ impl IDataCollectorCollection {
     {
         (::windows_core::Interface::vtable(self).CreateDataCollectorFromXml)(::windows_core::Interface::as_raw(self), bstrxml.into_param().abi(), ::core::mem::transmute(pvalidation), ::core::mem::transmute(pcollector)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDataCollector(&self, r#type: DataCollectorType) -> ::windows_core::Result<IDataCollector> {
         let mut result__ = ::std::mem::zeroed();
@@ -2651,14 +2651,14 @@ pub struct IDataCollectorCollection_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateDataCollector: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataCollectorSet(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDataCollectorSet {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DataCollectors(&self) -> ::windows_core::Result<IDataCollectorCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -2699,13 +2699,13 @@ impl IDataCollectorSet {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DisplayNameUnresolved)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Keywords(&self) -> ::windows_core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Keywords)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetKeywords(&self, keywords: *const super::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetKeywords)(::windows_core::Interface::as_raw(self), keywords).ok()
@@ -2738,13 +2738,13 @@ impl IDataCollectorSet {
     {
         (::windows_core::Interface::vtable(self).SetRootPath)(::windows_core::Interface::as_raw(self), folder.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Segment(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Segment)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSegment<P0>(&self, segment: P0) -> ::windows_core::Result<()>
     where
@@ -2818,13 +2818,13 @@ impl IDataCollectorSet {
     {
         (::windows_core::Interface::vtable(self).SetTask)(::windows_core::Interface::as_raw(self), task.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TaskRunAsSelf(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TaskRunAsSelf)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTaskRunAsSelf<P0>(&self, runasself: P0) -> ::windows_core::Result<()>
     where
@@ -2852,19 +2852,19 @@ impl IDataCollectorSet {
     {
         (::windows_core::Interface::vtable(self).SetTaskUserTextArguments)(::windows_core::Interface::as_raw(self), usertext.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Schedules(&self) -> ::windows_core::Result<IScheduleCollection> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Schedules)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SchedulesEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SchedulesEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSchedulesEnabled<P0>(&self, enabled: P0) -> ::windows_core::Result<()>
     where
@@ -2890,13 +2890,13 @@ impl IDataCollectorSet {
     {
         (::windows_core::Interface::vtable(self).SetSecurity)(::windows_core::Interface::as_raw(self), bstrsecurity.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StopOnCompletion(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StopOnCompletion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStopOnCompletion<P0>(&self, stop: P0) -> ::windows_core::Result<()>
     where
@@ -2904,7 +2904,7 @@ impl IDataCollectorSet {
     {
         (::windows_core::Interface::vtable(self).SetStopOnCompletion)(::windows_core::Interface::as_raw(self), stop.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DataManager(&self) -> ::windows_core::Result<IDataManager> {
         let mut result__ = ::std::mem::zeroed();
@@ -2924,7 +2924,7 @@ impl IDataCollectorSet {
     {
         (::windows_core::Interface::vtable(self).Query)(::windows_core::Interface::as_raw(self), name.into_param().abi(), server.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Commit<P0, P1>(&self, name: P0, server: P1, mode: CommitMode) -> ::windows_core::Result<IValueMap>
     where
@@ -2937,7 +2937,7 @@ impl IDataCollectorSet {
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Start<P0>(&self, synchronous: P0) -> ::windows_core::Result<()>
     where
@@ -2945,7 +2945,7 @@ impl IDataCollectorSet {
     {
         (::windows_core::Interface::vtable(self).Start)(::windows_core::Interface::as_raw(self), synchronous.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Stop<P0>(&self, synchronous: P0) -> ::windows_core::Result<()>
     where
@@ -2953,7 +2953,7 @@ impl IDataCollectorSet {
     {
         (::windows_core::Interface::vtable(self).Stop)(::windows_core::Interface::as_raw(self), synchronous.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetXml<P0>(&self, xml: P0) -> ::windows_core::Result<IValueMap>
     where
@@ -3104,7 +3104,7 @@ pub struct IDataCollectorSet_Vtbl {
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::std::mem::MaybeUninit<::windows_core::BSTR>, value: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::std::mem::MaybeUninit<::windows_core::BSTR>, value: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3115,7 +3115,7 @@ impl IDataCollectorSetCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, index: super::Variant::VARIANT) -> ::windows_core::Result<IDataCollectorSet> {
         let mut result__ = ::std::mem::zeroed();
@@ -3125,7 +3125,7 @@ impl IDataCollectorSetCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, set: P0) -> ::windows_core::Result<()>
     where
@@ -3133,7 +3133,7 @@ impl IDataCollectorSetCollection {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), set.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, set: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(set)).ok()
@@ -3141,7 +3141,7 @@ impl IDataCollectorSetCollection {
     pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddRange<P0>(&self, sets: P0) -> ::windows_core::Result<()>
     where
@@ -3193,20 +3193,20 @@ pub struct IDataCollectorSetCollection_Vtbl {
     AddRange: usize,
     pub GetDataCollectorSets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: ::std::mem::MaybeUninit<::windows_core::BSTR>, filter: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDataManager {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Enabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnabled<P0>(&self, fenabled: P0) -> ::windows_core::Result<()>
     where
@@ -3214,13 +3214,13 @@ impl IDataManager {
     {
         (::windows_core::Interface::vtable(self).SetEnabled)(::windows_core::Interface::as_raw(self), fenabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckBeforeRunning(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CheckBeforeRunning)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCheckBeforeRunning<P0>(&self, fcheck: P0) -> ::windows_core::Result<()>
     where
@@ -3256,7 +3256,7 @@ impl IDataManager {
     pub unsafe fn SetResourcePolicy(&self, policy: ResourcePolicy) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetResourcePolicy)(::windows_core::Interface::as_raw(self), policy).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FolderActions(&self) -> ::windows_core::Result<IFolderActionCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -3312,7 +3312,7 @@ impl IDataManager {
     {
         (::windows_core::Interface::vtable(self).SetRules)(::windows_core::Interface::as_raw(self), bstrxml.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Run<P0>(&self, steps: DataManagerSteps, bstrfolder: P0) -> ::windows_core::Result<IValueMap>
     where
@@ -3388,7 +3388,7 @@ pub struct IDataManager_Vtbl {
     Run: usize,
     pub Extract: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cabfilename: ::std::mem::MaybeUninit<::windows_core::BSTR>, destinationpath: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3451,7 +3451,7 @@ pub struct IFolderAction_Vtbl {
     pub SendCabTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdestination: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetSendCabTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdestination: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3462,7 +3462,7 @@ impl IFolderActionCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, index: super::Variant::VARIANT) -> ::windows_core::Result<IFolderAction> {
         let mut result__ = ::std::mem::zeroed();
@@ -3472,7 +3472,7 @@ impl IFolderActionCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, action: P0) -> ::windows_core::Result<()>
     where
@@ -3480,7 +3480,7 @@ impl IFolderActionCollection {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), action.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, index: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
@@ -3488,7 +3488,7 @@ impl IFolderActionCollection {
     pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddRange<P0>(&self, actions: P0) -> ::windows_core::Result<()>
     where
@@ -3496,7 +3496,7 @@ impl IFolderActionCollection {
     {
         (::windows_core::Interface::vtable(self).AddRange)(::windows_core::Interface::as_raw(self), actions.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateFolderAction(&self) -> ::windows_core::Result<IFolderAction> {
         let mut result__ = ::std::mem::zeroed();
@@ -3564,7 +3564,7 @@ pub struct ILogFileItem_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3579,13 +3579,13 @@ impl ILogFiles {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, index: super::Variant::VARIANT) -> ::windows_core::Result<DILogFileItem> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pathname: P0) -> ::windows_core::Result<DILogFileItem>
     where
@@ -3594,7 +3594,7 @@ impl ILogFiles {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pathname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, index: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
@@ -3630,20 +3630,20 @@ pub struct ILogFiles_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Remove: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPerformanceCounterDataCollector(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPerformanceCounterDataCollector {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DataCollectorSet(&self) -> ::windows_core::Result<IDataCollectorSet> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DataCollectorSet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDataCollectorSet<P0>(&self, group: P0) -> ::windows_core::Result<()>
     where
@@ -3692,13 +3692,13 @@ impl IPerformanceCounterDataCollector {
     {
         (::windows_core::Interface::vtable(self).base__.SetLatestOutputLocation)(::windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogAppend(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.LogAppend)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogAppend<P0>(&self, append: P0) -> ::windows_core::Result<()>
     where
@@ -3706,13 +3706,13 @@ impl IPerformanceCounterDataCollector {
     {
         (::windows_core::Interface::vtable(self).base__.SetLogAppend)(::windows_core::Interface::as_raw(self), append.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogCircular(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.LogCircular)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogCircular<P0>(&self, circular: P0) -> ::windows_core::Result<()>
     where
@@ -3720,13 +3720,13 @@ impl IPerformanceCounterDataCollector {
     {
         (::windows_core::Interface::vtable(self).base__.SetLogCircular)(::windows_core::Interface::as_raw(self), circular.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogOverwrite(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.LogOverwrite)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogOverwrite<P0>(&self, overwrite: P0) -> ::windows_core::Result<()>
     where
@@ -3759,7 +3759,7 @@ impl IPerformanceCounterDataCollector {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Xml)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetXml<P0>(&self, xml: P0) -> ::windows_core::Result<IValueMap>
     where
@@ -3768,7 +3768,7 @@ impl IPerformanceCounterDataCollector {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SetXml)(::windows_core::Interface::as_raw(self), xml.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOutputLocation<P0>(&self, latest: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -3787,13 +3787,13 @@ impl IPerformanceCounterDataCollector {
     {
         (::windows_core::Interface::vtable(self).SetDataSourceName)(::windows_core::Interface::as_raw(self), dsn.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PerformanceCounters(&self) -> ::windows_core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PerformanceCounters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPerformanceCounters(&self, counters: *const super::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPerformanceCounters)(::windows_core::Interface::as_raw(self), counters).ok()
@@ -3852,42 +3852,42 @@ pub struct IPerformanceCounterDataCollector_Vtbl {
     pub SegmentMaxRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, records: *mut u32) -> ::windows_core::HRESULT,
     pub SetSegmentMaxRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, records: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISchedule(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchedule {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn StartDate(&self) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StartDate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetStartDate(&self, start: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetStartDate)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(start)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn EndDate(&self) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EndDate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetEndDate(&self, end: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetEndDate)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(end)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn StartTime(&self) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StartTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetStartTime(&self, start: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetStartTime)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(start)).ok()
@@ -3942,7 +3942,7 @@ pub struct ISchedule_Vtbl {
     pub Days: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, days: *mut WeekDays) -> ::windows_core::HRESULT,
     pub SetDays: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, days: WeekDays) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3953,7 +3953,7 @@ impl IScheduleCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, index: super::Variant::VARIANT) -> ::windows_core::Result<ISchedule> {
         let mut result__ = ::std::mem::zeroed();
@@ -3963,7 +3963,7 @@ impl IScheduleCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pschedule: P0) -> ::windows_core::Result<()>
     where
@@ -3971,7 +3971,7 @@ impl IScheduleCollection {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pschedule.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, vschedule: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vschedule)).ok()
@@ -3979,7 +3979,7 @@ impl IScheduleCollection {
     pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddRange<P0>(&self, pschedules: P0) -> ::windows_core::Result<()>
     where
@@ -3987,7 +3987,7 @@ impl IScheduleCollection {
     {
         (::windows_core::Interface::vtable(self).AddRange)(::windows_core::Interface::as_raw(self), pschedules.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateSchedule(&self) -> ::windows_core::Result<ISchedule> {
         let mut result__ = ::std::mem::zeroed();
@@ -4065,13 +4065,13 @@ impl ISystemMonitor {
     pub unsafe fn SetForeColor(&self, color: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetForeColor)(::windows_core::Interface::as_raw(self), color).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Font(&self) -> ::windows_core::Result<super::Ole::IFontDisp> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Font)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn putref_Font<P0>(&self, pfont: P0) -> ::windows_core::Result<()>
     where
@@ -4079,13 +4079,13 @@ impl ISystemMonitor {
     {
         (::windows_core::Interface::vtable(self).putref_Font)(::windows_core::Interface::as_raw(self), pfont.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Counters(&self) -> ::windows_core::Result<ICounters> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Counters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowVerticalGrid<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4093,13 +4093,13 @@ impl ISystemMonitor {
     {
         (::windows_core::Interface::vtable(self).SetShowVerticalGrid)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowVerticalGrid(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ShowVerticalGrid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowHorizontalGrid<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4107,13 +4107,13 @@ impl ISystemMonitor {
     {
         (::windows_core::Interface::vtable(self).SetShowHorizontalGrid)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowHorizontalGrid(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ShowHorizontalGrid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowLegend<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4121,13 +4121,13 @@ impl ISystemMonitor {
     {
         (::windows_core::Interface::vtable(self).SetShowLegend)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowLegend(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ShowLegend)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowScaleLabels<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4135,13 +4135,13 @@ impl ISystemMonitor {
     {
         (::windows_core::Interface::vtable(self).SetShowScaleLabels)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowScaleLabels(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ShowScaleLabels)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowValueBar<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4149,7 +4149,7 @@ impl ISystemMonitor {
     {
         (::windows_core::Interface::vtable(self).SetShowValueBar)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowValueBar(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4183,7 +4183,7 @@ impl ISystemMonitor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DisplayType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetManualUpdate<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4191,7 +4191,7 @@ impl ISystemMonitor {
     {
         (::windows_core::Interface::vtable(self).SetManualUpdate)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ManualUpdate(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4291,13 +4291,13 @@ impl ISystemMonitor {
     pub unsafe fn SetTimeBarColor(&self, color: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetTimeBarColor)(::windows_core::Interface::as_raw(self), color).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Highlight(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Highlight)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHighlight<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4305,13 +4305,13 @@ impl ISystemMonitor {
     {
         (::windows_core::Interface::vtable(self).SetHighlight)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowToolbar(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ShowToolbar)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowToolbar<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4328,7 +4328,7 @@ impl ISystemMonitor {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReadOnly<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4336,7 +4336,7 @@ impl ISystemMonitor {
     {
         (::windows_core::Interface::vtable(self).SetReadOnly)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReadOnly(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4349,7 +4349,7 @@ impl ISystemMonitor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReportValueType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMonitorDuplicateInstances<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4357,7 +4357,7 @@ impl ISystemMonitor {
     {
         (::windows_core::Interface::vtable(self).SetMonitorDuplicateInstances)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MonitorDuplicateInstances(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4370,7 +4370,7 @@ impl ISystemMonitor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DisplayFilter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LogFiles(&self) -> ::windows_core::Result<ILogFiles> {
         let mut result__ = ::std::mem::zeroed();
@@ -4596,13 +4596,13 @@ impl ISystemMonitor2 {
     pub unsafe fn SetForeColor(&self, color: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetForeColor)(::windows_core::Interface::as_raw(self), color).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Font(&self) -> ::windows_core::Result<super::Ole::IFontDisp> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Font)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn putref_Font<P0>(&self, pfont: P0) -> ::windows_core::Result<()>
     where
@@ -4610,13 +4610,13 @@ impl ISystemMonitor2 {
     {
         (::windows_core::Interface::vtable(self).base__.putref_Font)(::windows_core::Interface::as_raw(self), pfont.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Counters(&self) -> ::windows_core::Result<ICounters> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Counters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowVerticalGrid<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4624,13 +4624,13 @@ impl ISystemMonitor2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetShowVerticalGrid)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowVerticalGrid(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ShowVerticalGrid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowHorizontalGrid<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4638,13 +4638,13 @@ impl ISystemMonitor2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetShowHorizontalGrid)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowHorizontalGrid(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ShowHorizontalGrid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowLegend<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4652,13 +4652,13 @@ impl ISystemMonitor2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetShowLegend)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowLegend(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ShowLegend)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowScaleLabels<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4666,13 +4666,13 @@ impl ISystemMonitor2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetShowScaleLabels)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowScaleLabels(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ShowScaleLabels)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowValueBar<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4680,7 +4680,7 @@ impl ISystemMonitor2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetShowValueBar)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowValueBar(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4714,7 +4714,7 @@ impl ISystemMonitor2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DisplayType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetManualUpdate<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4722,7 +4722,7 @@ impl ISystemMonitor2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetManualUpdate)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ManualUpdate(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4822,13 +4822,13 @@ impl ISystemMonitor2 {
     pub unsafe fn SetTimeBarColor(&self, color: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetTimeBarColor)(::windows_core::Interface::as_raw(self), color).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Highlight(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Highlight)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHighlight<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4836,13 +4836,13 @@ impl ISystemMonitor2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetHighlight)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowToolbar(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ShowToolbar)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowToolbar<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4859,7 +4859,7 @@ impl ISystemMonitor2 {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReadOnly<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4867,7 +4867,7 @@ impl ISystemMonitor2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetReadOnly)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReadOnly(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4880,7 +4880,7 @@ impl ISystemMonitor2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ReportValueType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMonitorDuplicateInstances<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4888,7 +4888,7 @@ impl ISystemMonitor2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetMonitorDuplicateInstances)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MonitorDuplicateInstances(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4901,7 +4901,7 @@ impl ISystemMonitor2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DisplayFilter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LogFiles(&self) -> ::windows_core::Result<ILogFiles> {
         let mut result__ = ::std::mem::zeroed();
@@ -4934,7 +4934,7 @@ impl ISystemMonitor2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SqlLogSetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableDigitGrouping<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4942,13 +4942,13 @@ impl ISystemMonitor2 {
     {
         (::windows_core::Interface::vtable(self).SetEnableDigitGrouping)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableDigitGrouping(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnableDigitGrouping)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableToolTips<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4956,13 +4956,13 @@ impl ISystemMonitor2 {
     {
         (::windows_core::Interface::vtable(self).SetEnableToolTips)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableToolTips(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnableToolTips)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowTimeAxisLabels<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -4970,13 +4970,13 @@ impl ISystemMonitor2 {
     {
         (::windows_core::Interface::vtable(self).SetShowTimeAxisLabels)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowTimeAxisLabels(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ShowTimeAxisLabels)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetChartScroll<P0>(&self, bscroll: P0) -> ::windows_core::Result<()>
     where
@@ -4984,7 +4984,7 @@ impl ISystemMonitor2 {
     {
         (::windows_core::Interface::vtable(self).SetChartScroll)(::windows_core::Interface::as_raw(self), bscroll.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChartScroll(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4997,7 +4997,7 @@ impl ISystemMonitor2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DataPointCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScaleToFit<P0>(&self, bselectedcountersonly: P0) -> ::windows_core::Result<()>
     where
@@ -5034,7 +5034,7 @@ impl ISystemMonitor2 {
     pub unsafe fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLogViewRange)(::windows_core::Interface::as_raw(self), starttime, stoptime).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BatchingLock<P0>(&self, flock: P0, ebatchreason: SysmonBatchReason) -> ::windows_core::Result<()>
     where
@@ -5148,20 +5148,20 @@ pub struct ISystemMonitorEvents_Vtbl {
     pub OnSampleCollected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub OnDblClick: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32),
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITraceDataCollector(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITraceDataCollector {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DataCollectorSet(&self) -> ::windows_core::Result<IDataCollectorSet> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DataCollectorSet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDataCollectorSet<P0>(&self, group: P0) -> ::windows_core::Result<()>
     where
@@ -5210,13 +5210,13 @@ impl ITraceDataCollector {
     {
         (::windows_core::Interface::vtable(self).base__.SetLatestOutputLocation)(::windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogAppend(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.LogAppend)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogAppend<P0>(&self, append: P0) -> ::windows_core::Result<()>
     where
@@ -5224,13 +5224,13 @@ impl ITraceDataCollector {
     {
         (::windows_core::Interface::vtable(self).base__.SetLogAppend)(::windows_core::Interface::as_raw(self), append.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogCircular(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.LogCircular)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogCircular<P0>(&self, circular: P0) -> ::windows_core::Result<()>
     where
@@ -5238,13 +5238,13 @@ impl ITraceDataCollector {
     {
         (::windows_core::Interface::vtable(self).base__.SetLogCircular)(::windows_core::Interface::as_raw(self), circular.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogOverwrite(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.LogOverwrite)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogOverwrite<P0>(&self, overwrite: P0) -> ::windows_core::Result<()>
     where
@@ -5277,7 +5277,7 @@ impl ITraceDataCollector {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Xml)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetXml<P0>(&self, xml: P0) -> ::windows_core::Result<IValueMap>
     where
@@ -5286,7 +5286,7 @@ impl ITraceDataCollector {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SetXml)(::windows_core::Interface::as_raw(self), xml.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOutputLocation<P0>(&self, latest: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -5358,7 +5358,7 @@ impl ITraceDataCollector {
     pub unsafe fn SetGuid(&self, guid: ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetGuid)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(guid)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsKernelTrace(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -5385,13 +5385,13 @@ impl ITraceDataCollector {
     pub unsafe fn SetNumberOfBuffers(&self, buffers: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetNumberOfBuffers)(::windows_core::Interface::as_raw(self), buffers).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PreallocateFile(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PreallocateFile)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPreallocateFile<P0>(&self, allocate: P0) -> ::windows_core::Result<()>
     where
@@ -5399,13 +5399,13 @@ impl ITraceDataCollector {
     {
         (::windows_core::Interface::vtable(self).SetPreallocateFile)(::windows_core::Interface::as_raw(self), allocate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProcessMode(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ProcessMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetProcessMode<P0>(&self, process: P0) -> ::windows_core::Result<()>
     where
@@ -5451,7 +5451,7 @@ impl ITraceDataCollector {
     pub unsafe fn SetStreamMode(&self, mode: StreamMode) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetStreamMode)(::windows_core::Interface::as_raw(self), mode).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TraceDataProviders(&self) -> ::windows_core::Result<ITraceDataProviderCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -5532,7 +5532,7 @@ pub struct ITraceDataCollector_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     TraceDataProviders: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5556,37 +5556,37 @@ impl ITraceDataProvider {
     pub unsafe fn SetGuid(&self, guid: ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetGuid)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(guid)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Level(&self) -> ::windows_core::Result<IValueMap> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Level)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn KeywordsAny(&self) -> ::windows_core::Result<IValueMap> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).KeywordsAny)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn KeywordsAll(&self) -> ::windows_core::Result<IValueMap> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).KeywordsAll)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<IValueMap> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FilterEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FilterEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFilterEnabled<P0>(&self, filterenabled: P0) -> ::windows_core::Result<()>
     where
@@ -5601,13 +5601,13 @@ impl ITraceDataProvider {
     pub unsafe fn SetFilterType(&self, ultype: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFilterType)(::windows_core::Interface::as_raw(self), ultype).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FilterData(&self) -> ::windows_core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FilterData)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFilterData(&self, pdata: *const super::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFilterData)(::windows_core::Interface::as_raw(self), pdata).ok()
@@ -5619,7 +5619,7 @@ impl ITraceDataProvider {
     {
         (::windows_core::Interface::vtable(self).Query)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), bstrserver.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Resolve<P0>(&self, pfrom: P0) -> ::windows_core::Result<()>
     where
@@ -5637,7 +5637,7 @@ impl ITraceDataProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSecurity)(::windows_core::Interface::as_raw(self), securityinfo, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRegisteredProcesses(&self) -> ::windows_core::Result<IValueMap> {
         let mut result__ = ::std::mem::zeroed();
@@ -5709,7 +5709,7 @@ pub struct ITraceDataProvider_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetRegisteredProcesses: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5720,7 +5720,7 @@ impl ITraceDataProviderCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, index: super::Variant::VARIANT) -> ::windows_core::Result<ITraceDataProvider> {
         let mut result__ = ::std::mem::zeroed();
@@ -5730,7 +5730,7 @@ impl ITraceDataProviderCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pprovider: P0) -> ::windows_core::Result<()>
     where
@@ -5738,7 +5738,7 @@ impl ITraceDataProviderCollection {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pprovider.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, vprovider: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vprovider)).ok()
@@ -5746,7 +5746,7 @@ impl ITraceDataProviderCollection {
     pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddRange<P0>(&self, providers: P0) -> ::windows_core::Result<()>
     where
@@ -5754,7 +5754,7 @@ impl ITraceDataProviderCollection {
     {
         (::windows_core::Interface::vtable(self).AddRange)(::windows_core::Interface::as_raw(self), providers.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTraceDataProvider(&self) -> ::windows_core::Result<ITraceDataProvider> {
         let mut result__ = ::std::mem::zeroed();
@@ -5814,7 +5814,7 @@ pub struct ITraceDataProviderCollection_Vtbl {
     pub GetTraceDataProviders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetTraceDataProvidersByProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: ::std::mem::MaybeUninit<::windows_core::BSTR>, pid: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5825,7 +5825,7 @@ impl IValueMap {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, index: super::Variant::VARIANT) -> ::windows_core::Result<IValueMapItem> {
         let mut result__ = ::std::mem::zeroed();
@@ -5845,13 +5845,13 @@ impl IValueMap {
     {
         (::windows_core::Interface::vtable(self).SetDescription)(::windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Value(&self) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetValue(&self, value: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValue)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
@@ -5863,12 +5863,12 @@ impl IValueMap {
     pub unsafe fn SetValueMapType(&self, r#type: ValueMapType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValueMapType)(::windows_core::Interface::as_raw(self), r#type).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Add(&self, value: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, value: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
@@ -5876,7 +5876,7 @@ impl IValueMap {
     pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddRange<P0>(&self, map: P0) -> ::windows_core::Result<()>
     where
@@ -5884,7 +5884,7 @@ impl IValueMap {
     {
         (::windows_core::Interface::vtable(self).AddRange)(::windows_core::Interface::as_raw(self), map.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateValueMapItem(&self) -> ::windows_core::Result<IValueMapItem> {
         let mut result__ = ::std::mem::zeroed();
@@ -5942,7 +5942,7 @@ pub struct IValueMap_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateValueMapItem: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5959,13 +5959,13 @@ impl IValueMapItem {
     {
         (::windows_core::Interface::vtable(self).SetDescription)(::windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Enabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> ::windows_core::Result<()>
     where
@@ -5983,13 +5983,13 @@ impl IValueMapItem {
     {
         (::windows_core::Interface::vtable(self).SetKey)(::windows_core::Interface::as_raw(self), key.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Value(&self) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetValue(&self, value: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValue)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
@@ -6086,7 +6086,7 @@ impl _ICounterItemUnion {
     pub unsafe fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStatistics)(::windows_core::Interface::as_raw(self), max, min, avg, status).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSelected<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -6094,13 +6094,13 @@ impl _ICounterItemUnion {
     {
         (::windows_core::Interface::vtable(self).SetSelected)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Selected(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Selected)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVisible<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -6108,13 +6108,13 @@ impl _ICounterItemUnion {
     {
         (::windows_core::Interface::vtable(self).SetVisible)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Visible(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Visible)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -6197,13 +6197,13 @@ impl _ISystemMonitorUnion {
     pub unsafe fn SetForeColor(&self, color: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetForeColor)(::windows_core::Interface::as_raw(self), color).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Font(&self) -> ::windows_core::Result<super::Ole::IFontDisp> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Font)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn putref_Font<P0>(&self, pfont: P0) -> ::windows_core::Result<()>
     where
@@ -6211,13 +6211,13 @@ impl _ISystemMonitorUnion {
     {
         (::windows_core::Interface::vtable(self).putref_Font)(::windows_core::Interface::as_raw(self), pfont.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Counters(&self) -> ::windows_core::Result<ICounters> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Counters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowVerticalGrid<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -6225,13 +6225,13 @@ impl _ISystemMonitorUnion {
     {
         (::windows_core::Interface::vtable(self).SetShowVerticalGrid)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowVerticalGrid(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ShowVerticalGrid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowHorizontalGrid<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -6239,13 +6239,13 @@ impl _ISystemMonitorUnion {
     {
         (::windows_core::Interface::vtable(self).SetShowHorizontalGrid)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowHorizontalGrid(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ShowHorizontalGrid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowLegend<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -6253,13 +6253,13 @@ impl _ISystemMonitorUnion {
     {
         (::windows_core::Interface::vtable(self).SetShowLegend)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowLegend(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ShowLegend)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowScaleLabels<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -6267,13 +6267,13 @@ impl _ISystemMonitorUnion {
     {
         (::windows_core::Interface::vtable(self).SetShowScaleLabels)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowScaleLabels(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ShowScaleLabels)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowValueBar<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -6281,7 +6281,7 @@ impl _ISystemMonitorUnion {
     {
         (::windows_core::Interface::vtable(self).SetShowValueBar)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowValueBar(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6315,7 +6315,7 @@ impl _ISystemMonitorUnion {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DisplayType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetManualUpdate<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -6323,7 +6323,7 @@ impl _ISystemMonitorUnion {
     {
         (::windows_core::Interface::vtable(self).SetManualUpdate)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ManualUpdate(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6423,13 +6423,13 @@ impl _ISystemMonitorUnion {
     pub unsafe fn SetTimeBarColor(&self, color: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetTimeBarColor)(::windows_core::Interface::as_raw(self), color).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Highlight(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Highlight)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHighlight<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -6437,13 +6437,13 @@ impl _ISystemMonitorUnion {
     {
         (::windows_core::Interface::vtable(self).SetHighlight)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowToolbar(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ShowToolbar)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowToolbar<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -6460,7 +6460,7 @@ impl _ISystemMonitorUnion {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReadOnly<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -6468,7 +6468,7 @@ impl _ISystemMonitorUnion {
     {
         (::windows_core::Interface::vtable(self).SetReadOnly)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReadOnly(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6481,7 +6481,7 @@ impl _ISystemMonitorUnion {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReportValueType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMonitorDuplicateInstances<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -6489,7 +6489,7 @@ impl _ISystemMonitorUnion {
     {
         (::windows_core::Interface::vtable(self).SetMonitorDuplicateInstances)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MonitorDuplicateInstances(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6502,7 +6502,7 @@ impl _ISystemMonitorUnion {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DisplayFilter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LogFiles(&self) -> ::windows_core::Result<ILogFiles> {
         let mut result__ = ::std::mem::zeroed();
@@ -6535,7 +6535,7 @@ impl _ISystemMonitorUnion {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SqlLogSetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableDigitGrouping<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -6543,13 +6543,13 @@ impl _ISystemMonitorUnion {
     {
         (::windows_core::Interface::vtable(self).SetEnableDigitGrouping)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableDigitGrouping(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnableDigitGrouping)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableToolTips<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -6557,13 +6557,13 @@ impl _ISystemMonitorUnion {
     {
         (::windows_core::Interface::vtable(self).SetEnableToolTips)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableToolTips(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnableToolTips)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShowTimeAxisLabels<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -6571,13 +6571,13 @@ impl _ISystemMonitorUnion {
     {
         (::windows_core::Interface::vtable(self).SetShowTimeAxisLabels)(::windows_core::Interface::as_raw(self), bstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowTimeAxisLabels(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ShowTimeAxisLabels)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetChartScroll<P0>(&self, bscroll: P0) -> ::windows_core::Result<()>
     where
@@ -6585,7 +6585,7 @@ impl _ISystemMonitorUnion {
     {
         (::windows_core::Interface::vtable(self).SetChartScroll)(::windows_core::Interface::as_raw(self), bscroll.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChartScroll(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6598,7 +6598,7 @@ impl _ISystemMonitorUnion {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DataPointCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScaleToFit<P0>(&self, bselectedcountersonly: P0) -> ::windows_core::Result<()>
     where
@@ -6635,7 +6635,7 @@ impl _ISystemMonitorUnion {
     pub unsafe fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLogViewRange)(::windows_core::Interface::as_raw(self), starttime, stoptime).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BatchingLock<P0>(&self, flock: P0, ebatchreason: SysmonBatchReason) -> ::windows_core::Result<()>
     where
@@ -7857,7 +7857,7 @@ impl ::core::fmt::Debug for WeekDays {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub _bitfield: u32,
@@ -7896,7 +7896,7 @@ impl ::core::default::Default for PDH_BROWSE_DLG_CONFIG_A {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub _bitfield: u32,
@@ -7935,7 +7935,7 @@ impl ::core::default::Default for PDH_BROWSE_DLG_CONFIG_HA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub _bitfield: u32,
@@ -7974,7 +7974,7 @@ impl ::core::default::Default for PDH_BROWSE_DLG_CONFIG_HW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_BROWSE_DLG_CONFIG_W {
     pub _bitfield: u32,
@@ -8390,7 +8390,7 @@ impl ::core::default::Default for PDH_FMT_COUNTERVALUE_ITEM_W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A {
     pub dwSize: u32,
@@ -8422,7 +8422,7 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_A {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PDH_LOG_SERVICE_QUERY_INFO_A_0 {
     pub Anonymous1: PDH_LOG_SERVICE_QUERY_INFO_A_0_0,
@@ -8447,7 +8447,7 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     pub PdlAutoNameInterval: u32,
@@ -8492,7 +8492,7 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     pub TlNumberOfBuffers: u32,
@@ -8550,7 +8550,7 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W {
     pub dwSize: u32,
@@ -8582,7 +8582,7 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PDH_LOG_SERVICE_QUERY_INFO_W_0 {
     pub Anonymous1: PDH_LOG_SERVICE_QUERY_INFO_W_0_0,
@@ -8607,7 +8607,7 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     pub PdlAutoNameInterval: u32,
@@ -8652,7 +8652,7 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     pub TlNumberOfBuffers: u32,
@@ -8710,7 +8710,7 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_RAW_COUNTER {
     pub CStatus: u32,
@@ -8752,7 +8752,7 @@ impl ::core::default::Default for PDH_RAW_COUNTER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_RAW_COUNTER_ITEM_A {
     pub szName: ::windows_core::PSTR,
@@ -8791,7 +8791,7 @@ impl ::core::default::Default for PDH_RAW_COUNTER_ITEM_A {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_RAW_COUNTER_ITEM_W {
     pub szName: ::windows_core::PWSTR,
@@ -9362,7 +9362,7 @@ impl ::core::default::Default for PERF_COUNTER_REG_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PERF_DATA_BLOCK {
     pub Signature: [u16; 4],
@@ -9428,7 +9428,7 @@ impl ::core::default::Default for PERF_DATA_BLOCK {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PERF_DATA_HEADER {
     pub dwTotalSize: u32,

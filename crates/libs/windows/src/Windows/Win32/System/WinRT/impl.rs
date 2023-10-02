@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAccountsSettingsPaneInterop_Impl: Sized {
     fn GetForWindow(&self, appwindow: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, accountssettingspane: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -220,7 +220,7 @@ impl ICastingEventHandler_Vtbl {
         *iid == <ICastingEventHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait ICastingSourceInfo_Impl: Sized {
     fn GetController(&self) -> ::windows_core::Result<ICastingController>;
@@ -401,7 +401,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
         *iid == <ICoreWindowAdapterInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICoreWindowComponentInterop_Impl: Sized {
     fn ConfigureComponentInput(&self, hostviewinstanceid: u32, hwndhost: super::super::Foundation::HWND, inputsourcevisual: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -438,7 +438,7 @@ impl ICoreWindowComponentInterop_Vtbl {
         *iid == <ICoreWindowComponentInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICoreWindowInterop_Impl: Sized {
     fn WindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND>;
@@ -544,7 +544,7 @@ impl ICorrelationVectorSource_Vtbl {
         *iid == <ICorrelationVectorSource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDragDropManagerInterop_Impl: Sized {
     fn GetForWindow(&self, hwnd: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -568,7 +568,7 @@ impl IDragDropManagerInterop_Vtbl {
         *iid == <IDragDropManagerInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IHolographicSpaceInterop_Impl: Sized {
     fn CreateForWindow(&self, window: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, holographicspace: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -592,7 +592,7 @@ impl IHolographicSpaceInterop_Vtbl {
         *iid == <IHolographicSpaceInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInputPaneInterop_Impl: Sized {
     fn GetForWindow(&self, appwindow: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, inputpane: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -759,7 +759,7 @@ impl IMessageDispatcher_Vtbl {
         *iid == <IMessageDispatcher as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPlayToManagerInterop_Impl: Sized {
     fn GetForWindow(&self, appwindow: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, playtomanager: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -823,7 +823,7 @@ impl IRestrictedErrorInfo_Vtbl {
         *iid == <IRestrictedErrorInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IShareWindowCommandEventArgsInterop_Impl: Sized {
     fn GetWindow(&self) -> ::windows_core::Result<super::super::Foundation::HWND>;
@@ -850,7 +850,7 @@ impl IShareWindowCommandEventArgsInterop_Vtbl {
         *iid == <IShareWindowCommandEventArgsInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IShareWindowCommandSourceInterop_Impl: Sized {
     fn GetForWindow(&self, appwindow: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, sharewindowcommandsource: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -871,7 +871,7 @@ impl IShareWindowCommandSourceInterop_Vtbl {
         *iid == <IShareWindowCommandSourceInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISpatialInteractionManagerInterop_Impl: Sized {
     fn GetForWindow(&self, window: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, spatialinteractionmanager: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -895,7 +895,7 @@ impl ISpatialInteractionManagerInterop_Vtbl {
         *iid == <ISpatialInteractionManagerInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISystemMediaTransportControlsInterop_Impl: Sized {
     fn GetForWindow(&self, appwindow: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, mediatransportcontrol: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -919,7 +919,7 @@ impl ISystemMediaTransportControlsInterop_Vtbl {
         *iid == <ISystemMediaTransportControlsInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIViewSettingsInterop_Impl: Sized {
     fn GetForWindow(&self, hwnd: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -943,7 +943,7 @@ impl IUIViewSettingsInterop_Vtbl {
         *iid == <IUIViewSettingsInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUserActivityInterop_Impl: Sized {
     fn CreateSessionForWindow(&self, window: super::super::Foundation::HWND, iid: *const ::windows_core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -967,7 +967,7 @@ impl IUserActivityInterop_Vtbl {
         *iid == <IUserActivityInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUserActivityRequestManagerInterop_Impl: Sized {
     fn GetForWindow(&self, window: super::super::Foundation::HWND, iid: *const ::windows_core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -1011,7 +1011,7 @@ impl IUserActivitySourceHostInterop_Vtbl {
         *iid == <IUserActivitySourceHostInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUserConsentVerifierInterop_Impl: Sized {
     fn RequestVerificationForWindowAsync(&self, appwindow: super::super::Foundation::HWND, message: &::windows_core::HSTRING, riid: *const ::windows_core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -1075,7 +1075,7 @@ impl IWeakReferenceSource_Vtbl {
         *iid == <IWeakReferenceSource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWebAuthenticationCoreManagerInterop_Impl: Sized {
     fn RequestTokenForWindowAsync(&self, appwindow: super::super::Foundation::HWND, request: ::core::option::Option<&::windows_core::IInspectable>, riid: *const ::windows_core::GUID, asyncinfo: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;

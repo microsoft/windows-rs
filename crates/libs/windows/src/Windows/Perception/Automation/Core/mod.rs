@@ -19,7 +19,7 @@ pub struct ICorePerceptionAutomationStatics_Vtbl {
 }
 pub struct CorePerceptionAutomation;
 impl CorePerceptionAutomation {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetActivationFactoryProvider<P0>(provider: P0) -> ::windows_core::Result<()>
     where

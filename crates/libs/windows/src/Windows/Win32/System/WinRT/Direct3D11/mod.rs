@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Graphics_Dxgi`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<P0>(dxgidevice: P0) -> ::windows_core::Result<::windows_core::IInspectable>
@@ -9,7 +9,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     CreateDirect3D11DeviceFromDXGIDevice(dxgidevice.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Graphics_Dxgi`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<P0>(dgxisurface: P0) -> ::windows_core::Result<::windows_core::IInspectable>

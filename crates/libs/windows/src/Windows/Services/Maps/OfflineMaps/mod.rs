@@ -124,13 +124,13 @@ impl OfflineMapPackage {
             (::windows_core::Interface::vtable(this).EstimatedSizeInBytes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStatusChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StatusChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -142,7 +142,7 @@ impl OfflineMapPackage {
             (::windows_core::Interface::vtable(this).StatusChanged)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestStartDownloadAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageStartDownloadResult>> {
         let this = self;
@@ -151,7 +151,7 @@ impl OfflineMapPackage {
             (::windows_core::Interface::vtable(this).RequestStartDownloadAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Geolocation`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub fn FindPackagesAsync<P0>(querypoint: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>
     where
@@ -162,7 +162,7 @@ impl OfflineMapPackage {
             (::windows_core::Interface::vtable(this).FindPackagesAsync)(::windows_core::Interface::as_raw(this), querypoint.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Devices_Geolocation`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub fn FindPackagesInBoundingBoxAsync<P0>(queryboundingbox: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>
     where
@@ -173,7 +173,7 @@ impl OfflineMapPackage {
             (::windows_core::Interface::vtable(this).FindPackagesInBoundingBoxAsync)(::windows_core::Interface::as_raw(this), queryboundingbox.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Devices_Geolocation`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub fn FindPackagesInGeocircleAsync<P0>(querycircle: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>
     where
@@ -216,7 +216,7 @@ impl OfflineMapPackageQueryResult {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Packages(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<OfflineMapPackage>> {
         let this = self;

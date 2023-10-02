@@ -2,7 +2,7 @@
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChannelCredentials(::windows_core::IUnknown);
 impl IChannelCredentials {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWindowsCredential<P0, P1, P2, P3>(&self, domain: P0, username: P1, password: P2, impersonationlevel: i32, allowntlm: P3) -> ::windows_core::Result<()>
     where
@@ -20,7 +20,7 @@ impl IChannelCredentials {
     {
         (::windows_core::Interface::vtable(self).SetUserNameCredential)(::windows_core::Interface::as_raw(self), username.into_param().abi(), password.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetClientCertificateFromStore<P0, P1, P2>(&self, storelocation: P0, storename: P1, findyype: P2, findvalue: super::super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -46,7 +46,7 @@ impl IChannelCredentials {
     {
         (::windows_core::Interface::vtable(self).SetClientCertificateFromFile)(::windows_core::Interface::as_raw(self), filename.into_param().abi(), password.into_param().abi(), keystorageflags.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetDefaultServiceCertificateFromStore<P0, P1, P2>(&self, storelocation: P0, storename: P1, findtype: P2, findvalue: super::super::Variant::VARIANT) -> ::windows_core::Result<()>
     where

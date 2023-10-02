@@ -1,11 +1,11 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERFACE_CONTEXT_TABLE) {
     ::windows_targets::link!("ondemandconnroutehelper.dll" "system" fn FreeInterfaceContextTable(interfacecontexttable : *const NET_INTERFACE_CONTEXT_TABLE) -> ());
     FreeInterfaceContextTable(interfacecontexttable)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetInterfaceContextTableForHostName<P0, P1>(hostname: P0, proxyname: P1, flags: u32, connectionprofilefilterrawdata: ::core::option::Option<&[u8]>) -> ::windows_core::Result<*mut NET_INTERFACE_CONTEXT_TABLE>
@@ -26,7 +26,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     OnDemandGetRoutingHint(destinationhostname.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OnDemandRegisterNotification(callback: ONDEMAND_NOTIFICATION_CALLBACK, callbackcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
@@ -34,7 +34,7 @@ pub unsafe fn OnDemandRegisterNotification(callback: ONDEMAND_NOTIFICATION_CALLB
     let mut result__ = ::std::mem::zeroed();
     OnDemandRegisterNotification(callback, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OnDemandUnRegisterNotification<P0>(registrationhandle: P0) -> ::windows_core::Result<()>
@@ -62,7 +62,7 @@ where
     ::windows_targets::link!("wcmapi.dll" "system" fn WcmQueryProperty(pinterface : *const ::windows_core::GUID, strprofilename : ::windows_core::PCWSTR, property : WCM_PROPERTY, preserved : *const ::core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut *mut u8) -> u32);
     WcmQueryProperty(::core::mem::transmute(pinterface.unwrap_or(::std::ptr::null())), strprofilename.into_param().abi(), property, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), pdwdatasize, ppdata)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcmSetProfileList<P0>(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: P0, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -230,7 +230,7 @@ impl ::core::default::Default for NET_INTERFACE_CONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NET_INTERFACE_CONTEXT_TABLE {
     pub InterfaceContextHandle: super::super::Foundation::HANDLE,
@@ -270,7 +270,7 @@ impl ::core::default::Default for NET_INTERFACE_CONTEXT_TABLE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WCM_BILLING_CYCLE_INFO {
     pub StartDate: super::super::Foundation::FILETIME,
@@ -340,7 +340,7 @@ impl ::core::default::Default for WCM_CONNECTION_COST_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WCM_DATAPLAN_STATUS {
     pub UsageData: WCM_USAGE_DATA,
@@ -384,7 +384,7 @@ impl ::core::default::Default for WCM_DATAPLAN_STATUS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WCM_POLICY_VALUE {
     pub fValue: super::super::Foundation::BOOL,
@@ -519,7 +519,7 @@ impl ::core::default::Default for WCM_TIME_INTERVAL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WCM_USAGE_DATA {
     pub UsageInMegabytes: u32,

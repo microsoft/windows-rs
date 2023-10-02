@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDummyMBNUCMExt_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -110,7 +110,7 @@ impl IMbnConnection_Vtbl {
         *iid == <IMbnConnection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnConnectionContext_Impl: Sized {
     fn GetProvisionedContexts(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -221,7 +221,7 @@ impl IMbnConnectionEvents_Vtbl {
         *iid == <IMbnConnectionEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnConnectionManager_Impl: Sized {
     fn GetConnection(&self, connectionid: &::windows_core::PCWSTR) -> ::windows_core::Result<IMbnConnection>;
@@ -348,7 +348,7 @@ impl IMbnConnectionProfileEvents_Vtbl {
         *iid == <IMbnConnectionProfileEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnConnectionProfileManager_Impl: Sized {
     fn GetConnectionProfiles(&self, mbninterface: ::core::option::Option<&IMbnInterface>) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -425,7 +425,7 @@ impl IMbnConnectionProfileManagerEvents_Vtbl {
         *iid == <IMbnConnectionProfileManagerEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMbnDeviceService_Impl: Sized {
     fn QuerySupportedCommands(&self) -> ::windows_core::Result<u32>;
@@ -615,7 +615,7 @@ impl IMbnDeviceServiceStateEvents_Vtbl {
         *iid == <IMbnDeviceServiceStateEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnDeviceServicesContext_Impl: Sized {
     fn EnumerateDeviceServices(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -684,7 +684,7 @@ impl IMbnDeviceServicesContext_Vtbl {
         *iid == <IMbnDeviceServicesContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnDeviceServicesEvents_Impl: Sized {
     fn OnQuerySupportedCommandsComplete(&self, deviceservice: ::core::option::Option<&IMbnDeviceService>, commandidlist: *const super::super::System::Com::SAFEARRAY, status: ::windows_core::HRESULT, requestid: u32) -> ::windows_core::Result<()>;
@@ -801,7 +801,7 @@ impl IMbnDeviceServicesManager_Vtbl {
         *iid == <IMbnDeviceServicesManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMbnInterface_Impl: Sized {
     fn InterfaceID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1018,7 +1018,7 @@ impl IMbnInterfaceEvents_Vtbl {
         *iid == <IMbnInterfaceEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnInterfaceManager_Impl: Sized {
     fn GetInterface(&self, interfaceid: &::windows_core::PCWSTR) -> ::windows_core::Result<IMbnInterface>;
@@ -1088,7 +1088,7 @@ impl IMbnInterfaceManagerEvents_Vtbl {
         *iid == <IMbnInterfaceManagerEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnMultiCarrier_Impl: Sized {
     fn SetHomeProvider(&self, homeprovider: *const MBN_PROVIDER2) -> ::windows_core::Result<u32>;
@@ -1429,7 +1429,7 @@ impl IMbnPinEvents_Vtbl {
         *iid == <IMbnPinEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnPinManager_Impl: Sized {
     fn GetPinList(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -1775,7 +1775,7 @@ impl IMbnRegistrationEvents_Vtbl {
         *iid == <IMbnRegistrationEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnServiceActivation_Impl: Sized {
     fn Activate(&self, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32>;
@@ -1802,7 +1802,7 @@ impl IMbnServiceActivation_Vtbl {
         *iid == <IMbnServiceActivation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnServiceActivationEvents_Impl: Sized {
     fn OnActivationComplete(&self, serviceactivation: ::core::option::Option<&IMbnServiceActivation>, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32, status: ::windows_core::HRESULT, networkerror: u32) -> ::windows_core::Result<()>;
@@ -1879,7 +1879,7 @@ impl IMbnSignalEvents_Vtbl {
         *iid == <IMbnSignalEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnSms_Impl: Sized {
     fn GetSmsConfiguration(&self) -> ::windows_core::Result<IMbnSmsConfiguration>;
@@ -2079,7 +2079,7 @@ impl IMbnSmsConfiguration_Vtbl {
         *iid == <IMbnSmsConfiguration as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMbnSmsEvents_Impl: Sized {
     fn OnSmsConfigurationChange(&self, sms: ::core::option::Option<&IMbnSms>) -> ::windows_core::Result<()>;
@@ -2145,7 +2145,7 @@ impl IMbnSmsEvents_Vtbl {
         *iid == <IMbnSmsEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnSmsReadMsgPdu_Impl: Sized {
     fn Index(&self) -> ::windows_core::Result<u32>;
@@ -2214,7 +2214,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
         *iid == <IMbnSmsReadMsgPdu as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnSmsReadMsgTextCdma_Impl: Sized {
     fn Index(&self) -> ::windows_core::Result<u32>;
@@ -2335,7 +2335,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
         *iid == <IMbnSmsReadMsgTextCdma as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnSubscriberInformation_Impl: Sized {
     fn SubscriberID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2391,7 +2391,7 @@ impl IMbnSubscriberInformation_Vtbl {
         *iid == <IMbnSubscriberInformation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnVendorSpecificEvents_Impl: Sized {
     fn OnEventNotification(&self, vendoroperation: ::core::option::Option<&IMbnVendorSpecificOperation>, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>;
@@ -2422,7 +2422,7 @@ impl IMbnVendorSpecificEvents_Vtbl {
         *iid == <IMbnVendorSpecificEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnVendorSpecificOperation_Impl: Sized {
     fn SetVendorSpecific(&self, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32>;

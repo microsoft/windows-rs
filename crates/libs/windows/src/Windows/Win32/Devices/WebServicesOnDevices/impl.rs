@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDAddress_Impl: Sized {
     fn Serialize(&self, pszbuffer: ::windows_core::PWSTR, cchlength: u32, fsafe: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -46,7 +46,7 @@ impl IWSDAsyncCallback_Vtbl {
         *iid == <IWSDAsyncCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDAsyncResult_Impl: Sized {
     fn SetCallback(&self, pcallback: ::core::option::Option<&IWSDAsyncCallback>, pasyncstate: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -134,7 +134,7 @@ impl IWSDAttachment_Vtbl {
         *iid == <IWSDAttachment as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDDeviceHost_Impl: Sized {
     fn Init(&self, pszlocalid: &::windows_core::PCWSTR, pcontext: ::core::option::Option<&IWSDXMLContext>, pphostaddresses: *const ::core::option::Option<IWSDAddress>, dwhostaddresscount: u32) -> ::windows_core::Result<()>;
@@ -389,7 +389,7 @@ impl IWSDDeviceProxy_Vtbl {
         *iid == <IWSDDeviceProxy as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDEndpointProxy_Impl: Sized {
     fn SendOneWayRequest(&self, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows_core::Result<()>;
@@ -507,7 +507,7 @@ impl IWSDEventingStatus_Vtbl {
         *iid == <IWSDEventingStatus as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDHttpAddress_Impl: Sized + IWSDTransportAddress_Impl {
     fn GetSecure(&self) -> ::windows_core::Result<()>;
@@ -558,7 +558,7 @@ impl IWSDHttpAddress_Vtbl {
         *iid == <IWSDHttpAddress as ::windows_core::ComInterface>::IID || *iid == <IWSDAddress as ::windows_core::ComInterface>::IID || *iid == <IWSDTransportAddress as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDHttpAuthParameters_Impl: Sized {
     fn GetClientAccessToken(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE>;
@@ -853,7 +853,7 @@ impl IWSDOutboundAttachment_Vtbl {
         *iid == <IWSDOutboundAttachment as ::windows_core::ComInterface>::IID || *iid == <IWSDAttachment as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub trait IWSDSSLClientCertificate_Impl: Sized {
     fn GetClientCertificate(&self) -> ::windows_core::Result<*mut super::super::Security::Cryptography::CERT_CONTEXT>;
@@ -896,7 +896,7 @@ impl IWSDSSLClientCertificate_Vtbl {
         *iid == <IWSDSSLClientCertificate as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDScopeMatchingRule_Impl: Sized {
     fn GetScopeRule(&self) -> ::windows_core::Result<::windows_core::PCWSTR>;
@@ -1052,7 +1052,7 @@ impl IWSDServiceProxy_Vtbl {
         *iid == <IWSDServiceProxy as ::windows_core::ComInterface>::IID || *iid == <IWSDMetadataExchange as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDServiceProxyEventing_Impl: Sized + IWSDServiceProxy_Impl {
     fn SubscribeToMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, punknown: ::core::option::Option<&::windows_core::IUnknown>, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows_core::Result<()>;
@@ -1177,7 +1177,7 @@ impl IWSDServiceProxyEventing_Vtbl {
         *iid == <IWSDServiceProxyEventing as ::windows_core::ComInterface>::IID || *iid == <IWSDMetadataExchange as ::windows_core::ComInterface>::IID || *iid == <IWSDServiceProxy as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDSignatureProperty_Impl: Sized {
     fn IsMessageSigned(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -1241,7 +1241,7 @@ impl IWSDSignatureProperty_Vtbl {
         *iid == <IWSDSignatureProperty as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDTransportAddress_Impl: Sized + IWSDAddress_Impl {
     fn GetPort(&self) -> ::windows_core::Result<u16>;
@@ -1311,7 +1311,7 @@ impl IWSDTransportAddress_Vtbl {
         *iid == <IWSDTransportAddress as ::windows_core::ComInterface>::IID || *iid == <IWSDAddress as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Networking_WinSock`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub trait IWSDUdpAddress_Impl: Sized + IWSDTransportAddress_Impl {
     fn SetSockaddr(&self, psockaddr: *const super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows_core::Result<()>;

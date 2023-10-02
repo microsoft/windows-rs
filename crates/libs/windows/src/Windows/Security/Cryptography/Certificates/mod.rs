@@ -1023,7 +1023,7 @@ pub struct IUserCertificateStore_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Certificate(::windows_core::IUnknown);
 impl Certificate {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn BuildChainAsync<P0>(&self, certificates: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<CertificateChain>>
     where
@@ -1035,7 +1035,7 @@ impl Certificate {
             (::windows_core::Interface::vtable(this).BuildChainAsync)(::windows_core::Interface::as_raw(this), certificates.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn BuildChainWithParametersAsync<P0, P1>(&self, certificates: P0, parameters: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<CertificateChain>>
     where
@@ -1069,7 +1069,7 @@ impl Certificate {
             (::windows_core::Interface::vtable(this).GetHashValueWithAlgorithm)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hashalgorithmname), ::windows_core::Array::<u8>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetCertificateBlob(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1106,7 +1106,7 @@ impl Certificate {
             (::windows_core::Interface::vtable(this).IsStronglyProtected)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ValidFrom(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -1115,7 +1115,7 @@ impl Certificate {
             (::windows_core::Interface::vtable(this).ValidFrom)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ValidTo(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -1124,7 +1124,7 @@ impl Certificate {
             (::windows_core::Interface::vtable(this).ValidTo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EnhancedKeyUsages(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -1207,7 +1207,7 @@ impl Certificate {
             (::windows_core::Interface::vtable(this).KeyStorageProviderName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateCertificate<P0>(certblob: P0) -> ::windows_core::Result<Certificate>
     where
@@ -1260,7 +1260,7 @@ impl CertificateChain {
             (::windows_core::Interface::vtable(this).ValidateWithParameters)(::windows_core::Interface::as_raw(this), parameter.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCertificates(&self, includeroot: bool) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>> {
         let this = self;
@@ -1287,7 +1287,7 @@ unsafe impl ::core::marker::Send for CertificateChain {}
 unsafe impl ::core::marker::Sync for CertificateChain {}
 pub struct CertificateEnrollmentManager;
 impl CertificateEnrollmentManager {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateRequestAsync<P0>(request: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -1298,7 +1298,7 @@ impl CertificateEnrollmentManager {
             (::windows_core::Interface::vtable(this).CreateRequestAsync)(::windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn InstallCertificateAsync(certificate: &::windows_core::HSTRING, installoption: InstallOptions) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
@@ -1306,7 +1306,7 @@ impl CertificateEnrollmentManager {
             (::windows_core::Interface::vtable(this).InstallCertificateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(certificate), installoption, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ImportPfxDataAsync(pfxdata: &::windows_core::HSTRING, password: &::windows_core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
@@ -1320,7 +1320,7 @@ impl CertificateEnrollmentManager {
             (::windows_core::Interface::vtable(this).UserCertificateEnrollmentManager)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ImportPfxDataToKspAsync(pfxdata: &::windows_core::HSTRING, password: &::windows_core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &::windows_core::HSTRING, keystorageprovider: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICertificateEnrollmentManagerStatics2(|this| unsafe {
@@ -1328,7 +1328,7 @@ impl CertificateEnrollmentManager {
             (::windows_core::Interface::vtable(this).ImportPfxDataToKspAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(pfxdata), ::core::mem::transmute_copy(password), exportable, keyprotectionlevel, installoption, ::core::mem::transmute_copy(friendlyname), ::core::mem::transmute_copy(keystorageprovider), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ImportPfxDataToKspWithParametersAsync<P0>(pfxdata: &::windows_core::HSTRING, password: &::windows_core::HSTRING, pfximportparameters: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -1548,7 +1548,7 @@ impl CertificateQuery {
         static SHARED: ::windows_core::imp::FactoryCache<CertificateQuery, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EnhancedKeyUsages(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -1854,7 +1854,7 @@ impl CertificateRequestProperties {
         let this = &::windows_core::ComInterface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetUseExistingKey)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SuppressedDefaults(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::ComInterface::cast::<ICertificateRequestProperties4>(self)?;
@@ -1870,7 +1870,7 @@ impl CertificateRequestProperties {
             (::windows_core::Interface::vtable(this).SubjectAlternativeName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Extensions(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<CertificateExtension>> {
         let this = &::windows_core::ComInterface::cast::<ICertificateRequestProperties4>(self)?;
@@ -1938,7 +1938,7 @@ unsafe impl ::core::marker::Send for CertificateStore {}
 unsafe impl ::core::marker::Sync for CertificateStore {}
 pub struct CertificateStores;
 impl CertificateStores {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsync() -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>> {
         Self::ICertificateStoresStatics(|this| unsafe {
@@ -1946,7 +1946,7 @@ impl CertificateStores {
             (::windows_core::Interface::vtable(this).FindAllAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllWithQueryAsync<P0>(query: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>>
     where
@@ -2006,7 +2006,7 @@ impl ChainBuildingParameters {
         static SHARED: ::windows_core::imp::FactoryCache<ChainBuildingParameters, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EnhancedKeyUsages(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -2015,7 +2015,7 @@ impl ChainBuildingParameters {
             (::windows_core::Interface::vtable(this).EnhancedKeyUsages)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ValidationTimestamp(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -2024,7 +2024,7 @@ impl ChainBuildingParameters {
             (::windows_core::Interface::vtable(this).ValidationTimestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetValidationTimestamp(&self, value: super::super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = self;
@@ -2074,7 +2074,7 @@ impl ChainBuildingParameters {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCurrentTimeValidationEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ExclusiveTrustRoots(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<Certificate>> {
         let this = self;
@@ -2121,7 +2121,7 @@ impl ChainValidationParameters {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCertificateChainPolicy)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Networking`"]
+    #[doc = "Required features: `\"Networking\"`"]
     #[cfg(feature = "Networking")]
     pub fn ServerDnsName(&self) -> ::windows_core::Result<super::super::super::Networking::HostName> {
         let this = self;
@@ -2130,7 +2130,7 @@ impl ChainValidationParameters {
             (::windows_core::Interface::vtable(this).ServerDnsName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Networking`"]
+    #[doc = "Required features: `\"Networking\"`"]
     #[cfg(feature = "Networking")]
     pub fn SetServerDnsName<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2159,7 +2159,7 @@ unsafe impl ::core::marker::Sync for ChainValidationParameters {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CmsAttachedSignature(::windows_core::IUnknown);
 impl CmsAttachedSignature {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Certificates(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>> {
         let this = self;
@@ -2175,7 +2175,7 @@ impl CmsAttachedSignature {
             (::windows_core::Interface::vtable(this).Content)(::windows_core::Interface::as_raw(this), ::windows_core::Array::<u8>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Signers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CmsSignerInfo>> {
         let this = self;
@@ -2191,7 +2191,7 @@ impl CmsAttachedSignature {
             (::windows_core::Interface::vtable(this).VerifySignature)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateCmsAttachedSignature<P0>(inputblob: P0) -> ::windows_core::Result<CmsAttachedSignature>
     where
@@ -2202,7 +2202,7 @@ impl CmsAttachedSignature {
             (::windows_core::Interface::vtable(this).CreateCmsAttachedSignature)(::windows_core::Interface::as_raw(this), inputblob.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GenerateSignatureAsync<P0, P1, P2>(data: P0, signers: P1, certificates: P2) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
@@ -2245,7 +2245,7 @@ unsafe impl ::core::marker::Sync for CmsAttachedSignature {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CmsDetachedSignature(::windows_core::IUnknown);
 impl CmsDetachedSignature {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Certificates(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>> {
         let this = self;
@@ -2254,7 +2254,7 @@ impl CmsDetachedSignature {
             (::windows_core::Interface::vtable(this).Certificates)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Signers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CmsSignerInfo>> {
         let this = self;
@@ -2263,7 +2263,7 @@ impl CmsDetachedSignature {
             (::windows_core::Interface::vtable(this).Signers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn VerifySignatureAsync<P0>(&self, data: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<SignatureValidationResult>>
     where
@@ -2275,7 +2275,7 @@ impl CmsDetachedSignature {
             (::windows_core::Interface::vtable(this).VerifySignatureAsync)(::windows_core::Interface::as_raw(this), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateCmsDetachedSignature<P0>(inputblob: P0) -> ::windows_core::Result<CmsDetachedSignature>
     where
@@ -2286,7 +2286,7 @@ impl CmsDetachedSignature {
             (::windows_core::Interface::vtable(this).CreateCmsDetachedSignature)(::windows_core::Interface::as_raw(this), inputblob.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GenerateSignatureAsync<P0, P1, P2>(data: P0, signers: P1, certificates: P2) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
@@ -2395,7 +2395,7 @@ impl CmsTimestampInfo {
             (::windows_core::Interface::vtable(this).SigningCertificate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Certificates(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>> {
         let this = self;
@@ -2404,7 +2404,7 @@ impl CmsTimestampInfo {
             (::windows_core::Interface::vtable(this).Certificates)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -2507,7 +2507,7 @@ impl ::windows_core::RuntimeName for KeyAlgorithmNames {
 }
 pub struct KeyAttestationHelper;
 impl KeyAttestationHelper {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DecryptTpmAttestationCredentialAsync(credential: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         Self::IKeyAttestationHelperStatics(|this| unsafe {
@@ -2521,7 +2521,7 @@ impl KeyAttestationHelper {
             (::windows_core::Interface::vtable(this).GetTpmAttestationCredentialId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(credential), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DecryptTpmAttestationCredentialWithContainerNameAsync(credential: &::windows_core::HSTRING, containername: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         Self::IKeyAttestationHelperStatics2(|this| unsafe {
@@ -2727,7 +2727,7 @@ impl SubjectAlternativeNameInfo {
         static SHARED: ::windows_core::imp::FactoryCache<SubjectAlternativeNameInfo, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EmailName(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -2736,7 +2736,7 @@ impl SubjectAlternativeNameInfo {
             (::windows_core::Interface::vtable(this).EmailName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IPAddress(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -2745,7 +2745,7 @@ impl SubjectAlternativeNameInfo {
             (::windows_core::Interface::vtable(this).IPAddress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Url(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -2754,7 +2754,7 @@ impl SubjectAlternativeNameInfo {
             (::windows_core::Interface::vtable(this).Url)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DnsName(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -2763,7 +2763,7 @@ impl SubjectAlternativeNameInfo {
             (::windows_core::Interface::vtable(this).DnsName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DistinguishedName(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -2772,7 +2772,7 @@ impl SubjectAlternativeNameInfo {
             (::windows_core::Interface::vtable(this).DistinguishedName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PrincipalName(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -2781,7 +2781,7 @@ impl SubjectAlternativeNameInfo {
             (::windows_core::Interface::vtable(this).PrincipalName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EmailNames(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::ComInterface::cast::<ISubjectAlternativeNameInfo2>(self)?;
@@ -2790,7 +2790,7 @@ impl SubjectAlternativeNameInfo {
             (::windows_core::Interface::vtable(this).EmailNames)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IPAddresses(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::ComInterface::cast::<ISubjectAlternativeNameInfo2>(self)?;
@@ -2799,7 +2799,7 @@ impl SubjectAlternativeNameInfo {
             (::windows_core::Interface::vtable(this).IPAddresses)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Urls(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::ComInterface::cast::<ISubjectAlternativeNameInfo2>(self)?;
@@ -2808,7 +2808,7 @@ impl SubjectAlternativeNameInfo {
             (::windows_core::Interface::vtable(this).Urls)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DnsNames(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::ComInterface::cast::<ISubjectAlternativeNameInfo2>(self)?;
@@ -2817,7 +2817,7 @@ impl SubjectAlternativeNameInfo {
             (::windows_core::Interface::vtable(this).DnsNames)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DistinguishedNames(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::ComInterface::cast::<ISubjectAlternativeNameInfo2>(self)?;
@@ -2826,7 +2826,7 @@ impl SubjectAlternativeNameInfo {
             (::windows_core::Interface::vtable(this).DistinguishedNames)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PrincipalNames(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::ComInterface::cast::<ISubjectAlternativeNameInfo2>(self)?;
@@ -2862,7 +2862,7 @@ unsafe impl ::core::marker::Sync for SubjectAlternativeNameInfo {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserCertificateEnrollmentManager(::windows_core::IUnknown);
 impl UserCertificateEnrollmentManager {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateRequestAsync<P0>(&self, request: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -2874,7 +2874,7 @@ impl UserCertificateEnrollmentManager {
             (::windows_core::Interface::vtable(this).CreateRequestAsync)(::windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn InstallCertificateAsync(&self, certificate: &::windows_core::HSTRING, installoption: InstallOptions) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2883,7 +2883,7 @@ impl UserCertificateEnrollmentManager {
             (::windows_core::Interface::vtable(this).InstallCertificateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(certificate), installoption, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ImportPfxDataAsync(&self, pfxdata: &::windows_core::HSTRING, password: &::windows_core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2892,7 +2892,7 @@ impl UserCertificateEnrollmentManager {
             (::windows_core::Interface::vtable(this).ImportPfxDataAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(pfxdata), ::core::mem::transmute_copy(password), exportable, keyprotectionlevel, installoption, ::core::mem::transmute_copy(friendlyname), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ImportPfxDataToKspAsync(&self, pfxdata: &::windows_core::HSTRING, password: &::windows_core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &::windows_core::HSTRING, keystorageprovider: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2901,7 +2901,7 @@ impl UserCertificateEnrollmentManager {
             (::windows_core::Interface::vtable(this).ImportPfxDataToKspAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(pfxdata), ::core::mem::transmute_copy(password), exportable, keyprotectionlevel, installoption, ::core::mem::transmute_copy(friendlyname), ::core::mem::transmute_copy(keystorageprovider), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ImportPfxDataToKspWithParametersAsync<P0>(&self, pfxdata: &::windows_core::HSTRING, password: &::windows_core::HSTRING, pfximportparameters: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -2933,7 +2933,7 @@ unsafe impl ::core::marker::Sync for UserCertificateEnrollmentManager {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserCertificateStore(::windows_core::IUnknown);
 impl UserCertificateStore {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAddAsync<P0>(&self, certificate: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -2945,7 +2945,7 @@ impl UserCertificateStore {
             (::windows_core::Interface::vtable(this).RequestAddAsync)(::windows_core::Interface::as_raw(this), certificate.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestDeleteAsync<P0>(&self, certificate: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where

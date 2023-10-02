@@ -59,7 +59,7 @@ impl IMDSPDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumStorage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormatSupport(&self, pformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows_core::PWSTR, pnmimetypecount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFormatSupport)(::windows_core::Interface::as_raw(self), pformatex, pnformatcount, pppwszmimetype, pnmimetypecount).ok()
@@ -130,7 +130,7 @@ impl IMDSPDevice2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumStorage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormatSupport(&self, pformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows_core::PWSTR, pnmimetypecount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetFormatSupport)(::windows_core::Interface::as_raw(self), pformatex, pnformatcount, pppwszmimetype, pnmimetypecount).ok()
@@ -145,12 +145,12 @@ impl IMDSPDevice2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStorage)(::windows_core::Interface::as_raw(self), pszstoragename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFormatSupport2)(::windows_core::Interface::as_raw(self), dwflags, ppaudioformatex, pnaudioformatcount, ppvideoformatex, pnvideoformatcount, ppfiletype, pnfiletypecount).ok()
     }
-    #[doc = "Required features: `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::core::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::core::option::Option<::windows_core::IUnknown>, pcunks: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSpecifyPropertyPages)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppspecifyproppages), pppunknowns, pcunks).ok()
@@ -217,7 +217,7 @@ impl IMDSPDevice3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumStorage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormatSupport(&self, pformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows_core::PWSTR, pnmimetypecount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetFormatSupport)(::windows_core::Interface::as_raw(self), pformatex, pnformatcount, pppwszmimetype, pnmimetypecount).ok()
@@ -232,12 +232,12 @@ impl IMDSPDevice3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStorage)(::windows_core::Interface::as_raw(self), pszstoragename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetFormatSupport2)(::windows_core::Interface::as_raw(self), dwflags, ppaudioformatex, pnaudioformatcount, ppvideoformatex, pnvideoformatcount, ppfiletype, pnfiletypecount).ok()
     }
-    #[doc = "Required features: `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::core::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::core::option::Option<::windows_core::IUnknown>, pcunks: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetSpecifyPropertyPages)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppspecifyproppages), pppunknowns, pcunks).ok()
@@ -245,7 +245,7 @@ impl IMDSPDevice3 {
     pub unsafe fn GetCanonicalName(&self, pwszpnpname: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetCanonicalName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszpnpname.as_ptr()), pwszpnpname.len() as _).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperty<P0>(&self, pwszpropname: P0) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>
     where
@@ -254,7 +254,7 @@ impl IMDSPDevice3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), pwszpropname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetProperty<P0>(&self, pwszpropname: P0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>
     where
@@ -262,7 +262,7 @@ impl IMDSPDevice3 {
     {
         (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), pwszpropname.into_param().abi(), pvalue).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> ::windows_core::Result<WMDM_FORMAT_CAPABILITY> {
         let mut result__ = ::std::mem::zeroed();
@@ -320,7 +320,7 @@ impl IMDSPDeviceControl {
     pub unsafe fn Play(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Play)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn Record(&self, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Record)(::windows_core::Interface::as_raw(self), pformat).ok()
@@ -655,7 +655,7 @@ pub struct IMDSPRevoked_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMDSPStorage(::windows_core::IUnknown);
 impl IMDSPStorage {
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAttributes)(::windows_core::Interface::as_raw(self), dwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null()))).ok()
@@ -664,7 +664,7 @@ impl IMDSPStorage {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStorageGlobals)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -682,7 +682,7 @@ impl IMDSPStorage {
     pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: &mut [u8; 8]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRights)(::windows_core::Interface::as_raw(self), pprights, pnrightscount, ::core::mem::transmute(abmac.as_ptr())).ok()
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn CreateStorage<P0>(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pwszname: P0) -> ::windows_core::Result<IMDSPStorage>
     where
@@ -734,7 +734,7 @@ pub struct IMDSPStorage_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMDSPStorage2(::windows_core::IUnknown);
 impl IMDSPStorage2 {
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetAttributes)(::windows_core::Interface::as_raw(self), dwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null()))).ok()
@@ -743,7 +743,7 @@ impl IMDSPStorage2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStorageGlobals)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -761,7 +761,7 @@ impl IMDSPStorage2 {
     pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: &mut [u8; 8]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetRights)(::windows_core::Interface::as_raw(self), pprights, pnrightscount, ::core::mem::transmute(abmac.as_ptr())).ok()
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn CreateStorage<P0>(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pwszname: P0) -> ::windows_core::Result<IMDSPStorage>
     where
@@ -784,7 +784,7 @@ impl IMDSPStorage2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStorage)(::windows_core::Interface::as_raw(self), pszstoragename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn CreateStorage2<P0>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*const super::MediaFoundation::VIDEOINFOHEADER>, pwszname: P0, qwfilesize: u64) -> ::windows_core::Result<IMDSPStorage>
     where
@@ -793,12 +793,12 @@ impl IMDSPStorage2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateStorage2)(::windows_core::Interface::as_raw(self), dwattributes, dwattributesex, ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null())), pwszname.into_param().abi(), qwfilesize, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*const super::MediaFoundation::VIDEOINFOHEADER>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAttributes2)(::windows_core::Interface::as_raw(self), dwattributes, dwattributesex, ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*mut super::MediaFoundation::VIDEOINFOHEADER>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAttributes2)(::windows_core::Interface::as_raw(self), pdwattributes, pdwattributesex, ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -833,7 +833,7 @@ pub struct IMDSPStorage2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMDSPStorage3(::windows_core::IUnknown);
 impl IMDSPStorage3 {
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetAttributes)(::windows_core::Interface::as_raw(self), dwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null()))).ok()
@@ -842,7 +842,7 @@ impl IMDSPStorage3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetStorageGlobals)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -860,7 +860,7 @@ impl IMDSPStorage3 {
     pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: &mut [u8; 8]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetRights)(::windows_core::Interface::as_raw(self), pprights, pnrightscount, ::core::mem::transmute(abmac.as_ptr())).ok()
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn CreateStorage<P0>(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pwszname: P0) -> ::windows_core::Result<IMDSPStorage>
     where
@@ -883,7 +883,7 @@ impl IMDSPStorage3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStorage)(::windows_core::Interface::as_raw(self), pszstoragename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn CreateStorage2<P0>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*const super::MediaFoundation::VIDEOINFOHEADER>, pwszname: P0, qwfilesize: u64) -> ::windows_core::Result<IMDSPStorage>
     where
@@ -892,12 +892,12 @@ impl IMDSPStorage3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateStorage2)(::windows_core::Interface::as_raw(self), dwattributes, dwattributesex, ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null())), pwszname.into_param().abi(), qwfilesize, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*const super::MediaFoundation::VIDEOINFOHEADER>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetAttributes2)(::windows_core::Interface::as_raw(self), dwattributes, dwattributesex, ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*mut super::MediaFoundation::VIDEOINFOHEADER>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetAttributes2)(::windows_core::Interface::as_raw(self), pdwattributes, pdwattributesex, ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -933,7 +933,7 @@ pub struct IMDSPStorage3_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMDSPStorage4(::windows_core::IUnknown);
 impl IMDSPStorage4 {
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetAttributes)(::windows_core::Interface::as_raw(self), dwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null()))).ok()
@@ -942,7 +942,7 @@ impl IMDSPStorage4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetStorageGlobals)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -960,7 +960,7 @@ impl IMDSPStorage4 {
     pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: &mut [u8; 8]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetRights)(::windows_core::Interface::as_raw(self), pprights, pnrightscount, ::core::mem::transmute(abmac.as_ptr())).ok()
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn CreateStorage<P0>(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pwszname: P0) -> ::windows_core::Result<IMDSPStorage>
     where
@@ -983,7 +983,7 @@ impl IMDSPStorage4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetStorage)(::windows_core::Interface::as_raw(self), pszstoragename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn CreateStorage2<P0>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*const super::MediaFoundation::VIDEOINFOHEADER>, pwszname: P0, qwfilesize: u64) -> ::windows_core::Result<IMDSPStorage>
     where
@@ -992,12 +992,12 @@ impl IMDSPStorage4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreateStorage2)(::windows_core::Interface::as_raw(self), dwattributes, dwattributesex, ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null())), pwszname.into_param().abi(), qwfilesize, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*const super::MediaFoundation::VIDEOINFOHEADER>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetAttributes2)(::windows_core::Interface::as_raw(self), dwattributes, dwattributesex, ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*mut super::MediaFoundation::VIDEOINFOHEADER>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetAttributes2)(::windows_core::Interface::as_raw(self), pdwattributes, pdwattributesex, ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -1665,7 +1665,7 @@ impl IWMDMDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumStorage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormatSupport(&self, ppformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows_core::PWSTR, pnmimetypecount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFormatSupport)(::windows_core::Interface::as_raw(self), ppformatex, pnformatcount, pppwszmimetype, pnmimetypecount).ok()
@@ -1736,7 +1736,7 @@ impl IWMDMDevice2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumStorage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormatSupport(&self, ppformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows_core::PWSTR, pnmimetypecount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetFormatSupport)(::windows_core::Interface::as_raw(self), ppformatex, pnformatcount, pppwszmimetype, pnmimetypecount).ok()
@@ -1751,12 +1751,12 @@ impl IWMDMDevice2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStorage)(::windows_core::Interface::as_raw(self), pszstoragename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFormatSupport2)(::windows_core::Interface::as_raw(self), dwflags, ppaudioformatex, pnaudioformatcount, ppvideoformatex, pnvideoformatcount, ppfiletype, pnfiletypecount).ok()
     }
-    #[doc = "Required features: `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::core::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::core::option::Option<::windows_core::IUnknown>, pcunks: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSpecifyPropertyPages)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppspecifyproppages), pppunknowns, pcunks).ok()
@@ -1823,7 +1823,7 @@ impl IWMDMDevice3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumStorage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormatSupport(&self, ppformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows_core::PWSTR, pnmimetypecount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetFormatSupport)(::windows_core::Interface::as_raw(self), ppformatex, pnformatcount, pppwszmimetype, pnmimetypecount).ok()
@@ -1838,12 +1838,12 @@ impl IWMDMDevice3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStorage)(::windows_core::Interface::as_raw(self), pszstoragename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetFormatSupport2)(::windows_core::Interface::as_raw(self), dwflags, ppaudioformatex, pnaudioformatcount, ppvideoformatex, pnvideoformatcount, ppfiletype, pnfiletypecount).ok()
     }
-    #[doc = "Required features: `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::core::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::core::option::Option<::windows_core::IUnknown>, pcunks: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetSpecifyPropertyPages)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppspecifyproppages), pppunknowns, pcunks).ok()
@@ -1851,7 +1851,7 @@ impl IWMDMDevice3 {
     pub unsafe fn GetCanonicalName(&self, pwszpnpname: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetCanonicalName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszpnpname.as_ptr()), pwszpnpname.len() as _).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperty<P0>(&self, pwszpropname: P0) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>
     where
@@ -1860,7 +1860,7 @@ impl IWMDMDevice3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), pwszpropname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetProperty<P0>(&self, pwszpropname: P0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>
     where
@@ -1868,7 +1868,7 @@ impl IWMDMDevice3 {
     {
         (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), pwszpropname.into_param().abi(), pvalue).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> ::windows_core::Result<WMDM_FORMAT_CAPABILITY> {
         let mut result__ = ::std::mem::zeroed();
@@ -1926,7 +1926,7 @@ impl IWMDMDeviceControl {
     pub unsafe fn Play(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Play)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn Record(&self, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Record)(::windows_core::Interface::as_raw(self), pformat).ok()
@@ -2066,13 +2066,13 @@ pub struct IWMDMEnumStorage_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMDMLogger(::windows_core::IUnknown);
 impl IWMDMLogger {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enable<P0>(&self, fenable: P0) -> ::windows_core::Result<()>
     where
@@ -2270,12 +2270,12 @@ impl IWMDMOperation {
     pub unsafe fn SetObjectName(&self, pwszname: &[u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetObjectName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetObjectAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn SetObjectAttributes(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetObjectAttributes)(::windows_core::Interface::as_raw(self), dwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null()))).ok()
@@ -2340,12 +2340,12 @@ impl IWMDMOperation2 {
     pub unsafe fn SetObjectName(&self, pwszname: &[u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetObjectName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetObjectAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn SetObjectAttributes(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetObjectAttributes)(::windows_core::Interface::as_raw(self), dwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null()))).ok()
@@ -2365,12 +2365,12 @@ impl IWMDMOperation2 {
     {
         (::windows_core::Interface::vtable(self).base__.End)(::windows_core::Interface::as_raw(self), phcompletioncode, pnewobject.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetObjectAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*const super::MediaFoundation::VIDEOINFOHEADER>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetObjectAttributes2)(::windows_core::Interface::as_raw(self), dwattributes, dwattributesex, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetObjectAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*mut super::MediaFoundation::VIDEOINFOHEADER>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetObjectAttributes2)(::windows_core::Interface::as_raw(self), pdwattributes, pdwattributesex, ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2412,12 +2412,12 @@ impl IWMDMOperation3 {
     pub unsafe fn SetObjectName(&self, pwszname: &[u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetObjectName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetObjectAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn SetObjectAttributes(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetObjectAttributes)(::windows_core::Interface::as_raw(self), dwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null()))).ok()
@@ -2579,7 +2579,7 @@ pub struct IWMDMRevoked_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMDMStorage(::windows_core::IUnknown);
 impl IWMDMStorage {
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAttributes)(::windows_core::Interface::as_raw(self), dwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null()))).ok()
@@ -2588,7 +2588,7 @@ impl IWMDMStorage {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStorageGlobals)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2645,7 +2645,7 @@ pub struct IWMDMStorage_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMDMStorage2(::windows_core::IUnknown);
 impl IWMDMStorage2 {
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetAttributes)(::windows_core::Interface::as_raw(self), dwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null()))).ok()
@@ -2654,7 +2654,7 @@ impl IWMDMStorage2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStorageGlobals)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2686,12 +2686,12 @@ impl IWMDMStorage2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStorage)(::windows_core::Interface::as_raw(self), pszstoragename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*const super::MediaFoundation::VIDEOINFOHEADER>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAttributes2)(::windows_core::Interface::as_raw(self), dwattributes, dwattributesex, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*mut super::MediaFoundation::VIDEOINFOHEADER>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAttributes2)(::windows_core::Interface::as_raw(self), pdwattributes, pdwattributesex, ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2722,7 +2722,7 @@ pub struct IWMDMStorage2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMDMStorage3(::windows_core::IUnknown);
 impl IWMDMStorage3 {
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetAttributes)(::windows_core::Interface::as_raw(self), dwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null()))).ok()
@@ -2731,7 +2731,7 @@ impl IWMDMStorage3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetStorageGlobals)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2763,12 +2763,12 @@ impl IWMDMStorage3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStorage)(::windows_core::Interface::as_raw(self), pszstoragename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*const super::MediaFoundation::VIDEOINFOHEADER>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetAttributes2)(::windows_core::Interface::as_raw(self), dwattributes, dwattributesex, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*mut super::MediaFoundation::VIDEOINFOHEADER>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetAttributes2)(::windows_core::Interface::as_raw(self), pdwattributes, pdwattributesex, ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2811,7 +2811,7 @@ pub struct IWMDMStorage3_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMDMStorage4(::windows_core::IUnknown);
 impl IWMDMStorage4 {
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetAttributes)(::windows_core::Interface::as_raw(self), dwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null()))).ok()
@@ -2820,7 +2820,7 @@ impl IWMDMStorage4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetStorageGlobals)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2852,12 +2852,12 @@ impl IWMDMStorage4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetStorage)(::windows_core::Interface::as_raw(self), pszstoragename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*const super::MediaFoundation::VIDEOINFOHEADER>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetAttributes2)(::windows_core::Interface::as_raw(self), dwattributes, dwattributesex, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Media_Audio`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*mut super::MediaFoundation::VIDEOINFOHEADER>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetAttributes2)(::windows_core::Interface::as_raw(self), pdwattributes, pdwattributesex, ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -3860,7 +3860,7 @@ impl ::core::fmt::Debug for WMDM_TAG_DATATYPE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MACINFO {
     pub fUsed: super::super::Foundation::BOOL,
@@ -4207,7 +4207,7 @@ impl ::core::default::Default for WMDMRIGHTS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct WMDM_FORMAT_CAPABILITY {
     pub nPropConfig: u32,
@@ -4246,7 +4246,7 @@ impl ::core::default::Default for WMDM_FORMAT_CAPABILITY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct WMDM_PROP_CONFIG {
     pub nPreference: u32,
@@ -4286,7 +4286,7 @@ impl ::core::default::Default for WMDM_PROP_CONFIG {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct WMDM_PROP_DESC {
     pub pwszPropName: ::windows_core::PWSTR,
@@ -4310,7 +4310,7 @@ impl ::core::default::Default for WMDM_PROP_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub union WMDM_PROP_DESC_0 {
     pub ValidValuesRange: ::std::mem::ManuallyDrop<WMDM_PROP_VALUES_RANGE>,
@@ -4333,7 +4333,7 @@ impl ::core::default::Default for WMDM_PROP_DESC_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct WMDM_PROP_VALUES_ENUM {
     pub cEnumValues: u32,
@@ -4372,7 +4372,7 @@ impl ::core::default::Default for WMDM_PROP_VALUES_ENUM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct WMDM_PROP_VALUES_RANGE {
     pub rangeMin: super::super::System::Com::StructuredStorage::PROPVARIANT,

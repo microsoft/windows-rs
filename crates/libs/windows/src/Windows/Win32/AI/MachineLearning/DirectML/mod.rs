@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
 pub unsafe fn DMLCreateDevice<P0, T>(d3d12device: P0, flags: DML_CREATE_DEVICE_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
@@ -9,7 +9,7 @@ where
     ::windows_targets::link!("directml.dll" "system" fn DMLCreateDevice(d3d12device : * mut::core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     DMLCreateDevice(d3d12device.into_param().abi(), flags, &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
 pub unsafe fn DMLCreateDevice1<P0, T>(d3d12device: P0, flags: DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel: DML_FEATURE_LEVEL, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
@@ -61,7 +61,7 @@ impl IDMLBindingTable {
     pub unsafe fn BindPersistentResource(&self, binding: ::core::option::Option<*const DML_BINDING_DESC>) {
         (::windows_core::Interface::vtable(self).BindPersistentResource)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(binding.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Reset(&self, desc: ::core::option::Option<*const DML_BINDING_TABLE_DESC>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(desc.unwrap_or(::std::ptr::null()))).ok()
@@ -116,7 +116,7 @@ impl IDMLCommandRecorder {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn RecordDispatch<P0, P1, P2>(&self, commandlist: P0, dispatchable: P1, bindings: P2)
     where
@@ -194,7 +194,7 @@ pub struct IDMLCompiledOperator_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDMLDebugDevice(::windows_core::IUnknown);
 impl IDMLDebugDevice {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMuteDebugOutput<P0>(&self, mute: P0)
     where
@@ -271,7 +271,7 @@ impl IDMLDevice {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).CreateCommandRecorder)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateBindingTable<T>(&self, desc: ::core::option::Option<*const DML_BINDING_TABLE_DESC>) -> ::windows_core::Result<T>
     where
@@ -374,7 +374,7 @@ impl IDMLDevice1 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.CreateCommandRecorder)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateBindingTable<T>(&self, desc: ::core::option::Option<*const DML_BINDING_TABLE_DESC>) -> ::windows_core::Result<T>
     where
@@ -2294,7 +2294,7 @@ impl ::core::default::Default for DML_ARGMIN_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     pub InputGradientTensor: *const DML_TENSOR_DESC,
@@ -2339,7 +2339,7 @@ impl ::core::default::Default for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_AVERAGE_POOLING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -2431,7 +2431,7 @@ impl ::core::default::Default for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -2538,7 +2538,7 @@ impl ::core::default::Default for DML_BINDING_PROPERTIES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct DML_BINDING_TABLE_DESC {
     pub Dispatchable: ::std::mem::ManuallyDrop<::core::option::Option<IDMLDispatchable>>,
@@ -2577,7 +2577,7 @@ impl ::core::default::Default for DML_BINDING_TABLE_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct DML_BUFFER_ARRAY_BINDING {
     pub BindingCount: u32,
@@ -2616,7 +2616,7 @@ impl ::core::default::Default for DML_BUFFER_ARRAY_BINDING {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct DML_BUFFER_BINDING {
     pub Buffer: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -2827,7 +2827,7 @@ impl ::core::default::Default for DML_CONVOLUTION_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -2869,7 +2869,7 @@ impl ::core::default::Default for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -5000,7 +5000,7 @@ impl ::core::default::Default for DML_FEATURE_DATA_FEATURE_LEVELS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
     pub IsSupported: super::super::super::Foundation::BOOL,
@@ -5405,7 +5405,7 @@ impl ::core::default::Default for DML_GRAPH_NODE_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_GRU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -5564,7 +5564,7 @@ impl ::core::default::Default for DML_JOIN_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -5609,7 +5609,7 @@ impl ::core::default::Default for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -5722,7 +5722,7 @@ impl ::core::default::Default for DML_LP_POOLING_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_LSTM_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -6019,7 +6019,7 @@ impl ::core::default::Default for DML_MAX_UNPOOLING_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -6065,7 +6065,7 @@ impl ::core::default::Default for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -6648,7 +6648,7 @@ impl ::core::default::Default for DML_RNN_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_ROI_ALIGN1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,

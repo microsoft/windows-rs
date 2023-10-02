@@ -1,5 +1,5 @@
 #[cfg(feature = "Devices_Spi_Provider")]
-#[doc = "Required features: `Devices_Spi_Provider`"]
+#[doc = "Required features: `\"Devices_Spi_Provider\"`"]
 pub mod Provider;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -149,7 +149,7 @@ impl ISpiDeviceStatics {
             (::windows_core::Interface::vtable(this).GetBusInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(busid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<P0>(&self, busid: &::windows_core::HSTRING, settings: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>
     where
@@ -209,7 +209,7 @@ impl SpiBusInfo {
             (::windows_core::Interface::vtable(this).MaxClockFrequency)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedDataBitLengths(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i32>> {
         let this = self;
@@ -334,7 +334,7 @@ impl SpiController {
             (::windows_core::Interface::vtable(this).GetDevice)(::windows_core::Interface::as_raw(this), settings.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpiController>> {
         Self::ISpiControllerStatics(|this| unsafe {
@@ -342,7 +342,7 @@ impl SpiController {
             (::windows_core::Interface::vtable(this).GetDefaultAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Devices_Spi_Provider`, `Foundation_Collections`"]
+    #[doc = "Required features: `\"Devices_Spi_Provider\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "Devices_Spi_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<P0>(provider: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SpiController>>>
     where
@@ -378,7 +378,7 @@ unsafe impl ::core::marker::Sync for SpiController {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpiDevice(::windows_core::IUnknown);
 impl SpiDevice {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -432,7 +432,7 @@ impl SpiDevice {
             (::windows_core::Interface::vtable(this).GetBusInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(busid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<P0>(busid: &::windows_core::HSTRING, settings: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>
     where

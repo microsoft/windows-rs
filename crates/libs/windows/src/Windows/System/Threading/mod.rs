@@ -1,5 +1,5 @@
 #[cfg(feature = "System_Threading_Core")]
-#[doc = "Required features: `System_Threading_Core`"]
+#[doc = "Required features: `\"System_Threading_Core\"`"]
 pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -85,7 +85,7 @@ pub struct IThreadPoolTimerStatics_Vtbl {
 }
 pub struct ThreadPool;
 impl ThreadPool {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RunAsync<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -96,7 +96,7 @@ impl ThreadPool {
             (::windows_core::Interface::vtable(this).RunAsync)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RunWithPriorityAsync<P0>(handler: P0, priority: WorkItemPriority) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -107,7 +107,7 @@ impl ThreadPool {
             (::windows_core::Interface::vtable(this).RunWithPriorityAsync)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), priority, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RunWithPriorityAndOptionsAsync<P0>(handler: P0, priority: WorkItemPriority, options: WorkItemOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -131,7 +131,7 @@ impl ::windows_core::RuntimeName for ThreadPool {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ThreadPoolTimer(::windows_core::IUnknown);
 impl ThreadPoolTimer {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Period(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -140,7 +140,7 @@ impl ThreadPoolTimer {
             (::windows_core::Interface::vtable(this).Period)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Delay(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -153,7 +153,7 @@ impl ThreadPoolTimer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Cancel)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreatePeriodicTimer<P0>(handler: P0, period: super::super::Foundation::TimeSpan) -> ::windows_core::Result<ThreadPoolTimer>
     where
@@ -164,7 +164,7 @@ impl ThreadPoolTimer {
             (::windows_core::Interface::vtable(this).CreatePeriodicTimer)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), period, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateTimer<P0>(handler: P0, delay: super::super::Foundation::TimeSpan) -> ::windows_core::Result<ThreadPoolTimer>
     where
@@ -175,7 +175,7 @@ impl ThreadPoolTimer {
             (::windows_core::Interface::vtable(this).CreateTimer)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), delay, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreatePeriodicTimerWithCompletion<P0, P1>(handler: P0, period: super::super::Foundation::TimeSpan, destroyed: P1) -> ::windows_core::Result<ThreadPoolTimer>
     where
@@ -187,7 +187,7 @@ impl ThreadPoolTimer {
             (::windows_core::Interface::vtable(this).CreatePeriodicTimerWithCompletion)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), period, destroyed.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateTimerWithCompletion<P0, P1>(handler: P0, delay: super::super::Foundation::TimeSpan, destroyed: P1) -> ::windows_core::Result<ThreadPoolTimer>
     where
@@ -456,7 +456,7 @@ pub struct TimerElapsedHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timer: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -467,7 +467,7 @@ impl WorkItemHandler {
         let com = WorkItemHandlerBox::<F> { vtable: &WorkItemHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Invoke<P0>(&self, operation: P0) -> ::windows_core::Result<()>
     where

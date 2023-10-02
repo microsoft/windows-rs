@@ -41,7 +41,7 @@ pub struct IDeviceLockdownProfileStatics_Vtbl {
 }
 pub struct DeviceLockdownProfile;
 impl DeviceLockdownProfile {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSupportedLockdownProfiles() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::GUID>> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
@@ -55,7 +55,7 @@ impl DeviceLockdownProfile {
             (::windows_core::Interface::vtable(this).GetCurrentLockdownProfile)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ApplyLockdownProfileAsync(profileid: ::windows_core::GUID) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {

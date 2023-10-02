@@ -40,7 +40,7 @@ impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
         *iid == <IDefaultAudioDeviceChangedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation_Collections`, `Media_Capture`, `Media_MediaProperties`"]
+#[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
 pub trait IMediaDeviceController_Impl: Sized {
     fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>;

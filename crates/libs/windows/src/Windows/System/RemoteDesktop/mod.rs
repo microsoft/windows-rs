@@ -1,5 +1,5 @@
 #[cfg(feature = "System_RemoteDesktop_Input")]
-#[doc = "Required features: `System_RemoteDesktop_Input`"]
+#[doc = "Required features: `\"System_RemoteDesktop_Input\"`"]
 pub mod Input;
 #[doc(hidden)]
 #[repr(transparent)]

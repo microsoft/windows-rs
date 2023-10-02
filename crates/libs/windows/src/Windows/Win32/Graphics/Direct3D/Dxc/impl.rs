@@ -48,7 +48,7 @@ impl IDxcBlob_Vtbl {
         *iid == <IDxcBlob as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDxcBlobEncoding_Impl: Sized + IDxcBlob_Impl {
     fn GetEncoding(&self, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows_core::Result<()>;
@@ -69,7 +69,7 @@ impl IDxcBlobEncoding_Vtbl {
         *iid == <IDxcBlobEncoding as ::windows_core::ComInterface>::IID || *iid == <IDxcBlob as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDxcBlobUtf16_Impl: Sized + IDxcBlobEncoding_Impl {
     fn GetStringPointer(&self) -> ::windows_core::PCWSTR;
@@ -100,7 +100,7 @@ impl IDxcBlobUtf16_Vtbl {
         *iid == <IDxcBlobUtf16 as ::windows_core::ComInterface>::IID || *iid == <IDxcBlob as ::windows_core::ComInterface>::IID || *iid == <IDxcBlobEncoding as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDxcBlobUtf8_Impl: Sized + IDxcBlobEncoding_Impl {
     fn GetStringPointer(&self) -> ::windows_core::PCSTR;
@@ -465,7 +465,7 @@ impl IDxcIncludeHandler_Vtbl {
         *iid == <IDxcIncludeHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDxcLibrary_Impl: Sized {
     fn SetMalloc(&self, pmalloc: ::core::option::Option<&super::super::super::System::Com::IMalloc>) -> ::windows_core::Result<()>;
@@ -815,7 +815,7 @@ impl IDxcOptimizerPass_Vtbl {
         *iid == <IDxcOptimizerPass as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDxcPdbUtils_Impl: Sized {
     fn Load(&self, ppdbordxil: ::core::option::Option<&IDxcBlob>) -> ::windows_core::Result<()>;
@@ -1108,7 +1108,7 @@ impl IDxcPdbUtils_Vtbl {
         *iid == <IDxcPdbUtils as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDxcResult_Impl: Sized + IDxcOperationResult_Impl {
     fn HasOutput(&self, dxcoutkind: DXC_OUT_KIND) -> super::super::super::Foundation::BOOL;
@@ -1160,7 +1160,7 @@ impl IDxcResult_Vtbl {
         *iid == <IDxcResult as ::windows_core::ComInterface>::IID || *iid == <IDxcOperationResult as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDxcUtils_Impl: Sized {
     fn CreateBlobFromBlob(&self, pblob: ::core::option::Option<&IDxcBlob>, offset: u32, length: u32) -> ::windows_core::Result<IDxcBlob>;

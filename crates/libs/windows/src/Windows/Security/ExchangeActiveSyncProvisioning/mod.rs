@@ -260,7 +260,7 @@ impl EasClientSecurityPolicy {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetMinPasswordComplexCharacters)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PasswordExpiration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -269,7 +269,7 @@ impl EasClientSecurityPolicy {
             (::windows_core::Interface::vtable(this).PasswordExpiration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPasswordExpiration(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
@@ -297,7 +297,7 @@ impl EasClientSecurityPolicy {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetMaxPasswordFailedAttempts)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MaxInactivityTimeLock(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -306,7 +306,7 @@ impl EasClientSecurityPolicy {
             (::windows_core::Interface::vtable(this).MaxInactivityTimeLock)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxInactivityTimeLock(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
@@ -319,7 +319,7 @@ impl EasClientSecurityPolicy {
             (::windows_core::Interface::vtable(this).CheckCompliance)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ApplyAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EasComplianceResults>> {
         let this = self;

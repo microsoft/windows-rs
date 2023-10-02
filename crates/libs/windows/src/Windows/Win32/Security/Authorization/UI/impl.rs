@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEffectivePermission_Impl: Sized {
     fn GetEffectivePermission(&self, pguidobjecttype: *const ::windows_core::GUID, pusersid: super::super::super::Foundation::PSID, pszservername: &::windows_core::PCWSTR, psd: super::super::PSECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows_core::Result<()>;
@@ -19,7 +19,7 @@ impl IEffectivePermission_Vtbl {
         *iid == <IEffectivePermission as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEffectivePermission2_Impl: Sized {
     fn ComputeEffectivePermissionWithSecondarySecurity(
@@ -91,7 +91,7 @@ impl IEffectivePermission2_Vtbl {
         *iid == <IEffectivePermission2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub trait ISecurityInformation_Impl: Sized {
     fn GetObjectInformation(&self, pobjectinfo: *mut SI_OBJECT_INFO) -> ::windows_core::Result<()>;
@@ -157,7 +157,7 @@ impl ISecurityInformation_Vtbl {
         *iid == <ISecurityInformation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ISecurityInformation2_Impl: Sized {
     fn IsDaclCanonical(&self, pdacl: *const super::super::ACL) -> super::super::super::Foundation::BOOL;
@@ -194,7 +194,7 @@ impl ISecurityInformation2_Vtbl {
         *iid == <ISecurityInformation2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISecurityInformation3_Impl: Sized {
     fn GetFullResourceName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -231,7 +231,7 @@ impl ISecurityInformation3_Vtbl {
         *iid == <ISecurityInformation3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISecurityInformation4_Impl: Sized {
     fn GetSecondarySecurity(&self, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> ::windows_core::Result<()>;

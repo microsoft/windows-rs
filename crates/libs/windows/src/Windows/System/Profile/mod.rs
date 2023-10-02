@@ -1,5 +1,5 @@
 #[cfg(feature = "System_Profile_SystemManufacturers")]
-#[doc = "Required features: `System_Profile_SystemManufacturers`"]
+#[doc = "Required features: `\"System_Profile_SystemManufacturers\"`"]
 pub mod SystemManufacturers;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -408,7 +408,7 @@ impl AnalyticsInfo {
             (::windows_core::Interface::vtable(this).DeviceForm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSystemPropertiesAsync<P0>(attributenames: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::HSTRING>>>
     where
@@ -476,7 +476,7 @@ unsafe impl ::core::marker::Send for AnalyticsVersionInfo {}
 unsafe impl ::core::marker::Sync for AnalyticsVersionInfo {}
 pub struct AppApplicability;
 impl AppApplicability {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUnsupportedAppRequirements<P0>(capabilities: P0) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>
     where
@@ -515,7 +515,7 @@ impl ::windows_core::RuntimeName for EducationSettings {
 }
 pub struct HardwareIdentification;
 impl HardwareIdentification {
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetPackageSpecificToken<P0>(nonce: P0) -> ::windows_core::Result<HardwareToken>
     where
@@ -539,7 +539,7 @@ impl ::windows_core::RuntimeName for HardwareIdentification {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HardwareToken(::windows_core::IUnknown);
 impl HardwareToken {
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Id(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -548,7 +548,7 @@ impl HardwareToken {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Signature(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -557,7 +557,7 @@ impl HardwareToken {
             (::windows_core::Interface::vtable(this).Signature)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Certificate(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -733,7 +733,7 @@ impl PlatformDiagnosticsAndUsageDataSettings {
             (::windows_core::Interface::vtable(this).CollectionLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CollectionLevelChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -744,7 +744,7 @@ impl PlatformDiagnosticsAndUsageDataSettings {
             (::windows_core::Interface::vtable(this).CollectionLevelChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCollectionLevelChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveCollectionLevelChanged)(::windows_core::Interface::as_raw(this), token).ok() })
@@ -772,7 +772,7 @@ impl RetailInfo {
             (::windows_core::Interface::vtable(this).IsDemoModeEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties() -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         Self::IRetailInfoStatics(|this| unsafe {
@@ -825,7 +825,7 @@ impl SmartAppControlPolicy {
             (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Changed<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -836,7 +836,7 @@ impl SmartAppControlPolicy {
             (::windows_core::Interface::vtable(this).Changed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::ISmartAppControlPolicyStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveChanged)(::windows_core::Interface::as_raw(this), token).ok() })
@@ -880,7 +880,7 @@ impl ::windows_core::RuntimeName for SystemIdentification {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemIdentificationInfo(::windows_core::IUnknown);
 impl SystemIdentificationInfo {
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Id(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -920,7 +920,7 @@ impl SystemSetupInfo {
             (::windows_core::Interface::vtable(this).OutOfBoxExperienceState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn OutOfBoxExperienceStateChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -931,7 +931,7 @@ impl SystemSetupInfo {
             (::windows_core::Interface::vtable(this).OutOfBoxExperienceStateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOutOfBoxExperienceStateChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::ISystemSetupInfoStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveOutOfBoxExperienceStateChanged)(::windows_core::Interface::as_raw(this), token).ok() })
@@ -1005,7 +1005,7 @@ impl WindowsIntegrityPolicy {
             (::windows_core::Interface::vtable(this).IsDisableSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PolicyChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1016,7 +1016,7 @@ impl WindowsIntegrityPolicy {
             (::windows_core::Interface::vtable(this).PolicyChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePolicyChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemovePolicyChanged)(::windows_core::Interface::as_raw(this), token).ok() })

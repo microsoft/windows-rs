@@ -10,7 +10,7 @@ impl IPrintDocumentSource_Vtbl {
         *iid == <IPrintDocumentSource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait IPrintTaskOptionsCore_Impl: Sized {
     fn GetPageDescription(&self, jobpagenumber: u32) -> ::windows_core::Result<PrintPageDescription>;
@@ -303,7 +303,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
         *iid == <IPrintTaskOptionsCoreProperties as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation_Collections`"]
+#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPrintTaskOptionsCoreUIConfiguration_Impl: Sized {
     fn DisplayedOptions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>;

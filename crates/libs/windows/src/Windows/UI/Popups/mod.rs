@@ -177,7 +177,7 @@ impl MessageDialog {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetTitle)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Commands(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<IUICommand>> {
         let this = self;
@@ -219,7 +219,7 @@ impl MessageDialog {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetContent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;
@@ -281,7 +281,7 @@ impl PopupMenu {
         static SHARED: ::windows_core::imp::FactoryCache<PopupMenu, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Commands(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<IUICommand>> {
         let this = self;
@@ -290,7 +290,7 @@ impl PopupMenu {
             (::windows_core::Interface::vtable(this).Commands)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAsync(&self, invocationpoint: super::super::Foundation::Point) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;
@@ -299,7 +299,7 @@ impl PopupMenu {
             (::windows_core::Interface::vtable(this).ShowAsync)(::windows_core::Interface::as_raw(this), invocationpoint, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;
@@ -308,7 +308,7 @@ impl PopupMenu {
             (::windows_core::Interface::vtable(this).ShowAsyncWithRect)(::windows_core::Interface::as_raw(this), selection, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: Placement) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;

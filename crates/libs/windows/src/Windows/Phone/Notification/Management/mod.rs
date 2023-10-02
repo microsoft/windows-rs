@@ -137,7 +137,7 @@ pub struct IAccessoryManager3_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccessoryNotificationTriggerDetails(::windows_core::IUnknown);
 impl IAccessoryNotificationTriggerDetails {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeCreated(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -704,7 +704,7 @@ impl AccessoryManager {
     {
         Self::IAccessoryManager(|this| unsafe { (::windows_core::Interface::vtable(this).ProcessTriggerDetails)(::windows_core::Interface::as_raw(this), pdetails.try_into_param()?.abi()).ok() })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PhoneLineDetails() -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<PhoneLineDetails>> {
         Self::IAccessoryManager(|this| unsafe {
@@ -778,7 +778,7 @@ impl AccessoryManager {
     pub fn SnoozeAlarm(alarmid: ::windows_core::GUID) -> ::windows_core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows_core::Interface::vtable(this).SnoozeAlarm)(::windows_core::Interface::as_raw(this), alarmid).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SnoozeAlarmForSpecifiedTime(alarmid: ::windows_core::GUID, timespan: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows_core::Interface::vtable(this).SnoozeAlarmForSpecifiedTime)(::windows_core::Interface::as_raw(this), alarmid, timespan).ok() })
@@ -789,7 +789,7 @@ impl AccessoryManager {
     pub fn SnoozeReminder(reminderid: ::windows_core::GUID) -> ::windows_core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows_core::Interface::vtable(this).SnoozeReminder)(::windows_core::Interface::as_raw(this), reminderid).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SnoozeReminderForSpecifiedTime(reminderid: ::windows_core::GUID, timespan: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows_core::Interface::vtable(this).SnoozeReminderForSpecifiedTime)(::windows_core::Interface::as_raw(this), reminderid, timespan).ok() })
@@ -836,7 +836,7 @@ impl AccessoryManager {
             (::windows_core::Interface::vtable(this).BatterySaverState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetApps() -> ::windows_core::Result<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, AppNotificationInfo>> {
         Self::IAccessoryManager(|this| unsafe {
@@ -874,7 +874,7 @@ impl AccessoryManager {
             (::windows_core::Interface::vtable(this).GetUserConsent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetAppIcon(appid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference> {
         Self::IAccessoryManager(|this| unsafe {
@@ -885,7 +885,7 @@ impl AccessoryManager {
     pub fn RingDevice() -> ::windows_core::Result<()> {
         Self::IAccessoryManager2(|this| unsafe { (::windows_core::Interface::vtable(this).RingDevice)(::windows_core::Interface::as_raw(this)).ok() })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SpeedDialList() -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<SpeedDialEntry>> {
         Self::IAccessoryManager2(|this| unsafe {
@@ -920,7 +920,7 @@ impl AccessoryManager {
             (::windows_core::Interface::vtable(this).VolumeInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAllEmailAccounts() -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<EmailAccountInfo>> {
         Self::IAccessoryManager2(|this| unsafe {
@@ -928,7 +928,7 @@ impl AccessoryManager {
             (::windows_core::Interface::vtable(this).GetAllEmailAccounts)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetFolders(emailaccount: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<EmailFolderInfo>> {
         Self::IAccessoryManager2(|this| unsafe {
@@ -942,7 +942,7 @@ impl AccessoryManager {
     pub fn DisableEmailNotificationEmailAccount(emailaccount: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         Self::IAccessoryManager2(|this| unsafe { (::windows_core::Interface::vtable(this).DisableEmailNotificationEmailAccount)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(emailaccount)).ok() })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EnableEmailNotificationFolderFilter<P0>(emailaccount: &::windows_core::HSTRING, folders: P0) -> ::windows_core::Result<()>
     where
@@ -991,7 +991,7 @@ impl ::windows_core::RuntimeName for AccessoryManager {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AlarmNotificationTriggerDetails(::windows_core::IUnknown);
 impl AlarmNotificationTriggerDetails {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeCreated(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = &::windows_core::ComInterface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
@@ -1046,7 +1046,7 @@ impl AlarmNotificationTriggerDetails {
             (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -1152,7 +1152,7 @@ impl ::windows_core::RuntimeName for BinaryId {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CalendarChangedNotificationTriggerDetails(::windows_core::IUnknown);
 impl CalendarChangedNotificationTriggerDetails {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeCreated(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = &::windows_core::ComInterface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
@@ -1226,7 +1226,7 @@ impl ::windows_core::CanTryInto<IAccessoryNotificationTriggerDetails> for Calend
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CortanaTileNotificationTriggerDetails(::windows_core::IUnknown);
 impl CortanaTileNotificationTriggerDetails {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeCreated(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = &::windows_core::ComInterface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
@@ -1420,7 +1420,7 @@ impl ::windows_core::RuntimeName for EmailFolderInfo {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailNotificationTriggerDetails(::windows_core::IUnknown);
 impl EmailNotificationTriggerDetails {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeCreated(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = &::windows_core::ComInterface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
@@ -1489,7 +1489,7 @@ impl EmailNotificationTriggerDetails {
             (::windows_core::Interface::vtable(this).SenderAddress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Email`"]
+    #[doc = "Required features: `\"ApplicationModel_Email\"`"]
     #[cfg(feature = "ApplicationModel_Email")]
     pub fn EmailMessage(&self) -> ::windows_core::Result<super::super::super::ApplicationModel::Email::EmailMessage> {
         let this = self;
@@ -1498,7 +1498,7 @@ impl EmailNotificationTriggerDetails {
             (::windows_core::Interface::vtable(this).EmailMessage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -1533,7 +1533,7 @@ impl ::windows_core::CanTryInto<IAccessoryNotificationTriggerDetails> for EmailN
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailReadNotificationTriggerDetails(::windows_core::IUnknown);
 impl EmailReadNotificationTriggerDetails {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeCreated(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = &::windows_core::ComInterface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
@@ -1621,7 +1621,7 @@ impl ::windows_core::CanTryInto<IAccessoryNotificationTriggerDetails> for EmailR
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaControlsTriggerDetails(::windows_core::IUnknown);
 impl MediaControlsTriggerDetails {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeCreated(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = &::windows_core::ComInterface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
@@ -1730,7 +1730,7 @@ impl MediaMetadata {
             (::windows_core::Interface::vtable(this).Track)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1739,7 +1739,7 @@ impl MediaMetadata {
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Thumbnail(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -1815,7 +1815,7 @@ impl PhoneCallDetails {
             (::windows_core::Interface::vtable(this).ConferenceCallId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartTime(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -1824,7 +1824,7 @@ impl PhoneCallDetails {
             (::windows_core::Interface::vtable(this).StartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn EndTime(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -1847,7 +1847,7 @@ impl PhoneCallDetails {
             (::windows_core::Interface::vtable(this).ContactName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PresetTextResponses(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<TextResponse>> {
         let this = self;
@@ -1941,7 +1941,7 @@ impl ::windows_core::RuntimeName for PhoneLineDetails {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneNotificationTriggerDetails(::windows_core::IUnknown);
 impl PhoneNotificationTriggerDetails {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeCreated(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = &::windows_core::ComInterface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
@@ -2022,7 +2022,7 @@ impl ::windows_core::CanTryInto<IAccessoryNotificationTriggerDetails> for PhoneN
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ReminderNotificationTriggerDetails(::windows_core::IUnknown);
 impl ReminderNotificationTriggerDetails {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeCreated(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = &::windows_core::ComInterface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
@@ -2091,7 +2091,7 @@ impl ReminderNotificationTriggerDetails {
             (::windows_core::Interface::vtable(this).Details)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -2100,7 +2100,7 @@ impl ReminderNotificationTriggerDetails {
             (::windows_core::Interface::vtable(this).Timestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Appointments`"]
+    #[doc = "Required features: `\"ApplicationModel_Appointments\"`"]
     #[cfg(feature = "ApplicationModel_Appointments")]
     pub fn Appointment(&self) -> ::windows_core::Result<super::super::super::ApplicationModel::Appointments::Appointment> {
         let this = self;
@@ -2213,7 +2213,7 @@ impl ::windows_core::RuntimeName for TextResponse {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ToastNotificationTriggerDetails(::windows_core::IUnknown);
 impl ToastNotificationTriggerDetails {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeCreated(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = &::windows_core::ComInterface::cast::<IAccessoryNotificationTriggerDetails>(self)?;

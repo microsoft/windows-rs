@@ -1,5 +1,5 @@
 #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-#[doc = "Required features: `Graphics_DirectX_Direct3D11`"]
+#[doc = "Required features: `\"Graphics_DirectX_Direct3D11\"`"]
 pub mod Direct3D11;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

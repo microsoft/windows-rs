@@ -119,7 +119,7 @@ impl IFileLoggingSession {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveLoggingChannel)(::windows_core::Interface::as_raw(this), loggingchannel.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Storage`"]
+    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn CloseAndSaveToFileAsync(&self) -> ::windows_core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>> {
         let this = self;
@@ -615,7 +615,7 @@ impl ILoggingSession {
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage`"]
+    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn SaveToFileAsync<P0>(&self, folder: P0, filename: &::windows_core::HSTRING) -> ::windows_core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>
     where
@@ -952,7 +952,7 @@ impl FileLoggingSession {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveLoggingChannel)(::windows_core::Interface::as_raw(this), loggingchannel.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Storage`"]
+    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn CloseAndSaveToFileAsync(&self) -> ::windows_core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>> {
         let this = self;
@@ -1008,7 +1008,7 @@ unsafe impl ::core::marker::Sync for FileLoggingSession {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LogFileGeneratedEventArgs(::windows_core::IUnknown);
 impl LogFileGeneratedEventArgs {
-    #[doc = "Required features: `Storage`"]
+    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn File(&self) -> ::windows_core::Result<super::super::Storage::StorageFile> {
         let this = self;
@@ -1273,7 +1273,7 @@ impl LoggingChannel {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Create(name: &::windows_core::HSTRING) -> ::windows_core::Result<LoggingChannel> {
         Self::ILoggingChannelFactory(|this| unsafe {
@@ -2068,7 +2068,7 @@ impl LoggingSession {
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage`"]
+    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn SaveToFileAsync<P0>(&self, folder: P0, filename: &::windows_core::HSTRING) -> ::windows_core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>
     where

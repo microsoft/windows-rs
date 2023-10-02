@@ -166,7 +166,7 @@ impl AppRecordingManager {
             (::windows_core::Interface::vtable(this).GetStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn StartRecordingToFileAsync<P0>(&self, file: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>>
     where
@@ -178,7 +178,7 @@ impl AppRecordingManager {
             (::windows_core::Interface::vtable(this).StartRecordingToFileAsync)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn RecordTimeSpanToFileAsync<P0>(&self, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>>
     where
@@ -190,7 +190,7 @@ impl AppRecordingManager {
             (::windows_core::Interface::vtable(this).RecordTimeSpanToFileAsync)(::windows_core::Interface::as_raw(this), starttime, duration, file.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedScreenshotMediaEncodingSubtypes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -199,7 +199,7 @@ impl AppRecordingManager {
             (::windows_core::Interface::vtable(this).SupportedScreenshotMediaEncodingSubtypes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Storage`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn SaveScreenshotToFilesAsync<P0, P1>(&self, folder: P0, filenameprefix: &::windows_core::HSTRING, option: AppRecordingSaveScreenshotOption, requestedformats: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>
     where
@@ -257,7 +257,7 @@ impl AppRecordingResult {
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -307,7 +307,7 @@ impl AppRecordingSaveScreenshotResult {
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SavedScreenshotInfos(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<AppRecordingSavedScreenshotInfo>> {
         let this = self;
@@ -336,7 +336,7 @@ unsafe impl ::core::marker::Sync for AppRecordingSaveScreenshotResult {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppRecordingSavedScreenshotInfo(::windows_core::IUnknown);
 impl AppRecordingSavedScreenshotInfo {
-    #[doc = "Required features: `Storage`"]
+    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn File(&self) -> ::windows_core::Result<super::super::Storage::StorageFile> {
         let this = self;
@@ -386,7 +386,7 @@ impl AppRecordingStatus {
             (::windows_core::Interface::vtable(this).CanRecordTimeSpan)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn HistoricalBufferDuration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;

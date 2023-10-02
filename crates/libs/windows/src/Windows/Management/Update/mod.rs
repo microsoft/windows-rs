@@ -558,7 +558,7 @@ impl PreviewBuildsManager {
             (::windows_core::Interface::vtable(this).GetCurrentState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SyncAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -604,7 +604,7 @@ unsafe impl ::core::marker::Sync for PreviewBuildsManager {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PreviewBuildsState(::windows_core::IUnknown);
 impl PreviewBuildsState {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -724,7 +724,7 @@ impl WindowsUpdate {
             (::windows_core::Interface::vtable(this).IsSeeker)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MoreInfoUrl(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -733,7 +733,7 @@ impl WindowsUpdate {
             (::windows_core::Interface::vtable(this).MoreInfoUrl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SupportUrl(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -756,7 +756,7 @@ impl WindowsUpdate {
             (::windows_core::Interface::vtable(this).EulaText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Deadline(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -906,7 +906,7 @@ unsafe impl ::core::marker::Sync for WindowsUpdateActionProgress {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WindowsUpdateActionResult(::windows_core::IUnknown);
 impl WindowsUpdateActionResult {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -979,7 +979,7 @@ impl WindowsUpdateAdministrator {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RevokeWindowsUpdateApproval)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(updateid)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUpdates(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowsUpdate>> {
         let this = self;
@@ -1056,7 +1056,7 @@ impl WindowsUpdateApprovalData {
         static SHARED: ::windows_core::imp::FactoryCache<WindowsUpdateApprovalData, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Seeker(&self) -> ::windows_core::Result<super::super::Foundation::IReference<bool>> {
         let this = self;
@@ -1065,7 +1065,7 @@ impl WindowsUpdateApprovalData {
             (::windows_core::Interface::vtable(this).Seeker)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetSeeker<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1074,7 +1074,7 @@ impl WindowsUpdateApprovalData {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSeeker)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AllowDownloadOnMetered(&self) -> ::windows_core::Result<super::super::Foundation::IReference<bool>> {
         let this = self;
@@ -1083,7 +1083,7 @@ impl WindowsUpdateApprovalData {
             (::windows_core::Interface::vtable(this).AllowDownloadOnMetered)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetAllowDownloadOnMetered<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1092,7 +1092,7 @@ impl WindowsUpdateApprovalData {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAllowDownloadOnMetered)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ComplianceDeadlineInDays(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -1101,7 +1101,7 @@ impl WindowsUpdateApprovalData {
             (::windows_core::Interface::vtable(this).ComplianceDeadlineInDays)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetComplianceDeadlineInDays<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1110,7 +1110,7 @@ impl WindowsUpdateApprovalData {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetComplianceDeadlineInDays)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ComplianceGracePeriodInDays(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -1119,7 +1119,7 @@ impl WindowsUpdateApprovalData {
             (::windows_core::Interface::vtable(this).ComplianceGracePeriodInDays)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetComplianceGracePeriodInDays<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1128,7 +1128,7 @@ impl WindowsUpdateApprovalData {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetComplianceGracePeriodInDays)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn OptOutOfAutoReboot(&self) -> ::windows_core::Result<super::super::Foundation::IReference<bool>> {
         let this = self;
@@ -1137,7 +1137,7 @@ impl WindowsUpdateApprovalData {
             (::windows_core::Interface::vtable(this).OptOutOfAutoReboot)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetOptOutOfAutoReboot<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1173,7 +1173,7 @@ impl WindowsUpdateAttentionRequiredInfo {
             (::windows_core::Interface::vtable(this).Reason)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -1284,7 +1284,7 @@ impl WindowsUpdateItem {
             (::windows_core::Interface::vtable(this).UpdateId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1307,7 +1307,7 @@ impl WindowsUpdateItem {
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MoreInfoUrl(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1350,7 +1350,7 @@ unsafe impl ::core::marker::Sync for WindowsUpdateItem {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WindowsUpdateManager(::windows_core::IUnknown);
 impl WindowsUpdateManager {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ScanningStateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1362,13 +1362,13 @@ impl WindowsUpdateManager {
             (::windows_core::Interface::vtable(this).ScanningStateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveScanningStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveScanningStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn WorkingStateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1380,13 +1380,13 @@ impl WindowsUpdateManager {
             (::windows_core::Interface::vtable(this).WorkingStateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveWorkingStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveWorkingStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProgressChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1398,13 +1398,13 @@ impl WindowsUpdateManager {
             (::windows_core::Interface::vtable(this).ProgressChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProgressChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveProgressChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AttentionRequiredReasonChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1416,13 +1416,13 @@ impl WindowsUpdateManager {
             (::windows_core::Interface::vtable(this).AttentionRequiredReasonChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAttentionRequiredReasonChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAttentionRequiredReasonChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ActionCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1434,13 +1434,13 @@ impl WindowsUpdateManager {
             (::windows_core::Interface::vtable(this).ActionCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveActionCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveActionCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ScanCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1452,7 +1452,7 @@ impl WindowsUpdateManager {
             (::windows_core::Interface::vtable(this).ScanCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveScanCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1472,7 +1472,7 @@ impl WindowsUpdateManager {
             (::windows_core::Interface::vtable(this).IsWorking)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LastSuccessfulScanTimestamp(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -1481,7 +1481,7 @@ impl WindowsUpdateManager {
             (::windows_core::Interface::vtable(this).LastSuccessfulScanTimestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetApplicableUpdates(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowsUpdate>> {
         let this = self;
@@ -1490,7 +1490,7 @@ impl WindowsUpdateManager {
             (::windows_core::Interface::vtable(this).GetApplicableUpdates)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMostRecentCompletedUpdates(&self, count: i32) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowsUpdateItem>> {
         let this = self;
@@ -1499,7 +1499,7 @@ impl WindowsUpdateManager {
             (::windows_core::Interface::vtable(this).GetMostRecentCompletedUpdates)(::windows_core::Interface::as_raw(this), count, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMostRecentCompletedUpdatesAsync(&self, count: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WindowsUpdateItem>>> {
         let this = self;
@@ -1606,7 +1606,7 @@ impl WindowsUpdateRestartRequestOptions {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDescription)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MoreInfoUrl(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1615,7 +1615,7 @@ impl WindowsUpdateRestartRequestOptions {
             (::windows_core::Interface::vtable(this).MoreInfoUrl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetMoreInfoUrl<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1668,7 +1668,7 @@ impl WindowsUpdateRestartRequestOptions {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetOptOutOfAutoReboot)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateInstance<P0>(title: &::windows_core::HSTRING, description: &::windows_core::HSTRING, moreinfourl: P0, compliancedeadlineindays: i32, compliancegraceperiodindays: i32) -> ::windows_core::Result<WindowsUpdateRestartRequestOptions>
     where
@@ -1725,7 +1725,7 @@ impl WindowsUpdateScanCompletedEventArgs {
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Updates(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowsUpdate>> {
         let this = self;

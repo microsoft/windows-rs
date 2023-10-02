@@ -778,7 +778,7 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).IsLive)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DesiredLiveOffset(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -787,7 +787,7 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).DesiredLiveOffset)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDesiredLiveOffset(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
@@ -818,7 +818,7 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).CurrentPlaybackBitrate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AvailableBitrates(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
@@ -827,7 +827,7 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).AvailableBitrates)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DesiredMinBitrate(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -836,7 +836,7 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).DesiredMinBitrate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDesiredMinBitrate<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -845,7 +845,7 @@ impl AdaptiveMediaSource {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDesiredMinBitrate)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DesiredMaxBitrate(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -854,7 +854,7 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).DesiredMaxBitrate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDesiredMaxBitrate<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -877,7 +877,7 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).InboundBitsPerSecond)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn InboundBitsPerSecondWindow(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -886,13 +886,13 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).InboundBitsPerSecondWindow)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetInboundBitsPerSecondWindow(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetInboundBitsPerSecondWindow)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DownloadBitrateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -904,13 +904,13 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).DownloadBitrateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDownloadBitrateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveDownloadBitrateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PlaybackBitrateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -922,13 +922,13 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).PlaybackBitrateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePlaybackBitrateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePlaybackBitrateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DownloadRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -940,13 +940,13 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).DownloadRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDownloadRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveDownloadRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DownloadCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -958,13 +958,13 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).DownloadCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDownloadCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveDownloadCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DownloadFailed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -976,7 +976,7 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).DownloadFailed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDownloadFailed(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -989,7 +989,7 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).AdvancedSettings)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MinLiveOffset(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<IAdaptiveMediaSource3>(self)?;
@@ -998,7 +998,7 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).MinLiveOffset)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MaxSeekableWindowSize(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<IAdaptiveMediaSource3>(self)?;
@@ -1007,7 +1007,7 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).MaxSeekableWindowSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DesiredSeekableWindowSize(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<IAdaptiveMediaSource3>(self)?;
@@ -1016,7 +1016,7 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).DesiredSeekableWindowSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDesiredSeekableWindowSize<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1045,7 +1045,7 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).IsContentTypeSupported)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contenttype), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateFromUriAsync<P0>(uri: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>>
     where
@@ -1056,7 +1056,7 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).CreateFromUriAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `Web_Http`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_Http\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
     pub fn CreateFromUriWithDownloaderAsync<P0, P1>(uri: P0, httpclient: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>>
     where
@@ -1068,7 +1068,7 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).CreateFromUriWithDownloaderAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), httpclient.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn CreateFromStreamAsync<P0, P1>(stream: P0, uri: P1, contenttype: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>>
     where
@@ -1080,7 +1080,7 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).CreateFromStreamAsync)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), uri.into_param().abi(), ::core::mem::transmute_copy(contenttype), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`, `Web_Http`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"Web_Http\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Http"))]
     pub fn CreateFromStreamWithDownloaderAsync<P0, P1, P2>(stream: P0, uri: P1, contenttype: &::windows_core::HSTRING, httpclient: P2) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>>
     where
@@ -1093,7 +1093,7 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).CreateFromStreamWithDownloaderAsync)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), uri.into_param().abi(), ::core::mem::transmute_copy(contenttype), httpclient.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -1139,7 +1139,7 @@ impl AdaptiveMediaSourceAdvancedSettings {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAllSegmentsIndependent)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DesiredBitrateHeadroomRatio(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -1148,7 +1148,7 @@ impl AdaptiveMediaSourceAdvancedSettings {
             (::windows_core::Interface::vtable(this).DesiredBitrateHeadroomRatio)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDesiredBitrateHeadroomRatio<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1157,7 +1157,7 @@ impl AdaptiveMediaSourceAdvancedSettings {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDesiredBitrateHeadroomRatio)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BitrateDowngradeTriggerRatio(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -1166,7 +1166,7 @@ impl AdaptiveMediaSourceAdvancedSettings {
             (::windows_core::Interface::vtable(this).BitrateDowngradeTriggerRatio)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBitrateDowngradeTriggerRatio<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1195,7 +1195,7 @@ unsafe impl ::core::marker::Sync for AdaptiveMediaSourceAdvancedSettings {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdaptiveMediaSourceCorrelatedTimes(::windows_core::IUnknown);
 impl AdaptiveMediaSourceCorrelatedTimes {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -1204,7 +1204,7 @@ impl AdaptiveMediaSourceCorrelatedTimes {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PresentationTimeStamp(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -1213,7 +1213,7 @@ impl AdaptiveMediaSourceCorrelatedTimes {
             (::windows_core::Interface::vtable(this).PresentationTimeStamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProgramDateTime(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -1256,7 +1256,7 @@ impl AdaptiveMediaSourceCreationResult {
             (::windows_core::Interface::vtable(this).MediaSource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Web_Http`"]
+    #[doc = "Required features: `\"Web_Http\"`"]
     #[cfg(feature = "Web_Http")]
     pub fn HttpResponseMessage(&self) -> ::windows_core::Result<super::super::super::Web::Http::HttpResponseMessage> {
         let this = self;
@@ -1299,7 +1299,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
             (::windows_core::Interface::vtable(this).DiagnosticType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestId(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -1308,7 +1308,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
             (::windows_core::Interface::vtable(this).RequestId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -1317,7 +1317,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SegmentId(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
@@ -1326,7 +1326,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
             (::windows_core::Interface::vtable(this).SegmentId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceType(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<AdaptiveMediaSourceResourceType>> {
         let this = self;
@@ -1335,7 +1335,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
             (::windows_core::Interface::vtable(this).ResourceType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceUri(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -1344,7 +1344,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
             (::windows_core::Interface::vtable(this).ResourceUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceByteRangeOffset(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
@@ -1353,7 +1353,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
             (::windows_core::Interface::vtable(this).ResourceByteRangeOffset)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceByteRangeLength(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
@@ -1362,7 +1362,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
             (::windows_core::Interface::vtable(this).ResourceByteRangeLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Bitrate(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -1378,7 +1378,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceDuration(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<IAdaptiveMediaSourceDiagnosticAvailableEventArgs3>(self)?;
@@ -1414,7 +1414,7 @@ unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDiagnosticAvailableEvent
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdaptiveMediaSourceDiagnostics(::windows_core::IUnknown);
 impl AdaptiveMediaSourceDiagnostics {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DiagnosticAvailable<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -1426,7 +1426,7 @@ impl AdaptiveMediaSourceDiagnostics {
             (::windows_core::Interface::vtable(this).DiagnosticAvailable)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDiagnosticAvailable(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1500,7 +1500,7 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
             (::windows_core::Interface::vtable(this).ResourceType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceUri(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -1509,7 +1509,7 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
             (::windows_core::Interface::vtable(this).ResourceUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceByteRangeOffset(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
@@ -1518,7 +1518,7 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
             (::windows_core::Interface::vtable(this).ResourceByteRangeOffset)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceByteRangeLength(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
@@ -1527,7 +1527,7 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
             (::windows_core::Interface::vtable(this).ResourceByteRangeLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Web_Http`"]
+    #[doc = "Required features: `\"Web_Http\"`"]
     #[cfg(feature = "Web_Http")]
     pub fn HttpResponseMessage(&self) -> ::windows_core::Result<super::super::super::Web::Http::HttpResponseMessage> {
         let this = self;
@@ -1550,7 +1550,7 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
             (::windows_core::Interface::vtable(this).Statistics)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<IAdaptiveMediaSourceDownloadCompletedEventArgs2>(self)?;
@@ -1559,7 +1559,7 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceDuration(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<IAdaptiveMediaSourceDownloadCompletedEventArgs3>(self)?;
@@ -1602,7 +1602,7 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
             (::windows_core::Interface::vtable(this).ResourceType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceUri(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -1611,7 +1611,7 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
             (::windows_core::Interface::vtable(this).ResourceUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceByteRangeOffset(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
@@ -1620,7 +1620,7 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
             (::windows_core::Interface::vtable(this).ResourceByteRangeOffset)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceByteRangeLength(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
@@ -1629,7 +1629,7 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
             (::windows_core::Interface::vtable(this).ResourceByteRangeLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Web_Http`"]
+    #[doc = "Required features: `\"Web_Http\"`"]
     #[cfg(feature = "Web_Http")]
     pub fn HttpResponseMessage(&self) -> ::windows_core::Result<super::super::super::Web::Http::HttpResponseMessage> {
         let this = self;
@@ -1659,7 +1659,7 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
             (::windows_core::Interface::vtable(this).Statistics)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<IAdaptiveMediaSourceDownloadFailedEventArgs2>(self)?;
@@ -1668,7 +1668,7 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceDuration(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<IAdaptiveMediaSourceDownloadFailedEventArgs3>(self)?;
@@ -1735,7 +1735,7 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
             (::windows_core::Interface::vtable(this).ResourceType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceUri(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -1744,7 +1744,7 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
             (::windows_core::Interface::vtable(this).ResourceUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceByteRangeOffset(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
@@ -1753,7 +1753,7 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
             (::windows_core::Interface::vtable(this).ResourceByteRangeOffset)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceByteRangeLength(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
@@ -1783,7 +1783,7 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
             (::windows_core::Interface::vtable(this).RequestId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<IAdaptiveMediaSourceDownloadRequestedEventArgs2>(self)?;
@@ -1792,7 +1792,7 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceDuration(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<IAdaptiveMediaSourceDownloadRequestedEventArgs3>(self)?;
@@ -1828,7 +1828,7 @@ unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadRequestedEventAr
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdaptiveMediaSourceDownloadResult(::windows_core::IUnknown);
 impl AdaptiveMediaSourceDownloadResult {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceUri(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -1837,7 +1837,7 @@ impl AdaptiveMediaSourceDownloadResult {
             (::windows_core::Interface::vtable(this).ResourceUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetResourceUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1846,7 +1846,7 @@ impl AdaptiveMediaSourceDownloadResult {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetResourceUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InputStream(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IInputStream> {
         let this = self;
@@ -1855,7 +1855,7 @@ impl AdaptiveMediaSourceDownloadResult {
             (::windows_core::Interface::vtable(this).InputStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetInputStream<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1864,7 +1864,7 @@ impl AdaptiveMediaSourceDownloadResult {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetInputStream)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Buffer(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1873,7 +1873,7 @@ impl AdaptiveMediaSourceDownloadResult {
             (::windows_core::Interface::vtable(this).Buffer)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetBuffer<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1904,7 +1904,7 @@ impl AdaptiveMediaSourceDownloadResult {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetExtendedStatus)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceByteRangeOffset(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = &::windows_core::ComInterface::cast::<IAdaptiveMediaSourceDownloadResult2>(self)?;
@@ -1913,7 +1913,7 @@ impl AdaptiveMediaSourceDownloadResult {
             (::windows_core::Interface::vtable(this).ResourceByteRangeOffset)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetResourceByteRangeOffset<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1922,7 +1922,7 @@ impl AdaptiveMediaSourceDownloadResult {
         let this = &::windows_core::ComInterface::cast::<IAdaptiveMediaSourceDownloadResult2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetResourceByteRangeOffset)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResourceByteRangeLength(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = &::windows_core::ComInterface::cast::<IAdaptiveMediaSourceDownloadResult2>(self)?;
@@ -1931,7 +1931,7 @@ impl AdaptiveMediaSourceDownloadResult {
             (::windows_core::Interface::vtable(this).ResourceByteRangeLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetResourceByteRangeLength<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1967,7 +1967,7 @@ impl AdaptiveMediaSourceDownloadStatistics {
             (::windows_core::Interface::vtable(this).ContentBytesReceivedCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeToHeadersReceived(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -1976,7 +1976,7 @@ impl AdaptiveMediaSourceDownloadStatistics {
             (::windows_core::Interface::vtable(this).TimeToHeadersReceived)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeToFirstByteReceived(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -1985,7 +1985,7 @@ impl AdaptiveMediaSourceDownloadStatistics {
             (::windows_core::Interface::vtable(this).TimeToFirstByteReceived)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeToLastByteReceived(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;

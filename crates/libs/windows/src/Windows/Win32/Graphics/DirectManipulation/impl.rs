@@ -76,7 +76,7 @@ impl IDirectManipulationCompositor2_Vtbl {
         *iid == <IDirectManipulationCompositor2 as ::windows_core::ComInterface>::IID || *iid == <IDirectManipulationCompositor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectManipulationContent_Impl: Sized {
     fn GetContentRect(&self) -> ::windows_core::Result<super::super::Foundation::RECT>;
@@ -273,7 +273,7 @@ impl IDirectManipulationInteractionEventHandler_Vtbl {
         *iid == <IDirectManipulationInteractionEventHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IDirectManipulationManager_Impl: Sized {
     fn Activate(&self, window: super::super::Foundation::HWND) -> ::windows_core::Result<()>;
@@ -345,7 +345,7 @@ impl IDirectManipulationManager_Vtbl {
         *iid == <IDirectManipulationManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IDirectManipulationManager2_Impl: Sized + IDirectManipulationManager_Impl {
     fn CreateBehavior(&self, clsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -366,7 +366,7 @@ impl IDirectManipulationManager2_Vtbl {
         *iid == <IDirectManipulationManager2 as ::windows_core::ComInterface>::IID || *iid == <IDirectManipulationManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IDirectManipulationManager3_Impl: Sized + IDirectManipulationManager2_Impl {
     fn GetService(&self, clsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -480,7 +480,7 @@ impl IDirectManipulationUpdateHandler_Vtbl {
         *iid == <IDirectManipulationUpdateHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectManipulationUpdateManager_Impl: Sized {
     fn RegisterWaitHandleCallback(&self, handle: super::super::Foundation::HANDLE, eventhandler: ::core::option::Option<&IDirectManipulationUpdateHandler>) -> ::windows_core::Result<u32>;
@@ -524,7 +524,7 @@ impl IDirectManipulationUpdateManager_Vtbl {
         *iid == <IDirectManipulationUpdateManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectManipulationViewport_Impl: Sized {
     fn Enable(&self) -> ::windows_core::Result<()>;
@@ -755,7 +755,7 @@ impl IDirectManipulationViewport_Vtbl {
         *iid == <IDirectManipulationViewport as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectManipulationViewport2_Impl: Sized + IDirectManipulationViewport_Impl {
     fn AddBehavior(&self, behavior: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<u32>;

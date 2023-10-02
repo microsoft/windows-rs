@@ -21,12 +21,12 @@ pub struct IRetailModeStatics_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     RetailModeEnabled: usize,
 }
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub struct RetailMode;
 #[cfg(feature = "deprecated")]
 impl RetailMode {
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RetailModeEnabled() -> ::windows_core::Result<bool> {
         Self::IRetailModeStatics(|this| unsafe {

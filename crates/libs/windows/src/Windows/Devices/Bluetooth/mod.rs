@@ -1,14 +1,14 @@
 #[cfg(feature = "Devices_Bluetooth_Advertisement")]
-#[doc = "Required features: `Devices_Bluetooth_Advertisement`"]
+#[doc = "Required features: `\"Devices_Bluetooth_Advertisement\"`"]
 pub mod Advertisement;
 #[cfg(feature = "Devices_Bluetooth_Background")]
-#[doc = "Required features: `Devices_Bluetooth_Background`"]
+#[doc = "Required features: `\"Devices_Bluetooth_Background\"`"]
 pub mod Background;
 #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
-#[doc = "Required features: `Devices_Bluetooth_GenericAttributeProfile`"]
+#[doc = "Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`"]
 pub mod GenericAttributeProfile;
 #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
-#[doc = "Required features: `Devices_Bluetooth_Rfcomm`"]
+#[doc = "Required features: `\"Devices_Bluetooth_Rfcomm\"`"]
 pub mod Rfcomm;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -925,7 +925,7 @@ impl BluetoothAdapter {
             (::windows_core::Interface::vtable(this).IsAdvertisementOffloadSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Radios`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Radios\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Radios", feature = "Foundation"))]
     pub fn GetRadioAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::Radios::Radio>> {
         let this = self;
@@ -968,7 +968,7 @@ impl BluetoothAdapter {
             (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BluetoothAdapter>> {
         Self::IBluetoothAdapterStatics(|this| unsafe {
@@ -976,7 +976,7 @@ impl BluetoothAdapter {
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BluetoothAdapter>> {
         Self::IBluetoothAdapterStatics(|this| unsafe {
@@ -1081,7 +1081,7 @@ impl BluetoothDevice {
             (::windows_core::Interface::vtable(this).DeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Networking`"]
+    #[doc = "Required features: `\"Networking\"`"]
     #[cfg(feature = "Networking")]
     pub fn HostName(&self) -> ::windows_core::Result<super::super::Networking::HostName> {
         let this = self;
@@ -1104,7 +1104,7 @@ impl BluetoothDevice {
             (::windows_core::Interface::vtable(this).ClassOfDevice)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn SdpRecords(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::Streams::IBuffer>> {
         let this = self;
@@ -1113,7 +1113,7 @@ impl BluetoothDevice {
             (::windows_core::Interface::vtable(this).SdpRecords)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Bluetooth_Rfcomm`, `Foundation_Collections`, `deprecated`"]
+    #[doc = "Required features: `\"Devices_Bluetooth_Rfcomm\"`, `\"Foundation_Collections\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn RfcommServices(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<Rfcomm::RfcommDeviceService>> {
         let this = self;
@@ -1136,7 +1136,7 @@ impl BluetoothDevice {
             (::windows_core::Interface::vtable(this).BluetoothAddress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn NameChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1148,13 +1148,13 @@ impl BluetoothDevice {
             (::windows_core::Interface::vtable(this).NameChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNameChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveNameChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SdpRecordsChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1166,13 +1166,13 @@ impl BluetoothDevice {
             (::windows_core::Interface::vtable(this).SdpRecordsChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSdpRecordsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSdpRecordsChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ConnectionStatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1184,13 +1184,13 @@ impl BluetoothDevice {
             (::windows_core::Interface::vtable(this).ConnectionStatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveConnectionStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveConnectionStatusChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Devices_Enumeration`"]
+    #[doc = "Required features: `\"Devices_Enumeration\"`"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceInformation(&self) -> ::windows_core::Result<super::Enumeration::DeviceInformation> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothDevice2>(self)?;
@@ -1199,7 +1199,7 @@ impl BluetoothDevice {
             (::windows_core::Interface::vtable(this).DeviceInformation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Enumeration`"]
+    #[doc = "Required features: `\"Devices_Enumeration\"`"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceAccessInformation(&self) -> ::windows_core::Result<super::Enumeration::DeviceAccessInformation> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothDevice3>(self)?;
@@ -1208,7 +1208,7 @@ impl BluetoothDevice {
             (::windows_core::Interface::vtable(this).DeviceAccessInformation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Enumeration`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
     pub fn RequestAccessAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::Enumeration::DeviceAccessStatus>> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothDevice3>(self)?;
@@ -1217,7 +1217,7 @@ impl BluetoothDevice {
             (::windows_core::Interface::vtable(this).RequestAccessAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Bluetooth_Rfcomm`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Bluetooth_Rfcomm\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation"))]
     pub fn GetRfcommServicesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothDevice3>(self)?;
@@ -1226,7 +1226,7 @@ impl BluetoothDevice {
             (::windows_core::Interface::vtable(this).GetRfcommServicesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Bluetooth_Rfcomm`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Bluetooth_Rfcomm\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation"))]
     pub fn GetRfcommServicesWithCacheModeAsync(&self, cachemode: BluetoothCacheMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothDevice3>(self)?;
@@ -1235,7 +1235,7 @@ impl BluetoothDevice {
             (::windows_core::Interface::vtable(this).GetRfcommServicesWithCacheModeAsync)(::windows_core::Interface::as_raw(this), cachemode, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Bluetooth_Rfcomm`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Bluetooth_Rfcomm\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation"))]
     pub fn GetRfcommServicesForIdAsync<P0>(&self, serviceid: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>
     where
@@ -1247,7 +1247,7 @@ impl BluetoothDevice {
             (::windows_core::Interface::vtable(this).GetRfcommServicesForIdAsync)(::windows_core::Interface::as_raw(this), serviceid.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Bluetooth_Rfcomm`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Bluetooth_Rfcomm\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation"))]
     pub fn GetRfcommServicesForIdWithCacheModeAsync<P0>(&self, serviceid: P0, cachemode: BluetoothCacheMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>
     where
@@ -1273,7 +1273,7 @@ impl BluetoothDevice {
             (::windows_core::Interface::vtable(this).WasSecureConnectionUsedForPairing)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BluetoothDevice>> {
         Self::IBluetoothDeviceStatics(|this| unsafe {
@@ -1281,7 +1281,7 @@ impl BluetoothDevice {
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `Networking`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Networking\"`"]
     #[cfg(all(feature = "Foundation", feature = "Networking"))]
     pub fn FromHostNameAsync<P0>(hostname: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BluetoothDevice>>
     where
@@ -1292,7 +1292,7 @@ impl BluetoothDevice {
             (::windows_core::Interface::vtable(this).FromHostNameAsync)(::windows_core::Interface::as_raw(this), hostname.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FromBluetoothAddressAsync(address: u64) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BluetoothDevice>> {
         Self::IBluetoothDeviceStatics(|this| unsafe {
@@ -1339,7 +1339,7 @@ impl BluetoothDevice {
             (::windows_core::Interface::vtable(this).GetDeviceSelectorFromClassOfDevice)(::windows_core::Interface::as_raw(this), classofdevice.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -1939,7 +1939,7 @@ impl BluetoothLEDevice {
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Bluetooth_GenericAttributeProfile`, `Foundation_Collections`, `deprecated`"]
+    #[doc = "Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GattServices(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<GenericAttributeProfile::GattDeviceService>> {
         let this = self;
@@ -1962,7 +1962,7 @@ impl BluetoothLEDevice {
             (::windows_core::Interface::vtable(this).BluetoothAddress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Bluetooth_GenericAttributeProfile`, `deprecated`"]
+    #[doc = "Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "deprecated"))]
     pub fn GetGattService(&self, serviceuuid: ::windows_core::GUID) -> ::windows_core::Result<GenericAttributeProfile::GattDeviceService> {
         let this = self;
@@ -1971,7 +1971,7 @@ impl BluetoothLEDevice {
             (::windows_core::Interface::vtable(this).GetGattService)(::windows_core::Interface::as_raw(this), serviceuuid, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn NameChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1983,13 +1983,13 @@ impl BluetoothLEDevice {
             (::windows_core::Interface::vtable(this).NameChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNameChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveNameChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GattServicesChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2001,13 +2001,13 @@ impl BluetoothLEDevice {
             (::windows_core::Interface::vtable(this).GattServicesChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveGattServicesChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveGattServicesChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ConnectionStatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2019,13 +2019,13 @@ impl BluetoothLEDevice {
             (::windows_core::Interface::vtable(this).ConnectionStatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveConnectionStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveConnectionStatusChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Devices_Enumeration`"]
+    #[doc = "Required features: `\"Devices_Enumeration\"`"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceInformation(&self) -> ::windows_core::Result<super::Enumeration::DeviceInformation> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothLEDevice2>(self)?;
@@ -2048,7 +2048,7 @@ impl BluetoothLEDevice {
             (::windows_core::Interface::vtable(this).BluetoothAddressType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Enumeration`"]
+    #[doc = "Required features: `\"Devices_Enumeration\"`"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceAccessInformation(&self) -> ::windows_core::Result<super::Enumeration::DeviceAccessInformation> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothLEDevice3>(self)?;
@@ -2057,7 +2057,7 @@ impl BluetoothLEDevice {
             (::windows_core::Interface::vtable(this).DeviceAccessInformation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Enumeration`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
     pub fn RequestAccessAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::Enumeration::DeviceAccessStatus>> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothLEDevice3>(self)?;
@@ -2066,7 +2066,7 @@ impl BluetoothLEDevice {
             (::windows_core::Interface::vtable(this).RequestAccessAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Bluetooth_GenericAttributeProfile`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation"))]
     pub fn GetGattServicesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothLEDevice3>(self)?;
@@ -2075,7 +2075,7 @@ impl BluetoothLEDevice {
             (::windows_core::Interface::vtable(this).GetGattServicesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Bluetooth_GenericAttributeProfile`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation"))]
     pub fn GetGattServicesWithCacheModeAsync(&self, cachemode: BluetoothCacheMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothLEDevice3>(self)?;
@@ -2084,7 +2084,7 @@ impl BluetoothLEDevice {
             (::windows_core::Interface::vtable(this).GetGattServicesWithCacheModeAsync)(::windows_core::Interface::as_raw(this), cachemode, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Bluetooth_GenericAttributeProfile`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation"))]
     pub fn GetGattServicesForUuidAsync(&self, serviceuuid: ::windows_core::GUID) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothLEDevice3>(self)?;
@@ -2093,7 +2093,7 @@ impl BluetoothLEDevice {
             (::windows_core::Interface::vtable(this).GetGattServicesForUuidAsync)(::windows_core::Interface::as_raw(this), serviceuuid, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Bluetooth_GenericAttributeProfile`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation"))]
     pub fn GetGattServicesForUuidWithCacheModeAsync(&self, serviceuuid: ::windows_core::GUID, cachemode: BluetoothCacheMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothLEDevice3>(self)?;
@@ -2140,7 +2140,7 @@ impl BluetoothLEDevice {
             (::windows_core::Interface::vtable(this).RequestPreferredConnectionParameters)(::windows_core::Interface::as_raw(this), preferredconnectionparameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ConnectionParametersChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2152,13 +2152,13 @@ impl BluetoothLEDevice {
             (::windows_core::Interface::vtable(this).ConnectionParametersChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveConnectionParametersChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothLEDevice6>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveConnectionParametersChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ConnectionPhyChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2170,13 +2170,13 @@ impl BluetoothLEDevice {
             (::windows_core::Interface::vtable(this).ConnectionPhyChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveConnectionPhyChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothLEDevice6>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveConnectionPhyChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>> {
         Self::IBluetoothLEDeviceStatics(|this| unsafe {
@@ -2184,7 +2184,7 @@ impl BluetoothLEDevice {
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FromBluetoothAddressAsync(bluetoothaddress: u64) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>> {
         Self::IBluetoothLEDeviceStatics(|this| unsafe {
@@ -2237,7 +2237,7 @@ impl BluetoothLEDevice {
             (::windows_core::Interface::vtable(this).GetDeviceSelectorFromAppearance)(::windows_core::Interface::as_raw(this), appearance.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FromBluetoothAddressWithBluetoothAddressTypeAsync(bluetoothaddress: u64, bluetoothaddresstype: BluetoothAddressType) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>> {
         Self::IBluetoothLEDeviceStatics2(|this| unsafe {
@@ -2245,7 +2245,7 @@ impl BluetoothLEDevice {
             (::windows_core::Interface::vtable(this).FromBluetoothAddressWithBluetoothAddressTypeAsync)(::windows_core::Interface::as_raw(this), bluetoothaddress, bluetoothaddresstype, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2361,7 +2361,7 @@ impl BluetoothLEPreferredConnectionParametersRequest {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2396,7 +2396,7 @@ impl BluetoothSignalStrengthFilter {
         static SHARED: ::windows_core::imp::FactoryCache<BluetoothSignalStrengthFilter, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn InRangeThresholdInDBm(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i16>> {
         let this = self;
@@ -2405,7 +2405,7 @@ impl BluetoothSignalStrengthFilter {
             (::windows_core::Interface::vtable(this).InRangeThresholdInDBm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetInRangeThresholdInDBm<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2414,7 +2414,7 @@ impl BluetoothSignalStrengthFilter {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetInRangeThresholdInDBm)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn OutOfRangeThresholdInDBm(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i16>> {
         let this = self;
@@ -2423,7 +2423,7 @@ impl BluetoothSignalStrengthFilter {
             (::windows_core::Interface::vtable(this).OutOfRangeThresholdInDBm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetOutOfRangeThresholdInDBm<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2432,7 +2432,7 @@ impl BluetoothSignalStrengthFilter {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetOutOfRangeThresholdInDBm)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn OutOfRangeTimeout(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -2441,7 +2441,7 @@ impl BluetoothSignalStrengthFilter {
             (::windows_core::Interface::vtable(this).OutOfRangeTimeout)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetOutOfRangeTimeout<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2450,7 +2450,7 @@ impl BluetoothSignalStrengthFilter {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetOutOfRangeTimeout)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SamplingInterval(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -2459,7 +2459,7 @@ impl BluetoothSignalStrengthFilter {
             (::windows_core::Interface::vtable(this).SamplingInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetSamplingInterval<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2492,7 +2492,7 @@ impl BluetoothUuidHelper {
             (::windows_core::Interface::vtable(this).FromShortId)(::windows_core::Interface::as_raw(this), shortid, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryGetShortId(uuid: ::windows_core::GUID) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         Self::IBluetoothUuidHelperStatics(|this| unsafe {

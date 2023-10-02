@@ -54,7 +54,7 @@ impl DeviceServicingDetails {
             (::windows_core::Interface::vtable(this).Arguments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ExpectedDuration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;

@@ -109,7 +109,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn NetAddAlternateComputerName(server : ::windows_core::PCWSTR, alternatename : ::windows_core::PCWSTR, domainaccount : ::windows_core::PCWSTR, domainaccountpassword : ::windows_core::PCWSTR, reserved : u32) -> u32);
     NetAddAlternateComputerName(server.into_param().abi(), alternatename.into_param().abi(), domainaccount.into_param().abi(), domainaccountpassword.into_param().abi(), reserved)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAddServiceAccount<P0, P1, P2>(servername: P0, accountname: P1, password: P2, flags: u32) -> super::super::Foundation::NTSTATUS
@@ -227,7 +227,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn NetEnumerateComputerNames(server : ::windows_core::PCWSTR, nametype : NET_COMPUTER_NAME_TYPE, reserved : u32, entrycount : *mut u32, computernames : *mut *mut ::windows_core::PWSTR) -> u32);
     NetEnumerateComputerNames(server.into_param().abi(), nametype, reserved, entrycount, computernames)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetEnumerateServiceAccounts<P0>(servername: P0, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> super::super::Foundation::NTSTATUS
@@ -263,14 +263,14 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn NetErrorLogWrite(reserved1 : *const u8, code : u32, component : ::windows_core::PCWSTR, buffer : *const u8, numbytes : u32, msgbuf : *const u8, strcount : u32, reserved2 : *const u8) -> u32);
     NetErrorLogWrite(::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())), code, component.into_param().abi(), buffer, numbytes, msgbuf, strcount, ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn NetFreeAadJoinInformation(pjoininfo: ::core::option::Option<*const DSREG_JOIN_INFO>) {
     ::windows_targets::link!("netapi32.dll" "system" fn NetFreeAadJoinInformation(pjoininfo : *const DSREG_JOIN_INFO) -> ());
     NetFreeAadJoinInformation(::core::mem::transmute(pjoininfo.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn NetGetAadJoinInformation<P0>(pcsztenantid: P0) -> ::windows_core::Result<*mut DSREG_JOIN_INFO>
@@ -408,7 +408,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn NetGroupSetUsers(servername : ::windows_core::PCWSTR, groupname : ::windows_core::PCWSTR, level : u32, buf : *const u8, totalentries : u32) -> u32);
     NetGroupSetUsers(servername.into_param().abi(), groupname.into_param().abi(), level, buf, totalentries)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetIsServiceAccount<P0, P1>(servername: P0, accountname: P1, isservice: *mut super::super::Foundation::BOOL) -> super::super::Foundation::NTSTATUS
@@ -439,7 +439,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupAdd(servername : ::windows_core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     NetLocalGroupAdd(servername.into_param().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupAddMember<P0, P1, P2>(servername: P0, groupname: P1, membersid: P2) -> u32
@@ -469,7 +469,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupDel(servername : ::windows_core::PCWSTR, groupname : ::windows_core::PCWSTR) -> u32);
     NetLocalGroupDel(servername.into_param().abi(), groupname.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupDelMember<P0, P1, P2>(servername: P0, groupname: P1, membersid: P2) -> u32
@@ -598,7 +598,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn NetQueryDisplayInformation(servername : ::windows_core::PCWSTR, level : u32, index : u32, entriesrequested : u32, preferredmaximumlength : u32, returnedentrycount : *mut u32, sortedbuffer : *mut *mut ::core::ffi::c_void) -> u32);
     NetQueryDisplayInformation(servername.into_param().abi(), level, index, entriesrequested, preferredmaximumlength, returnedentrycount, sortedbuffer)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetQueryServiceAccount<P0, P1>(servername: P0, accountname: P1, infolevel: u32, buffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS
@@ -636,7 +636,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn NetRemoveAlternateComputerName(server : ::windows_core::PCWSTR, alternatename : ::windows_core::PCWSTR, domainaccount : ::windows_core::PCWSTR, domainaccountpassword : ::windows_core::PCWSTR, reserved : u32) -> u32);
     NetRemoveAlternateComputerName(server.into_param().abi(), alternatename.into_param().abi(), domainaccount.into_param().abi(), domainaccountpassword.into_param().abi(), reserved)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetRemoveServiceAccount<P0, P1>(servername: P0, accountname: P1, flags: u32) -> super::super::Foundation::NTSTATUS
@@ -1206,7 +1206,7 @@ pub unsafe fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut :
     ::windows_targets::link!("rtutils.dll" "system" fn RouterGetErrorStringW(dwerrorcode : u32, lplpwszerrorstring : *mut ::windows_core::PWSTR) -> u32);
     RouterGetErrorStringW(dwerrorcode, lplpwszerrorstring)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogDeregisterA<P0>(hloghandle: P0)
@@ -1216,7 +1216,7 @@ where
     ::windows_targets::link!("rtutils.dll" "system" fn RouterLogDeregisterA(hloghandle : super::super::Foundation:: HANDLE) -> ());
     RouterLogDeregisterA(hloghandle.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogDeregisterW<P0>(hloghandle: P0)
@@ -1226,7 +1226,7 @@ where
     ::windows_targets::link!("rtutils.dll" "system" fn RouterLogDeregisterW(hloghandle : super::super::Foundation:: HANDLE) -> ());
     RouterLogDeregisterW(hloghandle.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventA<P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows_core::PCSTR]>, dwerrorcode: u32)
@@ -1236,7 +1236,7 @@ where
     ::windows_targets::link!("rtutils.dll" "system" fn RouterLogEventA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_core::PCSTR, dwerrorcode : u32) -> ());
     RouterLogEventA(hloghandle.into_param().abi(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwerrorcode)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventDataA<P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows_core::PCSTR]>, dwdatabytes: u32, lpdatabytes: *mut u8)
@@ -1246,7 +1246,7 @@ where
     ::windows_targets::link!("rtutils.dll" "system" fn RouterLogEventDataA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_core::PCSTR, dwdatabytes : u32, lpdatabytes : *mut u8) -> ());
     RouterLogEventDataA(hloghandle.into_param().abi(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwdatabytes, lpdatabytes)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventDataW<P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows_core::PCWSTR]>, dwdatabytes: u32, lpdatabytes: *mut u8)
@@ -1256,7 +1256,7 @@ where
     ::windows_targets::link!("rtutils.dll" "system" fn RouterLogEventDataW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_core::PCWSTR, dwdatabytes : u32, lpdatabytes : *mut u8) -> ());
     RouterLogEventDataW(hloghandle.into_param().abi(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwdatabytes, lpdatabytes)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventExA<P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1)
@@ -1267,7 +1267,7 @@ where
     ::windows_targets::link!("rtutils.dll" "cdecl" fn RouterLogEventExA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows_core::PCSTR) -> ());
     RouterLogEventExA(hloghandle.into_param().abi(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventExW<P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1)
@@ -1278,7 +1278,7 @@ where
     ::windows_targets::link!("rtutils.dll" "cdecl" fn RouterLogEventExW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows_core::PCWSTR) -> ());
     RouterLogEventExW(hloghandle.into_param().abi(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventStringA<P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: &[::windows_core::PCSTR], dwerrorcode: u32, dwerrorindex: u32)
@@ -1288,7 +1288,7 @@ where
     ::windows_targets::link!("rtutils.dll" "system" fn RouterLogEventStringA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_core::PCSTR, dwerrorcode : u32, dwerrorindex : u32) -> ());
     RouterLogEventStringA(hloghandle.into_param().abi(), dweventtype, dwmessageid, plpszsubstringarray.len() as _, ::core::mem::transmute(plpszsubstringarray.as_ptr()), dwerrorcode, dwerrorindex)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventStringW<P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: &[::windows_core::PCWSTR], dwerrorcode: u32, dwerrorindex: u32)
@@ -1298,7 +1298,7 @@ where
     ::windows_targets::link!("rtutils.dll" "system" fn RouterLogEventStringW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_core::PCWSTR, dwerrorcode : u32, dwerrorindex : u32) -> ());
     RouterLogEventStringW(hloghandle.into_param().abi(), dweventtype, dwmessageid, plpszsubstringarray.len() as _, ::core::mem::transmute(plpszsubstringarray.as_ptr()), dwerrorcode, dwerrorindex)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventValistExA<P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1, arglist: *mut i8)
@@ -1309,7 +1309,7 @@ where
     ::windows_targets::link!("rtutils.dll" "system" fn RouterLogEventValistExA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows_core::PCSTR, arglist : *mut i8) -> ());
     RouterLogEventValistExA(hloghandle.into_param().abi(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into_param().abi(), arglist)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventValistExW<P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1, arglist: *mut i8)
@@ -1320,7 +1320,7 @@ where
     ::windows_targets::link!("rtutils.dll" "system" fn RouterLogEventValistExW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows_core::PCWSTR, arglist : *mut i8) -> ());
     RouterLogEventValistExW(hloghandle.into_param().abi(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into_param().abi(), arglist)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventW<P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows_core::PCWSTR]>, dwerrorcode: u32)
@@ -1330,7 +1330,7 @@ where
     ::windows_targets::link!("rtutils.dll" "system" fn RouterLogEventW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_core::PCWSTR, dwerrorcode : u32) -> ());
     RouterLogEventW(hloghandle.into_param().abi(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwerrorcode)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogRegisterA<P0>(lpszsource: P0) -> super::super::Foundation::HANDLE
@@ -1340,7 +1340,7 @@ where
     ::windows_targets::link!("rtutils.dll" "system" fn RouterLogRegisterA(lpszsource : ::windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     RouterLogRegisterA(lpszsource.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogRegisterW<P0>(lpszsource: P0) -> super::super::Foundation::HANDLE
@@ -1380,7 +1380,7 @@ pub unsafe fn TraceDeregisterW(dwtraceid: u32) -> u32 {
     ::windows_targets::link!("rtutils.dll" "system" fn TraceDeregisterW(dwtraceid : u32) -> u32);
     TraceDeregisterW(dwtraceid)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceDumpExA<P0, P1>(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: P0, lpszprefix: P1) -> u32
@@ -1391,7 +1391,7 @@ where
     ::windows_targets::link!("rtutils.dll" "system" fn TraceDumpExA(dwtraceid : u32, dwflags : u32, lpbbytes : *mut u8, dwbytecount : u32, dwgroupsize : u32, baddressprefix : super::super::Foundation:: BOOL, lpszprefix : ::windows_core::PCSTR) -> u32);
     TraceDumpExA(dwtraceid, dwflags, lpbbytes, dwbytecount, dwgroupsize, baddressprefix.into_param().abi(), lpszprefix.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceDumpExW<P0, P1>(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: P0, lpszprefix: P1) -> u32
@@ -1402,14 +1402,14 @@ where
     ::windows_targets::link!("rtutils.dll" "system" fn TraceDumpExW(dwtraceid : u32, dwflags : u32, lpbbytes : *mut u8, dwbytecount : u32, dwgroupsize : u32, baddressprefix : super::super::Foundation:: BOOL, lpszprefix : ::windows_core::PCWSTR) -> u32);
     TraceDumpExW(dwtraceid, dwflags, lpbbytes, dwbytecount, dwgroupsize, baddressprefix.into_param().abi(), lpszprefix.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceGetConsoleA(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32 {
     ::windows_targets::link!("rtutils.dll" "system" fn TraceGetConsoleA(dwtraceid : u32, lphconsole : *mut super::super::Foundation:: HANDLE) -> u32);
     TraceGetConsoleA(dwtraceid, lphconsole)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceGetConsoleW(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -1691,7 +1691,7 @@ impl INetCfgBindingPath {
     pub unsafe fn IsEnabled(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsEnabled)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enable<P0>(&self, fenable: P0) -> ::windows_core::Result<()>
     where
@@ -1768,7 +1768,7 @@ pub struct INetCfgClass_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgClassSetup(::windows_core::IUnknown);
 impl INetCfgClassSetup {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectAndInstall<P0>(&self, hwndparent: P0, pobotoken: ::core::option::Option<*const OBO_TOKEN>, ppnccitem: ::core::option::Option<*mut ::core::option::Option<INetCfgComponent>>) -> ::windows_core::Result<()>
     where
@@ -1776,7 +1776,7 @@ impl INetCfgClassSetup {
     {
         (::windows_core::Interface::vtable(self).SelectAndInstall)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(pobotoken.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppnccitem.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Install<P0, P1, P2>(&self, pszwinfid: P0, pobotoken: ::core::option::Option<*const OBO_TOKEN>, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: P1, pszwanswersections: P2, ppnccitem: ::core::option::Option<*mut ::core::option::Option<INetCfgComponent>>) -> ::windows_core::Result<()>
     where
@@ -1786,7 +1786,7 @@ impl INetCfgClassSetup {
     {
         (::windows_core::Interface::vtable(self).Install)(::windows_core::Interface::as_raw(self), pszwinfid.into_param().abi(), ::core::mem::transmute(pobotoken.unwrap_or(::std::ptr::null())), dwsetupflags, dwupgradefrombuildno, pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi(), ::core::mem::transmute(ppnccitem.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeInstall<P0>(&self, pcomponent: P0, pobotoken: ::core::option::Option<*const OBO_TOKEN>, pmszwrefs: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()>
     where
@@ -1823,7 +1823,7 @@ pub struct INetCfgClassSetup_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgClassSetup2(::windows_core::IUnknown);
 impl INetCfgClassSetup2 {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectAndInstall<P0>(&self, hwndparent: P0, pobotoken: ::core::option::Option<*const OBO_TOKEN>, ppnccitem: ::core::option::Option<*mut ::core::option::Option<INetCfgComponent>>) -> ::windows_core::Result<()>
     where
@@ -1831,7 +1831,7 @@ impl INetCfgClassSetup2 {
     {
         (::windows_core::Interface::vtable(self).base__.SelectAndInstall)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(pobotoken.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppnccitem.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Install<P0, P1, P2>(&self, pszwinfid: P0, pobotoken: ::core::option::Option<*const OBO_TOKEN>, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: P1, pszwanswersections: P2, ppnccitem: ::core::option::Option<*mut ::core::option::Option<INetCfgComponent>>) -> ::windows_core::Result<()>
     where
@@ -1841,7 +1841,7 @@ impl INetCfgClassSetup2 {
     {
         (::windows_core::Interface::vtable(self).base__.Install)(::windows_core::Interface::as_raw(self), pszwinfid.into_param().abi(), ::core::mem::transmute(pobotoken.unwrap_or(::std::ptr::null())), dwsetupflags, dwupgradefrombuildno, pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi(), ::core::mem::transmute(ppnccitem.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeInstall<P0>(&self, pcomponent: P0, pobotoken: ::core::option::Option<*const OBO_TOKEN>, pmszwrefs: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()>
     where
@@ -1908,12 +1908,12 @@ impl INetCfgComponent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDeviceStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Registry`"]
+    #[doc = "Required features: `\"Win32_System_Registry\"`"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn OpenParamKey(&self, phkey: ::core::option::Option<*mut super::super::System::Registry::HKEY>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OpenParamKey)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(phkey.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RaisePropertyUi<P0, P1>(&self, hwndparent: P0, dwflags: u32, punkcontext: P1) -> ::windows_core::Result<()>
     where
@@ -2029,7 +2029,7 @@ pub struct INetCfgComponentBindings_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgComponentControl(::windows_core::IUnknown);
 impl INetCfgComponentControl {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0, P1, P2>(&self, picomp: P0, pinetcfg: P1, finstalling: P2) -> ::windows_core::Result<()>
     where
@@ -2161,7 +2161,7 @@ impl INetCfgComponentPropertyUi {
     {
         (::windows_core::Interface::vtable(self).SetContext)(::windows_core::Interface::as_raw(self), punkreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MergePropPages<P0>(&self, pdwdefpages: *mut u32, pahpspprivate: *mut *mut u8, pcpages: *mut u32, hwndparent: P0, pszstartpage: ::core::option::Option<*const ::windows_core::PCWSTR>) -> ::windows_core::Result<()>
     where
@@ -2169,7 +2169,7 @@ impl INetCfgComponentPropertyUi {
     {
         (::windows_core::Interface::vtable(self).MergePropPages)(::windows_core::Interface::as_raw(self), pdwdefpages, pahpspprivate, pcpages, hwndparent.into_param().abi(), ::core::mem::transmute(pszstartpage.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ValidateProperties<P0>(&self, hwndsheet: P0) -> ::windows_core::Result<()>
     where
@@ -2392,7 +2392,7 @@ impl INetCfgSysPrep {
     {
         (::windows_core::Interface::vtable(self).HrSetupSetFirstString)(::windows_core::Interface::as_raw(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), pwszvalue.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HrSetupSetFirstStringAsBool<P0, P1, P2>(&self, pwszsection: P0, pwszkey: P1, fvalue: P2) -> ::windows_core::Result<()>
     where
@@ -2456,7 +2456,7 @@ pub struct INetLanConnectionUiInfo_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetRasConnectionIpUiInfo(::windows_core::IUnknown);
 impl INetRasConnectionIpUiInfo {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUiInfo(&self, pinfo: *mut RASCON_IPUI) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetUiInfo)(::windows_core::Interface::as_raw(self), pinfo).ok()
@@ -2488,7 +2488,7 @@ impl IProvisioningDomain {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pszwpathtofolder.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn Query<P0, P1, P2>(&self, pszwdomain: P0, pszwlanguage: P1, pszwxpathquery: P2) -> ::windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>
     where
@@ -6659,7 +6659,7 @@ impl ::core::default::Default for CONFIG_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct DSREG_JOIN_INFO {
     pub joinType: DSREG_JOIN_TYPE,
@@ -6999,7 +6999,7 @@ impl ::core::default::Default for GROUP_INFO_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GROUP_INFO_3 {
     pub grpi3_name: ::windows_core::PWSTR,
@@ -7248,7 +7248,7 @@ impl ::core::default::Default for LOCALGROUP_INFO_1002 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOCALGROUP_MEMBERS_INFO_0 {
     pub lgrmi0_sid: super::super::Foundation::PSID,
@@ -7286,7 +7286,7 @@ impl ::core::default::Default for LOCALGROUP_MEMBERS_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct LOCALGROUP_MEMBERS_INFO_1 {
     pub lgrmi1_sid: super::super::Foundation::PSID,
@@ -7326,7 +7326,7 @@ impl ::core::default::Default for LOCALGROUP_MEMBERS_INFO_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct LOCALGROUP_MEMBERS_INFO_2 {
     pub lgrmi2_sid: super::super::Foundation::PSID,
@@ -7859,7 +7859,7 @@ impl ::core::default::Default for NET_DISPLAY_USER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
@@ -7898,7 +7898,7 @@ impl ::core::default::Default for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NET_VALIDATE_OUTPUT_ARG {
     pub ChangedPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
@@ -7937,7 +7937,7 @@ impl ::core::default::Default for NET_VALIDATE_OUTPUT_ARG {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
@@ -8009,7 +8009,7 @@ impl ::core::default::Default for NET_VALIDATE_PASSWORD_HASH {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
@@ -8052,7 +8052,7 @@ impl ::core::default::Default for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NET_VALIDATE_PERSISTED_FIELDS {
     pub PresentFields: u32,
@@ -8096,7 +8096,7 @@ impl ::core::default::Default for NET_VALIDATE_PERSISTED_FIELDS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OBO_TOKEN {
     pub Type: OBO_TOKEN_TYPE,
@@ -8169,7 +8169,7 @@ impl ::core::default::Default for PRINT_OTHER_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASCON_IPUI {
     pub guidConnection: ::windows_core::GUID,
@@ -8933,7 +8933,7 @@ impl ::core::default::Default for SERVER_INFO_102 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_103 {
     pub sv103_platform_id: u32,
@@ -9289,7 +9289,7 @@ impl ::core::default::Default for SERVER_INFO_1513 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_1514 {
     pub sv1514_enablesoftcompat: super::super::Foundation::BOOL,
@@ -9327,7 +9327,7 @@ impl ::core::default::Default for SERVER_INFO_1514 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_1515 {
     pub sv1515_enableforcedlogoff: super::super::Foundation::BOOL,
@@ -9365,7 +9365,7 @@ impl ::core::default::Default for SERVER_INFO_1515 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_1516 {
     pub sv1516_timesource: super::super::Foundation::BOOL,
@@ -9403,7 +9403,7 @@ impl ::core::default::Default for SERVER_INFO_1516 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_1518 {
     pub sv1518_lmannounce: super::super::Foundation::BOOL,
@@ -9789,7 +9789,7 @@ impl ::core::default::Default for SERVER_INFO_1535 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_1536 {
     pub sv1536_enableoplocks: super::super::Foundation::BOOL,
@@ -9827,7 +9827,7 @@ impl ::core::default::Default for SERVER_INFO_1536 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_1537 {
     pub sv1537_enableoplockforceclose: super::super::Foundation::BOOL,
@@ -9865,7 +9865,7 @@ impl ::core::default::Default for SERVER_INFO_1537 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_1538 {
     pub sv1538_enablefcbopens: super::super::Foundation::BOOL,
@@ -9903,7 +9903,7 @@ impl ::core::default::Default for SERVER_INFO_1538 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_1539 {
     pub sv1539_enableraw: super::super::Foundation::BOOL,
@@ -9941,7 +9941,7 @@ impl ::core::default::Default for SERVER_INFO_1539 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_1540 {
     pub sv1540_enablesharednetdrives: super::super::Foundation::BOOL,
@@ -9979,7 +9979,7 @@ impl ::core::default::Default for SERVER_INFO_1540 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_1541 {
     pub sv1541_minfreeconnections: super::super::Foundation::BOOL,
@@ -10017,7 +10017,7 @@ impl ::core::default::Default for SERVER_INFO_1541 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_1542 {
     pub sv1542_maxfreeconnections: super::super::Foundation::BOOL,
@@ -10635,7 +10635,7 @@ impl ::core::default::Default for SERVER_INFO_1565 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_1566 {
     pub sv1566_removeduplicatesearches: super::super::Foundation::BOOL,
@@ -11195,7 +11195,7 @@ impl ::core::default::Default for SERVER_INFO_1584 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_1585 {
     pub sv1585_sendsfrompreferredprocessor: super::super::Foundation::BOOL,
@@ -11581,7 +11581,7 @@ impl ::core::default::Default for SERVER_INFO_1598 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_1599 {
     pub sv1598_enforcekerberosreauthentication: super::super::Foundation::BOOLEAN,
@@ -11619,7 +11619,7 @@ impl ::core::default::Default for SERVER_INFO_1599 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_1600 {
     pub sv1598_disabledos: super::super::Foundation::BOOLEAN,
@@ -11686,7 +11686,7 @@ impl ::core::default::Default for SERVER_INFO_1601 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_1602 {
     pub sv_1598_disablestrictnamechecking: super::super::Foundation::BOOL,
@@ -11975,7 +11975,7 @@ impl ::core::default::Default for SERVER_INFO_403 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_502 {
     pub sv502_sessopens: u32,
@@ -12066,7 +12066,7 @@ impl ::core::default::Default for SERVER_INFO_502 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_503 {
     pub sv503_sessopens: u32,
@@ -12229,7 +12229,7 @@ impl ::core::default::Default for SERVER_INFO_503 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_598 {
     pub sv598_maxrawworkitems: u32,
@@ -12395,7 +12395,7 @@ impl ::core::default::Default for SERVER_INFO_598 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_599 {
     pub sv599_sessopens: u32,
@@ -12845,7 +12845,7 @@ impl ::core::default::Default for SERVICE_INFO_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SMB_COMPRESSION_INFO {
     pub Switch: super::super::Foundation::BOOLEAN,
@@ -13033,7 +13033,7 @@ impl ::core::default::Default for TIME_OF_DAY_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TRANSPORT_INFO {
     pub Type: TRANSPORT_TYPE,
@@ -14100,7 +14100,7 @@ impl ::core::default::Default for USER_INFO_22 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USER_INFO_23 {
     pub usri23_name: ::windows_core::PWSTR,
@@ -14142,7 +14142,7 @@ impl ::core::default::Default for USER_INFO_23 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USER_INFO_24 {
     pub usri24_internet_identity: super::super::Foundation::BOOL,
@@ -14299,7 +14299,7 @@ impl ::core::default::Default for USER_INFO_3 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USER_INFO_4 {
     pub usri4_name: ::windows_core::PWSTR,
@@ -14689,7 +14689,7 @@ impl ::core::default::Default for USER_MODALS_INFO_1007 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USER_MODALS_INFO_2 {
     pub usrmod2_domain_name: ::windows_core::PWSTR,
@@ -15706,7 +15706,7 @@ impl ::core::default::Default for WKSTA_INFO_1047 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WKSTA_INFO_1048 {
     pub wki1048_use_opportunistic_locking: super::super::Foundation::BOOL,
@@ -15744,7 +15744,7 @@ impl ::core::default::Default for WKSTA_INFO_1048 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WKSTA_INFO_1049 {
     pub wki1049_use_unlock_behind: super::super::Foundation::BOOL,
@@ -15782,7 +15782,7 @@ impl ::core::default::Default for WKSTA_INFO_1049 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WKSTA_INFO_1050 {
     pub wki1050_use_close_behind: super::super::Foundation::BOOL,
@@ -15820,7 +15820,7 @@ impl ::core::default::Default for WKSTA_INFO_1050 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WKSTA_INFO_1051 {
     pub wki1051_buf_named_pipes: super::super::Foundation::BOOL,
@@ -15858,7 +15858,7 @@ impl ::core::default::Default for WKSTA_INFO_1051 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WKSTA_INFO_1052 {
     pub wki1052_use_lock_read_unlock: super::super::Foundation::BOOL,
@@ -15896,7 +15896,7 @@ impl ::core::default::Default for WKSTA_INFO_1052 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WKSTA_INFO_1053 {
     pub wki1053_utilize_nt_caching: super::super::Foundation::BOOL,
@@ -15934,7 +15934,7 @@ impl ::core::default::Default for WKSTA_INFO_1053 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WKSTA_INFO_1054 {
     pub wki1054_use_raw_read: super::super::Foundation::BOOL,
@@ -15972,7 +15972,7 @@ impl ::core::default::Default for WKSTA_INFO_1054 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WKSTA_INFO_1055 {
     pub wki1055_use_raw_write: super::super::Foundation::BOOL,
@@ -16010,7 +16010,7 @@ impl ::core::default::Default for WKSTA_INFO_1055 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WKSTA_INFO_1056 {
     pub wki1056_use_write_raw_data: super::super::Foundation::BOOL,
@@ -16048,7 +16048,7 @@ impl ::core::default::Default for WKSTA_INFO_1056 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WKSTA_INFO_1057 {
     pub wki1057_use_encryption: super::super::Foundation::BOOL,
@@ -16086,7 +16086,7 @@ impl ::core::default::Default for WKSTA_INFO_1057 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WKSTA_INFO_1058 {
     pub wki1058_buf_files_deny_write: super::super::Foundation::BOOL,
@@ -16124,7 +16124,7 @@ impl ::core::default::Default for WKSTA_INFO_1058 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WKSTA_INFO_1059 {
     pub wki1059_buf_read_only_files: super::super::Foundation::BOOL,
@@ -16162,7 +16162,7 @@ impl ::core::default::Default for WKSTA_INFO_1059 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WKSTA_INFO_1060 {
     pub wki1060_force_core_create_mode: super::super::Foundation::BOOL,
@@ -16200,7 +16200,7 @@ impl ::core::default::Default for WKSTA_INFO_1060 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WKSTA_INFO_1061 {
     pub wki1061_use_512_byte_max_transfer: super::super::Foundation::BOOL,
@@ -16446,7 +16446,7 @@ impl ::core::default::Default for WKSTA_INFO_402 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WKSTA_INFO_502 {
     pub wki502_char_wait: u32,
@@ -16588,7 +16588,7 @@ impl ::core::default::Default for WKSTA_INFO_502 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WKSTA_TRANSPORT_INFO_0 {
     pub wkti0_quality_of_service: u32,

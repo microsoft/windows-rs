@@ -582,7 +582,7 @@ impl IMLOperatorTypeInferrer_Vtbl {
         *iid == <IMLOperatorTypeInferrer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IWinMLEvaluationContext_Impl: Sized {
     fn BindValue(&self, pdescriptor: *const WINML_BINDING_DESC) -> ::windows_core::Result<()>;
@@ -626,7 +626,7 @@ impl IWinMLEvaluationContext_Vtbl {
         *iid == <IWinMLEvaluationContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWinMLModel_Impl: Sized {
     fn GetDescription(&self) -> ::windows_core::Result<*mut WINML_MODEL_DESC>;
@@ -689,7 +689,7 @@ impl IWinMLModel_Vtbl {
         *iid == <IWinMLModel as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IWinMLRuntime_Impl: Sized {
     fn LoadModel(&self, path: &::windows_core::PCWSTR) -> ::windows_core::Result<IWinMLModel>;

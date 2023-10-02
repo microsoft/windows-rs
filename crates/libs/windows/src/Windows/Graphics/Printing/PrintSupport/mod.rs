@@ -324,7 +324,7 @@ pub struct IPrintSupportSettingsUISession_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintSupportExtensionSession(::windows_core::IUnknown);
 impl PrintSupportExtensionSession {
-    #[doc = "Required features: `Devices_Printers`"]
+    #[doc = "Required features: `\"Devices_Printers\"`"]
     #[cfg(feature = "Devices_Printers")]
     pub fn Printer(&self) -> ::windows_core::Result<super::super::super::Devices::Printers::IppPrintDevice> {
         let this = self;
@@ -333,7 +333,7 @@ impl PrintSupportExtensionSession {
             (::windows_core::Interface::vtable(this).Printer)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PrintTicketValidationRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -345,13 +345,13 @@ impl PrintSupportExtensionSession {
             (::windows_core::Interface::vtable(this).PrintTicketValidationRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePrintTicketValidationRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePrintTicketValidationRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PrintDeviceCapabilitiesChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -363,7 +363,7 @@ impl PrintSupportExtensionSession {
             (::windows_core::Interface::vtable(this).PrintDeviceCapabilitiesChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePrintDeviceCapabilitiesChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -373,7 +373,7 @@ impl PrintSupportExtensionSession {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Start)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PrinterSelected<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -385,7 +385,7 @@ impl PrintSupportExtensionSession {
             (::windows_core::Interface::vtable(this).PrinterSelected)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePrinterSelected(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IPrintSupportExtensionSession2>(self)?;
@@ -438,7 +438,7 @@ unsafe impl ::core::marker::Sync for PrintSupportExtensionTriggerDetails {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintSupportPrintDeviceCapabilitiesChangedEventArgs(::windows_core::IUnknown);
 impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetCurrentPrintDeviceCapabilities(&self) -> ::windows_core::Result<super::super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
@@ -447,7 +447,7 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
             (::windows_core::Interface::vtable(this).GetCurrentPrintDeviceCapabilities)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn UpdatePrintDeviceCapabilities<P0>(&self, updatedpdc: P0) -> ::windows_core::Result<()>
     where
@@ -456,7 +456,7 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).UpdatePrintDeviceCapabilities)(::windows_core::Interface::as_raw(this), updatedpdc.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -465,7 +465,7 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetSupportedPdlPassthroughContentTypes<P0>(&self, supportedpdlcontenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -481,7 +481,7 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
             (::windows_core::Interface::vtable(this).ResourceLanguage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetCurrentPrintDeviceResources(&self) -> ::windows_core::Result<super::super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows_core::ComInterface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
@@ -490,7 +490,7 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
             (::windows_core::Interface::vtable(this).GetCurrentPrintDeviceResources)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn UpdatePrintDeviceResources<P0>(&self, updatedpdr: P0) -> ::windows_core::Result<()>
     where
@@ -526,7 +526,7 @@ unsafe impl ::core::marker::Sync for PrintSupportPrintDeviceCapabilitiesChangedE
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintSupportPrintDeviceCapabilitiesUpdatePolicy(::windows_core::IUnknown);
 impl PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreatePeriodicRefresh(updateperiod: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<PrintSupportPrintDeviceCapabilitiesUpdatePolicy> {
         Self::IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics(|this| unsafe {
@@ -614,7 +614,7 @@ unsafe impl ::core::marker::Sync for PrintSupportPrintTicketElement {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintSupportPrintTicketValidationRequestedEventArgs(::windows_core::IUnknown);
 impl PrintSupportPrintTicketValidationRequestedEventArgs {
-    #[doc = "Required features: `Graphics_Printing_PrintTicket`"]
+    #[doc = "Required features: `\"Graphics_Printing_PrintTicket\"`"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub fn PrintTicket(&self) -> ::windows_core::Result<super::PrintTicket::WorkflowPrintTicket> {
         let this = self;
@@ -627,7 +627,7 @@ impl PrintSupportPrintTicketValidationRequestedEventArgs {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPrintTicketValidationStatus)(::windows_core::Interface::as_raw(this), status).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -656,7 +656,7 @@ unsafe impl ::core::marker::Sync for PrintSupportPrintTicketValidationRequestedE
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintSupportPrinterSelectedEventArgs(::windows_core::IUnknown);
 impl PrintSupportPrinterSelectedEventArgs {
-    #[doc = "Required features: `ApplicationModel`"]
+    #[doc = "Required features: `\"ApplicationModel\"`"]
     #[cfg(feature = "ApplicationModel")]
     pub fn SourceAppInfo(&self) -> ::windows_core::Result<super::super::super::ApplicationModel::AppInfo> {
         let this = self;
@@ -665,7 +665,7 @@ impl PrintSupportPrinterSelectedEventArgs {
             (::windows_core::Interface::vtable(this).SourceAppInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Graphics_Printing_PrintTicket`"]
+    #[doc = "Required features: `\"Graphics_Printing_PrintTicket\"`"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub fn PrintTicket(&self) -> ::windows_core::Result<super::PrintTicket::WorkflowPrintTicket> {
         let this = self;
@@ -674,7 +674,7 @@ impl PrintSupportPrinterSelectedEventArgs {
             (::windows_core::Interface::vtable(this).PrintTicket)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Graphics_Printing_PrintTicket`"]
+    #[doc = "Required features: `\"Graphics_Printing_PrintTicket\"`"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub fn SetPrintTicket<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -683,7 +683,7 @@ impl PrintSupportPrinterSelectedEventArgs {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPrintTicket)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAdditionalFeatures<P0>(&self, features: P0) -> ::windows_core::Result<()>
     where
@@ -692,7 +692,7 @@ impl PrintSupportPrinterSelectedEventArgs {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAdditionalFeatures)(::windows_core::Interface::as_raw(this), features.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAdditionalParameters<P0>(&self, parameters: P0) -> ::windows_core::Result<()>
     where
@@ -708,7 +708,7 @@ impl PrintSupportPrinterSelectedEventArgs {
             (::windows_core::Interface::vtable(this).AllowedAdditionalFeaturesAndParametersCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_Shell`"]
+    #[doc = "Required features: `\"UI_Shell\"`"]
     #[cfg(feature = "UI_Shell")]
     pub fn SetAdaptiveCard<P0>(&self, adaptivecard: P0) -> ::windows_core::Result<()>
     where
@@ -717,7 +717,7 @@ impl PrintSupportPrinterSelectedEventArgs {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAdaptiveCard)(::windows_core::Interface::as_raw(this), adaptivecard.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -746,7 +746,7 @@ unsafe impl ::core::marker::Sync for PrintSupportPrinterSelectedEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintSupportSessionInfo(::windows_core::IUnknown);
 impl PrintSupportSessionInfo {
-    #[doc = "Required features: `ApplicationModel`"]
+    #[doc = "Required features: `\"ApplicationModel\"`"]
     #[cfg(feature = "ApplicationModel")]
     pub fn SourceAppInfo(&self) -> ::windows_core::Result<super::super::super::ApplicationModel::AppInfo> {
         let this = self;
@@ -755,7 +755,7 @@ impl PrintSupportSessionInfo {
             (::windows_core::Interface::vtable(this).SourceAppInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Printers`"]
+    #[doc = "Required features: `\"Devices_Printers\"`"]
     #[cfg(feature = "Devices_Printers")]
     pub fn Printer(&self) -> ::windows_core::Result<super::super::super::Devices::Printers::IppPrintDevice> {
         let this = self;
@@ -784,7 +784,7 @@ unsafe impl ::core::marker::Sync for PrintSupportSessionInfo {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintSupportSettingsActivatedEventArgs(::windows_core::IUnknown);
 impl PrintSupportSettingsActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -793,7 +793,7 @@ impl PrintSupportSettingsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -802,7 +802,7 @@ impl PrintSupportSettingsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -811,7 +811,7 @@ impl PrintSupportSettingsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -827,7 +827,7 @@ impl PrintSupportSettingsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Session)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -860,7 +860,7 @@ unsafe impl ::core::marker::Sync for PrintSupportSettingsActivatedEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintSupportSettingsUISession(::windows_core::IUnknown);
 impl PrintSupportSettingsUISession {
-    #[doc = "Required features: `Graphics_Printing_PrintTicket`"]
+    #[doc = "Required features: `\"Graphics_Printing_PrintTicket\"`"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub fn SessionPrintTicket(&self) -> ::windows_core::Result<super::PrintTicket::WorkflowPrintTicket> {
         let this = self;
@@ -883,7 +883,7 @@ impl PrintSupportSettingsUISession {
             (::windows_core::Interface::vtable(this).LaunchKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Graphics_Printing_PrintTicket`"]
+    #[doc = "Required features: `\"Graphics_Printing_PrintTicket\"`"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub fn UpdatePrintTicket<P0>(&self, printticket: P0) -> ::windows_core::Result<()>
     where

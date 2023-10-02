@@ -229,7 +229,7 @@ impl NotesWindowManagerPreview {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).ShowNoteRelativeTo)(::windows_core::Interface::as_raw(this), noteviewid, anchornoteviewid).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ShowNoteWithPlacement<P0>(&self, noteviewid: i32, data: P0) -> ::windows_core::Result<()>
     where
@@ -242,7 +242,7 @@ impl NotesWindowManagerPreview {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).HideNote)(::windows_core::Interface::as_raw(this), noteviewid).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetNotePlacement(&self, noteviewid: i32) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -251,7 +251,7 @@ impl NotesWindowManagerPreview {
             (::windows_core::Interface::vtable(this).GetNotePlacement)(::windows_core::Interface::as_raw(this), noteviewid, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TrySetNoteSize(&self, noteviewid: i32, size: super::super::super::Foundation::Size) -> ::windows_core::Result<bool> {
         let this = self;
@@ -264,7 +264,7 @@ impl NotesWindowManagerPreview {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetFocusToNextView)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn SetNotesThumbnailAsync<P0>(&self, thumbnail: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -276,7 +276,7 @@ impl NotesWindowManagerPreview {
             (::windows_core::Interface::vtable(this).SetNotesThumbnailAsync)(::windows_core::Interface::as_raw(this), thumbnail.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SystemLockStateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -288,13 +288,13 @@ impl NotesWindowManagerPreview {
             (::windows_core::Interface::vtable(this).SystemLockStateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSystemLockStateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSystemLockStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn NotePlacementChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -306,13 +306,13 @@ impl NotesWindowManagerPreview {
             (::windows_core::Interface::vtable(this).NotePlacementChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNotePlacementChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveNotePlacementChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn NoteVisibilityChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -324,7 +324,7 @@ impl NotesWindowManagerPreview {
             (::windows_core::Interface::vtable(this).NoteVisibilityChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNoteVisibilityChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -337,7 +337,7 @@ impl NotesWindowManagerPreview {
         let this = &::windows_core::ComInterface::cast::<INotesWindowManagerPreview2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).ShowNoteRelativeToWithOptions)(::windows_core::Interface::as_raw(this), noteviewid, anchornoteviewid, options.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ShowNoteWithPlacementWithOptions<P0, P1>(&self, noteviewid: i32, data: P0, options: P1) -> ::windows_core::Result<()>
     where
@@ -351,7 +351,7 @@ impl NotesWindowManagerPreview {
         let this = &::windows_core::ComInterface::cast::<INotesWindowManagerPreview2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetFocusToPreviousView)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Graphics_Imaging`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Graphics_Imaging\"`"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
     pub fn SetThumbnailImageForTaskSwitcherAsync<P0>(&self, bitmap: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where

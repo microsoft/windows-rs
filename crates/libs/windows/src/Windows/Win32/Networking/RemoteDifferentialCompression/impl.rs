@@ -31,7 +31,7 @@ impl IFindSimilarResults_Vtbl {
         *iid == <IFindSimilarResults as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRdcComparator_Impl: Sized {
     fn Process(&self, endofinput: super::super::Foundation::BOOL, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffer: *mut RdcNeedPointer, rdc_errorcode: *mut RDC_ErrorCode) -> ::windows_core::Result<()>;
@@ -52,7 +52,7 @@ impl IRdcComparator_Vtbl {
         *iid == <IRdcComparator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRdcFileReader_Impl: Sized {
     fn GetFileSize(&self) -> ::windows_core::Result<u64>;
@@ -102,7 +102,7 @@ impl IRdcFileReader_Vtbl {
         *iid == <IRdcFileReader as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRdcFileWriter_Impl: Sized + IRdcFileReader_Impl {
     fn Write(&self, offsetfilestart: u64, bytestowrite: u32) -> ::windows_core::Result<u8>;
@@ -146,7 +146,7 @@ impl IRdcFileWriter_Vtbl {
         *iid == <IRdcFileWriter as ::windows_core::ComInterface>::IID || *iid == <IRdcFileReader as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRdcGenerator_Impl: Sized {
     fn GetGeneratorParameters(&self, level: u32) -> ::windows_core::Result<IRdcGeneratorParameters>;
@@ -387,7 +387,7 @@ impl IRdcLibrary_Vtbl {
         *iid == <IRdcLibrary as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRdcSignatureReader_Impl: Sized {
     fn ReadHeader(&self) -> ::windows_core::Result<RDC_ErrorCode>;
@@ -457,7 +457,7 @@ impl IRdcSimilarityGenerator_Vtbl {
         *iid == <IRdcSimilarityGenerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISimilarity_Impl: Sized {
     fn CreateTable(&self, path: &::windows_core::PCWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, recordsize: u32) -> ::windows_core::Result<RdcCreatedTables>;
@@ -547,7 +547,7 @@ impl ISimilarity_Vtbl {
         *iid == <ISimilarity as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISimilarityFileIdTable_Impl: Sized {
     fn CreateTable(&self, path: &::windows_core::PCWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, recordsize: u32) -> ::windows_core::Result<RdcCreatedTables>;
@@ -654,7 +654,7 @@ impl ISimilarityReportProgress_Vtbl {
         *iid == <ISimilarityReportProgress as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISimilarityTableDumpState_Impl: Sized {
     fn GetNextData(&self, resultssize: u32, resultsused: *mut u32, eof: *mut super::super::Foundation::BOOL, results: *mut SimilarityDumpData) -> ::windows_core::Result<()>;
@@ -675,7 +675,7 @@ impl ISimilarityTableDumpState_Vtbl {
         *iid == <ISimilarityTableDumpState as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISimilarityTraitsMappedView_Impl: Sized {
     fn Flush(&self) -> ::windows_core::Result<()>;
@@ -812,7 +812,7 @@ impl ISimilarityTraitsMapping_Vtbl {
         *iid == <ISimilarityTraitsMapping as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISimilarityTraitsTable_Impl: Sized {
     fn CreateTable(&self, path: &::windows_core::PCWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8) -> ::windows_core::Result<RdcCreatedTables>;

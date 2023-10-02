@@ -1,5 +1,5 @@
 #[cfg(feature = "ApplicationModel_Email_DataProvider")]
-#[doc = "Required features: `ApplicationModel_Email_DataProvider`"]
+#[doc = "Required features: `\"ApplicationModel_Email_DataProvider\"`"]
 pub mod DataProvider;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1590,7 +1590,7 @@ impl EmailAttachment {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetFileName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -1599,7 +1599,7 @@ impl EmailAttachment {
             (::windows_core::Interface::vtable(this).Data)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetData<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1688,7 +1688,7 @@ impl EmailAttachment {
         let this = &::windows_core::ComInterface::cast::<IEmailAttachment2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetMimeType)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Create<P0>(filename: &::windows_core::HSTRING, data: P0) -> ::windows_core::Result<EmailAttachment>
     where
@@ -1699,7 +1699,7 @@ impl EmailAttachment {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filename), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Create2<P0>(filename: &::windows_core::HSTRING, data: P0, mimetype: &::windows_core::HSTRING) -> ::windows_core::Result<EmailAttachment>
     where
@@ -1796,7 +1796,7 @@ impl EmailConversation {
             (::windows_core::Interface::vtable(this).MostRecentMessageId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MostRecentMessageTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1833,7 +1833,7 @@ impl EmailConversation {
             (::windows_core::Interface::vtable(this).UnreadMessageCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindMessagesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMessage>>> {
         let this = self;
@@ -1842,7 +1842,7 @@ impl EmailConversation {
             (::windows_core::Interface::vtable(this).FindMessagesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindMessagesWithCountAsync(&self, count: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMessage>>> {
         let this = self;
@@ -1871,7 +1871,7 @@ unsafe impl ::core::marker::Sync for EmailConversation {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailConversationBatch(::windows_core::IUnknown);
 impl EmailConversationBatch {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Conversations(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<EmailConversation>> {
         let this = self;
@@ -1907,7 +1907,7 @@ unsafe impl ::core::marker::Sync for EmailConversationBatch {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailConversationReader(::windows_core::IUnknown);
 impl EmailConversationReader {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ReadBatchAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailConversationBatch>> {
         let this = self;
@@ -1990,7 +1990,7 @@ impl EmailFolder {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIsSyncEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LastSuccessfulSyncTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1999,7 +1999,7 @@ impl EmailFolder {
             (::windows_core::Interface::vtable(this).LastSuccessfulSyncTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetLastSuccessfulSyncTime(&self, value: super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = self;
@@ -2012,7 +2012,7 @@ impl EmailFolder {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateFolderAsync(&self, name: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>> {
         let this = self;
@@ -2021,7 +2021,7 @@ impl EmailFolder {
             (::windows_core::Interface::vtable(this).CreateFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2030,7 +2030,7 @@ impl EmailFolder {
             (::windows_core::Interface::vtable(this).DeleteAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindChildFoldersAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailFolder>>> {
         let this = self;
@@ -2056,7 +2056,7 @@ impl EmailFolder {
             (::windows_core::Interface::vtable(this).GetConversationReaderWithOptions)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetMessageAsync(&self, id: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>> {
         let this = self;
@@ -2082,7 +2082,7 @@ impl EmailFolder {
             (::windows_core::Interface::vtable(this).GetMessageReaderWithOptions)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetMessageCountsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailItemCounts>> {
         let this = self;
@@ -2091,7 +2091,7 @@ impl EmailFolder {
             (::windows_core::Interface::vtable(this).GetMessageCountsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryMoveAsync<P0>(&self, newparentfolder: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -2103,7 +2103,7 @@ impl EmailFolder {
             (::windows_core::Interface::vtable(this).TryMoveAsync)(::windows_core::Interface::as_raw(this), newparentfolder.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryMoveWithNewNameAsync<P0>(&self, newparentfolder: P0, newfoldername: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -2115,7 +2115,7 @@ impl EmailFolder {
             (::windows_core::Interface::vtable(this).TryMoveWithNewNameAsync)(::windows_core::Interface::as_raw(this), newparentfolder.into_param().abi(), ::core::mem::transmute_copy(newfoldername), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TrySaveAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2124,7 +2124,7 @@ impl EmailFolder {
             (::windows_core::Interface::vtable(this).TrySaveAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SaveMessageAsync<P0>(&self, message: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -2251,7 +2251,7 @@ impl EmailIrmInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCanReplyAll)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ExpirationDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -2260,7 +2260,7 @@ impl EmailIrmInfo {
             (::windows_core::Interface::vtable(this).ExpirationDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetExpirationDate(&self, value: super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = self;
@@ -2302,7 +2302,7 @@ impl EmailIrmInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetTemplate)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Create<P0>(expiration: super::super::Foundation::DateTime, irmtemplate: P0) -> ::windows_core::Result<EmailIrmInfo>
     where
@@ -2514,7 +2514,7 @@ impl EmailMailbox {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetMailAddress)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MailAddressAliases(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -2607,7 +2607,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).GetMessageReaderWithOptions)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2616,7 +2616,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).DeleteAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetConversationAsync(&self, id: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailConversation>> {
         let this = self;
@@ -2625,7 +2625,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).GetConversationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetFolderAsync(&self, id: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>> {
         let this = self;
@@ -2634,7 +2634,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).GetFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetMessageAsync(&self, id: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>> {
         let this = self;
@@ -2643,7 +2643,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).GetMessageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetSpecialFolderAsync(&self, foldertype: EmailSpecialFolderKind) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>> {
         let this = self;
@@ -2652,7 +2652,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).GetSpecialFolderAsync)(::windows_core::Interface::as_raw(this), foldertype, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SaveAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2661,7 +2661,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).SaveAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MarkMessageAsSeenAsync(&self, messageid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2670,7 +2670,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).MarkMessageAsSeenAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(messageid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MarkFolderAsSeenAsync(&self, folderid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2679,7 +2679,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).MarkFolderAsSeenAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(folderid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MarkMessageReadAsync(&self, messageid: &::windows_core::HSTRING, isread: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2688,7 +2688,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).MarkMessageReadAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(messageid), isread, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ChangeMessageFlagStateAsync(&self, messageid: &::windows_core::HSTRING, flagstate: EmailFlagState) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2697,7 +2697,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).ChangeMessageFlagStateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(messageid), flagstate, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryMoveMessageAsync(&self, messageid: &::windows_core::HSTRING, newparentfolderid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2706,7 +2706,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).TryMoveMessageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(messageid), ::core::mem::transmute_copy(newparentfolderid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryMoveFolderAsync(&self, folderid: &::windows_core::HSTRING, newparentfolderid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2715,7 +2715,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).TryMoveFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(folderid), ::core::mem::transmute_copy(newparentfolderid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryMoveFolderWithNewNameAsync(&self, folderid: &::windows_core::HSTRING, newparentfolderid: &::windows_core::HSTRING, newfoldername: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2724,7 +2724,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).TryMoveFolderWithNewNameAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(folderid), ::core::mem::transmute_copy(newparentfolderid), ::core::mem::transmute_copy(newfoldername), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteMessageAsync(&self, messageid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2733,7 +2733,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).DeleteMessageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(messageid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MarkFolderSyncEnabledAsync(&self, folderid: &::windows_core::HSTRING, issyncenabled: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2742,7 +2742,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).MarkFolderSyncEnabledAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(folderid), issyncenabled, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SendMessageAsync<P0>(&self, message: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -2754,7 +2754,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).SendMessageAsync)(::windows_core::Interface::as_raw(this), message.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SaveDraftAsync<P0>(&self, message: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -2766,7 +2766,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).SaveDraftAsync)(::windows_core::Interface::as_raw(this), message.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DownloadMessageAsync(&self, messageid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2775,7 +2775,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).DownloadMessageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(messageid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DownloadAttachmentAsync(&self, attachmentid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2784,7 +2784,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).DownloadAttachmentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(attachmentid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateResponseMessageAsync(&self, messageid: &::windows_core::HSTRING, responsetype: EmailMessageResponseKind, subject: &::windows_core::HSTRING, responseheadertype: EmailMessageBodyKind, responseheader: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>> {
         let this = self;
@@ -2793,7 +2793,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).CreateResponseMessageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(messageid), responsetype, ::core::mem::transmute_copy(subject), responseheadertype, ::core::mem::transmute_copy(responseheader), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryUpdateMeetingResponseAsync<P0>(&self, meeting: P0, response: EmailMeetingResponseType, subject: &::windows_core::HSTRING, comment: &::windows_core::HSTRING, sendupdate: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -2805,7 +2805,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).TryUpdateMeetingResponseAsync)(::windows_core::Interface::as_raw(this), meeting.into_param().abi(), response, ::core::mem::transmute_copy(subject), ::core::mem::transmute_copy(comment), sendupdate, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryForwardMeetingAsync<P0, P1>(&self, meeting: P0, recipients: P1, subject: &::windows_core::HSTRING, forwardheadertype: EmailMessageBodyKind, forwardheader: &::windows_core::HSTRING, comment: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -2818,7 +2818,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).TryForwardMeetingAsync)(::windows_core::Interface::as_raw(this), meeting.into_param().abi(), recipients.try_into_param()?.abi(), ::core::mem::transmute_copy(subject), forwardheadertype, ::core::mem::transmute_copy(forwardheader), ::core::mem::transmute_copy(comment), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryProposeNewTimeForMeetingAsync<P0>(&self, meeting: P0, newstarttime: super::super::Foundation::DateTime, newduration: super::super::Foundation::TimeSpan, subject: &::windows_core::HSTRING, comment: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -2830,7 +2830,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).TryProposeNewTimeForMeetingAsync)(::windows_core::Interface::as_raw(this), meeting.into_param().abi(), newstarttime, newduration, ::core::mem::transmute_copy(subject), ::core::mem::transmute_copy(comment), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MailboxChanged<P0>(&self, phandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2842,13 +2842,13 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).MailboxChanged)(::windows_core::Interface::as_raw(this), phandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMailboxChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveMailboxChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SmartSendMessageAsync<P0>(&self, message: P0, smartsend: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -2860,7 +2860,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).SmartSendMessageAsync)(::windows_core::Interface::as_raw(this), message.into_param().abi(), smartsend, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TrySetAutoReplySettingsAsync<P0>(&self, autoreplysettings: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -2872,7 +2872,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).TrySetAutoReplySettingsAsync)(::windows_core::Interface::as_raw(this), autoreplysettings.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryGetAutoReplySettingsAsync(&self, requestedformat: EmailMailboxAutoReplyMessageResponseKind) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxAutoReplySettings>> {
         let this = self;
@@ -2902,7 +2902,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).NetworkId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ResolveRecipientsAsync<P0>(&self, recipients: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailRecipientResolutionResult>>>
     where
@@ -2914,7 +2914,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).ResolveRecipientsAsync)(::windows_core::Interface::as_raw(this), recipients.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Security_Cryptography_Certificates`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn ValidateCertificatesAsync<P0>(&self, certificates: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailCertificateValidationStatus>>>
     where
@@ -2926,7 +2926,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).ValidateCertificatesAsync)(::windows_core::Interface::as_raw(this), certificates.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryEmptyFolderAsync(&self, folderid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxEmptyFolderStatus>> {
         let this = &::windows_core::ComInterface::cast::<IEmailMailbox3>(self)?;
@@ -2935,7 +2935,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).TryEmptyFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(folderid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryCreateFolderAsync(&self, parentfolderid: &::windows_core::HSTRING, name: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxCreateFolderResult>> {
         let this = &::windows_core::ComInterface::cast::<IEmailMailbox3>(self)?;
@@ -2944,7 +2944,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).TryCreateFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(parentfolderid), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryDeleteFolderAsync(&self, folderid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxDeleteFolderStatus>> {
         let this = &::windows_core::ComInterface::cast::<IEmailMailbox3>(self)?;
@@ -2953,7 +2953,7 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).TryDeleteFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(folderid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RegisterSyncManagerAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IEmailMailbox4>(self)?;
@@ -3094,7 +3094,7 @@ impl EmailMailboxAutoReplySettings {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetResponseKind)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -3103,7 +3103,7 @@ impl EmailMailboxAutoReplySettings {
             (::windows_core::Interface::vtable(this).StartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartTime<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3112,7 +3112,7 @@ impl EmailMailboxAutoReplySettings {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetStartTime)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn EndTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -3121,7 +3121,7 @@ impl EmailMailboxAutoReplySettings {
             (::windows_core::Interface::vtable(this).EndTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetEndTime<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3352,7 +3352,7 @@ impl EmailMailboxChange {
             (::windows_core::Interface::vtable(this).ChangeType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MailboxActions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<EmailMailboxAction>> {
         let this = self;
@@ -3406,7 +3406,7 @@ impl EmailMailboxChangeReader {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).AcceptChangesThrough)(::windows_core::Interface::as_raw(this), lastchangetoacknowledge.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReadBatchAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMailboxChange>>> {
         let this = self;
@@ -3576,7 +3576,7 @@ impl EmailMailboxPolicies {
             (::windows_core::Interface::vtable(this).AllowSmimeSoftCertificates)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequiredSmimeEncryptionAlgorithm(&self) -> ::windows_core::Result<super::super::Foundation::IReference<EmailMailboxSmimeEncryptionAlgorithm>> {
         let this = self;
@@ -3585,7 +3585,7 @@ impl EmailMailboxPolicies {
             (::windows_core::Interface::vtable(this).RequiredSmimeEncryptionAlgorithm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequiredSmimeSigningAlgorithm(&self) -> ::windows_core::Result<super::super::Foundation::IReference<EmailMailboxSmimeSigningAlgorithm>> {
         let this = self;
@@ -3616,7 +3616,7 @@ impl EmailMailboxPolicies {
         let this = &::windows_core::ComInterface::cast::<IEmailMailboxPolicies3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetAllowSmimeSoftCertificates)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetRequiredSmimeEncryptionAlgorithm<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3625,7 +3625,7 @@ impl EmailMailboxPolicies {
         let this = &::windows_core::ComInterface::cast::<IEmailMailboxPolicies3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetRequiredSmimeEncryptionAlgorithm)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetRequiredSmimeSigningAlgorithm<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3669,7 +3669,7 @@ impl EmailMailboxSyncManager {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LastSuccessfulSyncTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -3678,7 +3678,7 @@ impl EmailMailboxSyncManager {
             (::windows_core::Interface::vtable(this).LastSuccessfulSyncTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LastAttemptedSyncTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -3687,7 +3687,7 @@ impl EmailMailboxSyncManager {
             (::windows_core::Interface::vtable(this).LastAttemptedSyncTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SyncAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -3696,7 +3696,7 @@ impl EmailMailboxSyncManager {
             (::windows_core::Interface::vtable(this).SyncAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SyncStatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3708,7 +3708,7 @@ impl EmailMailboxSyncManager {
             (::windows_core::Interface::vtable(this).SyncStatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSyncStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -3718,13 +3718,13 @@ impl EmailMailboxSyncManager {
         let this = &::windows_core::ComInterface::cast::<IEmailMailboxSyncManager2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetStatus)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetLastSuccessfulSyncTime(&self, value: super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IEmailMailboxSyncManager2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetLastSuccessfulSyncTime)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetLastAttemptedSyncTime(&self, value: super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IEmailMailboxSyncManager2>(self)?;
@@ -3748,7 +3748,7 @@ unsafe impl ::core::marker::Send for EmailMailboxSyncManager {}
 unsafe impl ::core::marker::Sync for EmailMailboxSyncManager {}
 pub struct EmailManager;
 impl EmailManager {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowComposeNewEmailAsync<P0>(message: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -3759,7 +3759,7 @@ impl EmailManager {
             (::windows_core::Interface::vtable(this).ShowComposeNewEmailAsync)(::windows_core::Interface::as_raw(this), message.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestStoreAsync(accesstype: EmailStoreAccessType) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailStore>> {
         Self::IEmailManagerStatics2(|this| unsafe {
@@ -3767,7 +3767,7 @@ impl EmailManager {
             (::windows_core::Interface::vtable(this).RequestStoreAsync)(::windows_core::Interface::as_raw(this), accesstype, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetForUser<P0>(user: P0) -> ::windows_core::Result<EmailManagerForUser>
     where
@@ -3801,7 +3801,7 @@ impl ::windows_core::RuntimeName for EmailManager {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailManagerForUser(::windows_core::IUnknown);
 impl EmailManagerForUser {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowComposeNewEmailAsync<P0>(&self, message: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -3813,7 +3813,7 @@ impl EmailManagerForUser {
             (::windows_core::Interface::vtable(this).ShowComposeNewEmailAsync)(::windows_core::Interface::as_raw(this), message.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestStoreAsync(&self, accesstype: EmailStoreAccessType) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailStore>> {
         let this = self;
@@ -3822,7 +3822,7 @@ impl EmailManagerForUser {
             (::windows_core::Interface::vtable(this).RequestStoreAsync)(::windows_core::Interface::as_raw(this), accesstype, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
@@ -3880,7 +3880,7 @@ impl EmailMeetingInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAppointmentRoamingId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AppointmentOriginalStartTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -3889,7 +3889,7 @@ impl EmailMeetingInfo {
             (::windows_core::Interface::vtable(this).AppointmentOriginalStartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetAppointmentOriginalStartTime<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3898,7 +3898,7 @@ impl EmailMeetingInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAppointmentOriginalStartTime)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -3907,7 +3907,7 @@ impl EmailMeetingInfo {
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
@@ -3946,7 +3946,7 @@ impl EmailMeetingInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetLocation)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProposedStartTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -3955,7 +3955,7 @@ impl EmailMeetingInfo {
             (::windows_core::Interface::vtable(this).ProposedStartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetProposedStartTime<P0>(&self, proposedstarttime: P0) -> ::windows_core::Result<()>
     where
@@ -3964,7 +3964,7 @@ impl EmailMeetingInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetProposedStartTime)(::windows_core::Interface::as_raw(this), proposedstarttime.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProposedDuration(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -3973,7 +3973,7 @@ impl EmailMeetingInfo {
             (::windows_core::Interface::vtable(this).ProposedDuration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetProposedDuration<P0>(&self, duration: P0) -> ::windows_core::Result<()>
     where
@@ -3982,7 +3982,7 @@ impl EmailMeetingInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetProposedDuration)(::windows_core::Interface::as_raw(this), duration.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RecurrenceStartTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -3991,7 +3991,7 @@ impl EmailMeetingInfo {
             (::windows_core::Interface::vtable(this).RecurrenceStartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetRecurrenceStartTime<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4000,7 +4000,7 @@ impl EmailMeetingInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetRecurrenceStartTime)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `ApplicationModel_Appointments`"]
+    #[doc = "Required features: `\"ApplicationModel_Appointments\"`"]
     #[cfg(feature = "ApplicationModel_Appointments")]
     pub fn Recurrence(&self) -> ::windows_core::Result<super::Appointments::AppointmentRecurrence> {
         let this = self;
@@ -4009,7 +4009,7 @@ impl EmailMeetingInfo {
             (::windows_core::Interface::vtable(this).Recurrence)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Appointments`"]
+    #[doc = "Required features: `\"ApplicationModel_Appointments\"`"]
     #[cfg(feature = "ApplicationModel_Appointments")]
     pub fn SetRecurrence<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4029,7 +4029,7 @@ impl EmailMeetingInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetRemoteChangeNumber)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -4038,7 +4038,7 @@ impl EmailMeetingInfo {
             (::windows_core::Interface::vtable(this).StartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartTime(&self, value: super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = self;
@@ -4100,7 +4100,7 @@ impl EmailMessage {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetBody)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn To(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<EmailRecipient>> {
         let this = self;
@@ -4109,7 +4109,7 @@ impl EmailMessage {
             (::windows_core::Interface::vtable(this).To)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CC(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<EmailRecipient>> {
         let this = self;
@@ -4118,7 +4118,7 @@ impl EmailMessage {
             (::windows_core::Interface::vtable(this).CC)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Bcc(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<EmailRecipient>> {
         let this = self;
@@ -4127,7 +4127,7 @@ impl EmailMessage {
             (::windows_core::Interface::vtable(this).Bcc)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Attachments(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<EmailAttachment>> {
         let this = self;
@@ -4373,7 +4373,7 @@ impl EmailMessage {
         let this = &::windows_core::ComInterface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSender)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SentTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = &::windows_core::ComInterface::cast::<IEmailMessage2>(self)?;
@@ -4382,7 +4382,7 @@ impl EmailMessage {
             (::windows_core::Interface::vtable(this).SentTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetSentTime<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4405,7 +4405,7 @@ impl EmailMessage {
         let this = &::windows_core::ComInterface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetMeetingInfo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetBodyStream(&self, r#type: EmailMessageBodyKind) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows_core::ComInterface::cast::<IEmailMessage2>(self)?;
@@ -4414,7 +4414,7 @@ impl EmailMessage {
             (::windows_core::Interface::vtable(this).GetBodyStream)(::windows_core::Interface::as_raw(this), r#type, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetBodyStream<P0>(&self, r#type: EmailMessageBodyKind, stream: P0) -> ::windows_core::Result<()>
     where
@@ -4423,7 +4423,7 @@ impl EmailMessage {
         let this = &::windows_core::ComInterface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetBodyStream)(::windows_core::Interface::as_raw(this), r#type, stream.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SmimeData(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows_core::ComInterface::cast::<IEmailMessage3>(self)?;
@@ -4432,7 +4432,7 @@ impl EmailMessage {
             (::windows_core::Interface::vtable(this).SmimeData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetSmimeData<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4452,7 +4452,7 @@ impl EmailMessage {
         let this = &::windows_core::ComInterface::cast::<IEmailMessage3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSmimeKind)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplyTo(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<EmailRecipient>> {
         let this = &::windows_core::ComInterface::cast::<IEmailMessage4>(self)?;
@@ -4495,7 +4495,7 @@ unsafe impl ::core::marker::Sync for EmailMessage {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMessageBatch(::windows_core::IUnknown);
 impl EmailMessageBatch {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Messages(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<EmailMessage>> {
         let this = self;
@@ -4531,7 +4531,7 @@ unsafe impl ::core::marker::Sync for EmailMessageBatch {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMessageReader(::windows_core::IUnknown);
 impl EmailMessageReader {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ReadBatchAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailMessageBatch>> {
         let this = self;
@@ -4607,7 +4607,7 @@ impl EmailQueryOptions {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetKind)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FolderIds(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -4786,7 +4786,7 @@ impl EmailRecipientResolutionResult {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Security_Cryptography_Certificates`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn PublicKeys(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = self;
@@ -4799,7 +4799,7 @@ impl EmailRecipientResolutionResult {
         let this = &::windows_core::ComInterface::cast::<IEmailRecipientResolutionResult2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetStatus)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Security_Cryptography_Certificates`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn SetPublicKeys<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4828,7 +4828,7 @@ unsafe impl ::core::marker::Sync for EmailRecipientResolutionResult {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailStore(::windows_core::IUnknown);
 impl EmailStore {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindMailboxesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMailbox>>> {
         let this = self;
@@ -4871,7 +4871,7 @@ impl EmailStore {
             (::windows_core::Interface::vtable(this).GetMessageReaderWithOptions)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetMailboxAsync(&self, id: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>> {
         let this = self;
@@ -4880,7 +4880,7 @@ impl EmailStore {
             (::windows_core::Interface::vtable(this).GetMailboxAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetConversationAsync(&self, id: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailConversation>> {
         let this = self;
@@ -4889,7 +4889,7 @@ impl EmailStore {
             (::windows_core::Interface::vtable(this).GetConversationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetFolderAsync(&self, id: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>> {
         let this = self;
@@ -4898,7 +4898,7 @@ impl EmailStore {
             (::windows_core::Interface::vtable(this).GetFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetMessageAsync(&self, id: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>> {
         let this = self;
@@ -4907,7 +4907,7 @@ impl EmailStore {
             (::windows_core::Interface::vtable(this).GetMessageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateMailboxAsync(&self, accountname: &::windows_core::HSTRING, accountaddress: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>> {
         let this = self;
@@ -4916,7 +4916,7 @@ impl EmailStore {
             (::windows_core::Interface::vtable(this).CreateMailboxAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(accountname), ::core::mem::transmute_copy(accountaddress), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateMailboxInAccountAsync(&self, accountname: &::windows_core::HSTRING, accountaddress: &::windows_core::HSTRING, userdataaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>> {
         let this = self;

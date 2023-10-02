@@ -1,5 +1,5 @@
 #[cfg(feature = "Media_Protection_PlayReady")]
-#[doc = "Required features: `Media_Protection_PlayReady`"]
+#[doc = "Required features: `\"Media_Protection_PlayReady\"`"]
 pub mod PlayReady;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -329,7 +329,7 @@ unsafe impl ::core::marker::Send for ComponentLoadFailedEventArgs {}
 unsafe impl ::core::marker::Sync for ComponentLoadFailedEventArgs {}
 pub struct ComponentRenewal;
 impl ComponentRenewal {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RenewSystemComponentsAsync<P0>(information: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>>
     where
@@ -360,7 +360,7 @@ impl HdcpSession {
         static SHARED: ::windows_core::imp::FactoryCache<HdcpSession, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -373,7 +373,7 @@ impl HdcpSession {
             (::windows_core::Interface::vtable(this).IsEffectiveProtectionAtLeast)(::windows_core::Interface::as_raw(this), protection, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetEffectiveProtection(&self) -> ::windows_core::Result<super::super::Foundation::IReference<HdcpProtection>> {
         let this = self;
@@ -382,7 +382,7 @@ impl HdcpSession {
             (::windows_core::Interface::vtable(this).GetEffectiveProtection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDesiredMinProtectionAsync(&self, protection: HdcpProtection) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>> {
         let this = self;
@@ -391,7 +391,7 @@ impl HdcpSession {
             (::windows_core::Interface::vtable(this).SetDesiredMinProtectionAsync)(::windows_core::Interface::as_raw(this), protection, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProtectionChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -403,7 +403,7 @@ impl HdcpSession {
             (::windows_core::Interface::vtable(this).ProtectionChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProtectionChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -438,7 +438,7 @@ impl MediaProtectionManager {
         static SHARED: ::windows_core::imp::FactoryCache<MediaProtectionManager, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ServiceRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -450,13 +450,13 @@ impl MediaProtectionManager {
             (::windows_core::Interface::vtable(this).ServiceRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveServiceRequested(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveServiceRequested)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RebootNeeded<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -468,13 +468,13 @@ impl MediaProtectionManager {
             (::windows_core::Interface::vtable(this).RebootNeeded)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRebootNeeded(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRebootNeeded)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ComponentLoadFailed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -486,13 +486,13 @@ impl MediaProtectionManager {
             (::windows_core::Interface::vtable(this).ComponentLoadFailed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveComponentLoadFailed(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveComponentLoadFailed)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
@@ -521,7 +521,7 @@ unsafe impl ::core::marker::Sync for MediaProtectionManager {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaProtectionPMPServer(::windows_core::IUnknown);
 impl MediaProtectionPMPServer {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
@@ -530,7 +530,7 @@ impl MediaProtectionPMPServer {
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreatePMPServer<P0>(pproperties: P0) -> ::windows_core::Result<MediaProtectionPMPServer>
     where
@@ -624,7 +624,7 @@ unsafe impl ::core::marker::Sync for ProtectionCapabilities {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RevocationAndRenewalInformation(::windows_core::IUnknown);
 impl RevocationAndRenewalInformation {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<RevocationAndRenewalItem>> {
         let this = self;
@@ -722,7 +722,7 @@ impl ServiceRequestedEventArgs {
             (::windows_core::Interface::vtable(this).Completion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Media_Playback`"]
+    #[doc = "Required features: `\"Media_Playback\"`"]
     #[cfg(feature = "Media_Playback")]
     pub fn MediaPlaybackItem(&self) -> ::windows_core::Result<super::Playback::MediaPlaybackItem> {
         let this = &::windows_core::ComInterface::cast::<IServiceRequestedEventArgs2>(self)?;

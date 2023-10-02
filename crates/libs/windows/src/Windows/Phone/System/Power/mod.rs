@@ -46,7 +46,7 @@ impl PowerManager {
             (::windows_core::Interface::vtable(this).PowerSavingMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PowerSavingModeChanged<P0>(changehandler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -57,7 +57,7 @@ impl PowerManager {
             (::windows_core::Interface::vtable(this).PowerSavingModeChanged)(::windows_core::Interface::as_raw(this), changehandler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePowerSavingModeChanged(token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemovePowerSavingModeChanged)(::windows_core::Interface::as_raw(this), token).ok() })

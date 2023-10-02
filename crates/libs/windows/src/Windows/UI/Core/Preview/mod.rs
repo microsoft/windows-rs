@@ -96,7 +96,7 @@ pub struct ISystemNavigationManagerPreviewStatics_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CoreAppWindowPreview(::windows_core::IUnknown);
 impl CoreAppWindowPreview {
-    #[doc = "Required features: `UI_WindowManagement`"]
+    #[doc = "Required features: `\"UI_WindowManagement\"`"]
     #[cfg(feature = "UI_WindowManagement")]
     pub fn GetIdFromWindow<P0>(window: P0) -> ::windows_core::Result<i32>
     where
@@ -143,7 +143,7 @@ impl SystemNavigationCloseRequestedPreviewEventArgs {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetHandled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -172,7 +172,7 @@ unsafe impl ::core::marker::Sync for SystemNavigationCloseRequestedPreviewEventA
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemNavigationManagerPreview(::windows_core::IUnknown);
 impl SystemNavigationManagerPreview {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CloseRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -184,7 +184,7 @@ impl SystemNavigationManagerPreview {
             (::windows_core::Interface::vtable(this).CloseRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCloseRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;

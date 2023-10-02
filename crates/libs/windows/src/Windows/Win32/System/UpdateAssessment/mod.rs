@@ -2,7 +2,7 @@
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWaaSAssessor(::windows_core::IUnknown);
 impl IWaaSAssessor {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOSUpdateAssessment(&self) -> ::windows_core::Result<OSUpdateAssessment> {
         let mut result__ = ::std::mem::zeroed();
@@ -87,7 +87,7 @@ impl ::core::fmt::Debug for UpdateImpactLevel {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OSUpdateAssessment {
     pub isEndOfSupport: super::super::Foundation::BOOL,

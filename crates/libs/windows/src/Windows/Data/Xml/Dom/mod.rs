@@ -2862,7 +2862,7 @@ impl XmlDocument {
         let this = &::windows_core::ComInterface::cast::<IXmlDocumentIO>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).LoadXmlWithSettings)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(xml), loadsettings.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Storage`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn SaveToFileAsync<P0>(&self, file: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -2874,7 +2874,7 @@ impl XmlDocument {
             (::windows_core::Interface::vtable(this).SaveToFileAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadXmlFromBuffer<P0>(&self, buffer: P0) -> ::windows_core::Result<()>
     where
@@ -2883,7 +2883,7 @@ impl XmlDocument {
         let this = &::windows_core::ComInterface::cast::<IXmlDocumentIO2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).LoadXmlFromBuffer)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadXmlFromBufferWithSettings<P0, P1>(&self, buffer: P0, loadsettings: P1) -> ::windows_core::Result<()>
     where
@@ -2893,7 +2893,7 @@ impl XmlDocument {
         let this = &::windows_core::ComInterface::cast::<IXmlDocumentIO2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).LoadXmlFromBufferWithSettings)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), loadsettings.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LoadFromUriAsync<P0>(uri: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>>
     where
@@ -2904,7 +2904,7 @@ impl XmlDocument {
             (::windows_core::Interface::vtable(this).LoadFromUriAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LoadFromUriWithSettingsAsync<P0, P1>(uri: P0, loadsettings: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>>
     where
@@ -2916,7 +2916,7 @@ impl XmlDocument {
             (::windows_core::Interface::vtable(this).LoadFromUriWithSettingsAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), loadsettings.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `Storage`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn LoadFromFileAsync<P0>(file: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>>
     where
@@ -2927,7 +2927,7 @@ impl XmlDocument {
             (::windows_core::Interface::vtable(this).LoadFromFileAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `Storage`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn LoadFromFileWithSettingsAsync<P0, P1>(file: P0, loadsettings: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>>
     where
@@ -4412,7 +4412,7 @@ unsafe impl ::core::marker::Sync for XmlLoadSettings {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlNamedNodeMap(::windows_core::IUnknown);
 impl XmlNamedNodeMap {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IIterator<IXmlNode>> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IIterable<IXmlNode>>(self)?;
@@ -4421,7 +4421,7 @@ impl XmlNamedNodeMap {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<IXmlNode> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
@@ -4430,7 +4430,7 @@ impl XmlNamedNodeMap {
             (::windows_core::Interface::vtable(this).GetAt)(::windows_core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
@@ -4439,7 +4439,7 @@ impl XmlNamedNodeMap {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows_core::Result<bool>
     where
@@ -4451,7 +4451,7 @@ impl XmlNamedNodeMap {
             (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<IXmlNode>]) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
@@ -4568,7 +4568,7 @@ unsafe impl ::core::marker::Sync for XmlNamedNodeMap {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlNodeList(::windows_core::IUnknown);
 impl XmlNodeList {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IIterator<IXmlNode>> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IIterable<IXmlNode>>(self)?;
@@ -4577,7 +4577,7 @@ impl XmlNodeList {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<IXmlNode> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
@@ -4586,7 +4586,7 @@ impl XmlNodeList {
             (::windows_core::Interface::vtable(this).GetAt)(::windows_core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
@@ -4595,7 +4595,7 @@ impl XmlNodeList {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows_core::Result<bool>
     where
@@ -4607,7 +4607,7 @@ impl XmlNodeList {
             (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<IXmlNode>]) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;

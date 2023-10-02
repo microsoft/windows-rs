@@ -1,4 +1,4 @@
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait ISysStorageProviderEventSource_Impl: Sized {
     fn EventReceived(&self, handler: ::core::option::Option<&super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -80,7 +80,7 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
         *iid == <ISysStorageProviderHandlerFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`, `Web_Http`"]
+#[doc = "Required features: `\"Foundation\"`, `\"Web_Http\"`"]
 #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
 pub trait ISysStorageProviderHttpRequestProvider_Impl: Sized {
     fn SendRequestAsync(&self, request: ::core::option::Option<&super::super::super::Web::Http::HttpRequestMessage>) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>;

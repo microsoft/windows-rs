@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDialBranding_Impl: Sized {
     fn Initialize(&self, pwzconnectoid: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;

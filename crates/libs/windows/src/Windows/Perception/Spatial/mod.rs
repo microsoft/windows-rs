@@ -1,8 +1,8 @@
 #[cfg(feature = "Perception_Spatial_Preview")]
-#[doc = "Required features: `Perception_Spatial_Preview`"]
+#[doc = "Required features: `\"Perception_Spatial_Preview\"`"]
 pub mod Preview;
 #[cfg(feature = "Perception_Spatial_Surfaces")]
-#[doc = "Required features: `Perception_Spatial_Surfaces`"]
+#[doc = "Required features: `\"Perception_Spatial_Surfaces\"`"]
 pub mod Surfaces;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -745,7 +745,7 @@ impl SpatialAnchor {
             (::windows_core::Interface::vtable(this).RawCoordinateSystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RawCoordinateSystemAdjusted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -757,7 +757,7 @@ impl SpatialAnchor {
             (::windows_core::Interface::vtable(this).RawCoordinateSystemAdjusted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRawCoordinateSystemAdjusted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -779,7 +779,7 @@ impl SpatialAnchor {
             (::windows_core::Interface::vtable(this).TryCreateRelativeTo)(::windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryCreateWithPositionRelativeTo<P0>(coordinatesystem: P0, position: super::super::Foundation::Numerics::Vector3) -> ::windows_core::Result<SpatialAnchor>
     where
@@ -790,7 +790,7 @@ impl SpatialAnchor {
             (::windows_core::Interface::vtable(this).TryCreateWithPositionRelativeTo)(::windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), position, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryCreateWithPositionAndOrientationRelativeTo<P0>(coordinatesystem: P0, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows_core::Result<SpatialAnchor>
     where
@@ -867,7 +867,7 @@ unsafe impl ::core::marker::Sync for SpatialAnchorExportSufficiency {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpatialAnchorExporter(::windows_core::IUnknown);
 impl SpatialAnchorExporter {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetAnchorExportSufficiencyAsync<P0>(&self, anchor: P0, purpose: SpatialAnchorExportPurpose) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpatialAnchorExportSufficiency>>
     where
@@ -879,7 +879,7 @@ impl SpatialAnchorExporter {
             (::windows_core::Interface::vtable(this).GetAnchorExportSufficiencyAsync)(::windows_core::Interface::as_raw(this), anchor.into_param().abi(), purpose, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn TryExportAnchorAsync<P0, P1>(&self, anchor: P0, purpose: SpatialAnchorExportPurpose, stream: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -898,7 +898,7 @@ impl SpatialAnchorExporter {
             (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpatialPerceptionAccessStatus>> {
         Self::ISpatialAnchorExporterStatics(|this| unsafe {
@@ -929,7 +929,7 @@ unsafe impl ::core::marker::Send for SpatialAnchorExporter {}
 unsafe impl ::core::marker::Sync for SpatialAnchorExporter {}
 pub struct SpatialAnchorManager;
 impl SpatialAnchorManager {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestStoreAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpatialAnchorStore>> {
         Self::ISpatialAnchorManagerStatics(|this| unsafe {
@@ -950,7 +950,7 @@ impl ::windows_core::RuntimeName for SpatialAnchorManager {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpatialAnchorRawCoordinateSystemAdjustedEventArgs(::windows_core::IUnknown);
 impl SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn OldRawCoordinateSystemToNewRawCoordinateSystemTransform(&self) -> ::windows_core::Result<super::super::Foundation::Numerics::Matrix4x4> {
         let this = self;
@@ -979,7 +979,7 @@ unsafe impl ::core::marker::Sync for SpatialAnchorRawCoordinateSystemAdjustedEve
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpatialAnchorStore(::windows_core::IUnknown);
 impl SpatialAnchorStore {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAllSavedAnchors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, SpatialAnchor>> {
         let this = self;
@@ -1022,12 +1022,12 @@ impl ::windows_core::RuntimeName for SpatialAnchorStore {
 ::windows_core::imp::interface_hierarchy!(SpatialAnchorStore, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialAnchorStore {}
 unsafe impl ::core::marker::Sync for SpatialAnchorStore {}
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub struct SpatialAnchorTransferManager;
 #[cfg(feature = "deprecated")]
 impl SpatialAnchorTransferManager {
-    #[doc = "Required features: `Foundation_Collections`, `Storage_Streams`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
     pub fn TryImportAnchorsAsync<P0>(stream: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, SpatialAnchor>>>
     where
@@ -1038,7 +1038,7 @@ impl SpatialAnchorTransferManager {
             (::windows_core::Interface::vtable(this).TryImportAnchorsAsync)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`, `Storage_Streams`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
     pub fn TryExportAnchorsAsync<P0, P1>(anchors: P0, stream: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -1050,7 +1050,7 @@ impl SpatialAnchorTransferManager {
             (::windows_core::Interface::vtable(this).TryExportAnchorsAsync)(::windows_core::Interface::as_raw(this), anchors.try_into_param()?.abi(), stream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RequestAccessAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpatialPerceptionAccessStatus>> {
         Self::ISpatialAnchorTransferManagerStatics(|this| unsafe {
@@ -1073,7 +1073,7 @@ impl ::windows_core::RuntimeName for SpatialAnchorTransferManager {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpatialBoundingVolume(::windows_core::IUnknown);
 impl SpatialBoundingVolume {
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn FromBox<P0>(coordinatesystem: P0, r#box: SpatialBoundingBox) -> ::windows_core::Result<SpatialBoundingVolume>
     where
@@ -1084,7 +1084,7 @@ impl SpatialBoundingVolume {
             (::windows_core::Interface::vtable(this).FromBox)(::windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), r#box, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn FromOrientedBox<P0>(coordinatesystem: P0, r#box: SpatialBoundingOrientedBox) -> ::windows_core::Result<SpatialBoundingVolume>
     where
@@ -1095,7 +1095,7 @@ impl SpatialBoundingVolume {
             (::windows_core::Interface::vtable(this).FromOrientedBox)(::windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), r#box, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn FromSphere<P0>(coordinatesystem: P0, sphere: SpatialBoundingSphere) -> ::windows_core::Result<SpatialBoundingVolume>
     where
@@ -1106,7 +1106,7 @@ impl SpatialBoundingVolume {
             (::windows_core::Interface::vtable(this).FromSphere)(::windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), sphere, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn FromFrustum<P0>(coordinatesystem: P0, frustum: SpatialBoundingFrustum) -> ::windows_core::Result<SpatialBoundingVolume>
     where
@@ -1142,7 +1142,7 @@ unsafe impl ::core::marker::Sync for SpatialBoundingVolume {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpatialCoordinateSystem(::windows_core::IUnknown);
 impl SpatialCoordinateSystem {
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryGetTransformTo<P0>(&self, target: P0) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Matrix4x4>>
     where
@@ -1188,7 +1188,7 @@ impl SpatialEntity {
             (::windows_core::Interface::vtable(this).Anchor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -1206,7 +1206,7 @@ impl SpatialEntity {
             (::windows_core::Interface::vtable(this).CreateWithSpatialAnchor)(::windows_core::Interface::as_raw(this), spatialanchor.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithSpatialAnchorAndProperties<P0, P1>(spatialanchor: P0, propertyset: P1) -> ::windows_core::Result<SpatialEntity>
     where
@@ -1297,7 +1297,7 @@ unsafe impl ::core::marker::Sync for SpatialEntityRemovedEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpatialEntityStore(::windows_core::IUnknown);
 impl SpatialEntityStore {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SaveAsync<P0>(&self, entity: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1309,7 +1309,7 @@ impl SpatialEntityStore {
             (::windows_core::Interface::vtable(this).SaveAsync)(::windows_core::Interface::as_raw(this), entity.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAsync<P0>(&self, entity: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1334,7 +1334,7 @@ impl SpatialEntityStore {
             (::windows_core::Interface::vtable(this).IsSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `System_RemoteSystems`"]
+    #[doc = "Required features: `\"System_RemoteSystems\"`"]
     #[cfg(feature = "System_RemoteSystems")]
     pub fn TryGetForRemoteSystemSession<P0>(session: P0) -> ::windows_core::Result<SpatialEntityStore>
     where
@@ -1404,7 +1404,7 @@ impl SpatialEntityWatcher {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Added<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1416,13 +1416,13 @@ impl SpatialEntityWatcher {
             (::windows_core::Interface::vtable(this).Added)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAdded)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Updated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1434,13 +1434,13 @@ impl SpatialEntityWatcher {
             (::windows_core::Interface::vtable(this).Updated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveUpdated)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Removed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1452,13 +1452,13 @@ impl SpatialEntityWatcher {
             (::windows_core::Interface::vtable(this).Removed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRemoved)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1470,7 +1470,7 @@ impl SpatialEntityWatcher {
             (::windows_core::Interface::vtable(this).EnumerationCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1504,7 +1504,7 @@ unsafe impl ::core::marker::Sync for SpatialEntityWatcher {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpatialLocation(::windows_core::IUnknown);
 impl SpatialLocation {
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -1513,7 +1513,7 @@ impl SpatialLocation {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Orientation(&self) -> ::windows_core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
@@ -1522,7 +1522,7 @@ impl SpatialLocation {
             (::windows_core::Interface::vtable(this).Orientation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AbsoluteLinearVelocity(&self) -> ::windows_core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -1531,7 +1531,7 @@ impl SpatialLocation {
             (::windows_core::Interface::vtable(this).AbsoluteLinearVelocity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AbsoluteLinearAcceleration(&self) -> ::windows_core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -1540,7 +1540,7 @@ impl SpatialLocation {
             (::windows_core::Interface::vtable(this).AbsoluteLinearAcceleration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub fn AbsoluteAngularVelocity(&self) -> ::windows_core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
@@ -1549,7 +1549,7 @@ impl SpatialLocation {
             (::windows_core::Interface::vtable(this).AbsoluteAngularVelocity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub fn AbsoluteAngularAcceleration(&self) -> ::windows_core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
@@ -1558,7 +1558,7 @@ impl SpatialLocation {
             (::windows_core::Interface::vtable(this).AbsoluteAngularAcceleration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AbsoluteAngularVelocityAxisAngle(&self) -> ::windows_core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows_core::ComInterface::cast::<ISpatialLocation2>(self)?;
@@ -1567,7 +1567,7 @@ impl SpatialLocation {
             (::windows_core::Interface::vtable(this).AbsoluteAngularVelocityAxisAngle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AbsoluteAngularAccelerationAxisAngle(&self) -> ::windows_core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows_core::ComInterface::cast::<ISpatialLocation2>(self)?;
@@ -1603,7 +1603,7 @@ impl SpatialLocator {
             (::windows_core::Interface::vtable(this).Locatability)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LocatabilityChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1615,13 +1615,13 @@ impl SpatialLocator {
             (::windows_core::Interface::vtable(this).LocatabilityChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveLocatabilityChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveLocatabilityChanged)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PositionalTrackingDeactivating<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1633,7 +1633,7 @@ impl SpatialLocator {
             (::windows_core::Interface::vtable(this).PositionalTrackingDeactivating)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePositionalTrackingDeactivating(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1657,7 +1657,7 @@ impl SpatialLocator {
             (::windows_core::Interface::vtable(this).CreateAttachedFrameOfReferenceAtCurrentHeading)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition(&self, relativeposition: super::super::Foundation::Numerics::Vector3) -> ::windows_core::Result<SpatialLocatorAttachedFrameOfReference> {
         let this = self;
@@ -1666,7 +1666,7 @@ impl SpatialLocator {
             (::windows_core::Interface::vtable(this).CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition)(::windows_core::Interface::as_raw(this), relativeposition, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation(&self, relativeposition: super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion) -> ::windows_core::Result<SpatialLocatorAttachedFrameOfReference> {
         let this = self;
@@ -1675,7 +1675,7 @@ impl SpatialLocator {
             (::windows_core::Interface::vtable(this).CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation)(::windows_core::Interface::as_raw(this), relativeposition, relativeorientation, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading(&self, relativeposition: super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion, relativeheadinginradians: f64) -> ::windows_core::Result<SpatialLocatorAttachedFrameOfReference> {
         let this = self;
@@ -1691,7 +1691,7 @@ impl SpatialLocator {
             (::windows_core::Interface::vtable(this).CreateStationaryFrameOfReferenceAtCurrentLocation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition(&self, relativeposition: super::super::Foundation::Numerics::Vector3) -> ::windows_core::Result<SpatialStationaryFrameOfReference> {
         let this = self;
@@ -1700,7 +1700,7 @@ impl SpatialLocator {
             (::windows_core::Interface::vtable(this).CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition)(::windows_core::Interface::as_raw(this), relativeposition, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation(&self, relativeposition: super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion) -> ::windows_core::Result<SpatialStationaryFrameOfReference> {
         let this = self;
@@ -1709,7 +1709,7 @@ impl SpatialLocator {
             (::windows_core::Interface::vtable(this).CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation)(::windows_core::Interface::as_raw(this), relativeposition, relativeorientation, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading(&self, relativeposition: super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion, relativeheadinginradians: f64) -> ::windows_core::Result<SpatialStationaryFrameOfReference> {
         let this = self;
@@ -1749,7 +1749,7 @@ unsafe impl ::core::marker::Sync for SpatialLocator {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpatialLocatorAttachedFrameOfReference(::windows_core::IUnknown);
 impl SpatialLocatorAttachedFrameOfReference {
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RelativePosition(&self) -> ::windows_core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -1758,13 +1758,13 @@ impl SpatialLocatorAttachedFrameOfReference {
             (::windows_core::Interface::vtable(this).RelativePosition)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRelativePosition(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetRelativePosition)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RelativeOrientation(&self) -> ::windows_core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
@@ -1773,7 +1773,7 @@ impl SpatialLocatorAttachedFrameOfReference {
             (::windows_core::Interface::vtable(this).RelativeOrientation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRelativeOrientation(&self, value: super::super::Foundation::Numerics::Quaternion) -> ::windows_core::Result<()> {
         let this = self;
@@ -1793,7 +1793,7 @@ impl SpatialLocatorAttachedFrameOfReference {
             (::windows_core::Interface::vtable(this).GetStationaryCoordinateSystemAtTimestamp)(::windows_core::Interface::as_raw(this), timestamp.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryGetRelativeHeadingAtTimestamp<P0>(&self, timestamp: P0) -> ::windows_core::Result<super::super::Foundation::IReference<f64>>
     where
@@ -1887,7 +1887,7 @@ impl SpatialStageFrameOfReference {
             (::windows_core::Interface::vtable(this).GetCoordinateSystemAtCurrentLocation)(::windows_core::Interface::as_raw(this), locator.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryGetMovementBounds<P0>(&self, coordinatesystem: P0) -> ::windows_core::Result<::windows_core::Array<super::super::Foundation::Numerics::Vector3>>
     where
@@ -1905,7 +1905,7 @@ impl SpatialStageFrameOfReference {
             (::windows_core::Interface::vtable(this).Current)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CurrentChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1916,12 +1916,12 @@ impl SpatialStageFrameOfReference {
             (::windows_core::Interface::vtable(this).CurrentChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCurrentChanged(cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::ISpatialStageFrameOfReferenceStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveCurrentChanged)(::windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestNewStageAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpatialStageFrameOfReference>> {
         Self::ISpatialStageFrameOfReferenceStatics(|this| unsafe {
@@ -2161,7 +2161,7 @@ impl ::windows_core::RuntimeType for SpatialPerceptionAccessStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialPerceptionAccessStatus;i4)");
 }
 #[repr(C)]
-#[doc = "Required features: `Foundation_Numerics`"]
+#[doc = "Required features: `\"Foundation_Numerics\"`"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingBox {
     pub Center: super::super::Foundation::Numerics::Vector3,
@@ -2204,7 +2204,7 @@ impl ::core::default::Default for SpatialBoundingBox {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Foundation_Numerics`"]
+#[doc = "Required features: `\"Foundation_Numerics\"`"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingFrustum {
     pub Near: super::super::Foundation::Numerics::Plane,
@@ -2251,7 +2251,7 @@ impl ::core::default::Default for SpatialBoundingFrustum {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Foundation_Numerics`"]
+#[doc = "Required features: `\"Foundation_Numerics\"`"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingOrientedBox {
     pub Center: super::super::Foundation::Numerics::Vector3,
@@ -2295,7 +2295,7 @@ impl ::core::default::Default for SpatialBoundingOrientedBox {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Foundation_Numerics`"]
+#[doc = "Required features: `\"Foundation_Numerics\"`"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingSphere {
     pub Center: super::super::Foundation::Numerics::Vector3,
@@ -2338,7 +2338,7 @@ impl ::core::default::Default for SpatialBoundingSphere {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Foundation_Numerics`"]
+#[doc = "Required features: `\"Foundation_Numerics\"`"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialRay {
     pub Origin: super::super::Foundation::Numerics::Vector3,

@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -21,7 +21,7 @@ unsafe impl ::windows_core::ComInterface for AppEvents {
 pub struct AppEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -46,13 +46,13 @@ impl Column {
     pub unsafe fn SetDisplayPosition(&self, index: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDisplayPosition)(::windows_core::Interface::as_raw(self), index).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Hidden(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Hidden)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHidden<P0>(&self, hidden: P0) -> ::windows_core::Result<()>
     where
@@ -63,7 +63,7 @@ impl Column {
     pub unsafe fn SetAsSortColumn(&self, sortorder: _ColumnSortOrder) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAsSortColumn)(::windows_core::Interface::as_raw(self), sortorder).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSortColumn(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -104,14 +104,14 @@ pub struct Column_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsSortColumn: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Columns(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl Columns {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows_core::Result<Column> {
         let mut result__ = ::std::mem::zeroed();
@@ -148,7 +148,7 @@ pub struct Columns_Vtbl {
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -159,7 +159,7 @@ impl ContextMenu {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, indexorpath: super::Variant::VARIANT) -> ::windows_core::Result<MenuItem> {
         let mut result__ = ::std::mem::zeroed();
@@ -192,7 +192,7 @@ pub struct ContextMenu_Vtbl {
     get_Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -208,7 +208,7 @@ impl Document {
     {
         (::windows_core::Interface::vtable(self).SaveAs)(::windows_core::Interface::as_raw(self), filename.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Close<P0>(&self, savechanges: P0) -> ::windows_core::Result<()>
     where
@@ -216,19 +216,19 @@ impl Document {
     {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self), savechanges.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Views(&self) -> ::windows_core::Result<Views> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Views)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SnapIns(&self) -> ::windows_core::Result<SnapIns> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SnapIns)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActiveView(&self) -> ::windows_core::Result<View> {
         let mut result__ = ::std::mem::zeroed();
@@ -248,7 +248,7 @@ impl Document {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Location)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSaved(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -261,25 +261,25 @@ impl Document {
     pub unsafe fn SetMode(&self, mode: _DocumentMode) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMode)(::windows_core::Interface::as_raw(self), mode).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RootNode(&self) -> ::windows_core::Result<Node> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RootNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ScopeNamespace(&self) -> ::windows_core::Result<ScopeNamespace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ScopeNamespace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateProperties(&self) -> ::windows_core::Result<Properties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Application(&self) -> ::windows_core::Result<_Application> {
         let mut result__ = ::std::mem::zeroed();
@@ -345,7 +345,7 @@ pub struct Document_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Application: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -364,7 +364,7 @@ impl Extension {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Version)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Extensions(&self) -> ::windows_core::Result<Extensions> {
         let mut result__ = ::std::mem::zeroed();
@@ -374,7 +374,7 @@ impl Extension {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SnapinCLSID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableAllExtensions<P0>(&self, enable: P0) -> ::windows_core::Result<()>
     where
@@ -382,7 +382,7 @@ impl Extension {
     {
         (::windows_core::Interface::vtable(self).EnableAllExtensions)(::windows_core::Interface::as_raw(self), enable.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enable<P0>(&self, enable: P0) -> ::windows_core::Result<()>
     where
@@ -423,7 +423,7 @@ pub struct Extension_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Enable: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -434,7 +434,7 @@ impl Extensions {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows_core::Result<Extension> {
         let mut result__ = ::std::mem::zeroed();
@@ -467,7 +467,7 @@ pub struct Extensions_Vtbl {
     Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -584,7 +584,7 @@ impl IComponent {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), lpconsole.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Notify<P0, P1, P2>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: P1, param3: P2) -> ::windows_core::Result<()>
     where
@@ -597,7 +597,7 @@ impl IComponent {
     pub unsafe fn Destroy(&self, cookie: isize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Destroy)(::windows_core::Interface::as_raw(self), cookie).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryDataObject(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows_core::Result<super::Com::IDataObject> {
         let mut result__ = ::std::mem::zeroed();
@@ -606,12 +606,12 @@ impl IComponent {
     pub unsafe fn GetResultViewType(&self, cookie: isize, ppviewtype: *mut ::windows_core::PWSTR, pviewoptions: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetResultViewType)(::windows_core::Interface::as_raw(self), cookie, ppviewtype, pviewoptions).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayInfo(&self, presultdataitem: *mut RESULTDATAITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDisplayInfo)(::windows_core::Interface::as_raw(self), presultdataitem).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CompareObjects<P0, P1>(&self, lpdataobjecta: P0, lpdataobjectb: P1) -> ::windows_core::Result<()>
     where
@@ -662,7 +662,7 @@ impl IComponent2 {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), lpconsole.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Notify<P0, P1, P2>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: P1, param3: P2) -> ::windows_core::Result<()>
     where
@@ -675,7 +675,7 @@ impl IComponent2 {
     pub unsafe fn Destroy(&self, cookie: isize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Destroy)(::windows_core::Interface::as_raw(self), cookie).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryDataObject(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows_core::Result<super::Com::IDataObject> {
         let mut result__ = ::std::mem::zeroed();
@@ -684,12 +684,12 @@ impl IComponent2 {
     pub unsafe fn GetResultViewType(&self, cookie: isize, ppviewtype: *mut ::windows_core::PWSTR, pviewoptions: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetResultViewType)(::windows_core::Interface::as_raw(self), cookie, ppviewtype, pviewoptions).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayInfo(&self, presultdataitem: *mut RESULTDATAITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetDisplayInfo)(::windows_core::Interface::as_raw(self), presultdataitem).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CompareObjects<P0, P1>(&self, lpdataobjecta: P0, lpdataobjectb: P1) -> ::windows_core::Result<()>
     where
@@ -698,7 +698,7 @@ impl IComponent2 {
     {
         (::windows_core::Interface::vtable(self).base__.CompareObjects)(::windows_core::Interface::as_raw(self), lpdataobjecta.into_param().abi(), lpdataobjectb.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryDispatch(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -743,7 +743,7 @@ impl IComponentData {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateComponent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Notify<P0, P1, P2>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: P1, param3: P2) -> ::windows_core::Result<()>
     where
@@ -756,18 +756,18 @@ impl IComponentData {
     pub unsafe fn Destroy(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Destroy)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryDataObject(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows_core::Result<super::Com::IDataObject> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryDataObject)(::windows_core::Interface::as_raw(self), cookie, r#type, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayInfo(&self, pscopedataitem: *mut SCOPEDATAITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDisplayInfo)(::windows_core::Interface::as_raw(self), pscopedataitem).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CompareObjects<P0, P1>(&self, lpdataobjecta: P0, lpdataobjectb: P1) -> ::windows_core::Result<()>
     where
@@ -822,7 +822,7 @@ impl IComponentData2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateComponent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Notify<P0, P1, P2>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: P1, param3: P2) -> ::windows_core::Result<()>
     where
@@ -835,18 +835,18 @@ impl IComponentData2 {
     pub unsafe fn Destroy(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Destroy)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryDataObject(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows_core::Result<super::Com::IDataObject> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.QueryDataObject)(::windows_core::Interface::as_raw(self), cookie, r#type, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayInfo(&self, pscopedataitem: *mut SCOPEDATAITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetDisplayInfo)(::windows_core::Interface::as_raw(self), pscopedataitem).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CompareObjects<P0, P1>(&self, lpdataobjecta: P0, lpdataobjectb: P1) -> ::windows_core::Result<()>
     where
@@ -855,7 +855,7 @@ impl IComponentData2 {
     {
         (::windows_core::Interface::vtable(self).base__.CompareObjects)(::windows_core::Interface::as_raw(self), lpdataobjecta.into_param().abi(), lpdataobjectb.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryDispatch(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -906,7 +906,7 @@ impl IConsole {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryResultImageList)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn UpdateAllViews<P0, P1>(&self, lpdataobject: P0, data: P1, hint: isize) -> ::windows_core::Result<()>
     where
@@ -930,7 +930,7 @@ impl IConsole {
     pub unsafe fn SelectScopeItem(&self, hscopeitem: isize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SelectScopeItem)(::windows_core::Interface::as_raw(self), hscopeitem).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMainWindow(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -997,7 +997,7 @@ impl IConsole2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.QueryResultImageList)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn UpdateAllViews<P0, P1>(&self, lpdataobject: P0, data: P1, hint: isize) -> ::windows_core::Result<()>
     where
@@ -1021,7 +1021,7 @@ impl IConsole2 {
     pub unsafe fn SelectScopeItem(&self, hscopeitem: isize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SelectScopeItem)(::windows_core::Interface::as_raw(self), hscopeitem).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMainWindow(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -1030,7 +1030,7 @@ impl IConsole2 {
     pub unsafe fn NewWindow(&self, hscopeitem: isize, loptions: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.NewWindow)(::windows_core::Interface::as_raw(self), hscopeitem, loptions).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Expand<P0>(&self, hitem: isize, bexpand: P0) -> ::windows_core::Result<()>
     where
@@ -1094,7 +1094,7 @@ impl IConsole3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.QueryResultImageList)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn UpdateAllViews<P0, P1>(&self, lpdataobject: P0, data: P1, hint: isize) -> ::windows_core::Result<()>
     where
@@ -1118,7 +1118,7 @@ impl IConsole3 {
     pub unsafe fn SelectScopeItem(&self, hscopeitem: isize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SelectScopeItem)(::windows_core::Interface::as_raw(self), hscopeitem).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMainWindow(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -1127,7 +1127,7 @@ impl IConsole3 {
     pub unsafe fn NewWindow(&self, hscopeitem: isize, loptions: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.NewWindow)(::windows_core::Interface::as_raw(self), hscopeitem, loptions).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Expand<P0>(&self, hitem: isize, bexpand: P0) -> ::windows_core::Result<()>
     where
@@ -1165,7 +1165,7 @@ pub struct IConsole3_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConsoleNameSpace(::windows_core::IUnknown);
 impl IConsoleNameSpace {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InsertItem(&self, item: *mut SCOPEDATAITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InsertItem)(::windows_core::Interface::as_raw(self), item).ok()
@@ -1173,12 +1173,12 @@ impl IConsoleNameSpace {
     pub unsafe fn DeleteItem(&self, hitem: isize, fdeletethis: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeleteItem)(::windows_core::Interface::as_raw(self), hitem, fdeletethis).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetItem(&self, item: *const SCOPEDATAITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetItem)(::windows_core::Interface::as_raw(self), item).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetItem(&self, item: *mut SCOPEDATAITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetItem)(::windows_core::Interface::as_raw(self), item).ok()
@@ -1225,7 +1225,7 @@ pub struct IConsoleNameSpace_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConsoleNameSpace2(::windows_core::IUnknown);
 impl IConsoleNameSpace2 {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InsertItem(&self, item: *mut SCOPEDATAITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.InsertItem)(::windows_core::Interface::as_raw(self), item).ok()
@@ -1233,12 +1233,12 @@ impl IConsoleNameSpace2 {
     pub unsafe fn DeleteItem(&self, hitem: isize, fdeletethis: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.DeleteItem)(::windows_core::Interface::as_raw(self), hitem, fdeletethis).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetItem(&self, item: *const SCOPEDATAITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetItem)(::windows_core::Interface::as_raw(self), item).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetItem(&self, item: *mut SCOPEDATAITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), item).ok()
@@ -1302,7 +1302,7 @@ pub struct IConsolePower_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConsolePowerSink(::windows_core::IUnknown);
 impl IConsolePowerSink {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnPowerBroadcast<P0>(&self, nevent: u32, lparam: P0) -> ::windows_core::Result<super::super::Foundation::LRESULT>
     where
@@ -1332,13 +1332,13 @@ pub struct IConsolePowerSink_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConsoleVerb(::windows_core::IUnknown);
 impl IConsoleVerb {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVerbState(&self, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVerbState)(::windows_core::Interface::as_raw(self), ecmdid, nstate, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVerbState<P0>(&self, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -1428,7 +1428,7 @@ impl IContextMenuProvider {
     pub unsafe fn EmptyMenuList(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EmptyMenuList)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPrimaryExtensionItems<P0, P1>(&self, piextension: P0, pidataobject: P1) -> ::windows_core::Result<()>
     where
@@ -1437,7 +1437,7 @@ impl IContextMenuProvider {
     {
         (::windows_core::Interface::vtable(self).AddPrimaryExtensionItems)(::windows_core::Interface::as_raw(self), piextension.into_param().abi(), pidataobject.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddThirdPartyExtensionItems<P0>(&self, pidataobject: P0) -> ::windows_core::Result<()>
     where
@@ -1445,7 +1445,7 @@ impl IContextMenuProvider {
     {
         (::windows_core::Interface::vtable(self).AddThirdPartyExtensionItems)(::windows_core::Interface::as_raw(self), pidataobject.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowContextMenu<P0>(&self, hwndparent: P0, xpos: i32, ypos: i32) -> ::windows_core::Result<i32>
     where
@@ -1581,7 +1581,7 @@ pub struct IEnumTASK_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IExtendContextMenu(::windows_core::IUnknown);
 impl IExtendContextMenu {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddMenuItems<P0, P1>(&self, pidataobject: P0, picallback: P1, pinsertionallowed: *mut i32) -> ::windows_core::Result<()>
     where
@@ -1590,7 +1590,7 @@ impl IExtendContextMenu {
     {
         (::windows_core::Interface::vtable(self).AddMenuItems)(::windows_core::Interface::as_raw(self), pidataobject.into_param().abi(), picallback.into_param().abi(), pinsertionallowed).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Command<P0>(&self, lcommandid: i32, pidataobject: P0) -> ::windows_core::Result<()>
     where
@@ -1629,7 +1629,7 @@ impl IExtendControlbar {
     {
         (::windows_core::Interface::vtable(self).SetControlbar)(::windows_core::Interface::as_raw(self), pcontrolbar.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ControlbarNotify<P0, P1>(&self, event: MMC_NOTIFY_TYPE, arg: P0, param2: P1) -> ::windows_core::Result<()>
     where
@@ -1660,7 +1660,7 @@ pub struct IExtendControlbar_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IExtendPropertySheet(::windows_core::IUnknown);
 impl IExtendPropertySheet {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePropertyPages<P0, P1>(&self, lpprovider: P0, handle: isize, lpidataobject: P1) -> ::windows_core::Result<()>
     where
@@ -1669,7 +1669,7 @@ impl IExtendPropertySheet {
     {
         (::windows_core::Interface::vtable(self).CreatePropertyPages)(::windows_core::Interface::as_raw(self), lpprovider.into_param().abi(), handle, lpidataobject.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryPagesFor<P0>(&self, lpdataobject: P0) -> ::windows_core::Result<()>
     where
@@ -1702,7 +1702,7 @@ pub struct IExtendPropertySheet_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IExtendPropertySheet2(::windows_core::IUnknown);
 impl IExtendPropertySheet2 {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePropertyPages<P0, P1>(&self, lpprovider: P0, handle: isize, lpidataobject: P1) -> ::windows_core::Result<()>
     where
@@ -1711,7 +1711,7 @@ impl IExtendPropertySheet2 {
     {
         (::windows_core::Interface::vtable(self).base__.CreatePropertyPages)(::windows_core::Interface::as_raw(self), lpprovider.into_param().abi(), handle, lpidataobject.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryPagesFor<P0>(&self, lpdataobject: P0) -> ::windows_core::Result<()>
     where
@@ -1719,7 +1719,7 @@ impl IExtendPropertySheet2 {
     {
         (::windows_core::Interface::vtable(self).base__.QueryPagesFor)(::windows_core::Interface::as_raw(self), lpdataobject.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn GetWatermarks<P0>(&self, lpidataobject: P0, lphwatermark: *mut super::super::Graphics::Gdi::HBITMAP, lphheader: *mut super::super::Graphics::Gdi::HBITMAP, lphpalette: *mut super::super::Graphics::Gdi::HPALETTE, bstretch: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>
     where
@@ -1748,7 +1748,7 @@ pub struct IExtendPropertySheet2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IExtendTaskPad(::windows_core::IUnknown);
 impl IExtendTaskPad {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn TaskNotify<P0>(&self, pdo: P0, arg: *const super::Variant::VARIANT, param2: *const super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -1756,7 +1756,7 @@ impl IExtendTaskPad {
     {
         (::windows_core::Interface::vtable(self).TaskNotify)(::windows_core::Interface::as_raw(self), pdo.into_param().abi(), arg, param2).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumTasks<P0, P1>(&self, pdo: P0, sztaskgroup: P1) -> ::windows_core::Result<IEnumTASK>
     where
@@ -1823,7 +1823,7 @@ pub struct IExtendTaskPad_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IExtendView(::windows_core::IUnknown);
 impl IExtendView {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetViews<P0, P1>(&self, pdataobject: P0, pviewextensioncallback: P1) -> ::windows_core::Result<()>
     where
@@ -1960,7 +1960,7 @@ impl IImageList {
     pub unsafe fn ImageListSetIcon(&self, picon: *const isize, nloc: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ImageListSetIcon)(::windows_core::Interface::as_raw(self), picon, nloc).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ImageListSetStrip<P0>(&self, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: P0) -> ::windows_core::Result<()>
     where
@@ -2025,7 +2025,7 @@ impl IMenuButton {
     {
         (::windows_core::Interface::vtable(self).SetButton)(::windows_core::Interface::as_raw(self), idcommand, lpbuttontext.into_param().abi(), lptooltiptext.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetButtonState<P0>(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -2095,7 +2095,7 @@ pub struct IMessageView_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INodeProperties(::windows_core::IUnknown);
 impl INodeProperties {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetProperty<P0, P1>(&self, pdataobject: P0, szpropertyname: P1) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -2126,7 +2126,7 @@ pub struct INodeProperties_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPropertySheetCallback(::windows_core::IUnknown);
 impl IPropertySheetCallback {
-    #[doc = "Required features: `Win32_UI_Controls`"]
+    #[doc = "Required features: `\"Win32_UI_Controls\"`"]
     #[cfg(feature = "Win32_UI_Controls")]
     pub unsafe fn AddPage<P0>(&self, hpage: P0) -> ::windows_core::Result<()>
     where
@@ -2134,7 +2134,7 @@ impl IPropertySheetCallback {
     {
         (::windows_core::Interface::vtable(self).AddPage)(::windows_core::Interface::as_raw(self), hpage.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_UI_Controls`"]
+    #[doc = "Required features: `\"Win32_UI_Controls\"`"]
     #[cfg(feature = "Win32_UI_Controls")]
     pub unsafe fn RemovePage<P0>(&self, hpage: P0) -> ::windows_core::Result<()>
     where
@@ -2167,7 +2167,7 @@ pub struct IPropertySheetCallback_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPropertySheetProvider(::windows_core::IUnknown);
 impl IPropertySheetProvider {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePropertySheet<P0, P1>(&self, title: P0, r#type: u8, cookie: isize, pidataobjectm: P1, dwoptions: u32) -> ::windows_core::Result<()>
     where
@@ -2176,7 +2176,7 @@ impl IPropertySheetProvider {
     {
         (::windows_core::Interface::vtable(self).CreatePropertySheet)(::windows_core::Interface::as_raw(self), title.into_param().abi(), r#type, cookie, pidataobjectm.into_param().abi(), dwoptions).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindPropertySheet<P0, P1>(&self, hitem: isize, lpcomponent: P0, lpdataobject: P1) -> ::windows_core::Result<()>
     where
@@ -2185,7 +2185,7 @@ impl IPropertySheetProvider {
     {
         (::windows_core::Interface::vtable(self).FindPropertySheet)(::windows_core::Interface::as_raw(self), hitem, lpcomponent.into_param().abi(), lpdataobject.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddPrimaryPages<P0, P1, P2, P3>(&self, lpunknown: P0, bcreatehandle: P1, hnotifywindow: P2, bscopepane: P3) -> ::windows_core::Result<()>
     where
@@ -2264,7 +2264,7 @@ pub struct IRequiredExtensions_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IResultData(::windows_core::IUnknown);
 impl IResultData {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InsertItem(&self, item: *mut RESULTDATAITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InsertItem)(::windows_core::Interface::as_raw(self), item).ok()
@@ -2272,7 +2272,7 @@ impl IResultData {
     pub unsafe fn DeleteItem(&self, itemid: isize, ncol: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeleteItem)(::windows_core::Interface::as_raw(self), itemid, ncol).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindItemByLParam<P0>(&self, lparam: P0) -> ::windows_core::Result<isize>
     where
@@ -2284,17 +2284,17 @@ impl IResultData {
     pub unsafe fn DeleteAllRsltItems(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeleteAllRsltItems)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetItem(&self, item: *const RESULTDATAITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetItem)(::windows_core::Interface::as_raw(self), item).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetItem(&self, item: *mut RESULTDATAITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetItem)(::windows_core::Interface::as_raw(self), item).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNextItem(&self, item: *mut RESULTDATAITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetNextItem)(::windows_core::Interface::as_raw(self), item).ok()
@@ -2315,7 +2315,7 @@ impl IResultData {
     pub unsafe fn UpdateItem(&self, itemid: isize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UpdateItem)(::windows_core::Interface::as_raw(self), itemid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Sort<P0>(&self, ncolumn: i32, dwsortoptions: u32, luserparam: P0) -> ::windows_core::Result<()>
     where
@@ -2382,7 +2382,7 @@ pub struct IResultData_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IResultData2(::windows_core::IUnknown);
 impl IResultData2 {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InsertItem(&self, item: *mut RESULTDATAITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.InsertItem)(::windows_core::Interface::as_raw(self), item).ok()
@@ -2390,7 +2390,7 @@ impl IResultData2 {
     pub unsafe fn DeleteItem(&self, itemid: isize, ncol: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.DeleteItem)(::windows_core::Interface::as_raw(self), itemid, ncol).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindItemByLParam<P0>(&self, lparam: P0) -> ::windows_core::Result<isize>
     where
@@ -2402,17 +2402,17 @@ impl IResultData2 {
     pub unsafe fn DeleteAllRsltItems(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.DeleteAllRsltItems)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetItem(&self, item: *const RESULTDATAITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetItem)(::windows_core::Interface::as_raw(self), item).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetItem(&self, item: *mut RESULTDATAITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), item).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNextItem(&self, item: *mut RESULTDATAITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetNextItem)(::windows_core::Interface::as_raw(self), item).ok()
@@ -2433,7 +2433,7 @@ impl IResultData2 {
     pub unsafe fn UpdateItem(&self, itemid: isize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.UpdateItem)(::windows_core::Interface::as_raw(self), itemid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Sort<P0>(&self, ncolumn: i32, dwsortoptions: u32, luserparam: P0) -> ::windows_core::Result<()>
     where
@@ -2471,7 +2471,7 @@ pub struct IResultData2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IResultDataCompare(::windows_core::IUnknown);
 impl IResultDataCompare {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, luserparam: P0, cookiea: isize, cookieb: isize, pnresult: *mut i32) -> ::windows_core::Result<()>
     where
@@ -2500,7 +2500,7 @@ pub struct IResultDataCompare_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IResultDataCompareEx(::windows_core::IUnknown);
 impl IResultDataCompareEx {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare(&self, prdc: *const RDCOMPARE) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
@@ -2534,7 +2534,7 @@ impl IResultOwnerData {
     pub unsafe fn CacheHint(&self, nstartindex: i32, nendindex: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CacheHint)(::windows_core::Interface::as_raw(self), nstartindex, nendindex).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SortItems<P0>(&self, ncolumn: i32, dwsortoptions: u32, luserparam: P0) -> ::windows_core::Result<()>
     where
@@ -2577,13 +2577,13 @@ impl ISnapinAbout {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSnapinVersion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+    #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetSnapinImage(&self) -> ::windows_core::Result<super::super::UI::WindowsAndMessaging::HICON> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSnapinImage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetStaticFolderImage(&self, hsmallimage: *mut super::super::Graphics::Gdi::HBITMAP, hsmallimageopen: *mut super::super::Graphics::Gdi::HBITMAP, hlargeimage: *mut super::super::Graphics::Gdi::HBITMAP, cmask: *mut super::super::Foundation::COLORREF) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStaticFolderImage)(::windows_core::Interface::as_raw(self), hsmallimage, hsmallimageopen, hlargeimage, cmask).ok()
@@ -2664,7 +2664,7 @@ pub struct ISnapinHelp2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISnapinProperties(::windows_core::IUnknown);
 impl ISnapinProperties {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0>(&self, pproperties: P0) -> ::windows_core::Result<()>
     where
@@ -2678,7 +2678,7 @@ impl ISnapinProperties {
     {
         (::windows_core::Interface::vtable(self).QueryPropertyNames)(::windows_core::Interface::as_raw(self), pcallback.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PropertiesChanged(&self, pproperties: &[MMC_SNAPIN_PROPERTY]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).PropertiesChanged)(::windows_core::Interface::as_raw(self), pproperties.len() as _, ::core::mem::transmute(pproperties.as_ptr())).ok()
@@ -2760,7 +2760,7 @@ impl IStringTable {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindString)(::windows_core::Interface::as_raw(self), pszfind.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Enumerate(&self) -> ::windows_core::Result<super::Com::IEnumString> {
         let mut result__ = ::std::mem::zeroed();
@@ -2793,7 +2793,7 @@ pub struct IStringTable_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToolbar(::windows_core::IUnknown);
 impl IToolbar {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn AddBitmap<P0, P1>(&self, nimages: i32, hbmp: P0, cxsize: i32, cysize: i32, crmask: P1) -> ::windows_core::Result<()>
     where
@@ -2811,13 +2811,13 @@ impl IToolbar {
     pub unsafe fn DeleteButton(&self, nindex: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeleteButton)(::windows_core::Interface::as_raw(self), nindex).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetButtonState)(::windows_core::Interface::as_raw(self), idcommand, nstate, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetButtonState<P0>(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -2857,7 +2857,7 @@ pub struct IToolbar_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IViewExtensionCallback(::windows_core::IUnknown);
 impl IViewExtensionCallback {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddView(&self, pextviewdata: *const MMC_EXT_VIEW_DATA) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddView)(::windows_core::Interface::as_raw(self), pextviewdata).ok()
@@ -2879,7 +2879,7 @@ pub struct IViewExtensionCallback_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddView: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2905,7 +2905,7 @@ impl MenuItem {
     pub unsafe fn Execute(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Execute)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2937,7 +2937,7 @@ pub struct MenuItem_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Enabled: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2959,7 +2959,7 @@ impl Node {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Bookmark)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsScopeNode(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2994,7 +2994,7 @@ pub struct Node_Vtbl {
     IsScopeNode: usize,
     pub Nodetype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodetype: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3005,7 +3005,7 @@ impl Nodes {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows_core::Result<Node> {
         let mut result__ = ::std::mem::zeroed();
@@ -3038,7 +3038,7 @@ pub struct Nodes_Vtbl {
     Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3049,7 +3049,7 @@ impl Properties {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item<P0>(&self, name: P0) -> ::windows_core::Result<Property>
     where
@@ -3092,20 +3092,20 @@ pub struct Properties_Vtbl {
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Property(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl Property {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Value(&self) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetValue(&self, value: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValue)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
@@ -3140,14 +3140,14 @@ pub struct Property_Vtbl {
     SetValue: usize,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ScopeNamespace(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ScopeNamespace {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetParent<P0>(&self, node: P0) -> ::windows_core::Result<Node>
     where
@@ -3156,7 +3156,7 @@ impl ScopeNamespace {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetParent)(::windows_core::Interface::as_raw(self), node.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetChild<P0>(&self, node: P0) -> ::windows_core::Result<Node>
     where
@@ -3165,7 +3165,7 @@ impl ScopeNamespace {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetChild)(::windows_core::Interface::as_raw(self), node.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNext<P0>(&self, node: P0) -> ::windows_core::Result<Node>
     where
@@ -3174,13 +3174,13 @@ impl ScopeNamespace {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNext)(::windows_core::Interface::as_raw(self), node.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRoot(&self) -> ::windows_core::Result<Node> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRoot)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Expand<P0>(&self, node: P0) -> ::windows_core::Result<()>
     where
@@ -3225,7 +3225,7 @@ pub struct ScopeNamespace_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Expand: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3244,7 +3244,7 @@ impl SnapIn {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Version)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Extensions(&self) -> ::windows_core::Result<Extensions> {
         let mut result__ = ::std::mem::zeroed();
@@ -3254,13 +3254,13 @@ impl SnapIn {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SnapinCLSID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<Properties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableAllExtensions<P0>(&self, enable: P0) -> ::windows_core::Result<()>
     where
@@ -3301,7 +3301,7 @@ pub struct SnapIn_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     EnableAllExtensions: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3312,7 +3312,7 @@ impl SnapIns {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows_core::Result<SnapIn> {
         let mut result__ = ::std::mem::zeroed();
@@ -3322,7 +3322,7 @@ impl SnapIns {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Add<P0>(&self, snapinnameorclsid: P0, parentsnapin: super::Variant::VARIANT, properties: super::Variant::VARIANT) -> ::windows_core::Result<SnapIn>
     where
@@ -3331,7 +3331,7 @@ impl SnapIns {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), snapinnameorclsid.into_param().abi(), ::core::mem::transmute(parentsnapin), ::core::mem::transmute(properties), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Remove<P0>(&self, snapin: P0) -> ::windows_core::Result<()>
     where
@@ -3370,20 +3370,20 @@ pub struct SnapIns_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Remove: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct View(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl View {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActiveScopeNode(&self) -> ::windows_core::Result<Node> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ActiveScopeNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetActiveScopeNode<P0>(&self, node: P0) -> ::windows_core::Result<()>
     where
@@ -3391,31 +3391,31 @@ impl View {
     {
         (::windows_core::Interface::vtable(self).SetActiveScopeNode)(::windows_core::Interface::as_raw(self), node.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Selection(&self) -> ::windows_core::Result<Nodes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Selection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ListItems(&self) -> ::windows_core::Result<Nodes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ListItems)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SnapinScopeObject(&self, scopenode: super::Variant::VARIANT) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SnapinScopeObject)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(scopenode), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SnapinSelectionObject(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SnapinSelectionObject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Is<P0>(&self, view: P0) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
@@ -3424,7 +3424,7 @@ impl View {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Is)(::windows_core::Interface::as_raw(self), view.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Document(&self) -> ::windows_core::Result<Document> {
         let mut result__ = ::std::mem::zeroed();
@@ -3433,7 +3433,7 @@ impl View {
     pub unsafe fn SelectAll(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SelectAll)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Select<P0>(&self, node: P0) -> ::windows_core::Result<()>
     where
@@ -3441,7 +3441,7 @@ impl View {
     {
         (::windows_core::Interface::vtable(self).Select)(::windows_core::Interface::as_raw(self), node.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Deselect<P0>(&self, node: P0) -> ::windows_core::Result<()>
     where
@@ -3449,7 +3449,7 @@ impl View {
     {
         (::windows_core::Interface::vtable(self).Deselect)(::windows_core::Interface::as_raw(self), node.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsSelected<P0>(&self, node: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -3458,7 +3458,7 @@ impl View {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsSelected)(::windows_core::Interface::as_raw(self), node.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn DisplayScopeNodePropertySheet(&self, scopenode: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DisplayScopeNodePropertySheet)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(scopenode)).ok()
@@ -3466,7 +3466,7 @@ impl View {
     pub unsafe fn DisplaySelectionPropertySheet(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DisplaySelectionPropertySheet)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CopyScopeNode(&self, scopenode: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CopyScopeNode)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(scopenode)).ok()
@@ -3474,7 +3474,7 @@ impl View {
     pub unsafe fn CopySelection(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CopySelection)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn DeleteScopeNode(&self, scopenode: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeleteScopeNode)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(scopenode)).ok()
@@ -3482,7 +3482,7 @@ impl View {
     pub unsafe fn DeleteSelection(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeleteSelection)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn RenameScopeNode<P0>(&self, newname: P0, scopenode: super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -3496,19 +3496,19 @@ impl View {
     {
         (::windows_core::Interface::vtable(self).RenameSelectedItem)(::windows_core::Interface::as_raw(self), newname.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_ScopeNodeContextMenu(&self, scopenode: super::Variant::VARIANT) -> ::windows_core::Result<ContextMenu> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_ScopeNodeContextMenu)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(scopenode), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SelectionContextMenu(&self) -> ::windows_core::Result<ContextMenu> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SelectionContextMenu)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn RefreshScopeNode(&self, scopenode: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RefreshScopeNode)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(scopenode)).ok()
@@ -3522,7 +3522,7 @@ impl View {
     {
         (::windows_core::Interface::vtable(self).ExecuteSelectionMenuItem)(::windows_core::Interface::as_raw(self), menuitempath.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ExecuteScopeNodeMenuItem<P0>(&self, menuitempath: P0, scopenode: super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -3539,7 +3539,7 @@ impl View {
     {
         (::windows_core::Interface::vtable(self).ExecuteShellCommand)(::windows_core::Interface::as_raw(self), command.into_param().abi(), directory.into_param().abi(), parameters.into_param().abi(), windowstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Frame(&self) -> ::windows_core::Result<Frame> {
         let mut result__ = ::std::mem::zeroed();
@@ -3548,13 +3548,13 @@ impl View {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScopeTreeVisible(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ScopeTreeVisible)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetScopeTreeVisible<P0>(&self, visible: P0) -> ::windows_core::Result<()>
     where
@@ -3584,13 +3584,13 @@ impl View {
     {
         (::windows_core::Interface::vtable(self).ViewMemento)(::windows_core::Interface::as_raw(self), memento.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Columns(&self) -> ::windows_core::Result<Columns> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Columns)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_CellContents<P0>(&self, node: P0, column: i32) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -3612,7 +3612,7 @@ impl View {
     pub unsafe fn SetListViewMode(&self, mode: _ListViewMode) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetListViewMode)(::windows_core::Interface::as_raw(self), mode).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ControlObject(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -3752,14 +3752,14 @@ pub struct View_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ControlObject: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Views(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl Views {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows_core::Result<View> {
         let mut result__ = ::std::mem::zeroed();
@@ -3769,7 +3769,7 @@ impl Views {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, node: P0, viewoptions: _ViewOptions) -> ::windows_core::Result<()>
     where
@@ -3808,14 +3808,14 @@ pub struct Views_Vtbl {
     Add: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _AppEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _AppEvents {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnQuit<P0>(&self, application: P0) -> ::windows_core::Result<()>
     where
@@ -3823,7 +3823,7 @@ impl _AppEvents {
     {
         (::windows_core::Interface::vtable(self).OnQuit)(::windows_core::Interface::as_raw(self), application.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnDocumentOpen<P0, P1>(&self, document: P0, new: P1) -> ::windows_core::Result<()>
     where
@@ -3832,7 +3832,7 @@ impl _AppEvents {
     {
         (::windows_core::Interface::vtable(self).OnDocumentOpen)(::windows_core::Interface::as_raw(self), document.into_param().abi(), new.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnDocumentClose<P0>(&self, document: P0) -> ::windows_core::Result<()>
     where
@@ -3840,7 +3840,7 @@ impl _AppEvents {
     {
         (::windows_core::Interface::vtable(self).OnDocumentClose)(::windows_core::Interface::as_raw(self), document.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSnapInAdded<P0, P1>(&self, document: P0, snapin: P1) -> ::windows_core::Result<()>
     where
@@ -3849,7 +3849,7 @@ impl _AppEvents {
     {
         (::windows_core::Interface::vtable(self).OnSnapInAdded)(::windows_core::Interface::as_raw(self), document.into_param().abi(), snapin.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSnapInRemoved<P0, P1>(&self, document: P0, snapin: P1) -> ::windows_core::Result<()>
     where
@@ -3858,7 +3858,7 @@ impl _AppEvents {
     {
         (::windows_core::Interface::vtable(self).OnSnapInRemoved)(::windows_core::Interface::as_raw(self), document.into_param().abi(), snapin.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnNewView<P0>(&self, view: P0) -> ::windows_core::Result<()>
     where
@@ -3866,7 +3866,7 @@ impl _AppEvents {
     {
         (::windows_core::Interface::vtable(self).OnNewView)(::windows_core::Interface::as_raw(self), view.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnViewClose<P0>(&self, view: P0) -> ::windows_core::Result<()>
     where
@@ -3874,7 +3874,7 @@ impl _AppEvents {
     {
         (::windows_core::Interface::vtable(self).OnViewClose)(::windows_core::Interface::as_raw(self), view.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnViewChange<P0, P1>(&self, view: P0, newownernode: P1) -> ::windows_core::Result<()>
     where
@@ -3883,7 +3883,7 @@ impl _AppEvents {
     {
         (::windows_core::Interface::vtable(self).OnViewChange)(::windows_core::Interface::as_raw(self), view.into_param().abi(), newownernode.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSelectionChange<P0, P1>(&self, view: P0, newnodes: P1) -> ::windows_core::Result<()>
     where
@@ -3892,7 +3892,7 @@ impl _AppEvents {
     {
         (::windows_core::Interface::vtable(self).OnSelectionChange)(::windows_core::Interface::as_raw(self), view.into_param().abi(), newnodes.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnContextMenuExecuted<P0>(&self, menuitem: P0) -> ::windows_core::Result<()>
     where
@@ -3903,7 +3903,7 @@ impl _AppEvents {
     pub unsafe fn OnToolbarButtonClicked(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnToolbarButtonClicked)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnListUpdated<P0>(&self, view: P0) -> ::windows_core::Result<()>
     where
@@ -3973,7 +3973,7 @@ pub struct _AppEvents_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     OnListUpdated: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3986,7 +3986,7 @@ impl _Application {
     pub unsafe fn Quit(&self) {
         (::windows_core::Interface::vtable(self).Quit)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Document(&self) -> ::windows_core::Result<Document> {
         let mut result__ = ::std::mem::zeroed();
@@ -3998,13 +3998,13 @@ impl _Application {
     {
         (::windows_core::Interface::vtable(self).Load)(::windows_core::Interface::as_raw(self), filename.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Frame(&self) -> ::windows_core::Result<Frame> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Frame)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Visible(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4016,13 +4016,13 @@ impl _Application {
     pub unsafe fn Hide(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Hide)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserControl(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).UserControl)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserControl<P0>(&self, usercontrol: P0) -> ::windows_core::Result<()>
     where
@@ -4082,14 +4082,14 @@ pub struct _Application_Vtbl {
     pub VersionMajor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, versionmajor: *mut i32) -> ::windows_core::HRESULT,
     pub VersionMinor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, versionminor: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _EventConnector(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _EventConnector {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConnectTo<P0>(&self, application: P0) -> ::windows_core::Result<()>
     where
@@ -5081,7 +5081,7 @@ impl ::core::default::Default for MMC_COLUMN_SET_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MMC_EXPANDSYNC_STRUCT {
     pub bHandled: super::super::Foundation::BOOL,
@@ -5121,7 +5121,7 @@ impl ::core::default::Default for MMC_EXPANDSYNC_STRUCT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MMC_EXT_VIEW_DATA {
     pub viewID: ::windows_core::GUID,
@@ -5257,7 +5257,7 @@ impl ::core::default::Default for MMC_RESTORE_VIEW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct MMC_SNAPIN_PROPERTY {
     pub pszPropName: ::windows_core::PCWSTR,
@@ -5514,7 +5514,7 @@ impl ::core::default::Default for MMC_VISIBLE_COLUMNS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RDCOMPARE {
     pub cbSize: u32,
@@ -5557,7 +5557,7 @@ impl ::core::default::Default for RDCOMPARE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RDITEMHDR {
     pub dwFlags: u32,
@@ -5597,7 +5597,7 @@ impl ::core::default::Default for RDITEMHDR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RESULTDATAITEM {
     pub mask: u32,
@@ -5773,7 +5773,7 @@ impl ::core::default::Default for RESULT_VIEW_TYPE_INFO_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SCOPEDATAITEM {
     pub mask: u32,
@@ -5850,7 +5850,7 @@ impl ::core::default::Default for SColumnSetID {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct SMMCDataObjects {
     pub count: u32,

@@ -71,7 +71,7 @@ impl IEnhancedStorageACT_Vtbl {
         *iid == <IEnhancedStorageACT as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnhancedStorageACT2_Impl: Sized + IEnhancedStorageACT_Impl {
     fn GetDeviceName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -114,7 +114,7 @@ impl IEnhancedStorageACT2_Vtbl {
         *iid == <IEnhancedStorageACT2 as ::windows_core::ComInterface>::IID || *iid == <IEnhancedStorageACT as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnhancedStorageACT3_Impl: Sized + IEnhancedStorageACT2_Impl {
     fn UnauthorizeEx(&self, dwflags: u32) -> ::windows_core::Result<()>;
@@ -164,7 +164,7 @@ impl IEnhancedStorageACT3_Vtbl {
         *iid == <IEnhancedStorageACT3 as ::windows_core::ComInterface>::IID || *iid == <IEnhancedStorageACT as ::windows_core::ComInterface>::IID || *iid == <IEnhancedStorageACT2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Devices_PortableDevices`"]
+#[doc = "Required features: `\"Win32_Devices_PortableDevices\"`"]
 #[cfg(feature = "Win32_Devices_PortableDevices")]
 pub trait IEnhancedStorageSilo_Impl: Sized {
     fn GetInfo(&self) -> ::windows_core::Result<SILO_INFO>;

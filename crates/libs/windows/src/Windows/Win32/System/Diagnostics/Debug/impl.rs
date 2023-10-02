@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugExtendedProperty_Impl: Sized + IDebugProperty_Impl {
     fn GetExtendedPropertyInfo(&self, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> ::windows_core::Result<()>;
@@ -35,7 +35,7 @@ impl IDebugExtendedProperty_Vtbl {
         *iid == <IDebugExtendedProperty as ::windows_core::ComInterface>::IID || *iid == <IDebugProperty as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugProperty_Impl: Sized {
     fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> ::windows_core::Result<()>;
@@ -162,7 +162,7 @@ impl IDebugPropertyEnumType_Registers_Vtbl {
         *iid == <IDebugPropertyEnumType_Registers as ::windows_core::ComInterface>::IID || *iid == <IDebugPropertyEnumType_All as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumDebugExtendedPropertyInfo_Impl: Sized {
     fn Next(&self, celt: u32, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -313,7 +313,7 @@ impl IObjectSafety_Vtbl {
         *iid == <IObjectSafety as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Ole`"]
+#[doc = "Required features: `\"Win32_System_Ole\"`"]
 #[cfg(feature = "Win32_System_Ole")]
 pub trait IPerPropertyBrowsing2_Impl: Sized {
     fn GetDisplayString(&self, dispid: i32) -> ::windows_core::Result<::windows_core::BSTR>;

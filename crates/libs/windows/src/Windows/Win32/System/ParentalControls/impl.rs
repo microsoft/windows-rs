@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWPCGamesSettings_Impl: Sized + IWPCSettings_Impl {
     fn IsBlocked(&self, guidappid: &::windows_core::GUID) -> ::windows_core::Result<u32>;
@@ -25,7 +25,7 @@ impl IWPCGamesSettings_Vtbl {
         *iid == <IWPCGamesSettings as ::windows_core::ComInterface>::IID || *iid == <IWPCSettings as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWPCProviderConfig_Impl: Sized {
     fn GetUserSummary(&self, bstrsid: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -119,7 +119,7 @@ impl IWPCProviderSupport_Vtbl {
         *iid == <IWPCProviderSupport as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWPCSettings_Impl: Sized {
     fn IsLoggingRequired(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -175,7 +175,7 @@ impl IWPCSettings_Vtbl {
         *iid == <IWPCSettings as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWPCWebSettings_Impl: Sized + IWPCSettings_Impl {
     fn GetSettings(&self) -> ::windows_core::Result<WPCFLAG_WEB_SETTING>;

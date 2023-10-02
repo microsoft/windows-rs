@@ -22,7 +22,7 @@ impl ICompositionFramePresentStatistics {
     pub unsafe fn GetCompositionFrameId(&self) -> u64 {
         (::windows_core::Interface::vtable(self).GetCompositionFrameId)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn GetDisplayInstanceArray(&self, displayinstancearraycount: *mut u32, displayinstancearray: *mut *mut CompositionFrameDisplayInstance) {
         (::windows_core::Interface::vtable(self).GetDisplayInstanceArray)(::windows_core::Interface::as_raw(self), displayinstancearraycount, displayinstancearray)
@@ -56,7 +56,7 @@ impl IIndependentFlipFramePresentStatistics {
     pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
         (::windows_core::Interface::vtable(self).base__.GetKind)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOutputAdapterLUID(&self) -> super::super::Foundation::LUID {
         let mut result__: super::super::Foundation::LUID = ::core::mem::zeroed();
@@ -160,7 +160,7 @@ pub struct IPresentStatusPresentStatistics_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPresentationBuffer(::windows_core::IUnknown);
 impl IPresentationBuffer {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAvailableEvent(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -250,7 +250,7 @@ impl IPresentationManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddBufferFromResource)(::windows_core::Interface::as_raw(self), resource.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreatePresentationSurface<P0>(&self, compositionsurfacehandle: P0) -> ::windows_core::Result<IPresentationSurface>
     where
@@ -281,13 +281,13 @@ impl IPresentationManager {
     pub unsafe fn CancelPresentsFrom(&self, presentidtocancelfrom: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CancelPresentsFrom)(::windows_core::Interface::as_raw(self), presentidtocancelfrom).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLostEvent(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLostEvent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPresentStatisticsAvailableEvent(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -348,17 +348,17 @@ impl IPresentationSurface {
     {
         (::windows_core::Interface::vtable(self).SetBuffer)(::windows_core::Interface::as_raw(self), presentationbuffer.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn SetColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetColorSpace)(::windows_core::Interface::as_raw(self), colorspace).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn SetAlphaMode(&self, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAlphaMode)(::windows_core::Interface::as_raw(self), alphamode).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSourceRect(&self, sourcerect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSourceRect)(::windows_core::Interface::as_raw(self), sourcerect).ok()
@@ -484,7 +484,7 @@ impl ::core::fmt::Debug for PresentStatus {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct CompositionFrameDisplayInstance {
     pub displayAdapterLUID: super::super::Foundation::LUID,

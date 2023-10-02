@@ -1,5 +1,5 @@
 #[cfg(feature = "Devices_Display_Core")]
-#[doc = "Required features: `Devices_Display_Core`"]
+#[doc = "Required features: `\"Devices_Display_Core\"`"]
 pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -136,7 +136,7 @@ impl DisplayMonitor {
             (::windows_core::Interface::vtable(this).DisplayAdapterDeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Graphics`"]
+    #[doc = "Required features: `\"Graphics\"`"]
     #[cfg(feature = "Graphics")]
     pub fn DisplayAdapterId(&self) -> ::windows_core::Result<super::super::Graphics::DisplayAdapterId> {
         let this = self;
@@ -159,7 +159,7 @@ impl DisplayMonitor {
             (::windows_core::Interface::vtable(this).UsageKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Graphics`"]
+    #[doc = "Required features: `\"Graphics\"`"]
     #[cfg(feature = "Graphics")]
     pub fn NativeResolutionInRawPixels(&self) -> ::windows_core::Result<super::super::Graphics::SizeInt32> {
         let this = self;
@@ -168,7 +168,7 @@ impl DisplayMonitor {
             (::windows_core::Interface::vtable(this).NativeResolutionInRawPixels)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PhysicalSizeInInches(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Size>> {
         let this = self;
@@ -191,7 +191,7 @@ impl DisplayMonitor {
             (::windows_core::Interface::vtable(this).RawDpiY)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RedPrimary(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -200,7 +200,7 @@ impl DisplayMonitor {
             (::windows_core::Interface::vtable(this).RedPrimary)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GreenPrimary(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -209,7 +209,7 @@ impl DisplayMonitor {
             (::windows_core::Interface::vtable(this).GreenPrimary)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BluePrimary(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -218,7 +218,7 @@ impl DisplayMonitor {
             (::windows_core::Interface::vtable(this).BluePrimary)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn WhitePoint(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -268,7 +268,7 @@ impl DisplayMonitor {
             (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DisplayMonitor>> {
         Self::IDisplayMonitorStatics(|this| unsafe {
@@ -276,7 +276,7 @@ impl DisplayMonitor {
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FromInterfaceIdAsync(deviceinterfaceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DisplayMonitor>> {
         Self::IDisplayMonitorStatics(|this| unsafe {

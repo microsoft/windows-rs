@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAsynchronousDataRetriever_Impl: Sized {
     fn GetIdParameters(&self, pidparameters: *mut ID_PARAMETERS) -> ::windows_core::Result<()>;
@@ -919,7 +919,7 @@ impl IEnumSyncChanges_Vtbl {
         *iid == <IEnumSyncChanges as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IEnumSyncProviderConfigUIInfos_Impl: Sized {
     fn Next(&self, cfactories: u32, ppsyncproviderconfiguiinfo: *mut ::core::option::Option<ISyncProviderConfigUIInfo>, pcfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -970,7 +970,7 @@ impl IEnumSyncProviderConfigUIInfos_Vtbl {
         *iid == <IEnumSyncProviderConfigUIInfos as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IEnumSyncProviderInfos_Impl: Sized {
     fn Next(&self, cinstances: u32, ppsyncproviderinfo: *mut ::core::option::Option<ISyncProviderInfo>, pcfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -1021,7 +1021,7 @@ impl IEnumSyncProviderInfos_Vtbl {
         *iid == <IEnumSyncProviderInfos as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFeedClockVector_Impl: Sized + IClockVector_Impl {
     fn GetUpdateCount(&self, pdwupdatecount: *mut u32) -> ::windows_core::Result<()>;
@@ -1187,7 +1187,7 @@ impl IFilterTrackingRequestCallback_Vtbl {
         *iid == <IFilterTrackingRequestCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFilterTrackingSyncChangeBuilder_Impl: Sized {
     fn AddFilterChange(&self, dwfilterkey: u32, pfilterchange: *const SYNC_FILTER_CHANGE) -> ::windows_core::Result<()>;
@@ -1218,7 +1218,7 @@ impl IFilterTrackingSyncChangeBuilder_Vtbl {
         *iid == <IFilterTrackingSyncChangeBuilder as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IForgottenKnowledge_Impl: Sized + ISyncKnowledge_Impl {
     fn ForgetToVersion(&self, pknowledge: ::core::option::Option<&ISyncKnowledge>, pversion: *const SYNC_VERSION) -> ::windows_core::Result<()>;
@@ -1239,7 +1239,7 @@ impl IForgottenKnowledge_Vtbl {
         *iid == <IForgottenKnowledge as ::windows_core::ComInterface>::IID || *iid == <ISyncKnowledge as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IKnowledgeSyncProvider_Impl: Sized + ISyncProvider_Impl {
     fn BeginSession(&self, role: SYNC_PROVIDER_ROLE, psessionstate: ::core::option::Option<&ISyncSessionState>) -> ::windows_core::Result<()>;
@@ -1484,7 +1484,7 @@ impl IRecoverableErrorData_Vtbl {
         *iid == <IRecoverableErrorData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IRegisteredSyncProvider_Impl: Sized {
     fn Init(&self, pguidinstanceid: *const ::windows_core::GUID, pguidcontenttype: *const ::windows_core::GUID, pcontextpropertystore: ::core::option::Option<&super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows_core::Result<()>;
@@ -1826,7 +1826,7 @@ impl ISyncChange_Vtbl {
         *iid == <ISyncChange as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISyncChangeBatch_Impl: Sized + ISyncChangeBatchBase_Impl {
     fn BeginUnorderedGroup(&self) -> ::windows_core::Result<()>;
@@ -1870,7 +1870,7 @@ impl ISyncChangeBatch_Vtbl {
         *iid == <ISyncChangeBatch as ::windows_core::ComInterface>::IID || *iid == <ISyncChangeBatchBase as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISyncChangeBatch2_Impl: Sized + ISyncChangeBatch_Impl {
     fn AddMergeTombstoneMetadataToGroup(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32) -> ::windows_core::Result<ISyncChangeBuilder>;
@@ -1913,7 +1913,7 @@ impl ISyncChangeBatch2_Vtbl {
         *iid == <ISyncChangeBatch2 as ::windows_core::ComInterface>::IID || *iid == <ISyncChangeBatchBase as ::windows_core::ComInterface>::IID || *iid == <ISyncChangeBatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISyncChangeBatchAdvanced_Impl: Sized {
     fn GetFilterInfo(&self) -> ::windows_core::Result<ISyncFilterInfo>;
@@ -1970,7 +1970,7 @@ impl ISyncChangeBatchAdvanced_Vtbl {
         *iid == <ISyncChangeBatchAdvanced as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISyncChangeBatchBase_Impl: Sized {
     fn GetChangeEnumerator(&self) -> ::windows_core::Result<IEnumSyncChanges>;
@@ -2115,7 +2115,7 @@ impl ISyncChangeBatchBase_Vtbl {
         *iid == <ISyncChangeBatchBase as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISyncChangeBatchBase2_Impl: Sized + ISyncChangeBatchBase_Impl {
     fn SerializeWithOptions(&self, targetformatversion: SYNC_SERIALIZATION_VERSION, dwflags: u32, pbbuffer: *mut u8, pdwserializedsize: *mut u32) -> ::windows_core::Result<()>;
@@ -2241,7 +2241,7 @@ impl ISyncChangeBatchWithFilterKeyMap_Vtbl {
         *iid == <ISyncChangeBatchWithFilterKeyMap as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISyncChangeBatchWithPrerequisite_Impl: Sized + ISyncChangeBatchBase_Impl {
     fn SetPrerequisiteKnowledge(&self, pprerequisiteknowledge: ::core::option::Option<&ISyncKnowledge>) -> ::windows_core::Result<()>;
@@ -2348,7 +2348,7 @@ impl ISyncChangeUnit_Vtbl {
         *iid == <ISyncChangeUnit as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISyncChangeWithFilterKeyMap_Impl: Sized {
     fn GetFilterCount(&self, pdwfiltercount: *mut u32) -> ::windows_core::Result<()>;
@@ -2708,7 +2708,7 @@ impl ISyncFullEnumerationChange_Vtbl {
         *iid == <ISyncFullEnumerationChange as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISyncFullEnumerationChangeBatch_Impl: Sized + ISyncChangeBatchBase_Impl {
     fn GetLearnedKnowledgeAfterRecoveryComplete(&self) -> ::windows_core::Result<ISyncKnowledge>;
@@ -2752,7 +2752,7 @@ impl ISyncFullEnumerationChangeBatch_Vtbl {
         *iid == <ISyncFullEnumerationChangeBatch as ::windows_core::ComInterface>::IID || *iid == <ISyncChangeBatchBase as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISyncFullEnumerationChangeBatch2_Impl: Sized + ISyncFullEnumerationChangeBatch_Impl {
     fn AddMergeTombstoneMetadataToGroup(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32) -> ::windows_core::Result<ISyncChangeBuilder>;
@@ -2782,7 +2782,7 @@ impl ISyncFullEnumerationChangeBatch2_Vtbl {
         *iid == <ISyncFullEnumerationChangeBatch2 as ::windows_core::ComInterface>::IID || *iid == <ISyncChangeBatchBase as ::windows_core::ComInterface>::IID || *iid == <ISyncFullEnumerationChangeBatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISyncKnowledge_Impl: Sized {
     fn GetOwnerReplicaId(&self, pbreplicaid: *mut u8, pcbidsize: *mut u32) -> ::windows_core::Result<()>;
@@ -3003,7 +3003,7 @@ impl ISyncKnowledge_Vtbl {
         *iid == <ISyncKnowledge as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISyncKnowledge2_Impl: Sized + ISyncKnowledge_Impl {
     fn GetIdParameters(&self, pidparameters: *mut ID_PARAMETERS) -> ::windows_core::Result<()>;
@@ -3159,7 +3159,7 @@ impl ISyncMergeTombstoneChange_Vtbl {
         *iid == <ISyncMergeTombstoneChange as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISyncProvider_Impl: Sized {
     fn GetIdParameters(&self, pidparameters: *mut ID_PARAMETERS) -> ::windows_core::Result<()>;
@@ -3180,7 +3180,7 @@ impl ISyncProvider_Vtbl {
         *iid == <ISyncProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISyncProviderConfigUI_Impl: Sized {
     fn Init(&self, pguidinstanceid: *const ::windows_core::GUID, pguidcontenttype: *const ::windows_core::GUID, pconfigurationproperties: ::core::option::Option<&super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows_core::Result<()>;
@@ -3237,7 +3237,7 @@ impl ISyncProviderConfigUI_Vtbl {
         *iid == <ISyncProviderConfigUI as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`, `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISyncProviderConfigUIInfo_Impl: Sized + super::super::UI::Shell::PropertiesSystem::IPropertyStore_Impl {
     fn GetSyncProviderConfigUI(&self, dwclscontext: u32) -> ::windows_core::Result<ISyncProviderConfigUI>;
@@ -3267,7 +3267,7 @@ impl ISyncProviderConfigUIInfo_Vtbl {
         *iid == <ISyncProviderConfigUIInfo as ::windows_core::ComInterface>::IID || *iid == <super::super::UI::Shell::PropertiesSystem::IPropertyStore as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`, `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISyncProviderInfo_Impl: Sized + super::super::UI::Shell::PropertiesSystem::IPropertyStore_Impl {
     fn GetSyncProvider(&self, dwclscontext: u32) -> ::windows_core::Result<IRegisteredSyncProvider>;
@@ -3297,7 +3297,7 @@ impl ISyncProviderInfo_Vtbl {
         *iid == <ISyncProviderInfo as ::windows_core::ComInterface>::IID || *iid == <super::super::UI::Shell::PropertiesSystem::IPropertyStore as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISyncProviderRegistration_Impl: Sized {
     fn CreateSyncProviderConfigUIRegistrationInstance(&self, pconfiguiconfig: *const SyncProviderConfigUIConfiguration) -> ::windows_core::Result<ISyncProviderConfigUIInfo>;
@@ -3554,7 +3554,7 @@ impl ISyncSessionExtendedErrorInfo_Vtbl {
         *iid == <ISyncSessionExtendedErrorInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISyncSessionState_Impl: Sized {
     fn IsCanceled(&self, pfiscanceled: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -3620,7 +3620,7 @@ impl ISyncSessionState_Vtbl {
         *iid == <ISyncSessionState as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISyncSessionState2_Impl: Sized + ISyncSessionState_Impl {
     fn SetProviderWithError(&self, fself: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -3651,7 +3651,7 @@ impl ISyncSessionState2_Vtbl {
         *iid == <ISyncSessionState2 as ::windows_core::ComInterface>::IID || *iid == <ISyncSessionState as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISynchronousDataRetriever_Impl: Sized {
     fn GetIdParameters(&self, pidparameters: *mut ID_PARAMETERS) -> ::windows_core::Result<()>;

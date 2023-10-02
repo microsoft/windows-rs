@@ -6,7 +6,7 @@ where
     ::windows_targets::link!("msports.dll" "system" fn ComDBClaimNextFreePort(hcomdb : HCOMDB, comnumber : *mut u32) -> i32);
     ComDBClaimNextFreePort(hcomdb.into_param().abi(), comnumber)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ComDBClaimPort<P0, P1>(hcomdb: P0, comnumber: u32, forceclaim: P1, forced: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> i32
@@ -58,13 +58,13 @@ pub const CDB_REPORT_BITS: u32 = 0u32;
 pub const CDB_REPORT_BYTES: u32 = 1u32;
 pub const COMDB_MAX_PORTS_ARBITRATED: u32 = 4096u32;
 pub const COMDB_MIN_PORTS_ARBITRATED: u32 = 256u32;
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_DeviceInterface_Serial_PortName: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x4c6bf15c_4c03_4aac_91f5_64c0f852bcf4), pid: 4 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_DeviceInterface_Serial_UsbProductId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x4c6bf15c_4c03_4aac_91f5_64c0f852bcf4), pid: 3 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_DeviceInterface_Serial_UsbVendorId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x4c6bf15c_4c03_4aac_91f5_64c0f852bcf4), pid: 2 };
 pub const EVEN_PARITY: u32 = 2u32;
@@ -577,7 +577,7 @@ impl ::core::default::Default for SERIAL_QUEUE_SIZE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERIAL_STATUS {
     pub Errors: u32,

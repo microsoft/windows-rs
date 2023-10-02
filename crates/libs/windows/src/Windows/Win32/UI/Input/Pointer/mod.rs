@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnableMouseInPointer<P0>(fenable: P0) -> ::windows_core::Result<()>
@@ -8,14 +8,14 @@ where
     ::windows_targets::link!("user32.dll" "system" fn EnableMouseInPointer(fenable : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
     EnableMouseInPointer(fenable.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPointerCursorId(pointerid: u32, cursorid: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerCursorId(pointerid : u32, cursorid : *mut u32) -> super::super::super::Foundation:: BOOL);
     GetPointerCursorId(pointerid, cursorid).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_Controls`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_Controls\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn GetPointerDevice<P0>(device: P0, pointerdevice: *mut super::super::Controls::POINTER_DEVICE_INFO) -> ::windows_core::Result<()>
@@ -25,7 +25,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetPointerDevice(device : super::super::super::Foundation:: HANDLE, pointerdevice : *mut super::super::Controls:: POINTER_DEVICE_INFO) -> super::super::super::Foundation:: BOOL);
     GetPointerDevice(device.into_param().abi(), pointerdevice).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn GetPointerDeviceCursors<P0>(device: P0, cursorcount: *mut u32, devicecursors: ::core::option::Option<*mut super::super::Controls::POINTER_DEVICE_CURSOR_INFO>) -> ::windows_core::Result<()>
@@ -35,7 +35,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetPointerDeviceCursors(device : super::super::super::Foundation:: HANDLE, cursorcount : *mut u32, devicecursors : *mut super::super::Controls:: POINTER_DEVICE_CURSOR_INFO) -> super::super::super::Foundation:: BOOL);
     GetPointerDeviceCursors(device.into_param().abi(), cursorcount, ::core::mem::transmute(devicecursors.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn GetPointerDeviceProperties<P0>(device: P0, propertycount: *mut u32, pointerproperties: ::core::option::Option<*mut super::super::Controls::POINTER_DEVICE_PROPERTY>) -> ::windows_core::Result<()>
@@ -45,7 +45,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetPointerDeviceProperties(device : super::super::super::Foundation:: HANDLE, propertycount : *mut u32, pointerproperties : *mut super::super::Controls:: POINTER_DEVICE_PROPERTY) -> super::super::super::Foundation:: BOOL);
     GetPointerDeviceProperties(device.into_param().abi(), propertycount, ::core::mem::transmute(pointerproperties.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPointerDeviceRects<P0>(device: P0, pointerdevicerect: *mut super::super::super::Foundation::RECT, displayrect: *mut super::super::super::Foundation::RECT) -> ::windows_core::Result<()>
@@ -55,112 +55,112 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetPointerDeviceRects(device : super::super::super::Foundation:: HANDLE, pointerdevicerect : *mut super::super::super::Foundation:: RECT, displayrect : *mut super::super::super::Foundation:: RECT) -> super::super::super::Foundation:: BOOL);
     GetPointerDeviceRects(device.into_param().abi(), pointerdevicerect, displayrect).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_Controls`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_Controls\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn GetPointerDevices(devicecount: *mut u32, pointerdevices: ::core::option::Option<*mut super::super::Controls::POINTER_DEVICE_INFO>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerDevices(devicecount : *mut u32, pointerdevices : *mut super::super::Controls:: POINTER_DEVICE_INFO) -> super::super::super::Foundation:: BOOL);
     GetPointerDevices(devicecount, ::core::mem::transmute(pointerdevices.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerFrameInfo(pointerid: u32, pointercount: *mut u32, pointerinfo: ::core::option::Option<*mut POINTER_INFO>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerFrameInfo(pointerid : u32, pointercount : *mut u32, pointerinfo : *mut POINTER_INFO) -> super::super::super::Foundation:: BOOL);
     GetPointerFrameInfo(pointerid, pointercount, ::core::mem::transmute(pointerinfo.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerFrameInfoHistory(pointerid: u32, entriescount: *mut u32, pointercount: *mut u32, pointerinfo: ::core::option::Option<*mut POINTER_INFO>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerFrameInfoHistory(pointerid : u32, entriescount : *mut u32, pointercount : *mut u32, pointerinfo : *mut POINTER_INFO) -> super::super::super::Foundation:: BOOL);
     GetPointerFrameInfoHistory(pointerid, entriescount, pointercount, ::core::mem::transmute(pointerinfo.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerFramePenInfo(pointerid: u32, pointercount: *mut u32, peninfo: ::core::option::Option<*mut POINTER_PEN_INFO>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerFramePenInfo(pointerid : u32, pointercount : *mut u32, peninfo : *mut POINTER_PEN_INFO) -> super::super::super::Foundation:: BOOL);
     GetPointerFramePenInfo(pointerid, pointercount, ::core::mem::transmute(peninfo.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerFramePenInfoHistory(pointerid: u32, entriescount: *mut u32, pointercount: *mut u32, peninfo: ::core::option::Option<*mut POINTER_PEN_INFO>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerFramePenInfoHistory(pointerid : u32, entriescount : *mut u32, pointercount : *mut u32, peninfo : *mut POINTER_PEN_INFO) -> super::super::super::Foundation:: BOOL);
     GetPointerFramePenInfoHistory(pointerid, entriescount, pointercount, ::core::mem::transmute(peninfo.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerFrameTouchInfo(pointerid: u32, pointercount: *mut u32, touchinfo: ::core::option::Option<*mut POINTER_TOUCH_INFO>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerFrameTouchInfo(pointerid : u32, pointercount : *mut u32, touchinfo : *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation:: BOOL);
     GetPointerFrameTouchInfo(pointerid, pointercount, ::core::mem::transmute(touchinfo.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerFrameTouchInfoHistory(pointerid: u32, entriescount: *mut u32, pointercount: *mut u32, touchinfo: ::core::option::Option<*mut POINTER_TOUCH_INFO>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerFrameTouchInfoHistory(pointerid : u32, entriescount : *mut u32, pointercount : *mut u32, touchinfo : *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation:: BOOL);
     GetPointerFrameTouchInfoHistory(pointerid, entriescount, pointercount, ::core::mem::transmute(touchinfo.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerInfo(pointerid: u32, pointerinfo: *mut POINTER_INFO) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerInfo(pointerid : u32, pointerinfo : *mut POINTER_INFO) -> super::super::super::Foundation:: BOOL);
     GetPointerInfo(pointerid, pointerinfo).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerInfoHistory(pointerid: u32, entriescount: *mut u32, pointerinfo: ::core::option::Option<*mut POINTER_INFO>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerInfoHistory(pointerid : u32, entriescount : *mut u32, pointerinfo : *mut POINTER_INFO) -> super::super::super::Foundation:: BOOL);
     GetPointerInfoHistory(pointerid, entriescount, ::core::mem::transmute(pointerinfo.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPointerInputTransform(pointerid: u32, inputtransform: &mut [INPUT_TRANSFORM]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerInputTransform(pointerid : u32, historycount : u32, inputtransform : *mut INPUT_TRANSFORM) -> super::super::super::Foundation:: BOOL);
     GetPointerInputTransform(pointerid, inputtransform.len() as _, ::core::mem::transmute(inputtransform.as_ptr())).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerPenInfo(pointerid: u32, peninfo: *mut POINTER_PEN_INFO) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerPenInfo(pointerid : u32, peninfo : *mut POINTER_PEN_INFO) -> super::super::super::Foundation:: BOOL);
     GetPointerPenInfo(pointerid, peninfo).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerPenInfoHistory(pointerid: u32, entriescount: *mut u32, peninfo: ::core::option::Option<*mut POINTER_PEN_INFO>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerPenInfoHistory(pointerid : u32, entriescount : *mut u32, peninfo : *mut POINTER_PEN_INFO) -> super::super::super::Foundation:: BOOL);
     GetPointerPenInfoHistory(pointerid, entriescount, ::core::mem::transmute(peninfo.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerTouchInfo(pointerid: u32, touchinfo: *mut POINTER_TOUCH_INFO) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerTouchInfo(pointerid : u32, touchinfo : *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation:: BOOL);
     GetPointerTouchInfo(pointerid, touchinfo).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerTouchInfoHistory(pointerid: u32, entriescount: *mut u32, touchinfo: ::core::option::Option<*mut POINTER_TOUCH_INFO>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerTouchInfoHistory(pointerid : u32, entriescount : *mut u32, touchinfo : *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation:: BOOL);
     GetPointerTouchInfoHistory(pointerid, entriescount, ::core::mem::transmute(touchinfo.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerType(pointerid: u32, pointertype: *mut super::super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerType(pointerid : u32, pointertype : *mut super::super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> super::super::super::Foundation:: BOOL);
     GetPointerType(pointerid, pointertype).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn GetRawPointerDeviceData(pointerid: u32, historycount: u32, pproperties: &[super::super::Controls::POINTER_DEVICE_PROPERTY], pvalues: *mut i32) -> ::windows_core::Result<()> {
@@ -172,14 +172,14 @@ pub unsafe fn GetUnpredictedMessagePos() -> u32 {
     ::windows_targets::link!("user32.dll" "system" fn GetUnpredictedMessagePos() -> u32);
     GetUnpredictedMessagePos()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitializeTouchInjection(maxcount: u32, dwmode: TOUCH_FEEDBACK_MODE) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn InitializeTouchInjection(maxcount : u32, dwmode : TOUCH_FEEDBACK_MODE) -> super::super::super::Foundation:: BOOL);
     InitializeTouchInjection(maxcount, dwmode).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn InjectSyntheticPointerInput<P0>(device: P0, pointerinfo: &[super::super::Controls::POINTER_TYPE_INFO]) -> ::windows_core::Result<()>
@@ -189,21 +189,21 @@ where
     ::windows_targets::link!("user32.dll" "system" fn InjectSyntheticPointerInput(device : super::super::Controls:: HSYNTHETICPOINTERDEVICE, pointerinfo : *const super::super::Controls:: POINTER_TYPE_INFO, count : u32) -> super::super::super::Foundation:: BOOL);
     InjectSyntheticPointerInput(device.into_param().abi(), ::core::mem::transmute(pointerinfo.as_ptr()), pointerinfo.len() as _).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn InjectTouchInput(contacts: &[POINTER_TOUCH_INFO]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn InjectTouchInput(count : u32, contacts : *const POINTER_TOUCH_INFO) -> super::super::super::Foundation:: BOOL);
     InjectTouchInput(contacts.len() as _, ::core::mem::transmute(contacts.as_ptr())).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsMouseInPointerEnabled() -> super::super::super::Foundation::BOOL {
     ::windows_targets::link!("user32.dll" "system" fn IsMouseInPointerEnabled() -> super::super::super::Foundation:: BOOL);
     IsMouseInPointerEnabled()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SkipPointerFrameMessages(pointerid: u32) -> ::windows_core::Result<()> {
@@ -456,7 +456,7 @@ impl ::core::default::Default for INPUT_TRANSFORM_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct POINTER_INFO {
     pub pointerType: super::super::WindowsAndMessaging::POINTER_INPUT_TYPE,
@@ -526,7 +526,7 @@ impl ::core::default::Default for POINTER_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct POINTER_PEN_INFO {
     pub pointerInfo: POINTER_INFO,
@@ -570,7 +570,7 @@ impl ::core::default::Default for POINTER_PEN_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct POINTER_TOUCH_INFO {
     pub pointerInfo: POINTER_INFO,

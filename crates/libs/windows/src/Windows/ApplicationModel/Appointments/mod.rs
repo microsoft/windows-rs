@@ -1,8 +1,8 @@
 #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
-#[doc = "Required features: `ApplicationModel_Appointments_AppointmentsProvider`"]
+#[doc = "Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`"]
 pub mod AppointmentsProvider;
 #[cfg(feature = "ApplicationModel_Appointments_DataProvider")]
-#[doc = "Required features: `ApplicationModel_Appointments_DataProvider`"]
+#[doc = "Required features: `\"ApplicationModel_Appointments_DataProvider\"`"]
 pub mod DataProvider;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1084,7 +1084,7 @@ impl Appointment {
         static SHARED: ::windows_core::imp::FactoryCache<Appointment, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1093,13 +1093,13 @@ impl Appointment {
             (::windows_core::Interface::vtable(this).StartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartTime(&self, value: super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetStartTime)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1108,7 +1108,7 @@ impl Appointment {
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
@@ -1147,7 +1147,7 @@ impl Appointment {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDetails)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Reminder(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -1156,7 +1156,7 @@ impl Appointment {
             (::windows_core::Interface::vtable(this).Reminder)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetReminder<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1179,7 +1179,7 @@ impl Appointment {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetOrganizer)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Invitees(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<AppointmentInvitee>> {
         let this = self;
@@ -1235,7 +1235,7 @@ impl Appointment {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSensitivity)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1244,7 +1244,7 @@ impl Appointment {
             (::windows_core::Interface::vtable(this).Uri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1278,7 +1278,7 @@ impl Appointment {
         let this = &::windows_core::ComInterface::cast::<IAppointment2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetRoamingId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn OriginalStartTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = &::windows_core::ComInterface::cast::<IAppointment2>(self)?;
@@ -1320,7 +1320,7 @@ impl Appointment {
         let this = &::windows_core::ComInterface::cast::<IAppointment2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetOnlineMeetingLink)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ReplyTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = &::windows_core::ComInterface::cast::<IAppointment2>(self)?;
@@ -1329,7 +1329,7 @@ impl Appointment {
             (::windows_core::Interface::vtable(this).ReplyTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetReplyTime<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1427,7 +1427,7 @@ unsafe impl ::core::marker::Sync for Appointment {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentCalendar(::windows_core::IUnknown);
 impl AppointmentCalendar {
-    #[doc = "Required features: `UI`"]
+    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn DisplayColor(&self) -> ::windows_core::Result<super::super::UI::Color> {
         let this = self;
@@ -1501,7 +1501,7 @@ impl AppointmentCalendar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSummaryCardView)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAppointmentsAsync(&self, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>> {
         let this = self;
@@ -1510,7 +1510,7 @@ impl AppointmentCalendar {
             (::windows_core::Interface::vtable(this).FindAppointmentsAsync)(::windows_core::Interface::as_raw(this), rangestart, rangelength, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAppointmentsAsyncWithOptions<P0>(&self, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan, options: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>
     where
@@ -1522,7 +1522,7 @@ impl AppointmentCalendar {
             (::windows_core::Interface::vtable(this).FindAppointmentsAsyncWithOptions)(::windows_core::Interface::as_raw(this), rangestart, rangelength, options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindExceptionsFromMasterAsync(&self, masterlocalid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentException>>> {
         let this = self;
@@ -1531,7 +1531,7 @@ impl AppointmentCalendar {
             (::windows_core::Interface::vtable(this).FindExceptionsFromMasterAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(masterlocalid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllInstancesAsync(&self, masterlocalid: &::windows_core::HSTRING, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>> {
         let this = self;
@@ -1540,7 +1540,7 @@ impl AppointmentCalendar {
             (::windows_core::Interface::vtable(this).FindAllInstancesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(masterlocalid), rangestart, rangelength, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllInstancesAsyncWithOptions<P0>(&self, masterlocalid: &::windows_core::HSTRING, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan, poptions: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>
     where
@@ -1552,7 +1552,7 @@ impl AppointmentCalendar {
             (::windows_core::Interface::vtable(this).FindAllInstancesAsyncWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(masterlocalid), rangestart, rangelength, poptions.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetAppointmentAsync(&self, localid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Appointment>> {
         let this = self;
@@ -1561,7 +1561,7 @@ impl AppointmentCalendar {
             (::windows_core::Interface::vtable(this).GetAppointmentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(localid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetAppointmentInstanceAsync(&self, localid: &::windows_core::HSTRING, instancestarttime: super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Appointment>> {
         let this = self;
@@ -1570,7 +1570,7 @@ impl AppointmentCalendar {
             (::windows_core::Interface::vtable(this).GetAppointmentInstanceAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(localid), instancestarttime, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindUnexpandedAppointmentsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>> {
         let this = self;
@@ -1579,7 +1579,7 @@ impl AppointmentCalendar {
             (::windows_core::Interface::vtable(this).FindUnexpandedAppointmentsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindUnexpandedAppointmentsAsyncWithOptions<P0>(&self, options: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>
     where
@@ -1591,7 +1591,7 @@ impl AppointmentCalendar {
             (::windows_core::Interface::vtable(this).FindUnexpandedAppointmentsAsyncWithOptions)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1600,7 +1600,7 @@ impl AppointmentCalendar {
             (::windows_core::Interface::vtable(this).DeleteAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SaveAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1609,7 +1609,7 @@ impl AppointmentCalendar {
             (::windows_core::Interface::vtable(this).SaveAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteAppointmentAsync(&self, localid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1618,7 +1618,7 @@ impl AppointmentCalendar {
             (::windows_core::Interface::vtable(this).DeleteAppointmentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(localid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteAppointmentInstanceAsync(&self, localid: &::windows_core::HSTRING, instancestarttime: super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1627,7 +1627,7 @@ impl AppointmentCalendar {
             (::windows_core::Interface::vtable(this).DeleteAppointmentInstanceAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(localid), instancestarttime, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SaveAppointmentAsync<P0>(&self, pappointment: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1657,7 +1657,7 @@ impl AppointmentCalendar {
         let this = &::windows_core::ComInterface::cast::<IAppointmentCalendar2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetRemoteId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `UI`"]
+    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn SetDisplayColor(&self, value: super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IAppointmentCalendar2>(self)?;
@@ -1751,7 +1751,7 @@ impl AppointmentCalendar {
         let this = &::windows_core::ComInterface::cast::<IAppointmentCalendar2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetMustNofityInvitees)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryCreateOrUpdateAppointmentAsync<P0>(&self, appointment: P0, notifyinvitees: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -1763,7 +1763,7 @@ impl AppointmentCalendar {
             (::windows_core::Interface::vtable(this).TryCreateOrUpdateAppointmentAsync)(::windows_core::Interface::as_raw(this), appointment.into_param().abi(), notifyinvitees, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryCancelMeetingAsync<P0>(&self, meeting: P0, subject: &::windows_core::HSTRING, comment: &::windows_core::HSTRING, notifyinvitees: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -1775,7 +1775,7 @@ impl AppointmentCalendar {
             (::windows_core::Interface::vtable(this).TryCancelMeetingAsync)(::windows_core::Interface::as_raw(this), meeting.into_param().abi(), ::core::mem::transmute_copy(subject), ::core::mem::transmute_copy(comment), notifyinvitees, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryForwardMeetingAsync<P0, P1>(&self, meeting: P0, invitees: P1, subject: &::windows_core::HSTRING, forwardheader: &::windows_core::HSTRING, comment: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -1788,7 +1788,7 @@ impl AppointmentCalendar {
             (::windows_core::Interface::vtable(this).TryForwardMeetingAsync)(::windows_core::Interface::as_raw(this), meeting.into_param().abi(), invitees.try_into_param()?.abi(), ::core::mem::transmute_copy(subject), ::core::mem::transmute_copy(forwardheader), ::core::mem::transmute_copy(comment), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryProposeNewTimeForMeetingAsync<P0>(&self, meeting: P0, newstarttime: super::super::Foundation::DateTime, newduration: super::super::Foundation::TimeSpan, subject: &::windows_core::HSTRING, comment: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -1800,7 +1800,7 @@ impl AppointmentCalendar {
             (::windows_core::Interface::vtable(this).TryProposeNewTimeForMeetingAsync)(::windows_core::Interface::as_raw(this), meeting.into_param().abi(), newstarttime, newduration, ::core::mem::transmute_copy(subject), ::core::mem::transmute_copy(comment), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryUpdateMeetingResponseAsync<P0>(&self, meeting: P0, response: AppointmentParticipantResponse, subject: &::windows_core::HSTRING, comment: &::windows_core::HSTRING, sendupdate: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -1812,7 +1812,7 @@ impl AppointmentCalendar {
             (::windows_core::Interface::vtable(this).TryUpdateMeetingResponseAsync)(::windows_core::Interface::as_raw(this), meeting.into_param().abi(), response, ::core::mem::transmute_copy(subject), ::core::mem::transmute_copy(comment), sendupdate, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RegisterSyncManagerAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IAppointmentCalendar3>(self)?;
@@ -1848,7 +1848,7 @@ impl AppointmentCalendarSyncManager {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LastSuccessfulSyncTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1857,7 +1857,7 @@ impl AppointmentCalendarSyncManager {
             (::windows_core::Interface::vtable(this).LastSuccessfulSyncTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LastAttemptedSyncTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1866,7 +1866,7 @@ impl AppointmentCalendarSyncManager {
             (::windows_core::Interface::vtable(this).LastAttemptedSyncTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SyncAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1875,7 +1875,7 @@ impl AppointmentCalendarSyncManager {
             (::windows_core::Interface::vtable(this).SyncAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SyncStatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1887,7 +1887,7 @@ impl AppointmentCalendarSyncManager {
             (::windows_core::Interface::vtable(this).SyncStatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSyncStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1897,13 +1897,13 @@ impl AppointmentCalendarSyncManager {
         let this = &::windows_core::ComInterface::cast::<IAppointmentCalendarSyncManager2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetStatus)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetLastSuccessfulSyncTime(&self, value: super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IAppointmentCalendarSyncManager2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetLastSuccessfulSyncTime)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetLastAttemptedSyncTime(&self, value: super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IAppointmentCalendarSyncManager2>(self)?;
@@ -1936,7 +1936,7 @@ impl AppointmentConflictResult {
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Date(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1972,7 +1972,7 @@ impl AppointmentException {
             (::windows_core::Interface::vtable(this).Appointment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ExceptionProperties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -2078,7 +2078,7 @@ unsafe impl ::core::marker::Send for AppointmentInvitee {}
 unsafe impl ::core::marker::Sync for AppointmentInvitee {}
 pub struct AppointmentManager;
 impl AppointmentManager {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAddAppointmentAsync<P0>(appointment: P0, selection: super::super::Foundation::Rect) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -2089,7 +2089,7 @@ impl AppointmentManager {
             (::windows_core::Interface::vtable(this).ShowAddAppointmentAsync)(::windows_core::Interface::as_raw(this), appointment.into_param().abi(), selection, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `UI_Popups`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Popups\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowAddAppointmentWithPlacementAsync<P0>(appointment: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -2100,7 +2100,7 @@ impl AppointmentManager {
             (::windows_core::Interface::vtable(this).ShowAddAppointmentWithPlacementAsync)(::windows_core::Interface::as_raw(this), appointment.into_param().abi(), selection, preferredplacement, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowReplaceAppointmentAsync<P0>(appointmentid: &::windows_core::HSTRING, appointment: P0, selection: super::super::Foundation::Rect) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -2111,7 +2111,7 @@ impl AppointmentManager {
             (::windows_core::Interface::vtable(this).ShowReplaceAppointmentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appointmentid), appointment.into_param().abi(), selection, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `UI_Popups`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Popups\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowReplaceAppointmentWithPlacementAsync<P0>(appointmentid: &::windows_core::HSTRING, appointment: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -2122,7 +2122,7 @@ impl AppointmentManager {
             (::windows_core::Interface::vtable(this).ShowReplaceAppointmentWithPlacementAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appointmentid), appointment.into_param().abi(), selection, preferredplacement, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `UI_Popups`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Popups\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowReplaceAppointmentWithPlacementAndDateAsync<P0>(appointmentid: &::windows_core::HSTRING, appointment: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -2133,7 +2133,7 @@ impl AppointmentManager {
             (::windows_core::Interface::vtable(this).ShowReplaceAppointmentWithPlacementAndDateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appointmentid), appointment.into_param().abi(), selection, preferredplacement, instancestartdate, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowRemoveAppointmentAsync(appointmentid: &::windows_core::HSTRING, selection: super::super::Foundation::Rect) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IAppointmentManagerStatics(|this| unsafe {
@@ -2141,7 +2141,7 @@ impl AppointmentManager {
             (::windows_core::Interface::vtable(this).ShowRemoveAppointmentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appointmentid), selection, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `UI_Popups`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Popups\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowRemoveAppointmentWithPlacementAsync(appointmentid: &::windows_core::HSTRING, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IAppointmentManagerStatics(|this| unsafe {
@@ -2149,7 +2149,7 @@ impl AppointmentManager {
             (::windows_core::Interface::vtable(this).ShowRemoveAppointmentWithPlacementAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appointmentid), selection, preferredplacement, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `UI_Popups`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Popups\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowRemoveAppointmentWithPlacementAndDateAsync(appointmentid: &::windows_core::HSTRING, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IAppointmentManagerStatics(|this| unsafe {
@@ -2157,7 +2157,7 @@ impl AppointmentManager {
             (::windows_core::Interface::vtable(this).ShowRemoveAppointmentWithPlacementAndDateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appointmentid), selection, preferredplacement, instancestartdate, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowTimeFrameAsync(timetoshow: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::IAppointmentManagerStatics(|this| unsafe {
@@ -2165,7 +2165,7 @@ impl AppointmentManager {
             (::windows_core::Interface::vtable(this).ShowTimeFrameAsync)(::windows_core::Interface::as_raw(this), timetoshow, duration, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAppointmentDetailsAsync(appointmentid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::IAppointmentManagerStatics2(|this| unsafe {
@@ -2173,7 +2173,7 @@ impl AppointmentManager {
             (::windows_core::Interface::vtable(this).ShowAppointmentDetailsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appointmentid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAppointmentDetailsWithDateAsync(appointmentid: &::windows_core::HSTRING, instancestartdate: super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::IAppointmentManagerStatics2(|this| unsafe {
@@ -2181,7 +2181,7 @@ impl AppointmentManager {
             (::windows_core::Interface::vtable(this).ShowAppointmentDetailsWithDateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appointmentid), instancestartdate, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowEditNewAppointmentAsync<P0>(appointment: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -2192,7 +2192,7 @@ impl AppointmentManager {
             (::windows_core::Interface::vtable(this).ShowEditNewAppointmentAsync)(::windows_core::Interface::as_raw(this), appointment.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestStoreAsync(options: AppointmentStoreAccessType) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppointmentStore>> {
         Self::IAppointmentManagerStatics2(|this| unsafe {
@@ -2200,7 +2200,7 @@ impl AppointmentManager {
             (::windows_core::Interface::vtable(this).RequestStoreAsync)(::windows_core::Interface::as_raw(this), options, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetForUser<P0>(user: P0) -> ::windows_core::Result<AppointmentManagerForUser>
     where
@@ -2234,7 +2234,7 @@ impl ::windows_core::RuntimeName for AppointmentManager {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentManagerForUser(::windows_core::IUnknown);
 impl AppointmentManagerForUser {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAddAppointmentAsync<P0>(&self, appointment: P0, selection: super::super::Foundation::Rect) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -2246,7 +2246,7 @@ impl AppointmentManagerForUser {
             (::windows_core::Interface::vtable(this).ShowAddAppointmentAsync)(::windows_core::Interface::as_raw(this), appointment.into_param().abi(), selection, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `UI_Popups`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Popups\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowAddAppointmentWithPlacementAsync<P0>(&self, appointment: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -2258,7 +2258,7 @@ impl AppointmentManagerForUser {
             (::windows_core::Interface::vtable(this).ShowAddAppointmentWithPlacementAsync)(::windows_core::Interface::as_raw(this), appointment.into_param().abi(), selection, preferredplacement, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowReplaceAppointmentAsync<P0>(&self, appointmentid: &::windows_core::HSTRING, appointment: P0, selection: super::super::Foundation::Rect) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -2270,7 +2270,7 @@ impl AppointmentManagerForUser {
             (::windows_core::Interface::vtable(this).ShowReplaceAppointmentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appointmentid), appointment.into_param().abi(), selection, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `UI_Popups`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Popups\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowReplaceAppointmentWithPlacementAsync<P0>(&self, appointmentid: &::windows_core::HSTRING, appointment: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -2282,7 +2282,7 @@ impl AppointmentManagerForUser {
             (::windows_core::Interface::vtable(this).ShowReplaceAppointmentWithPlacementAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appointmentid), appointment.into_param().abi(), selection, preferredplacement, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `UI_Popups`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Popups\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowReplaceAppointmentWithPlacementAndDateAsync<P0>(&self, appointmentid: &::windows_core::HSTRING, appointment: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -2294,7 +2294,7 @@ impl AppointmentManagerForUser {
             (::windows_core::Interface::vtable(this).ShowReplaceAppointmentWithPlacementAndDateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appointmentid), appointment.into_param().abi(), selection, preferredplacement, instancestartdate, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowRemoveAppointmentAsync(&self, appointmentid: &::windows_core::HSTRING, selection: super::super::Foundation::Rect) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2303,7 +2303,7 @@ impl AppointmentManagerForUser {
             (::windows_core::Interface::vtable(this).ShowRemoveAppointmentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appointmentid), selection, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `UI_Popups`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Popups\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowRemoveAppointmentWithPlacementAsync(&self, appointmentid: &::windows_core::HSTRING, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2312,7 +2312,7 @@ impl AppointmentManagerForUser {
             (::windows_core::Interface::vtable(this).ShowRemoveAppointmentWithPlacementAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appointmentid), selection, preferredplacement, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `UI_Popups`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Popups\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowRemoveAppointmentWithPlacementAndDateAsync(&self, appointmentid: &::windows_core::HSTRING, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2321,7 +2321,7 @@ impl AppointmentManagerForUser {
             (::windows_core::Interface::vtable(this).ShowRemoveAppointmentWithPlacementAndDateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appointmentid), selection, preferredplacement, instancestartdate, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowTimeFrameAsync(&self, timetoshow: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2330,7 +2330,7 @@ impl AppointmentManagerForUser {
             (::windows_core::Interface::vtable(this).ShowTimeFrameAsync)(::windows_core::Interface::as_raw(this), timetoshow, duration, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAppointmentDetailsAsync(&self, appointmentid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2339,7 +2339,7 @@ impl AppointmentManagerForUser {
             (::windows_core::Interface::vtable(this).ShowAppointmentDetailsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appointmentid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAppointmentDetailsWithDateAsync(&self, appointmentid: &::windows_core::HSTRING, instancestartdate: super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2348,7 +2348,7 @@ impl AppointmentManagerForUser {
             (::windows_core::Interface::vtable(this).ShowAppointmentDetailsWithDateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appointmentid), instancestartdate, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowEditNewAppointmentAsync<P0>(&self, appointment: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -2360,7 +2360,7 @@ impl AppointmentManagerForUser {
             (::windows_core::Interface::vtable(this).ShowEditNewAppointmentAsync)(::windows_core::Interface::as_raw(this), appointment.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestStoreAsync(&self, options: AppointmentStoreAccessType) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppointmentStore>> {
         let this = self;
@@ -2369,7 +2369,7 @@ impl AppointmentManagerForUser {
             (::windows_core::Interface::vtable(this).RequestStoreAsync)(::windows_core::Interface::as_raw(this), options, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
@@ -2578,7 +2578,7 @@ impl AppointmentProperties {
             (::windows_core::Interface::vtable(this).Invitees)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DefaultProperties() -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
@@ -2640,7 +2640,7 @@ impl AppointmentRecurrence {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetUnit)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Occurrences(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -2649,7 +2649,7 @@ impl AppointmentRecurrence {
             (::windows_core::Interface::vtable(this).Occurrences)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetOccurrences<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2658,7 +2658,7 @@ impl AppointmentRecurrence {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetOccurrences)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Until(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -2667,7 +2667,7 @@ impl AppointmentRecurrence {
             (::windows_core::Interface::vtable(this).Until)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetUntil<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2783,7 +2783,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).ChangeTracker)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateAppointmentCalendarAsync(&self, name: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppointmentCalendar>> {
         let this = self;
@@ -2792,7 +2792,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).CreateAppointmentCalendarAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetAppointmentCalendarAsync(&self, calendarid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppointmentCalendar>> {
         let this = self;
@@ -2801,7 +2801,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).GetAppointmentCalendarAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(calendarid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetAppointmentAsync(&self, localid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Appointment>> {
         let this = self;
@@ -2810,7 +2810,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).GetAppointmentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(localid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetAppointmentInstanceAsync(&self, localid: &::windows_core::HSTRING, instancestarttime: super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Appointment>> {
         let this = self;
@@ -2819,7 +2819,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).GetAppointmentInstanceAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(localid), instancestarttime, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAppointmentCalendarsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentCalendar>>> {
         let this = self;
@@ -2828,7 +2828,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).FindAppointmentCalendarsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAppointmentCalendarsAsyncWithOptions(&self, options: FindAppointmentCalendarsOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentCalendar>>> {
         let this = self;
@@ -2837,7 +2837,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).FindAppointmentCalendarsAsyncWithOptions)(::windows_core::Interface::as_raw(this), options, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAppointmentsAsync(&self, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>> {
         let this = self;
@@ -2846,7 +2846,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).FindAppointmentsAsync)(::windows_core::Interface::as_raw(this), rangestart, rangelength, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAppointmentsAsyncWithOptions<P0>(&self, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan, options: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>
     where
@@ -2858,7 +2858,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).FindAppointmentsAsyncWithOptions)(::windows_core::Interface::as_raw(this), rangestart, rangelength, options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FindConflictAsync<P0>(&self, appointment: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppointmentConflictResult>>
     where
@@ -2870,7 +2870,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).FindConflictAsync)(::windows_core::Interface::as_raw(this), appointment.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FindConflictAsyncWithInstanceStart<P0>(&self, appointment: P0, instancestarttime: super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppointmentConflictResult>>
     where
@@ -2882,7 +2882,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).FindConflictAsyncWithInstanceStart)(::windows_core::Interface::as_raw(this), appointment.into_param().abi(), instancestarttime, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MoveAppointmentAsync<P0, P1>(&self, appointment: P0, destinationcalendar: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -2895,7 +2895,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).MoveAppointmentAsync)(::windows_core::Interface::as_raw(this), appointment.into_param().abi(), destinationcalendar.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAddAppointmentAsync<P0>(&self, appointment: P0, selection: super::super::Foundation::Rect) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -2907,7 +2907,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).ShowAddAppointmentAsync)(::windows_core::Interface::as_raw(this), appointment.into_param().abi(), selection, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowReplaceAppointmentAsync<P0>(&self, localid: &::windows_core::HSTRING, appointment: P0, selection: super::super::Foundation::Rect) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -2919,7 +2919,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).ShowReplaceAppointmentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(localid), appointment.into_param().abi(), selection, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `UI_Popups`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Popups\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowReplaceAppointmentWithPlacementAndDateAsync<P0>(&self, localid: &::windows_core::HSTRING, appointment: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -2931,7 +2931,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).ShowReplaceAppointmentWithPlacementAndDateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(localid), appointment.into_param().abi(), selection, preferredplacement, instancestartdate, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowRemoveAppointmentAsync(&self, localid: &::windows_core::HSTRING, selection: super::super::Foundation::Rect) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2940,7 +2940,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).ShowRemoveAppointmentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(localid), selection, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `UI_Popups`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Popups\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowRemoveAppointmentWithPlacementAndDateAsync(&self, localid: &::windows_core::HSTRING, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2949,7 +2949,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).ShowRemoveAppointmentWithPlacementAndDateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(localid), selection, preferredplacement, instancestartdate, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAppointmentDetailsAsync(&self, localid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2958,7 +2958,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).ShowAppointmentDetailsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(localid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAppointmentDetailsWithDateAsync(&self, localid: &::windows_core::HSTRING, instancestartdate: super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2967,7 +2967,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).ShowAppointmentDetailsWithDateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(localid), instancestartdate, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowEditNewAppointmentAsync<P0>(&self, appointment: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -2979,7 +2979,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).ShowEditNewAppointmentAsync)(::windows_core::Interface::as_raw(this), appointment.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindLocalIdsFromRoamingIdAsync(&self, roamingid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>> {
         let this = self;
@@ -2988,7 +2988,7 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).FindLocalIdsFromRoamingIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(roamingid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StoreChanged<P0>(&self, phandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3000,13 +3000,13 @@ impl AppointmentStore {
             (::windows_core::Interface::vtable(this).StoreChanged)(::windows_core::Interface::as_raw(this), phandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStoreChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IAppointmentStore2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStoreChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateAppointmentCalendarInAccountAsync(&self, name: &::windows_core::HSTRING, userdataaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppointmentCalendar>> {
         let this = &::windows_core::ComInterface::cast::<IAppointmentStore2>(self)?;
@@ -3083,7 +3083,7 @@ unsafe impl ::core::marker::Sync for AppointmentStoreChange {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentStoreChangeReader(::windows_core::IUnknown);
 impl AppointmentStoreChangeReader {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReadBatchAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentStoreChange>>> {
         let this = self;
@@ -3242,7 +3242,7 @@ impl FindAppointmentsOptions {
         static SHARED: ::windows_core::imp::FactoryCache<FindAppointmentsOptions, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CalendarIds(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -3251,7 +3251,7 @@ impl FindAppointmentsOptions {
             (::windows_core::Interface::vtable(this).CalendarIds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FetchProperties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;

@@ -315,7 +315,7 @@ impl IUIAnimationManager2 {
     pub unsafe fn Resume(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Resume)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetManagerEventHandler<P0, P1>(&self, handler: P0, fregisterfornextanimationevent: P1) -> ::windows_core::Result<()>
     where
@@ -673,7 +673,7 @@ impl IUIAnimationStoryboard2 {
     {
         (::windows_core::Interface::vtable(self).AddTransitionBetweenKeyframes)(::windows_core::Interface::as_raw(self), variable.into_param().abi(), transition.into_param().abi(), startkeyframe.into_param().abi(), endkeyframe.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RepeatBetweenKeyframes<P0, P1, P2, P3>(&self, startkeyframe: P0, endkeyframe: P1, crepetition: f64, repeatmode: UI_ANIMATION_REPEAT_MODE, piterationchangehandler: P2, id: usize, fregisterfornextanimationevent: P3) -> ::windows_core::Result<()>
     where
@@ -725,7 +725,7 @@ impl IUIAnimationStoryboard2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetElapsedTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStoryboardEventHandler<P0, P1, P2>(&self, handler: P0, fregisterstatuschangefornextanimationevent: P1, fregisterupdatefornextanimationevent: P2) -> ::windows_core::Result<()>
     where
@@ -1393,7 +1393,7 @@ impl IUIAnimationVariable2 {
     pub unsafe fn GetVectorValue(&self, value: &mut [f64]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVectorValue)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(value.as_ptr()), value.len() as _).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_DirectComposition`"]
+    #[doc = "Required features: `\"Win32_Graphics_DirectComposition\"`"]
     #[cfg(feature = "Win32_Graphics_DirectComposition")]
     pub unsafe fn GetCurve<P0>(&self, animation: P0) -> ::windows_core::Result<()>
     where
@@ -1401,7 +1401,7 @@ impl IUIAnimationVariable2 {
     {
         (::windows_core::Interface::vtable(self).GetCurve)(::windows_core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_DirectComposition`"]
+    #[doc = "Required features: `\"Win32_Graphics_DirectComposition\"`"]
     #[cfg(feature = "Win32_Graphics_DirectComposition")]
     pub unsafe fn GetVectorCurve(&self, animation: &[::core::option::Option<super::super::Graphics::DirectComposition::IDCompositionAnimation>]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVectorCurve)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(animation.as_ptr()), animation.len() as _).ok()
@@ -1469,7 +1469,7 @@ impl IUIAnimationVariable2 {
     pub unsafe fn GetTag(&self, object: ::core::option::Option<*mut ::core::option::Option<::windows_core::IUnknown>>, id: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetTag)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(object.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVariableChangeHandler<P0, P1>(&self, handler: P0, fregisterfornextanimationevent: P1) -> ::windows_core::Result<()>
     where
@@ -1478,7 +1478,7 @@ impl IUIAnimationVariable2 {
     {
         (::windows_core::Interface::vtable(self).SetVariableChangeHandler)(::windows_core::Interface::as_raw(self), handler.into_param().abi(), fregisterfornextanimationevent.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVariableIntegerChangeHandler<P0, P1>(&self, handler: P0, fregisterfornextanimationevent: P1) -> ::windows_core::Result<()>
     where

@@ -170,7 +170,7 @@ pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MicrosoftAccountMultiFactorAuthenticationManager(::windows_core::IUnknown);
 impl MicrosoftAccountMultiFactorAuthenticationManager {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetOneTimePassCodeAsync(&self, useraccountid: &::windows_core::HSTRING, codelength: u32) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorOneTimeCodedInfo>> {
         let this = self;
@@ -179,7 +179,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
             (::windows_core::Interface::vtable(this).GetOneTimePassCodeAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(useraccountid), codelength, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AddDeviceAsync(&self, useraccountid: &::windows_core::HSTRING, authenticationtoken: &::windows_core::HSTRING, wnschannelid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
@@ -188,7 +188,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
             (::windows_core::Interface::vtable(this).AddDeviceAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(useraccountid), ::core::mem::transmute_copy(authenticationtoken), ::core::mem::transmute_copy(wnschannelid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDeviceAsync(&self, useraccountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
@@ -197,7 +197,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
             (::windows_core::Interface::vtable(this).RemoveDeviceAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(useraccountid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateWnsChannelAsync(&self, useraccountid: &::windows_core::HSTRING, channeluri: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
@@ -206,7 +206,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
             (::windows_core::Interface::vtable(this).UpdateWnsChannelAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(useraccountid), ::core::mem::transmute_copy(channeluri), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSessionsAsync<P0>(&self, useraccountidlist: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorGetSessionsResult>>
     where
@@ -218,7 +218,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
             (::windows_core::Interface::vtable(this).GetSessionsAsync)(::windows_core::Interface::as_raw(this), useraccountidlist.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSessionsAndUnregisteredAccountsAsync<P0>(&self, useraccountidlist: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>>
     where
@@ -230,7 +230,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
             (::windows_core::Interface::vtable(this).GetSessionsAndUnregisteredAccountsAsync)(::windows_core::Interface::as_raw(this), useraccountidlist.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ApproveSessionUsingAuthSessionInfoAsync<P0>(&self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, authenticationsessioninfo: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
     where
@@ -242,7 +242,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
             (::windows_core::Interface::vtable(this).ApproveSessionUsingAuthSessionInfoAsync)(::windows_core::Interface::as_raw(this), sessionauthentictionstatus, authenticationsessioninfo.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ApproveSessionAsync(&self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, useraccountid: &::windows_core::HSTRING, sessionid: &::windows_core::HSTRING, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
@@ -251,7 +251,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
             (::windows_core::Interface::vtable(this).ApproveSessionAsync)(::windows_core::Interface::as_raw(this), sessionauthentictionstatus, ::core::mem::transmute_copy(useraccountid), ::core::mem::transmute_copy(sessionid), sessionauthenticationtype, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DenySessionUsingAuthSessionInfoAsync<P0>(&self, authenticationsessioninfo: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
     where
@@ -263,7 +263,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
             (::windows_core::Interface::vtable(this).DenySessionUsingAuthSessionInfoAsync)(::windows_core::Interface::as_raw(this), authenticationsessioninfo.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DenySessionAsync(&self, useraccountid: &::windows_core::HSTRING, sessionid: &::windows_core::HSTRING, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
@@ -303,7 +303,7 @@ unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorAuthenticationMa
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MicrosoftAccountMultiFactorGetSessionsResult(::windows_core::IUnknown);
 impl MicrosoftAccountMultiFactorGetSessionsResult {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Sessions(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>> {
         let this = self;
@@ -346,7 +346,7 @@ impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
             (::windows_core::Interface::vtable(this).Code)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeInterval(&self) -> ::windows_core::Result<super::super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -355,7 +355,7 @@ impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
             (::windows_core::Interface::vtable(this).TimeInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeToLive(&self) -> ::windows_core::Result<super::super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -426,7 +426,7 @@ impl MicrosoftAccountMultiFactorSessionInfo {
             (::windows_core::Interface::vtable(this).AuthenticationType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestTime(&self) -> ::windows_core::Result<super::super::super::super::Foundation::DateTime> {
         let this = self;
@@ -435,7 +435,7 @@ impl MicrosoftAccountMultiFactorSessionInfo {
             (::windows_core::Interface::vtable(this).RequestTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ExpirationTime(&self) -> ::windows_core::Result<super::super::super::super::Foundation::DateTime> {
         let this = self;
@@ -464,7 +464,7 @@ unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorSessionInfo {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(::windows_core::IUnknown);
 impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Sessions(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>> {
         let this = self;
@@ -473,7 +473,7 @@ impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
             (::windows_core::Interface::vtable(this).Sessions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UnregisteredAccounts(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;

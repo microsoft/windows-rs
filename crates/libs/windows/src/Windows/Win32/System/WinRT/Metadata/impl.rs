@@ -402,7 +402,7 @@ impl IMetaDataDispenser_Vtbl {
         *iid == <IMetaDataDispenser as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMetaDataDispenserEx_Impl: Sized + IMetaDataDispenser_Impl {
     fn SetOption(&self, optionid: *const ::windows_core::GUID, value: *const super::super::Variant::VARIANT) -> ::windows_core::Result<()>;
@@ -467,7 +467,7 @@ impl IMetaDataDispenserEx_Vtbl {
         *iid == <IMetaDataDispenserEx as ::windows_core::ComInterface>::IID || *iid == <IMetaDataDispenser as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMetaDataEmit_Impl: Sized {
     fn SetModuleProps(&self, szname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -841,7 +841,7 @@ impl IMetaDataEmit_Vtbl {
         *iid == <IMetaDataEmit as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMetaDataEmit2_Impl: Sized + IMetaDataEmit_Impl {
     fn DefineMethodSpec(&self, tkparent: u32, pvsigblob: *mut u8, cbsigblob: u32, pmi: *mut u32) -> ::windows_core::Result<()>;
@@ -931,7 +931,7 @@ impl IMetaDataError_Vtbl {
         *iid == <IMetaDataError as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMetaDataFilter_Impl: Sized {
     fn UnmarkAll(&self) -> ::windows_core::Result<()>;
@@ -969,7 +969,7 @@ impl IMetaDataFilter_Vtbl {
         *iid == <IMetaDataFilter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMetaDataImport_Impl: Sized {
     fn CloseEnum(&self, henum: *mut ::core::ffi::c_void);
@@ -1468,7 +1468,7 @@ impl IMetaDataImport_Vtbl {
         *iid == <IMetaDataImport as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMetaDataImport2_Impl: Sized + IMetaDataImport_Impl {
     fn EnumGenericParams(&self, phenum: *mut *mut ::core::ffi::c_void, tk: u32, rgenericparams: *mut u32, cmax: u32, pcgenericparams: *mut u32) -> ::windows_core::Result<()>;

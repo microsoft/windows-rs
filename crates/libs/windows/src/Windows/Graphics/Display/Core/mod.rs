@@ -104,7 +104,7 @@ pub struct IHdmiDisplayMode2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HdmiDisplayInformation(::windows_core::IUnknown);
 impl HdmiDisplayInformation {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSupportedDisplayModes(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<HdmiDisplayMode>> {
         let this = self;
@@ -120,7 +120,7 @@ impl HdmiDisplayInformation {
             (::windows_core::Interface::vtable(this).GetCurrentDisplayMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDefaultDisplayModeAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -129,7 +129,7 @@ impl HdmiDisplayInformation {
             (::windows_core::Interface::vtable(this).SetDefaultDisplayModeAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestSetCurrentDisplayModeAsync<P0>(&self, mode: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -141,7 +141,7 @@ impl HdmiDisplayInformation {
             (::windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeAsync)(::windows_core::Interface::as_raw(this), mode.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestSetCurrentDisplayModeWithHdrAsync<P0>(&self, mode: P0, hdroption: HdmiDisplayHdrOption) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -153,7 +153,7 @@ impl HdmiDisplayInformation {
             (::windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAsync)(::windows_core::Interface::as_raw(this), mode.into_param().abi(), hdroption, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestSetCurrentDisplayModeWithHdrAndMetadataAsync<P0>(&self, mode: P0, hdroption: HdmiDisplayHdrOption, hdrmetadata: HdmiDisplayHdr2086Metadata) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -165,7 +165,7 @@ impl HdmiDisplayInformation {
             (::windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAndMetadataAsync)(::windows_core::Interface::as_raw(this), mode.into_param().abi(), hdroption, hdrmetadata, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DisplayModesChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -177,7 +177,7 @@ impl HdmiDisplayInformation {
             (::windows_core::Interface::vtable(this).DisplayModesChanged)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDisplayModesChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;

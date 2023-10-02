@@ -197,7 +197,7 @@ pub struct IEnumWiaItem2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaAppErrorHandler(::windows_core::IUnknown);
 impl IWiaAppErrorHandler {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -252,7 +252,7 @@ pub struct IWiaDataCallback_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaDataTransfer(::windows_core::IUnknown);
 impl IWiaDataTransfer {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn idtGetData<P0>(&self, pmedium: *mut super::super::System::Com::STGMEDIUM, piwiadatacallback: P0) -> ::windows_core::Result<()>
     where
@@ -260,7 +260,7 @@ impl IWiaDataTransfer {
     {
         (::windows_core::Interface::vtable(self).idtGetData)(::windows_core::Interface::as_raw(self), pmedium, piwiadatacallback.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn idtGetBandedData<P0>(&self, pwiadatatransinfo: *mut WIA_DATA_TRANSFER_INFO, piwiadatacallback: P0) -> ::windows_core::Result<()>
     where
@@ -317,7 +317,7 @@ impl IWiaDevMgr {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateDevice)(::windows_core::Interface::as_raw(self), bstrdeviceid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectDeviceDlg<P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut ::windows_core::BSTR, ppitemroot: *mut ::core::option::Option<IWiaItem>) -> ::windows_core::Result<()>
     where
@@ -325,7 +325,7 @@ impl IWiaDevMgr {
     {
         (::windows_core::Interface::vtable(self).SelectDeviceDlg)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ldevicetype, lflags, ::core::mem::transmute(pbstrdeviceid), ::core::mem::transmute(ppitemroot)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectDeviceDlgID<P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>
     where
@@ -333,7 +333,7 @@ impl IWiaDevMgr {
     {
         (::windows_core::Interface::vtable(self).SelectDeviceDlgID)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ldevicetype, lflags, ::core::mem::transmute(pbstrdeviceid)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetImageDlg<P0, P1, P2>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, lintent: i32, pitemroot: P1, bstrfilename: P2, pguidformat: *mut ::windows_core::GUID) -> ::windows_core::Result<()>
     where
@@ -370,7 +370,7 @@ impl IWiaDevMgr {
     {
         (::windows_core::Interface::vtable(self).RegisterEventCallbackCLSID)(::windows_core::Interface::as_raw(self), lflags, bstrdeviceid.into_param().abi(), peventguid, pclsid, bstrname.into_param().abi(), bstrdescription.into_param().abi(), bstricon.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDeviceDlg<P0>(&self, hwndparent: P0, lflags: i32) -> ::windows_core::Result<()>
     where
@@ -427,7 +427,7 @@ impl IWiaDevMgr2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateDevice)(::windows_core::Interface::as_raw(self), lflags, bstrdeviceid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectDeviceDlg<P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut ::windows_core::BSTR, ppitemroot: *mut ::core::option::Option<IWiaItem2>) -> ::windows_core::Result<()>
     where
@@ -435,7 +435,7 @@ impl IWiaDevMgr2 {
     {
         (::windows_core::Interface::vtable(self).SelectDeviceDlg)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ldevicetype, lflags, ::core::mem::transmute(pbstrdeviceid), ::core::mem::transmute(ppitemroot)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectDeviceDlgID<P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>
     where
@@ -471,7 +471,7 @@ impl IWiaDevMgr2 {
     {
         (::windows_core::Interface::vtable(self).RegisterEventCallbackCLSID)(::windows_core::Interface::as_raw(self), lflags, bstrdeviceid.into_param().abi(), peventguid, pclsid, bstrname.into_param().abi(), bstrdescription.into_param().abi(), bstricon.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetImageDlg<P0, P1, P2, P3>(&self, lflags: i32, bstrdeviceid: P0, hwndparent: P1, bstrfoldername: P2, bstrfilename: P3, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut ::windows_core::BSTR, ppitem: *mut ::core::option::Option<IWiaItem2>) -> ::windows_core::Result<()>
     where
@@ -604,7 +604,7 @@ pub struct IWiaDrvItem_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaErrorHandler(::windows_core::IUnknown);
 impl IWiaErrorHandler {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReportStatus<P0, P1>(&self, lflags: i32, hwndparent: P0, pwiaitem2: P1, hrstatus: ::windows_core::HRESULT, lpercentcomplete: i32) -> ::windows_core::Result<()>
     where
@@ -682,7 +682,7 @@ impl IWiaImageFilter {
     {
         (::windows_core::Interface::vtable(self).SetNewCallback)(::windows_core::Interface::as_raw(self), pwiatransfercallback.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn FilterPreviewImage<P0, P1>(&self, lflags: i32, pwiachilditem2: P0, inputimageextents: super::super::Foundation::RECT, pinputstream: P1) -> ::windows_core::Result<()>
     where
@@ -754,7 +754,7 @@ impl IWiaItem {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindItemByName)(::windows_core::Interface::as_raw(self), lflags, bstrfullitemname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceDlg<P0>(&self, hwndparent: P0, lflags: i32, lintent: i32, plitemcount: *mut i32, ppiwiaitem: *mut *mut ::core::option::Option<IWiaItem>) -> ::windows_core::Result<()>
     where
@@ -852,7 +852,7 @@ impl IWiaItem2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceDlg<P0, P1, P2>(&self, lflags: i32, hwndparent: P0, bstrfoldername: P1, bstrfilename: P2, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut ::windows_core::BSTR, ppitem: ::core::option::Option<*mut ::core::option::Option<IWiaItem2>>) -> ::windows_core::Result<()>
     where
@@ -869,7 +869,7 @@ impl IWiaItem2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumDeviceCapabilities)(::windows_core::Interface::as_raw(self), lflags, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckExtension<P0>(&self, lflags: i32, bstrname: P0, riidextensioninterface: *const ::windows_core::GUID, pbextensionexists: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>
     where
@@ -1055,7 +1055,7 @@ impl IWiaMiniDrv {
     {
         (::windows_core::Interface::vtable(self).drvInitializeWia)(::windows_core::Interface::as_raw(self), __midl__iwiaminidrv0000, __midl__iwiaminidrv0001, __midl__iwiaminidrv0002.into_param().abi(), __midl__iwiaminidrv0003.into_param().abi(), __midl__iwiaminidrv0004.into_param().abi(), __midl__iwiaminidrv0005.into_param().abi(), ::core::mem::transmute(__midl__iwiaminidrv0006), ::core::mem::transmute(__midl__iwiaminidrv0007), __midl__iwiaminidrv0008).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn drvAcquireItemData(&self, __midl__iwiaminidrv0009: *const u8, __midl__iwiaminidrv0010: i32, __midl__iwiaminidrv0011: *mut MINIDRV_TRANSFER_CONTEXT, __midl__iwiaminidrv0012: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).drvAcquireItemData)(::windows_core::Interface::as_raw(self), __midl__iwiaminidrv0009, __midl__iwiaminidrv0010, __midl__iwiaminidrv0011, __midl__iwiaminidrv0012).ok()
@@ -1064,19 +1064,19 @@ impl IWiaMiniDrv {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).drvInitItemProperties)(::windows_core::Interface::as_raw(self), __midl__iwiaminidrv0013, __midl__iwiaminidrv0014, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn drvValidateItemProperties(&self, __midl__iwiaminidrv0016: *const u8, __midl__iwiaminidrv0017: i32, __midl__iwiaminidrv0018: u32, __midl__iwiaminidrv0019: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).drvValidateItemProperties)(::windows_core::Interface::as_raw(self), __midl__iwiaminidrv0016, __midl__iwiaminidrv0017, __midl__iwiaminidrv0018, __midl__iwiaminidrv0019, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn drvWriteItemProperties(&self, __midl__iwiaminidrv0021: *const u8, __midl__iwiaminidrv0022: i32, __midl__iwiaminidrv0023: *const MINIDRV_TRANSFER_CONTEXT) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).drvWriteItemProperties)(::windows_core::Interface::as_raw(self), __midl__iwiaminidrv0021, __midl__iwiaminidrv0022, __midl__iwiaminidrv0023, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn drvReadItemProperties(&self, __midl__iwiaminidrv0025: *const u8, __midl__iwiaminidrv0026: i32, __midl__iwiaminidrv0027: u32, __midl__iwiaminidrv0028: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
@@ -1168,7 +1168,7 @@ pub struct IWiaMiniDrv_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaMiniDrvCallBack(::windows_core::IUnknown);
 impl IWiaMiniDrvCallBack {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MiniDrvCallback(&self, lreason: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, ptranctx: *const MINIDRV_TRANSFER_CONTEXT, lreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).MiniDrvCallback)(::windows_core::Interface::as_raw(self), lreason, lstatus, lpercentcomplete, loffset, llength, ptranctx, lreserved).ok()
@@ -1194,7 +1194,7 @@ pub struct IWiaMiniDrvCallBack_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaMiniDrvTransferCallback(::windows_core::IUnknown);
 impl IWiaMiniDrvTransferCallback {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNextStream<P0, P1>(&self, lflags: i32, bstritemname: P0, bstrfullitemname: P1) -> ::windows_core::Result<super::super::System::Com::IStream>
     where
@@ -1291,17 +1291,17 @@ pub struct IWiaPreview_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaPropertyStorage(::windows_core::IUnknown);
 impl IWiaPropertyStorage {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn ReadMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReadMultiple)(::windows_core::Interface::as_raw(self), cpspec, rgpspec, rgpropvar).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn WriteMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).WriteMultiple)(::windows_core::Interface::as_raw(self), cpspec, rgpspec, rgpropvar, propidnamefirst).ok()
     }
-    #[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn DeleteMultiple(&self, rgpspec: &[super::super::System::Com::StructuredStorage::PROPSPEC]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeleteMultiple)(::windows_core::Interface::as_raw(self), rgpspec.len() as _, ::core::mem::transmute(rgpspec.as_ptr())).ok()
@@ -1321,13 +1321,13 @@ impl IWiaPropertyStorage {
     pub unsafe fn Revert(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Revert)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Enum(&self) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::IEnumSTATPROPSTG> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Enum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTimes(&self, pctime: *const super::super::Foundation::FILETIME, patime: *const super::super::Foundation::FILETIME, pmtime: *const super::super::Foundation::FILETIME) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetTimes)(::windows_core::Interface::as_raw(self), pctime, patime, pmtime).ok()
@@ -1335,12 +1335,12 @@ impl IWiaPropertyStorage {
     pub unsafe fn SetClass(&self, clsid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetClass)(::windows_core::Interface::as_raw(self), clsid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Stat(&self, pstatpsstg: *mut super::super::System::Com::StructuredStorage::STATPROPSETSTG) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Stat)(::windows_core::Interface::as_raw(self), pstatpsstg).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPropertyAttributes(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgflags: *mut u32, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPropertyAttributes)(::windows_core::Interface::as_raw(self), cpspec, rgpspec, rgflags, rgpropvar).ok()
@@ -1349,12 +1349,12 @@ impl IWiaPropertyStorage {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPropertyStream(&self, pcompatibilityid: *mut ::windows_core::GUID, ppistream: *mut ::core::option::Option<super::super::System::Com::IStream>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPropertyStream)(::windows_core::Interface::as_raw(self), pcompatibilityid, ::core::mem::transmute(ppistream)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPropertyStream<P0>(&self, pcompatibilityid: *mut ::windows_core::GUID, pistream: P0) -> ::windows_core::Result<()>
     where
@@ -1422,7 +1422,7 @@ pub struct IWiaPropertyStorage_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaSegmentationFilter(::windows_core::IUnknown);
 impl IWiaSegmentationFilter {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DetectRegions<P0, P1>(&self, lflags: i32, pinputstream: P0, pwiaitem2: P1) -> ::windows_core::Result<()>
     where
@@ -1458,7 +1458,7 @@ impl IWiaTransfer {
     {
         (::windows_core::Interface::vtable(self).Download)(::windows_core::Interface::as_raw(self), lflags, piwiatransfercallback.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Upload<P0, P1>(&self, lflags: i32, psource: P0, piwiatransfercallback: P1) -> ::windows_core::Result<()>
     where
@@ -1501,7 +1501,7 @@ impl IWiaTransferCallback {
     pub unsafe fn TransferCallback(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).TransferCallback)(::windows_core::Interface::as_raw(self), lflags, pwiatransferparams).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNextStream<P0, P1>(&self, lflags: i32, bstritemname: P0, bstrfullitemname: P1) -> ::windows_core::Result<super::super::System::Com::IStream>
     where
@@ -1533,12 +1533,12 @@ pub struct IWiaTransferCallback_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaUIExtension(::windows_core::IUnknown);
 impl IWiaUIExtension {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceDialog(&self, pdevicedialogdata: *const DEVICEDIALOGDATA) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeviceDialog)(::windows_core::Interface::as_raw(self), pdevicedialogdata).ok()
     }
-    #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+    #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetDeviceIcon<P0>(&self, bstrdeviceid: P0, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows_core::Result<()>
     where
@@ -1546,7 +1546,7 @@ impl IWiaUIExtension {
     {
         (::windows_core::Interface::vtable(self).GetDeviceIcon)(::windows_core::Interface::as_raw(self), bstrdeviceid.into_param().abi(), phicon, nsize).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetDeviceBitmapLogo<P0>(&self, bstrdeviceid: P0, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, nmaxwidth: u32, nmaxheight: u32) -> ::windows_core::Result<()>
     where
@@ -1583,12 +1583,12 @@ pub struct IWiaUIExtension_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaUIExtension2(::windows_core::IUnknown);
 impl IWiaUIExtension2 {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceDialog(&self, pdevicedialogdata: *const DEVICEDIALOGDATA2) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeviceDialog)(::windows_core::Interface::as_raw(self), pdevicedialogdata).ok()
     }
-    #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+    #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetDeviceIcon<P0>(&self, bstrdeviceid: P0, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows_core::Result<()>
     where
@@ -1621,13 +1621,13 @@ pub struct IWiaUIExtension2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaVideo(::windows_core::IUnknown);
 impl IWiaVideo {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PreviewVisible(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PreviewVisible)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPreviewVisible<P0>(&self, bpreviewvisible: P0) -> ::windows_core::Result<()>
     where
@@ -1645,7 +1645,7 @@ impl IWiaVideo {
     {
         (::windows_core::Interface::vtable(self).SetImagesDirectory)(::windows_core::Interface::as_raw(self), bstrimagedirectory.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVideoByWiaDevID<P0, P1, P2, P3>(&self, bstrwiadeviceid: P0, hwndparent: P1, bstretchtofitparent: P2, bautobeginplayback: P3) -> ::windows_core::Result<()>
     where
@@ -1656,7 +1656,7 @@ impl IWiaVideo {
     {
         (::windows_core::Interface::vtable(self).CreateVideoByWiaDevID)(::windows_core::Interface::as_raw(self), bstrwiadeviceid.into_param().abi(), hwndparent.into_param().abi(), bstretchtofitparent.into_param().abi(), bautobeginplayback.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVideoByDevNum<P0, P1, P2>(&self, uidevicenumber: u32, hwndparent: P0, bstretchtofitparent: P1, bautobeginplayback: P2) -> ::windows_core::Result<()>
     where
@@ -1666,7 +1666,7 @@ impl IWiaVideo {
     {
         (::windows_core::Interface::vtable(self).CreateVideoByDevNum)(::windows_core::Interface::as_raw(self), uidevicenumber, hwndparent.into_param().abi(), bstretchtofitparent.into_param().abi(), bautobeginplayback.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVideoByName<P0, P1, P2, P3>(&self, bstrfriendlyname: P0, hwndparent: P1, bstretchtofitparent: P2, bautobeginplayback: P3) -> ::windows_core::Result<()>
     where
@@ -1690,7 +1690,7 @@ impl IWiaVideo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TakePicture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ResizeVideo<P0>(&self, bstretchtofitparent: P0) -> ::windows_core::Result<()>
     where
@@ -3021,7 +3021,7 @@ impl ::core::fmt::Debug for WIAVIDEO_STATE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVICEDIALOGDATA {
     pub cbSize: u32,
@@ -3063,7 +3063,7 @@ impl ::core::default::Default for DEVICEDIALOGDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVICEDIALOGDATA2 {
     pub cbSize: u32,
@@ -3107,7 +3107,7 @@ impl ::core::default::Default for DEVICEDIALOGDATA2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MINIDRV_TRANSFER_CONTEXT {
     pub lSize: i32,
@@ -3254,7 +3254,7 @@ impl ::core::default::Default for RANGEVALUE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SCANINFO {
     pub ADF: i32,
@@ -3467,7 +3467,7 @@ impl ::core::default::Default for TWAIN_CAPABILITY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VAL {
     pub lVal: i32,
@@ -3513,7 +3513,7 @@ impl ::core::default::Default for VAL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIAS_CHANGED_VALUE_INFO {
     pub bChanged: super::super::Foundation::BOOL,
@@ -3538,7 +3538,7 @@ impl ::core::default::Default for WIAS_CHANGED_VALUE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union WIAS_CHANGED_VALUE_INFO_0 {
     pub lVal: i32,
@@ -3563,7 +3563,7 @@ impl ::core::default::Default for WIAS_CHANGED_VALUE_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union WIAS_CHANGED_VALUE_INFO_1 {
     pub lVal: i32,
@@ -3804,7 +3804,7 @@ impl ::core::default::Default for WIA_DATA_CALLBACK_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIA_DATA_TRANSFER_INFO {
     pub ulSize: u32,
@@ -4139,7 +4139,7 @@ impl ::core::default::Default for WIA_PATCH_CODE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_CONTEXT {
     pub cProps: u32,
@@ -4179,7 +4179,7 @@ impl ::core::default::Default for WIA_PROPERTY_CONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO {
     pub lAccessFlags: u32,
@@ -4203,7 +4203,7 @@ impl ::core::default::Default for WIA_PROPERTY_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 pub union WIA_PROPERTY_INFO_0 {
     pub Range: WIA_PROPERTY_INFO_0_7,
@@ -4232,7 +4232,7 @@ impl ::core::default::Default for WIA_PROPERTY_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO_0_0 {
     pub Nom: i32,
@@ -4271,7 +4271,7 @@ impl ::core::default::Default for WIA_PROPERTY_INFO_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO_0_1 {
     pub cNumList: i32,
@@ -4309,7 +4309,7 @@ impl ::core::default::Default for WIA_PROPERTY_INFO_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO_0_2 {
     pub cNumList: i32,
@@ -4349,7 +4349,7 @@ impl ::core::default::Default for WIA_PROPERTY_INFO_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO_0_3 {
     pub cNumList: i32,
@@ -4389,7 +4389,7 @@ impl ::core::default::Default for WIA_PROPERTY_INFO_0_3 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO_0_4 {
     pub cNumList: i32,
@@ -4429,7 +4429,7 @@ impl ::core::default::Default for WIA_PROPERTY_INFO_0_4 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO_0_5 {
     pub Dummy: i32,
@@ -4467,7 +4467,7 @@ impl ::core::default::Default for WIA_PROPERTY_INFO_0_5 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO_0_6 {
     pub Min: f64,
@@ -4508,7 +4508,7 @@ impl ::core::default::Default for WIA_PROPERTY_INFO_0_6 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO_0_7 {
     pub Min: i32,
@@ -4677,7 +4677,7 @@ impl ::core::default::Default for WiaTransferParams {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DeviceDialogFunction = ::core::option::Option<unsafe extern "system" fn(param0: *mut DEVICEDIALOGDATA) -> ::windows_core::HRESULT>;
 #[cfg(feature = "implement")]

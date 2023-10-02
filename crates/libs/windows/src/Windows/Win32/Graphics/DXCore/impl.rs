@@ -87,7 +87,7 @@ impl IDXCoreAdapter_Vtbl {
         *iid == <IDXCoreAdapter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXCoreAdapterFactory_Impl: Sized {
     fn CreateAdapterList(&self, numattributes: u32, filterattributes: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppvadapterlist: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;

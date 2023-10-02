@@ -1,4 +1,4 @@
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait IEnteredBackgroundEventArgs_Impl: Sized {
     fn GetDeferral(&self) -> ::windows_core::Result<super::Foundation::Deferral>;
@@ -31,7 +31,7 @@ impl IEnteredBackgroundEventArgs_Vtbl {
         *iid == <IEnteredBackgroundEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait ILeavingBackgroundEventArgs_Impl: Sized {
     fn GetDeferral(&self) -> ::windows_core::Result<super::Foundation::Deferral>;
@@ -141,7 +141,7 @@ impl ISuspendingEventArgs_Vtbl {
         *iid == <ISuspendingEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait ISuspendingOperation_Impl: Sized {
     fn GetDeferral(&self) -> ::windows_core::Result<SuspendingDeferral>;

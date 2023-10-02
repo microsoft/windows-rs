@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDDVideoPortContainer_Impl: Sized {
     fn CreateVideoPort(&self, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: *mut ::core::option::Option<IDirectDrawVideoPort>, param3: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -43,7 +43,7 @@ impl IDDVideoPortContainer_Vtbl {
         *iid == <IDDVideoPortContainer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDraw_Impl: Sized {
     fn Compact(&self) -> ::windows_core::Result<()>;
@@ -212,7 +212,7 @@ impl IDirectDraw_Vtbl {
         *iid == <IDirectDraw as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDraw2_Impl: Sized {
     fn Compact(&self) -> ::windows_core::Result<()>;
@@ -388,7 +388,7 @@ impl IDirectDraw2_Vtbl {
         *iid == <IDirectDraw2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDraw4_Impl: Sized {
     fn Compact(&self) -> ::windows_core::Result<()>;
@@ -598,7 +598,7 @@ impl IDirectDraw4_Vtbl {
         *iid == <IDirectDraw4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDraw7_Impl: Sized {
     fn Compact(&self) -> ::windows_core::Result<()>;
@@ -822,7 +822,7 @@ impl IDirectDraw7_Vtbl {
         *iid == <IDirectDraw7 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDrawClipper_Impl: Sized {
     fn GetClipList(&self, param0: *mut super::super::Foundation::RECT, param1: *mut super::Gdi::RGNDATA, param2: *mut u32) -> ::windows_core::Result<()>;
@@ -969,7 +969,7 @@ impl IDirectDrawKernel_Vtbl {
         *iid == <IDirectDrawKernel as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDirectDrawPalette_Impl: Sized {
     fn GetCaps(&self, param0: *mut u32) -> ::windows_core::Result<()>;
@@ -1014,7 +1014,7 @@ impl IDirectDrawPalette_Vtbl {
         *iid == <IDirectDrawPalette as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDrawSurface_Impl: Sized {
     fn AddAttachedSurface(&self, param0: ::core::option::Option<&IDirectDrawSurface>) -> ::windows_core::Result<()>;
@@ -1274,7 +1274,7 @@ impl IDirectDrawSurface_Vtbl {
         *iid == <IDirectDrawSurface as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDrawSurface2_Impl: Sized {
     fn AddAttachedSurface(&self, param0: ::core::option::Option<&IDirectDrawSurface2>) -> ::windows_core::Result<()>;
@@ -1555,7 +1555,7 @@ impl IDirectDrawSurface2_Vtbl {
         *iid == <IDirectDrawSurface2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDrawSurface3_Impl: Sized {
     fn AddAttachedSurface(&self, param0: ::core::option::Option<&IDirectDrawSurface3>) -> ::windows_core::Result<()>;
@@ -1843,7 +1843,7 @@ impl IDirectDrawSurface3_Vtbl {
         *iid == <IDirectDrawSurface3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDrawSurface4_Impl: Sized {
     fn AddAttachedSurface(&self, param0: ::core::option::Option<&IDirectDrawSurface4>) -> ::windows_core::Result<()>;
@@ -2166,7 +2166,7 @@ impl IDirectDrawSurface4_Vtbl {
         *iid == <IDirectDrawSurface4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDrawSurface7_Impl: Sized {
     fn AddAttachedSurface(&self, param0: ::core::option::Option<&IDirectDrawSurface7>) -> ::windows_core::Result<()>;
@@ -2544,7 +2544,7 @@ impl IDirectDrawSurfaceKernel_Vtbl {
         *iid == <IDirectDrawSurfaceKernel as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectDrawVideoPort_Impl: Sized {
     fn Flip(&self, param0: ::core::option::Option<&IDirectDrawSurface>, param1: u32) -> ::windows_core::Result<()>;
@@ -2659,7 +2659,7 @@ impl IDirectDrawVideoPort_Vtbl {
         *iid == <IDirectDrawVideoPort as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectDrawVideoPortNotify_Impl: Sized {
     fn AcquireNotification(&self, param0: *mut super::super::Foundation::HANDLE, param1: *mut DDVIDEOPORTNOTIFY) -> ::windows_core::Result<()>;

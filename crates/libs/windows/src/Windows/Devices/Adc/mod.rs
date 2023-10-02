@@ -1,5 +1,5 @@
 #[cfg(feature = "Devices_Adc_Provider")]
-#[doc = "Required features: `Devices_Adc_Provider`"]
+#[doc = "Required features: `\"Devices_Adc_Provider\"`"]
 pub mod Provider;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -105,7 +105,7 @@ impl AdcChannel {
             (::windows_core::Interface::vtable(this).ReadRatio)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -186,7 +186,7 @@ impl AdcController {
             (::windows_core::Interface::vtable(this).OpenChannel)(::windows_core::Interface::as_raw(this), channelnumber, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Adc_Provider`, `Foundation_Collections`"]
+    #[doc = "Required features: `\"Devices_Adc_Provider\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<P0>(provider: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AdcController>>>
     where
@@ -197,7 +197,7 @@ impl AdcController {
             (::windows_core::Interface::vtable(this).GetControllersAsync)(::windows_core::Interface::as_raw(this), provider.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AdcController>> {
         Self::IAdcControllerStatics2(|this| unsafe {

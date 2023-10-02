@@ -1,4 +1,4 @@
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub trait IMediaEnginePlaybackSource_Impl: Sized {
     fn CurrentItem(&self) -> ::windows_core::Result<MediaPlaybackItem>;

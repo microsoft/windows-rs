@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAccountingProviderConfig_Impl: Sized {
     fn Initialize(&self, pszmachinename: &::windows_core::PCWSTR) -> ::windows_core::Result<usize>;
@@ -56,7 +56,7 @@ impl IAccountingProviderConfig_Vtbl {
         *iid == <IAccountingProviderConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAuthenticationProviderConfig_Impl: Sized {
     fn Initialize(&self, pszmachinename: &::windows_core::PCWSTR) -> ::windows_core::Result<usize>;
@@ -114,7 +114,7 @@ impl IAuthenticationProviderConfig_Vtbl {
         *iid == <IAuthenticationProviderConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEAPProviderConfig_Impl: Sized {
     fn Initialize(&self, pszmachinename: &::windows_core::PCWSTR, dweaptypeid: u32) -> ::windows_core::Result<usize>;
@@ -173,7 +173,7 @@ impl IEAPProviderConfig_Vtbl {
         *iid == <IEAPProviderConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEAPProviderConfig2_Impl: Sized + IEAPProviderConfig_Impl {
     fn ServerInvokeConfigUI2(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows_core::Result<()>;
@@ -204,7 +204,7 @@ impl IEAPProviderConfig2_Vtbl {
         *iid == <IEAPProviderConfig2 as ::windows_core::ComInterface>::IID || *iid == <IEAPProviderConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEAPProviderConfig3_Impl: Sized + IEAPProviderConfig2_Impl {
     fn ServerInvokeCertificateConfigUI(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> ::windows_core::Result<()>;
@@ -228,7 +228,7 @@ impl IEAPProviderConfig3_Vtbl {
         *iid == <IEAPProviderConfig3 as ::windows_core::ComInterface>::IID || *iid == <IEAPProviderConfig as ::windows_core::ComInterface>::IID || *iid == <IEAPProviderConfig2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRouterProtocolConfig_Impl: Sized {
     fn AddProtocol(&self, pszmachinename: &::windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: ::core::option::Option<&::windows_core::IUnknown>, ureserved1: usize) -> ::windows_core::Result<()>;

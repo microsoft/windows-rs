@@ -38,7 +38,7 @@ pub struct IVibrationDeviceStatics_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VibrationDevice(::windows_core::IUnknown);
 impl VibrationDevice {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Vibrate(&self, duration: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;

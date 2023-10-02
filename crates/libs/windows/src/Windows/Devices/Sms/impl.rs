@@ -1,4 +1,4 @@
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub trait ISmsBinaryMessage_Impl: Sized + ISmsMessage_Impl {
     fn Format(&self) -> ::windows_core::Result<SmsDataFormat>;
@@ -59,7 +59,7 @@ impl ISmsBinaryMessage_Vtbl {
         *iid == <ISmsBinaryMessage as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`, `deprecated`"]
+#[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 pub trait ISmsDevice_Impl: Sized {
     fn SendMessageAsync(&self, message: ::core::option::Option<&ISmsMessage>) -> ::windows_core::Result<SendSmsMessageOperation>;
@@ -322,7 +322,7 @@ impl ISmsMessageBase_Vtbl {
         *iid == <ISmsMessageBase as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation_Collections`, `deprecated`"]
+#[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 pub trait ISmsTextMessage_Impl: Sized + ISmsMessage_Impl {
     fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::DateTime>;

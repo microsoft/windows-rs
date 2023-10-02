@@ -46,7 +46,7 @@ pub struct IActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActivatedEventArgsWithUser(::windows_core::IUnknown);
 impl IActivatedEventArgsWithUser {
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
@@ -201,7 +201,7 @@ pub struct IAppointmentsProviderActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppointmentsProviderAddAppointmentActivatedEventArgs(::windows_core::IUnknown);
 impl IAppointmentsProviderAddAppointmentActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Appointments_AppointmentsProvider`"]
+    #[doc = "Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`"]
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
     pub fn AddAppointmentOperation(&self) -> ::windows_core::Result<super::Appointments::AppointmentsProvider::AddAppointmentOperation> {
         let this = self;
@@ -264,7 +264,7 @@ pub struct IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppointmentsProviderRemoveAppointmentActivatedEventArgs(::windows_core::IUnknown);
 impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Appointments_AppointmentsProvider`"]
+    #[doc = "Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`"]
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
     pub fn RemoveAppointmentOperation(&self) -> ::windows_core::Result<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation> {
         let this = self;
@@ -327,7 +327,7 @@ pub struct IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppointmentsProviderReplaceAppointmentActivatedEventArgs(::windows_core::IUnknown);
 impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Appointments_AppointmentsProvider`"]
+    #[doc = "Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`"]
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
     pub fn ReplaceAppointmentOperation(&self) -> ::windows_core::Result<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation> {
         let this = self;
@@ -390,7 +390,7 @@ pub struct IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs(::windows_core::IUnknown);
 impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn InstanceStartDate(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -469,7 +469,7 @@ pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgs(::windows_core::IUnknown);
 impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeToShow(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -478,7 +478,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
             (::windows_core::Interface::vtable(this).TimeToShow)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -545,7 +545,7 @@ pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundActivatedEventArgs(::windows_core::IUnknown);
 impl IBackgroundActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Background`"]
+    #[doc = "Required features: `\"ApplicationModel_Background\"`"]
     #[cfg(feature = "ApplicationModel_Background")]
     pub fn TaskInstance(&self) -> ::windows_core::Result<super::Background::IBackgroundTaskInstance> {
         let this = self;
@@ -628,7 +628,7 @@ pub struct IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICachedFileUpdaterActivatedEventArgs(::windows_core::IUnknown);
 impl ICachedFileUpdaterActivatedEventArgs {
-    #[doc = "Required features: `Storage_Provider`"]
+    #[doc = "Required features: `\"Storage_Provider\"`"]
     #[cfg(feature = "Storage_Provider")]
     pub fn CachedFileUpdaterUI(&self) -> ::windows_core::Result<super::super::Storage::Provider::CachedFileUpdaterUI> {
         let this = self;
@@ -878,7 +878,7 @@ impl IContactCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ServiceUserId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> ::windows_core::Result<super::Contacts::Contact> {
         let this = self;
@@ -943,7 +943,7 @@ pub struct IContactCallActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactMapActivatedEventArgs(::windows_core::IUnknown);
 impl IContactMapActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Address(&self) -> ::windows_core::Result<super::Contacts::ContactAddress> {
         let this = self;
@@ -952,7 +952,7 @@ impl IContactMapActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Address)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> ::windows_core::Result<super::Contacts::Contact> {
         let this = self;
@@ -1033,7 +1033,7 @@ impl IContactMessageActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ServiceUserId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> ::windows_core::Result<super::Contacts::Contact> {
         let this = self;
@@ -1098,7 +1098,7 @@ pub struct IContactMessageActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactPanelActivatedEventArgs(::windows_core::IUnknown);
 impl IContactPanelActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn ContactPanel(&self) -> ::windows_core::Result<super::Contacts::ContactPanel> {
         let this = self;
@@ -1107,7 +1107,7 @@ impl IContactPanelActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ContactPanel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> ::windows_core::Result<super::Contacts::Contact> {
         let this = self;
@@ -1144,7 +1144,7 @@ pub struct IContactPanelActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactPickerActivatedEventArgs(::windows_core::IUnknown);
 impl IContactPickerActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Contacts_Provider`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts_Provider\"`"]
     #[cfg(feature = "ApplicationModel_Contacts_Provider")]
     pub fn ContactPickerUI(&self) -> ::windows_core::Result<super::Contacts::Provider::ContactPickerUI> {
         let this = self;
@@ -1213,7 +1213,7 @@ impl IContactPostActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ServiceUserId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> ::windows_core::Result<super::Contacts::Contact> {
         let this = self;
@@ -1292,7 +1292,7 @@ impl IContactVideoCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ServiceUserId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> ::windows_core::Result<super::Contacts::Contact> {
         let this = self;
@@ -1407,7 +1407,7 @@ pub struct IContactsProviderActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContinuationActivatedEventArgs(::windows_core::IUnknown);
 impl IContinuationActivatedEventArgs {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -1520,7 +1520,7 @@ pub struct IDeviceActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDevicePairingActivatedEventArgs(::windows_core::IUnknown);
 impl IDevicePairingActivatedEventArgs {
-    #[doc = "Required features: `Devices_Enumeration`"]
+    #[doc = "Required features: `\"Devices_Enumeration\"`"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceInformation(&self) -> ::windows_core::Result<super::super::Devices::Enumeration::DeviceInformation> {
         let this = self;
@@ -1640,7 +1640,7 @@ pub struct IDialReceiverActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileActivatedEventArgs(::windows_core::IUnknown);
 impl IFileActivatedEventArgs {
-    #[doc = "Required features: `Foundation_Collections`, `Storage`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn Files(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
         let this = self;
@@ -1753,7 +1753,7 @@ pub struct IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileActivatedEventArgsWithNeighboringFiles(::windows_core::IUnknown);
 impl IFileActivatedEventArgsWithNeighboringFiles {
-    #[doc = "Required features: `Storage_Search`"]
+    #[doc = "Required features: `\"Storage_Search\"`"]
     #[cfg(feature = "Storage_Search")]
     pub fn NeighboringFilesQuery(&self) -> ::windows_core::Result<super::super::Storage::Search::StorageFileQueryResult> {
         let this = self;
@@ -1783,7 +1783,7 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Storage`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn Files(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
         let this = &::windows_core::ComInterface::cast::<IFileActivatedEventArgs>(self)?;
@@ -1825,7 +1825,7 @@ pub struct IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileOpenPickerActivatedEventArgs(::windows_core::IUnknown);
 impl IFileOpenPickerActivatedEventArgs {
-    #[doc = "Required features: `Storage_Pickers_Provider`"]
+    #[doc = "Required features: `\"Storage_Pickers_Provider\"`"]
     #[cfg(feature = "Storage_Pickers_Provider")]
     pub fn FileOpenPickerUI(&self) -> ::windows_core::Result<super::super::Storage::Pickers::Provider::FileOpenPickerUI> {
         let this = self;
@@ -1904,14 +1904,14 @@ pub struct IFileOpenPickerActivatedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileOpenPickerContinuationEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl IFileOpenPickerContinuationEventArgs {
-    #[doc = "Required features: `Foundation_Collections`, `Storage`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
     pub fn Files(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;
@@ -1941,7 +1941,7 @@ impl IFileOpenPickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows_core::ComInterface::cast::<IContinuationActivatedEventArgs>(self)?;
@@ -1983,7 +1983,7 @@ pub struct IFileOpenPickerContinuationEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileSavePickerActivatedEventArgs(::windows_core::IUnknown);
 impl IFileSavePickerActivatedEventArgs {
-    #[doc = "Required features: `Storage_Pickers_Provider`"]
+    #[doc = "Required features: `\"Storage_Pickers_Provider\"`"]
     #[cfg(feature = "Storage_Pickers_Provider")]
     pub fn FileSavePickerUI(&self) -> ::windows_core::Result<super::super::Storage::Pickers::Provider::FileSavePickerUI> {
         let this = self;
@@ -2070,14 +2070,14 @@ pub struct IFileSavePickerActivatedEventArgs2_Vtbl {
     pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub EnterpriseId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileSavePickerContinuationEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl IFileSavePickerContinuationEventArgs {
-    #[doc = "Required features: `Storage`, `deprecated`"]
+    #[doc = "Required features: `\"Storage\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Storage", feature = "deprecated"))]
     pub fn File(&self) -> ::windows_core::Result<super::super::Storage::StorageFile> {
         let this = self;
@@ -2107,7 +2107,7 @@ impl IFileSavePickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows_core::ComInterface::cast::<IContinuationActivatedEventArgs>(self)?;
@@ -2145,14 +2145,14 @@ pub struct IFileSavePickerContinuationEventArgs_Vtbl {
     #[cfg(not(all(feature = "Storage", feature = "deprecated")))]
     File: usize,
 }
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFolderPickerContinuationEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl IFolderPickerContinuationEventArgs {
-    #[doc = "Required features: `Storage`, `deprecated`"]
+    #[doc = "Required features: `\"Storage\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Storage", feature = "deprecated"))]
     pub fn Folder(&self) -> ::windows_core::Result<super::super::Storage::StorageFolder> {
         let this = self;
@@ -2182,7 +2182,7 @@ impl IFolderPickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows_core::ComInterface::cast::<IContinuationActivatedEventArgs>(self)?;
@@ -2397,7 +2397,7 @@ pub struct ILockScreenActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILockScreenCallActivatedEventArgs(::windows_core::IUnknown);
 impl ILockScreenCallActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Calls`"]
+    #[doc = "Required features: `\"ApplicationModel_Calls\"`"]
     #[cfg(feature = "ApplicationModel_Calls")]
     pub fn CallUI(&self) -> ::windows_core::Result<super::Calls::LockScreenCallUI> {
         let this = self;
@@ -2617,7 +2617,7 @@ pub struct IPrelaunchActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrint3DWorkflowActivatedEventArgs(::windows_core::IUnknown);
 impl IPrint3DWorkflowActivatedEventArgs {
-    #[doc = "Required features: `Devices_Printers_Extensions`"]
+    #[doc = "Required features: `\"Devices_Printers_Extensions\"`"]
     #[cfg(feature = "Devices_Printers_Extensions")]
     pub fn Workflow(&self) -> ::windows_core::Result<super::super::Devices::Printers::Extensions::Print3DWorkflow> {
         let this = self;
@@ -2672,7 +2672,7 @@ pub struct IPrint3DWorkflowActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintTaskSettingsActivatedEventArgs(::windows_core::IUnknown);
 impl IPrintTaskSettingsActivatedEventArgs {
-    #[doc = "Required features: `Devices_Printers_Extensions`"]
+    #[doc = "Required features: `\"Devices_Printers_Extensions\"`"]
     #[cfg(feature = "Devices_Printers_Extensions")]
     pub fn Configuration(&self) -> ::windows_core::Result<super::super::Devices::Printers::Extensions::PrintTaskConfiguration> {
         let this = self;
@@ -2727,7 +2727,7 @@ pub struct IPrintTaskSettingsActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtocolActivatedEventArgs(::windows_core::IUnknown);
 impl IProtocolActivatedEventArgs {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2789,7 +2789,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
             (::windows_core::Interface::vtable(this).CallerPackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Data(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -2845,7 +2845,7 @@ pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtocolForResultsActivatedEventArgs(::windows_core::IUnknown);
 impl IProtocolForResultsActivatedEventArgs {
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn ProtocolForResultsOperation(&self) -> ::windows_core::Result<super::super::System::ProtocolForResultsOperation> {
         let this = self;
@@ -3008,7 +3008,7 @@ pub struct ISearchActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchActivatedEventArgsWithLinguisticDetails(::windows_core::IUnknown);
 impl ISearchActivatedEventArgsWithLinguisticDetails {
-    #[doc = "Required features: `ApplicationModel_Search`"]
+    #[doc = "Required features: `\"ApplicationModel_Search\"`"]
     #[cfg(feature = "ApplicationModel_Search")]
     pub fn LinguisticDetails(&self) -> ::windows_core::Result<super::Search::SearchPaneQueryLinguisticDetails> {
         let this = self;
@@ -3041,7 +3041,7 @@ pub struct ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IShareTargetActivatedEventArgs(::windows_core::IUnknown);
 impl IShareTargetActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_DataTransfer_ShareTarget`"]
+    #[doc = "Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`"]
     #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
     pub fn ShareOperation(&self) -> ::windows_core::Result<super::DataTransfer::ShareTarget::ShareOperation> {
         let this = self;
@@ -3199,7 +3199,7 @@ impl IToastNotificationActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Argument)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UserInput(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -3255,7 +3255,7 @@ pub struct IToastNotificationActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataAccountProviderActivatedEventArgs(::windows_core::IUnknown);
 impl IUserDataAccountProviderActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_UserDataAccounts_Provider`"]
+    #[doc = "Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`"]
     #[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
     pub fn Operation(&self) -> ::windows_core::Result<super::UserDataAccounts::Provider::IUserDataAccountProviderOperation> {
         let this = self;
@@ -3310,7 +3310,7 @@ pub struct IUserDataAccountProviderActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IViewSwitcherProvider(::windows_core::IUnknown);
 impl IViewSwitcherProvider {
-    #[doc = "Required features: `UI_ViewManagement`"]
+    #[doc = "Required features: `\"UI_ViewManagement\"`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn ViewSwitcher(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = self;
@@ -3365,7 +3365,7 @@ pub struct IViewSwitcherProvider_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVoiceCommandActivatedEventArgs(::windows_core::IUnknown);
 impl IVoiceCommandActivatedEventArgs {
-    #[doc = "Required features: `Media_SpeechRecognition`"]
+    #[doc = "Required features: `\"Media_SpeechRecognition\"`"]
     #[cfg(feature = "Media_SpeechRecognition")]
     pub fn Result(&self) -> ::windows_core::Result<super::super::Media::SpeechRecognition::SpeechRecognitionResult> {
         let this = self;
@@ -3416,14 +3416,14 @@ pub struct IVoiceCommandActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Media_SpeechRecognition"))]
     Result: usize,
 }
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWalletActionActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl IWalletActionActivatedEventArgs {
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ItemId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -3432,7 +3432,7 @@ impl IWalletActionActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ItemId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Wallet`, `deprecated`"]
+    #[doc = "Required features: `\"ApplicationModel_Wallet\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
     pub fn ActionKind(&self) -> ::windows_core::Result<super::Wallet::WalletActionKind> {
         let this = self;
@@ -3441,7 +3441,7 @@ impl IWalletActionActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActionKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ActionId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -3510,7 +3510,7 @@ pub struct IWalletActionActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountProviderActivatedEventArgs(::windows_core::IUnknown);
 impl IWebAccountProviderActivatedEventArgs {
-    #[doc = "Required features: `Security_Authentication_Web_Provider`"]
+    #[doc = "Required features: `\"Security_Authentication_Web_Provider\"`"]
     #[cfg(feature = "Security_Authentication_Web_Provider")]
     pub fn Operation(&self) -> ::windows_core::Result<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation> {
         let this = self;
@@ -3565,7 +3565,7 @@ pub struct IWebAccountProviderActivatedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAuthenticationBrokerContinuationEventArgs(::windows_core::IUnknown);
 impl IWebAuthenticationBrokerContinuationEventArgs {
-    #[doc = "Required features: `Security_Authentication_Web`"]
+    #[doc = "Required features: `\"Security_Authentication_Web\"`"]
     #[cfg(feature = "Security_Authentication_Web")]
     pub fn WebAuthenticationResult(&self) -> ::windows_core::Result<super::super::Security::Authentication::Web::WebAuthenticationResult> {
         let this = self;
@@ -3595,7 +3595,7 @@ impl IWebAuthenticationBrokerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows_core::ComInterface::cast::<IContinuationActivatedEventArgs>(self)?;
@@ -3651,7 +3651,7 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -3667,7 +3667,7 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Appointments_AppointmentsProvider`"]
+    #[doc = "Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`"]
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
     pub fn AddAppointmentOperation(&self) -> ::windows_core::Result<super::Appointments::AppointmentsProvider::AddAppointmentOperation> {
         let this = self;
@@ -3721,7 +3721,7 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -3737,7 +3737,7 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Appointments_AppointmentsProvider`"]
+    #[doc = "Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`"]
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
     pub fn RemoveAppointmentOperation(&self) -> ::windows_core::Result<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation> {
         let this = self;
@@ -3791,7 +3791,7 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -3807,7 +3807,7 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Appointments_AppointmentsProvider`"]
+    #[doc = "Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`"]
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
     pub fn ReplaceAppointmentOperation(&self) -> ::windows_core::Result<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation> {
         let this = self;
@@ -3861,7 +3861,7 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -3877,7 +3877,7 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn InstanceStartDate(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -3945,7 +3945,7 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -3961,7 +3961,7 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeToShow(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -3970,7 +3970,7 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
             (::windows_core::Interface::vtable(this).TimeToShow)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -4003,7 +4003,7 @@ unsafe impl ::core::marker::Sync for AppointmentsProviderShowTimeFrameActivatedE
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BackgroundActivatedEventArgs(::windows_core::IUnknown);
 impl BackgroundActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Background`"]
+    #[doc = "Required features: `\"ApplicationModel_Background\"`"]
     #[cfg(feature = "ApplicationModel_Background")]
     pub fn TaskInstance(&self) -> ::windows_core::Result<super::Background::IBackgroundTaskInstance> {
         let this = self;
@@ -4054,7 +4054,7 @@ impl BarcodeScannerPreviewActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -4114,7 +4114,7 @@ impl CachedFileUpdaterActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -4123,7 +4123,7 @@ impl CachedFileUpdaterActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Provider`"]
+    #[doc = "Required features: `\"Storage_Provider\"`"]
     #[cfg(feature = "Storage_Provider")]
     pub fn CachedFileUpdaterUI(&self) -> ::windows_core::Result<super::super::Storage::Provider::CachedFileUpdaterUI> {
         let this = self;
@@ -4233,7 +4233,7 @@ impl CommandLineActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -4297,7 +4297,7 @@ impl CommandLineActivationOperation {
             (::windows_core::Interface::vtable(this).ExitCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -4368,7 +4368,7 @@ impl ContactCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ServiceUserId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> ::windows_core::Result<super::Contacts::Contact> {
         let this = self;
@@ -4428,7 +4428,7 @@ impl ContactMapActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Address(&self) -> ::windows_core::Result<super::Contacts::ContactAddress> {
         let this = self;
@@ -4437,7 +4437,7 @@ impl ContactMapActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Address)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> ::windows_core::Result<super::Contacts::Contact> {
         let this = self;
@@ -4511,7 +4511,7 @@ impl ContactMessageActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ServiceUserId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> ::windows_core::Result<super::Contacts::Contact> {
         let this = self;
@@ -4564,7 +4564,7 @@ impl ContactPanelActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -4573,7 +4573,7 @@ impl ContactPanelActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn ContactPanel(&self) -> ::windows_core::Result<super::Contacts::ContactPanel> {
         let this = self;
@@ -4582,7 +4582,7 @@ impl ContactPanelActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ContactPanel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> ::windows_core::Result<super::Contacts::Contact> {
         let this = self;
@@ -4635,7 +4635,7 @@ impl ContactPickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Contacts_Provider`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts_Provider\"`"]
     #[cfg(feature = "ApplicationModel_Contacts_Provider")]
     pub fn ContactPickerUI(&self) -> ::windows_core::Result<super::Contacts::Provider::ContactPickerUI> {
         let this = self;
@@ -4708,7 +4708,7 @@ impl ContactPostActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ServiceUserId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> ::windows_core::Result<super::Contacts::Contact> {
         let this = self;
@@ -4782,7 +4782,7 @@ impl ContactVideoCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ServiceUserId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> ::windows_core::Result<super::Contacts::Contact> {
         let this = self;
@@ -4835,7 +4835,7 @@ impl DeviceActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -4865,7 +4865,7 @@ impl DeviceActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_ViewManagement`"]
+    #[doc = "Required features: `\"UI_ViewManagement\"`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn ViewSwitcher(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &::windows_core::ComInterface::cast::<IViewSwitcherProvider>(self)?;
@@ -4920,7 +4920,7 @@ impl DevicePairingActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -4929,7 +4929,7 @@ impl DevicePairingActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Enumeration`"]
+    #[doc = "Required features: `\"Devices_Enumeration\"`"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceInformation(&self) -> ::windows_core::Result<super::super::Devices::Enumeration::DeviceInformation> {
         let this = self;
@@ -4982,7 +4982,7 @@ impl DialReceiverActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -5019,7 +5019,7 @@ impl DialReceiverActivatedEventArgs {
             (::windows_core::Interface::vtable(this).TileId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_ViewManagement`"]
+    #[doc = "Required features: `\"UI_ViewManagement\"`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn ViewSwitcher(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &::windows_core::ComInterface::cast::<IViewSwitcherProvider>(self)?;
@@ -5075,7 +5075,7 @@ impl FileActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -5091,7 +5091,7 @@ impl FileActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Storage`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn Files(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
         let this = self;
@@ -5114,7 +5114,7 @@ impl FileActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CallerPackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Search`"]
+    #[doc = "Required features: `\"Storage_Search\"`"]
     #[cfg(feature = "Storage_Search")]
     pub fn NeighboringFilesQuery(&self) -> ::windows_core::Result<super::super::Storage::Search::StorageFileQueryResult> {
         let this = &::windows_core::ComInterface::cast::<IFileActivatedEventArgsWithNeighboringFiles>(self)?;
@@ -5123,7 +5123,7 @@ impl FileActivatedEventArgs {
             (::windows_core::Interface::vtable(this).NeighboringFilesQuery)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_ViewManagement`"]
+    #[doc = "Required features: `\"UI_ViewManagement\"`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn ViewSwitcher(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &::windows_core::ComInterface::cast::<IViewSwitcherProvider>(self)?;
@@ -5180,7 +5180,7 @@ impl FileOpenPickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -5189,7 +5189,7 @@ impl FileOpenPickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Pickers_Provider`"]
+    #[doc = "Required features: `\"Storage_Pickers_Provider\"`"]
     #[cfg(feature = "Storage_Pickers_Provider")]
     pub fn FileOpenPickerUI(&self) -> ::windows_core::Result<super::super::Storage::Pickers::Provider::FileOpenPickerUI> {
         let this = self;
@@ -5225,7 +5225,7 @@ impl ::windows_core::CanTryInto<IFileOpenPickerActivatedEventArgs> for FileOpenP
 impl ::windows_core::CanTryInto<IFileOpenPickerActivatedEventArgs2> for FileOpenPickerActivatedEventArgs {}
 unsafe impl ::core::marker::Send for FileOpenPickerActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for FileOpenPickerActivatedEventArgs {}
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5253,7 +5253,7 @@ impl FileOpenPickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -5262,7 +5262,7 @@ impl FileOpenPickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows_core::ComInterface::cast::<IContinuationActivatedEventArgs>(self)?;
@@ -5271,7 +5271,7 @@ impl FileOpenPickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).ContinuationData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Storage`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
     pub fn Files(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;
@@ -5336,7 +5336,7 @@ impl FileSavePickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -5345,7 +5345,7 @@ impl FileSavePickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Pickers_Provider`"]
+    #[doc = "Required features: `\"Storage_Pickers_Provider\"`"]
     #[cfg(feature = "Storage_Pickers_Provider")]
     pub fn FileSavePickerUI(&self) -> ::windows_core::Result<super::super::Storage::Pickers::Provider::FileSavePickerUI> {
         let this = self;
@@ -5388,7 +5388,7 @@ impl ::windows_core::CanTryInto<IFileSavePickerActivatedEventArgs> for FileSaveP
 impl ::windows_core::CanTryInto<IFileSavePickerActivatedEventArgs2> for FileSavePickerActivatedEventArgs {}
 unsafe impl ::core::marker::Send for FileSavePickerActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for FileSavePickerActivatedEventArgs {}
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5416,7 +5416,7 @@ impl FileSavePickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -5425,7 +5425,7 @@ impl FileSavePickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows_core::ComInterface::cast::<IContinuationActivatedEventArgs>(self)?;
@@ -5434,7 +5434,7 @@ impl FileSavePickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).ContinuationData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage`, `deprecated`"]
+    #[doc = "Required features: `\"Storage\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Storage", feature = "deprecated"))]
     pub fn File(&self) -> ::windows_core::Result<super::super::Storage::StorageFile> {
         let this = self;
@@ -5474,7 +5474,7 @@ impl ::windows_core::CanTryInto<IFileSavePickerContinuationEventArgs> for FileSa
 unsafe impl ::core::marker::Send for FileSavePickerContinuationEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for FileSavePickerContinuationEventArgs {}
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5502,7 +5502,7 @@ impl FolderPickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -5511,7 +5511,7 @@ impl FolderPickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows_core::ComInterface::cast::<IContinuationActivatedEventArgs>(self)?;
@@ -5520,7 +5520,7 @@ impl FolderPickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).ContinuationData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage`, `deprecated`"]
+    #[doc = "Required features: `\"Storage\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Storage", feature = "deprecated"))]
     pub fn Folder(&self) -> ::windows_core::Result<super::super::Storage::StorageFolder> {
         let this = self;
@@ -5585,7 +5585,7 @@ impl LaunchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -5629,7 +5629,7 @@ impl LaunchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PrelaunchActivated)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_ViewManagement`"]
+    #[doc = "Required features: `\"UI_ViewManagement\"`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn ViewSwitcher(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &::windows_core::ComInterface::cast::<IViewSwitcherProvider>(self)?;
@@ -5686,7 +5686,7 @@ impl LockScreenActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -5767,7 +5767,7 @@ impl LockScreenCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).TileId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Calls`"]
+    #[doc = "Required features: `\"ApplicationModel_Calls\"`"]
     #[cfg(feature = "ApplicationModel_Calls")]
     pub fn CallUI(&self) -> ::windows_core::Result<super::Calls::LockScreenCallUI> {
         let this = self;
@@ -5776,7 +5776,7 @@ impl LockScreenCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CallUI)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_ViewManagement`"]
+    #[doc = "Required features: `\"UI_ViewManagement\"`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn ViewSwitcher(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &::windows_core::ComInterface::cast::<IViewSwitcherProvider>(self)?;
@@ -5873,7 +5873,7 @@ impl PhoneCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -5983,7 +5983,7 @@ impl Print3DWorkflowActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Printers_Extensions`"]
+    #[doc = "Required features: `\"Devices_Printers_Extensions\"`"]
     #[cfg(feature = "Devices_Printers_Extensions")]
     pub fn Workflow(&self) -> ::windows_core::Result<super::super::Devices::Printers::Extensions::Print3DWorkflow> {
         let this = self;
@@ -6035,7 +6035,7 @@ impl PrintTaskSettingsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Printers_Extensions`"]
+    #[doc = "Required features: `\"Devices_Printers_Extensions\"`"]
     #[cfg(feature = "Devices_Printers_Extensions")]
     pub fn Configuration(&self) -> ::windows_core::Result<super::super::Devices::Printers::Extensions::PrintTaskConfiguration> {
         let this = self;
@@ -6087,7 +6087,7 @@ impl ProtocolActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -6103,7 +6103,7 @@ impl ProtocolActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -6119,7 +6119,7 @@ impl ProtocolActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CallerPackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Data(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows_core::ComInterface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
@@ -6128,7 +6128,7 @@ impl ProtocolActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Data)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_ViewManagement`"]
+    #[doc = "Required features: `\"UI_ViewManagement\"`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn ViewSwitcher(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &::windows_core::ComInterface::cast::<IViewSwitcherProvider>(self)?;
@@ -6184,7 +6184,7 @@ impl ProtocolForResultsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -6200,7 +6200,7 @@ impl ProtocolForResultsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<IProtocolActivatedEventArgs>(self)?;
@@ -6216,7 +6216,7 @@ impl ProtocolForResultsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CallerPackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Data(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows_core::ComInterface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
@@ -6225,7 +6225,7 @@ impl ProtocolForResultsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Data)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn ProtocolForResultsOperation(&self) -> ::windows_core::Result<super::super::System::ProtocolForResultsOperation> {
         let this = self;
@@ -6234,7 +6234,7 @@ impl ProtocolForResultsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ProtocolForResultsOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_ViewManagement`"]
+    #[doc = "Required features: `\"UI_ViewManagement\"`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn ViewSwitcher(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &::windows_core::ComInterface::cast::<IViewSwitcherProvider>(self)?;
@@ -6291,7 +6291,7 @@ impl RestrictedLaunchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -6351,7 +6351,7 @@ impl SearchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -6381,7 +6381,7 @@ impl SearchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Language)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Search`"]
+    #[doc = "Required features: `\"ApplicationModel_Search\"`"]
     #[cfg(feature = "ApplicationModel_Search")]
     pub fn LinguisticDetails(&self) -> ::windows_core::Result<super::Search::SearchPaneQueryLinguisticDetails> {
         let this = &::windows_core::ComInterface::cast::<ISearchActivatedEventArgsWithLinguisticDetails>(self)?;
@@ -6390,7 +6390,7 @@ impl SearchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).LinguisticDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI_ViewManagement`"]
+    #[doc = "Required features: `\"UI_ViewManagement\"`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn ViewSwitcher(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &::windows_core::ComInterface::cast::<IViewSwitcherProvider>(self)?;
@@ -6446,7 +6446,7 @@ impl ShareTargetActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -6455,7 +6455,7 @@ impl ShareTargetActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_DataTransfer_ShareTarget`"]
+    #[doc = "Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`"]
     #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
     pub fn ShareOperation(&self) -> ::windows_core::Result<super::DataTransfer::ShareTarget::ShareOperation> {
         let this = self;
@@ -6487,7 +6487,7 @@ unsafe impl ::core::marker::Sync for ShareTargetActivatedEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SplashScreen(::windows_core::IUnknown);
 impl SplashScreen {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ImageLocation(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -6496,7 +6496,7 @@ impl SplashScreen {
             (::windows_core::Interface::vtable(this).ImageLocation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Dismissed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -6508,7 +6508,7 @@ impl SplashScreen {
             (::windows_core::Interface::vtable(this).Dismissed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDismissed(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -6553,7 +6553,7 @@ impl StartupTaskActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -6592,7 +6592,7 @@ unsafe impl ::core::marker::Sync for StartupTaskActivatedEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TileActivatedInfo(::windows_core::IUnknown);
 impl TileActivatedInfo {
-    #[doc = "Required features: `Foundation_Collections`, `UI_Notifications`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"UI_Notifications\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Notifications"))]
     pub fn RecentlyShownNotifications(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::UI::Notifications::ShownTileNotification>> {
         let this = self;
@@ -6642,7 +6642,7 @@ impl ToastNotificationActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -6665,7 +6665,7 @@ impl ToastNotificationActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Argument)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UserInput(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -6719,7 +6719,7 @@ impl UserDataAccountProviderActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_UserDataAccounts_Provider`"]
+    #[doc = "Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`"]
     #[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
     pub fn Operation(&self) -> ::windows_core::Result<super::UserDataAccounts::Provider::IUserDataAccountProviderOperation> {
         let this = self;
@@ -6771,7 +6771,7 @@ impl VoiceCommandActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -6780,7 +6780,7 @@ impl VoiceCommandActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Media_SpeechRecognition`"]
+    #[doc = "Required features: `\"Media_SpeechRecognition\"`"]
     #[cfg(feature = "Media_SpeechRecognition")]
     pub fn Result(&self) -> ::windows_core::Result<super::super::Media::SpeechRecognition::SpeechRecognitionResult> {
         let this = self;
@@ -6808,7 +6808,7 @@ impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for VoiceCommandAct
 impl ::windows_core::CanTryInto<IVoiceCommandActivatedEventArgs> for VoiceCommandActivatedEventArgs {}
 unsafe impl ::core::marker::Send for VoiceCommandActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for VoiceCommandActivatedEventArgs {}
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6836,7 +6836,7 @@ impl WalletActionActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ItemId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -6845,7 +6845,7 @@ impl WalletActionActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ItemId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Wallet`, `deprecated`"]
+    #[doc = "Required features: `\"ApplicationModel_Wallet\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
     pub fn ActionKind(&self) -> ::windows_core::Result<super::Wallet::WalletActionKind> {
         let this = self;
@@ -6854,7 +6854,7 @@ impl WalletActionActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActionKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ActionId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -6915,7 +6915,7 @@ impl WebAccountProviderActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
@@ -6924,7 +6924,7 @@ impl WebAccountProviderActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Authentication_Web_Provider`"]
+    #[doc = "Required features: `\"Security_Authentication_Web_Provider\"`"]
     #[cfg(feature = "Security_Authentication_Web_Provider")]
     pub fn Operation(&self) -> ::windows_core::Result<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation> {
         let this = self;
@@ -6977,7 +6977,7 @@ impl WebAuthenticationBrokerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows_core::ComInterface::cast::<IContinuationActivatedEventArgs>(self)?;
@@ -6986,7 +6986,7 @@ impl WebAuthenticationBrokerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).ContinuationData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Authentication_Web`"]
+    #[doc = "Required features: `\"Security_Authentication_Web\"`"]
     #[cfg(feature = "Security_Authentication_Web")]
     pub fn WebAuthenticationResult(&self) -> ::windows_core::Result<super::super::Security::Authentication::Web::WebAuthenticationResult> {
         let this = self;

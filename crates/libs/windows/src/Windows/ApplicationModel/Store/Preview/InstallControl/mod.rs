@@ -619,7 +619,7 @@ impl AppInstallItem {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Restart)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Completed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
@@ -631,13 +631,13 @@ impl AppInstallItem {
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCompleted(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
@@ -649,7 +649,7 @@ impl AppInstallItem {
             (::windows_core::Interface::vtable(this).StatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -667,7 +667,7 @@ impl AppInstallItem {
         let this = &::windows_core::ComInterface::cast::<IAppInstallItem2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RestartWithTelemetry)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(correlationvector)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>> {
         let this = &::windows_core::ComInterface::cast::<IAppInstallItem3>(self)?;
@@ -776,7 +776,7 @@ impl AppInstallManager {
         static SHARED: ::windows_core::imp::FactoryCache<AppInstallManager, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AppInstallItems(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>> {
         let this = self;
@@ -797,7 +797,7 @@ impl AppInstallManager {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Restart)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productid)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ItemCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
@@ -809,13 +809,13 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).ItemCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveItemCompleted(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveItemCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ItemStatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
@@ -827,7 +827,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).ItemStatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveItemStatusChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -855,7 +855,7 @@ impl AppInstallManager {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAcquisitionIdentity)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetIsApplicableAsync(&self, productid: &::windows_core::HSTRING, skuid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -864,7 +864,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).GetIsApplicableAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(skuid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartAppInstallAsync(&self, productid: &::windows_core::HSTRING, skuid: &::windows_core::HSTRING, repair: bool, forceuseofnonremovablestorage: bool) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>> {
         let this = self;
@@ -873,7 +873,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).StartAppInstallAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(skuid), repair, forceuseofnonremovablestorage, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateAppByPackageFamilyNameAsync(&self, packagefamilyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>> {
         let this = self;
@@ -882,7 +882,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).UpdateAppByPackageFamilyNameAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SearchForUpdatesAsync(&self, productid: &::windows_core::HSTRING, skuid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>> {
         let this = self;
@@ -891,7 +891,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).SearchForUpdatesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(skuid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SearchForAllUpdatesAsync(&self) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>> {
         let this = self;
@@ -900,7 +900,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).SearchForAllUpdatesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn IsStoreBlockedByPolicyAsync(&self, storeclientname: &::windows_core::HSTRING, storeclientpublisher: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -909,7 +909,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).IsStoreBlockedByPolicyAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(storeclientname), ::core::mem::transmute_copy(storeclientpublisher), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetIsAppAllowedToInstallAsync(&self, productid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -918,7 +918,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).GetIsAppAllowedToInstallAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartAppInstallWithTelemetryAsync(&self, productid: &::windows_core::HSTRING, skuid: &::windows_core::HSTRING, repair: bool, forceuseofnonremovablestorage: bool, catalogid: &::windows_core::HSTRING, bundleid: &::windows_core::HSTRING, correlationvector: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>> {
         let this = &::windows_core::ComInterface::cast::<IAppInstallManager2>(self)?;
@@ -927,7 +927,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).StartAppInstallWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(skuid), repair, forceuseofnonremovablestorage, ::core::mem::transmute_copy(catalogid), ::core::mem::transmute_copy(bundleid), ::core::mem::transmute_copy(correlationvector), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateAppByPackageFamilyNameWithTelemetryAsync(&self, packagefamilyname: &::windows_core::HSTRING, correlationvector: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>> {
         let this = &::windows_core::ComInterface::cast::<IAppInstallManager2>(self)?;
@@ -936,7 +936,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).UpdateAppByPackageFamilyNameWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), ::core::mem::transmute_copy(correlationvector), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SearchForUpdatesWithTelemetryAsync(&self, productid: &::windows_core::HSTRING, skuid: &::windows_core::HSTRING, catalogid: &::windows_core::HSTRING, correlationvector: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>> {
         let this = &::windows_core::ComInterface::cast::<IAppInstallManager2>(self)?;
@@ -945,7 +945,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).SearchForUpdatesWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(skuid), ::core::mem::transmute_copy(catalogid), ::core::mem::transmute_copy(correlationvector), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SearchForAllUpdatesWithTelemetryAsync(&self, correlationvector: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>> {
         let this = &::windows_core::ComInterface::cast::<IAppInstallManager2>(self)?;
@@ -954,7 +954,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).SearchForAllUpdatesWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(correlationvector), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetIsAppAllowedToInstallWithTelemetryAsync(&self, productid: &::windows_core::HSTRING, skuid: &::windows_core::HSTRING, catalogid: &::windows_core::HSTRING, correlationvector: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<IAppInstallManager2>(self)?;
@@ -975,7 +975,7 @@ impl AppInstallManager {
         let this = &::windows_core::ComInterface::cast::<IAppInstallManager2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RestartWithTelemetry)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(correlationvector)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Management_Deployment`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Management_Deployment\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Management_Deployment"))]
     pub fn StartProductInstallAsync<P0>(&self, productid: &::windows_core::HSTRING, catalogid: &::windows_core::HSTRING, flightid: &::windows_core::HSTRING, clientid: &::windows_core::HSTRING, repair: bool, forceuseofnonremovablestorage: bool, correlationvector: &::windows_core::HSTRING, targetvolume: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>
     where
@@ -987,7 +987,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).StartProductInstallAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(catalogid), ::core::mem::transmute_copy(flightid), ::core::mem::transmute_copy(clientid), repair, forceuseofnonremovablestorage, ::core::mem::transmute_copy(correlationvector), targetvolume.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Management_Deployment`, `System`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Management_Deployment\"`, `\"System\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Management_Deployment", feature = "System"))]
     pub fn StartProductInstallForUserAsync<P0, P1>(&self, user: P0, productid: &::windows_core::HSTRING, catalogid: &::windows_core::HSTRING, flightid: &::windows_core::HSTRING, clientid: &::windows_core::HSTRING, repair: bool, forceuseofnonremovablestorage: bool, correlationvector: &::windows_core::HSTRING, targetvolume: P1) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>
     where
@@ -1000,7 +1000,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).StartProductInstallForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(catalogid), ::core::mem::transmute_copy(flightid), ::core::mem::transmute_copy(clientid), repair, forceuseofnonremovablestorage, ::core::mem::transmute_copy(correlationvector), targetvolume.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `System`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"System\"`"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn UpdateAppByPackageFamilyNameForUserAsync<P0>(&self, user: P0, packagefamilyname: &::windows_core::HSTRING, correlationvector: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>
     where
@@ -1012,7 +1012,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).UpdateAppByPackageFamilyNameForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(packagefamilyname), ::core::mem::transmute_copy(correlationvector), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `System`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"System\"`"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn SearchForUpdatesForUserAsync<P0>(&self, user: P0, productid: &::windows_core::HSTRING, skuid: &::windows_core::HSTRING, catalogid: &::windows_core::HSTRING, correlationvector: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>
     where
@@ -1024,7 +1024,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).SearchForUpdatesForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(skuid), ::core::mem::transmute_copy(catalogid), ::core::mem::transmute_copy(correlationvector), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `System`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"System\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
     pub fn SearchForAllUpdatesForUserAsync<P0>(&self, user: P0, correlationvector: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>
     where
@@ -1036,7 +1036,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).SearchForAllUpdatesForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(correlationvector), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `System`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"System\"`"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn GetIsAppAllowedToInstallForUserAsync<P0>(&self, user: P0, productid: &::windows_core::HSTRING, skuid: &::windows_core::HSTRING, catalogid: &::windows_core::HSTRING, correlationvector: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -1048,7 +1048,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).GetIsAppAllowedToInstallForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(skuid), ::core::mem::transmute_copy(catalogid), ::core::mem::transmute_copy(correlationvector), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `System`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"System\"`"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn GetIsApplicableForUserAsync<P0>(&self, user: P0, productid: &::windows_core::HSTRING, skuid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -1064,7 +1064,7 @@ impl AppInstallManager {
         let this = &::windows_core::ComInterface::cast::<IAppInstallManager3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).MoveToFrontOfDownloadQueue)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(correlationvector)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetFreeUserEntitlementAsync(&self, storeid: &::windows_core::HSTRING, campaignid: &::windows_core::HSTRING, correlationvector: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>> {
         let this = &::windows_core::ComInterface::cast::<IAppInstallManager4>(self)?;
@@ -1073,7 +1073,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).GetFreeUserEntitlementAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(storeid), ::core::mem::transmute_copy(campaignid), ::core::mem::transmute_copy(correlationvector), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `System`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"System\"`"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn GetFreeUserEntitlementForUserAsync<P0>(&self, user: P0, storeid: &::windows_core::HSTRING, campaignid: &::windows_core::HSTRING, correlationvector: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>>
     where
@@ -1085,7 +1085,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).GetFreeUserEntitlementForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(storeid), ::core::mem::transmute_copy(campaignid), ::core::mem::transmute_copy(correlationvector), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetFreeDeviceEntitlementAsync(&self, storeid: &::windows_core::HSTRING, campaignid: &::windows_core::HSTRING, correlationvector: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>> {
         let this = &::windows_core::ComInterface::cast::<IAppInstallManager4>(self)?;
@@ -1094,7 +1094,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).GetFreeDeviceEntitlementAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(storeid), ::core::mem::transmute_copy(campaignid), ::core::mem::transmute_copy(correlationvector), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AppInstallItemsWithGroupSupport(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>> {
         let this = &::windows_core::ComInterface::cast::<IAppInstallManager5>(self)?;
@@ -1103,7 +1103,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).AppInstallItemsWithGroupSupport)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SearchForAllUpdatesWithUpdateOptionsAsync<P0>(&self, correlationvector: &::windows_core::HSTRING, clientid: &::windows_core::HSTRING, updateoptions: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>
     where
@@ -1115,7 +1115,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).SearchForAllUpdatesWithUpdateOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(correlationvector), ::core::mem::transmute_copy(clientid), updateoptions.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `System`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"System\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
     pub fn SearchForAllUpdatesWithUpdateOptionsForUserAsync<P0, P1>(&self, user: P0, correlationvector: &::windows_core::HSTRING, clientid: &::windows_core::HSTRING, updateoptions: P1) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>
     where
@@ -1128,7 +1128,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).SearchForAllUpdatesWithUpdateOptionsForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(correlationvector), ::core::mem::transmute_copy(clientid), updateoptions.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SearchForUpdatesWithUpdateOptionsAsync<P0>(&self, productid: &::windows_core::HSTRING, skuid: &::windows_core::HSTRING, correlationvector: &::windows_core::HSTRING, clientid: &::windows_core::HSTRING, updateoptions: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>
     where
@@ -1140,7 +1140,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).SearchForUpdatesWithUpdateOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(skuid), ::core::mem::transmute_copy(correlationvector), ::core::mem::transmute_copy(clientid), updateoptions.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `System`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"System\"`"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn SearchForUpdatesWithUpdateOptionsForUserAsync<P0, P1>(&self, user: P0, productid: &::windows_core::HSTRING, skuid: &::windows_core::HSTRING, correlationvector: &::windows_core::HSTRING, clientid: &::windows_core::HSTRING, updateoptions: P1) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>
     where
@@ -1153,7 +1153,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).SearchForUpdatesWithUpdateOptionsForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(skuid), ::core::mem::transmute_copy(correlationvector), ::core::mem::transmute_copy(clientid), updateoptions.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StartProductInstallWithOptionsAsync<P0>(&self, productid: &::windows_core::HSTRING, flightid: &::windows_core::HSTRING, clientid: &::windows_core::HSTRING, correlationvector: &::windows_core::HSTRING, installoptions: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>
     where
@@ -1165,7 +1165,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).StartProductInstallWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(flightid), ::core::mem::transmute_copy(clientid), ::core::mem::transmute_copy(correlationvector), installoptions.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `System`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"System\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
     pub fn StartProductInstallWithOptionsForUserAsync<P0, P1>(&self, user: P0, productid: &::windows_core::HSTRING, flightid: &::windows_core::HSTRING, clientid: &::windows_core::HSTRING, correlationvector: &::windows_core::HSTRING, installoptions: P1) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>
     where
@@ -1178,7 +1178,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).StartProductInstallWithOptionsForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(flightid), ::core::mem::transmute_copy(clientid), ::core::mem::transmute_copy(correlationvector), installoptions.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetIsPackageIdentityAllowedToInstallAsync(&self, correlationvector: &::windows_core::HSTRING, packageidentityname: &::windows_core::HSTRING, publishercertificatename: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<IAppInstallManager6>(self)?;
@@ -1187,7 +1187,7 @@ impl AppInstallManager {
             (::windows_core::Interface::vtable(this).GetIsPackageIdentityAllowedToInstallAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(correlationvector), ::core::mem::transmute_copy(packageidentityname), ::core::mem::transmute_copy(publishercertificatename), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `System`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"System\"`"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn GetIsPackageIdentityAllowedToInstallForUserAsync<P0>(&self, user: P0, correlationvector: &::windows_core::HSTRING, packageidentityname: &::windows_core::HSTRING, publishercertificatename: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -1304,7 +1304,7 @@ impl AppInstallOptions {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetRepair)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Management_Deployment`"]
+    #[doc = "Required features: `\"Management_Deployment\"`"]
     #[cfg(feature = "Management_Deployment")]
     pub fn TargetVolume(&self) -> ::windows_core::Result<super::super::super::super::Management::Deployment::PackageVolume> {
         let this = self;
@@ -1313,7 +1313,7 @@ impl AppInstallOptions {
             (::windows_core::Interface::vtable(this).TargetVolume)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Management_Deployment`"]
+    #[doc = "Required features: `\"Management_Deployment\"`"]
     #[cfg(feature = "Management_Deployment")]
     pub fn SetTargetVolume<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1487,7 +1487,7 @@ impl AppInstallStatus {
             (::windows_core::Interface::vtable(this).ErrorCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IAppInstallStatus2>(self)?;

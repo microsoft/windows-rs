@@ -1,4 +1,4 @@
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait IAccessoryNotificationTriggerDetails_Impl: Sized {
     fn TimeCreated(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime>;

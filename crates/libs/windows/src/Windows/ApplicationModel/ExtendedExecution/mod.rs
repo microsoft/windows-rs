@@ -1,5 +1,5 @@
 #[cfg(feature = "ApplicationModel_ExtendedExecution_Foreground")]
-#[doc = "Required features: `ApplicationModel_ExtendedExecution_Foreground`"]
+#[doc = "Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`"]
 pub mod Foreground;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -88,7 +88,7 @@ impl ExtendedExecutionSession {
         static SHARED: ::windows_core::imp::FactoryCache<ExtendedExecutionSession, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -127,7 +127,7 @@ impl ExtendedExecutionSession {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPercentProgress)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Revoked<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -139,13 +139,13 @@ impl ExtendedExecutionSession {
             (::windows_core::Interface::vtable(this).Revoked)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRevoked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRevoked)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestExtensionAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ExtendedExecutionResult>> {
         let this = self;

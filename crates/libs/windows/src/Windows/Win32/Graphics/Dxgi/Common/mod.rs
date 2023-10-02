@@ -335,7 +335,7 @@ impl ::core::default::Default for DXGI_GAMMA_CONTROL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXGI_GAMMA_CONTROL_CAPABILITIES {
     pub ScaleAndOffsetSupported: super::super::super::Foundation::BOOL,

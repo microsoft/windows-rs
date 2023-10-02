@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_AbortPipe<P0>(interfacehandle: P0, pipeid: u8) -> ::windows_core::Result<()>
@@ -8,7 +8,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_AbortPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8) -> super::super::Foundation:: BOOL);
     WinUsb_AbortPipe(interfacehandle.into_param().abi(), pipeid).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_ControlTransfer<P0>(interfacehandle: P0, setuppacket: WINUSB_SETUP_PACKET, buffer: ::core::option::Option<&mut [u8]>, lengthtransferred: ::core::option::Option<*mut u32>, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()>
@@ -18,7 +18,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_ControlTransfer(interfacehandle : WINUSB_INTERFACE_HANDLE, setuppacket : WINUSB_SETUP_PACKET, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     WinUsb_ControlTransfer(interfacehandle.into_param().abi(), ::core::mem::transmute(setuppacket), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lengthtransferred.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_FlushPipe<P0>(interfacehandle: P0, pipeid: u8) -> ::windows_core::Result<()>
@@ -28,7 +28,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_FlushPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8) -> super::super::Foundation:: BOOL);
     WinUsb_FlushPipe(interfacehandle.into_param().abi(), pipeid).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_Free<P0>(interfacehandle: P0) -> super::super::Foundation::BOOL
@@ -38,14 +38,14 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_Free(interfacehandle : WINUSB_INTERFACE_HANDLE) -> super::super::Foundation:: BOOL);
     WinUsb_Free(interfacehandle.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetAdjustedFrameNumber(currentframenumber: *mut u32, timestamp: i64) -> ::windows_core::Result<()> {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_GetAdjustedFrameNumber(currentframenumber : *mut u32, timestamp : i64) -> super::super::Foundation:: BOOL);
     WinUsb_GetAdjustedFrameNumber(currentframenumber, timestamp).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetAssociatedInterface<P0>(interfacehandle: P0, associatedinterfaceindex: u8, associatedinterfacehandle: *mut WINUSB_INTERFACE_HANDLE) -> ::windows_core::Result<()>
@@ -55,7 +55,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_GetAssociatedInterface(interfacehandle : WINUSB_INTERFACE_HANDLE, associatedinterfaceindex : u8, associatedinterfacehandle : *mut WINUSB_INTERFACE_HANDLE) -> super::super::Foundation:: BOOL);
     WinUsb_GetAssociatedInterface(interfacehandle.into_param().abi(), associatedinterfaceindex, associatedinterfacehandle).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetCurrentAlternateSetting<P0>(interfacehandle: P0, settingnumber: *mut u8) -> ::windows_core::Result<()>
@@ -65,7 +65,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_GetCurrentAlternateSetting(interfacehandle : WINUSB_INTERFACE_HANDLE, settingnumber : *mut u8) -> super::super::Foundation:: BOOL);
     WinUsb_GetCurrentAlternateSetting(interfacehandle.into_param().abi(), settingnumber).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetCurrentFrameNumber<P0>(interfacehandle: P0, currentframenumber: *mut u32, timestamp: *mut i64) -> ::windows_core::Result<()>
@@ -75,7 +75,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_GetCurrentFrameNumber(interfacehandle : WINUSB_INTERFACE_HANDLE, currentframenumber : *mut u32, timestamp : *mut i64) -> super::super::Foundation:: BOOL);
     WinUsb_GetCurrentFrameNumber(interfacehandle.into_param().abi(), currentframenumber, timestamp).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetCurrentFrameNumberAndQpc<P0>(interfacehandle: P0, frameqpcinfo: *const USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION) -> ::windows_core::Result<()>
@@ -85,7 +85,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_GetCurrentFrameNumberAndQpc(interfacehandle : WINUSB_INTERFACE_HANDLE, frameqpcinfo : *const USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation:: BOOL);
     WinUsb_GetCurrentFrameNumberAndQpc(interfacehandle.into_param().abi(), frameqpcinfo).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetDescriptor<P0>(interfacehandle: P0, descriptortype: u8, index: u8, languageid: u16, buffer: ::core::option::Option<&mut [u8]>, lengthtransferred: *mut u32) -> ::windows_core::Result<()>
@@ -95,7 +95,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_GetDescriptor(interfacehandle : WINUSB_INTERFACE_HANDLE, descriptortype : u8, index : u8, languageid : u16, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32) -> super::super::Foundation:: BOOL);
     WinUsb_GetDescriptor(interfacehandle.into_param().abi(), descriptortype, index, languageid, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), lengthtransferred).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_GetOverlappedResult<P0, P1>(interfacehandle: P0, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: P1) -> ::windows_core::Result<()>
@@ -106,7 +106,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_GetOverlappedResult(interfacehandle : WINUSB_INTERFACE_HANDLE, lpoverlapped : *const super::super::System::IO:: OVERLAPPED, lpnumberofbytestransferred : *mut u32, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     WinUsb_GetOverlappedResult(interfacehandle.into_param().abi(), lpoverlapped, lpnumberofbytestransferred, bwait.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetPipePolicy<P0>(interfacehandle: P0, pipeid: u8, policytype: WINUSB_PIPE_POLICY, valuelength: *mut u32, value: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -116,7 +116,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_GetPipePolicy(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, policytype : WINUSB_PIPE_POLICY, valuelength : *mut u32, value : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     WinUsb_GetPipePolicy(interfacehandle.into_param().abi(), pipeid, policytype, valuelength, value).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetPowerPolicy<P0>(interfacehandle: P0, policytype: WINUSB_POWER_POLICY, valuelength: *mut u32, value: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -126,7 +126,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_GetPowerPolicy(interfacehandle : WINUSB_INTERFACE_HANDLE, policytype : WINUSB_POWER_POLICY, valuelength : *mut u32, value : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     WinUsb_GetPowerPolicy(interfacehandle.into_param().abi(), policytype, valuelength, value).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_Initialize<P0>(devicehandle: P0, interfacehandle: *mut WINUSB_INTERFACE_HANDLE) -> ::windows_core::Result<()>
@@ -146,7 +146,7 @@ pub unsafe fn WinUsb_ParseDescriptors(descriptorbuffer: *const ::core::ffi::c_vo
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_ParseDescriptors(descriptorbuffer : *const ::core::ffi::c_void, totallength : u32, startposition : *const ::core::ffi::c_void, descriptortype : i32) -> *mut USB_COMMON_DESCRIPTOR);
     WinUsb_ParseDescriptors(descriptorbuffer, totallength, startposition, descriptortype)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_QueryDeviceInformation<P0>(interfacehandle: P0, informationtype: u32, bufferlength: *mut u32, buffer: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -156,7 +156,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_QueryDeviceInformation(interfacehandle : WINUSB_INTERFACE_HANDLE, informationtype : u32, bufferlength : *mut u32, buffer : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     WinUsb_QueryDeviceInformation(interfacehandle.into_param().abi(), informationtype, bufferlength, buffer).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_QueryInterfaceSettings<P0>(interfacehandle: P0, alternateinterfacenumber: u8, usbaltinterfacedescriptor: *mut USB_INTERFACE_DESCRIPTOR) -> ::windows_core::Result<()>
@@ -166,7 +166,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_QueryInterfaceSettings(interfacehandle : WINUSB_INTERFACE_HANDLE, alternateinterfacenumber : u8, usbaltinterfacedescriptor : *mut USB_INTERFACE_DESCRIPTOR) -> super::super::Foundation:: BOOL);
     WinUsb_QueryInterfaceSettings(interfacehandle.into_param().abi(), alternateinterfacenumber, usbaltinterfacedescriptor).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_QueryPipe<P0>(interfacehandle: P0, alternateinterfacenumber: u8, pipeindex: u8, pipeinformation: *mut WINUSB_PIPE_INFORMATION) -> ::windows_core::Result<()>
@@ -176,7 +176,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_QueryPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, alternateinterfacenumber : u8, pipeindex : u8, pipeinformation : *mut WINUSB_PIPE_INFORMATION) -> super::super::Foundation:: BOOL);
     WinUsb_QueryPipe(interfacehandle.into_param().abi(), alternateinterfacenumber, pipeindex, pipeinformation).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_QueryPipeEx<P0>(interfacehandle: P0, alternatesettingnumber: u8, pipeindex: u8, pipeinformationex: *mut WINUSB_PIPE_INFORMATION_EX) -> ::windows_core::Result<()>
@@ -186,14 +186,14 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_QueryPipeEx(interfacehandle : WINUSB_INTERFACE_HANDLE, alternatesettingnumber : u8, pipeindex : u8, pipeinformationex : *mut WINUSB_PIPE_INFORMATION_EX) -> super::super::Foundation:: BOOL);
     WinUsb_QueryPipeEx(interfacehandle.into_param().abi(), alternatesettingnumber, pipeindex, pipeinformationex).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_ReadIsochPipe(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, framenumber: *mut u32, isopacketdescriptors: &mut [USBD_ISO_PACKET_DESCRIPTOR], overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_ReadIsochPipe(bufferhandle : *const ::core::ffi::c_void, offset : u32, length : u32, framenumber : *mut u32, numberofpackets : u32, isopacketdescriptors : *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     WinUsb_ReadIsochPipe(bufferhandle, offset, length, framenumber, isopacketdescriptors.len() as _, ::core::mem::transmute(isopacketdescriptors.as_ptr()), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_ReadIsochPipeAsap<P0>(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: P0, isopacketdescriptors: &mut [USBD_ISO_PACKET_DESCRIPTOR], overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()>
@@ -203,7 +203,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_ReadIsochPipeAsap(bufferhandle : *const ::core::ffi::c_void, offset : u32, length : u32, continuestream : super::super::Foundation:: BOOL, numberofpackets : u32, isopacketdescriptors : *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     WinUsb_ReadIsochPipeAsap(bufferhandle, offset, length, continuestream.into_param().abi(), isopacketdescriptors.len() as _, ::core::mem::transmute(isopacketdescriptors.as_ptr()), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_ReadPipe<P0>(interfacehandle: P0, pipeid: u8, buffer: ::core::option::Option<&mut [u8]>, lengthtransferred: ::core::option::Option<*mut u32>, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()>
@@ -213,7 +213,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_ReadPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     WinUsb_ReadPipe(interfacehandle.into_param().abi(), pipeid, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lengthtransferred.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_RegisterIsochBuffer<P0>(interfacehandle: P0, pipeid: u8, buffer: &mut [u8], isochbufferhandle: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -223,7 +223,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_RegisterIsochBuffer(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *mut u8, bufferlength : u32, isochbufferhandle : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     WinUsb_RegisterIsochBuffer(interfacehandle.into_param().abi(), pipeid, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, isochbufferhandle).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_ResetPipe<P0>(interfacehandle: P0, pipeid: u8) -> ::windows_core::Result<()>
@@ -233,7 +233,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_ResetPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8) -> super::super::Foundation:: BOOL);
     WinUsb_ResetPipe(interfacehandle.into_param().abi(), pipeid).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_SetCurrentAlternateSetting<P0>(interfacehandle: P0, settingnumber: u8) -> ::windows_core::Result<()>
@@ -243,7 +243,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_SetCurrentAlternateSetting(interfacehandle : WINUSB_INTERFACE_HANDLE, settingnumber : u8) -> super::super::Foundation:: BOOL);
     WinUsb_SetCurrentAlternateSetting(interfacehandle.into_param().abi(), settingnumber).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_SetPipePolicy<P0>(interfacehandle: P0, pipeid: u8, policytype: WINUSB_PIPE_POLICY, valuelength: u32, value: *const ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -253,7 +253,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_SetPipePolicy(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, policytype : WINUSB_PIPE_POLICY, valuelength : u32, value : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     WinUsb_SetPipePolicy(interfacehandle.into_param().abi(), pipeid, policytype, valuelength, value).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_SetPowerPolicy<P0>(interfacehandle: P0, policytype: WINUSB_POWER_POLICY, valuelength: u32, value: *const ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -263,7 +263,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_SetPowerPolicy(interfacehandle : WINUSB_INTERFACE_HANDLE, policytype : WINUSB_POWER_POLICY, valuelength : u32, value : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     WinUsb_SetPowerPolicy(interfacehandle.into_param().abi(), policytype, valuelength, value).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_StartTrackingForTimeSync<P0>(interfacehandle: P0, starttrackinginfo: *const USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION) -> ::windows_core::Result<()>
@@ -273,7 +273,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_StartTrackingForTimeSync(interfacehandle : WINUSB_INTERFACE_HANDLE, starttrackinginfo : *const USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation:: BOOL);
     WinUsb_StartTrackingForTimeSync(interfacehandle.into_param().abi(), starttrackinginfo).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_StopTrackingForTimeSync<P0>(interfacehandle: P0, stoptrackinginfo: *const USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION) -> ::windows_core::Result<()>
@@ -283,21 +283,21 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_StopTrackingForTimeSync(interfacehandle : WINUSB_INTERFACE_HANDLE, stoptrackinginfo : *const USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation:: BOOL);
     WinUsb_StopTrackingForTimeSync(interfacehandle.into_param().abi(), stoptrackinginfo).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_UnregisterIsochBuffer(isochbufferhandle: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_UnregisterIsochBuffer(isochbufferhandle : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     WinUsb_UnregisterIsochBuffer(isochbufferhandle).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_WriteIsochPipe(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, framenumber: *mut u32, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_WriteIsochPipe(bufferhandle : *const ::core::ffi::c_void, offset : u32, length : u32, framenumber : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     WinUsb_WriteIsochPipe(bufferhandle, offset, length, framenumber, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_WriteIsochPipeAsap<P0>(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: P0, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()>
@@ -307,7 +307,7 @@ where
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_WriteIsochPipeAsap(bufferhandle : *const ::core::ffi::c_void, offset : u32, length : u32, continuestream : super::super::Foundation:: BOOL, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     WinUsb_WriteIsochPipeAsap(bufferhandle, offset, length, continuestream.into_param().abi(), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_WritePipe<P0>(interfacehandle: P0, pipeid: u8, buffer: &[u8], lengthtransferred: ::core::option::Option<*mut u32>, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()>
@@ -2249,7 +2249,7 @@ impl ::core::default::Default for USBD_VERSION_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBFN_BUS_CONFIGURATION_INFO {
     pub ConfigurationName: [u16; 40],
@@ -2289,7 +2289,7 @@ impl ::core::default::Default for USBFN_BUS_CONFIGURATION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBFN_CLASS_INFORMATION_PACKET {
     pub FullSpeedClassInterface: USBFN_CLASS_INTERFACE,
@@ -2318,7 +2318,7 @@ impl ::core::default::Default for USBFN_CLASS_INFORMATION_PACKET {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBFN_CLASS_INFORMATION_PACKET_EX {
     pub FullSpeedClassInterfaceEx: USBFN_CLASS_INTERFACE_EX,
@@ -2653,7 +2653,7 @@ impl ::core::default::Default for USBUSER_BANDWIDTH_INFO_REQUEST {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBUSER_BUS_STATISTICS_0_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -2735,7 +2735,7 @@ impl ::core::default::Default for USBUSER_CONTROLLER_UNICODE_NAME {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBUSER_GET_DRIVER_VERSION {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -2817,7 +2817,7 @@ impl ::core::default::Default for USBUSER_PASS_THRU_REQUEST {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBUSER_POWER_INFO_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -3241,7 +3241,7 @@ impl ::core::default::Default for USB_BUS_NOTIFICATION {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_BUS_STATISTICS_0 {
     pub DeviceCount: u32,
@@ -3350,7 +3350,7 @@ impl ::core::default::Default for USB_COMMON_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_COMPOSITE_DEVICE_INFO {
     pub DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
@@ -3378,7 +3378,7 @@ impl ::core::default::Default for USB_COMPOSITE_DEVICE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_COMPOSITE_FUNCTION_INFO {
     pub FunctionNumber: u8,
@@ -4385,7 +4385,7 @@ impl ::core::default::Default for USB_DEVICE_INFO {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_DEVICE_NODE_INFO {
     pub Sig: u32,
@@ -4414,7 +4414,7 @@ impl ::core::default::Default for USB_DEVICE_NODE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union USB_DEVICE_NODE_INFO_0 {
     pub UsbDeviceInfo: USB_DEVICE_INFO,
@@ -4563,7 +4563,7 @@ impl ::core::default::Default for USB_DEVICE_STATUS_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_DRIVER_VERSION_PARAMETERS {
     pub DriverTrackingCode: u32,
@@ -4652,7 +4652,7 @@ impl ::core::default::Default for USB_ENDPOINT_STATUS_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::super::Foundation::HANDLE,
@@ -4971,7 +4971,7 @@ impl ::core::default::Default for USB_HUB_DESCRIPTOR {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_HUB_DEVICE_INFO {
     pub HubDescriptor: USB_HUB_DESCRIPTOR,
@@ -5026,7 +5026,7 @@ impl ::core::default::Default for USB_HUB_DEVICE_UXD_SETTINGS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_HUB_INFORMATION {
     pub HubDescriptor: USB_HUB_DESCRIPTOR,
@@ -5448,7 +5448,7 @@ impl ::core::default::Default for USB_NODE_CONNECTION_DRIVERKEY_NAME {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_NODE_CONNECTION_INFORMATION {
     pub ConnectionIndex: u32,
@@ -5480,7 +5480,7 @@ impl ::core::default::Default for USB_NODE_CONNECTION_INFORMATION {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_NODE_CONNECTION_INFORMATION_EX {
     pub ConnectionIndex: u32,
@@ -5590,7 +5590,7 @@ impl ::core::default::Default for USB_NODE_CONNECTION_NAME {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_NODE_INFORMATION {
     pub NodeType: USB_HUB_NODE,
@@ -5615,7 +5615,7 @@ impl ::core::default::Default for USB_NODE_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union USB_NODE_INFORMATION_0 {
     pub HubInformation: USB_HUB_INFORMATION,
@@ -5929,7 +5929,7 @@ impl ::core::default::Default for USB_PORT_STATUS_AND_CHANGE_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_POWER_INFO {
     pub SystemState: WDMUSB_POWER_STATE,
@@ -6046,7 +6046,7 @@ impl ::core::default::Default for USB_SEND_RAW_COMMAND_PARAMETERS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::super::Foundation::HANDLE,
@@ -6071,7 +6071,7 @@ impl ::core::default::Default for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::super::Foundation::HANDLE,

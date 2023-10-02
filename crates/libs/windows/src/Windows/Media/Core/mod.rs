@@ -1,5 +1,5 @@
 #[cfg(feature = "Media_Core_Preview")]
-#[doc = "Required features: `Media_Core_Preview`"]
+#[doc = "Required features: `\"Media_Core_Preview\"`"]
 pub mod Preview;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -651,13 +651,13 @@ pub struct IMediaBindingEventArgs3_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaCue(::windows_core::IUnknown);
 impl IMediaCue {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetStartTime)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -666,13 +666,13 @@ impl IMediaCue {
             (::windows_core::Interface::vtable(this).StartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDuration)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -2081,7 +2081,7 @@ pub struct ISceneAnalyzedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISingleSelectMediaTrackList(::windows_core::IUnknown);
 impl ISingleSelectMediaTrackList {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SelectedIndexChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2093,7 +2093,7 @@ impl ISingleSelectMediaTrackList {
             (::windows_core::Interface::vtable(this).SelectedIndexChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSelectedIndexChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -2332,7 +2332,7 @@ pub struct ITimedMetadataTrackFailedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITimedMetadataTrackProvider(::windows_core::IUnknown);
 impl ITimedMetadataTrackProvider {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TimedMetadataTracks(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>> {
         let this = self;
@@ -2896,7 +2896,7 @@ pub struct IVideoTrackSupportInfo_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AudioStreamDescriptor(::windows_core::IUnknown);
 impl AudioStreamDescriptor {
-    #[doc = "Required features: `Media_MediaProperties`"]
+    #[doc = "Required features: `\"Media_MediaProperties\"`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn EncodingProperties(&self) -> ::windows_core::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = self;
@@ -2905,7 +2905,7 @@ impl AudioStreamDescriptor {
             (::windows_core::Interface::vtable(this).EncodingProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetLeadingEncoderPadding<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2914,7 +2914,7 @@ impl AudioStreamDescriptor {
         let this = &::windows_core::ComInterface::cast::<IAudioStreamDescriptor2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetLeadingEncoderPadding)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LeadingEncoderPadding(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = &::windows_core::ComInterface::cast::<IAudioStreamDescriptor2>(self)?;
@@ -2923,7 +2923,7 @@ impl AudioStreamDescriptor {
             (::windows_core::Interface::vtable(this).LeadingEncoderPadding)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetTrailingEncoderPadding<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2932,7 +2932,7 @@ impl AudioStreamDescriptor {
         let this = &::windows_core::ComInterface::cast::<IAudioStreamDescriptor2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetTrailingEncoderPadding)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TrailingEncoderPadding(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = &::windows_core::ComInterface::cast::<IAudioStreamDescriptor2>(self)?;
@@ -2948,7 +2948,7 @@ impl AudioStreamDescriptor {
             (::windows_core::Interface::vtable(this).Copy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Media_MediaProperties`"]
+    #[doc = "Required features: `\"Media_MediaProperties\"`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn Create<P0>(encodingproperties: P0) -> ::windows_core::Result<AudioStreamDescriptor>
     where
@@ -3026,7 +3026,7 @@ unsafe impl ::core::marker::Sync for AudioStreamDescriptor {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AudioTrack(::windows_core::IUnknown);
 impl AudioTrack {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn OpenFailed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3038,13 +3038,13 @@ impl AudioTrack {
             (::windows_core::Interface::vtable(this).OpenFailed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOpenFailed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IAudioTrack>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveOpenFailed)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Media_MediaProperties`"]
+    #[doc = "Required features: `\"Media_MediaProperties\"`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetEncodingProperties(&self) -> ::windows_core::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = &::windows_core::ComInterface::cast::<IAudioTrack>(self)?;
@@ -3053,7 +3053,7 @@ impl AudioTrack {
             (::windows_core::Interface::vtable(this).GetEncodingProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Media_Playback`"]
+    #[doc = "Required features: `\"Media_Playback\"`"]
     #[cfg(feature = "Media_Playback")]
     pub fn PlaybackItem(&self) -> ::windows_core::Result<super::Playback::MediaPlaybackItem> {
         let this = &::windows_core::ComInterface::cast::<IAudioTrack>(self)?;
@@ -3222,13 +3222,13 @@ impl ChapterCue {
             (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetStartTime)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
@@ -3237,13 +3237,13 @@ impl ChapterCue {
             (::windows_core::Interface::vtable(this).StartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetDuration)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
@@ -3298,7 +3298,7 @@ impl CodecInfo {
             (::windows_core::Interface::vtable(this).Category)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Subtypes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -3348,7 +3348,7 @@ impl CodecQuery {
         static SHARED: ::windows_core::imp::FactoryCache<CodecQuery, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsync(&self, kind: CodecKind, category: CodecCategory, subtype: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<CodecInfo>>> {
         let this = self;
@@ -3701,7 +3701,7 @@ impl DataCue {
         static SHARED: ::windows_core::imp::FactoryCache<DataCue, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetData<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3710,7 +3710,7 @@ impl DataCue {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetData)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -3719,7 +3719,7 @@ impl DataCue {
             (::windows_core::Interface::vtable(this).Data)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::PropertySet> {
         let this = &::windows_core::ComInterface::cast::<IDataCue2>(self)?;
@@ -3728,13 +3728,13 @@ impl DataCue {
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetStartTime)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
@@ -3743,13 +3743,13 @@ impl DataCue {
             (::windows_core::Interface::vtable(this).StartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetDuration)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
@@ -3828,13 +3828,13 @@ impl FaceDetectionEffect {
             (::windows_core::Interface::vtable(this).Enabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDesiredDetectionInterval(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDesiredDetectionInterval)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DesiredDetectionInterval(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -3843,7 +3843,7 @@ impl FaceDetectionEffect {
             (::windows_core::Interface::vtable(this).DesiredDetectionInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FaceDetected<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3855,13 +3855,13 @@ impl FaceDetectionEffect {
             (::windows_core::Interface::vtable(this).FaceDetected)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveFaceDetected(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveFaceDetected)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetProperties<P0>(&self, configuration: P0) -> ::windows_core::Result<()>
     where
@@ -3887,7 +3887,7 @@ impl ::windows_core::RuntimeName for FaceDetectionEffect {
 impl ::windows_core::CanTryInto<super::IMediaExtension> for FaceDetectionEffect {}
 unsafe impl ::core::marker::Send for FaceDetectionEffect {}
 unsafe impl ::core::marker::Sync for FaceDetectionEffect {}
-#[doc = "Required features: `Media_Effects`"]
+#[doc = "Required features: `\"Media_Effects\"`"]
 #[cfg(feature = "Media_Effects")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3923,7 +3923,7 @@ impl FaceDetectionEffectDefinition {
             (::windows_core::Interface::vtable(this).SynchronousDetectionEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Media_Effects`"]
+    #[doc = "Required features: `\"Media_Effects\"`"]
     #[cfg(feature = "Media_Effects")]
     pub fn ActivatableClassId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -3932,7 +3932,7 @@ impl FaceDetectionEffectDefinition {
             (::windows_core::Interface::vtable(this).ActivatableClassId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Media_Effects`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Effects\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
@@ -3970,13 +3970,13 @@ unsafe impl ::core::marker::Sync for FaceDetectionEffectDefinition {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FaceDetectionEffectFrame(::windows_core::IUnknown);
 impl FaceDetectionEffectFrame {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Media_FaceAnalysis`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_FaceAnalysis\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_FaceAnalysis"))]
     pub fn DetectedFaces(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::FaceAnalysis::DetectedFace>> {
         let this = self;
@@ -3999,7 +3999,7 @@ impl FaceDetectionEffectFrame {
             (::windows_core::Interface::vtable(this).IsReadOnly)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetRelativeTime<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4008,7 +4008,7 @@ impl FaceDetectionEffectFrame {
         let this = &::windows_core::ComInterface::cast::<super::IMediaFrame>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetRelativeTime)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RelativeTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<super::IMediaFrame>(self)?;
@@ -4017,7 +4017,7 @@ impl FaceDetectionEffectFrame {
             (::windows_core::Interface::vtable(this).RelativeTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetSystemRelativeTime<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4026,7 +4026,7 @@ impl FaceDetectionEffectFrame {
         let this = &::windows_core::ComInterface::cast::<super::IMediaFrame>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSystemRelativeTime)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SystemRelativeTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<super::IMediaFrame>(self)?;
@@ -4035,7 +4035,7 @@ impl FaceDetectionEffectFrame {
             (::windows_core::Interface::vtable(this).SystemRelativeTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4044,7 +4044,7 @@ impl FaceDetectionEffectFrame {
         let this = &::windows_core::ComInterface::cast::<super::IMediaFrame>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetDuration)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<super::IMediaFrame>(self)?;
@@ -4064,7 +4064,7 @@ impl FaceDetectionEffectFrame {
             (::windows_core::Interface::vtable(this).IsDiscontinuous)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ExtendedProperties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = &::windows_core::ComInterface::cast::<super::IMediaFrame>(self)?;
@@ -4134,7 +4134,7 @@ impl HighDynamicRangeOutput {
             (::windows_core::Interface::vtable(this).Certainty)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Media_Devices_Core`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Devices_Core\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Devices_Core"))]
     pub fn FrameControllers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::Devices::Core::FrameController>> {
         let this = self;
@@ -4192,7 +4192,7 @@ impl ImageCue {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetExtent)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Graphics_Imaging`"]
+    #[doc = "Required features: `\"Graphics_Imaging\"`"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetSoftwareBitmap<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4201,7 +4201,7 @@ impl ImageCue {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSoftwareBitmap)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Graphics_Imaging`"]
+    #[doc = "Required features: `\"Graphics_Imaging\"`"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SoftwareBitmap(&self) -> ::windows_core::Result<super::super::Graphics::Imaging::SoftwareBitmap> {
         let this = self;
@@ -4210,13 +4210,13 @@ impl ImageCue {
             (::windows_core::Interface::vtable(this).SoftwareBitmap)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetStartTime)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
@@ -4225,13 +4225,13 @@ impl ImageCue {
             (::windows_core::Interface::vtable(this).StartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetDuration)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
@@ -4279,7 +4279,7 @@ impl InitializeMediaStreamSourceRequestedEventArgs {
             (::windows_core::Interface::vtable(this).Source)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn RandomAccessStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = self;
@@ -4288,7 +4288,7 @@ impl InitializeMediaStreamSourceRequestedEventArgs {
             (::windows_core::Interface::vtable(this).RandomAccessStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -4315,7 +4315,7 @@ unsafe impl ::core::marker::Send for InitializeMediaStreamSourceRequestedEventAr
 unsafe impl ::core::marker::Sync for InitializeMediaStreamSourceRequestedEventArgs {}
 pub struct LowLightFusion;
 impl LowLightFusion {
-    #[doc = "Required features: `Foundation_Collections`, `Graphics_Imaging`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Graphics_Imaging\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
     pub fn SupportedBitmapPixelFormats() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>> {
         Self::ILowLightFusionStatics(|this| unsafe {
@@ -4329,7 +4329,7 @@ impl LowLightFusion {
             (::windows_core::Interface::vtable(this).MaxSupportedFrameCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`, `Graphics_Imaging`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Graphics_Imaging\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
     pub fn FuseAsync<P0>(frameset: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<LowLightFusionResult, f64>>
     where
@@ -4353,13 +4353,13 @@ impl ::windows_core::RuntimeName for LowLightFusion {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LowLightFusionResult(::windows_core::IUnknown);
 impl LowLightFusionResult {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Graphics_Imaging`"]
+    #[doc = "Required features: `\"Graphics_Imaging\"`"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn Frame(&self) -> ::windows_core::Result<super::super::Graphics::Imaging::SoftwareBitmap> {
         let this = self;
@@ -4397,7 +4397,7 @@ impl MediaBinder {
         static SHARED: ::windows_core::imp::FactoryCache<MediaBinder, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Binding<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4409,7 +4409,7 @@ impl MediaBinder {
             (::windows_core::Interface::vtable(this).Binding)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBinding(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -4453,7 +4453,7 @@ unsafe impl ::core::marker::Sync for MediaBinder {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaBindingEventArgs(::windows_core::IUnknown);
 impl MediaBindingEventArgs {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Canceled<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4465,7 +4465,7 @@ impl MediaBindingEventArgs {
             (::windows_core::Interface::vtable(this).Canceled)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCanceled(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -4478,7 +4478,7 @@ impl MediaBindingEventArgs {
             (::windows_core::Interface::vtable(this).MediaBinder)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -4487,7 +4487,7 @@ impl MediaBindingEventArgs {
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetUri<P0>(&self, uri: P0) -> ::windows_core::Result<()>
     where
@@ -4496,7 +4496,7 @@ impl MediaBindingEventArgs {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetUri)(::windows_core::Interface::as_raw(this), uri.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetStream<P0>(&self, stream: P0, contenttype: &::windows_core::HSTRING) -> ::windows_core::Result<()>
     where
@@ -4505,7 +4505,7 @@ impl MediaBindingEventArgs {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetStream)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), ::core::mem::transmute_copy(contenttype)).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetStreamReference<P0>(&self, stream: P0, contenttype: &::windows_core::HSTRING) -> ::windows_core::Result<()>
     where
@@ -4514,7 +4514,7 @@ impl MediaBindingEventArgs {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetStreamReference)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), ::core::mem::transmute_copy(contenttype)).ok() }
     }
-    #[doc = "Required features: `Media_Streaming_Adaptive`"]
+    #[doc = "Required features: `\"Media_Streaming_Adaptive\"`"]
     #[cfg(feature = "Media_Streaming_Adaptive")]
     pub fn SetAdaptiveMediaSource<P0>(&self, mediasource: P0) -> ::windows_core::Result<()>
     where
@@ -4523,7 +4523,7 @@ impl MediaBindingEventArgs {
         let this = &::windows_core::ComInterface::cast::<IMediaBindingEventArgs2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetAdaptiveMediaSource)(::windows_core::Interface::as_raw(this), mediasource.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Storage`"]
+    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn SetStorageFile<P0>(&self, file: P0) -> ::windows_core::Result<()>
     where
@@ -4532,7 +4532,7 @@ impl MediaBindingEventArgs {
         let this = &::windows_core::ComInterface::cast::<IMediaBindingEventArgs2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetStorageFile)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Networking_BackgroundTransfer`"]
+    #[doc = "Required features: `\"Networking_BackgroundTransfer\"`"]
     #[cfg(feature = "Networking_BackgroundTransfer")]
     pub fn SetDownloadOperation<P0>(&self, downloadoperation: P0) -> ::windows_core::Result<()>
     where
@@ -4588,13 +4588,13 @@ unsafe impl ::core::marker::Sync for MediaCueEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaSource(::windows_core::IUnknown);
 impl MediaSource {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn OpenOperationCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4606,13 +4606,13 @@ impl MediaSource {
             (::windows_core::Interface::vtable(this).OpenOperationCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOpenOperationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveOpenOperationCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CustomProperties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -4621,7 +4621,7 @@ impl MediaSource {
             (::windows_core::Interface::vtable(this).CustomProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -4637,7 +4637,7 @@ impl MediaSource {
             (::windows_core::Interface::vtable(this).IsOpen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ExternalTimedTextSources(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IObservableVector<TimedTextSource>> {
         let this = self;
@@ -4646,7 +4646,7 @@ impl MediaSource {
             (::windows_core::Interface::vtable(this).ExternalTimedTextSources)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ExternalTimedMetadataTracks(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IObservableVector<TimedMetadataTrack>> {
         let this = self;
@@ -4655,7 +4655,7 @@ impl MediaSource {
             (::windows_core::Interface::vtable(this).ExternalTimedMetadataTracks)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4667,7 +4667,7 @@ impl MediaSource {
             (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IMediaSource3>(self)?;
@@ -4684,7 +4684,7 @@ impl MediaSource {
         let this = &::windows_core::ComInterface::cast::<IMediaSource3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Reset)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Media_Streaming_Adaptive`"]
+    #[doc = "Required features: `\"Media_Streaming_Adaptive\"`"]
     #[cfg(feature = "Media_Streaming_Adaptive")]
     pub fn AdaptiveMediaSource(&self) -> ::windows_core::Result<super::Streaming::Adaptive::AdaptiveMediaSource> {
         let this = &::windows_core::ComInterface::cast::<IMediaSource4>(self)?;
@@ -4707,7 +4707,7 @@ impl MediaSource {
             (::windows_core::Interface::vtable(this).MseStreamSource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<IMediaSource4>(self)?;
@@ -4716,7 +4716,7 @@ impl MediaSource {
             (::windows_core::Interface::vtable(this).Uri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn OpenAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IMediaSource4>(self)?;
@@ -4725,7 +4725,7 @@ impl MediaSource {
             (::windows_core::Interface::vtable(this).OpenAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Networking_BackgroundTransfer`"]
+    #[doc = "Required features: `\"Networking_BackgroundTransfer\"`"]
     #[cfg(feature = "Networking_BackgroundTransfer")]
     pub fn DownloadOperation(&self) -> ::windows_core::Result<super::super::Networking::BackgroundTransfer::DownloadOperation> {
         let this = &::windows_core::ComInterface::cast::<IMediaSource5>(self)?;
@@ -4734,7 +4734,7 @@ impl MediaSource {
             (::windows_core::Interface::vtable(this).DownloadOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Media_Streaming_Adaptive`"]
+    #[doc = "Required features: `\"Media_Streaming_Adaptive\"`"]
     #[cfg(feature = "Media_Streaming_Adaptive")]
     pub fn CreateFromAdaptiveMediaSource<P0>(mediasource: P0) -> ::windows_core::Result<MediaSource>
     where
@@ -4772,7 +4772,7 @@ impl MediaSource {
             (::windows_core::Interface::vtable(this).CreateFromIMediaSource)(::windows_core::Interface::as_raw(this), mediasource.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Storage`"]
+    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn CreateFromStorageFile<P0>(file: P0) -> ::windows_core::Result<MediaSource>
     where
@@ -4783,7 +4783,7 @@ impl MediaSource {
             (::windows_core::Interface::vtable(this).CreateFromStorageFile)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromStream<P0>(stream: P0, contenttype: &::windows_core::HSTRING) -> ::windows_core::Result<MediaSource>
     where
@@ -4794,7 +4794,7 @@ impl MediaSource {
             (::windows_core::Interface::vtable(this).CreateFromStream)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), ::core::mem::transmute_copy(contenttype), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromStreamReference<P0>(stream: P0, contenttype: &::windows_core::HSTRING) -> ::windows_core::Result<MediaSource>
     where
@@ -4805,7 +4805,7 @@ impl MediaSource {
             (::windows_core::Interface::vtable(this).CreateFromStreamReference)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), ::core::mem::transmute_copy(contenttype), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateFromUri<P0>(uri: P0) -> ::windows_core::Result<MediaSource>
     where
@@ -4825,7 +4825,7 @@ impl MediaSource {
             (::windows_core::Interface::vtable(this).CreateFromMediaBinder)(::windows_core::Interface::as_raw(this), binder.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Media_Capture_Frames`"]
+    #[doc = "Required features: `\"Media_Capture_Frames\"`"]
     #[cfg(feature = "Media_Capture_Frames")]
     pub fn CreateFromMediaFrameSource<P0>(framesource: P0) -> ::windows_core::Result<MediaSource>
     where
@@ -4836,7 +4836,7 @@ impl MediaSource {
             (::windows_core::Interface::vtable(this).CreateFromMediaFrameSource)(::windows_core::Interface::as_raw(this), framesource.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Networking_BackgroundTransfer`"]
+    #[doc = "Required features: `\"Networking_BackgroundTransfer\"`"]
     #[cfg(feature = "Networking_BackgroundTransfer")]
     pub fn CreateFromDownloadOperation<P0>(downloadoperation: P0) -> ::windows_core::Result<MediaSource>
     where
@@ -4891,7 +4891,7 @@ unsafe impl ::core::marker::Sync for MediaSource {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaSourceAppServiceConnection(::windows_core::IUnknown);
 impl MediaSourceAppServiceConnection {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn InitializeMediaStreamSourceRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4903,7 +4903,7 @@ impl MediaSourceAppServiceConnection {
             (::windows_core::Interface::vtable(this).InitializeMediaStreamSourceRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveInitializeMediaStreamSourceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -4913,7 +4913,7 @@ impl MediaSourceAppServiceConnection {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Start)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `ApplicationModel_AppService`"]
+    #[doc = "Required features: `\"ApplicationModel_AppService\"`"]
     #[cfg(feature = "ApplicationModel_AppService")]
     pub fn Create<P0>(appserviceconnection: P0) -> ::windows_core::Result<MediaSourceAppServiceConnection>
     where
@@ -5035,7 +5035,7 @@ unsafe impl ::core::marker::Sync for MediaSourceStateChangedEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaStreamSample(::windows_core::IUnknown);
 impl MediaStreamSample {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Processed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5047,13 +5047,13 @@ impl MediaStreamSample {
             (::windows_core::Interface::vtable(this).Processed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProcessed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveProcessed)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Buffer(&self) -> ::windows_core::Result<super::super::Storage::Streams::Buffer> {
         let this = self;
@@ -5062,7 +5062,7 @@ impl MediaStreamSample {
             (::windows_core::Interface::vtable(this).Buffer)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -5071,7 +5071,7 @@ impl MediaStreamSample {
             (::windows_core::Interface::vtable(this).Timestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ExtendedProperties(&self) -> ::windows_core::Result<MediaStreamSamplePropertySet> {
         let this = self;
@@ -5087,13 +5087,13 @@ impl MediaStreamSample {
             (::windows_core::Interface::vtable(this).Protection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDecodeTimestamp(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDecodeTimestamp)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DecodeTimestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -5102,13 +5102,13 @@ impl MediaStreamSample {
             (::windows_core::Interface::vtable(this).DecodeTimestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDuration)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -5139,7 +5139,7 @@ impl MediaStreamSample {
             (::windows_core::Interface::vtable(this).Discontinuous)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Graphics_DirectX_Direct3D11`"]
+    #[doc = "Required features: `\"Graphics_DirectX_Direct3D11\"`"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn Direct3D11Surface(&self) -> ::windows_core::Result<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface> {
         let this = &::windows_core::ComInterface::cast::<IMediaStreamSample2>(self)?;
@@ -5148,7 +5148,7 @@ impl MediaStreamSample {
             (::windows_core::Interface::vtable(this).Direct3D11Surface)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn CreateFromBuffer<P0>(buffer: P0, timestamp: super::super::Foundation::TimeSpan) -> ::windows_core::Result<MediaStreamSample>
     where
@@ -5159,7 +5159,7 @@ impl MediaStreamSample {
             (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), timestamp, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn CreateFromStreamAsync<P0>(stream: P0, count: u32, timestamp: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MediaStreamSample>>
     where
@@ -5170,7 +5170,7 @@ impl MediaStreamSample {
             (::windows_core::Interface::vtable(this).CreateFromStreamAsync)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), count, timestamp, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `Graphics_DirectX_Direct3D11`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Graphics_DirectX_Direct3D11\"`"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
     pub fn CreateFromDirect3D11Surface<P0>(surface: P0, timestamp: super::super::Foundation::TimeSpan) -> ::windows_core::Result<MediaStreamSample>
     where
@@ -5207,14 +5207,14 @@ impl ::windows_core::RuntimeName for MediaStreamSample {
 ::windows_core::imp::interface_hierarchy!(MediaStreamSample, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MediaStreamSample {}
 unsafe impl ::core::marker::Sync for MediaStreamSample {}
-#[doc = "Required features: `Foundation_Collections`"]
+#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaStreamSamplePropertySet(::windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl MediaStreamSamplePropertySet {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows_core::GUID, ::windows_core::IInspectable>>> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::GUID, ::windows_core::IInspectable>>>(self)?;
@@ -5223,7 +5223,7 @@ impl MediaStreamSamplePropertySet {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Lookup(&self, key: ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = self;
@@ -5232,7 +5232,7 @@ impl MediaStreamSamplePropertySet {
             (::windows_core::Interface::vtable(this).Lookup)(::windows_core::Interface::as_raw(this), key, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -5241,7 +5241,7 @@ impl MediaStreamSamplePropertySet {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HasKey(&self, key: ::windows_core::GUID) -> ::windows_core::Result<bool> {
         let this = self;
@@ -5250,7 +5250,7 @@ impl MediaStreamSamplePropertySet {
             (::windows_core::Interface::vtable(this).HasKey)(::windows_core::Interface::as_raw(this), key, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::GUID, ::windows_core::IInspectable>> {
         let this = self;
@@ -5259,7 +5259,7 @@ impl MediaStreamSamplePropertySet {
             (::windows_core::Interface::vtable(this).GetView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Insert<P0>(&self, key: ::windows_core::GUID, value: P0) -> ::windows_core::Result<bool>
     where
@@ -5271,13 +5271,13 @@ impl MediaStreamSamplePropertySet {
             (::windows_core::Interface::vtable(this).Insert)(::windows_core::Interface::as_raw(this), key, value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Remove(&self, key: ::windows_core::GUID) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Remove)(::windows_core::Interface::as_raw(this), key).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -5374,7 +5374,7 @@ unsafe impl ::core::marker::Sync for MediaStreamSampleProtectionProperties {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaStreamSource(::windows_core::IUnknown);
 impl MediaStreamSource {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Closed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5386,13 +5386,13 @@ impl MediaStreamSource {
             (::windows_core::Interface::vtable(this).Closed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveClosed)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Starting<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5404,13 +5404,13 @@ impl MediaStreamSource {
             (::windows_core::Interface::vtable(this).Starting)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStarting(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStarting)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Paused<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5422,13 +5422,13 @@ impl MediaStreamSource {
             (::windows_core::Interface::vtable(this).Paused)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePaused(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePaused)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SampleRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5440,13 +5440,13 @@ impl MediaStreamSource {
             (::windows_core::Interface::vtable(this).SampleRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSampleRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSampleRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SwitchStreamsRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5458,7 +5458,7 @@ impl MediaStreamSource {
             (::windows_core::Interface::vtable(this).SwitchStreamsRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSwitchStreamsRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -5475,7 +5475,7 @@ impl MediaStreamSource {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).AddStreamDescriptor)(::windows_core::Interface::as_raw(this), descriptor.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Media_Protection`"]
+    #[doc = "Required features: `\"Media_Protection\"`"]
     #[cfg(feature = "Media_Protection")]
     pub fn SetMediaProtectionManager<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -5484,7 +5484,7 @@ impl MediaStreamSource {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetMediaProtectionManager)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Media_Protection`"]
+    #[doc = "Required features: `\"Media_Protection\"`"]
     #[cfg(feature = "Media_Protection")]
     pub fn MediaProtectionManager(&self) -> ::windows_core::Result<super::Protection::MediaProtectionManager> {
         let this = self;
@@ -5493,13 +5493,13 @@ impl MediaStreamSource {
             (::windows_core::Interface::vtable(this).MediaProtectionManager)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDuration)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -5519,13 +5519,13 @@ impl MediaStreamSource {
             (::windows_core::Interface::vtable(this).CanSeek)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBufferTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetBufferTime)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BufferTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -5534,13 +5534,13 @@ impl MediaStreamSource {
             (::windows_core::Interface::vtable(this).BufferTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBufferedRange(&self, startoffset: super::super::Foundation::TimeSpan, endoffset: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetBufferedRange)(::windows_core::Interface::as_raw(this), startoffset, endoffset).ok() }
     }
-    #[doc = "Required features: `Storage_FileProperties`"]
+    #[doc = "Required features: `\"Storage_FileProperties\"`"]
     #[cfg(feature = "Storage_FileProperties")]
     pub fn MusicProperties(&self) -> ::windows_core::Result<super::super::Storage::FileProperties::MusicProperties> {
         let this = self;
@@ -5549,7 +5549,7 @@ impl MediaStreamSource {
             (::windows_core::Interface::vtable(this).MusicProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_FileProperties`"]
+    #[doc = "Required features: `\"Storage_FileProperties\"`"]
     #[cfg(feature = "Storage_FileProperties")]
     pub fn VideoProperties(&self) -> ::windows_core::Result<super::super::Storage::FileProperties::VideoProperties> {
         let this = self;
@@ -5558,7 +5558,7 @@ impl MediaStreamSource {
             (::windows_core::Interface::vtable(this).VideoProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetThumbnail<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -5567,7 +5567,7 @@ impl MediaStreamSource {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetThumbnail)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Thumbnail(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -5583,7 +5583,7 @@ impl MediaStreamSource {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).AddProtectionKey)(::windows_core::Interface::as_raw(this), streamdescriptor.try_into_param()?.abi(), keyidentifier.len() as u32, keyidentifier.as_ptr(), licensedata.len() as u32, licensedata.as_ptr()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SampleRendered<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5595,13 +5595,13 @@ impl MediaStreamSource {
             (::windows_core::Interface::vtable(this).SampleRendered)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSampleRendered(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IMediaStreamSource2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSampleRendered)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxSupportedPlaybackRate<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -5610,7 +5610,7 @@ impl MediaStreamSource {
         let this = &::windows_core::ComInterface::cast::<IMediaStreamSource3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetMaxSupportedPlaybackRate)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MaxSupportedPlaybackRate(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows_core::ComInterface::cast::<IMediaStreamSource3>(self)?;
@@ -5729,7 +5729,7 @@ unsafe impl ::core::marker::Sync for MediaStreamSourceClosedRequest {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaStreamSourceSampleRenderedEventArgs(::windows_core::IUnknown);
 impl MediaStreamSourceSampleRenderedEventArgs {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SampleLag(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -5888,7 +5888,7 @@ unsafe impl ::core::marker::Sync for MediaStreamSourceStartingEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaStreamSourceStartingRequest(::windows_core::IUnknown);
 impl MediaStreamSourceStartingRequest {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartPosition(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -5904,7 +5904,7 @@ impl MediaStreamSourceStartingRequest {
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetActualStartPosition(&self, position: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
@@ -6046,7 +6046,7 @@ unsafe impl ::core::marker::Sync for MediaStreamSourceSwitchStreamsRequestedEven
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MseSourceBuffer(::windows_core::IUnknown);
 impl MseSourceBuffer {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateStarting<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -6058,13 +6058,13 @@ impl MseSourceBuffer {
             (::windows_core::Interface::vtable(this).UpdateStarting)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdateStarting(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveUpdateStarting)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Updated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -6076,13 +6076,13 @@ impl MseSourceBuffer {
             (::windows_core::Interface::vtable(this).Updated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveUpdated)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateEnded<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -6094,13 +6094,13 @@ impl MseSourceBuffer {
             (::windows_core::Interface::vtable(this).UpdateEnded)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdateEnded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveUpdateEnded)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ErrorOccurred<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -6112,13 +6112,13 @@ impl MseSourceBuffer {
             (::windows_core::Interface::vtable(this).ErrorOccurred)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveErrorOccurred(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveErrorOccurred)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Aborted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -6130,7 +6130,7 @@ impl MseSourceBuffer {
             (::windows_core::Interface::vtable(this).Aborted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAborted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -6154,7 +6154,7 @@ impl MseSourceBuffer {
             (::windows_core::Interface::vtable(this).IsUpdating)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Buffered(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MseTimeRange>> {
         let this = self;
@@ -6163,7 +6163,7 @@ impl MseSourceBuffer {
             (::windows_core::Interface::vtable(this).Buffered)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimestampOffset(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -6172,13 +6172,13 @@ impl MseSourceBuffer {
             (::windows_core::Interface::vtable(this).TimestampOffset)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetTimestampOffset(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetTimestampOffset)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AppendWindowStart(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -6187,13 +6187,13 @@ impl MseSourceBuffer {
             (::windows_core::Interface::vtable(this).AppendWindowStart)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetAppendWindowStart(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAppendWindowStart)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AppendWindowEnd(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -6202,7 +6202,7 @@ impl MseSourceBuffer {
             (::windows_core::Interface::vtable(this).AppendWindowEnd)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetAppendWindowEnd<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -6211,7 +6211,7 @@ impl MseSourceBuffer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAppendWindowEnd)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn AppendBuffer<P0>(&self, buffer: P0) -> ::windows_core::Result<()>
     where
@@ -6220,7 +6220,7 @@ impl MseSourceBuffer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).AppendBuffer)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn AppendStream<P0>(&self, stream: P0) -> ::windows_core::Result<()>
     where
@@ -6229,7 +6229,7 @@ impl MseSourceBuffer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).AppendStream)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn AppendStreamMaxSize<P0>(&self, stream: P0, maxsize: u64) -> ::windows_core::Result<()>
     where
@@ -6242,7 +6242,7 @@ impl MseSourceBuffer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Abort)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Remove<P0>(&self, start: super::super::Foundation::TimeSpan, end: P0) -> ::windows_core::Result<()>
     where
@@ -6271,7 +6271,7 @@ unsafe impl ::core::marker::Sync for MseSourceBuffer {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MseSourceBufferList(::windows_core::IUnknown);
 impl MseSourceBufferList {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SourceBufferAdded<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -6283,13 +6283,13 @@ impl MseSourceBufferList {
             (::windows_core::Interface::vtable(this).SourceBufferAdded)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSourceBufferAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSourceBufferAdded)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SourceBufferRemoved<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -6301,13 +6301,13 @@ impl MseSourceBufferList {
             (::windows_core::Interface::vtable(this).SourceBufferRemoved)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSourceBufferRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSourceBufferRemoved)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Buffers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MseSourceBuffer>> {
         let this = self;
@@ -6343,7 +6343,7 @@ impl MseStreamSource {
         static SHARED: ::windows_core::imp::FactoryCache<MseStreamSource, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Opened<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -6355,13 +6355,13 @@ impl MseStreamSource {
             (::windows_core::Interface::vtable(this).Opened)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOpened(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveOpened)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Ended<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -6373,13 +6373,13 @@ impl MseStreamSource {
             (::windows_core::Interface::vtable(this).Ended)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveEnded)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Closed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -6391,7 +6391,7 @@ impl MseStreamSource {
             (::windows_core::Interface::vtable(this).Closed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -6418,7 +6418,7 @@ impl MseStreamSource {
             (::windows_core::Interface::vtable(this).ReadyState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -6427,7 +6427,7 @@ impl MseStreamSource {
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -6454,7 +6454,7 @@ impl MseStreamSource {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).EndOfStream)(::windows_core::Interface::as_raw(this), status).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LiveSeekableRange(&self) -> ::windows_core::Result<super::super::Foundation::IReference<MseTimeRange>> {
         let this = &::windows_core::ComInterface::cast::<IMseStreamSource2>(self)?;
@@ -6463,7 +6463,7 @@ impl MseStreamSource {
             (::windows_core::Interface::vtable(this).LiveSeekableRange)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetLiveSeekableRange<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -6504,7 +6504,7 @@ unsafe impl ::core::marker::Sync for MseStreamSource {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SceneAnalysisEffect(::windows_core::IUnknown);
 impl SceneAnalysisEffect {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetProperties<P0>(&self, configuration: P0) -> ::windows_core::Result<()>
     where
@@ -6520,13 +6520,13 @@ impl SceneAnalysisEffect {
             (::windows_core::Interface::vtable(this).HighDynamicRangeAnalyzer)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDesiredAnalysisInterval(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDesiredAnalysisInterval)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DesiredAnalysisInterval(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -6535,7 +6535,7 @@ impl SceneAnalysisEffect {
             (::windows_core::Interface::vtable(this).DesiredAnalysisInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SceneAnalyzed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -6547,7 +6547,7 @@ impl SceneAnalysisEffect {
             (::windows_core::Interface::vtable(this).SceneAnalyzed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSceneAnalyzed(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -6570,7 +6570,7 @@ impl ::windows_core::RuntimeName for SceneAnalysisEffect {
 impl ::windows_core::CanTryInto<super::IMediaExtension> for SceneAnalysisEffect {}
 unsafe impl ::core::marker::Send for SceneAnalysisEffect {}
 unsafe impl ::core::marker::Sync for SceneAnalysisEffect {}
-#[doc = "Required features: `Media_Effects`"]
+#[doc = "Required features: `\"Media_Effects\"`"]
 #[cfg(feature = "Media_Effects")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6584,7 +6584,7 @@ impl SceneAnalysisEffectDefinition {
         static SHARED: ::windows_core::imp::FactoryCache<SceneAnalysisEffectDefinition, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Media_Effects`"]
+    #[doc = "Required features: `\"Media_Effects\"`"]
     #[cfg(feature = "Media_Effects")]
     pub fn ActivatableClassId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -6593,7 +6593,7 @@ impl SceneAnalysisEffectDefinition {
             (::windows_core::Interface::vtable(this).ActivatableClassId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Media_Effects`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Effects\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
@@ -6631,7 +6631,7 @@ unsafe impl ::core::marker::Sync for SceneAnalysisEffectDefinition {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SceneAnalysisEffectFrame(::windows_core::IUnknown);
 impl SceneAnalysisEffectFrame {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -6651,7 +6651,7 @@ impl SceneAnalysisEffectFrame {
             (::windows_core::Interface::vtable(this).IsReadOnly)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetRelativeTime<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -6660,7 +6660,7 @@ impl SceneAnalysisEffectFrame {
         let this = &::windows_core::ComInterface::cast::<super::IMediaFrame>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetRelativeTime)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RelativeTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<super::IMediaFrame>(self)?;
@@ -6669,7 +6669,7 @@ impl SceneAnalysisEffectFrame {
             (::windows_core::Interface::vtable(this).RelativeTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetSystemRelativeTime<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -6678,7 +6678,7 @@ impl SceneAnalysisEffectFrame {
         let this = &::windows_core::ComInterface::cast::<super::IMediaFrame>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSystemRelativeTime)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SystemRelativeTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<super::IMediaFrame>(self)?;
@@ -6687,7 +6687,7 @@ impl SceneAnalysisEffectFrame {
             (::windows_core::Interface::vtable(this).SystemRelativeTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -6696,7 +6696,7 @@ impl SceneAnalysisEffectFrame {
         let this = &::windows_core::ComInterface::cast::<super::IMediaFrame>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetDuration)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<super::IMediaFrame>(self)?;
@@ -6716,7 +6716,7 @@ impl SceneAnalysisEffectFrame {
             (::windows_core::Interface::vtable(this).IsDiscontinuous)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ExtendedProperties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = &::windows_core::ComInterface::cast::<super::IMediaFrame>(self)?;
@@ -6725,7 +6725,7 @@ impl SceneAnalysisEffectFrame {
             (::windows_core::Interface::vtable(this).ExtendedProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Media_Capture`"]
+    #[doc = "Required features: `\"Media_Capture\"`"]
     #[cfg(feature = "Media_Capture")]
     pub fn FrameControlValues(&self) -> ::windows_core::Result<super::Capture::CapturedFrameControlValues> {
         let this = self;
@@ -6805,13 +6805,13 @@ impl SpeechCue {
         static SHARED: ::windows_core::imp::FactoryCache<SpeechCue, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetStartTime)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
@@ -6820,13 +6820,13 @@ impl SpeechCue {
             (::windows_core::Interface::vtable(this).StartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetDuration)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
@@ -6857,7 +6857,7 @@ impl SpeechCue {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartPositionInInput(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -6866,7 +6866,7 @@ impl SpeechCue {
             (::windows_core::Interface::vtable(this).StartPositionInInput)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartPositionInInput<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -6875,7 +6875,7 @@ impl SpeechCue {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetStartPositionInInput)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn EndPositionInInput(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -6884,7 +6884,7 @@ impl SpeechCue {
             (::windows_core::Interface::vtable(this).EndPositionInInput)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetEndPositionInInput<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -6954,7 +6954,7 @@ impl TimedMetadataStreamDescriptor {
             (::windows_core::Interface::vtable(this).Label)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Media_MediaProperties`"]
+    #[doc = "Required features: `\"Media_MediaProperties\"`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn EncodingProperties(&self) -> ::windows_core::Result<super::MediaProperties::TimedMetadataEncodingProperties> {
         let this = &::windows_core::ComInterface::cast::<ITimedMetadataStreamDescriptor>(self)?;
@@ -6970,7 +6970,7 @@ impl TimedMetadataStreamDescriptor {
             (::windows_core::Interface::vtable(this).Copy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Media_MediaProperties`"]
+    #[doc = "Required features: `\"Media_MediaProperties\"`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn Create<P0>(encodingproperties: P0) -> ::windows_core::Result<TimedMetadataStreamDescriptor>
     where
@@ -7040,7 +7040,7 @@ impl TimedMetadataTrack {
             (::windows_core::Interface::vtable(this).Label)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CueEntered<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -7052,13 +7052,13 @@ impl TimedMetadataTrack {
             (::windows_core::Interface::vtable(this).CueEntered)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCueEntered(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCueEntered)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CueExited<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -7070,13 +7070,13 @@ impl TimedMetadataTrack {
             (::windows_core::Interface::vtable(this).CueExited)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCueExited(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCueExited)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TrackFailed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -7088,13 +7088,13 @@ impl TimedMetadataTrack {
             (::windows_core::Interface::vtable(this).TrackFailed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTrackFailed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveTrackFailed)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Cues(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<IMediaCue>> {
         let this = self;
@@ -7103,7 +7103,7 @@ impl TimedMetadataTrack {
             (::windows_core::Interface::vtable(this).Cues)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ActiveCues(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<IMediaCue>> {
         let this = self;
@@ -7140,7 +7140,7 @@ impl TimedMetadataTrack {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCue)(::windows_core::Interface::as_raw(this), cue.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Media_Playback`"]
+    #[doc = "Required features: `\"Media_Playback\"`"]
     #[cfg(feature = "Media_Playback")]
     pub fn PlaybackItem(&self) -> ::windows_core::Result<super::Playback::MediaPlaybackItem> {
         let this = &::windows_core::ComInterface::cast::<ITimedMetadataTrack2>(self)?;
@@ -7260,7 +7260,7 @@ impl TimedTextBouten {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetType)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `UI`"]
+    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn Color(&self) -> ::windows_core::Result<super::super::UI::Color> {
         let this = self;
@@ -7269,7 +7269,7 @@ impl TimedTextBouten {
             (::windows_core::Interface::vtable(this).Color)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI`"]
+    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn SetColor(&self, value: super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
@@ -7313,13 +7313,13 @@ impl TimedTextCue {
         static SHARED: ::windows_core::imp::FactoryCache<TimedTextCue, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetStartTime)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
@@ -7328,13 +7328,13 @@ impl TimedTextCue {
             (::windows_core::Interface::vtable(this).StartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetDuration)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMediaCue>(self)?;
@@ -7382,7 +7382,7 @@ impl TimedTextCue {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCueStyle)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Lines(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<TimedTextLine>> {
         let this = self;
@@ -7430,7 +7430,7 @@ impl TimedTextLine {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Subformats(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<TimedTextSubformat>> {
         let this = self;
@@ -7499,7 +7499,7 @@ impl TimedTextRegion {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetExtent)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `UI`"]
+    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn Background(&self) -> ::windows_core::Result<super::super::UI::Color> {
         let this = self;
@@ -7508,7 +7508,7 @@ impl TimedTextRegion {
             (::windows_core::Interface::vtable(this).Background)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI`"]
+    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn SetBackground(&self, value: super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
@@ -7686,7 +7686,7 @@ unsafe impl ::core::marker::Sync for TimedTextRuby {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TimedTextSource(::windows_core::IUnknown);
 impl TimedTextSource {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Resolved<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -7698,13 +7698,13 @@ impl TimedTextSource {
             (::windows_core::Interface::vtable(this).Resolved)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveResolved(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveResolved)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromStream<P0>(stream: P0) -> ::windows_core::Result<TimedTextSource>
     where
@@ -7715,7 +7715,7 @@ impl TimedTextSource {
             (::windows_core::Interface::vtable(this).CreateFromStream)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateFromUri<P0>(uri: P0) -> ::windows_core::Result<TimedTextSource>
     where
@@ -7726,7 +7726,7 @@ impl TimedTextSource {
             (::windows_core::Interface::vtable(this).CreateFromUri)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromStreamWithLanguage<P0>(stream: P0, defaultlanguage: &::windows_core::HSTRING) -> ::windows_core::Result<TimedTextSource>
     where
@@ -7737,7 +7737,7 @@ impl TimedTextSource {
             (::windows_core::Interface::vtable(this).CreateFromStreamWithLanguage)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), ::core::mem::transmute_copy(defaultlanguage), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateFromUriWithLanguage<P0>(uri: P0, defaultlanguage: &::windows_core::HSTRING) -> ::windows_core::Result<TimedTextSource>
     where
@@ -7748,7 +7748,7 @@ impl TimedTextSource {
             (::windows_core::Interface::vtable(this).CreateFromUriWithLanguage)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), ::core::mem::transmute_copy(defaultlanguage), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromStreamWithIndex<P0, P1>(stream: P0, indexstream: P1) -> ::windows_core::Result<TimedTextSource>
     where
@@ -7760,7 +7760,7 @@ impl TimedTextSource {
             (::windows_core::Interface::vtable(this).CreateFromStreamWithIndex)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), indexstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateFromUriWithIndex<P0, P1>(uri: P0, indexuri: P1) -> ::windows_core::Result<TimedTextSource>
     where
@@ -7772,7 +7772,7 @@ impl TimedTextSource {
             (::windows_core::Interface::vtable(this).CreateFromUriWithIndex)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), indexuri.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromStreamWithIndexAndLanguage<P0, P1>(stream: P0, indexstream: P1, defaultlanguage: &::windows_core::HSTRING) -> ::windows_core::Result<TimedTextSource>
     where
@@ -7784,7 +7784,7 @@ impl TimedTextSource {
             (::windows_core::Interface::vtable(this).CreateFromStreamWithIndexAndLanguage)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), indexstream.try_into_param()?.abi(), ::core::mem::transmute_copy(defaultlanguage), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateFromUriWithIndexAndLanguage<P0, P1>(uri: P0, indexuri: P1, defaultlanguage: &::windows_core::HSTRING) -> ::windows_core::Result<TimedTextSource>
     where
@@ -7833,7 +7833,7 @@ impl TimedTextSourceResolveResultEventArgs {
             (::windows_core::Interface::vtable(this).Error)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Tracks(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>> {
         let this = self;
@@ -7913,7 +7913,7 @@ impl TimedTextStyle {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetFontWeight)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `UI`"]
+    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn Foreground(&self) -> ::windows_core::Result<super::super::UI::Color> {
         let this = self;
@@ -7922,13 +7922,13 @@ impl TimedTextStyle {
             (::windows_core::Interface::vtable(this).Foreground)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI`"]
+    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn SetForeground(&self, value: super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetForeground)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `UI`"]
+    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn Background(&self) -> ::windows_core::Result<super::super::UI::Color> {
         let this = self;
@@ -7937,7 +7937,7 @@ impl TimedTextStyle {
             (::windows_core::Interface::vtable(this).Background)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI`"]
+    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn SetBackground(&self, value: super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
@@ -7976,7 +7976,7 @@ impl TimedTextStyle {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetLineAlignment)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `UI`"]
+    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn OutlineColor(&self) -> ::windows_core::Result<super::super::UI::Color> {
         let this = self;
@@ -7985,7 +7985,7 @@ impl TimedTextStyle {
             (::windows_core::Interface::vtable(this).OutlineColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `UI`"]
+    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn SetOutlineColor(&self, value: super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
@@ -8176,7 +8176,7 @@ unsafe impl ::core::marker::Sync for TimedTextSubformat {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VideoStabilizationEffect(::windows_core::IUnknown);
 impl VideoStabilizationEffect {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetProperties<P0>(&self, configuration: P0) -> ::windows_core::Result<()>
     where
@@ -8196,7 +8196,7 @@ impl VideoStabilizationEffect {
             (::windows_core::Interface::vtable(this).Enabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn EnabledChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -8208,13 +8208,13 @@ impl VideoStabilizationEffect {
             (::windows_core::Interface::vtable(this).EnabledChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnabledChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveEnabledChanged)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Media_Capture`, `Media_Devices`, `Media_MediaProperties`"]
+    #[doc = "Required features: `\"Media_Capture\"`, `\"Media_Devices\"`, `\"Media_MediaProperties\"`"]
     #[cfg(all(feature = "Media_Capture", feature = "Media_Devices", feature = "Media_MediaProperties"))]
     pub fn GetRecommendedStreamConfiguration<P0, P1>(&self, controller: P0, desiredproperties: P1) -> ::windows_core::Result<super::Capture::VideoStreamConfiguration>
     where
@@ -8244,7 +8244,7 @@ impl ::windows_core::RuntimeName for VideoStabilizationEffect {
 impl ::windows_core::CanTryInto<super::IMediaExtension> for VideoStabilizationEffect {}
 unsafe impl ::core::marker::Send for VideoStabilizationEffect {}
 unsafe impl ::core::marker::Sync for VideoStabilizationEffect {}
-#[doc = "Required features: `Media_Effects`"]
+#[doc = "Required features: `\"Media_Effects\"`"]
 #[cfg(feature = "Media_Effects")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -8258,7 +8258,7 @@ impl VideoStabilizationEffectDefinition {
         static SHARED: ::windows_core::imp::FactoryCache<VideoStabilizationEffectDefinition, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Media_Effects`"]
+    #[doc = "Required features: `\"Media_Effects\"`"]
     #[cfg(feature = "Media_Effects")]
     pub fn ActivatableClassId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -8267,7 +8267,7 @@ impl VideoStabilizationEffectDefinition {
             (::windows_core::Interface::vtable(this).ActivatableClassId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Media_Effects`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Effects\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
@@ -8372,7 +8372,7 @@ impl VideoStreamDescriptor {
             (::windows_core::Interface::vtable(this).Label)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Media_MediaProperties`"]
+    #[doc = "Required features: `\"Media_MediaProperties\"`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn EncodingProperties(&self) -> ::windows_core::Result<super::MediaProperties::VideoEncodingProperties> {
         let this = self;
@@ -8388,7 +8388,7 @@ impl VideoStreamDescriptor {
             (::windows_core::Interface::vtable(this).Copy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Media_MediaProperties`"]
+    #[doc = "Required features: `\"Media_MediaProperties\"`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn Create<P0>(encodingproperties: P0) -> ::windows_core::Result<VideoStreamDescriptor>
     where
@@ -8458,7 +8458,7 @@ impl VideoTrack {
             (::windows_core::Interface::vtable(this).Label)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn OpenFailed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -8470,13 +8470,13 @@ impl VideoTrack {
             (::windows_core::Interface::vtable(this).OpenFailed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOpenFailed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IVideoTrack>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveOpenFailed)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Media_MediaProperties`"]
+    #[doc = "Required features: `\"Media_MediaProperties\"`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetEncodingProperties(&self) -> ::windows_core::Result<super::MediaProperties::VideoEncodingProperties> {
         let this = &::windows_core::ComInterface::cast::<IVideoTrack>(self)?;
@@ -8485,7 +8485,7 @@ impl VideoTrack {
             (::windows_core::Interface::vtable(this).GetEncodingProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Media_Playback`"]
+    #[doc = "Required features: `\"Media_Playback\"`"]
     #[cfg(feature = "Media_Playback")]
     pub fn PlaybackItem(&self) -> ::windows_core::Result<super::Playback::MediaPlaybackItem> {
         let this = &::windows_core::ComInterface::cast::<IVideoTrack>(self)?;
@@ -9572,7 +9572,7 @@ impl ::windows_core::RuntimeType for VideoStabilizationEffectEnabledChangedReaso
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.VideoStabilizationEffectEnabledChangedReason;i4)");
 }
 #[repr(C)]
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub struct MseTimeRange {
     pub Start: super::super::Foundation::TimeSpan,

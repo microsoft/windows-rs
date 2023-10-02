@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn ADsBuildEnumerator<P0>(padscontainer: P0) -> ::windows_core::Result<super::super::System::Ole::IEnumVARIANT>
@@ -9,14 +9,14 @@ where
     let mut result__ = ::std::mem::zeroed();
     ADsBuildEnumerator(padscontainer.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn ADsBuildVarArrayInt(lpdwobjecttypes: *mut u32, dwobjecttypes: u32, pvar: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
     ::windows_targets::link!("activeds.dll" "system" fn ADsBuildVarArrayInt(lpdwobjecttypes : *mut u32, dwobjecttypes : u32, pvar : *mut super::super::System::Variant:: VARIANT) -> ::windows_core::HRESULT);
     ADsBuildVarArrayInt(lpdwobjecttypes, dwobjecttypes, pvar).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn ADsBuildVarArrayStr(lpppathnames: &[::windows_core::PCWSTR], pvar: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
@@ -36,7 +36,7 @@ pub unsafe fn ADsEncodeBinaryData(pbsrcdata: *mut u8, dwsrclen: u32, ppszdestdat
     ::windows_targets::link!("activeds.dll" "system" fn ADsEncodeBinaryData(pbsrcdata : *mut u8, dwsrclen : u32, ppszdestdata : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
     ADsEncodeBinaryData(pbsrcdata, dwsrclen, ppszdestdata).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn ADsEnumerateNext<P0>(penumvariant: P0, celements: u32, pvar: *mut super::super::System::Variant::VARIANT, pcelementsfetched: *mut u32) -> ::windows_core::Result<()>
@@ -46,7 +46,7 @@ where
     ::windows_targets::link!("activeds.dll" "system" fn ADsEnumerateNext(penumvariant : * mut::core::ffi::c_void, celements : u32, pvar : *mut super::super::System::Variant:: VARIANT, pcelementsfetched : *mut u32) -> ::windows_core::HRESULT);
     ADsEnumerateNext(penumvariant.into_param().abi(), celements, pvar, pcelementsfetched).ok()
 }
-#[doc = "Required features: `Win32_System_Ole`"]
+#[doc = "Required features: `\"Win32_System_Ole\"`"]
 #[cfg(feature = "Win32_System_Ole")]
 #[inline]
 pub unsafe fn ADsFreeEnumerator<P0>(penumvariant: P0) -> ::windows_core::Result<()>
@@ -79,7 +79,7 @@ where
     ::windows_targets::link!("activeds.dll" "system" fn ADsOpenObject(lpszpathname : ::windows_core::PCWSTR, lpszusername : ::windows_core::PCWSTR, lpszpassword : ::windows_core::PCWSTR, dwreserved : ADS_AUTHENTICATION_ENUM, riid : *const ::windows_core::GUID, ppobject : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ADsOpenObject(lpszpathname.into_param().abi(), lpszusername.into_param().abi(), lpszpassword.into_param().abi(), dwreserved, riid, ppobject).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ADsPropCheckIfWritable<P0>(pwzattr: P0, pwritableattrs: *const ADS_ATTR_INFO) -> super::super::Foundation::BOOL
@@ -89,7 +89,7 @@ where
     ::windows_targets::link!("dsprop.dll" "system" fn ADsPropCheckIfWritable(pwzattr : ::windows_core::PCWSTR, pwritableattrs : *const ADS_ATTR_INFO) -> super::super::Foundation:: BOOL);
     ADsPropCheckIfWritable(pwzattr.into_param().abi(), pwritableattrs)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ADsPropCreateNotifyObj<P0, P1>(pappthddataobj: P0, pwzadsobjname: P1, phnotifyobj: *mut super::super::Foundation::HWND) -> ::windows_core::Result<()>
@@ -100,7 +100,7 @@ where
     ::windows_targets::link!("dsprop.dll" "system" fn ADsPropCreateNotifyObj(pappthddataobj : * mut::core::ffi::c_void, pwzadsobjname : ::windows_core::PCWSTR, phnotifyobj : *mut super::super::Foundation:: HWND) -> ::windows_core::HRESULT);
     ADsPropCreateNotifyObj(pappthddataobj.into_param().abi(), pwzadsobjname.into_param().abi(), phnotifyobj).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ADsPropGetInitInfo<P0>(hnotifyobj: P0, pinitparams: *mut ADSPROPINITPARAMS) -> super::super::Foundation::BOOL
@@ -110,7 +110,7 @@ where
     ::windows_targets::link!("dsprop.dll" "system" fn ADsPropGetInitInfo(hnotifyobj : super::super::Foundation:: HWND, pinitparams : *mut ADSPROPINITPARAMS) -> super::super::Foundation:: BOOL);
     ADsPropGetInitInfo(hnotifyobj.into_param().abi(), pinitparams)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ADsPropSendErrorMessage<P0>(hnotifyobj: P0, perror: *mut ADSPROPERROR) -> super::super::Foundation::BOOL
@@ -120,7 +120,7 @@ where
     ::windows_targets::link!("dsprop.dll" "system" fn ADsPropSendErrorMessage(hnotifyobj : super::super::Foundation:: HWND, perror : *mut ADSPROPERROR) -> super::super::Foundation:: BOOL);
     ADsPropSendErrorMessage(hnotifyobj.into_param().abi(), perror)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ADsPropSetHwnd<P0, P1>(hnotifyobj: P0, hpage: P1) -> super::super::Foundation::BOOL
@@ -131,7 +131,7 @@ where
     ::windows_targets::link!("dsprop.dll" "system" fn ADsPropSetHwnd(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
     ADsPropSetHwnd(hnotifyobj.into_param().abi(), hpage.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ADsPropSetHwndWithTitle<P0, P1>(hnotifyobj: P0, hpage: P1, ptztitle: *const i8) -> super::super::Foundation::BOOL
@@ -142,7 +142,7 @@ where
     ::windows_targets::link!("dsprop.dll" "system" fn ADsPropSetHwndWithTitle(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND, ptztitle : *const i8) -> super::super::Foundation:: BOOL);
     ADsPropSetHwndWithTitle(hnotifyobj.into_param().abi(), hpage.into_param().abi(), ptztitle)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ADsPropShowErrorDialog<P0, P1>(hnotifyobj: P0, hpage: P1) -> super::super::Foundation::BOOL
@@ -162,14 +162,14 @@ where
     ::windows_targets::link!("activeds.dll" "system" fn ADsSetLastError(dwerr : u32, pszerror : ::windows_core::PCWSTR, pszprovider : ::windows_core::PCWSTR) -> ());
     ADsSetLastError(dwerr, pszerror.into_param().abi(), pszprovider.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AdsFreeAdsValues(padsvalues: *mut ADSVALUE, dwnumvalues: u32) {
     ::windows_targets::link!("activeds.dll" "system" fn AdsFreeAdsValues(padsvalues : *mut ADSVALUE, dwnumvalues : u32) -> ());
     AdsFreeAdsValues(padsvalues, dwnumvalues)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn AdsTypeToPropVariant(padsvalues: *mut ADSVALUE, dwnumvalues: u32, pvariant: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
@@ -189,7 +189,7 @@ where
     ::windows_targets::link!("activeds.dll" "system" fn AllocADsStr(pstr : ::windows_core::PCWSTR) -> ::windows_core::PWSTR);
     AllocADsStr(pstr.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn BinarySDToSecurityDescriptor<P0, P1, P2, P3>(psecuritydescriptor: P0, pvarsec: *mut super::super::System::Variant::VARIANT, pszservername: P1, username: P2, password: P3, dwflags: u32) -> ::windows_core::Result<()>
@@ -202,7 +202,7 @@ where
     ::windows_targets::link!("activeds.dll" "system" fn BinarySDToSecurityDescriptor(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pvarsec : *mut super::super::System::Variant:: VARIANT, pszservername : ::windows_core::PCWSTR, username : ::windows_core::PCWSTR, password : ::windows_core::PCWSTR, dwflags : u32) -> ::windows_core::HRESULT);
     BinarySDToSecurityDescriptor(psecuritydescriptor.into_param().abi(), pvarsec, pszservername.into_param().abi(), username.into_param().abi(), password.into_param().abi(), dwflags).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsAddSidHistoryA<P0, P1, P2, P3, P4, P5>(hds: P0, flags: u32, srcdomain: P1, srcprincipal: P2, srcdomaincontroller: P3, srcdomaincreds: ::core::option::Option<*const ::core::ffi::c_void>, dstdomain: P4, dstprincipal: P5) -> u32
@@ -217,7 +217,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsAddSidHistoryA(hds : super::super::Foundation:: HANDLE, flags : u32, srcdomain : ::windows_core::PCSTR, srcprincipal : ::windows_core::PCSTR, srcdomaincontroller : ::windows_core::PCSTR, srcdomaincreds : *const ::core::ffi::c_void, dstdomain : ::windows_core::PCSTR, dstprincipal : ::windows_core::PCSTR) -> u32);
     DsAddSidHistoryA(hds.into_param().abi(), flags, srcdomain.into_param().abi(), srcprincipal.into_param().abi(), srcdomaincontroller.into_param().abi(), ::core::mem::transmute(srcdomaincreds.unwrap_or(::std::ptr::null())), dstdomain.into_param().abi(), dstprincipal.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsAddSidHistoryW<P0, P1, P2, P3, P4, P5>(hds: P0, flags: u32, srcdomain: P1, srcprincipal: P2, srcdomaincontroller: P3, srcdomaincreds: ::core::option::Option<*const ::core::ffi::c_void>, dstdomain: P4, dstprincipal: P5) -> u32
@@ -232,7 +232,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsAddSidHistoryW(hds : super::super::Foundation:: HANDLE, flags : u32, srcdomain : ::windows_core::PCWSTR, srcprincipal : ::windows_core::PCWSTR, srcdomaincontroller : ::windows_core::PCWSTR, srcdomaincreds : *const ::core::ffi::c_void, dstdomain : ::windows_core::PCWSTR, dstprincipal : ::windows_core::PCWSTR) -> u32);
     DsAddSidHistoryW(hds.into_param().abi(), flags, srcdomain.into_param().abi(), srcprincipal.into_param().abi(), srcdomaincontroller.into_param().abi(), ::core::mem::transmute(srcdomaincreds.unwrap_or(::std::ptr::null())), dstdomain.into_param().abi(), dstprincipal.into_param().abi())
 }
-#[doc = "Required features: `Win32_Networking_WinSock`"]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn DsAddressToSiteNamesA<P0>(computername: P0, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut ::windows_core::PSTR) -> u32
@@ -242,7 +242,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn DsAddressToSiteNamesA(computername : ::windows_core::PCSTR, entrycount : u32, socketaddresses : *const super::WinSock:: SOCKET_ADDRESS, sitenames : *mut *mut ::windows_core::PSTR) -> u32);
     DsAddressToSiteNamesA(computername.into_param().abi(), socketaddresses.len() as _, ::core::mem::transmute(socketaddresses.as_ptr()), sitenames)
 }
-#[doc = "Required features: `Win32_Networking_WinSock`"]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn DsAddressToSiteNamesExA<P0>(computername: P0, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut ::windows_core::PSTR, subnetnames: *mut *mut ::windows_core::PSTR) -> u32
@@ -252,7 +252,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn DsAddressToSiteNamesExA(computername : ::windows_core::PCSTR, entrycount : u32, socketaddresses : *const super::WinSock:: SOCKET_ADDRESS, sitenames : *mut *mut ::windows_core::PSTR, subnetnames : *mut *mut ::windows_core::PSTR) -> u32);
     DsAddressToSiteNamesExA(computername.into_param().abi(), socketaddresses.len() as _, ::core::mem::transmute(socketaddresses.as_ptr()), sitenames, subnetnames)
 }
-#[doc = "Required features: `Win32_Networking_WinSock`"]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn DsAddressToSiteNamesExW<P0>(computername: P0, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut ::windows_core::PWSTR, subnetnames: *mut *mut ::windows_core::PWSTR) -> u32
@@ -262,7 +262,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn DsAddressToSiteNamesExW(computername : ::windows_core::PCWSTR, entrycount : u32, socketaddresses : *const super::WinSock:: SOCKET_ADDRESS, sitenames : *mut *mut ::windows_core::PWSTR, subnetnames : *mut *mut ::windows_core::PWSTR) -> u32);
     DsAddressToSiteNamesExW(computername.into_param().abi(), socketaddresses.len() as _, ::core::mem::transmute(socketaddresses.as_ptr()), sitenames, subnetnames)
 }
-#[doc = "Required features: `Win32_Networking_WinSock`"]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn DsAddressToSiteNamesW<P0>(computername: P0, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut ::windows_core::PWSTR) -> u32
@@ -272,7 +272,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn DsAddressToSiteNamesW(computername : ::windows_core::PCWSTR, entrycount : u32, socketaddresses : *const super::WinSock:: SOCKET_ADDRESS, sitenames : *mut *mut ::windows_core::PWSTR) -> u32);
     DsAddressToSiteNamesW(computername.into_param().abi(), socketaddresses.len() as _, ::core::mem::transmute(socketaddresses.as_ptr()), sitenames)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindA<P0, P1>(domaincontrollername: P0, dnsdomainname: P1, phds: *mut super::super::Foundation::HANDLE) -> u32
@@ -283,7 +283,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsBindA(domaincontrollername : ::windows_core::PCSTR, dnsdomainname : ::windows_core::PCSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
     DsBindA(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), phds)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindByInstanceA<P0, P1, P2, P3>(servername: P0, annotation: P1, instanceguid: ::core::option::Option<*const ::windows_core::GUID>, dnsdomainname: P2, authidentity: ::core::option::Option<*const ::core::ffi::c_void>, serviceprincipalname: P3, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32
@@ -296,7 +296,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsBindByInstanceA(servername : ::windows_core::PCSTR, annotation : ::windows_core::PCSTR, instanceguid : *const ::windows_core::GUID, dnsdomainname : ::windows_core::PCSTR, authidentity : *const ::core::ffi::c_void, serviceprincipalname : ::windows_core::PCSTR, bindflags : u32, phds : *mut super::super::Foundation:: HANDLE) -> u32);
     DsBindByInstanceA(servername.into_param().abi(), annotation.into_param().abi(), ::core::mem::transmute(instanceguid.unwrap_or(::std::ptr::null())), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), serviceprincipalname.into_param().abi(), bindflags, phds)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindByInstanceW<P0, P1, P2, P3>(servername: P0, annotation: P1, instanceguid: ::core::option::Option<*const ::windows_core::GUID>, dnsdomainname: P2, authidentity: ::core::option::Option<*const ::core::ffi::c_void>, serviceprincipalname: P3, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32
@@ -309,7 +309,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsBindByInstanceW(servername : ::windows_core::PCWSTR, annotation : ::windows_core::PCWSTR, instanceguid : *const ::windows_core::GUID, dnsdomainname : ::windows_core::PCWSTR, authidentity : *const ::core::ffi::c_void, serviceprincipalname : ::windows_core::PCWSTR, bindflags : u32, phds : *mut super::super::Foundation:: HANDLE) -> u32);
     DsBindByInstanceW(servername.into_param().abi(), annotation.into_param().abi(), ::core::mem::transmute(instanceguid.unwrap_or(::std::ptr::null())), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), serviceprincipalname.into_param().abi(), bindflags, phds)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindToISTGA<P0>(sitename: P0, phds: *mut super::super::Foundation::HANDLE) -> u32
@@ -319,7 +319,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsBindToISTGA(sitename : ::windows_core::PCSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
     DsBindToISTGA(sitename.into_param().abi(), phds)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindToISTGW<P0>(sitename: P0, phds: *mut super::super::Foundation::HANDLE) -> u32
@@ -329,7 +329,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsBindToISTGW(sitename : ::windows_core::PCWSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
     DsBindToISTGW(sitename.into_param().abi(), phds)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindW<P0, P1>(domaincontrollername: P0, dnsdomainname: P1, phds: *mut super::super::Foundation::HANDLE) -> u32
@@ -340,7 +340,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsBindW(domaincontrollername : ::windows_core::PCWSTR, dnsdomainname : ::windows_core::PCWSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
     DsBindW(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), phds)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindWithCredA<P0, P1>(domaincontrollername: P0, dnsdomainname: P1, authidentity: ::core::option::Option<*const ::core::ffi::c_void>, phds: *mut super::super::Foundation::HANDLE) -> u32
@@ -351,7 +351,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsBindWithCredA(domaincontrollername : ::windows_core::PCSTR, dnsdomainname : ::windows_core::PCSTR, authidentity : *const ::core::ffi::c_void, phds : *mut super::super::Foundation:: HANDLE) -> u32);
     DsBindWithCredA(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), phds)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindWithCredW<P0, P1>(domaincontrollername: P0, dnsdomainname: P1, authidentity: ::core::option::Option<*const ::core::ffi::c_void>, phds: *mut super::super::Foundation::HANDLE) -> u32
@@ -362,7 +362,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsBindWithCredW(domaincontrollername : ::windows_core::PCWSTR, dnsdomainname : ::windows_core::PCWSTR, authidentity : *const ::core::ffi::c_void, phds : *mut super::super::Foundation:: HANDLE) -> u32);
     DsBindWithCredW(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), phds)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindWithSpnA<P0, P1, P2>(domaincontrollername: P0, dnsdomainname: P1, authidentity: ::core::option::Option<*const ::core::ffi::c_void>, serviceprincipalname: P2, phds: *mut super::super::Foundation::HANDLE) -> u32
@@ -374,7 +374,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsBindWithSpnA(domaincontrollername : ::windows_core::PCSTR, dnsdomainname : ::windows_core::PCSTR, authidentity : *const ::core::ffi::c_void, serviceprincipalname : ::windows_core::PCSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
     DsBindWithSpnA(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), serviceprincipalname.into_param().abi(), phds)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindWithSpnExA<P0, P1, P2>(domaincontrollername: P0, dnsdomainname: P1, authidentity: ::core::option::Option<*const ::core::ffi::c_void>, serviceprincipalname: P2, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32
@@ -386,7 +386,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsBindWithSpnExA(domaincontrollername : ::windows_core::PCSTR, dnsdomainname : ::windows_core::PCSTR, authidentity : *const ::core::ffi::c_void, serviceprincipalname : ::windows_core::PCSTR, bindflags : u32, phds : *mut super::super::Foundation:: HANDLE) -> u32);
     DsBindWithSpnExA(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), serviceprincipalname.into_param().abi(), bindflags, phds)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindWithSpnExW<P0, P1, P2>(domaincontrollername: P0, dnsdomainname: P1, authidentity: ::core::option::Option<*const ::core::ffi::c_void>, serviceprincipalname: P2, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32
@@ -398,7 +398,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsBindWithSpnExW(domaincontrollername : ::windows_core::PCWSTR, dnsdomainname : ::windows_core::PCWSTR, authidentity : *const ::core::ffi::c_void, serviceprincipalname : ::windows_core::PCWSTR, bindflags : u32, phds : *mut super::super::Foundation:: HANDLE) -> u32);
     DsBindWithSpnExW(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), serviceprincipalname.into_param().abi(), bindflags, phds)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindWithSpnW<P0, P1, P2>(domaincontrollername: P0, dnsdomainname: P1, authidentity: ::core::option::Option<*const ::core::ffi::c_void>, serviceprincipalname: P2, phds: *mut super::super::Foundation::HANDLE) -> u32
@@ -410,7 +410,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsBindWithSpnW(domaincontrollername : ::windows_core::PCWSTR, dnsdomainname : ::windows_core::PCWSTR, authidentity : *const ::core::ffi::c_void, serviceprincipalname : ::windows_core::PCWSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
     DsBindWithSpnW(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), serviceprincipalname.into_param().abi(), phds)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindingSetTimeout<P0>(hds: P0, ctimeoutsecs: u32) -> u32
@@ -420,14 +420,14 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsBindingSetTimeout(hds : super::super::Foundation:: HANDLE, ctimeoutsecs : u32) -> u32);
     DsBindingSetTimeout(hds.into_param().abi(), ctimeoutsecs)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 #[inline]
 pub unsafe fn DsBrowseForContainerA(pinfo: *mut DSBROWSEINFOA) -> i32 {
     ::windows_targets::link!("dsuiext.dll" "system" fn DsBrowseForContainerA(pinfo : *mut DSBROWSEINFOA) -> i32);
     DsBrowseForContainerA(pinfo)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 #[inline]
 pub unsafe fn DsBrowseForContainerW(pinfo: *mut DSBROWSEINFOW) -> i32 {
@@ -452,7 +452,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsClientMakeSpnForTargetServerW(serviceclass : ::windows_core::PCWSTR, servicename : ::windows_core::PCWSTR, pcspnlength : *mut u32, pszspn : ::windows_core::PWSTR) -> u32);
     DsClientMakeSpnForTargetServerW(serviceclass.into_param().abi(), servicename.into_param().abi(), pcspnlength, ::core::mem::transmute(pszspn))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsCrackNamesA<P0>(hds: P0, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, rpnames: &[::windows_core::PCSTR], ppresult: *mut *mut DS_NAME_RESULTA) -> u32
@@ -462,7 +462,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsCrackNamesA(hds : super::super::Foundation:: HANDLE, flags : DS_NAME_FLAGS, formatoffered : DS_NAME_FORMAT, formatdesired : DS_NAME_FORMAT, cnames : u32, rpnames : *const ::windows_core::PCSTR, ppresult : *mut *mut DS_NAME_RESULTA) -> u32);
     DsCrackNamesA(hds.into_param().abi(), flags, formatoffered, formatdesired, rpnames.len() as _, ::core::mem::transmute(rpnames.as_ptr()), ppresult)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsCrackNamesW<P0>(hds: P0, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, rpnames: &[::windows_core::PCWSTR], ppresult: *mut *mut DS_NAME_RESULTW) -> u32
@@ -514,14 +514,14 @@ where
     ::windows_targets::link!("dsparse.dll" "system" fn DsCrackSpnW(pszspn : ::windows_core::PCWSTR, pcserviceclass : *mut u32, serviceclass : ::windows_core::PWSTR, pcservicename : *mut u32, servicename : ::windows_core::PWSTR, pcinstancename : *mut u32, instancename : ::windows_core::PWSTR, pinstanceport : *mut u16) -> u32);
     DsCrackSpnW(pszspn.into_param().abi(), ::core::mem::transmute(pcserviceclass.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(serviceclass), ::core::mem::transmute(pcservicename.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(servicename), ::core::mem::transmute(pcinstancename.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(instancename), ::core::mem::transmute(pinstanceport.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsCrackUnquotedMangledRdnA(pszrdn: &[u8], pguid: ::core::option::Option<*mut ::windows_core::GUID>, pedsmanglefor: ::core::option::Option<*mut DS_MANGLE_FOR>) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("dsparse.dll" "system" fn DsCrackUnquotedMangledRdnA(pszrdn : ::windows_core::PCSTR, cchrdn : u32, pguid : *mut ::windows_core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
     DsCrackUnquotedMangledRdnA(::core::mem::transmute(pszrdn.as_ptr()), pszrdn.len() as _, ::core::mem::transmute(pguid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pedsmanglefor.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsCrackUnquotedMangledRdnW(pszrdn: &[u16], pguid: ::core::option::Option<*mut ::windows_core::GUID>, pedsmanglefor: ::core::option::Option<*mut DS_MANGLE_FOR>) -> super::super::Foundation::BOOL {
@@ -548,7 +548,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn DsDeregisterDnsHostRecordsW(servername : ::windows_core::PCWSTR, dnsdomainname : ::windows_core::PCWSTR, domainguid : *const ::windows_core::GUID, dsaguid : *const ::windows_core::GUID, dnshostname : ::windows_core::PCWSTR) -> u32);
     DsDeregisterDnsHostRecordsW(servername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(domainguid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dsaguid.unwrap_or(::std::ptr::null())), dnshostname.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsEnumerateDomainTrustsA<P0>(servername: P0, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSA, domaincount: *mut u32) -> u32
@@ -558,7 +558,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn DsEnumerateDomainTrustsA(servername : ::windows_core::PCSTR, flags : u32, domains : *mut *mut DS_DOMAIN_TRUSTSA, domaincount : *mut u32) -> u32);
     DsEnumerateDomainTrustsA(servername.into_param().abi(), flags, domains, domaincount)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsEnumerateDomainTrustsW<P0>(servername: P0, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSW, domaincount: *mut u32) -> u32
@@ -613,7 +613,7 @@ pub unsafe fn DsFreeSpnArrayW(rpszspn: &mut [::windows_core::PWSTR]) {
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayW(cspn : u32, rpszspn : *mut ::windows_core::PWSTR) -> ());
     DsFreeSpnArrayW(rpszspn.len() as _, ::core::mem::transmute(rpszspn.as_ptr()))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetDcCloseW<P0>(getdccontexthandle: P0)
@@ -643,7 +643,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn DsGetDcNameW(computername : ::windows_core::PCWSTR, domainname : ::windows_core::PCWSTR, domainguid : *const ::windows_core::GUID, sitename : ::windows_core::PCWSTR, flags : u32, domaincontrollerinfo : *mut *mut DOMAIN_CONTROLLER_INFOW) -> u32);
     DsGetDcNameW(computername.into_param().abi(), domainname.into_param().abi(), ::core::mem::transmute(domainguid.unwrap_or(::std::ptr::null())), sitename.into_param().abi(), flags, domaincontrollerinfo)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Networking_WinSock`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn DsGetDcNextA<P0>(getdccontexthandle: P0, sockaddresscount: ::core::option::Option<*mut u32>, sockaddresses: ::core::option::Option<*mut *mut super::WinSock::SOCKET_ADDRESS>, dnshostname: ::core::option::Option<*mut ::windows_core::PSTR>) -> u32
@@ -653,7 +653,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn DsGetDcNextA(getdccontexthandle : super::super::Foundation:: HANDLE, sockaddresscount : *mut u32, sockaddresses : *mut *mut super::WinSock:: SOCKET_ADDRESS, dnshostname : *mut ::windows_core::PSTR) -> u32);
     DsGetDcNextA(getdccontexthandle.into_param().abi(), ::core::mem::transmute(sockaddresscount.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sockaddresses.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(dnshostname.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Networking_WinSock`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn DsGetDcNextW<P0>(getdccontexthandle: P0, sockaddresscount: ::core::option::Option<*mut u32>, sockaddresses: ::core::option::Option<*mut *mut super::WinSock::SOCKET_ADDRESS>, dnshostname: ::core::option::Option<*mut ::windows_core::PWSTR>) -> u32
@@ -663,7 +663,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn DsGetDcNextW(getdccontexthandle : super::super::Foundation:: HANDLE, sockaddresscount : *mut u32, sockaddresses : *mut *mut super::WinSock:: SOCKET_ADDRESS, dnshostname : *mut ::windows_core::PWSTR) -> u32);
     DsGetDcNextW(getdccontexthandle.into_param().abi(), ::core::mem::transmute(sockaddresscount.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sockaddresses.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(dnshostname.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetDcOpenA<P0, P1, P2>(dnsname: P0, optionflags: u32, sitename: P1, domainguid: ::core::option::Option<*const ::windows_core::GUID>, dnsforestname: P2, dcflags: u32, retgetdccontext: *mut super::super::Foundation::HANDLE) -> u32
@@ -675,7 +675,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn DsGetDcOpenA(dnsname : ::windows_core::PCSTR, optionflags : u32, sitename : ::windows_core::PCSTR, domainguid : *const ::windows_core::GUID, dnsforestname : ::windows_core::PCSTR, dcflags : u32, retgetdccontext : *mut super::super::Foundation:: HANDLE) -> u32);
     DsGetDcOpenA(dnsname.into_param().abi(), optionflags, sitename.into_param().abi(), ::core::mem::transmute(domainguid.unwrap_or(::std::ptr::null())), dnsforestname.into_param().abi(), dcflags, retgetdccontext)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetDcOpenW<P0, P1, P2>(dnsname: P0, optionflags: u32, sitename: P1, domainguid: ::core::option::Option<*const ::windows_core::GUID>, dnsforestname: P2, dcflags: u32, retgetdccontext: *mut super::super::Foundation::HANDLE) -> u32
@@ -703,7 +703,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn DsGetDcSiteCoverageW(servername : ::windows_core::PCWSTR, entrycount : *mut u32, sitenames : *mut *mut ::windows_core::PWSTR) -> u32);
     DsGetDcSiteCoverageW(servername.into_param().abi(), entrycount, sitenames)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetDomainControllerInfoA<P0, P1>(hds: P0, domainname: P1, infolevel: u32, pcout: *mut u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32
@@ -714,7 +714,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsGetDomainControllerInfoA(hds : super::super::Foundation:: HANDLE, domainname : ::windows_core::PCSTR, infolevel : u32, pcout : *mut u32, ppinfo : *mut *mut ::core::ffi::c_void) -> u32);
     DsGetDomainControllerInfoA(hds.into_param().abi(), domainname.into_param().abi(), infolevel, pcout, ppinfo)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetDomainControllerInfoW<P0, P1>(hds: P0, domainname: P1, infolevel: u32, pcout: *mut u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32
@@ -725,7 +725,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsGetDomainControllerInfoW(hds : super::super::Foundation:: HANDLE, domainname : ::windows_core::PCWSTR, infolevel : u32, pcout : *mut u32, ppinfo : *mut *mut ::core::ffi::c_void) -> u32);
     DsGetDomainControllerInfoW(hds.into_param().abi(), domainname.into_param().abi(), infolevel, pcout, ppinfo)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Authentication_Identity`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
 pub unsafe fn DsGetForestTrustInformationW<P0, P1>(servername: P0, trusteddomainname: P1, flags: u32, foresttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32
@@ -744,7 +744,7 @@ where
     ::windows_targets::link!("dsuiext.dll" "system" fn DsGetFriendlyClassName(pszobjectclass : ::windows_core::PCWSTR, pszbuffer : ::windows_core::PWSTR, cchbuffer : u32) -> ::windows_core::HRESULT);
     DsGetFriendlyClassName(pszobjectclass.into_param().abi(), ::core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len() as _).ok()
 }
-#[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn DsGetIcon<P0>(dwflags: u32, pszobjectclass: P0, cximage: i32, cyimage: i32) -> super::super::UI::WindowsAndMessaging::HICON
@@ -793,7 +793,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsGetSpnW(servicetype : DS_SPN_NAME_TYPE, serviceclass : ::windows_core::PCWSTR, servicename : ::windows_core::PCWSTR, instanceport : u16, cinstancenames : u16, pinstancenames : *const ::windows_core::PCWSTR, pinstanceports : *const u16, pcspn : *mut u32, prpszspn : *mut *mut ::windows_core::PWSTR) -> u32);
     DsGetSpnW(servicetype, serviceclass.into_param().abi(), servicename.into_param().abi(), instanceport, cinstancenames, ::core::mem::transmute(pinstancenames.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pinstanceports.unwrap_or(::std::ptr::null())), pcspn, prpszspn)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsInheritSecurityIdentityA<P0, P1, P2>(hds: P0, flags: u32, srcprincipal: P1, dstprincipal: P2) -> u32
@@ -805,7 +805,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsInheritSecurityIdentityA(hds : super::super::Foundation:: HANDLE, flags : u32, srcprincipal : ::windows_core::PCSTR, dstprincipal : ::windows_core::PCSTR) -> u32);
     DsInheritSecurityIdentityA(hds.into_param().abi(), flags, srcprincipal.into_param().abi(), dstprincipal.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsInheritSecurityIdentityW<P0, P1, P2>(hds: P0, flags: u32, srcprincipal: P1, dstprincipal: P2) -> u32
@@ -817,7 +817,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsInheritSecurityIdentityW(hds : super::super::Foundation:: HANDLE, flags : u32, srcprincipal : ::windows_core::PCWSTR, dstprincipal : ::windows_core::PCWSTR) -> u32);
     DsInheritSecurityIdentityW(hds.into_param().abi(), flags, srcprincipal.into_param().abi(), dstprincipal.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsIsMangledDnA<P0>(pszdn: P0, edsmanglefor: DS_MANGLE_FOR) -> super::super::Foundation::BOOL
@@ -827,7 +827,7 @@ where
     ::windows_targets::link!("dsparse.dll" "system" fn DsIsMangledDnA(pszdn : ::windows_core::PCSTR, edsmanglefor : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
     DsIsMangledDnA(pszdn.into_param().abi(), edsmanglefor)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsIsMangledDnW<P0>(pszdn: P0, edsmanglefor: DS_MANGLE_FOR) -> super::super::Foundation::BOOL
@@ -837,21 +837,21 @@ where
     ::windows_targets::link!("dsparse.dll" "system" fn DsIsMangledDnW(pszdn : ::windows_core::PCWSTR, edsmanglefor : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
     DsIsMangledDnW(pszdn.into_param().abi(), edsmanglefor)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsIsMangledRdnValueA(pszrdn: &[u8], edsmanglefordesired: DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("dsparse.dll" "system" fn DsIsMangledRdnValueA(pszrdn : ::windows_core::PCSTR, crdn : u32, edsmanglefordesired : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
     DsIsMangledRdnValueA(::core::mem::transmute(pszrdn.as_ptr()), pszrdn.len() as _, edsmanglefordesired)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsIsMangledRdnValueW(pszrdn: &[u16], edsmanglefordesired: DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("dsparse.dll" "system" fn DsIsMangledRdnValueW(pszrdn : ::windows_core::PCWSTR, crdn : u32, edsmanglefordesired : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
     DsIsMangledRdnValueW(::core::mem::transmute(pszrdn.as_ptr()), pszrdn.len() as _, edsmanglefordesired)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListDomainsInSiteA<P0, P1>(hds: P0, site: P1, ppdomains: *mut *mut DS_NAME_RESULTA) -> u32
@@ -862,7 +862,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsListDomainsInSiteA(hds : super::super::Foundation:: HANDLE, site : ::windows_core::PCSTR, ppdomains : *mut *mut DS_NAME_RESULTA) -> u32);
     DsListDomainsInSiteA(hds.into_param().abi(), site.into_param().abi(), ppdomains)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListDomainsInSiteW<P0, P1>(hds: P0, site: P1, ppdomains: *mut *mut DS_NAME_RESULTW) -> u32
@@ -873,7 +873,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsListDomainsInSiteW(hds : super::super::Foundation:: HANDLE, site : ::windows_core::PCWSTR, ppdomains : *mut *mut DS_NAME_RESULTW) -> u32);
     DsListDomainsInSiteW(hds.into_param().abi(), site.into_param().abi(), ppdomains)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListInfoForServerA<P0, P1>(hds: P0, server: P1, ppinfo: *mut *mut DS_NAME_RESULTA) -> u32
@@ -884,7 +884,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsListInfoForServerA(hds : super::super::Foundation:: HANDLE, server : ::windows_core::PCSTR, ppinfo : *mut *mut DS_NAME_RESULTA) -> u32);
     DsListInfoForServerA(hds.into_param().abi(), server.into_param().abi(), ppinfo)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListInfoForServerW<P0, P1>(hds: P0, server: P1, ppinfo: *mut *mut DS_NAME_RESULTW) -> u32
@@ -895,7 +895,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsListInfoForServerW(hds : super::super::Foundation:: HANDLE, server : ::windows_core::PCWSTR, ppinfo : *mut *mut DS_NAME_RESULTW) -> u32);
     DsListInfoForServerW(hds.into_param().abi(), server.into_param().abi(), ppinfo)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListRolesA<P0>(hds: P0, pproles: *mut *mut DS_NAME_RESULTA) -> u32
@@ -905,7 +905,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsListRolesA(hds : super::super::Foundation:: HANDLE, pproles : *mut *mut DS_NAME_RESULTA) -> u32);
     DsListRolesA(hds.into_param().abi(), pproles)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListRolesW<P0>(hds: P0, pproles: *mut *mut DS_NAME_RESULTW) -> u32
@@ -915,7 +915,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsListRolesW(hds : super::super::Foundation:: HANDLE, pproles : *mut *mut DS_NAME_RESULTW) -> u32);
     DsListRolesW(hds.into_param().abi(), pproles)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListServersForDomainInSiteA<P0, P1, P2>(hds: P0, domain: P1, site: P2, ppservers: *mut *mut DS_NAME_RESULTA) -> u32
@@ -927,7 +927,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsListServersForDomainInSiteA(hds : super::super::Foundation:: HANDLE, domain : ::windows_core::PCSTR, site : ::windows_core::PCSTR, ppservers : *mut *mut DS_NAME_RESULTA) -> u32);
     DsListServersForDomainInSiteA(hds.into_param().abi(), domain.into_param().abi(), site.into_param().abi(), ppservers)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListServersForDomainInSiteW<P0, P1, P2>(hds: P0, domain: P1, site: P2, ppservers: *mut *mut DS_NAME_RESULTW) -> u32
@@ -939,7 +939,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsListServersForDomainInSiteW(hds : super::super::Foundation:: HANDLE, domain : ::windows_core::PCWSTR, site : ::windows_core::PCWSTR, ppservers : *mut *mut DS_NAME_RESULTW) -> u32);
     DsListServersForDomainInSiteW(hds.into_param().abi(), domain.into_param().abi(), site.into_param().abi(), ppservers)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListServersInSiteA<P0, P1>(hds: P0, site: P1, ppservers: *mut *mut DS_NAME_RESULTA) -> u32
@@ -950,7 +950,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsListServersInSiteA(hds : super::super::Foundation:: HANDLE, site : ::windows_core::PCSTR, ppservers : *mut *mut DS_NAME_RESULTA) -> u32);
     DsListServersInSiteA(hds.into_param().abi(), site.into_param().abi(), ppservers)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListServersInSiteW<P0, P1>(hds: P0, site: P1, ppservers: *mut *mut DS_NAME_RESULTW) -> u32
@@ -961,7 +961,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsListServersInSiteW(hds : super::super::Foundation:: HANDLE, site : ::windows_core::PCWSTR, ppservers : *mut *mut DS_NAME_RESULTW) -> u32);
     DsListServersInSiteW(hds.into_param().abi(), site.into_param().abi(), ppservers)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListSitesA<P0>(hds: P0, ppsites: *mut *mut DS_NAME_RESULTA) -> u32
@@ -971,7 +971,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsListSitesA(hds : super::super::Foundation:: HANDLE, ppsites : *mut *mut DS_NAME_RESULTA) -> u32);
     DsListSitesA(hds.into_param().abi(), ppsites)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListSitesW<P0>(hds: P0, ppsites: *mut *mut DS_NAME_RESULTW) -> u32
@@ -1023,7 +1023,7 @@ where
     ::windows_targets::link!("dsparse.dll" "system" fn DsMakeSpnW(serviceclass : ::windows_core::PCWSTR, servicename : ::windows_core::PCWSTR, instancename : ::windows_core::PCWSTR, instanceport : u16, referrer : ::windows_core::PCWSTR, pcspnlength : *mut u32, pszspn : ::windows_core::PWSTR) -> u32);
     DsMakeSpnW(serviceclass.into_param().abi(), servicename.into_param().abi(), instancename.into_param().abi(), instanceport, referrer.into_param().abi(), pcspnlength, ::core::mem::transmute(pszspn))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsMapSchemaGuidsA<P0>(hds: P0, rguids: &[::windows_core::GUID], ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPA) -> u32
@@ -1033,7 +1033,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsMapSchemaGuidsA(hds : super::super::Foundation:: HANDLE, cguids : u32, rguids : *const ::windows_core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPA) -> u32);
     DsMapSchemaGuidsA(hds.into_param().abi(), rguids.len() as _, ::core::mem::transmute(rguids.as_ptr()), ppguidmap)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsMapSchemaGuidsW<P0>(hds: P0, rguids: &[::windows_core::GUID], ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPW) -> u32
@@ -1043,7 +1043,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsMapSchemaGuidsW(hds : super::super::Foundation:: HANDLE, cguids : u32, rguids : *const ::windows_core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPW) -> u32);
     DsMapSchemaGuidsW(hds.into_param().abi(), rguids.len() as _, ::core::mem::transmute(rguids.as_ptr()), ppguidmap)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Authentication_Identity`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
 pub unsafe fn DsMergeForestTrustInformationW<P0>(domainname: P0, newforesttrustinfo: *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, oldforesttrustinfo: ::core::option::Option<*const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION>, mergedforesttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32
@@ -1053,7 +1053,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn DsMergeForestTrustInformationW(domainname : ::windows_core::PCWSTR, newforesttrustinfo : *const super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION, oldforesttrustinfo : *const super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION, mergedforesttrustinfo : *mut *mut super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION) -> u32);
     DsMergeForestTrustInformationW(domainname.into_param().abi(), newforesttrustinfo, ::core::mem::transmute(oldforesttrustinfo.unwrap_or(::std::ptr::null())), mergedforesttrustinfo)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsQuerySitesByCostA<P0, P1>(hds: P0, pszfromsite: P1, rgsztosites: &[::windows_core::PCSTR], dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32
@@ -1064,7 +1064,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsQuerySitesByCostA(hds : super::super::Foundation:: HANDLE, pszfromsite : ::windows_core::PCSTR, rgsztosites : *const ::windows_core::PCSTR, ctosites : u32, dwflags : u32, prgsiteinfo : *mut *mut DS_SITE_COST_INFO) -> u32);
     DsQuerySitesByCostA(hds.into_param().abi(), pszfromsite.into_param().abi(), ::core::mem::transmute(rgsztosites.as_ptr()), rgsztosites.len() as _, dwflags, prgsiteinfo)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsQuerySitesByCostW<P0, P1>(hds: P0, pwszfromsite: P1, rgwsztosites: &[::windows_core::PCWSTR], dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32
@@ -1090,7 +1090,7 @@ pub unsafe fn DsQuoteRdnValueW(psunquotedrdnvalue: &[u16], pcquotedrdnvaluelengt
     ::windows_targets::link!("dsparse.dll" "system" fn DsQuoteRdnValueW(cunquotedrdnvaluelength : u32, psunquotedrdnvalue : ::windows_core::PCWSTR, pcquotedrdnvaluelength : *mut u32, psquotedrdnvalue : ::windows_core::PWSTR) -> u32);
     DsQuoteRdnValueW(psunquotedrdnvalue.len() as _, ::core::mem::transmute(psunquotedrdnvalue.as_ptr()), pcquotedrdnvaluelength, ::core::mem::transmute(psquotedrdnvalue))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsRemoveDsDomainA<P0, P1>(hds: P0, domaindn: P1) -> u32
@@ -1101,7 +1101,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsRemoveDsDomainA(hds : super::super::Foundation:: HANDLE, domaindn : ::windows_core::PCSTR) -> u32);
     DsRemoveDsDomainA(hds.into_param().abi(), domaindn.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsRemoveDsDomainW<P0, P1>(hds: P0, domaindn: P1) -> u32
@@ -1112,7 +1112,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsRemoveDsDomainW(hds : super::super::Foundation:: HANDLE, domaindn : ::windows_core::PCWSTR) -> u32);
     DsRemoveDsDomainW(hds.into_param().abi(), domaindn.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsRemoveDsServerA<P0, P1, P2, P3>(hds: P0, serverdn: P1, domaindn: P2, flastdcindomain: ::core::option::Option<*mut super::super::Foundation::BOOL>, fcommit: P3) -> u32
@@ -1125,7 +1125,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsRemoveDsServerA(hds : super::super::Foundation:: HANDLE, serverdn : ::windows_core::PCSTR, domaindn : ::windows_core::PCSTR, flastdcindomain : *mut super::super::Foundation:: BOOL, fcommit : super::super::Foundation:: BOOL) -> u32);
     DsRemoveDsServerA(hds.into_param().abi(), serverdn.into_param().abi(), domaindn.into_param().abi(), ::core::mem::transmute(flastdcindomain.unwrap_or(::std::ptr::null_mut())), fcommit.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsRemoveDsServerW<P0, P1, P2, P3>(hds: P0, serverdn: P1, domaindn: P2, flastdcindomain: ::core::option::Option<*mut super::super::Foundation::BOOL>, fcommit: P3) -> u32
@@ -1138,7 +1138,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsRemoveDsServerW(hds : super::super::Foundation:: HANDLE, serverdn : ::windows_core::PCWSTR, domaindn : ::windows_core::PCWSTR, flastdcindomain : *mut super::super::Foundation:: BOOL, fcommit : super::super::Foundation:: BOOL) -> u32);
     DsRemoveDsServerW(hds.into_param().abi(), serverdn.into_param().abi(), domaindn.into_param().abi(), ::core::mem::transmute(flastdcindomain.unwrap_or(::std::ptr::null_mut())), fcommit.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaAddA<P0, P1, P2, P3, P4>(hds: P0, namecontext: P1, sourcedsadn: P2, transportdn: P3, sourcedsaaddress: P4, pschedule: ::core::option::Option<*const SCHEDULE>, options: u32) -> u32
@@ -1152,7 +1152,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaAddA(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_core::PCSTR, sourcedsadn : ::windows_core::PCSTR, transportdn : ::windows_core::PCSTR, sourcedsaaddress : ::windows_core::PCSTR, pschedule : *const SCHEDULE, options : u32) -> u32);
     DsReplicaAddA(hds.into_param().abi(), namecontext.into_param().abi(), sourcedsadn.into_param().abi(), transportdn.into_param().abi(), sourcedsaaddress.into_param().abi(), ::core::mem::transmute(pschedule.unwrap_or(::std::ptr::null())), options)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaAddW<P0, P1, P2, P3, P4>(hds: P0, namecontext: P1, sourcedsadn: P2, transportdn: P3, sourcedsaaddress: P4, pschedule: ::core::option::Option<*const SCHEDULE>, options: u32) -> u32
@@ -1166,7 +1166,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaAddW(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_core::PCWSTR, sourcedsadn : ::windows_core::PCWSTR, transportdn : ::windows_core::PCWSTR, sourcedsaaddress : ::windows_core::PCWSTR, pschedule : *const SCHEDULE, options : u32) -> u32);
     DsReplicaAddW(hds.into_param().abi(), namecontext.into_param().abi(), sourcedsadn.into_param().abi(), transportdn.into_param().abi(), sourcedsaaddress.into_param().abi(), ::core::mem::transmute(pschedule.unwrap_or(::std::ptr::null())), options)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaConsistencyCheck<P0>(hds: P0, taskid: DS_KCC_TASKID, dwflags: u32) -> u32
@@ -1176,7 +1176,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaConsistencyCheck(hds : super::super::Foundation:: HANDLE, taskid : DS_KCC_TASKID, dwflags : u32) -> u32);
     DsReplicaConsistencyCheck(hds.into_param().abi(), taskid, dwflags)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaDelA<P0, P1, P2>(hds: P0, namecontext: P1, dsasrc: P2, options: u32) -> u32
@@ -1188,7 +1188,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaDelA(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_core::PCSTR, dsasrc : ::windows_core::PCSTR, options : u32) -> u32);
     DsReplicaDelA(hds.into_param().abi(), namecontext.into_param().abi(), dsasrc.into_param().abi(), options)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaDelW<P0, P1, P2>(hds: P0, namecontext: P1, dsasrc: P2, options: u32) -> u32
@@ -1205,7 +1205,7 @@ pub unsafe fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const ::cor
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaFreeInfo(infotype : DS_REPL_INFO_TYPE, pinfo : *const ::core::ffi::c_void) -> ());
     DsReplicaFreeInfo(infotype, pinfo)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaGetInfo2W<P0, P1, P2, P3>(hds: P0, infotype: DS_REPL_INFO_TYPE, pszobject: P1, puuidforsourcedsaobjguid: ::core::option::Option<*const ::windows_core::GUID>, pszattributename: P2, pszvalue: P3, dwflags: u32, dwenumerationcontext: u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32
@@ -1218,7 +1218,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaGetInfo2W(hds : super::super::Foundation:: HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : ::windows_core::PCWSTR, puuidforsourcedsaobjguid : *const ::windows_core::GUID, pszattributename : ::windows_core::PCWSTR, pszvalue : ::windows_core::PCWSTR, dwflags : u32, dwenumerationcontext : u32, ppinfo : *mut *mut ::core::ffi::c_void) -> u32);
     DsReplicaGetInfo2W(hds.into_param().abi(), infotype, pszobject.into_param().abi(), ::core::mem::transmute(puuidforsourcedsaobjguid.unwrap_or(::std::ptr::null())), pszattributename.into_param().abi(), pszvalue.into_param().abi(), dwflags, dwenumerationcontext, ppinfo)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaGetInfoW<P0, P1>(hds: P0, infotype: DS_REPL_INFO_TYPE, pszobject: P1, puuidforsourcedsaobjguid: ::core::option::Option<*const ::windows_core::GUID>, ppinfo: *mut *mut ::core::ffi::c_void) -> u32
@@ -1229,7 +1229,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaGetInfoW(hds : super::super::Foundation:: HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : ::windows_core::PCWSTR, puuidforsourcedsaobjguid : *const ::windows_core::GUID, ppinfo : *mut *mut ::core::ffi::c_void) -> u32);
     DsReplicaGetInfoW(hds.into_param().abi(), infotype, pszobject.into_param().abi(), ::core::mem::transmute(puuidforsourcedsaobjguid.unwrap_or(::std::ptr::null())), ppinfo)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaModifyA<P0, P1, P2, P3>(hds: P0, namecontext: P1, puuidsourcedsa: ::core::option::Option<*const ::windows_core::GUID>, transportdn: P2, sourcedsaaddress: P3, pschedule: ::core::option::Option<*const SCHEDULE>, replicaflags: u32, modifyfields: u32, options: u32) -> u32
@@ -1242,7 +1242,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaModifyA(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_core::PCSTR, puuidsourcedsa : *const ::windows_core::GUID, transportdn : ::windows_core::PCSTR, sourcedsaaddress : ::windows_core::PCSTR, pschedule : *const SCHEDULE, replicaflags : u32, modifyfields : u32, options : u32) -> u32);
     DsReplicaModifyA(hds.into_param().abi(), namecontext.into_param().abi(), ::core::mem::transmute(puuidsourcedsa.unwrap_or(::std::ptr::null())), transportdn.into_param().abi(), sourcedsaaddress.into_param().abi(), ::core::mem::transmute(pschedule.unwrap_or(::std::ptr::null())), replicaflags, modifyfields, options)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaModifyW<P0, P1, P2, P3>(hds: P0, namecontext: P1, puuidsourcedsa: ::core::option::Option<*const ::windows_core::GUID>, transportdn: P2, sourcedsaaddress: P3, pschedule: ::core::option::Option<*const SCHEDULE>, replicaflags: u32, modifyfields: u32, options: u32) -> u32
@@ -1255,7 +1255,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaModifyW(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_core::PCWSTR, puuidsourcedsa : *const ::windows_core::GUID, transportdn : ::windows_core::PCWSTR, sourcedsaaddress : ::windows_core::PCWSTR, pschedule : *const SCHEDULE, replicaflags : u32, modifyfields : u32, options : u32) -> u32);
     DsReplicaModifyW(hds.into_param().abi(), namecontext.into_param().abi(), ::core::mem::transmute(puuidsourcedsa.unwrap_or(::std::ptr::null())), transportdn.into_param().abi(), sourcedsaaddress.into_param().abi(), ::core::mem::transmute(pschedule.unwrap_or(::std::ptr::null())), replicaflags, modifyfields, options)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaSyncA<P0, P1>(hds: P0, namecontext: P1, puuiddsasrc: *const ::windows_core::GUID, options: u32) -> u32
@@ -1266,7 +1266,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaSyncA(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_core::PCSTR, puuiddsasrc : *const ::windows_core::GUID, options : u32) -> u32);
     DsReplicaSyncA(hds.into_param().abi(), namecontext.into_param().abi(), puuiddsasrc, options)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaSyncAllA<P0, P1>(hds: P0, psznamecontext: P1, ulflags: u32, pfncallback: isize, pcallbackdata: ::core::option::Option<*const ::core::ffi::c_void>, perrors: ::core::option::Option<*mut *mut *mut DS_REPSYNCALL_ERRINFOA>) -> u32
@@ -1277,7 +1277,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaSyncAllA(hds : super::super::Foundation:: HANDLE, psznamecontext : ::windows_core::PCSTR, ulflags : u32, pfncallback : isize, pcallbackdata : *const ::core::ffi::c_void, perrors : *mut *mut *mut DS_REPSYNCALL_ERRINFOA) -> u32);
     DsReplicaSyncAllA(hds.into_param().abi(), psznamecontext.into_param().abi(), ulflags, pfncallback, ::core::mem::transmute(pcallbackdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(perrors.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaSyncAllW<P0, P1>(hds: P0, psznamecontext: P1, ulflags: u32, pfncallback: isize, pcallbackdata: ::core::option::Option<*const ::core::ffi::c_void>, perrors: ::core::option::Option<*mut *mut *mut DS_REPSYNCALL_ERRINFOW>) -> u32
@@ -1288,7 +1288,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaSyncAllW(hds : super::super::Foundation:: HANDLE, psznamecontext : ::windows_core::PCWSTR, ulflags : u32, pfncallback : isize, pcallbackdata : *const ::core::ffi::c_void, perrors : *mut *mut *mut DS_REPSYNCALL_ERRINFOW) -> u32);
     DsReplicaSyncAllW(hds.into_param().abi(), psznamecontext.into_param().abi(), ulflags, pfncallback, ::core::mem::transmute(pcallbackdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(perrors.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaSyncW<P0, P1>(hds: P0, namecontext: P1, puuiddsasrc: *const ::windows_core::GUID, options: u32) -> u32
@@ -1299,7 +1299,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaSyncW(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_core::PCWSTR, puuiddsasrc : *const ::windows_core::GUID, options : u32) -> u32);
     DsReplicaSyncW(hds.into_param().abi(), namecontext.into_param().abi(), puuiddsasrc, options)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaUpdateRefsA<P0, P1, P2>(hds: P0, namecontext: P1, dsadest: P2, puuiddsadest: *const ::windows_core::GUID, options: u32) -> u32
@@ -1311,7 +1311,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaUpdateRefsA(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_core::PCSTR, dsadest : ::windows_core::PCSTR, puuiddsadest : *const ::windows_core::GUID, options : u32) -> u32);
     DsReplicaUpdateRefsA(hds.into_param().abi(), namecontext.into_param().abi(), dsadest.into_param().abi(), puuiddsadest, options)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaUpdateRefsW<P0, P1, P2>(hds: P0, namecontext: P1, dsadest: P2, puuiddsadest: *const ::windows_core::GUID, options: u32) -> u32
@@ -1323,7 +1323,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaUpdateRefsW(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_core::PCWSTR, dsadest : ::windows_core::PCWSTR, puuiddsadest : *const ::windows_core::GUID, options : u32) -> u32);
     DsReplicaUpdateRefsW(hds.into_param().abi(), namecontext.into_param().abi(), dsadest.into_param().abi(), puuiddsadest, options)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaVerifyObjectsA<P0, P1>(hds: P0, namecontext: P1, puuiddsasrc: *const ::windows_core::GUID, uloptions: u32) -> u32
@@ -1334,7 +1334,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaVerifyObjectsA(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_core::PCSTR, puuiddsasrc : *const ::windows_core::GUID, uloptions : u32) -> u32);
     DsReplicaVerifyObjectsA(hds.into_param().abi(), namecontext.into_param().abi(), puuiddsasrc, uloptions)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaVerifyObjectsW<P0, P1>(hds: P0, namecontext: P1, puuiddsasrc: *const ::windows_core::GUID, uloptions: u32) -> u32
@@ -1376,14 +1376,14 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsServerRegisterSpnW(operation : DS_SPN_WRITE_OP, serviceclass : ::windows_core::PCWSTR, userobjectdn : ::windows_core::PCWSTR) -> u32);
     DsServerRegisterSpnW(operation, serviceclass.into_param().abi(), userobjectdn.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsUnBindA(phds: *const super::super::Foundation::HANDLE) -> u32 {
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsUnBindA(phds : *const super::super::Foundation:: HANDLE) -> u32);
     DsUnBindA(phds)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsUnBindW(phds: *const super::super::Foundation::HANDLE) -> u32 {
@@ -1416,7 +1416,7 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn DsValidateSubnetNameW(subnetname : ::windows_core::PCWSTR) -> u32);
     DsValidateSubnetNameW(subnetname.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsWriteAccountSpnA<P0, P1>(hds: P0, operation: DS_SPN_WRITE_OP, pszaccount: P1, rpszspn: &[::windows_core::PCSTR]) -> u32
@@ -1427,7 +1427,7 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsWriteAccountSpnA(hds : super::super::Foundation:: HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : ::windows_core::PCSTR, cspn : u32, rpszspn : *const ::windows_core::PCSTR) -> u32);
     DsWriteAccountSpnA(hds.into_param().abi(), operation, pszaccount.into_param().abi(), rpszspn.len() as _, ::core::mem::transmute(rpszspn.as_ptr()))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsWriteAccountSpnW<P0, P1>(hds: P0, operation: DS_SPN_WRITE_OP, pszaccount: P1, rpszspn: &[::windows_core::PCWSTR]) -> u32
@@ -1438,14 +1438,14 @@ where
     ::windows_targets::link!("ntdsapi.dll" "system" fn DsWriteAccountSpnW(hds : super::super::Foundation:: HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : ::windows_core::PCWSTR, cspn : u32, rpszspn : *const ::windows_core::PCWSTR) -> u32);
     DsWriteAccountSpnW(hds.into_param().abi(), operation, pszaccount.into_param().abi(), rpszspn.len() as _, ::core::mem::transmute(rpszspn.as_ptr()))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeADsMem(pmem: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("activeds.dll" "system" fn FreeADsMem(pmem : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     FreeADsMem(pmem)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeADsStr<P0>(pstr: P0) -> super::super::Foundation::BOOL
@@ -1455,7 +1455,7 @@ where
     ::windows_targets::link!("activeds.dll" "system" fn FreeADsStr(pstr : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     FreeADsStr(pstr.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn PropVariantToAdsType(pvariant: *mut super::super::System::Variant::VARIANT, dwnumvariant: u32, ppadsvalues: *mut *mut ADSVALUE, pdwnumvalues: *mut u32) -> ::windows_core::Result<()> {
@@ -1467,7 +1467,7 @@ pub unsafe fn ReallocADsMem(poldmem: *mut ::core::ffi::c_void, cbold: u32, cbnew
     ::windows_targets::link!("activeds.dll" "system" fn ReallocADsMem(poldmem : *mut ::core::ffi::c_void, cbold : u32, cbnew : u32) -> *mut ::core::ffi::c_void);
     ReallocADsMem(poldmem, cbold, cbnew)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReallocADsStr<P0>(ppstr: *mut ::windows_core::PWSTR, pstr: P0) -> super::super::Foundation::BOOL
@@ -1477,7 +1477,7 @@ where
     ::windows_targets::link!("activeds.dll" "system" fn ReallocADsStr(ppstr : *mut ::windows_core::PWSTR, pstr : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     ReallocADsStr(ppstr, pstr.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn SecurityDescriptorToBinarySD<P0, P1, P2>(vvarsecdes: super::super::System::Variant::VARIANT, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, pdwsdlength: *mut u32, pszservername: P0, username: P1, password: P2, dwflags: u32) -> ::windows_core::Result<()>
@@ -1489,7 +1489,7 @@ where
     ::windows_targets::link!("activeds.dll" "system" fn SecurityDescriptorToBinarySD(vvarsecdes : super::super::System::Variant:: VARIANT, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, pdwsdlength : *mut u32, pszservername : ::windows_core::PCWSTR, username : ::windows_core::PCWSTR, password : ::windows_core::PCWSTR, dwflags : u32) -> ::windows_core::HRESULT);
     SecurityDescriptorToBinarySD(::core::mem::transmute(vvarsecdes), ppsecuritydescriptor, pdwsdlength, pszservername.into_param().abi(), username.into_param().abi(), password.into_param().abi(), dwflags).ok()
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1526,7 +1526,7 @@ impl IADs {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -1535,7 +1535,7 @@ impl IADs {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -1543,7 +1543,7 @@ impl IADs {
     {
         (::windows_core::Interface::vtable(self).Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -1552,7 +1552,7 @@ impl IADs {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -1560,7 +1560,7 @@ impl IADs {
     {
         (::windows_core::Interface::vtable(self).PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -1610,7 +1610,7 @@ pub struct IADs_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetInfoEx: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1649,7 +1649,7 @@ impl IADsADSystemInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SchemaRoleOwner)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsNativeMode(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1669,7 +1669,7 @@ impl IADsADSystemInfo {
     pub unsafe fn RefreshSchemaCache(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RefreshSchemaCache)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetTrees(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -1711,7 +1711,7 @@ pub struct IADsADSystemInfo_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetTrees: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1807,7 +1807,7 @@ pub struct IADsAccessControlEntry_Vtbl {
     pub Trustee: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetTrustee: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtrustee: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1828,7 +1828,7 @@ impl IADsAccessControlList {
     pub unsafe fn SetAceCount(&self, lnacecount: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAceCount)(::windows_core::Interface::as_raw(self), lnacecount).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddAce<P0>(&self, paccesscontrolentry: P0) -> ::windows_core::Result<()>
     where
@@ -1836,7 +1836,7 @@ impl IADsAccessControlList {
     {
         (::windows_core::Interface::vtable(self).AddAce)(::windows_core::Interface::as_raw(self), paccesscontrolentry.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RemoveAce<P0>(&self, paccesscontrolentry: P0) -> ::windows_core::Result<()>
     where
@@ -1844,7 +1844,7 @@ impl IADsAccessControlList {
     {
         (::windows_core::Interface::vtable(self).RemoveAce)(::windows_core::Interface::as_raw(self), paccesscontrolentry.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopyAccessList(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -1888,7 +1888,7 @@ pub struct IADsAccessControlList_Vtbl {
     CopyAccessList: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1922,7 +1922,7 @@ impl IADsAcl {
     pub unsafe fn SetPrivileges(&self, lnprivileges: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPrivileges)(::windows_core::Interface::as_raw(self), lnprivileges).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopyAcl(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -2019,7 +2019,7 @@ pub struct IADsAggregator_Vtbl {
     pub ConnectAsAggregator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paggregatee: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub DisconnectAsAggregator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2064,20 +2064,20 @@ pub struct IADsBackLink_Vtbl {
     pub ObjectName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetObjectName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrobjectname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsCaseIgnoreList(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsCaseIgnoreList {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CaseIgnoreList(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CaseIgnoreList)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetCaseIgnoreList(&self, vcaseignorelist: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCaseIgnoreList)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vcaseignorelist)).ok()
@@ -2107,7 +2107,7 @@ pub struct IADsCaseIgnoreList_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetCaseIgnoreList: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2144,7 +2144,7 @@ impl IADsClass {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -2153,7 +2153,7 @@ impl IADsClass {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -2161,7 +2161,7 @@ impl IADsClass {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -2170,7 +2170,7 @@ impl IADsClass {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -2178,7 +2178,7 @@ impl IADsClass {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -2207,13 +2207,13 @@ impl IADsClass {
     {
         (::windows_core::Interface::vtable(self).SetOID)(::windows_core::Interface::as_raw(self), bstroid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Abstract(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Abstract)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAbstract<P0>(&self, fabstract: P0) -> ::windows_core::Result<()>
     where
@@ -2221,13 +2221,13 @@ impl IADsClass {
     {
         (::windows_core::Interface::vtable(self).SetAbstract)(::windows_core::Interface::as_raw(self), fabstract.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Auxiliary(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Auxiliary)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAuxiliary<P0>(&self, fauxiliary: P0) -> ::windows_core::Result<()>
     where
@@ -2235,90 +2235,90 @@ impl IADsClass {
     {
         (::windows_core::Interface::vtable(self).SetAuxiliary)(::windows_core::Interface::as_raw(self), fauxiliary.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn MandatoryProperties(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MandatoryProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetMandatoryProperties(&self, vmandatoryproperties: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMandatoryProperties)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vmandatoryproperties)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OptionalProperties(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OptionalProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetOptionalProperties(&self, voptionalproperties: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOptionalProperties)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(voptionalproperties)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn NamingProperties(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NamingProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetNamingProperties(&self, vnamingproperties: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetNamingProperties)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vnamingproperties)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn DerivedFrom(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DerivedFrom)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetDerivedFrom(&self, vderivedfrom: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDerivedFrom)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vderivedfrom)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AuxDerivedFrom(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AuxDerivedFrom)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetAuxDerivedFrom(&self, vauxderivedfrom: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAuxDerivedFrom)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vauxderivedfrom)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PossibleSuperiors(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PossibleSuperiors)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetPossibleSuperiors(&self, vpossiblesuperiors: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPossibleSuperiors)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vpossiblesuperiors)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Containment(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Containment)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetContainment(&self, vcontainment: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetContainment)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vcontainment)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Container(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Container)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetContainer<P0>(&self, fcontainer: P0) -> ::windows_core::Result<()>
     where
@@ -2343,7 +2343,7 @@ impl IADsClass {
     pub unsafe fn SetHelpFileContext(&self, lnhelpfilecontext: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetHelpFileContext)(::windows_core::Interface::as_raw(self), lnhelpfilecontext).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Qualifiers(&self) -> ::windows_core::Result<IADsCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -2459,7 +2459,7 @@ pub struct IADsClass_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Qualifiers: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2470,7 +2470,7 @@ impl IADsCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Add<P0>(&self, bstrname: P0, vitem: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -2484,7 +2484,7 @@ impl IADsCollection {
     {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), bstritemtoberemoved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetObject<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -2520,7 +2520,7 @@ pub struct IADsCollection_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetObject: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2557,7 +2557,7 @@ impl IADsComputer {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -2566,7 +2566,7 @@ impl IADsComputer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -2574,7 +2574,7 @@ impl IADsComputer {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -2583,7 +2583,7 @@ impl IADsComputer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -2591,7 +2591,7 @@ impl IADsComputer {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -2744,13 +2744,13 @@ impl IADsComputer {
     {
         (::windows_core::Interface::vtable(self).SetStorageCapacity)(::windows_core::Interface::as_raw(self), bstrstoragecapacity.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn NetAddresses(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NetAddresses)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetNetAddresses(&self, vnetaddresses: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetNetAddresses)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vnetaddresses)).ok()
@@ -2810,7 +2810,7 @@ pub struct IADsComputer_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetNetAddresses: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2847,7 +2847,7 @@ impl IADsComputerOperations {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -2856,7 +2856,7 @@ impl IADsComputerOperations {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -2864,7 +2864,7 @@ impl IADsComputerOperations {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -2873,7 +2873,7 @@ impl IADsComputerOperations {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -2881,18 +2881,18 @@ impl IADsComputerOperations {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Shutdown<P0>(&self, breboot: P0) -> ::windows_core::Result<()>
     where
@@ -2925,7 +2925,7 @@ pub struct IADsComputerOperations_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Shutdown: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2940,29 +2940,29 @@ impl IADsContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Filter(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Filter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetFilter(&self, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFilter)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(var)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Hints(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Hints)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetHints(&self, vhints: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetHints)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vhints)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetObject<P0, P1>(&self, classname: P0, relativename: P1) -> ::windows_core::Result<super::super::System::Com::IDispatch>
     where
@@ -2972,7 +2972,7 @@ impl IADsContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetObject)(::windows_core::Interface::as_raw(self), classname.into_param().abi(), relativename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Create<P0, P1>(&self, classname: P0, relativename: P1) -> ::windows_core::Result<super::super::System::Com::IDispatch>
     where
@@ -2989,7 +2989,7 @@ impl IADsContainer {
     {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self), bstrclassname.into_param().abi(), bstrrelativename.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopyHere<P0, P1>(&self, sourcename: P0, newname: P1) -> ::windows_core::Result<super::super::System::Com::IDispatch>
     where
@@ -2999,7 +2999,7 @@ impl IADsContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CopyHere)(::windows_core::Interface::as_raw(self), sourcename.into_param().abi(), newname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MoveHere<P0, P1>(&self, sourcename: P0, newname: P1) -> ::windows_core::Result<super::super::System::Com::IDispatch>
     where
@@ -3061,20 +3061,20 @@ pub struct IADsContainer_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     MoveHere: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsDNWithBinary(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsDNWithBinary {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn BinaryValue(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BinaryValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetBinaryValue(&self, vbinaryvalue: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetBinaryValue)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vbinaryvalue)).ok()
@@ -3116,7 +3116,7 @@ pub struct IADsDNWithBinary_Vtbl {
     pub DNString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetDNString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdnstring: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3164,7 +3164,7 @@ pub struct IADsDNWithString_Vtbl {
     pub DNString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetDNString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdnstring: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3192,7 +3192,7 @@ pub struct IADsDeleteOps_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub DeleteObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnflags: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3229,7 +3229,7 @@ impl IADsDomain {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -3238,7 +3238,7 @@ impl IADsDomain {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -3246,7 +3246,7 @@ impl IADsDomain {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -3255,7 +3255,7 @@ impl IADsDomain {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -3263,12 +3263,12 @@ impl IADsDomain {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsWorkgroup(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3367,7 +3367,7 @@ pub struct IADsDomain_Vtbl {
     pub LockoutObservationInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
     pub SetLockoutObservationInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnlockoutobservationinterval: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3416,7 +3416,7 @@ pub struct IADsEmail_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsExtension(::windows_core::IUnknown);
 impl IADsExtension {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Operate(&self, dwcode: u32, vardata1: super::super::System::Variant::VARIANT, vardata2: super::super::System::Variant::VARIANT, vardata3: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Operate)(::windows_core::Interface::as_raw(self), dwcode, ::core::mem::transmute(vardata1), ::core::mem::transmute(vardata2), ::core::mem::transmute(vardata3)).ok()
@@ -3425,7 +3425,7 @@ impl IADsExtension {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateGetIDsOfNames)(::windows_core::Interface::as_raw(self), riid, rgsznames, cnames, lcid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PrivateInvoke(&self, dispidmember: i32, riid: *const ::windows_core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Variant::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).PrivateInvoke)(::windows_core::Interface::as_raw(self), dispidmember, riid, lcid, wflags, pdispparams, pvarresult, pexcepinfo, puargerr).ok()
@@ -3452,7 +3452,7 @@ pub struct IADsExtension_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     PrivateInvoke: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3469,13 +3469,13 @@ impl IADsFaxNumber {
     {
         (::windows_core::Interface::vtable(self).SetTelephoneNumber)(::windows_core::Interface::as_raw(self), bstrtelephonenumber.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Parameters(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Parameters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetParameters(&self, vparameters: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetParameters)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vparameters)).ok()
@@ -3507,7 +3507,7 @@ pub struct IADsFaxNumber_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetParameters: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3544,7 +3544,7 @@ impl IADsFileService {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -3553,7 +3553,7 @@ impl IADsFileService {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -3561,7 +3561,7 @@ impl IADsFileService {
     {
         (::windows_core::Interface::vtable(self).base__.base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -3570,7 +3570,7 @@ impl IADsFileService {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -3578,7 +3578,7 @@ impl IADsFileService {
     {
         (::windows_core::Interface::vtable(self).base__.base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -3684,13 +3684,13 @@ impl IADsFileService {
     {
         (::windows_core::Interface::vtable(self).base__.SetServiceAccountPath)(::windows_core::Interface::as_raw(self), bstrserviceaccountpath.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Dependencies(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Dependencies)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetDependencies(&self, vdependencies: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetDependencies)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vdependencies)).ok()
@@ -3733,7 +3733,7 @@ pub struct IADsFileService_Vtbl {
     pub MaxUserCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
     pub SetMaxUserCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnmaxusercount: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3770,7 +3770,7 @@ impl IADsFileServiceOperations {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -3779,7 +3779,7 @@ impl IADsFileServiceOperations {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -3787,7 +3787,7 @@ impl IADsFileServiceOperations {
     {
         (::windows_core::Interface::vtable(self).base__.base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -3796,7 +3796,7 @@ impl IADsFileServiceOperations {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -3804,7 +3804,7 @@ impl IADsFileServiceOperations {
     {
         (::windows_core::Interface::vtable(self).base__.base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -3831,13 +3831,13 @@ impl IADsFileServiceOperations {
     {
         (::windows_core::Interface::vtable(self).base__.SetPassword)(::windows_core::Interface::as_raw(self), bstrnewpassword.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Sessions(&self) -> ::windows_core::Result<IADsCollection> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Sessions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Resources(&self) -> ::windows_core::Result<IADsCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -3868,7 +3868,7 @@ pub struct IADsFileServiceOperations_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Resources: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3905,7 +3905,7 @@ impl IADsFileShare {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -3914,7 +3914,7 @@ impl IADsFileShare {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -3922,7 +3922,7 @@ impl IADsFileShare {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -3931,7 +3931,7 @@ impl IADsFileShare {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -3939,7 +3939,7 @@ impl IADsFileShare {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -4011,7 +4011,7 @@ pub struct IADsFileShare_Vtbl {
     pub MaxUserCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
     pub SetMaxUserCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnmaxusercount: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4048,7 +4048,7 @@ impl IADsGroup {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -4057,7 +4057,7 @@ impl IADsGroup {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -4065,7 +4065,7 @@ impl IADsGroup {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -4074,7 +4074,7 @@ impl IADsGroup {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -4082,7 +4082,7 @@ impl IADsGroup {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -4097,13 +4097,13 @@ impl IADsGroup {
     {
         (::windows_core::Interface::vtable(self).SetDescription)(::windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Members(&self) -> ::windows_core::Result<IADsMembers> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Members)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsMember<P0>(&self, bstrmember: P0) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
@@ -4153,7 +4153,7 @@ pub struct IADsGroup_Vtbl {
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrnewitem: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstritemtoberemoved: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4198,7 +4198,7 @@ pub struct IADsHold_Vtbl {
     pub Amount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
     pub SetAmount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnamount: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4240,7 +4240,7 @@ pub struct IADsLargeInteger_Vtbl {
     pub LowPart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
     pub SetLowPart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnlowpart: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4277,7 +4277,7 @@ impl IADsLocality {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -4286,7 +4286,7 @@ impl IADsLocality {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -4294,7 +4294,7 @@ impl IADsLocality {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -4303,7 +4303,7 @@ impl IADsLocality {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -4311,7 +4311,7 @@ impl IADsLocality {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -4346,13 +4346,13 @@ impl IADsLocality {
     {
         (::windows_core::Interface::vtable(self).SetPostalAddress)(::windows_core::Interface::as_raw(self), bstrpostaladdress.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SeeAlso(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SeeAlso)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetSeeAlso(&self, vseealso: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSeeAlso)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vseealso)).ok()
@@ -4388,7 +4388,7 @@ pub struct IADsLocality_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetSeeAlso: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4403,13 +4403,13 @@ impl IADsMembers {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Filter(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Filter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetFilter(&self, pvfilter: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFilter)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pvfilter)).ok()
@@ -4441,7 +4441,7 @@ pub struct IADsMembers_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetFilter: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4476,12 +4476,12 @@ impl IADsNameTranslate {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Get)(::windows_core::Interface::as_raw(self), lnformattype, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetEx(&self, lnformattype: i32, pvar: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetEx)(::windows_core::Interface::as_raw(self), lnformattype, ::core::mem::transmute(pvar)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx(&self, lnformattype: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -4517,7 +4517,7 @@ pub struct IADsNameTranslate_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetEx: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4554,7 +4554,7 @@ impl IADsNamespaces {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -4563,7 +4563,7 @@ impl IADsNamespaces {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -4571,7 +4571,7 @@ impl IADsNamespaces {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -4580,7 +4580,7 @@ impl IADsNamespaces {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -4588,7 +4588,7 @@ impl IADsNamespaces {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -4622,7 +4622,7 @@ pub struct IADsNamespaces_Vtbl {
     pub DefaultContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetDefaultContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdefaultcontainer: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4636,13 +4636,13 @@ impl IADsNetAddress {
     pub unsafe fn SetAddressType(&self, lnaddresstype: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAddressType)(::windows_core::Interface::as_raw(self), lnaddresstype).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Address(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Address)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetAddress(&self, vaddress: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAddress)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vaddress)).ok()
@@ -4674,7 +4674,7 @@ pub struct IADsNetAddress_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetAddress: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4711,7 +4711,7 @@ impl IADsO {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -4720,7 +4720,7 @@ impl IADsO {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -4728,7 +4728,7 @@ impl IADsO {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -4737,7 +4737,7 @@ impl IADsO {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -4745,7 +4745,7 @@ impl IADsO {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -4800,13 +4800,13 @@ impl IADsO {
     {
         (::windows_core::Interface::vtable(self).SetFaxNumber)(::windows_core::Interface::as_raw(self), bstrfaxnumber.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SeeAlso(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SeeAlso)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetSeeAlso(&self, vseealso: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSeeAlso)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vseealso)).ok()
@@ -4846,7 +4846,7 @@ pub struct IADsO_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetSeeAlso: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4883,7 +4883,7 @@ impl IADsOU {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -4892,7 +4892,7 @@ impl IADsOU {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -4900,7 +4900,7 @@ impl IADsOU {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -4909,7 +4909,7 @@ impl IADsOU {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -4917,7 +4917,7 @@ impl IADsOU {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -4972,13 +4972,13 @@ impl IADsOU {
     {
         (::windows_core::Interface::vtable(self).SetFaxNumber)(::windows_core::Interface::as_raw(self), bstrfaxnumber.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SeeAlso(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SeeAlso)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetSeeAlso(&self, vseealso: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSeeAlso)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vseealso)).ok()
@@ -5030,20 +5030,20 @@ pub struct IADsOU_Vtbl {
     pub BusinessCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetBusinessCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbusinesscategory: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsObjectOptions(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsObjectOptions {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetOption(&self, lnoption: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOption)(::windows_core::Interface::as_raw(self), lnoption, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetOption(&self, lnoption: i32, vvalue: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOption)(::windows_core::Interface::as_raw(self), lnoption, ::core::mem::transmute(vvalue)).ok()
@@ -5073,20 +5073,20 @@ pub struct IADsObjectOptions_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetOption: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsOctetList(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsOctetList {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OctetList(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OctetList)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetOctetList(&self, voctetlist: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOctetList)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(voctetlist)).ok()
@@ -5116,14 +5116,14 @@ pub struct IADsOctetList_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetOctetList: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsOpenDSObject(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsOpenDSObject {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenDSObject<P0, P1, P2>(&self, lpszdnname: P0, lpszusername: P1, lpszpassword: P2, lnreserved: i32) -> ::windows_core::Result<super::super::System::Com::IDispatch>
     where
@@ -5155,7 +5155,7 @@ pub struct IADsOpenDSObject_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     OpenDSObject: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5212,7 +5212,7 @@ pub struct IADsPath_Vtbl {
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpath: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5249,7 +5249,7 @@ impl IADsPathname {
     pub unsafe fn RemoveLeafElement(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RemoveLeafElement)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopyPath(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -5300,20 +5300,20 @@ pub struct IADsPathname_Vtbl {
     pub EscapedMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
     pub SetEscapedMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnescapedmode: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsPostalAddress(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsPostalAddress {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PostalAddress(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PostalAddress)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetPostalAddress(&self, vpostaladdress: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPostalAddress)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vpostaladdress)).ok()
@@ -5343,7 +5343,7 @@ pub struct IADsPostalAddress_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetPostalAddress: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5380,7 +5380,7 @@ impl IADsPrintJob {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -5389,7 +5389,7 @@ impl IADsPrintJob {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -5397,7 +5397,7 @@ impl IADsPrintJob {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -5406,7 +5406,7 @@ impl IADsPrintJob {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -5414,7 +5414,7 @@ impl IADsPrintJob {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -5529,7 +5529,7 @@ pub struct IADsPrintJob_Vtbl {
     pub NotifyPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetNotifyPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrnotifypath: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5566,7 +5566,7 @@ impl IADsPrintJobOperations {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -5575,7 +5575,7 @@ impl IADsPrintJobOperations {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -5583,7 +5583,7 @@ impl IADsPrintJobOperations {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -5592,7 +5592,7 @@ impl IADsPrintJobOperations {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -5600,7 +5600,7 @@ impl IADsPrintJobOperations {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -5654,7 +5654,7 @@ pub struct IADsPrintJobOperations_Vtbl {
     pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5691,7 +5691,7 @@ impl IADsPrintQueue {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -5700,7 +5700,7 @@ impl IADsPrintQueue {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -5708,7 +5708,7 @@ impl IADsPrintQueue {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -5717,7 +5717,7 @@ impl IADsPrintQueue {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -5725,7 +5725,7 @@ impl IADsPrintQueue {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -5828,24 +5828,24 @@ impl IADsPrintQueue {
     {
         (::windows_core::Interface::vtable(self).SetBannerPage)(::windows_core::Interface::as_raw(self), bstrbannerpage.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PrintDevices(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrintDevices)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetPrintDevices(&self, vprintdevices: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPrintDevices)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vprintdevices)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn NetAddresses(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NetAddresses)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetNetAddresses(&self, vnetaddresses: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetNetAddresses)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vnetaddresses)).ok()
@@ -5905,7 +5905,7 @@ pub struct IADsPrintQueue_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetNetAddresses: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5942,7 +5942,7 @@ impl IADsPrintQueueOperations {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -5951,7 +5951,7 @@ impl IADsPrintQueueOperations {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -5959,7 +5959,7 @@ impl IADsPrintQueueOperations {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -5968,7 +5968,7 @@ impl IADsPrintQueueOperations {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -5976,7 +5976,7 @@ impl IADsPrintQueueOperations {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -5985,7 +5985,7 @@ impl IADsPrintQueueOperations {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrintJobs(&self) -> ::windows_core::Result<IADsCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -6025,7 +6025,7 @@ pub struct IADsPrintQueueOperations_Vtbl {
     pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Purge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6062,7 +6062,7 @@ impl IADsProperty {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -6071,7 +6071,7 @@ impl IADsProperty {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -6079,7 +6079,7 @@ impl IADsProperty {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -6088,7 +6088,7 @@ impl IADsProperty {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -6096,7 +6096,7 @@ impl IADsProperty {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -6135,13 +6135,13 @@ impl IADsProperty {
     pub unsafe fn SetMinRange(&self, lnminrange: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMinRange)(::windows_core::Interface::as_raw(self), lnminrange).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MultiValued(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MultiValued)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMultiValued<P0>(&self, fmultivalued: P0) -> ::windows_core::Result<()>
     where
@@ -6149,7 +6149,7 @@ impl IADsProperty {
     {
         (::windows_core::Interface::vtable(self).SetMultiValued)(::windows_core::Interface::as_raw(self), fmultivalued.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Qualifiers(&self) -> ::windows_core::Result<IADsCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -6192,7 +6192,7 @@ pub struct IADsProperty_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Qualifiers: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6226,13 +6226,13 @@ impl IADsPropertyEntry {
     pub unsafe fn SetControlCode(&self, lncontrolcode: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetControlCode)(::windows_core::Interface::as_raw(self), lncontrolcode).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Values(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Values)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetValues(&self, vvalues: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValues)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vvalues)).ok()
@@ -6269,7 +6269,7 @@ pub struct IADsPropertyEntry_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetValues: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6280,7 +6280,7 @@ impl IADsPropertyList {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PropertyCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Next(&self, pvariant: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pvariant)
@@ -6291,13 +6291,13 @@ impl IADsPropertyList {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Item(&self, varindex: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPropertyItem<P0>(&self, bstrname: P0, lnadstype: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -6306,12 +6306,12 @@ impl IADsPropertyList {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPropertyItem)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), lnadstype, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutPropertyItem(&self, vardata: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).PutPropertyItem)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vardata)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ResetPropertyItem(&self, varentry: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ResetPropertyItem)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varentry)).ok()
@@ -6360,7 +6360,7 @@ pub struct IADsPropertyList_Vtbl {
     ResetPropertyItem: usize,
     pub PurgePropertyList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6441,24 +6441,24 @@ impl IADsPropertyValue {
     pub unsafe fn SetInteger(&self, lninteger: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetInteger)(::windows_core::Interface::as_raw(self), lninteger).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OctetString(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OctetString)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetOctetString(&self, voctetstring: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOctetString)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(voctetstring)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SecurityDescriptor(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SecurityDescriptor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSecurityDescriptor<P0>(&self, psecuritydescriptor: P0) -> ::windows_core::Result<()>
     where
@@ -6466,13 +6466,13 @@ impl IADsPropertyValue {
     {
         (::windows_core::Interface::vtable(self).SetSecurityDescriptor)(::windows_core::Interface::as_raw(self), psecuritydescriptor.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LargeInteger(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LargeInteger)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetLargeInteger<P0>(&self, plargeinteger: P0) -> ::windows_core::Result<()>
     where
@@ -6547,19 +6547,19 @@ pub struct IADsPropertyValue_Vtbl {
     pub UTCTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows_core::HRESULT,
     pub SetUTCTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dautctime: f64) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsPropertyValue2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsPropertyValue2 {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetObjectProperty(&self, lnadstype: *mut i32, pvprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetObjectProperty)(::windows_core::Interface::as_raw(self), lnadstype, pvprop).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutObjectProperty(&self, lnadstype: i32, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).PutObjectProperty)(::windows_core::Interface::as_raw(self), lnadstype, ::core::mem::transmute(vprop)).ok()
@@ -6589,7 +6589,7 @@ pub struct IADsPropertyValue2_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     PutObjectProperty: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6627,13 +6627,13 @@ impl IADsReplicaPointer {
     pub unsafe fn SetCount(&self, lncount: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCount)(::windows_core::Interface::as_raw(self), lncount).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ReplicaAddressHints(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReplicaAddressHints)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetReplicaAddressHints(&self, vreplicaaddresshints: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetReplicaAddressHints)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vreplicaaddresshints)).ok()
@@ -6671,7 +6671,7 @@ pub struct IADsReplicaPointer_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetReplicaAddressHints: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6708,7 +6708,7 @@ impl IADsResource {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -6717,7 +6717,7 @@ impl IADsResource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -6725,7 +6725,7 @@ impl IADsResource {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -6734,7 +6734,7 @@ impl IADsResource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -6742,7 +6742,7 @@ impl IADsResource {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -6784,7 +6784,7 @@ pub struct IADsResource_Vtbl {
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub LockCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6815,13 +6815,13 @@ impl IADsSecurityDescriptor {
     {
         (::windows_core::Interface::vtable(self).SetOwner)(::windows_core::Interface::as_raw(self), bstrowner.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OwnerDefaulted(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OwnerDefaulted)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOwnerDefaulted<P0>(&self, fownerdefaulted: P0) -> ::windows_core::Result<()>
     where
@@ -6839,13 +6839,13 @@ impl IADsSecurityDescriptor {
     {
         (::windows_core::Interface::vtable(self).SetGroup)(::windows_core::Interface::as_raw(self), bstrgroup.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GroupDefaulted(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GroupDefaulted)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetGroupDefaulted<P0>(&self, fgroupdefaulted: P0) -> ::windows_core::Result<()>
     where
@@ -6853,13 +6853,13 @@ impl IADsSecurityDescriptor {
     {
         (::windows_core::Interface::vtable(self).SetGroupDefaulted)(::windows_core::Interface::as_raw(self), fgroupdefaulted.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DiscretionaryAcl(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DiscretionaryAcl)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDiscretionaryAcl<P0>(&self, pdiscretionaryacl: P0) -> ::windows_core::Result<()>
     where
@@ -6867,13 +6867,13 @@ impl IADsSecurityDescriptor {
     {
         (::windows_core::Interface::vtable(self).SetDiscretionaryAcl)(::windows_core::Interface::as_raw(self), pdiscretionaryacl.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DaclDefaulted(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DaclDefaulted)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDaclDefaulted<P0>(&self, fdacldefaulted: P0) -> ::windows_core::Result<()>
     where
@@ -6881,13 +6881,13 @@ impl IADsSecurityDescriptor {
     {
         (::windows_core::Interface::vtable(self).SetDaclDefaulted)(::windows_core::Interface::as_raw(self), fdacldefaulted.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SystemAcl(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SystemAcl)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSystemAcl<P0>(&self, psystemacl: P0) -> ::windows_core::Result<()>
     where
@@ -6895,13 +6895,13 @@ impl IADsSecurityDescriptor {
     {
         (::windows_core::Interface::vtable(self).SetSystemAcl)(::windows_core::Interface::as_raw(self), psystemacl.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SaclDefaulted(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SaclDefaulted)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSaclDefaulted<P0>(&self, fsacldefaulted: P0) -> ::windows_core::Result<()>
     where
@@ -6909,7 +6909,7 @@ impl IADsSecurityDescriptor {
     {
         (::windows_core::Interface::vtable(self).SetSaclDefaulted)(::windows_core::Interface::as_raw(self), fsacldefaulted.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopySecurityDescriptor(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -6992,25 +6992,25 @@ pub struct IADsSecurityDescriptor_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CopySecurityDescriptor: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsSecurityUtility(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsSecurityUtility {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetSecurityDescriptor(&self, varpath: super::super::System::Variant::VARIANT, lpathformat: i32, lformat: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSecurityDescriptor)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varpath), lpathformat, lformat, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetSecurityDescriptor(&self, varpath: super::super::System::Variant::VARIANT, lpathformat: i32, vardata: super::super::System::Variant::VARIANT, ldataformat: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSecurityDescriptor)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varpath), lpathformat, ::core::mem::transmute(vardata), ldataformat).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ConvertSecurityDescriptor(&self, varsd: super::super::System::Variant::VARIANT, ldataformat: i32, loutformat: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -7054,7 +7054,7 @@ pub struct IADsSecurityUtility_Vtbl {
     pub SecurityMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
     pub SetSecurityMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnsecuritymask: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -7091,7 +7091,7 @@ impl IADsService {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -7100,7 +7100,7 @@ impl IADsService {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -7108,7 +7108,7 @@ impl IADsService {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -7117,7 +7117,7 @@ impl IADsService {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -7125,7 +7125,7 @@ impl IADsService {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -7231,13 +7231,13 @@ impl IADsService {
     {
         (::windows_core::Interface::vtable(self).SetServiceAccountPath)(::windows_core::Interface::as_raw(self), bstrserviceaccountpath.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Dependencies(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Dependencies)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetDependencies(&self, vdependencies: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDependencies)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vdependencies)).ok()
@@ -7289,7 +7289,7 @@ pub struct IADsService_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetDependencies: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -7326,7 +7326,7 @@ impl IADsServiceOperations {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -7335,7 +7335,7 @@ impl IADsServiceOperations {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -7343,7 +7343,7 @@ impl IADsServiceOperations {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -7352,7 +7352,7 @@ impl IADsServiceOperations {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -7360,7 +7360,7 @@ impl IADsServiceOperations {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -7410,7 +7410,7 @@ pub struct IADsServiceOperations_Vtbl {
     pub Continue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetPassword: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrnewpassword: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -7447,7 +7447,7 @@ impl IADsSession {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -7456,7 +7456,7 @@ impl IADsSession {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -7464,7 +7464,7 @@ impl IADsSession {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -7473,7 +7473,7 @@ impl IADsSession {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -7481,7 +7481,7 @@ impl IADsSession {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -7533,7 +7533,7 @@ pub struct IADsSession_Vtbl {
     pub ConnectTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
     pub IdleTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -7570,7 +7570,7 @@ impl IADsSyntax {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -7579,7 +7579,7 @@ impl IADsSyntax {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -7587,7 +7587,7 @@ impl IADsSyntax {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -7596,7 +7596,7 @@ impl IADsSyntax {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -7604,7 +7604,7 @@ impl IADsSyntax {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -7635,7 +7635,7 @@ pub struct IADsSyntax_Vtbl {
     pub OleAutoDataType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
     pub SetOleAutoDataType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnoleautodatatype: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -7677,7 +7677,7 @@ pub struct IADsTimestamp_Vtbl {
     pub EventID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
     pub SetEventID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lneventid: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -7731,7 +7731,7 @@ pub struct IADsTypedName_Vtbl {
     pub Interval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
     pub SetInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lninterval: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -7768,7 +7768,7 @@ impl IADsUser {
     pub unsafe fn SetInfo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInfo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Get<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -7777,7 +7777,7 @@ impl IADsUser {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Get)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -7785,7 +7785,7 @@ impl IADsUser {
     {
         (::windows_core::Interface::vtable(self).base__.Put)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetEx<P0>(&self, bstrname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -7794,7 +7794,7 @@ impl IADsUser {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEx)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutEx<P0>(&self, lncontrolcode: i32, bstrname: P0, vprop: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -7802,7 +7802,7 @@ impl IADsUser {
     {
         (::windows_core::Interface::vtable(self).base__.PutEx)(::windows_core::Interface::as_raw(self), lncontrolcode, bstrname.into_param().abi(), ::core::mem::transmute(vprop)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfoEx(&self, vproperties: super::super::System::Variant::VARIANT, lnreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInfoEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vproperties), lnreserved).ok()
@@ -7951,112 +7951,112 @@ impl IADsUser {
     {
         (::windows_core::Interface::vtable(self).SetManager)(::windows_core::Interface::as_raw(self), bstrmanager.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn TelephoneHome(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TelephoneHome)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetTelephoneHome(&self, vtelephonehome: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetTelephoneHome)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vtelephonehome)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn TelephoneMobile(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TelephoneMobile)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetTelephoneMobile(&self, vtelephonemobile: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetTelephoneMobile)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vtelephonemobile)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn TelephoneNumber(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TelephoneNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetTelephoneNumber(&self, vtelephonenumber: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetTelephoneNumber)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vtelephonenumber)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn TelephonePager(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TelephonePager)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetTelephonePager(&self, vtelephonepager: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetTelephonePager)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vtelephonepager)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn FaxNumber(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FaxNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetFaxNumber(&self, vfaxnumber: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFaxNumber)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vfaxnumber)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OfficeLocations(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OfficeLocations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetOfficeLocations(&self, vofficelocations: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOfficeLocations)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vofficelocations)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PostalAddresses(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PostalAddresses)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetPostalAddresses(&self, vpostaladdresses: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPostalAddresses)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vpostaladdresses)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PostalCodes(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PostalCodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetPostalCodes(&self, vpostalcodes: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPostalCodes)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vpostalcodes)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SeeAlso(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SeeAlso)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetSeeAlso(&self, vseealso: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSeeAlso)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vseealso)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AccountDisabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AccountDisabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAccountDisabled<P0>(&self, faccountdisabled: P0) -> ::windows_core::Result<()>
     where
@@ -8085,13 +8085,13 @@ impl IADsUser {
     pub unsafe fn SetGraceLoginsRemaining(&self, lngraceloginsremaining: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetGraceLoginsRemaining)(::windows_core::Interface::as_raw(self), lngraceloginsremaining).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsAccountLocked(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsAccountLocked)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIsAccountLocked<P0>(&self, fisaccountlocked: P0) -> ::windows_core::Result<()>
     where
@@ -8099,24 +8099,24 @@ impl IADsUser {
     {
         (::windows_core::Interface::vtable(self).SetIsAccountLocked)(::windows_core::Interface::as_raw(self), fisaccountlocked.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn LoginHours(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LoginHours)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetLoginHours(&self, vloginhours: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetLoginHours)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vloginhours)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn LoginWorkstations(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LoginWorkstations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetLoginWorkstations(&self, vloginworkstations: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetLoginWorkstations)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vloginworkstations)).ok()
@@ -8149,13 +8149,13 @@ impl IADsUser {
     pub unsafe fn SetPasswordMinimumLength(&self, lnpasswordminimumlength: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPasswordMinimumLength)(::windows_core::Interface::as_raw(self), lnpasswordminimumlength).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PasswordRequired(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PasswordRequired)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPasswordRequired<P0>(&self, fpasswordrequired: P0) -> ::windows_core::Result<()>
     where
@@ -8163,13 +8163,13 @@ impl IADsUser {
     {
         (::windows_core::Interface::vtable(self).SetPasswordRequired)(::windows_core::Interface::as_raw(self), fpasswordrequired.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequireUniquePassword(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RequireUniquePassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRequireUniquePassword<P0>(&self, frequireuniquepassword: P0) -> ::windows_core::Result<()>
     where
@@ -8197,13 +8197,13 @@ impl IADsUser {
     {
         (::windows_core::Interface::vtable(self).SetHomeDirectory)(::windows_core::Interface::as_raw(self), bstrhomedirectory.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Languages(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Languages)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetLanguages(&self, vlanguages: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetLanguages)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vlanguages)).ok()
@@ -8228,13 +8228,13 @@ impl IADsUser {
     {
         (::windows_core::Interface::vtable(self).SetLoginScript)(::windows_core::Interface::as_raw(self), bstrloginscript.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Picture(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Picture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetPicture(&self, vpicture: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPicture)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vpicture)).ok()
@@ -8249,7 +8249,7 @@ impl IADsUser {
     {
         (::windows_core::Interface::vtable(self).SetHomePage)(::windows_core::Interface::as_raw(self), bstrhomepage.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Groups(&self) -> ::windows_core::Result<IADsMembers> {
         let mut result__ = ::std::mem::zeroed();
@@ -8481,7 +8481,7 @@ pub struct IADsUser_Vtbl {
     pub SetPassword: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newpassword: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub ChangePassword: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstroldpassword: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrnewpassword: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -8529,7 +8529,7 @@ pub struct IADsWinNTSystemInfo_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICommonQuery(::windows_core::IUnknown);
 impl ICommonQuery {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn OpenQueryWindow<P0>(&self, hwndparent: P0, pquerywnd: *mut OPENQUERYWINDOW, ppdataobject: *mut ::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows_core::Result<()>
     where
@@ -8562,18 +8562,18 @@ impl IDirectoryObject {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetObjectInformation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectAttributes(&self, pattributenames: *const ::windows_core::PCWSTR, dwnumberattributes: u32, ppattributeentries: *mut *mut ADS_ATTR_INFO, pdwnumattributesreturned: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetObjectAttributes)(::windows_core::Interface::as_raw(self), pattributenames, dwnumberattributes, ppattributeentries, pdwnumattributesreturned).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetObjectAttributes(&self, pattributeentries: *const ADS_ATTR_INFO, dwnumattributes: u32) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetObjectAttributes)(::windows_core::Interface::as_raw(self), pattributeentries, dwnumattributes, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateDSObject<P0>(&self, pszrdnname: P0, pattributeentries: *const ADS_ATTR_INFO, dwnumattributes: u32) -> ::windows_core::Result<super::super::System::Com::IDispatch>
     where
@@ -8619,12 +8619,12 @@ pub struct IDirectoryObject_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectorySchemaMgmt(::windows_core::IUnknown);
 impl IDirectorySchemaMgmt {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumAttributes(&self, ppszattrnames: *const ::windows_core::PCWSTR, dwnumattributes: u32, ppattrdefinition: *const *const ADS_ATTR_DEF, pdwnumattributes: *const u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EnumAttributes)(::windows_core::Interface::as_raw(self), ppszattrnames, dwnumattributes, ppattrdefinition, pdwnumattributes).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateAttributeDefinition<P0>(&self, pszattributename: P0, pattributedefinition: *const ADS_ATTR_DEF) -> ::windows_core::Result<()>
     where
@@ -8632,7 +8632,7 @@ impl IDirectorySchemaMgmt {
     {
         (::windows_core::Interface::vtable(self).CreateAttributeDefinition)(::windows_core::Interface::as_raw(self), pszattributename.into_param().abi(), pattributedefinition).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteAttributeDefinition<P0>(&self, pszattributename: P0, pattributedefinition: *const ADS_ATTR_DEF) -> ::windows_core::Result<()>
     where
@@ -8646,12 +8646,12 @@ impl IDirectorySchemaMgmt {
     {
         (::windows_core::Interface::vtable(self).DeleteAttributeDefinition)(::windows_core::Interface::as_raw(self), pszattributename.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumClasses(&self, ppszclassnames: *const ::windows_core::PCWSTR, dwnumclasses: u32, ppclassdefinition: *const *const ADS_CLASS_DEF, pdwnumclasses: *const u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EnumClasses)(::windows_core::Interface::as_raw(self), ppszclassnames, dwnumclasses, ppclassdefinition, pdwnumclasses).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteClassDefinition<P0>(&self, pszclassname: P0, pclassdefinition: *const ADS_CLASS_DEF) -> ::windows_core::Result<()>
     where
@@ -8659,7 +8659,7 @@ impl IDirectorySchemaMgmt {
     {
         (::windows_core::Interface::vtable(self).WriteClassDefinition)(::windows_core::Interface::as_raw(self), pszclassname.into_param().abi(), pclassdefinition).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateClassDefinition<P0>(&self, pszclassname: P0, pclassdefinition: *const ADS_CLASS_DEF) -> ::windows_core::Result<()>
     where
@@ -8716,7 +8716,7 @@ pub struct IDirectorySchemaMgmt_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectorySearch(::windows_core::IUnknown);
 impl IDirectorySearch {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSearchPreference(&self, psearchprefs: *const ADS_SEARCHPREF_INFO, dwnumprefs: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSearchPreference)(::windows_core::Interface::as_raw(self), psearchprefs, dwnumprefs).ok()
@@ -8758,7 +8758,7 @@ impl IDirectorySearch {
     {
         (::windows_core::Interface::vtable(self).GetNextColumnName)(::windows_core::Interface::as_raw(self), hsearchhandle.into_param().abi(), ppszcolumnname)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetColumn<P0, P1>(&self, hsearchresult: P0, szcolumnname: P1, psearchcolumn: *mut ADS_SEARCH_COLUMN) -> ::windows_core::Result<()>
     where
@@ -8767,7 +8767,7 @@ impl IDirectorySearch {
     {
         (::windows_core::Interface::vtable(self).GetColumn)(::windows_core::Interface::as_raw(self), hsearchresult.into_param().abi(), szcolumnname.into_param().abi(), psearchcolumn).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FreeColumn(&self, psearchcolumn: *const ADS_SEARCH_COLUMN) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).FreeColumn)(::windows_core::Interface::as_raw(self), psearchcolumn).ok()
@@ -8814,7 +8814,7 @@ pub struct IDirectorySearch_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDsAdminCreateObj(::windows_core::IUnknown);
 impl IDsAdminCreateObj {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1, P2>(&self, padscontainerobj: P0, padscopysource: P1, lpszclassname: P2) -> ::windows_core::Result<()>
     where
@@ -8824,7 +8824,7 @@ impl IDsAdminCreateObj {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), padscontainerobj.into_param().abi(), padscopysource.into_param().abi(), lpszclassname.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateModal<P0>(&self, hwndparent: P0) -> ::windows_core::Result<IADs>
     where
@@ -8858,7 +8858,7 @@ pub struct IDsAdminCreateObj_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDsAdminNewObj(::windows_core::IUnknown);
 impl IDsAdminNewObj {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetButtons<P0>(&self, ncurrindex: u32, bvalid: P0) -> ::windows_core::Result<()>
     where
@@ -8891,7 +8891,7 @@ pub struct IDsAdminNewObj_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDsAdminNewObjExt(::windows_core::IUnknown);
 impl IDsAdminNewObjExt {
-    #[doc = "Required features: `Win32_System_Com`, `Win32_UI_WindowsAndMessaging`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn Initialize<P0, P1, P2, P3>(&self, padscontainerobj: P0, padscopysource: P1, lpszclassname: P2, pdsadminnewobj: P3, pdispinfo: *mut DSA_NEWOBJ_DISPINFO) -> ::windows_core::Result<()>
     where
@@ -8902,7 +8902,7 @@ impl IDsAdminNewObjExt {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), padscontainerobj.into_param().abi(), padscopysource.into_param().abi(), lpszclassname.into_param().abi(), pdsadminnewobj.into_param().abi(), pdispinfo).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
     pub unsafe fn AddPages<P0>(&self, lpfnaddpage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: P0) -> ::windows_core::Result<()>
     where
@@ -8910,7 +8910,7 @@ impl IDsAdminNewObjExt {
     {
         (::windows_core::Interface::vtable(self).AddPages)(::windows_core::Interface::as_raw(self), lpfnaddpage, lparam.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetObject<P0>(&self, padsobj: P0) -> ::windows_core::Result<()>
     where
@@ -8918,7 +8918,7 @@ impl IDsAdminNewObjExt {
     {
         (::windows_core::Interface::vtable(self).SetObject)(::windows_core::Interface::as_raw(self), padsobj.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteData<P0>(&self, hwnd: P0, ucontext: u32) -> ::windows_core::Result<()>
     where
@@ -8926,7 +8926,7 @@ impl IDsAdminNewObjExt {
     {
         (::windows_core::Interface::vtable(self).WriteData)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), ucontext).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnError<P0>(&self, hwnd: P0, hr: ::windows_core::HRESULT, ucontext: u32) -> ::windows_core::Result<()>
     where
@@ -9003,7 +9003,7 @@ pub struct IDsAdminNewObjPrimarySite_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDsAdminNotifyHandler(::windows_core::IUnknown);
 impl IDsAdminNotifyHandler {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0>(&self, pextrainfo: P0, pueventflags: *mut u32) -> ::windows_core::Result<()>
     where
@@ -9011,7 +9011,7 @@ impl IDsAdminNotifyHandler {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), pextrainfo.into_param().abi(), pueventflags).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Begin<P0, P1>(&self, uevent: u32, parg1: P0, parg2: P1, puflags: *mut u32, pbstr: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>
     where
@@ -9053,7 +9053,7 @@ pub struct IDsAdminNotifyHandler_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDsBrowseDomainTree(::windows_core::IUnknown);
 impl IDsBrowseDomainTree {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BrowseTo<P0>(&self, hwndparent: P0, ppsztargetpath: *mut ::windows_core::PWSTR, dwflags: u32) -> ::windows_core::Result<()>
     where
@@ -9061,12 +9061,12 @@ impl IDsBrowseDomainTree {
     {
         (::windows_core::Interface::vtable(self).BrowseTo)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ppsztargetpath, dwflags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDomains(&self, ppdomaintree: *mut *mut DOMAIN_TREE, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDomains)(::windows_core::Interface::as_raw(self), ppdomaintree, dwflags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FreeDomains(&self, ppdomaintree: *mut *mut DOMAIN_TREE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).FreeDomains)(::windows_core::Interface::as_raw(self), ppdomaintree).ok()
@@ -9136,7 +9136,7 @@ impl IDsDisplaySpecifier {
     {
         (::windows_core::Interface::vtable(self).GetIconLocation)(::windows_core::Interface::as_raw(self), pszobjectclass.into_param().abi(), dwflags, ::core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len() as _, presid).ok()
     }
-    #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+    #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetIcon<P0>(&self, pszobjectclass: P0, dwflags: u32, cxicon: i32, cyicon: i32) -> super::super::UI::WindowsAndMessaging::HICON
     where
@@ -9157,7 +9157,7 @@ impl IDsDisplaySpecifier {
     {
         (::windows_core::Interface::vtable(self).GetFriendlyAttributeName)(::windows_core::Interface::as_raw(self), pszobjectclass.into_param().abi(), pszattributename.into_param().abi(), ::core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len() as _).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsClassContainer<P0, P1>(&self, pszobjectclass: P0, pszadspath: P1, dwflags: u32) -> super::super::Foundation::BOOL
     where
@@ -9172,7 +9172,7 @@ impl IDsDisplaySpecifier {
     {
         (::windows_core::Interface::vtable(self).GetClassCreationInfo)(::windows_core::Interface::as_raw(self), pszobjectclass.into_param().abi(), ppdscci).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumClassAttributes<P0, P1>(&self, pszobjectclass: P0, pcbenum: LPDSENUMATTRIBUTES, lparam: P1) -> ::windows_core::Result<()>
     where
@@ -9227,7 +9227,7 @@ impl IDsObjectPicker {
     pub unsafe fn Initialize(&self, pinitinfo: *mut DSOP_INIT_INFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), pinitinfo).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn InvokeDialog<P0>(&self, hwndparent: P0) -> ::windows_core::Result<super::super::System::Com::IDataObject>
     where
@@ -9261,7 +9261,7 @@ impl IDsObjectPickerCredentials {
     pub unsafe fn Initialize(&self, pinitinfo: *mut DSOP_INIT_INFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pinitinfo).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn InvokeDialog<P0>(&self, hwndparent: P0) -> ::windows_core::Result<super::super::System::Com::IDataObject>
     where
@@ -9291,14 +9291,14 @@ pub struct IDsObjectPickerCredentials_Vtbl {
     pub base__: IDsObjectPicker_Vtbl,
     pub SetCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szusername: ::windows_core::PCWSTR, szpassword: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPersistQuery(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPersistQuery {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
@@ -9385,7 +9385,7 @@ impl IPrivateDispatch {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ADSIGetTypeInfoCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ADSIGetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows_core::Result<super::super::System::Com::ITypeInfo> {
         let mut result__ = ::std::mem::zeroed();
@@ -9395,7 +9395,7 @@ impl IPrivateDispatch {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ADSIGetIDsOfNames)(::windows_core::Interface::as_raw(self), riid, rgsznames, cnames, lcid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ADSIInvoke(&self, dispidmember: i32, riid: *const ::windows_core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Variant::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ADSIInvoke)(::windows_core::Interface::as_raw(self), dispidmember, riid, lcid, wflags, pdispparams, pvarresult, pexcepinfo, puargerr).ok()
@@ -9457,7 +9457,7 @@ pub struct IPrivateUnknown_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IQueryForm(::windows_core::IUnknown);
 impl IQueryForm {
-    #[doc = "Required features: `Win32_System_Registry`"]
+    #[doc = "Required features: `\"Win32_System_Registry\"`"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn Initialize<P0>(&self, hkform: P0) -> ::windows_core::Result<()>
     where
@@ -9465,7 +9465,7 @@ impl IQueryForm {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), hkform.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn AddForms<P0>(&self, paddformsproc: LPCQADDFORMSPROC, lparam: P0) -> ::windows_core::Result<()>
     where
@@ -9473,7 +9473,7 @@ impl IQueryForm {
     {
         (::windows_core::Interface::vtable(self).AddForms)(::windows_core::Interface::as_raw(self), paddformsproc, lparam.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn AddPages<P0>(&self, paddpagesproc: LPCQADDPAGESPROC, lparam: P0) -> ::windows_core::Result<()>
     where
@@ -11542,7 +11542,7 @@ impl ::core::fmt::Debug for DS_SPN_WRITE_OP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADSPROPERROR {
     pub hwndPage: super::super::Foundation::HWND,
@@ -11585,7 +11585,7 @@ impl ::core::default::Default for ADSPROPERROR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADSPROPINITPARAMS {
     pub dwSize: u32,
@@ -11626,7 +11626,7 @@ impl ::core::default::Default for ADSPROPINITPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADSVALUE {
     pub dwType: ADSTYPE,
@@ -11651,7 +11651,7 @@ impl ::core::default::Default for ADSVALUE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union ADSVALUE_0 {
     pub DNString: *mut u16,
@@ -11701,7 +11701,7 @@ impl ::core::default::Default for ADSVALUE_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_ATTR_DEF {
     pub pszAttrName: ::windows_core::PWSTR,
@@ -11743,7 +11743,7 @@ impl ::core::default::Default for ADS_ATTR_DEF {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_ATTR_INFO {
     pub pszAttrName: ::windows_core::PWSTR,
@@ -11845,7 +11845,7 @@ impl ::core::default::Default for ADS_CASEIGNORE_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_CLASS_DEF {
     pub pszClassName: ::windows_core::PWSTR,
@@ -12333,7 +12333,7 @@ impl ::core::default::Default for ADS_REPLICAPOINTER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_SEARCHPREF_INFO {
     pub dwSearchPref: ADS_SEARCHPREF_ENUM,
@@ -12359,7 +12359,7 @@ impl ::core::default::Default for ADS_SEARCHPREF_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_SEARCH_COLUMN {
     pub pszAttrName: ::windows_core::PWSTR,
@@ -12428,7 +12428,7 @@ impl ::windows_core::TypeKind for ADS_SEARCH_HANDLE {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_SORTKEY {
     pub pszAttrType: ::windows_core::PWSTR,
@@ -12564,7 +12564,7 @@ impl ::core::default::Default for ADS_VLV {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct CQFORM {
     pub cbStruct: u32,
@@ -12606,7 +12606,7 @@ impl ::core::default::Default for CQFORM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct CQPAGE {
     pub cbStruct: u32,
@@ -12643,7 +12643,7 @@ impl ::core::default::Default for CQPAGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOMAINDESC {
     pub pszName: ::windows_core::PWSTR,
@@ -12763,7 +12763,7 @@ impl ::core::default::Default for DOMAIN_CONTROLLER_INFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOMAIN_TREE {
     pub dsSize: u32,
@@ -12803,7 +12803,7 @@ impl ::core::default::Default for DOMAIN_TREE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct DSA_NEWOBJ_DISPINFO {
     pub dwSize: u32,
@@ -12918,7 +12918,7 @@ impl ::core::default::Default for DSBITEMW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub struct DSBROWSEINFOA {
     pub cbStruct: u32,
@@ -12977,7 +12977,7 @@ impl ::core::default::Default for DSBROWSEINFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub struct DSBROWSEINFOW {
     pub cbStruct: u32,
@@ -13427,7 +13427,7 @@ impl ::core::default::Default for DSQUERYINITPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSQUERYPARAMS {
     pub cbStruct: u32,
@@ -13564,7 +13564,7 @@ impl ::core::default::Default for DSROLE_UPGRADE_STATUS_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1A {
     pub NetbiosName: ::windows_core::PSTR,
@@ -13608,7 +13608,7 @@ impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_1A {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1W {
     pub NetbiosName: ::windows_core::PWSTR,
@@ -13652,7 +13652,7 @@ impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_1W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_CONTROLLER_INFO_2A {
     pub NetbiosName: ::windows_core::PSTR,
@@ -13718,7 +13718,7 @@ impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_2A {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_CONTROLLER_INFO_2W {
     pub NetbiosName: ::windows_core::PWSTR,
@@ -13784,7 +13784,7 @@ impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_2W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_CONTROLLER_INFO_3A {
     pub NetbiosName: ::windows_core::PSTR,
@@ -13852,7 +13852,7 @@ impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_3A {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
     pub NetbiosName: ::windows_core::PWSTR,
@@ -13920,7 +13920,7 @@ impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_3W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_TRUSTSA {
     pub NetbiosDomainName: ::windows_core::PSTR,
@@ -13965,7 +13965,7 @@ impl ::core::default::Default for DS_DOMAIN_TRUSTSA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_TRUSTSW {
     pub NetbiosDomainName: ::windows_core::PWSTR,
@@ -14132,7 +14132,7 @@ impl ::core::default::Default for DS_NAME_RESULT_ITEMW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_ATTR_META_DATA {
     pub pszAttributeName: ::windows_core::PWSTR,
@@ -14175,7 +14175,7 @@ impl ::core::default::Default for DS_REPL_ATTR_META_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_ATTR_META_DATA_2 {
     pub pszAttributeName: ::windows_core::PWSTR,
@@ -14219,7 +14219,7 @@ impl ::core::default::Default for DS_REPL_ATTR_META_DATA_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_ATTR_META_DATA_BLOB {
     pub oszAttributeName: u32,
@@ -14263,7 +14263,7 @@ impl ::core::default::Default for DS_REPL_ATTR_META_DATA_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_ATTR_VALUE_META_DATA {
     pub cNumEntries: u32,
@@ -14303,7 +14303,7 @@ impl ::core::default::Default for DS_REPL_ATTR_VALUE_META_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_2 {
     pub cNumEntries: u32,
@@ -14343,7 +14343,7 @@ impl ::core::default::Default for DS_REPL_ATTR_VALUE_META_DATA_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_EXT {
     pub cNumEntries: u32,
@@ -14444,7 +14444,7 @@ impl ::core::default::Default for DS_REPL_CURSORS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_CURSORS_2 {
     pub cNumCursors: u32,
@@ -14484,7 +14484,7 @@ impl ::core::default::Default for DS_REPL_CURSORS_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_CURSORS_3W {
     pub cNumCursors: u32,
@@ -14524,7 +14524,7 @@ impl ::core::default::Default for DS_REPL_CURSORS_3W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_CURSOR_2 {
     pub uuidSourceDsaInvocationID: ::windows_core::GUID,
@@ -14564,7 +14564,7 @@ impl ::core::default::Default for DS_REPL_CURSOR_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_CURSOR_3W {
     pub uuidSourceDsaInvocationID: ::windows_core::GUID,
@@ -14605,7 +14605,7 @@ impl ::core::default::Default for DS_REPL_CURSOR_3W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_CURSOR_BLOB {
     pub uuidSourceDsaInvocationID: ::windows_core::GUID,
@@ -14646,7 +14646,7 @@ impl ::core::default::Default for DS_REPL_CURSOR_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_KCC_DSA_FAILURESW {
     pub cNumEntries: u32,
@@ -14686,7 +14686,7 @@ impl ::core::default::Default for DS_REPL_KCC_DSA_FAILURESW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_KCC_DSA_FAILUREW {
     pub pszDsaDN: ::windows_core::PWSTR,
@@ -14728,7 +14728,7 @@ impl ::core::default::Default for DS_REPL_KCC_DSA_FAILUREW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_KCC_DSA_FAILUREW_BLOB {
     pub oszDsaDN: u32,
@@ -14770,7 +14770,7 @@ impl ::core::default::Default for DS_REPL_KCC_DSA_FAILUREW_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_NEIGHBORSW {
     pub cNumNeighbors: u32,
@@ -14810,7 +14810,7 @@ impl ::core::default::Default for DS_REPL_NEIGHBORSW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_NEIGHBORW {
     pub pszNamingContext: ::windows_core::PWSTR,
@@ -14895,7 +14895,7 @@ impl ::core::default::Default for DS_REPL_NEIGHBORW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_NEIGHBORW_BLOB {
     pub oszNamingContext: u32,
@@ -14980,7 +14980,7 @@ impl ::core::default::Default for DS_REPL_NEIGHBORW_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_OBJ_META_DATA {
     pub cNumEntries: u32,
@@ -15020,7 +15020,7 @@ impl ::core::default::Default for DS_REPL_OBJ_META_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_OBJ_META_DATA_2 {
     pub cNumEntries: u32,
@@ -15060,7 +15060,7 @@ impl ::core::default::Default for DS_REPL_OBJ_META_DATA_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_OPW {
     pub ftimeEnqueued: super::super::Foundation::FILETIME,
@@ -15107,7 +15107,7 @@ impl ::core::default::Default for DS_REPL_OPW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_OPW_BLOB {
     pub ftimeEnqueued: super::super::Foundation::FILETIME,
@@ -15154,7 +15154,7 @@ impl ::core::default::Default for DS_REPL_OPW_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_PENDING_OPSW {
     pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
@@ -15194,7 +15194,7 @@ impl ::core::default::Default for DS_REPL_PENDING_OPSW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_QUEUE_STATISTICSW {
     pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
@@ -15238,7 +15238,7 @@ impl ::core::default::Default for DS_REPL_QUEUE_STATISTICSW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_VALUE_META_DATA {
     pub pszAttributeName: ::windows_core::PWSTR,
@@ -15298,7 +15298,7 @@ impl ::core::default::Default for DS_REPL_VALUE_META_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_VALUE_META_DATA_2 {
     pub pszAttributeName: ::windows_core::PWSTR,
@@ -15360,7 +15360,7 @@ impl ::core::default::Default for DS_REPL_VALUE_META_DATA_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_VALUE_META_DATA_BLOB {
     pub oszAttributeName: u32,
@@ -15422,7 +15422,7 @@ impl ::core::default::Default for DS_REPL_VALUE_META_DATA_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
     pub oszAttributeName: u32,
@@ -15490,7 +15490,7 @@ impl ::core::default::Default for DS_REPL_VALUE_META_DATA_BLOB_EXT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_VALUE_META_DATA_EXT {
     pub pszAttributeName: ::windows_core::PWSTR,
@@ -15812,7 +15812,7 @@ impl ::core::default::Default for DS_SCHEMA_GUID_MAPW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DS_SELECTION {
     pub pwzName: ::windows_core::PWSTR,
@@ -15855,7 +15855,7 @@ impl ::core::default::Default for DS_SELECTION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DS_SELECTION_LIST {
     pub cItems: u32,
@@ -15925,7 +15925,7 @@ impl ::core::default::Default for DS_SITE_COST_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub struct OPENQUERYWINDOW {
     pub cbStruct: u32,
@@ -15953,7 +15953,7 @@ impl ::core::default::Default for OPENQUERYWINDOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub union OPENQUERYWINDOW_0 {
     pub pFormParameters: *mut ::core::ffi::c_void,
@@ -16037,16 +16037,16 @@ impl ::core::default::Default for SCHEDULE_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type LPCQADDFORMSPROC = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pform: *mut CQFORM) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type LPCQADDPAGESPROC = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, clsidform: *const ::windows_core::GUID, ppage: *mut CQPAGE) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type LPCQPAGEPROC = ::core::option::Option<unsafe extern "system" fn(ppage: *mut CQPAGE, hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDSENUMATTRIBUTES = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pszattributename: ::windows_core::PCWSTR, pszdisplayname: ::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::HRESULT>;
 #[cfg(feature = "implement")]

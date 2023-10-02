@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVIBuildFilterA<P0>(lpszfilter: &mut [u8], fsaving: P0) -> ::windows_core::Result<()>
@@ -8,7 +8,7 @@ where
     ::windows_targets::link!("avifil32.dll" "system" fn AVIBuildFilterA(lpszfilter : ::windows_core::PSTR, cbfilter : i32, fsaving : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     AVIBuildFilterA(::core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len() as _, fsaving.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVIBuildFilterW<P0>(lpszfilter: &mut [u16], fsaving: P0) -> ::windows_core::Result<()>
@@ -31,7 +31,7 @@ where
     ::windows_targets::link!("avifil32.dll" "system" fn AVIFileAddRef(pfile : * mut::core::ffi::c_void) -> u32);
     AVIFileAddRef(pfile.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVIFileCreateStreamA<P0>(pfile: P0, ppavi: *mut ::core::option::Option<IAVIStream>, psi: *const AVISTREAMINFOA) -> ::windows_core::Result<()>
@@ -41,7 +41,7 @@ where
     ::windows_targets::link!("avifil32.dll" "system" fn AVIFileCreateStreamA(pfile : * mut::core::ffi::c_void, ppavi : *mut * mut::core::ffi::c_void, psi : *const AVISTREAMINFOA) -> ::windows_core::HRESULT);
     AVIFileCreateStreamA(pfile.into_param().abi(), ::core::mem::transmute(ppavi), psi).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVIFileCreateStreamW<P0>(pfile: P0, ppavi: *mut ::core::option::Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> ::windows_core::Result<()>
@@ -152,7 +152,7 @@ pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut ::core::option::Option<IAVIFil
     ::windows_targets::link!("avifil32.dll" "system" fn AVIMakeFileFromStreams(ppfile : *mut * mut::core::ffi::c_void, nstreams : i32, papstreams : *const * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     AVIMakeFileFromStreams(::core::mem::transmute(ppfile), papstreams.len() as _, ::core::mem::transmute(papstreams.as_ptr())).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVIMakeStreamFromClipboard<P0>(cfformat: u32, hglobal: P0) -> ::windows_core::Result<IAVIStream>
@@ -171,7 +171,7 @@ where
     ::windows_targets::link!("avifil32.dll" "system" fn AVIPutFileOnClipboard(pf : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     AVIPutFileOnClipboard(pf.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVISaveA<P0, P1>(szfile: P0, pclsidhandler: ::core::option::Option<*const ::windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: P1, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows_core::Result<()>
@@ -182,7 +182,7 @@ where
     ::windows_targets::link!("avifil32.dll" "cdecl" fn AVISaveA(szfile : ::windows_core::PCSTR, pclsidhandler : *const ::windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : * mut::core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS) -> ::windows_core::HRESULT);
     AVISaveA(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null())), lpfncallback, nstreams, pfile.into_param().abi(), lpoptions).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVISaveOptions<P0>(hwnd: P0, uiflags: u32, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize
@@ -197,7 +197,7 @@ pub unsafe fn AVISaveOptionsFree(plpoptions: &[*const AVICOMPRESSOPTIONS]) -> ::
     ::windows_targets::link!("avifil32.dll" "system" fn AVISaveOptionsFree(nstreams : i32, plpoptions : *const *const AVICOMPRESSOPTIONS) -> ::windows_core::HRESULT);
     AVISaveOptionsFree(plpoptions.len() as _, ::core::mem::transmute(plpoptions.as_ptr())).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVISaveVA<P0>(szfile: P0, pclsidhandler: ::core::option::Option<*const ::windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows_core::Result<()>
@@ -207,7 +207,7 @@ where
     ::windows_targets::link!("avifil32.dll" "system" fn AVISaveVA(szfile : ::windows_core::PCSTR, pclsidhandler : *const ::windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const * mut::core::ffi::c_void, plpoptions : *const *const AVICOMPRESSOPTIONS) -> ::windows_core::HRESULT);
     AVISaveVA(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null())), lpfncallback, nstreams, ::core::mem::transmute(ppavi), plpoptions).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVISaveVW<P0>(szfile: P0, pclsidhandler: ::core::option::Option<*const ::windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows_core::Result<()>
@@ -217,7 +217,7 @@ where
     ::windows_targets::link!("avifil32.dll" "system" fn AVISaveVW(szfile : ::windows_core::PCWSTR, pclsidhandler : *const ::windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const * mut::core::ffi::c_void, plpoptions : *const *const AVICOMPRESSOPTIONS) -> ::windows_core::HRESULT);
     AVISaveVW(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null())), lpfncallback, nstreams, ::core::mem::transmute(ppavi), plpoptions).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVISaveW<P0, P1>(szfile: P0, pclsidhandler: ::core::option::Option<*const ::windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: P1, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows_core::Result<()>
@@ -281,7 +281,7 @@ where
     ::windows_targets::link!("avifil32.dll" "system" fn AVIStreamGetFrameClose(pg : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     AVIStreamGetFrameClose(pg.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn AVIStreamGetFrameOpen<P0>(pavi: P0, lpbiwanted: ::core::option::Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>) -> ::core::option::Option<IGetFrame>
@@ -291,7 +291,7 @@ where
     ::windows_targets::link!("avifil32.dll" "system" fn AVIStreamGetFrameOpen(pavi : * mut::core::ffi::c_void, lpbiwanted : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER) -> ::core::option::Option < IGetFrame >);
     AVIStreamGetFrameOpen(pavi.into_param().abi(), ::core::mem::transmute(lpbiwanted.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVIStreamInfoA<P0>(pavi: P0, psi: *mut AVISTREAMINFOA, lsize: i32) -> ::windows_core::Result<()>
@@ -301,7 +301,7 @@ where
     ::windows_targets::link!("avifil32.dll" "system" fn AVIStreamInfoA(pavi : * mut::core::ffi::c_void, psi : *mut AVISTREAMINFOA, lsize : i32) -> ::windows_core::HRESULT);
     AVIStreamInfoA(pavi.into_param().abi(), psi, lsize).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVIStreamInfoW<P0>(pavi: P0, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows_core::Result<()>
@@ -415,7 +415,7 @@ where
     ::windows_targets::link!("avifil32.dll" "system" fn AVIStreamWriteData(pavi : * mut::core::ffi::c_void, fcc : u32, lp : *const ::core::ffi::c_void, cb : i32) -> ::windows_core::HRESULT);
     AVIStreamWriteData(pavi.into_param().abi(), fcc, lp, cb).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseDriver<P0, P1, P2>(hdriver: P0, lparam1: P1, lparam2: P2) -> super::super::Foundation::LRESULT
@@ -435,7 +435,7 @@ where
     ::windows_targets::link!("avifil32.dll" "system" fn CreateEditableStream(ppseditable : *mut * mut::core::ffi::c_void, pssource : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     CreateEditableStream(::core::mem::transmute(ppseditable), pssource.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DefDriverProc<P0, P1, P2>(dwdriveridentifier: usize, hdrvr: P0, umsg: u32, lparam1: P1, lparam2: P2) -> super::super::Foundation::LRESULT
@@ -447,7 +447,7 @@ where
     ::windows_targets::link!("winmm.dll" "system" fn DefDriverProc(dwdriveridentifier : usize, hdrvr : HDRVR, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
     DefDriverProc(dwdriveridentifier, hdrvr.into_param().abi(), umsg, lparam1.into_param().abi(), lparam2.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DrawDibBegin<P0>(hdd: isize, hdc: P0, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL
@@ -457,21 +457,21 @@ where
     ::windows_targets::link!("msvfw32.dll" "system" fn DrawDibBegin(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, dxsrc : i32, dysrc : i32, wflags : u32) -> super::super::Foundation:: BOOL);
     DrawDibBegin(hdd, hdc.into_param().abi(), dxdst, dydst, lpbi, dxsrc, dysrc, wflags)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DrawDibChangePalette(hdd: isize, istart: i32, lppe: &[super::super::Graphics::Gdi::PALETTEENTRY]) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msvfw32.dll" "system" fn DrawDibChangePalette(hdd : isize, istart : i32, ilen : i32, lppe : *const super::super::Graphics::Gdi:: PALETTEENTRY) -> super::super::Foundation:: BOOL);
     DrawDibChangePalette(hdd, istart, lppe.len() as _, ::core::mem::transmute(lppe.as_ptr()))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msvfw32.dll" "system" fn DrawDibClose(hdd : isize) -> super::super::Foundation:: BOOL);
     DrawDibClose(hdd)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DrawDibDraw<P0>(hdd: isize, hdc: P0, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: ::core::option::Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>, lpbits: ::core::option::Option<*const ::core::ffi::c_void>, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL
@@ -481,21 +481,21 @@ where
     ::windows_targets::link!("msvfw32.dll" "system" fn DrawDibDraw(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const ::core::ffi::c_void, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, wflags : u32) -> super::super::Foundation:: BOOL);
     DrawDibDraw(hdd, hdc.into_param().abi(), xdst, ydst, dxdst, dydst, ::core::mem::transmute(lpbi.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpbits.unwrap_or(::std::ptr::null())), xsrc, ysrc, dxsrc, dysrc, wflags)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msvfw32.dll" "system" fn DrawDibEnd(hdd : isize) -> super::super::Foundation:: BOOL);
     DrawDibEnd(hdd)
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawDibGetBuffer(hdd: isize, lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, dwsize: u32, dwflags: u32) -> *mut ::core::ffi::c_void {
     ::windows_targets::link!("msvfw32.dll" "system" fn DrawDibGetBuffer(hdd : isize, lpbi : *mut super::super::Graphics::Gdi:: BITMAPINFOHEADER, dwsize : u32, dwflags : u32) -> *mut ::core::ffi::c_void);
     DrawDibGetBuffer(hdd, lpbi, dwsize, dwflags)
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawDibGetPalette(hdd: isize) -> super::super::Graphics::Gdi::HPALETTE {
@@ -507,14 +507,14 @@ pub unsafe fn DrawDibOpen() -> isize {
     ::windows_targets::link!("msvfw32.dll" "system" fn DrawDibOpen() -> isize);
     DrawDibOpen()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DrawDibProfileDisplay(lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> super::super::Foundation::LRESULT {
     ::windows_targets::link!("msvfw32.dll" "system" fn DrawDibProfileDisplay(lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER) -> super::super::Foundation:: LRESULT);
     DrawDibProfileDisplay(lpbi)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DrawDibRealize<P0, P1>(hdd: isize, hdc: P0, fbackground: P1) -> u32
@@ -525,7 +525,7 @@ where
     ::windows_targets::link!("msvfw32.dll" "system" fn DrawDibRealize(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, fbackground : super::super::Foundation:: BOOL) -> u32);
     DrawDibRealize(hdd, hdc.into_param().abi(), fbackground.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DrawDibSetPalette<P0>(hdd: isize, hpal: P0) -> super::super::Foundation::BOOL
@@ -535,28 +535,28 @@ where
     ::windows_targets::link!("msvfw32.dll" "system" fn DrawDibSetPalette(hdd : isize, hpal : super::super::Graphics::Gdi:: HPALETTE) -> super::super::Foundation:: BOOL);
     DrawDibSetPalette(hdd, hpal.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msvfw32.dll" "system" fn DrawDibStart(hdd : isize, rate : u32) -> super::super::Foundation:: BOOL);
     DrawDibStart(hdd, rate)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawDibStop(hdd: isize) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msvfw32.dll" "system" fn DrawDibStop(hdd : isize) -> super::super::Foundation:: BOOL);
     DrawDibStop(hdd)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawDibTime(hdd: isize, lpddtime: *mut DRAWDIBTIME) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msvfw32.dll" "system" fn DrawDibTime(hdd : isize, lpddtime : *mut DRAWDIBTIME) -> super::super::Foundation:: BOOL);
     DrawDibTime(hdd, lpddtime)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DriverCallback<P0>(dwcallback: usize, dwflags: u32, hdevice: P0, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> super::super::Foundation::BOOL
@@ -566,7 +566,7 @@ where
     ::windows_targets::link!("winmm.dll" "system" fn DriverCallback(dwcallback : usize, dwflags : u32, hdevice : HDRVR, dwmsg : u32, dwuser : usize, dwparam1 : usize, dwparam2 : usize) -> super::super::Foundation:: BOOL);
     DriverCallback(dwcallback, dwflags, hdevice.into_param().abi(), dwmsg, dwuser, dwparam1, dwparam2)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrvGetModuleHandle<P0>(hdriver: P0) -> super::super::Foundation::HMODULE
@@ -610,7 +610,7 @@ where
     ::windows_targets::link!("avifil32.dll" "system" fn EditStreamPaste(pavi : * mut::core::ffi::c_void, plpos : *mut i32, pllength : *mut i32, pstream : * mut::core::ffi::c_void, lstart : i32, lend : i32) -> ::windows_core::HRESULT);
     EditStreamPaste(pavi.into_param().abi(), plpos, pllength, pstream.into_param().abi(), lstart, lend).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EditStreamSetInfoA<P0>(pavi: P0, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> ::windows_core::Result<()>
@@ -620,7 +620,7 @@ where
     ::windows_targets::link!("avifil32.dll" "system" fn EditStreamSetInfoA(pavi : * mut::core::ffi::c_void, lpinfo : *const AVISTREAMINFOA, cbinfo : i32) -> ::windows_core::HRESULT);
     EditStreamSetInfoA(pavi.into_param().abi(), lpinfo, cbinfo).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EditStreamSetInfoW<P0>(pavi: P0, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows_core::Result<()>
@@ -648,7 +648,7 @@ where
     ::windows_targets::link!("avifil32.dll" "system" fn EditStreamSetNameW(pavi : * mut::core::ffi::c_void, lpszname : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     EditStreamSetNameW(pavi.into_param().abi(), lpszname.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDriverModuleHandle<P0>(hdriver: P0) -> super::super::Foundation::HMODULE
@@ -658,35 +658,35 @@ where
     ::windows_targets::link!("winmm.dll" "system" fn GetDriverModuleHandle(hdriver : HDRVR) -> super::super::Foundation:: HMODULE);
     GetDriverModuleHandle(hdriver.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls_Dialogs`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls_Dialogs\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
 pub unsafe fn GetOpenFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA) -> super::super::Foundation:: BOOL);
     GetOpenFileNamePreviewA(lpofn)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls_Dialogs`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls_Dialogs\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
 pub unsafe fn GetOpenFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEW) -> super::super::Foundation:: BOOL);
     GetOpenFileNamePreviewW(lpofn)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls_Dialogs`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls_Dialogs\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
 pub unsafe fn GetSaveFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA) -> super::super::Foundation:: BOOL);
     GetSaveFileNamePreviewA(lpofn)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls_Dialogs`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls_Dialogs\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
 pub unsafe fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEW) -> super::super::Foundation:: BOOL);
     GetSaveFileNamePreviewW(lpofn)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ICClose<P0>(hic: P0) -> super::super::Foundation::LRESULT
@@ -696,7 +696,7 @@ where
     ::windows_targets::link!("msvfw32.dll" "system" fn ICClose(hic : HIC) -> super::super::Foundation:: LRESULT);
     ICClose(hic.into_param().abi())
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ICCompress<P0>(hic: P0, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut ::core::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, lpckid: ::core::option::Option<*mut u32>, lpdwflags: ::core::option::Option<*mut u32>, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: ::core::option::Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>, lpprev: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -706,7 +706,7 @@ where
     ::windows_targets::link!("msvfw32.dll" "cdecl" fn ICCompress(hic : HIC, dwflags : u32, lpbioutput : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpdata : *mut ::core::ffi::c_void, lpbiinput : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const ::core::ffi::c_void, lpckid : *mut u32, lpdwflags : *mut u32, lframenum : i32, dwframesize : u32, dwquality : u32, lpbiprev : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpprev : *const ::core::ffi::c_void) -> u32);
     ICCompress(hic.into_param().abi(), dwflags, lpbioutput, lpdata, lpbiinput, lpbits, ::core::mem::transmute(lpckid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdwflags.unwrap_or(::std::ptr::null_mut())), lframenum, dwframesize, dwquality, ::core::mem::transmute(lpbiprev.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpprev.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ICCompressorChoose<P0, P1>(hwnd: P0, uiflags: u32, pvin: ::core::option::Option<*const ::core::ffi::c_void>, lpdata: ::core::option::Option<*const ::core::ffi::c_void>, pc: *mut COMPVARS, lpsztitle: P1) -> super::super::Foundation::BOOL
@@ -717,14 +717,14 @@ where
     ::windows_targets::link!("msvfw32.dll" "system" fn ICCompressorChoose(hwnd : super::super::Foundation:: HWND, uiflags : u32, pvin : *const ::core::ffi::c_void, lpdata : *const ::core::ffi::c_void, pc : *mut COMPVARS, lpsztitle : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     ICCompressorChoose(hwnd.into_param().abi(), uiflags, ::core::mem::transmute(pvin.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), pc, lpsztitle.into_param().abi())
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ICCompressorFree(pc: *const COMPVARS) {
     ::windows_targets::link!("msvfw32.dll" "system" fn ICCompressorFree(pc : *const COMPVARS) -> ());
     ICCompressorFree(pc)
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ICDecompress<P0>(hic: P0, dwflags: u32, lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const ::core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut ::core::ffi::c_void) -> u32
@@ -742,7 +742,7 @@ where
     ::windows_targets::link!("msvfw32.dll" "cdecl" fn ICDraw(hic : HIC, dwflags : u32, lpformat : *const ::core::ffi::c_void, lpdata : *const ::core::ffi::c_void, cbdata : u32, ltime : i32) -> u32);
     ICDraw(hic.into_param().abi(), dwflags, lpformat, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), cbdata, ltime)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ICDrawBegin<P0, P1, P2, P3>(hic: P0, dwflags: u32, hpal: P1, hwnd: P2, hdc: P3, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32
@@ -755,7 +755,7 @@ where
     ::windows_targets::link!("msvfw32.dll" "cdecl" fn ICDrawBegin(hic : HIC, dwflags : u32, hpal : super::super::Graphics::Gdi:: HPALETTE, hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, dwrate : u32, dwscale : u32) -> u32);
     ICDrawBegin(hic.into_param().abi(), dwflags, hpal.into_param().abi(), hwnd.into_param().abi(), hdc.into_param().abi(), xdst, ydst, dxdst, dydst, lpbi, xsrc, ysrc, dxsrc, dysrc, dwrate, dwscale)
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ICGetDisplayFormat<P0>(hic: P0, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, bitdepth: i32, dx: i32, dy: i32) -> HIC
@@ -765,7 +765,7 @@ where
     ::windows_targets::link!("msvfw32.dll" "system" fn ICGetDisplayFormat(hic : HIC, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbiout : *mut super::super::Graphics::Gdi:: BITMAPINFOHEADER, bitdepth : i32, dx : i32, dy : i32) -> HIC);
     ICGetDisplayFormat(hic.into_param().abi(), lpbiin, lpbiout, bitdepth, dx, dy)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ICGetInfo<P0>(hic: P0, picinfo: *mut ICINFO, cb: u32) -> super::super::Foundation::LRESULT
@@ -775,7 +775,7 @@ where
     ::windows_targets::link!("msvfw32.dll" "system" fn ICGetInfo(hic : HIC, picinfo : *mut ICINFO, cb : u32) -> super::super::Foundation:: LRESULT);
     ICGetInfo(hic.into_param().abi(), picinfo, cb)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ICImageCompress<P0>(hic: P0, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: ::core::option::Option<*const super::super::Graphics::Gdi::BITMAPINFO>, lquality: i32, plsize: ::core::option::Option<*mut i32>) -> super::super::Foundation::HANDLE
@@ -785,7 +785,7 @@ where
     ::windows_targets::link!("msvfw32.dll" "system" fn ICImageCompress(hic : HIC, uiflags : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO, lpbits : *const ::core::ffi::c_void, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFO, lquality : i32, plsize : *mut i32) -> super::super::Foundation:: HANDLE);
     ICImageCompress(hic.into_param().abi(), uiflags, lpbiin, lpbits, ::core::mem::transmute(lpbiout.unwrap_or(::std::ptr::null())), lquality, ::core::mem::transmute(plsize.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ICImageDecompress<P0>(hic: P0, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: ::core::option::Option<*const super::super::Graphics::Gdi::BITMAPINFO>) -> super::super::Foundation::HANDLE
@@ -795,14 +795,14 @@ where
     ::windows_targets::link!("msvfw32.dll" "system" fn ICImageDecompress(hic : HIC, uiflags : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO, lpbits : *const ::core::ffi::c_void, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFO) -> super::super::Foundation:: HANDLE);
     ICImageDecompress(hic.into_param().abi(), uiflags, lpbiin, lpbits, ::core::mem::transmute(lpbiout.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msvfw32.dll" "system" fn ICInfo(fcctype : u32, fcchandler : u32, lpicinfo : *mut ICINFO) -> super::super::Foundation:: BOOL);
     ICInfo(fcctype, fcchandler, lpicinfo)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ICInstall<P0, P1>(fcctype: u32, fcchandler: u32, lparam: P0, szdesc: P1, wflags: u32) -> super::super::Foundation::BOOL
@@ -813,7 +813,7 @@ where
     ::windows_targets::link!("msvfw32.dll" "system" fn ICInstall(fcctype : u32, fcchandler : u32, lparam : super::super::Foundation:: LPARAM, szdesc : ::windows_core::PCSTR, wflags : u32) -> super::super::Foundation:: BOOL);
     ICInstall(fcctype, fcchandler, lparam.into_param().abi(), szdesc.into_param().abi(), wflags)
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: ::core::option::Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>, wflags: u16) -> HIC {
@@ -825,21 +825,21 @@ pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
     ::windows_targets::link!("msvfw32.dll" "system" fn ICOpen(fcctype : u32, fcchandler : u32, wmode : u32) -> HIC);
     ICOpen(fcctype, fcchandler, wmode)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: super::super::Foundation::FARPROC) -> HIC {
     ::windows_targets::link!("msvfw32.dll" "system" fn ICOpenFunction(fcctype : u32, fcchandler : u32, wmode : u32, lpfnhandler : super::super::Foundation:: FARPROC) -> HIC);
     ICOpenFunction(fcctype, fcchandler, wmode, lpfnhandler)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msvfw32.dll" "system" fn ICRemove(fcctype : u32, fcchandler : u32, wflags : u32) -> super::super::Foundation:: BOOL);
     ICRemove(fcctype, fcchandler, wflags)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ICSendMessage<P0>(hic: P0, msg: u32, dw1: usize, dw2: usize) -> super::super::Foundation::LRESULT
@@ -849,28 +849,28 @@ where
     ::windows_targets::link!("msvfw32.dll" "system" fn ICSendMessage(hic : HIC, msg : u32, dw1 : usize, dw2 : usize) -> super::super::Foundation:: LRESULT);
     ICSendMessage(hic.into_param().abi(), msg, dw1, dw2)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *const ::core::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: ::core::option::Option<*mut i32>) -> *mut ::core::ffi::c_void {
     ::windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrame(pc : *const COMPVARS, uiflags : u32, lpbits : *const ::core::ffi::c_void, pfkey : *mut super::super::Foundation:: BOOL, plsize : *mut i32) -> *mut ::core::ffi::c_void);
     ICSeqCompressFrame(pc, uiflags, lpbits, pfkey, ::core::mem::transmute(plsize.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ICSeqCompressFrameEnd(pc: *const COMPVARS) {
     ::windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrameEnd(pc : *const COMPVARS) -> ());
     ICSeqCompressFrameEnd(pc)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrameStart(pc : *const COMPVARS, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO) -> super::super::Foundation:: BOOL);
     ICSeqCompressFrameStart(pc, lpbiin)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MCIWndCreateA<P0, P1, P2>(hwndparent: P0, hinstance: P1, dwstyle: u32, szfile: P2) -> super::super::Foundation::HWND
@@ -882,7 +882,7 @@ where
     ::windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndCreateA(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, dwstyle : u32, szfile : ::windows_core::PCSTR) -> super::super::Foundation:: HWND);
     MCIWndCreateA(hwndparent.into_param().abi(), hinstance.into_param().abi(), dwstyle, szfile.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MCIWndCreateW<P0, P1, P2>(hwndparent: P0, hinstance: P1, dwstyle: u32, szfile: P2) -> super::super::Foundation::HWND
@@ -894,14 +894,14 @@ where
     ::windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndCreateW(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, dwstyle : u32, szfile : ::windows_core::PCWSTR) -> super::super::Foundation:: HWND);
     MCIWndCreateW(hwndparent.into_param().abi(), hinstance.into_param().abi(), dwstyle, szfile.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MCIWndRegisterClass() -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndRegisterClass() -> super::super::Foundation:: BOOL);
     MCIWndRegisterClass()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenDriver<P0, P1, P2>(szdrivername: P0, szsectionname: P1, lparam2: P2) -> HDRVR
@@ -913,7 +913,7 @@ where
     ::windows_targets::link!("winmm.dll" "system" fn OpenDriver(szdrivername : ::windows_core::PCWSTR, szsectionname : ::windows_core::PCWSTR, lparam2 : super::super::Foundation:: LPARAM) -> HDRVR);
     OpenDriver(szdrivername.into_param().abi(), szsectionname.into_param().abi(), lparam2.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SendDriverMessage<P0, P1, P2>(hdriver: P0, message: u32, lparam1: P1, lparam2: P2) -> super::super::Foundation::LRESULT
@@ -930,7 +930,7 @@ pub unsafe fn VideoForWindowsVersion() -> u32 {
     ::windows_targets::link!("msvfw32.dll" "system" fn VideoForWindowsVersion() -> u32);
     VideoForWindowsVersion()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn capCreateCaptureWindowA<P0, P1>(lpszwindowname: P0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P1, nid: i32) -> super::super::Foundation::HWND
@@ -941,7 +941,7 @@ where
     ::windows_targets::link!("avicap32.dll" "system" fn capCreateCaptureWindowA(lpszwindowname : ::windows_core::PCSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation:: HWND, nid : i32) -> super::super::Foundation:: HWND);
     capCreateCaptureWindowA(lpszwindowname.into_param().abi(), dwstyle, x, y, nwidth, nheight, hwndparent.into_param().abi(), nid)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn capCreateCaptureWindowW<P0, P1>(lpszwindowname: P0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P1, nid: i32) -> super::super::Foundation::HWND
@@ -952,14 +952,14 @@ where
     ::windows_targets::link!("avicap32.dll" "system" fn capCreateCaptureWindowW(lpszwindowname : ::windows_core::PCWSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation:: HWND, nid : i32) -> super::super::Foundation:: HWND);
     capCreateCaptureWindowW(lpszwindowname.into_param().abi(), dwstyle, x, y, nwidth, nheight, hwndparent.into_param().abi(), nid)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: &mut [u8], lpszver: &mut [u8]) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("avicap32.dll" "system" fn capGetDriverDescriptionA(wdriverindex : u32, lpszname : ::windows_core::PSTR, cbname : i32, lpszver : ::windows_core::PSTR, cbver : i32) -> super::super::Foundation:: BOOL);
     capGetDriverDescriptionA(wdriverindex, ::core::mem::transmute(lpszname.as_ptr()), lpszname.len() as _, ::core::mem::transmute(lpszver.as_ptr()), lpszver.len() as _)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: &mut [u16], lpszver: &mut [u16]) -> super::super::Foundation::BOOL {
@@ -1001,7 +1001,7 @@ pub unsafe fn joyReleaseCapture(ujoyid: u32) -> u32 {
     ::windows_targets::link!("winmm.dll" "system" fn joyReleaseCapture(ujoyid : u32) -> u32);
     joyReleaseCapture(ujoyid)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn joySetCapture<P0, P1>(hwnd: P0, ujoyid: u32, uperiod: u32, fchanged: P1) -> u32
@@ -1017,7 +1017,7 @@ pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32 {
     ::windows_targets::link!("winmm.dll" "system" fn joySetThreshold(ujoyid : u32, uthreshold : u32) -> u32);
     joySetThreshold(ujoyid, uthreshold)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciDriverNotify<P0>(hwndcallback: P0, wdeviceid: u32, ustatus: u32) -> super::super::Foundation::BOOL
@@ -1032,7 +1032,7 @@ pub unsafe fn mciDriverYield(wdeviceid: u32) -> u32 {
     ::windows_targets::link!("winmm.dll" "system" fn mciDriverYield(wdeviceid : u32) -> u32);
     mciDriverYield(wdeviceid)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciFreeCommandResource(wtable: u32) -> super::super::Foundation::BOOL {
@@ -1081,14 +1081,14 @@ pub unsafe fn mciGetDriverData(wdeviceid: u32) -> usize {
     ::windows_targets::link!("winmm.dll" "system" fn mciGetDriverData(wdeviceid : u32) -> usize);
     mciGetDriverData(wdeviceid)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetErrorStringA(mcierr: u32, psztext: &mut [u8]) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("winmm.dll" "system" fn mciGetErrorStringA(mcierr : u32, psztext : ::windows_core::PSTR, cchtext : u32) -> super::super::Foundation:: BOOL);
     mciGetErrorStringA(mcierr, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetErrorStringW(mcierr: u32, psztext: &mut [u16]) -> super::super::Foundation::BOOL {
@@ -1100,7 +1100,7 @@ pub unsafe fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC
     ::windows_targets::link!("winmm.dll" "system" fn mciGetYieldProc(mciid : u32, pdwyielddata : *const u32) -> YIELDPROC);
     mciGetYieldProc(mciid, pdwyielddata)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciLoadCommandResource<P0, P1>(hinstance: P0, lpresname: P1, wtype: u32) -> u32
@@ -1121,7 +1121,7 @@ pub unsafe fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: 
     ::windows_targets::link!("winmm.dll" "system" fn mciSendCommandW(mciid : u32, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
     mciSendCommandW(mciid, umsg, dwparam1, dwparam2)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciSendStringA<P0, P1>(lpstrcommand: P0, lpstrreturnstring: ::core::option::Option<&mut [u8]>, hwndcallback: P1) -> u32
@@ -1132,7 +1132,7 @@ where
     ::windows_targets::link!("winmm.dll" "system" fn mciSendStringA(lpstrcommand : ::windows_core::PCSTR, lpstrreturnstring : ::windows_core::PSTR, ureturnlength : u32, hwndcallback : super::super::Foundation:: HWND) -> u32);
     mciSendStringA(lpstrcommand.into_param().abi(), ::core::mem::transmute(lpstrreturnstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len() as _), hwndcallback.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciSendStringW<P0, P1>(lpstrcommand: P0, lpstrreturnstring: ::core::option::Option<&mut [u16]>, hwndcallback: P1) -> u32
@@ -1143,14 +1143,14 @@ where
     ::windows_targets::link!("winmm.dll" "system" fn mciSendStringW(lpstrcommand : ::windows_core::PCWSTR, lpstrreturnstring : ::windows_core::PWSTR, ureturnlength : u32, hwndcallback : super::super::Foundation:: HWND) -> u32);
     mciSendStringW(lpstrcommand.into_param().abi(), ::core::mem::transmute(lpstrreturnstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len() as _), hwndcallback.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("winmm.dll" "system" fn mciSetDriverData(wdeviceid : u32, dwdata : usize) -> super::super::Foundation:: BOOL);
     mciSetDriverData(wdeviceid, dwdata)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: YIELDPROC, dwyielddata: u32) -> super::super::Foundation::BOOL {
@@ -1176,14 +1176,14 @@ pub unsafe fn mmTaskBlock(h: u32) {
     ::windows_targets::link!("winmm.dll" "system" fn mmTaskBlock(h : u32) -> ());
     mmTaskBlock(h)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmTaskCreate(lpfn: LPTASKCALLBACK, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32 {
     ::windows_targets::link!("winmm.dll" "system" fn mmTaskCreate(lpfn : LPTASKCALLBACK, lph : *mut super::super::Foundation:: HANDLE, dwinst : usize) -> u32);
     mmTaskCreate(lpfn, lph, dwinst)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL {
@@ -1195,7 +1195,7 @@ pub unsafe fn mmTaskYield() {
     ::windows_targets::link!("winmm.dll" "system" fn mmTaskYield() -> ());
     mmTaskYield()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioAdvance<P0>(hmmio: P0, pmmioinfo: ::core::option::Option<*const MMIOINFO>, fuadvance: u32) -> u32
@@ -1245,7 +1245,7 @@ where
     ::windows_targets::link!("winmm.dll" "system" fn mmioFlush(hmmio : HMMIO, fuflush : u32) -> u32);
     mmioFlush(hmmio.into_param().abi(), fuflush)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioGetInfo<P0>(hmmio: P0, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32
@@ -1255,28 +1255,28 @@ where
     ::windows_targets::link!("winmm.dll" "system" fn mmioGetInfo(hmmio : HMMIO, pmmioinfo : *mut MMIOINFO, fuinfo : u32) -> u32);
     mmioGetInfo(hmmio.into_param().abi(), pmmioinfo, fuinfo)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
     ::windows_targets::link!("winmm.dll" "system" fn mmioInstallIOProcA(fccioproc : u32, pioproc : LPMMIOPROC, dwflags : u32) -> LPMMIOPROC);
     mmioInstallIOProcA(fccioproc, pioproc, dwflags)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
     ::windows_targets::link!("winmm.dll" "system" fn mmioInstallIOProcW(fccioproc : u32, pioproc : LPMMIOPROC, dwflags : u32) -> LPMMIOPROC);
     mmioInstallIOProcW(fccioproc, pioproc, dwflags)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioOpenA(pszfilename: ::core::option::Option<&mut [u8; 128]>, pmmioinfo: ::core::option::Option<*mut MMIOINFO>, fdwopen: u32) -> HMMIO {
     ::windows_targets::link!("winmm.dll" "system" fn mmioOpenA(pszfilename : ::windows_core::PSTR, pmmioinfo : *mut MMIOINFO, fdwopen : u32) -> HMMIO);
     mmioOpenA(::core::mem::transmute(pszfilename.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pmmioinfo.unwrap_or(::std::ptr::null_mut())), fdwopen)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioOpenW(pszfilename: ::core::option::Option<&mut [u16; 128]>, pmmioinfo: ::core::option::Option<*mut MMIOINFO>, fdwopen: u32) -> HMMIO {
@@ -1291,7 +1291,7 @@ where
     ::windows_targets::link!("winmm.dll" "system" fn mmioRead(hmmio : HMMIO, pch : *mut i8, cch : i32) -> i32);
     mmioRead(hmmio.into_param().abi(), ::core::mem::transmute(pch.as_ptr()), pch.len() as _)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioRenameA<P0, P1>(pszfilename: P0, psznewfilename: P1, pmmioinfo: ::core::option::Option<*const MMIOINFO>, fdwrename: u32) -> u32
@@ -1302,7 +1302,7 @@ where
     ::windows_targets::link!("winmm.dll" "system" fn mmioRenameA(pszfilename : ::windows_core::PCSTR, psznewfilename : ::windows_core::PCSTR, pmmioinfo : *const MMIOINFO, fdwrename : u32) -> u32);
     mmioRenameA(pszfilename.into_param().abi(), psznewfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo.unwrap_or(::std::ptr::null())), fdwrename)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioRenameW<P0, P1>(pszfilename: P0, psznewfilename: P1, pmmioinfo: ::core::option::Option<*const MMIOINFO>, fdwrename: u32) -> u32
@@ -1321,7 +1321,7 @@ where
     ::windows_targets::link!("winmm.dll" "system" fn mmioSeek(hmmio : HMMIO, loffset : i32, iorigin : i32) -> i32);
     mmioSeek(hmmio.into_param().abi(), loffset, iorigin)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioSendMessage<P0, P1, P2>(hmmio: P0, umsg: u32, lparam1: P1, lparam2: P2) -> super::super::Foundation::LRESULT
@@ -1341,7 +1341,7 @@ where
     ::windows_targets::link!("winmm.dll" "system" fn mmioSetBuffer(hmmio : HMMIO, pchbuffer : ::windows_core::PSTR, cchbuffer : i32, fubuffer : u32) -> u32);
     mmioSetBuffer(hmmio.into_param().abi(), ::core::mem::transmute(pchbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pchbuffer.as_deref().map_or(0, |slice| slice.len() as _), fubuffer)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioSetInfo<P0>(hmmio: P0, pmmioinfo: *const MMIOINFO, fuinfo: u32) -> u32
@@ -1375,7 +1375,7 @@ where
     ::windows_targets::link!("winmm.dll" "system" fn mmioWrite(hmmio : HMMIO, pch : ::windows_core::PCSTR, cch : i32) -> i32);
     mmioWrite(hmmio.into_param().abi(), ::core::mem::transmute(pch.as_ptr()), pch.len() as _)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn sndOpenSound<P0, P1>(eventname: P0, appname: P1, flags: i32, filehandle: *mut super::super::Foundation::HANDLE) -> i32
@@ -1406,7 +1406,7 @@ impl IAVIEditStream {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetInfo)(::windows_core::Interface::as_raw(self), lpinfo, cbinfo).ok()
@@ -1442,7 +1442,7 @@ impl IAVIFile {
     pub unsafe fn GetStream(&self, ppstream: *mut ::core::option::Option<IAVIStream>, fcctype: u32, lparam: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStream)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppstream), fcctype, lparam).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateStream(&self, ppstream: *mut ::core::option::Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateStream)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppstream), psi).ok()
@@ -1482,25 +1482,25 @@ pub struct IAVIFile_Vtbl {
     pub EndRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub DeleteStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fcctype: u32, lparam: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAVIPersistFile(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAVIPersistFile {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsDirty(&self) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).base__.IsDirty)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Load<P0>(&self, pszfilename: P0, dwmode: super::super::System::Com::STGM) -> ::windows_core::Result<()>
     where
@@ -1508,7 +1508,7 @@ impl IAVIPersistFile {
     {
         (::windows_core::Interface::vtable(self).base__.Load)(::windows_core::Interface::as_raw(self), pszfilename.into_param().abi(), dwmode).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Save<P0, P1>(&self, pszfilename: P0, fremember: P1) -> ::windows_core::Result<()>
     where
@@ -1517,7 +1517,7 @@ impl IAVIPersistFile {
     {
         (::windows_core::Interface::vtable(self).base__.Save)(::windows_core::Interface::as_raw(self), pszfilename.into_param().abi(), fremember.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveCompleted<P0>(&self, pszfilename: P0) -> ::windows_core::Result<()>
     where
@@ -1525,7 +1525,7 @@ impl IAVIPersistFile {
     {
         (::windows_core::Interface::vtable(self).base__.SaveCompleted)(::windows_core::Interface::as_raw(self), pszfilename.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCurFile(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -1556,7 +1556,7 @@ pub struct IAVIPersistFile_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAVIStream(::windows_core::IUnknown);
 impl IAVIStream {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Create<P0, P1>(&self, lparam1: P0, lparam2: P1) -> ::windows_core::Result<()>
     where
@@ -1565,7 +1565,7 @@ impl IAVIStream {
     {
         (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), lparam1.into_param().abi(), lparam2.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Info(&self, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Info)(::windows_core::Interface::as_raw(self), psi, lsize).ok()
@@ -1594,7 +1594,7 @@ impl IAVIStream {
     pub unsafe fn WriteData(&self, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).WriteData)(::windows_core::Interface::as_raw(self), fcc, lp, cb).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetInfo)(::windows_core::Interface::as_raw(self), lpinfo, cbinfo).ok()
@@ -1670,7 +1670,7 @@ impl IGetFrame {
     pub unsafe fn End(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).End)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetFormat(&self, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: ::core::option::Option<*const ::core::ffi::c_void>, x: i32, y: i32, dx: i32, dy: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFormat)(::windows_core::Interface::as_raw(self), lpbi, ::core::mem::transmute(lpbits.unwrap_or(::std::ptr::null())), x, y, dx, dy).ok()
@@ -6364,7 +6364,7 @@ impl ::core::default::Default for ADPCMCOEFSET {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct ADPCMEWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -6389,7 +6389,7 @@ impl ::core::default::Default for ADPCMEWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct ADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -6416,7 +6416,7 @@ impl ::core::default::Default for ADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct APTXWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -6440,7 +6440,7 @@ impl ::core::default::Default for APTXWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct AUDIOFILE_AF10WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -6464,7 +6464,7 @@ impl ::core::default::Default for AUDIOFILE_AF10WAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct AUDIOFILE_AF36WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -6633,7 +6633,7 @@ impl ::core::default::Default for AVIFILEINFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AVISTREAMINFOA {
     pub fccType: u32,
@@ -6707,7 +6707,7 @@ impl ::core::default::Default for AVISTREAMINFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AVISTREAMINFOW {
     pub fccType: u32,
@@ -6781,7 +6781,7 @@ impl ::core::default::Default for AVISTREAMINFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CAPDRIVERCAPS {
     pub wDeviceIndex: u32,
@@ -6872,7 +6872,7 @@ impl ::core::default::Default for CAPINFOCHUNK {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CAPSTATUS {
     pub uiImageWidth: u32,
@@ -6963,7 +6963,7 @@ impl ::core::default::Default for CAPSTATUS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CAPTUREPARMS {
     pub dwRequestMicroSecPerFrame: u32,
@@ -7109,7 +7109,7 @@ impl ::core::default::Default for CHANNEL_CAPS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct COMPVARS {
     pub cbSize: i32,
@@ -7179,7 +7179,7 @@ impl ::core::default::Default for COMPVARS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct CONTRESCR10WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7204,7 +7204,7 @@ impl ::core::default::Default for CONTRESCR10WAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct CONTRESVQLPCWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7229,7 +7229,7 @@ impl ::core::default::Default for CONTRESVQLPCWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct CREATIVEADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7254,7 +7254,7 @@ impl ::core::default::Default for CREATIVEADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct CREATIVEFASTSPEECH10WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7279,7 +7279,7 @@ impl ::core::default::Default for CREATIVEFASTSPEECH10WAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7304,7 +7304,7 @@ impl ::core::default::Default for CREATIVEFASTSPEECH8WAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct CSIMAADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7328,7 +7328,7 @@ impl ::core::default::Default for CSIMAADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct DIALOGICOKIADPCMWAVEFORMAT {
     pub ewf: super::Audio::WAVEFORMATEX,
@@ -7352,7 +7352,7 @@ impl ::core::default::Default for DIALOGICOKIADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct DIGIADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7377,7 +7377,7 @@ impl ::core::default::Default for DIGIADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct DIGIFIXWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7401,7 +7401,7 @@ impl ::core::default::Default for DIGIFIXWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct DIGIREALWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7426,7 +7426,7 @@ impl ::core::default::Default for DIGIREALWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct DIGISTDWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7450,7 +7450,7 @@ impl ::core::default::Default for DIGISTDWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct DOLBYAC2WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7510,7 +7510,7 @@ impl ::core::default::Default for DRAWDIBTIME {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct DRMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7597,7 +7597,7 @@ impl ::core::default::Default for DRVM_IOCTL_DATA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct DVIADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7622,7 +7622,7 @@ impl ::core::default::Default for DVIADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct ECHOSC1WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7646,7 +7646,7 @@ impl ::core::default::Default for ECHOSC1WAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct EXBMINFOHEADER {
     pub bmi: super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -7671,7 +7671,7 @@ impl ::core::default::Default for EXBMINFOHEADER {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct FMTOWNS_SND_WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7696,7 +7696,7 @@ impl ::core::default::Default for FMTOWNS_SND_WAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct G721_ADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7721,7 +7721,7 @@ impl ::core::default::Default for G721_ADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct G723_ADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7747,7 +7747,7 @@ impl ::core::default::Default for G723_ADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct GSM610WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7880,7 +7880,7 @@ impl ::windows_core::TypeKind for HVIDEO {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICCOMPRESS {
     pub dwFlags: u32,
@@ -7929,7 +7929,7 @@ impl ::core::default::Default for ICCOMPRESS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct ICCOMPRESSFRAMES {
     pub dwFlags: u32,
@@ -7999,7 +7999,7 @@ impl ::core::default::Default for ICCOMPRESSFRAMES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICDECOMPRESS {
     pub dwFlags: u32,
@@ -8042,7 +8042,7 @@ impl ::core::default::Default for ICDECOMPRESS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICDECOMPRESSEX {
     pub dwFlags: u32,
@@ -8125,7 +8125,7 @@ impl ::core::default::Default for ICDRAW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct ICDRAWBEGIN {
     pub dwFlags: u32,
@@ -8177,7 +8177,7 @@ impl ::core::default::Default for ICDRAWBEGIN {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICDRAWSUGGEST {
     pub lpbiIn: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -8258,7 +8258,7 @@ impl ::core::default::Default for ICINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ICOPEN {
     pub dwSize: u32,
@@ -8304,7 +8304,7 @@ impl ::core::default::Default for ICOPEN {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICPALETTE {
     pub dwFlags: u32,
@@ -8345,7 +8345,7 @@ impl ::core::default::Default for ICPALETTE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ICSETSTATUSPROC {
     pub dwFlags: u32,
@@ -8385,7 +8385,7 @@ impl ::core::default::Default for ICSETSTATUSPROC {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct IMAADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -8654,7 +8654,7 @@ impl ::core::default::Default for JPEGINFOHEADER {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_ANIM_OPEN_PARMSA {
     pub dwCallback: usize,
@@ -8684,7 +8684,7 @@ impl ::core::default::Default for MCI_ANIM_OPEN_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_ANIM_OPEN_PARMSW {
     pub dwCallback: usize,
@@ -8735,7 +8735,7 @@ impl ::core::default::Default for MCI_ANIM_PLAY_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_ANIM_RECT_PARMS {
     pub dwCallback: usize,
@@ -8779,7 +8779,7 @@ impl ::core::default::Default for MCI_ANIM_STEP_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct MCI_ANIM_UPDATE_PARMS {
     pub dwCallback: usize,
@@ -8805,7 +8805,7 @@ impl ::core::default::Default for MCI_ANIM_UPDATE_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_ANIM_WINDOW_PARMSA {
     pub dwCallback: usize,
@@ -8832,7 +8832,7 @@ impl ::core::default::Default for MCI_ANIM_WINDOW_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_ANIM_WINDOW_PARMSW {
     pub dwCallback: usize,
@@ -8859,7 +8859,7 @@ impl ::core::default::Default for MCI_ANIM_WINDOW_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_BREAK_PARMS {
     pub dwCallback: usize,
@@ -8885,7 +8885,7 @@ impl ::core::default::Default for MCI_BREAK_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_CAPTURE_PARMSA {
     pub dwCallback: usize,
@@ -8911,7 +8911,7 @@ impl ::core::default::Default for MCI_DGV_CAPTURE_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_CAPTURE_PARMSW {
     pub dwCallback: usize,
@@ -8937,7 +8937,7 @@ impl ::core::default::Default for MCI_DGV_CAPTURE_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_COPY_PARMS {
     pub dwCallback: usize,
@@ -8985,7 +8985,7 @@ impl ::core::default::Default for MCI_DGV_CUE_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_CUT_PARMS {
     pub dwCallback: usize,
@@ -9014,7 +9014,7 @@ impl ::core::default::Default for MCI_DGV_CUT_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_DELETE_PARMS {
     pub dwCallback: usize,
@@ -9151,7 +9151,7 @@ impl ::core::default::Default for MCI_DGV_MONITOR_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_OPEN_PARMSA {
     pub dwCallback: usize,
@@ -9181,7 +9181,7 @@ impl ::core::default::Default for MCI_DGV_OPEN_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_OPEN_PARMSW {
     pub dwCallback: usize,
@@ -9211,7 +9211,7 @@ impl ::core::default::Default for MCI_DGV_OPEN_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_PASTE_PARMS {
     pub dwCallback: usize,
@@ -9283,7 +9283,7 @@ impl ::core::default::Default for MCI_DGV_QUALITY_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_RECORD_PARMS {
     pub dwCallback: usize,
@@ -9312,7 +9312,7 @@ impl ::core::default::Default for MCI_DGV_RECORD_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_RECT_PARMS {
     pub dwCallback: usize,
@@ -9377,7 +9377,7 @@ impl ::core::default::Default for MCI_DGV_RESERVE_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_RESTORE_PARMSA {
     pub dwCallback: usize,
@@ -9403,7 +9403,7 @@ impl ::core::default::Default for MCI_DGV_RESTORE_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_RESTORE_PARMSW {
     pub dwCallback: usize,
@@ -9429,7 +9429,7 @@ impl ::core::default::Default for MCI_DGV_RESTORE_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_SAVE_PARMSA {
     pub dwCallback: usize,
@@ -9455,7 +9455,7 @@ impl ::core::default::Default for MCI_DGV_SAVE_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_SAVE_PARMSW {
     pub dwCallback: usize,
@@ -9683,7 +9683,7 @@ impl ::core::default::Default for MCI_DGV_STEP_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct MCI_DGV_UPDATE_PARMS {
     pub dwCallback: usize,
@@ -9709,7 +9709,7 @@ impl ::core::default::Default for MCI_DGV_UPDATE_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_WINDOW_PARMSA {
     pub dwCallback: usize,
@@ -9736,7 +9736,7 @@ impl ::core::default::Default for MCI_DGV_WINDOW_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_WINDOW_PARMSW {
     pub dwCallback: usize,
@@ -9944,7 +9944,7 @@ impl ::core::default::Default for MCI_OPEN_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_OVLY_LOAD_PARMSA {
     pub dwCallback: usize,
@@ -9970,7 +9970,7 @@ impl ::core::default::Default for MCI_OVLY_LOAD_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_OVLY_LOAD_PARMSW {
     pub dwCallback: usize,
@@ -9996,7 +9996,7 @@ impl ::core::default::Default for MCI_OVLY_LOAD_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_OVLY_OPEN_PARMSA {
     pub dwCallback: usize,
@@ -10026,7 +10026,7 @@ impl ::core::default::Default for MCI_OVLY_OPEN_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_OVLY_OPEN_PARMSW {
     pub dwCallback: usize,
@@ -10056,7 +10056,7 @@ impl ::core::default::Default for MCI_OVLY_OPEN_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_OVLY_RECT_PARMS {
     pub dwCallback: usize,
@@ -10081,7 +10081,7 @@ impl ::core::default::Default for MCI_OVLY_RECT_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_OVLY_SAVE_PARMSA {
     pub dwCallback: usize,
@@ -10107,7 +10107,7 @@ impl ::core::default::Default for MCI_OVLY_SAVE_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_OVLY_SAVE_PARMSW {
     pub dwCallback: usize,
@@ -10133,7 +10133,7 @@ impl ::core::default::Default for MCI_OVLY_SAVE_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_OVLY_WINDOW_PARMSA {
     pub dwCallback: usize,
@@ -10160,7 +10160,7 @@ impl ::core::default::Default for MCI_OVLY_WINDOW_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_OVLY_WINDOW_PARMSW {
     pub dwCallback: usize,
@@ -10570,7 +10570,7 @@ impl ::core::default::Default for MCI_WAVE_SET_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct MEDIASPACEADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -10614,7 +10614,7 @@ impl ::core::default::Default for MIDIOPENSTRMID {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct MIXEROPENDESC {
     pub hmx: super::Audio::HMIXER,
@@ -10664,7 +10664,7 @@ impl ::core::default::Default for MMCKINFO {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MMIOINFO {
     pub dwFlags: u32,
@@ -10703,7 +10703,7 @@ impl ::core::default::Default for MMIOINFO {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct MSAUDIO1WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -10729,7 +10729,7 @@ impl ::core::default::Default for MSAUDIO1WAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct NMS_VBXADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -10754,7 +10754,7 @@ impl ::core::default::Default for NMS_VBXADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct OLIADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -10778,7 +10778,7 @@ impl ::core::default::Default for OLIADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct OLICELPWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -10802,7 +10802,7 @@ impl ::core::default::Default for OLICELPWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct OLIGSMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -10826,7 +10826,7 @@ impl ::core::default::Default for OLIGSMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct OLIOPRWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -10850,7 +10850,7 @@ impl ::core::default::Default for OLIOPRWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct OLISBCWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -10874,7 +10874,7 @@ impl ::core::default::Default for OLISBCWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct SIERRAADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -10899,7 +10899,7 @@ impl ::core::default::Default for SIERRAADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct SONARCWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -10947,7 +10947,7 @@ impl ::core::default::Default for TIMEREVENT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct TRUESPEECHWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -11009,7 +11009,7 @@ impl ::core::default::Default for VIDEOHDR {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct WAVEOPENDESC {
     pub hWave: super::Audio::HWAVE,
@@ -11038,7 +11038,7 @@ impl ::core::default::Default for WAVEOPENDESC {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct WMAUDIO2WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -11065,7 +11065,7 @@ impl ::core::default::Default for WMAUDIO2WAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct WMAUDIO3WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -11095,7 +11095,7 @@ impl ::core::default::Default for WMAUDIO3WAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct YAMAHA_ADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -11153,45 +11153,45 @@ impl ::core::default::Default for s_RIFFWAVE_inst {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type AVISAVECALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: i32) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPCONTROLCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nstate: i32) -> super::super::Foundation::LRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPERRORCALLBACKA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: ::windows_core::PCSTR) -> super::super::Foundation::LRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPERRORCALLBACKW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: ::windows_core::PCWSTR) -> super::super::Foundation::LRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPSTATUSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: ::windows_core::PCSTR) -> super::super::Foundation::LRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPSTATUSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: ::windows_core::PCWSTR) -> super::super::Foundation::LRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPVIDEOCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpvhdr: *const VIDEOHDR) -> super::super::Foundation::LRESULT>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_Audio\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio"))]
 pub type CAPWAVECALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpwhdr: *const super::Audio::WAVEHDR) -> super::super::Foundation::LRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPYIELDCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::LRESULT>;
 pub type DRIVERMSGPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DRIVERPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: HDRVR, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPFNEXTDEVIO = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPMMIOPROC = ::core::option::Option<unsafe extern "system" fn(lpmmioinfo: ::windows_core::PCSTR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
 pub type LPTASKCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwinst: usize) -> ()>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub type VFWWDMExtensionProc = ::core::option::Option<unsafe extern "system" fn(pfndeviceiocontrol: *mut ::core::ffi::c_void, pfnaddpropertypage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> u32>;
 pub type YIELDPROC = ::core::option::Option<unsafe extern "system" fn(mciid: u32, dwyielddata: u32) -> u32>;

@@ -365,7 +365,7 @@ impl IUIAnimationManager_Vtbl {
         *iid == <IUIAnimationManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAnimationManager2_Impl: Sized {
     fn CreateAnimationVectorVariable(&self, initialvalue: *const f64, cdimension: u32) -> ::windows_core::Result<IUIAnimationVariable2>;
@@ -822,7 +822,7 @@ impl IUIAnimationStoryboard_Vtbl {
         *iid == <IUIAnimationStoryboard as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAnimationStoryboard2_Impl: Sized {
     fn AddTransition(&self, variable: ::core::option::Option<&IUIAnimationVariable2>, transition: ::core::option::Option<&IUIAnimationTransition2>) -> ::windows_core::Result<()>;
@@ -1954,7 +1954,7 @@ impl IUIAnimationVariable_Vtbl {
         *iid == <IUIAnimationVariable as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectComposition`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectComposition\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectComposition"))]
 pub trait IUIAnimationVariable2_Impl: Sized {
     fn GetDimension(&self) -> ::windows_core::Result<u32>;

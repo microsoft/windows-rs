@@ -16,7 +16,7 @@ pub unsafe fn D3DPERF_GetStatus() -> u32 {
     ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_GetStatus() -> u32);
     D3DPERF_GetStatus()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL {
@@ -77,7 +77,7 @@ impl IDirect3D9 {
     pub unsafe fn GetAdapterDisplayMode(&self, adapter: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAdapterDisplayMode)(::windows_core::Interface::as_raw(self), adapter, pmode).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckDeviceType<P0>(&self, adapter: u32, devtype: D3DDEVTYPE, adapterformat: D3DFORMAT, backbufferformat: D3DFORMAT, bwindowed: P0) -> ::windows_core::Result<()>
     where
@@ -88,7 +88,7 @@ impl IDirect3D9 {
     pub unsafe fn CheckDeviceFormat(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, usage: u32, rtype: D3DRESOURCETYPE, checkformat: D3DFORMAT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CheckDeviceFormat)(::windows_core::Interface::as_raw(self), adapter, devicetype, adapterformat, usage, rtype, checkformat).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckDeviceMultiSampleType<P0>(&self, adapter: u32, devicetype: D3DDEVTYPE, surfaceformat: D3DFORMAT, windowed: P0, multisampletype: D3DMULTISAMPLE_TYPE, pqualitylevels: *mut u32) -> ::windows_core::Result<()>
     where
@@ -105,12 +105,12 @@ impl IDirect3D9 {
     pub unsafe fn GetDeviceCaps(&self, adapter: u32, devicetype: D3DDEVTYPE, pcaps: *mut D3DCAPS9) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDeviceCaps)(::windows_core::Interface::as_raw(self), adapter, devicetype, pcaps).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetAdapterMonitor(&self, adapter: u32) -> super::Gdi::HMONITOR {
         (::windows_core::Interface::vtable(self).GetAdapterMonitor)(::windows_core::Interface::as_raw(self), adapter)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDevice<P0>(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: P0, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut ::core::option::Option<IDirect3DDevice9>) -> ::windows_core::Result<()>
     where
@@ -179,7 +179,7 @@ impl IDirect3D9Ex {
     pub unsafe fn GetAdapterDisplayMode(&self, adapter: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetAdapterDisplayMode)(::windows_core::Interface::as_raw(self), adapter, pmode).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckDeviceType<P0>(&self, adapter: u32, devtype: D3DDEVTYPE, adapterformat: D3DFORMAT, backbufferformat: D3DFORMAT, bwindowed: P0) -> ::windows_core::Result<()>
     where
@@ -190,7 +190,7 @@ impl IDirect3D9Ex {
     pub unsafe fn CheckDeviceFormat(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, usage: u32, rtype: D3DRESOURCETYPE, checkformat: D3DFORMAT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CheckDeviceFormat)(::windows_core::Interface::as_raw(self), adapter, devicetype, adapterformat, usage, rtype, checkformat).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckDeviceMultiSampleType<P0>(&self, adapter: u32, devicetype: D3DDEVTYPE, surfaceformat: D3DFORMAT, windowed: P0, multisampletype: D3DMULTISAMPLE_TYPE, pqualitylevels: *mut u32) -> ::windows_core::Result<()>
     where
@@ -207,12 +207,12 @@ impl IDirect3D9Ex {
     pub unsafe fn GetDeviceCaps(&self, adapter: u32, devicetype: D3DDEVTYPE, pcaps: *mut D3DCAPS9) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetDeviceCaps)(::windows_core::Interface::as_raw(self), adapter, devicetype, pcaps).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetAdapterMonitor(&self, adapter: u32) -> super::Gdi::HMONITOR {
         (::windows_core::Interface::vtable(self).base__.GetAdapterMonitor)(::windows_core::Interface::as_raw(self), adapter)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDevice<P0>(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: P0, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut ::core::option::Option<IDirect3DDevice9>) -> ::windows_core::Result<()>
     where
@@ -229,7 +229,7 @@ impl IDirect3D9Ex {
     pub unsafe fn GetAdapterDisplayModeEx(&self, adapter: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAdapterDisplayModeEx)(::windows_core::Interface::as_raw(self), adapter, pmode, protation).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDeviceEx<P0>(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: P0, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX, ppreturneddeviceinterface: *mut ::core::option::Option<IDirect3DDevice9Ex>) -> ::windows_core::Result<()>
     where
@@ -237,7 +237,7 @@ impl IDirect3D9Ex {
     {
         (::windows_core::Interface::vtable(self).CreateDeviceEx)(::windows_core::Interface::as_raw(self), adapter, devicetype, hfocuswindow.into_param().abi(), behaviorflags, ppresentationparameters, pfullscreendisplaymode, ::core::mem::transmute(ppreturneddeviceinterface)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterLUID(&self, adapter: u32, pluid: *mut super::super::Foundation::LUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAdapterLUID)(::windows_core::Interface::as_raw(self), adapter, pluid).ok()
@@ -386,7 +386,7 @@ impl IDirect3DCubeTexture9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCubeMapSurface)(::windows_core::Interface::as_raw(self), facetype, level, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LockRect(&self, facetype: D3DCUBEMAP_FACES, level: u32, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::super::Foundation::RECT, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LockRect)(::windows_core::Interface::as_raw(self), facetype, level, plockedrect, prect, flags).ok()
@@ -394,7 +394,7 @@ impl IDirect3DCubeTexture9 {
     pub unsafe fn UnlockRect(&self, facetype: D3DCUBEMAP_FACES, level: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UnlockRect)(::windows_core::Interface::as_raw(self), facetype, level).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDirtyRect(&self, facetype: D3DCUBEMAP_FACES, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddDirtyRect)(::windows_core::Interface::as_raw(self), facetype, pdirtyrect).ok()
@@ -446,7 +446,7 @@ impl IDirect3DDevice9 {
     pub unsafe fn GetDisplayMode(&self, iswapchain: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDisplayMode)(::windows_core::Interface::as_raw(self), iswapchain, pmode).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCreationParameters(&self, pparameters: *mut D3DDEVICE_CREATION_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCreationParameters)(::windows_core::Interface::as_raw(self), pparameters).ok()
@@ -460,7 +460,7 @@ impl IDirect3DDevice9 {
     pub unsafe fn SetCursorPosition(&self, x: i32, y: i32, flags: u32) {
         (::windows_core::Interface::vtable(self).SetCursorPosition)(::windows_core::Interface::as_raw(self), x, y, flags)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowCursor<P0>(&self, bshow: P0) -> super::super::Foundation::BOOL
     where
@@ -468,7 +468,7 @@ impl IDirect3DDevice9 {
     {
         (::windows_core::Interface::vtable(self).ShowCursor)(::windows_core::Interface::as_raw(self), bshow.into_param().abi())
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateAdditionalSwapChain(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pswapchain: *mut ::core::option::Option<IDirect3DSwapChain9>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateAdditionalSwapChain)(::windows_core::Interface::as_raw(self), ppresentationparameters, ::core::mem::transmute(pswapchain)).ok()
@@ -480,12 +480,12 @@ impl IDirect3DDevice9 {
     pub unsafe fn GetNumberOfSwapChains(&self) -> u32 {
         (::windows_core::Interface::vtable(self).GetNumberOfSwapChains)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Reset(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self), ppresentationparameters).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Present<P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA) -> ::windows_core::Result<()>
     where
@@ -497,12 +497,12 @@ impl IDirect3DDevice9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBackBuffer)(::windows_core::Interface::as_raw(self), iswapchain, ibackbuffer, r#type, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRasterStatus(&self, iswapchain: u32, prasterstatus: *mut D3DRASTER_STATUS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRasterStatus)(::windows_core::Interface::as_raw(self), iswapchain, prasterstatus).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDialogBoxMode<P0>(&self, benabledialogs: P0) -> ::windows_core::Result<()>
     where
@@ -516,32 +516,32 @@ impl IDirect3DDevice9 {
     pub unsafe fn GetGammaRamp(&self, iswapchain: u32, pramp: *mut D3DGAMMARAMP) {
         (::windows_core::Interface::vtable(self).GetGammaRamp)(::windows_core::Interface::as_raw(self), iswapchain, pramp)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, pptexture: *mut ::core::option::Option<IDirect3DTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateTexture)(::windows_core::Interface::as_raw(self), width, height, levels, usage, format, pool, ::core::mem::transmute(pptexture), psharedhandle).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVolumeTexture(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppvolumetexture: *mut ::core::option::Option<IDirect3DVolumeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateVolumeTexture)(::windows_core::Interface::as_raw(self), width, height, depth, levels, usage, format, pool, ::core::mem::transmute(ppvolumetexture), psharedhandle).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateCubeTexture(&self, edgelength: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppcubetexture: *mut ::core::option::Option<IDirect3DCubeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateCubeTexture)(::windows_core::Interface::as_raw(self), edgelength, levels, usage, format, pool, ::core::mem::transmute(ppcubetexture), psharedhandle).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVertexBuffer(&self, length: u32, usage: u32, fvf: u32, pool: D3DPOOL, ppvertexbuffer: *mut ::core::option::Option<IDirect3DVertexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateVertexBuffer)(::windows_core::Interface::as_raw(self), length, usage, fvf, pool, ::core::mem::transmute(ppvertexbuffer), psharedhandle).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateIndexBuffer(&self, length: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppindexbuffer: *mut ::core::option::Option<IDirect3DIndexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateIndexBuffer)(::windows_core::Interface::as_raw(self), length, usage, format, pool, ::core::mem::transmute(ppindexbuffer), psharedhandle).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRenderTarget<P0>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: P0, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()>
     where
@@ -549,7 +549,7 @@ impl IDirect3DDevice9 {
     {
         (::windows_core::Interface::vtable(self).CreateRenderTarget)(::windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, lockable.into_param().abi(), ::core::mem::transmute(ppsurface), psharedhandle).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDepthStencilSurface<P0>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: P0, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()>
     where
@@ -557,7 +557,7 @@ impl IDirect3DDevice9 {
     {
         (::windows_core::Interface::vtable(self).CreateDepthStencilSurface)(::windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, discard.into_param().abi(), ::core::mem::transmute(ppsurface), psharedhandle).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateSurface<P0, P1>(&self, psourcesurface: P0, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: P1, pdestpoint: *const super::super::Foundation::POINT) -> ::windows_core::Result<()>
     where
@@ -586,7 +586,7 @@ impl IDirect3DDevice9 {
     {
         (::windows_core::Interface::vtable(self).GetFrontBufferData)(::windows_core::Interface::as_raw(self), iswapchain, pdestsurface.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StretchRect<P0, P1>(&self, psourcesurface: P0, psourcerect: *const super::super::Foundation::RECT, pdestsurface: P1, pdestrect: *const super::super::Foundation::RECT, filter: D3DTEXTUREFILTERTYPE) -> ::windows_core::Result<()>
     where
@@ -595,7 +595,7 @@ impl IDirect3DDevice9 {
     {
         (::windows_core::Interface::vtable(self).StretchRect)(::windows_core::Interface::as_raw(self), psourcesurface.into_param().abi(), psourcerect, pdestsurface.into_param().abi(), pdestrect, filter).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ColorFill<P0>(&self, psurface: P0, prect: *const super::super::Foundation::RECT, color: u32) -> ::windows_core::Result<()>
     where
@@ -603,7 +603,7 @@ impl IDirect3DDevice9 {
     {
         (::windows_core::Interface::vtable(self).ColorFill)(::windows_core::Interface::as_raw(self), psurface.into_param().abi(), prect, color).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOffscreenPlainSurface(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateOffscreenPlainSurface)(::windows_core::Interface::as_raw(self), width, height, format, pool, ::core::mem::transmute(ppsurface), psharedhandle).ok()
@@ -637,17 +637,17 @@ impl IDirect3DDevice9 {
     pub unsafe fn Clear(&self, count: u32, prects: *const D3DRECT, flags: u32, color: u32, z: f32, stencil: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self), count, prects, flags, color, z, stencil).ok()
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *const super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetTransform)(::windows_core::Interface::as_raw(self), state, pmatrix).ok()
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn GetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *mut super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetTransform)(::windows_core::Interface::as_raw(self), state, pmatrix).ok()
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).MultiplyTransform)(::windows_core::Interface::as_raw(self), param0, param1).ok()
@@ -664,17 +664,17 @@ impl IDirect3DDevice9 {
     pub unsafe fn GetMaterial(&self, pmaterial: *mut D3DMATERIAL9) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetMaterial)(::windows_core::Interface::as_raw(self), pmaterial).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn SetLight(&self, index: u32, param1: *const D3DLIGHT9) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetLight)(::windows_core::Interface::as_raw(self), index, param1).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetLight(&self, index: u32, param1: *mut D3DLIGHT9) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLight)(::windows_core::Interface::as_raw(self), index, param1).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LightEnable<P0>(&self, index: u32, enable: P0) -> ::windows_core::Result<()>
     where
@@ -682,7 +682,7 @@ impl IDirect3DDevice9 {
     {
         (::windows_core::Interface::vtable(self).LightEnable)(::windows_core::Interface::as_raw(self), index, enable.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLightEnable(&self, index: u32, penable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLightEnable)(::windows_core::Interface::as_raw(self), index, penable).ok()
@@ -741,12 +741,12 @@ impl IDirect3DDevice9 {
     pub unsafe fn ValidateDevice(&self, pnumpasses: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ValidateDevice)(::windows_core::Interface::as_raw(self), pnumpasses).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetPaletteEntries(&self, palettenumber: u32, pentries: *const super::Gdi::PALETTEENTRY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPaletteEntries)(::windows_core::Interface::as_raw(self), palettenumber, pentries).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetPaletteEntries(&self, palettenumber: u32, pentries: *mut super::Gdi::PALETTEENTRY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPaletteEntries)(::windows_core::Interface::as_raw(self), palettenumber, pentries).ok()
@@ -757,17 +757,17 @@ impl IDirect3DDevice9 {
     pub unsafe fn GetCurrentTexturePalette(&self, palettenumber: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCurrentTexturePalette)(::windows_core::Interface::as_raw(self), palettenumber).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetScissorRect(&self, prect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetScissorRect)(::windows_core::Interface::as_raw(self), prect).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetScissorRect(&self, prect: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetScissorRect)(::windows_core::Interface::as_raw(self), prect).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSoftwareVertexProcessing<P0>(&self, bsoftware: P0) -> ::windows_core::Result<()>
     where
@@ -775,7 +775,7 @@ impl IDirect3DDevice9 {
     {
         (::windows_core::Interface::vtable(self).SetSoftwareVertexProcessing)(::windows_core::Interface::as_raw(self), bsoftware.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSoftwareVertexProcessing(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).GetSoftwareVertexProcessing)(::windows_core::Interface::as_raw(self))
@@ -851,12 +851,12 @@ impl IDirect3DDevice9 {
     pub unsafe fn GetVertexShaderConstantI(&self, startregister: u32, pconstantdata: *mut i32, vector4icount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVertexShaderConstantI)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, vector4icount).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVertexShaderConstantB(&self, startregister: u32, pconstantdata: *const super::super::Foundation::BOOL, boolcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetVertexShaderConstantB)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, boolcount).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVertexShaderConstantB(&self, startregister: u32, pconstantdata: *mut super::super::Foundation::BOOL, boolcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVertexShaderConstantB)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, boolcount).ok()
@@ -912,12 +912,12 @@ impl IDirect3DDevice9 {
     pub unsafe fn GetPixelShaderConstantI(&self, startregister: u32, pconstantdata: *mut i32, vector4icount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPixelShaderConstantI)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, vector4icount).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPixelShaderConstantB(&self, startregister: u32, pconstantdata: *const super::super::Foundation::BOOL, boolcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPixelShaderConstantB)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, boolcount).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPixelShaderConstantB(&self, startregister: u32, pconstantdata: *mut super::super::Foundation::BOOL, boolcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPixelShaderConstantB)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, boolcount).ok()
@@ -1192,7 +1192,7 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetDisplayMode(&self, iswapchain: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetDisplayMode)(::windows_core::Interface::as_raw(self), iswapchain, pmode).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCreationParameters(&self, pparameters: *mut D3DDEVICE_CREATION_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetCreationParameters)(::windows_core::Interface::as_raw(self), pparameters).ok()
@@ -1206,7 +1206,7 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn SetCursorPosition(&self, x: i32, y: i32, flags: u32) {
         (::windows_core::Interface::vtable(self).base__.SetCursorPosition)(::windows_core::Interface::as_raw(self), x, y, flags)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowCursor<P0>(&self, bshow: P0) -> super::super::Foundation::BOOL
     where
@@ -1214,7 +1214,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).base__.ShowCursor)(::windows_core::Interface::as_raw(self), bshow.into_param().abi())
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateAdditionalSwapChain(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pswapchain: *mut ::core::option::Option<IDirect3DSwapChain9>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CreateAdditionalSwapChain)(::windows_core::Interface::as_raw(self), ppresentationparameters, ::core::mem::transmute(pswapchain)).ok()
@@ -1226,12 +1226,12 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetNumberOfSwapChains(&self) -> u32 {
         (::windows_core::Interface::vtable(self).base__.GetNumberOfSwapChains)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Reset(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Reset)(::windows_core::Interface::as_raw(self), ppresentationparameters).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Present<P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA) -> ::windows_core::Result<()>
     where
@@ -1243,12 +1243,12 @@ impl IDirect3DDevice9Ex {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetBackBuffer)(::windows_core::Interface::as_raw(self), iswapchain, ibackbuffer, r#type, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRasterStatus(&self, iswapchain: u32, prasterstatus: *mut D3DRASTER_STATUS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetRasterStatus)(::windows_core::Interface::as_raw(self), iswapchain, prasterstatus).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDialogBoxMode<P0>(&self, benabledialogs: P0) -> ::windows_core::Result<()>
     where
@@ -1262,32 +1262,32 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetGammaRamp(&self, iswapchain: u32, pramp: *mut D3DGAMMARAMP) {
         (::windows_core::Interface::vtable(self).base__.GetGammaRamp)(::windows_core::Interface::as_raw(self), iswapchain, pramp)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, pptexture: *mut ::core::option::Option<IDirect3DTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CreateTexture)(::windows_core::Interface::as_raw(self), width, height, levels, usage, format, pool, ::core::mem::transmute(pptexture), psharedhandle).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVolumeTexture(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppvolumetexture: *mut ::core::option::Option<IDirect3DVolumeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CreateVolumeTexture)(::windows_core::Interface::as_raw(self), width, height, depth, levels, usage, format, pool, ::core::mem::transmute(ppvolumetexture), psharedhandle).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateCubeTexture(&self, edgelength: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppcubetexture: *mut ::core::option::Option<IDirect3DCubeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CreateCubeTexture)(::windows_core::Interface::as_raw(self), edgelength, levels, usage, format, pool, ::core::mem::transmute(ppcubetexture), psharedhandle).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVertexBuffer(&self, length: u32, usage: u32, fvf: u32, pool: D3DPOOL, ppvertexbuffer: *mut ::core::option::Option<IDirect3DVertexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CreateVertexBuffer)(::windows_core::Interface::as_raw(self), length, usage, fvf, pool, ::core::mem::transmute(ppvertexbuffer), psharedhandle).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateIndexBuffer(&self, length: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppindexbuffer: *mut ::core::option::Option<IDirect3DIndexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CreateIndexBuffer)(::windows_core::Interface::as_raw(self), length, usage, format, pool, ::core::mem::transmute(ppindexbuffer), psharedhandle).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRenderTarget<P0>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: P0, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()>
     where
@@ -1295,7 +1295,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).base__.CreateRenderTarget)(::windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, lockable.into_param().abi(), ::core::mem::transmute(ppsurface), psharedhandle).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDepthStencilSurface<P0>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: P0, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()>
     where
@@ -1303,7 +1303,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).base__.CreateDepthStencilSurface)(::windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, discard.into_param().abi(), ::core::mem::transmute(ppsurface), psharedhandle).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateSurface<P0, P1>(&self, psourcesurface: P0, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: P1, pdestpoint: *const super::super::Foundation::POINT) -> ::windows_core::Result<()>
     where
@@ -1332,7 +1332,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).base__.GetFrontBufferData)(::windows_core::Interface::as_raw(self), iswapchain, pdestsurface.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StretchRect<P0, P1>(&self, psourcesurface: P0, psourcerect: *const super::super::Foundation::RECT, pdestsurface: P1, pdestrect: *const super::super::Foundation::RECT, filter: D3DTEXTUREFILTERTYPE) -> ::windows_core::Result<()>
     where
@@ -1341,7 +1341,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).base__.StretchRect)(::windows_core::Interface::as_raw(self), psourcesurface.into_param().abi(), psourcerect, pdestsurface.into_param().abi(), pdestrect, filter).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ColorFill<P0>(&self, psurface: P0, prect: *const super::super::Foundation::RECT, color: u32) -> ::windows_core::Result<()>
     where
@@ -1349,7 +1349,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).base__.ColorFill)(::windows_core::Interface::as_raw(self), psurface.into_param().abi(), prect, color).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOffscreenPlainSurface(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CreateOffscreenPlainSurface)(::windows_core::Interface::as_raw(self), width, height, format, pool, ::core::mem::transmute(ppsurface), psharedhandle).ok()
@@ -1383,17 +1383,17 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn Clear(&self, count: u32, prects: *const D3DRECT, flags: u32, color: u32, z: f32, stencil: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Clear)(::windows_core::Interface::as_raw(self), count, prects, flags, color, z, stencil).ok()
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *const super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetTransform)(::windows_core::Interface::as_raw(self), state, pmatrix).ok()
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn GetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *mut super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetTransform)(::windows_core::Interface::as_raw(self), state, pmatrix).ok()
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.MultiplyTransform)(::windows_core::Interface::as_raw(self), param0, param1).ok()
@@ -1410,17 +1410,17 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetMaterial(&self, pmaterial: *mut D3DMATERIAL9) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetMaterial)(::windows_core::Interface::as_raw(self), pmaterial).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn SetLight(&self, index: u32, param1: *const D3DLIGHT9) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetLight)(::windows_core::Interface::as_raw(self), index, param1).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetLight(&self, index: u32, param1: *mut D3DLIGHT9) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetLight)(::windows_core::Interface::as_raw(self), index, param1).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LightEnable<P0>(&self, index: u32, enable: P0) -> ::windows_core::Result<()>
     where
@@ -1428,7 +1428,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).base__.LightEnable)(::windows_core::Interface::as_raw(self), index, enable.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLightEnable(&self, index: u32, penable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetLightEnable)(::windows_core::Interface::as_raw(self), index, penable).ok()
@@ -1487,12 +1487,12 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn ValidateDevice(&self, pnumpasses: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ValidateDevice)(::windows_core::Interface::as_raw(self), pnumpasses).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetPaletteEntries(&self, palettenumber: u32, pentries: *const super::Gdi::PALETTEENTRY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetPaletteEntries)(::windows_core::Interface::as_raw(self), palettenumber, pentries).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetPaletteEntries(&self, palettenumber: u32, pentries: *mut super::Gdi::PALETTEENTRY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetPaletteEntries)(::windows_core::Interface::as_raw(self), palettenumber, pentries).ok()
@@ -1503,17 +1503,17 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetCurrentTexturePalette(&self, palettenumber: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetCurrentTexturePalette)(::windows_core::Interface::as_raw(self), palettenumber).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetScissorRect(&self, prect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetScissorRect)(::windows_core::Interface::as_raw(self), prect).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetScissorRect(&self, prect: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetScissorRect)(::windows_core::Interface::as_raw(self), prect).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSoftwareVertexProcessing<P0>(&self, bsoftware: P0) -> ::windows_core::Result<()>
     where
@@ -1521,7 +1521,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).base__.SetSoftwareVertexProcessing)(::windows_core::Interface::as_raw(self), bsoftware.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSoftwareVertexProcessing(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.GetSoftwareVertexProcessing)(::windows_core::Interface::as_raw(self))
@@ -1597,12 +1597,12 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetVertexShaderConstantI(&self, startregister: u32, pconstantdata: *mut i32, vector4icount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetVertexShaderConstantI)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, vector4icount).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVertexShaderConstantB(&self, startregister: u32, pconstantdata: *const super::super::Foundation::BOOL, boolcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetVertexShaderConstantB)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, boolcount).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVertexShaderConstantB(&self, startregister: u32, pconstantdata: *mut super::super::Foundation::BOOL, boolcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetVertexShaderConstantB)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, boolcount).ok()
@@ -1658,12 +1658,12 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetPixelShaderConstantI(&self, startregister: u32, pconstantdata: *mut i32, vector4icount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetPixelShaderConstantI)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, vector4icount).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPixelShaderConstantB(&self, startregister: u32, pconstantdata: *const super::super::Foundation::BOOL, boolcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetPixelShaderConstantB)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, boolcount).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPixelShaderConstantB(&self, startregister: u32, pconstantdata: *mut super::super::Foundation::BOOL, boolcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetPixelShaderConstantB)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, boolcount).ok()
@@ -1693,7 +1693,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).ComposeRects)(::windows_core::Interface::as_raw(self), psrc.into_param().abi(), pdst.into_param().abi(), psrcrectdescs.into_param().abi(), numrects, pdstrectdescs.into_param().abi(), operation, xoffset, yoffset).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn PresentEx<P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows_core::Result<()>
     where
@@ -1719,7 +1719,7 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetMaximumFrameLatency(&self, pmaxlatency: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetMaximumFrameLatency)(::windows_core::Interface::as_raw(self), pmaxlatency).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckDeviceState<P0>(&self, hdestinationwindow: P0) -> ::windows_core::Result<()>
     where
@@ -1727,7 +1727,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).CheckDeviceState)(::windows_core::Interface::as_raw(self), hdestinationwindow.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRenderTargetEx<P0>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: P0, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows_core::Result<()>
     where
@@ -1735,12 +1735,12 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).CreateRenderTargetEx)(::windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, lockable.into_param().abi(), ::core::mem::transmute(ppsurface), psharedhandle, usage).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOffscreenPlainSurfaceEx(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateOffscreenPlainSurfaceEx)(::windows_core::Interface::as_raw(self), width, height, format, pool, ::core::mem::transmute(ppsurface), psharedhandle, usage).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDepthStencilSurfaceEx<P0>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: P0, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows_core::Result<()>
     where
@@ -1748,7 +1748,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).CreateDepthStencilSurfaceEx)(::windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, discard.into_param().abi(), ::core::mem::transmute(ppsurface), psharedhandle, usage).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ResetEx(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ResetEx)(::windows_core::Interface::as_raw(self), ppresentationparameters, pfullscreendisplaymode).ok()
@@ -2035,7 +2035,7 @@ impl IDirect3DSurface9 {
     pub unsafe fn GetDesc(&self, pdesc: *mut D3DSURFACE_DESC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDesc)(::windows_core::Interface::as_raw(self), pdesc).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LockRect(&self, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::super::Foundation::RECT, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LockRect)(::windows_core::Interface::as_raw(self), plockedrect, prect, flags).ok()
@@ -2043,12 +2043,12 @@ impl IDirect3DSurface9 {
     pub unsafe fn UnlockRect(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UnlockRect)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetDC(&self, phdc: *mut super::Gdi::HDC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDC)(::windows_core::Interface::as_raw(self), phdc).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseDC<P0>(&self, hdc: P0) -> ::windows_core::Result<()>
     where
@@ -2088,7 +2088,7 @@ pub struct IDirect3DSurface9_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DSwapChain9(::windows_core::IUnknown);
 impl IDirect3DSwapChain9 {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Present<P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows_core::Result<()>
     where
@@ -2106,7 +2106,7 @@ impl IDirect3DSwapChain9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBackBuffer)(::windows_core::Interface::as_raw(self), ibackbuffer, r#type, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRasterStatus(&self, prasterstatus: *mut D3DRASTER_STATUS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRasterStatus)(::windows_core::Interface::as_raw(self), prasterstatus).ok()
@@ -2118,7 +2118,7 @@ impl IDirect3DSwapChain9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPresentParameters(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPresentParameters)(::windows_core::Interface::as_raw(self), ppresentationparameters).ok()
@@ -2156,7 +2156,7 @@ pub struct IDirect3DSwapChain9_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DSwapChain9Ex(::windows_core::IUnknown);
 impl IDirect3DSwapChain9Ex {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Present<P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows_core::Result<()>
     where
@@ -2174,7 +2174,7 @@ impl IDirect3DSwapChain9Ex {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetBackBuffer)(::windows_core::Interface::as_raw(self), ibackbuffer, r#type, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRasterStatus(&self, prasterstatus: *mut D3DRASTER_STATUS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetRasterStatus)(::windows_core::Interface::as_raw(self), prasterstatus).ok()
@@ -2186,7 +2186,7 @@ impl IDirect3DSwapChain9Ex {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPresentParameters(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetPresentParameters)(::windows_core::Interface::as_raw(self), ppresentationparameters).ok()
@@ -2270,7 +2270,7 @@ impl IDirect3DTexture9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSurfaceLevel)(::windows_core::Interface::as_raw(self), level, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LockRect(&self, level: u32, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::super::Foundation::RECT, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LockRect)(::windows_core::Interface::as_raw(self), level, plockedrect, prect, flags).ok()
@@ -2278,7 +2278,7 @@ impl IDirect3DTexture9 {
     pub unsafe fn UnlockRect(&self, level: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UnlockRect)(::windows_core::Interface::as_raw(self), level).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDirtyRect(&self, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddDirtyRect)(::windows_core::Interface::as_raw(self), pdirtyrect).ok()
@@ -5402,7 +5402,7 @@ impl ::core::default::Default for D3DAES_CTR_IV {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
@@ -5443,7 +5443,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
@@ -5483,7 +5483,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
@@ -5508,7 +5508,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
@@ -5549,7 +5549,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURC
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDENCRYPTION {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
@@ -5588,7 +5588,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDE
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
     pub omac: D3D_OMAC,
@@ -5629,7 +5629,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT {
     pub omac: D3D_OMAC,
@@ -5737,7 +5737,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -5776,7 +5776,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPU
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
@@ -5815,7 +5815,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INP
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -5856,7 +5856,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUT
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -5895,7 +5895,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTP
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUIDCOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -5934,7 +5934,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIO
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
@@ -5973,7 +5973,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIO
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -6013,7 +6013,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIO
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -6054,7 +6054,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPU
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
@@ -6094,7 +6094,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INP
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -6135,7 +6135,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUT
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
@@ -6176,7 +6176,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
@@ -6209,7 +6209,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
@@ -6242,7 +6242,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -6267,7 +6267,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESSCOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -6306,7 +6306,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDR
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
@@ -6345,7 +6345,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDR
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -6386,7 +6386,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDR
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRYPTIONLEVEL_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -6425,7 +6425,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRY
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -6464,7 +6464,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTE
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
     pub QueryType: ::windows_core::GUID,
@@ -6504,7 +6504,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
     pub omac: D3D_OMAC,
@@ -6580,7 +6580,7 @@ impl ::core::default::Default for D3DBOX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DBRANCH {
     pub dwMask: u32,
@@ -7018,7 +7018,7 @@ impl ::core::default::Default for D3DCOMPOSERECTDESTINATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DDEVICEDESC {
     pub dwSize: u32,
@@ -7281,7 +7281,7 @@ impl ::core::default::Default for D3DDEVICEDESC7 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DDEVICE_CREATION_PARAMETERS {
     pub AdapterOrdinal: u32,
@@ -7516,7 +7516,7 @@ impl ::core::default::Default for D3DDEVINFO_D3DVERTEXSTATS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DDEVINFO_RESOURCEMANAGER {
     pub stats: [D3DRESOURCESTATS; 8],
@@ -7845,7 +7845,7 @@ impl ::core::default::Default for D3DEXECUTEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DFINDDEVICERESULT {
     pub dwSize: u32,
@@ -7886,7 +7886,7 @@ impl ::core::default::Default for D3DFINDDEVICERESULT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DFINDDEVICESEARCH {
     pub dwSize: u32,
@@ -8103,7 +8103,7 @@ impl ::core::default::Default for D3DINSTRUCTION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3DLIGHT {
     pub dwSize: u32,
@@ -8152,7 +8152,7 @@ impl ::core::default::Default for D3DLIGHT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3DLIGHT2 {
     pub dwSize: u32,
@@ -8216,7 +8216,7 @@ impl ::core::default::Default for D3DLIGHT2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3DLIGHT7 {
     pub dltType: D3DLIGHTTYPE,
@@ -8280,7 +8280,7 @@ impl ::core::default::Default for D3DLIGHT7 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3DLIGHT9 {
     pub Type: D3DLIGHTTYPE,
@@ -8330,7 +8330,7 @@ impl ::core::default::Default for D3DLIGHT9 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3DLIGHTDATA {
     pub dwSize: u32,
@@ -8404,7 +8404,7 @@ impl ::core::default::Default for D3DLIGHTINGCAPS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3DLIGHTINGELEMENT {
     pub dvPosition: super::Direct3D::D3DVECTOR,
@@ -9216,7 +9216,7 @@ impl ::core::default::Default for D3DPRESENTSTATS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DPRESENT_PARAMETERS {
     pub BackBufferWidth: u32,
@@ -9435,7 +9435,7 @@ impl ::core::default::Default for D3DRANGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DRASTER_STATUS {
     pub InVBlank: super::super::Foundation::BOOL,
@@ -9541,7 +9541,7 @@ impl ::core::default::Default for D3DRECTPATCH_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DRESOURCESTATS {
     pub bThrashing: super::super::Foundation::BOOL,
@@ -10692,14 +10692,14 @@ impl ::core::default::Default for D3D_OMAC {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPD3DENUMDEVICESCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpguid: *mut ::windows_core::GUID, lpdevicedescription: ::windows_core::PCSTR, lpdevicename: ::windows_core::PCSTR, param3: *mut D3DDEVICEDESC, param4: *mut D3DDEVICEDESC, param5: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 pub type LPD3DENUMDEVICESCALLBACK7 = ::core::option::Option<unsafe extern "system" fn(lpdevicedescription: ::windows_core::PCSTR, lpdevicename: ::windows_core::PCSTR, param2: *mut D3DDEVICEDESC7, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Graphics_DirectDraw`"]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DENUMPIXELFORMATSCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpddpixfmt: *mut super::DirectDraw::DDPIXELFORMAT, lpcontext: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Graphics_DirectDraw`"]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DENUMTEXTUREFORMATSCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpddsd: *mut super::DirectDraw::DDSURFACEDESC, lpcontext: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 pub type LPD3DVALIDATECALLBACK = ::core::option::Option<unsafe extern "system" fn(lpuserarg: *mut ::core::ffi::c_void, dwoffset: u32) -> ::windows_core::HRESULT>;

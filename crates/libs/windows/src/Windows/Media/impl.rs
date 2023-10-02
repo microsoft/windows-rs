@@ -1,4 +1,4 @@
-#[doc = "Required features: `Foundation_Collections`"]
+#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IMediaExtension_Impl: Sized {
     fn SetProperties(&self, configuration: ::core::option::Option<&super::Foundation::Collections::IPropertySet>) -> ::windows_core::Result<()>;
@@ -21,7 +21,7 @@ impl IMediaExtension_Vtbl {
         *iid == <IMediaExtension as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation_Collections`"]
+#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IMediaFrame_Impl: Sized + super::Foundation::IClosable_Impl {
     fn Type(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -164,7 +164,7 @@ impl IMediaFrame_Vtbl {
         *iid == <IMediaFrame as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait IMediaMarker_Impl: Sized {
     fn Time(&self) -> ::windows_core::Result<super::Foundation::TimeSpan>;
@@ -224,7 +224,7 @@ impl IMediaMarker_Vtbl {
         *iid == <IMediaMarker as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation_Collections`"]
+#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IMediaMarkers_Impl: Sized {
     fn Markers(&self) -> ::windows_core::Result<super::Foundation::Collections::IVectorView<IMediaMarker>>;

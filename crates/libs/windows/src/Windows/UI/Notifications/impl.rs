@@ -1,4 +1,4 @@
-#[doc = "Required features: `Foundation_Collections`"]
+#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IAdaptiveNotificationContent_Impl: Sized {
     fn Kind(&self) -> ::windows_core::Result<AdaptiveNotificationContentKind>;

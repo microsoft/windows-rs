@@ -346,7 +346,7 @@ pub struct IWiFiDirectServiceStatics_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WiFiDirectService(::windows_core::IUnknown);
 impl WiFiDirectService {
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn RemoteServiceInfo(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -355,7 +355,7 @@ impl WiFiDirectService {
             (::windows_core::Interface::vtable(this).RemoteServiceInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedConfigurationMethods(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<WiFiDirectServiceConfigurationMethod>> {
         let this = self;
@@ -375,7 +375,7 @@ impl WiFiDirectService {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPreferGroupOwnerMode)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SessionInfo(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -384,7 +384,7 @@ impl WiFiDirectService {
             (::windows_core::Interface::vtable(this).SessionInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetSessionInfo<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -400,7 +400,7 @@ impl WiFiDirectService {
             (::windows_core::Interface::vtable(this).ServiceError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SessionDeferred<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -412,13 +412,13 @@ impl WiFiDirectService {
             (::windows_core::Interface::vtable(this).SessionDeferred)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSessionDeferred(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSessionDeferred)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetProvisioningInfoAsync(&self, selectedconfigurationmethod: WiFiDirectServiceConfigurationMethod) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceProvisioningInfo>> {
         let this = self;
@@ -427,7 +427,7 @@ impl WiFiDirectService {
             (::windows_core::Interface::vtable(this).GetProvisioningInfoAsync)(::windows_core::Interface::as_raw(this), selectedconfigurationmethod, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ConnectAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>> {
         let this = self;
@@ -436,7 +436,7 @@ impl WiFiDirectService {
             (::windows_core::Interface::vtable(this).ConnectAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ConnectAsyncWithPin(&self, pin: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>> {
         let this = self;
@@ -451,7 +451,7 @@ impl WiFiDirectService {
             (::windows_core::Interface::vtable(this).GetSelector)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(servicename), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetSelectorWithFilter<P0>(servicename: &::windows_core::HSTRING, serviceinfofilter: P0) -> ::windows_core::Result<::windows_core::HSTRING>
     where
@@ -462,7 +462,7 @@ impl WiFiDirectService {
             (::windows_core::Interface::vtable(this).GetSelectorWithFilter)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(servicename), serviceinfofilter.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectService>> {
         Self::IWiFiDirectServiceStatics(|this| unsafe {
@@ -502,7 +502,7 @@ impl WiFiDirectServiceAdvertiser {
             (::windows_core::Interface::vtable(this).ServiceName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ServiceNamePrefixes(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -511,7 +511,7 @@ impl WiFiDirectServiceAdvertiser {
             (::windows_core::Interface::vtable(this).ServiceNamePrefixes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ServiceInfo(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -520,7 +520,7 @@ impl WiFiDirectServiceAdvertiser {
             (::windows_core::Interface::vtable(this).ServiceInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetServiceInfo<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -551,7 +551,7 @@ impl WiFiDirectServiceAdvertiser {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPreferGroupOwnerMode)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PreferredConfigurationMethods(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<WiFiDirectServiceConfigurationMethod>> {
         let this = self;
@@ -582,7 +582,7 @@ impl WiFiDirectServiceAdvertiser {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCustomServiceStatusCode)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn DeferredSessionInfo(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -591,7 +591,7 @@ impl WiFiDirectServiceAdvertiser {
             (::windows_core::Interface::vtable(this).DeferredSessionInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetDeferredSessionInfo<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -614,7 +614,7 @@ impl WiFiDirectServiceAdvertiser {
             (::windows_core::Interface::vtable(this).ServiceError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SessionRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -626,13 +626,13 @@ impl WiFiDirectServiceAdvertiser {
             (::windows_core::Interface::vtable(this).SessionRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSessionRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSessionRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AutoAcceptSessionConnected<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -644,13 +644,13 @@ impl WiFiDirectServiceAdvertiser {
             (::windows_core::Interface::vtable(this).AutoAcceptSessionConnected)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAutoAcceptSessionConnected(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAutoAcceptSessionConnected)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AdvertisementStatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -662,13 +662,13 @@ impl WiFiDirectServiceAdvertiser {
             (::windows_core::Interface::vtable(this).AdvertisementStatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdvertisementStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAdvertisementStatusChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Devices_Enumeration`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
     pub fn ConnectAsync<P0>(&self, deviceinfo: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>>
     where
@@ -680,7 +680,7 @@ impl WiFiDirectServiceAdvertiser {
             (::windows_core::Interface::vtable(this).ConnectAsync)(::windows_core::Interface::as_raw(this), deviceinfo.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Enumeration`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
     pub fn ConnectAsyncWithPin<P0>(&self, deviceinfo: P0, pin: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>>
     where
@@ -738,7 +738,7 @@ impl WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
             (::windows_core::Interface::vtable(this).Session)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SessionInfo(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -801,7 +801,7 @@ unsafe impl ::core::marker::Sync for WiFiDirectServiceProvisioningInfo {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WiFiDirectServiceRemotePortAddedEventArgs(::windows_core::IUnknown);
 impl WiFiDirectServiceRemotePortAddedEventArgs {
-    #[doc = "Required features: `Foundation_Collections`, `Networking`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Networking\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))]
     pub fn EndpointPairs(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Networking::EndpointPair>> {
         let this = self;
@@ -837,7 +837,7 @@ unsafe impl ::core::marker::Sync for WiFiDirectServiceRemotePortAddedEventArgs {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WiFiDirectServiceSession(::windows_core::IUnknown);
 impl WiFiDirectServiceSession {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -892,7 +892,7 @@ impl WiFiDirectServiceSession {
             (::windows_core::Interface::vtable(this).SessionAddress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Networking`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Networking\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))]
     pub fn GetConnectionEndpointPairs(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Networking::EndpointPair>> {
         let this = self;
@@ -901,7 +901,7 @@ impl WiFiDirectServiceSession {
             (::windows_core::Interface::vtable(this).GetConnectionEndpointPairs)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SessionStatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -913,13 +913,13 @@ impl WiFiDirectServiceSession {
             (::windows_core::Interface::vtable(this).SessionStatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSessionStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSessionStatusChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Networking_Sockets`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Networking_Sockets\"`"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Sockets"))]
     pub fn AddStreamSocketListenerAsync<P0>(&self, value: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -931,7 +931,7 @@ impl WiFiDirectServiceSession {
             (::windows_core::Interface::vtable(this).AddStreamSocketListenerAsync)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Networking_Sockets`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Networking_Sockets\"`"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Sockets"))]
     pub fn AddDatagramSocketAsync<P0>(&self, value: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -943,7 +943,7 @@ impl WiFiDirectServiceSession {
             (::windows_core::Interface::vtable(this).AddDatagramSocketAsync)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemotePortAdded<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -955,7 +955,7 @@ impl WiFiDirectServiceSession {
             (::windows_core::Interface::vtable(this).RemotePortAdded)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemotePortAdded(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -983,7 +983,7 @@ unsafe impl ::core::marker::Sync for WiFiDirectServiceSession {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WiFiDirectServiceSessionDeferredEventArgs(::windows_core::IUnknown);
 impl WiFiDirectServiceSessionDeferredEventArgs {
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn DeferredSessionInfo(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1012,13 +1012,13 @@ unsafe impl ::core::marker::Sync for WiFiDirectServiceSessionDeferredEventArgs {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WiFiDirectServiceSessionRequest(::windows_core::IUnknown);
 impl WiFiDirectServiceSessionRequest {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Devices_Enumeration`"]
+    #[doc = "Required features: `\"Devices_Enumeration\"`"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceInformation(&self) -> ::windows_core::Result<super::super::Enumeration::DeviceInformation> {
         let this = self;
@@ -1034,7 +1034,7 @@ impl WiFiDirectServiceSessionRequest {
             (::windows_core::Interface::vtable(this).ProvisioningInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SessionInfo(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;

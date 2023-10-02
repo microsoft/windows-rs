@@ -116,7 +116,7 @@ pub struct IUserConsentVerifierStatics_Vtbl {
 }
 pub struct CredentialPicker;
 impl CredentialPicker {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PickWithOptionsAsync<P0>(options: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>
     where
@@ -127,7 +127,7 @@ impl CredentialPicker {
             (::windows_core::Interface::vtable(this).PickWithOptionsAsync)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PickWithMessageAsync(targetname: &::windows_core::HSTRING, message: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
         Self::ICredentialPickerStatics(|this| unsafe {
@@ -135,7 +135,7 @@ impl CredentialPicker {
             (::windows_core::Interface::vtable(this).PickWithMessageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(targetname), ::core::mem::transmute_copy(message), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PickWithCaptionAsync(targetname: &::windows_core::HSTRING, message: &::windows_core::HSTRING, caption: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
         Self::ICredentialPickerStatics(|this| unsafe {
@@ -229,7 +229,7 @@ impl CredentialPickerOptions {
             (::windows_core::Interface::vtable(this).CustomAuthenticationProtocol)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetPreviousCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -238,7 +238,7 @@ impl CredentialPickerOptions {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPreviousCredential)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn PreviousCredential(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -319,7 +319,7 @@ impl CredentialPickerResults {
             (::windows_core::Interface::vtable(this).CredentialSaved)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Credential(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -365,7 +365,7 @@ impl ::windows_core::RuntimeName for CredentialPickerResults {
 ::windows_core::imp::interface_hierarchy!(CredentialPickerResults, ::windows_core::IUnknown, ::windows_core::IInspectable);
 pub struct UserConsentVerifier;
 impl UserConsentVerifier {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CheckAvailabilityAsync() -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerifierAvailability>> {
         Self::IUserConsentVerifierStatics(|this| unsafe {
@@ -373,7 +373,7 @@ impl UserConsentVerifier {
             (::windows_core::Interface::vtable(this).CheckAvailabilityAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestVerificationAsync(message: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerificationResult>> {
         Self::IUserConsentVerifierStatics(|this| unsafe {

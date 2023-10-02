@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CallEnclave<P0>(lproutine: isize, lpparameter: *const ::core::ffi::c_void, fwaitforthread: P0, lpreturnvalue: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -8,7 +8,7 @@ where
     ::windows_targets::link!("vertdll.dll" "system" fn CallEnclave(lproutine : isize, lpparameter : *const ::core::ffi::c_void, fwaitforthread : super::super::Foundation:: BOOL, lpreturnvalue : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     CallEnclave(lproutine, lpparameter, fwaitforthread.into_param().abi(), lpreturnvalue).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateEnclave<P0>(hprocess: P0, lpaddress: ::core::option::Option<*const ::core::ffi::c_void>, dwsize: usize, dwinitialcommitment: usize, flenclavetype: u32, lpenclaveinformation: *const ::core::ffi::c_void, dwinfolength: u32, lpenclaveerror: ::core::option::Option<*mut u32>) -> *mut ::core::ffi::c_void
@@ -18,7 +18,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn CreateEnclave(hprocess : super::super::Foundation:: HANDLE, lpaddress : *const ::core::ffi::c_void, dwsize : usize, dwinitialcommitment : usize, flenclavetype : u32, lpenclaveinformation : *const ::core::ffi::c_void, dwinfolength : u32, lpenclaveerror : *mut u32) -> *mut ::core::ffi::c_void);
     CreateEnclave(hprocess.into_param().abi(), ::core::mem::transmute(lpaddress.unwrap_or(::std::ptr::null())), dwsize, dwinitialcommitment, flenclavetype, lpenclaveinformation, dwinfolength, ::core::mem::transmute(lpenclaveerror.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateEnvironmentBlock<P0, P1>(lpenvironment: *mut *mut ::core::ffi::c_void, htoken: P0, binherit: P1) -> ::windows_core::Result<()>
@@ -29,14 +29,14 @@ where
     ::windows_targets::link!("userenv.dll" "system" fn CreateEnvironmentBlock(lpenvironment : *mut *mut ::core::ffi::c_void, htoken : super::super::Foundation:: HANDLE, binherit : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     CreateEnvironmentBlock(lpenvironment, htoken.into_param().abi(), binherit.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteEnclave(lpaddress: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
     ::windows_targets::link!("api-ms-win-core-enclave-l1-1-1.dll" "system" fn DeleteEnclave(lpaddress : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     DeleteEnclave(lpaddress).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DestroyEnvironmentBlock(lpenvironment: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -76,7 +76,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn ExpandEnvironmentStringsA(lpsrc : ::windows_core::PCSTR, lpdst : ::windows_core::PSTR, nsize : u32) -> u32);
     ExpandEnvironmentStringsA(lpsrc.into_param().abi(), ::core::mem::transmute(lpdst.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdst.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExpandEnvironmentStringsForUserA<P0, P1>(htoken: P0, lpsrc: P1, lpdest: &mut [u8]) -> ::windows_core::Result<()>
@@ -87,7 +87,7 @@ where
     ::windows_targets::link!("userenv.dll" "system" fn ExpandEnvironmentStringsForUserA(htoken : super::super::Foundation:: HANDLE, lpsrc : ::windows_core::PCSTR, lpdest : ::windows_core::PSTR, dwsize : u32) -> super::super::Foundation:: BOOL);
     ExpandEnvironmentStringsForUserA(htoken.into_param().abi(), lpsrc.into_param().abi(), ::core::mem::transmute(lpdest.as_ptr()), lpdest.len() as _).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExpandEnvironmentStringsForUserW<P0, P1>(htoken: P0, lpsrc: P1, lpdest: &mut [u16]) -> ::windows_core::Result<()>
@@ -106,7 +106,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn ExpandEnvironmentStringsW(lpsrc : ::windows_core::PCWSTR, lpdst : ::windows_core::PWSTR, nsize : u32) -> u32);
     ExpandEnvironmentStringsW(lpsrc.into_param().abi(), ::core::mem::transmute(lpdst.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdst.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeEnvironmentStringsA<P0>(penv: P0) -> ::windows_core::Result<()>
@@ -116,7 +116,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn FreeEnvironmentStringsA(penv : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     FreeEnvironmentStringsA(penv.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeEnvironmentStringsW<P0>(penv: P0) -> ::windows_core::Result<()>
@@ -172,7 +172,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetEnvironmentVariableW(lpname : ::windows_core::PCWSTR, lpbuffer : ::windows_core::PWSTR, nsize : u32) -> u32);
     GetEnvironmentVariableW(lpname.into_param().abi(), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitializeEnclave<P0>(hprocess: P0, lpaddress: *const ::core::ffi::c_void, lpenclaveinformation: *const ::core::ffi::c_void, dwinfolength: u32, lpenclaveerror: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -182,14 +182,14 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn InitializeEnclave(hprocess : super::super::Foundation:: HANDLE, lpaddress : *const ::core::ffi::c_void, lpenclaveinformation : *const ::core::ffi::c_void, dwinfolength : u32, lpenclaveerror : *mut u32) -> super::super::Foundation:: BOOL);
     InitializeEnclave(hprocess.into_param().abi(), lpaddress, lpenclaveinformation, dwinfolength, ::core::mem::transmute(lpenclaveerror.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsEnclaveTypeSupported(flenclavetype: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn IsEnclaveTypeSupported(flenclavetype : u32) -> super::super::Foundation:: BOOL);
     IsEnclaveTypeSupported(flenclavetype).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadEnclaveData<P0>(hprocess: P0, lpaddress: *const ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, nsize: usize, flprotect: u32, lppageinformation: *const ::core::ffi::c_void, dwinfolength: u32, lpnumberofbyteswritten: *mut usize, lpenclaveerror: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -199,7 +199,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn LoadEnclaveData(hprocess : super::super::Foundation:: HANDLE, lpaddress : *const ::core::ffi::c_void, lpbuffer : *const ::core::ffi::c_void, nsize : usize, flprotect : u32, lppageinformation : *const ::core::ffi::c_void, dwinfolength : u32, lpnumberofbyteswritten : *mut usize, lpenclaveerror : *mut u32) -> super::super::Foundation:: BOOL);
     LoadEnclaveData(hprocess.into_param().abi(), lpaddress, lpbuffer, nsize, flprotect, lppageinformation, dwinfolength, lpnumberofbyteswritten, ::core::mem::transmute(lpenclaveerror.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadEnclaveImageA<P0>(lpenclaveaddress: *const ::core::ffi::c_void, lpimagename: P0) -> super::super::Foundation::BOOL
@@ -209,7 +209,7 @@ where
     ::windows_targets::link!("api-ms-win-core-enclave-l1-1-1.dll" "system" fn LoadEnclaveImageA(lpenclaveaddress : *const ::core::ffi::c_void, lpimagename : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     LoadEnclaveImageA(lpenclaveaddress, lpimagename.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadEnclaveImageW<P0>(lpenclaveaddress: *const ::core::ffi::c_void, lpimagename: P0) -> ::windows_core::Result<()>
@@ -219,7 +219,7 @@ where
     ::windows_targets::link!("api-ms-win-core-enclave-l1-1-1.dll" "system" fn LoadEnclaveImageW(lpenclaveaddress : *const ::core::ffi::c_void, lpimagename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     LoadEnclaveImageW(lpenclaveaddress, lpimagename.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NeedCurrentDirectoryForExePathA<P0>(exename: P0) -> super::super::Foundation::BOOL
@@ -229,7 +229,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn NeedCurrentDirectoryForExePathA(exename : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     NeedCurrentDirectoryForExePathA(exename.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NeedCurrentDirectoryForExePathW<P0>(exename: P0) -> super::super::Foundation::BOOL
@@ -239,7 +239,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn NeedCurrentDirectoryForExePathW(exename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     NeedCurrentDirectoryForExePathW(exename.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCurrentDirectoryA<P0>(lppathname: P0) -> super::super::Foundation::BOOL
@@ -249,7 +249,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn SetCurrentDirectoryA(lppathname : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     SetCurrentDirectoryA(lppathname.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCurrentDirectoryW<P0>(lppathname: P0) -> super::super::Foundation::BOOL
@@ -259,7 +259,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn SetCurrentDirectoryW(lppathname : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     SetCurrentDirectoryW(lppathname.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetEnvironmentStringsW<P0>(newenvironment: P0) -> super::super::Foundation::BOOL
@@ -269,7 +269,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn SetEnvironmentStringsW(newenvironment : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     SetEnvironmentStringsW(newenvironment.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetEnvironmentVariableA<P0, P1>(lpname: P0, lpvalue: P1) -> ::windows_core::Result<()>
@@ -280,7 +280,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn SetEnvironmentVariableA(lpname : ::windows_core::PCSTR, lpvalue : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     SetEnvironmentVariableA(lpname.into_param().abi(), lpvalue.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetEnvironmentVariableW<P0, P1>(lpname: P0, lpvalue: P1) -> ::windows_core::Result<()>
@@ -291,7 +291,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn SetEnvironmentVariableW(lpname : ::windows_core::PCWSTR, lpvalue : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     SetEnvironmentVariableW(lpname.into_param().abi(), lpvalue.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TerminateEnclave<P0>(lpaddress: *const ::core::ffi::c_void, fwait: P0) -> ::windows_core::Result<()>

@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait DebugBaseEventCallbacks_Impl: Sized + IDebugEventCallbacks_Impl {}
 #[cfg(feature = "Win32_Foundation")]
@@ -12,7 +12,7 @@ impl DebugBaseEventCallbacks_Vtbl {
         *iid == <DebugBaseEventCallbacks as ::windows_core::ComInterface>::IID || *iid == <IDebugEventCallbacks as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait DebugBaseEventCallbacksWide_Impl: Sized + IDebugEventCallbacksWide_Impl {}
 #[cfg(feature = "Win32_Foundation")]
@@ -105,7 +105,7 @@ impl IDataModelConcept_Vtbl {
         *iid == <IDataModelConcept as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataModelManager_Impl: Sized {
     fn Close(&self) -> ::windows_core::Result<()>;
@@ -334,7 +334,7 @@ impl IDataModelManager_Vtbl {
         *iid == <IDataModelManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataModelManager2_Impl: Sized + IDataModelManager_Impl {
     fn AcquireSubNamespace(&self, modelname: &::windows_core::PCWSTR, subnamespacemodelname: &::windows_core::PCWSTR, accessname: &::windows_core::PCWSTR, metadata: ::core::option::Option<&IKeyStore>) -> ::windows_core::Result<IModelObject>;
@@ -430,7 +430,7 @@ impl IDataModelNameBinder_Vtbl {
         *iid == <IDataModelNameBinder as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDataModelScript_Impl: Sized {
     fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1141,7 +1141,7 @@ impl IDataModelScriptProviderEnumerator_Vtbl {
         *iid == <IDataModelScriptProviderEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDataModelScriptTemplate_Impl: Sized {
     fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -7201,7 +7201,7 @@ impl IDebugClient8_Vtbl {
         *iid == <IDebugClient8 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub trait IDebugControl_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -8013,7 +8013,7 @@ impl IDebugControl_Vtbl {
         *iid == <IDebugControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub trait IDebugControl2_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -8905,7 +8905,7 @@ impl IDebugControl2_Vtbl {
         *iid == <IDebugControl2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub trait IDebugControl3_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -9924,7 +9924,7 @@ impl IDebugControl3_Vtbl {
         *iid == <IDebugControl3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub trait IDebugControl4_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -11350,7 +11350,7 @@ impl IDebugControl4_Vtbl {
         *iid == <IDebugControl4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub trait IDebugControl5_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -12817,7 +12817,7 @@ impl IDebugControl5_Vtbl {
         *iid == <IDebugControl5 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub trait IDebugControl6_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -14304,7 +14304,7 @@ impl IDebugControl6_Vtbl {
         *iid == <IDebugControl6 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Kernel`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub trait IDebugControl7_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -15963,7 +15963,7 @@ impl IDebugDataSpaces_Vtbl {
         *iid == <IDebugDataSpaces as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Memory`"]
+#[doc = "Required features: `\"Win32_System_Memory\"`"]
 #[cfg(feature = "Win32_System_Memory")]
 pub trait IDebugDataSpaces2_Impl: Sized {
     fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows_core::Result<()>;
@@ -16180,7 +16180,7 @@ impl IDebugDataSpaces2_Vtbl {
         *iid == <IDebugDataSpaces2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Memory`, `Win32_System_SystemInformation`"]
+#[doc = "Required features: `\"Win32_System_Memory\"`, `\"Win32_System_SystemInformation\"`"]
 #[cfg(all(feature = "Win32_System_Memory", feature = "Win32_System_SystemInformation"))]
 pub trait IDebugDataSpaces3_Impl: Sized {
     fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows_core::Result<()>;
@@ -16438,7 +16438,7 @@ impl IDebugDataSpaces3_Vtbl {
         *iid == <IDebugDataSpaces3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Memory`, `Win32_System_SystemInformation`"]
+#[doc = "Required features: `\"Win32_System_Memory\"`, `\"Win32_System_SystemInformation\"`"]
 #[cfg(all(feature = "Win32_System_Memory", feature = "Win32_System_SystemInformation"))]
 pub trait IDebugDataSpaces4_Impl: Sized {
     fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows_core::Result<()>;
@@ -16778,7 +16778,7 @@ impl IDebugDataSpaces4_Vtbl {
         *iid == <IDebugDataSpaces4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugEventCallbacks_Impl: Sized {
     fn GetInterestMask(&self) -> ::windows_core::Result<u32>;
@@ -16900,7 +16900,7 @@ impl IDebugEventCallbacks_Vtbl {
         *iid == <IDebugEventCallbacks as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugEventCallbacksWide_Impl: Sized {
     fn GetInterestMask(&self) -> ::windows_core::Result<u32>;
@@ -17022,7 +17022,7 @@ impl IDebugEventCallbacksWide_Vtbl {
         *iid == <IDebugEventCallbacksWide as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugEventContextCallbacks_Impl: Sized {
     fn GetInterestMask(&self) -> ::windows_core::Result<u32>;
@@ -17158,7 +17158,7 @@ impl IDebugEventContextCallbacks_Vtbl {
         *iid == <IDebugEventContextCallbacks as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugFAEntryTags_Impl: Sized {
     fn GetType(&self, tag: DEBUG_FLR_PARAM_TYPE) -> FA_ENTRY_TYPE;
@@ -17315,7 +17315,7 @@ impl IDebugFailureAnalysis_Vtbl {
         *iid == <IDebugFailureAnalysis as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 pub trait IDebugFailureAnalysis2_Impl: Sized {
     fn GetFailureClass(&self) -> u32;
@@ -17505,7 +17505,7 @@ impl IDebugFailureAnalysis2_Vtbl {
         *iid == <IDebugFailureAnalysis2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugFailureAnalysis3_Impl: Sized {
     fn GetFailureClass(&self) -> u32;
@@ -17913,7 +17913,7 @@ impl IDebugHostBaseClass_Vtbl {
         *iid == <IDebugHostBaseClass as ::windows_core::ComInterface>::IID || *iid == <IDebugHostSymbol as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugHostConstant_Impl: Sized + IDebugHostSymbol_Impl {
     fn GetValue(&self) -> ::windows_core::Result<super::super::super::Variant::VARIANT>;
@@ -17963,7 +17963,7 @@ impl IDebugHostContext_Vtbl {
         *iid == <IDebugHostContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugHostData_Impl: Sized + IDebugHostSymbol_Impl {
     fn GetLocationKind(&self) -> ::windows_core::Result<LocationKind>;
@@ -18107,7 +18107,7 @@ impl IDebugHostExtensibility_Vtbl {
         *iid == <IDebugHostExtensibility as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugHostField_Impl: Sized + IDebugHostSymbol_Impl {
     fn GetLocationKind(&self) -> ::windows_core::Result<LocationKind>;
@@ -19342,7 +19342,7 @@ impl IDebugPlmClient3_Vtbl {
         *iid == <IDebugPlmClient3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugRegisters_Impl: Sized {
     fn GetNumberRegisters(&self) -> ::windows_core::Result<u32>;
@@ -19466,7 +19466,7 @@ impl IDebugRegisters_Vtbl {
         *iid == <IDebugRegisters as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugRegisters2_Impl: Sized {
     fn GetNumberRegisters(&self) -> ::windows_core::Result<u32>;
@@ -19737,7 +19737,7 @@ impl IDebugRegisters2_Vtbl {
         *iid == <IDebugRegisters2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugSymbolGroup_Impl: Sized {
     fn GetNumberSymbols(&self) -> ::windows_core::Result<u32>;
@@ -19830,7 +19830,7 @@ impl IDebugSymbolGroup_Vtbl {
         *iid == <IDebugSymbolGroup as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugSymbolGroup2_Impl: Sized {
     fn GetNumberSymbols(&self) -> ::windows_core::Result<u32>;
@@ -20032,7 +20032,7 @@ impl IDebugSymbolGroup2_Vtbl {
         *iid == <IDebugSymbolGroup2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugSymbols_Impl: Sized {
     fn GetSymbolOptions(&self) -> ::windows_core::Result<u32>;
@@ -20471,7 +20471,7 @@ impl IDebugSymbols_Vtbl {
         *iid == <IDebugSymbols as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugSymbols2_Impl: Sized {
     fn GetSymbolOptions(&self) -> ::windows_core::Result<u32>;
@@ -20972,7 +20972,7 @@ impl IDebugSymbols2_Vtbl {
         *iid == <IDebugSymbols2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugSymbols3_Impl: Sized {
     fn GetSymbolOptions(&self) -> ::windows_core::Result<u32>;
@@ -22001,7 +22001,7 @@ impl IDebugSymbols3_Vtbl {
         *iid == <IDebugSymbols3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugSymbols4_Impl: Sized {
     fn GetSymbolOptions(&self) -> ::windows_core::Result<u32>;
@@ -23079,7 +23079,7 @@ impl IDebugSymbols4_Vtbl {
         *iid == <IDebugSymbols4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugSymbols5_Impl: Sized {
     fn GetSymbolOptions(&self) -> ::windows_core::Result<u32>;
@@ -26375,7 +26375,7 @@ impl IModelMethod_Vtbl {
         *iid == <IModelMethod as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IModelObject_Impl: Sized {
     fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext>;

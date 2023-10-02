@@ -162,7 +162,7 @@ unsafe impl ::core::marker::Sync for PaymentAppCanMakePaymentTriggerDetails {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentAppManager(::windows_core::IUnknown);
 impl PaymentAppManager {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterAsync<P0>(&self, supportedpaymentmethodids: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -174,7 +174,7 @@ impl PaymentAppManager {
             (::windows_core::Interface::vtable(this).RegisterAsync)(::windows_core::Interface::as_raw(this), supportedpaymentmethodids.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn UnregisterAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -254,7 +254,7 @@ impl PaymentTransaction {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPayerPhoneNumber)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateShippingAddressAsync<P0>(&self, shippingaddress: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>
     where
@@ -266,7 +266,7 @@ impl PaymentTransaction {
             (::windows_core::Interface::vtable(this).UpdateShippingAddressAsync)(::windows_core::Interface::as_raw(this), shippingaddress.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateSelectedShippingOptionAsync<P0>(&self, selectedshippingoption: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>
     where
@@ -278,7 +278,7 @@ impl PaymentTransaction {
             (::windows_core::Interface::vtable(this).UpdateSelectedShippingOptionAsync)(::windows_core::Interface::as_raw(this), selectedshippingoption.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AcceptAsync<P0>(&self, paymenttoken: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<PaymentTransactionAcceptResult>>
     where
@@ -294,7 +294,7 @@ impl PaymentTransaction {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Reject)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(id: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<PaymentTransaction>> {
         Self::IPaymentTransactionStatics(|this| unsafe {

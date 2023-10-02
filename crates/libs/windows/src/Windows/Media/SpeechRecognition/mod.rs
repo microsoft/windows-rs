@@ -752,7 +752,7 @@ unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionResultGeneratedE
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpeechContinuousRecognitionSession(::windows_core::IUnknown);
 impl SpeechContinuousRecognitionSession {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AutoStopSilenceTimeout(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -761,13 +761,13 @@ impl SpeechContinuousRecognitionSession {
             (::windows_core::Interface::vtable(this).AutoStopSilenceTimeout)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetAutoStopSilenceTimeout(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAutoStopSilenceTimeout)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -776,7 +776,7 @@ impl SpeechContinuousRecognitionSession {
             (::windows_core::Interface::vtable(this).StartAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartWithModeAsync(&self, mode: SpeechContinuousRecognitionMode) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -785,7 +785,7 @@ impl SpeechContinuousRecognitionSession {
             (::windows_core::Interface::vtable(this).StartWithModeAsync)(::windows_core::Interface::as_raw(this), mode, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StopAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -794,7 +794,7 @@ impl SpeechContinuousRecognitionSession {
             (::windows_core::Interface::vtable(this).StopAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CancelAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -803,7 +803,7 @@ impl SpeechContinuousRecognitionSession {
             (::windows_core::Interface::vtable(this).CancelAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PauseAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -816,7 +816,7 @@ impl SpeechContinuousRecognitionSession {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Resume)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Completed<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -828,13 +828,13 @@ impl SpeechContinuousRecognitionSession {
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCompleted(&self, value: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCompleted)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResultGenerated<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -846,7 +846,7 @@ impl SpeechContinuousRecognitionSession {
             (::windows_core::Interface::vtable(this).ResultGenerated)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveResultGenerated(&self, value: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -939,7 +939,7 @@ impl SpeechRecognitionGrammarFileConstraint {
         let this = &::windows_core::ComInterface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetProbability)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Storage`"]
+    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn GrammarFile(&self) -> ::windows_core::Result<super::super::Storage::StorageFile> {
         let this = self;
@@ -948,7 +948,7 @@ impl SpeechRecognitionGrammarFileConstraint {
             (::windows_core::Interface::vtable(this).GrammarFile)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage`"]
+    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn Create<P0>(file: P0) -> ::windows_core::Result<SpeechRecognitionGrammarFileConstraint>
     where
@@ -959,7 +959,7 @@ impl SpeechRecognitionGrammarFileConstraint {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Storage`"]
+    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn CreateWithTag<P0>(file: P0, tag: &::windows_core::HSTRING) -> ::windows_core::Result<SpeechRecognitionGrammarFileConstraint>
     where
@@ -1090,7 +1090,7 @@ impl SpeechRecognitionListConstraint {
         let this = &::windows_core::ComInterface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetProbability)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Commands(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -1099,7 +1099,7 @@ impl SpeechRecognitionListConstraint {
             (::windows_core::Interface::vtable(this).Commands)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<P0>(commands: P0) -> ::windows_core::Result<SpeechRecognitionListConstraint>
     where
@@ -1110,7 +1110,7 @@ impl SpeechRecognitionListConstraint {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), commands.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithTag<P0>(commands: P0, tag: &::windows_core::HSTRING) -> ::windows_core::Result<SpeechRecognitionListConstraint>
     where
@@ -1202,7 +1202,7 @@ impl SpeechRecognitionResult {
             (::windows_core::Interface::vtable(this).SemanticInterpretation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAlternates(&self, maxalternates: u32) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<SpeechRecognitionResult>> {
         let this = self;
@@ -1218,7 +1218,7 @@ impl SpeechRecognitionResult {
             (::windows_core::Interface::vtable(this).Constraint)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RulePath(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -1234,7 +1234,7 @@ impl SpeechRecognitionResult {
             (::windows_core::Interface::vtable(this).RawConfidence)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PhraseStartTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = &::windows_core::ComInterface::cast::<ISpeechRecognitionResult2>(self)?;
@@ -1243,7 +1243,7 @@ impl SpeechRecognitionResult {
             (::windows_core::Interface::vtable(this).PhraseStartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PhraseDuration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<ISpeechRecognitionResult2>(self)?;
@@ -1272,7 +1272,7 @@ unsafe impl ::core::marker::Sync for SpeechRecognitionResult {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpeechRecognitionSemanticInterpretation(::windows_core::IUnknown);
 impl SpeechRecognitionSemanticInterpretation {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>> {
         let this = self;
@@ -1461,13 +1461,13 @@ impl SpeechRecognizer {
         static SHARED: ::windows_core::imp::FactoryCache<SpeechRecognizer, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Globalization`"]
+    #[doc = "Required features: `\"Globalization\"`"]
     #[cfg(feature = "Globalization")]
     pub fn CurrentLanguage(&self) -> ::windows_core::Result<super::super::Globalization::Language> {
         let this = self;
@@ -1476,7 +1476,7 @@ impl SpeechRecognizer {
             (::windows_core::Interface::vtable(this).CurrentLanguage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Constraints(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ISpeechRecognitionConstraint>> {
         let this = self;
@@ -1499,7 +1499,7 @@ impl SpeechRecognizer {
             (::windows_core::Interface::vtable(this).UIOptions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CompileConstraintsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpeechRecognitionCompilationResult>> {
         let this = self;
@@ -1508,7 +1508,7 @@ impl SpeechRecognizer {
             (::windows_core::Interface::vtable(this).CompileConstraintsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RecognizeAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpeechRecognitionResult>> {
         let this = self;
@@ -1517,7 +1517,7 @@ impl SpeechRecognizer {
             (::windows_core::Interface::vtable(this).RecognizeAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RecognizeWithUIAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpeechRecognitionResult>> {
         let this = self;
@@ -1526,7 +1526,7 @@ impl SpeechRecognizer {
             (::windows_core::Interface::vtable(this).RecognizeWithUIAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RecognitionQualityDegrading<P0>(&self, speechrecognitionqualitydegradinghandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1538,13 +1538,13 @@ impl SpeechRecognizer {
             (::windows_core::Interface::vtable(this).RecognitionQualityDegrading)(::windows_core::Interface::as_raw(this), speechrecognitionqualitydegradinghandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRecognitionQualityDegrading(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRecognitionQualityDegrading)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StateChanged<P0>(&self, statechangedhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1556,7 +1556,7 @@ impl SpeechRecognizer {
             (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), statechangedhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1576,7 +1576,7 @@ impl SpeechRecognizer {
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StopRecognitionAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<ISpeechRecognizer2>(self)?;
@@ -1585,7 +1585,7 @@ impl SpeechRecognizer {
             (::windows_core::Interface::vtable(this).StopRecognitionAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn HypothesisGenerated<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1597,13 +1597,13 @@ impl SpeechRecognizer {
             (::windows_core::Interface::vtable(this).HypothesisGenerated)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHypothesisGenerated(&self, value: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ISpeechRecognizer2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveHypothesisGenerated)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Globalization`"]
+    #[doc = "Required features: `\"Globalization\"`"]
     #[cfg(feature = "Globalization")]
     pub fn Create<P0>(language: P0) -> ::windows_core::Result<SpeechRecognizer>
     where
@@ -1614,7 +1614,7 @@ impl SpeechRecognizer {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), language.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Globalization`"]
+    #[doc = "Required features: `\"Globalization\"`"]
     #[cfg(feature = "Globalization")]
     pub fn SystemSpeechLanguage() -> ::windows_core::Result<super::super::Globalization::Language> {
         Self::ISpeechRecognizerStatics(|this| unsafe {
@@ -1622,7 +1622,7 @@ impl SpeechRecognizer {
             (::windows_core::Interface::vtable(this).SystemSpeechLanguage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`, `Globalization`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Globalization\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn SupportedTopicLanguages() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>> {
         Self::ISpeechRecognizerStatics(|this| unsafe {
@@ -1630,7 +1630,7 @@ impl SpeechRecognizer {
             (::windows_core::Interface::vtable(this).SupportedTopicLanguages)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`, `Globalization`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Globalization\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn SupportedGrammarLanguages() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>> {
         Self::ISpeechRecognizerStatics(|this| unsafe {
@@ -1638,7 +1638,7 @@ impl SpeechRecognizer {
             (::windows_core::Interface::vtable(this).SupportedGrammarLanguages)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `Globalization`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Globalization\"`"]
     #[cfg(all(feature = "Foundation", feature = "Globalization"))]
     pub fn TrySetSystemSpeechLanguageAsync<P0>(speechlanguage: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -1713,7 +1713,7 @@ unsafe impl ::core::marker::Sync for SpeechRecognizerStateChangedEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpeechRecognizerTimeouts(::windows_core::IUnknown);
 impl SpeechRecognizerTimeouts {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn InitialSilenceTimeout(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1722,13 +1722,13 @@ impl SpeechRecognizerTimeouts {
             (::windows_core::Interface::vtable(this).InitialSilenceTimeout)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetInitialSilenceTimeout(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetInitialSilenceTimeout)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn EndSilenceTimeout(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1737,13 +1737,13 @@ impl SpeechRecognizerTimeouts {
             (::windows_core::Interface::vtable(this).EndSilenceTimeout)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetEndSilenceTimeout(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetEndSilenceTimeout)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BabbleTimeout(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1752,7 +1752,7 @@ impl SpeechRecognizerTimeouts {
             (::windows_core::Interface::vtable(this).BabbleTimeout)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBabbleTimeout(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
@@ -1840,7 +1840,7 @@ unsafe impl ::core::marker::Send for SpeechRecognizerUIOptions {}
 unsafe impl ::core::marker::Sync for SpeechRecognizerUIOptions {}
 pub struct VoiceCommandManager;
 impl VoiceCommandManager {
-    #[doc = "Required features: `Foundation`, `Storage`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn InstallCommandSetsFromStorageFileAsync<P0>(file: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1851,7 +1851,7 @@ impl VoiceCommandManager {
             (::windows_core::Interface::vtable(this).InstallCommandSetsFromStorageFileAsync)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InstalledCommandSets() -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, VoiceCommandSet>> {
         Self::IVoiceCommandManager(|this| unsafe {
@@ -1886,7 +1886,7 @@ impl VoiceCommandSet {
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetPhraseListAsync<P0>(&self, phraselistname: &::windows_core::HSTRING, phraselist: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
