@@ -10,16 +10,18 @@ fn test() -> Result<()> {
         assert_eq!(InSendMessageEx(None), ISMEX_NOSEND);
         assert!(CreateThreadpool(None).0 != 0);
 
-        TrackPopupMenu(
-            HMENU(0),
-            TPM_LEFTBUTTON,
-            1,
-            2,
-            0,
-            HWND(0),
-            Default::default(),
-        )
-        .unwrap_err();
+        assert_eq!(
+            TrackPopupMenu(
+                HMENU(0),
+                TPM_LEFTBUTTON,
+                1,
+                2,
+                0,
+                HWND(0),
+                Default::default(),
+            ),
+            FALSE
+        );
 
         let mut key = HKEY::default();
         RegOpenKeyExA(HKEY_CLASSES_ROOT, s!(r".txt"), 0, KEY_QUERY_VALUE, &mut key)?;

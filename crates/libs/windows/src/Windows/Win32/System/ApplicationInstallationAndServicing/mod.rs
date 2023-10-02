@@ -170,10 +170,10 @@ pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> ::windows_core::Result<s
     let result__ = CreateActCtxW(pactctx);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn CreateDeltaA<P0, P1, P2, P3, P4>(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: P0, lptargetname: P1, lpsourceoptionsname: P2, lptargetoptionsname: P3, globaloptions: DELTA_INPUT, lptargetfiletime: ::core::option::Option<*const super::super::Foundation::FILETIME>, hashalgid: u32, lpdeltaname: P4) -> super::super::Foundation::BOOL
+pub unsafe fn CreateDeltaA<P0, P1, P2, P3, P4>(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: P0, lptargetname: P1, lpsourceoptionsname: P2, lptargetoptionsname: P3, globaloptions: DELTA_INPUT, lptargetfiletime: ::core::option::Option<*const super::super::Foundation::FILETIME>, hashalgid: super::super::Security::Cryptography::ALG_ID, lpdeltaname: P4) -> super::super::Foundation::BOOL
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
@@ -181,20 +181,20 @@ where
     P3: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P4: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msdelta.dll" "system" fn CreateDeltaA(filetypeset : i64, setflags : i64, resetflags : i64, lpsourcename : ::windows_core::PCSTR, lptargetname : ::windows_core::PCSTR, lpsourceoptionsname : ::windows_core::PCSTR, lptargetoptionsname : ::windows_core::PCSTR, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : u32, lpdeltaname : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("msdelta.dll" "system" fn CreateDeltaA(filetypeset : i64, setflags : i64, resetflags : i64, lpsourcename : ::windows_core::PCSTR, lptargetname : ::windows_core::PCSTR, lpsourceoptionsname : ::windows_core::PCSTR, lptargetoptionsname : ::windows_core::PCSTR, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdeltaname : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     CreateDeltaA(filetypeset, setflags, resetflags, lpsourcename.into_param().abi(), lptargetname.into_param().abi(), lpsourceoptionsname.into_param().abi(), lptargetoptionsname.into_param().abi(), ::core::mem::transmute(globaloptions), ::core::mem::transmute(lptargetfiletime.unwrap_or(::std::ptr::null())), hashalgid, lpdeltaname.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn CreateDeltaB(filetypeset: i64, setflags: i64, resetflags: i64, source: DELTA_INPUT, target: DELTA_INPUT, sourceoptions: DELTA_INPUT, targetoptions: DELTA_INPUT, globaloptions: DELTA_INPUT, lptargetfiletime: ::core::option::Option<*const super::super::Foundation::FILETIME>, hashalgid: u32, lpdelta: *mut DELTA_OUTPUT) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("msdelta.dll" "system" fn CreateDeltaB(filetypeset : i64, setflags : i64, resetflags : i64, source : DELTA_INPUT, target : DELTA_INPUT, sourceoptions : DELTA_INPUT, targetoptions : DELTA_INPUT, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : u32, lpdelta : *mut DELTA_OUTPUT) -> super::super::Foundation:: BOOL);
+pub unsafe fn CreateDeltaB(filetypeset: i64, setflags: i64, resetflags: i64, source: DELTA_INPUT, target: DELTA_INPUT, sourceoptions: DELTA_INPUT, targetoptions: DELTA_INPUT, globaloptions: DELTA_INPUT, lptargetfiletime: ::core::option::Option<*const super::super::Foundation::FILETIME>, hashalgid: super::super::Security::Cryptography::ALG_ID, lpdelta: *mut DELTA_OUTPUT) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("msdelta.dll" "system" fn CreateDeltaB(filetypeset : i64, setflags : i64, resetflags : i64, source : DELTA_INPUT, target : DELTA_INPUT, sourceoptions : DELTA_INPUT, targetoptions : DELTA_INPUT, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdelta : *mut DELTA_OUTPUT) -> super::super::Foundation:: BOOL);
     CreateDeltaB(filetypeset, setflags, resetflags, ::core::mem::transmute(source), ::core::mem::transmute(target), ::core::mem::transmute(sourceoptions), ::core::mem::transmute(targetoptions), ::core::mem::transmute(globaloptions), ::core::mem::transmute(lptargetfiletime.unwrap_or(::std::ptr::null())), hashalgid, lpdelta)
 }
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn CreateDeltaW<P0, P1, P2, P3, P4>(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: P0, lptargetname: P1, lpsourceoptionsname: P2, lptargetoptionsname: P3, globaloptions: DELTA_INPUT, lptargetfiletime: ::core::option::Option<*const super::super::Foundation::FILETIME>, hashalgid: u32, lpdeltaname: P4) -> super::super::Foundation::BOOL
+pub unsafe fn CreateDeltaW<P0, P1, P2, P3, P4>(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: P0, lptargetname: P1, lpsourceoptionsname: P2, lptargetoptionsname: P3, globaloptions: DELTA_INPUT, lptargetfiletime: ::core::option::Option<*const super::super::Foundation::FILETIME>, hashalgid: super::super::Security::Cryptography::ALG_ID, lpdeltaname: P4) -> super::super::Foundation::BOOL
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -202,7 +202,7 @@ where
     P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P4: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("msdelta.dll" "system" fn CreateDeltaW(filetypeset : i64, setflags : i64, resetflags : i64, lpsourcename : ::windows_core::PCWSTR, lptargetname : ::windows_core::PCWSTR, lpsourceoptionsname : ::windows_core::PCWSTR, lptargetoptionsname : ::windows_core::PCWSTR, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : u32, lpdeltaname : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("msdelta.dll" "system" fn CreateDeltaW(filetypeset : i64, setflags : i64, resetflags : i64, lpsourcename : ::windows_core::PCWSTR, lptargetname : ::windows_core::PCWSTR, lpsourceoptionsname : ::windows_core::PCWSTR, lptargetoptionsname : ::windows_core::PCWSTR, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdeltaname : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     CreateDeltaW(filetypeset, setflags, resetflags, lpsourcename.into_param().abi(), lptargetname.into_param().abi(), lpsourceoptionsname.into_param().abi(), lptargetoptionsname.into_param().abi(), ::core::mem::transmute(globaloptions), ::core::mem::transmute(lptargetfiletime.unwrap_or(::std::ptr::null())), hashalgid, lpdeltaname.into_param().abi())
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -362,8 +362,8 @@ pub unsafe fn GetCurrentActCtx(lphactctx: *mut super::super::Foundation::HANDLE)
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentActCtx(lphactctx : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     GetCurrentActCtx(lphactctx).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn GetDeltaInfoA<P0>(lpdeltaname: P0, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL
 where
@@ -372,15 +372,15 @@ where
     ::windows_targets::link!("msdelta.dll" "system" fn GetDeltaInfoA(lpdeltaname : ::windows_core::PCSTR, lpheaderinfo : *mut DELTA_HEADER_INFO) -> super::super::Foundation:: BOOL);
     GetDeltaInfoA(lpdeltaname.into_param().abi(), lpheaderinfo)
 }
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn GetDeltaInfoB(delta: DELTA_INPUT, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msdelta.dll" "system" fn GetDeltaInfoB(delta : DELTA_INPUT, lpheaderinfo : *mut DELTA_HEADER_INFO) -> super::super::Foundation:: BOOL);
     GetDeltaInfoB(::core::mem::transmute(delta), lpheaderinfo)
 }
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn GetDeltaInfoW<P0>(lpdeltaname: P0, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL
 where
@@ -389,31 +389,31 @@ where
     ::windows_targets::link!("msdelta.dll" "system" fn GetDeltaInfoW(lpdeltaname : ::windows_core::PCWSTR, lpheaderinfo : *mut DELTA_HEADER_INFO) -> super::super::Foundation:: BOOL);
     GetDeltaInfoW(lpdeltaname.into_param().abi(), lpheaderinfo)
 }
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn GetDeltaSignatureA<P0>(filetypeset: i64, hashalgid: u32, lpsourcename: P0, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL
+pub unsafe fn GetDeltaSignatureA<P0>(filetypeset: i64, hashalgid: super::super::Security::Cryptography::ALG_ID, lpsourcename: P0, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msdelta.dll" "system" fn GetDeltaSignatureA(filetypeset : i64, hashalgid : u32, lpsourcename : ::windows_core::PCSTR, lphash : *mut DELTA_HASH) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("msdelta.dll" "system" fn GetDeltaSignatureA(filetypeset : i64, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpsourcename : ::windows_core::PCSTR, lphash : *mut DELTA_HASH) -> super::super::Foundation:: BOOL);
     GetDeltaSignatureA(filetypeset, hashalgid, lpsourcename.into_param().abi(), lphash)
 }
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn GetDeltaSignatureB(filetypeset: i64, hashalgid: u32, source: DELTA_INPUT, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("msdelta.dll" "system" fn GetDeltaSignatureB(filetypeset : i64, hashalgid : u32, source : DELTA_INPUT, lphash : *mut DELTA_HASH) -> super::super::Foundation:: BOOL);
+pub unsafe fn GetDeltaSignatureB(filetypeset: i64, hashalgid: super::super::Security::Cryptography::ALG_ID, source: DELTA_INPUT, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("msdelta.dll" "system" fn GetDeltaSignatureB(filetypeset : i64, hashalgid : super::super::Security::Cryptography:: ALG_ID, source : DELTA_INPUT, lphash : *mut DELTA_HASH) -> super::super::Foundation:: BOOL);
     GetDeltaSignatureB(filetypeset, hashalgid, ::core::mem::transmute(source), lphash)
 }
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn GetDeltaSignatureW<P0>(filetypeset: i64, hashalgid: u32, lpsourcename: P0, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL
+pub unsafe fn GetDeltaSignatureW<P0>(filetypeset: i64, hashalgid: super::super::Security::Cryptography::ALG_ID, lpsourcename: P0, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("msdelta.dll" "system" fn GetDeltaSignatureW(filetypeset : i64, hashalgid : u32, lpsourcename : ::windows_core::PCWSTR, lphash : *mut DELTA_HASH) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("msdelta.dll" "system" fn GetDeltaSignatureW(filetypeset : i64, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpsourcename : ::windows_core::PCWSTR, lphash : *mut DELTA_HASH) -> super::super::Foundation:: BOOL);
     GetDeltaSignatureW(filetypeset, hashalgid, lpsourcename.into_param().abi(), lphash)
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -9472,44 +9472,44 @@ impl ::core::default::Default for DELTA_HASH {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct DELTA_HEADER_INFO {
     pub FileTypeSet: i64,
     pub FileType: i64,
     pub Flags: i64,
     pub TargetSize: usize,
     pub TargetFileTime: super::super::Foundation::FILETIME,
-    pub TargetHashAlgId: u32,
+    pub TargetHashAlgId: super::super::Security::Cryptography::ALG_ID,
     pub TargetHash: DELTA_HASH,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::marker::Copy for DELTA_HEADER_INFO {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::clone::Clone for DELTA_HEADER_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for DELTA_HEADER_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DELTA_HEADER_INFO").field("FileTypeSet", &self.FileTypeSet).field("FileType", &self.FileType).field("Flags", &self.Flags).field("TargetSize", &self.TargetSize).field("TargetFileTime", &self.TargetFileTime).field("TargetHashAlgId", &self.TargetHashAlgId).field("TargetHash", &self.TargetHash).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::windows_core::TypeKind for DELTA_HEADER_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for DELTA_HEADER_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.FileTypeSet == other.FileTypeSet && self.FileType == other.FileType && self.Flags == other.Flags && self.TargetSize == other.TargetSize && self.TargetFileTime == other.TargetFileTime && self.TargetHashAlgId == other.TargetHashAlgId && self.TargetHash == other.TargetHash
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::Eq for DELTA_HEADER_INFO {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for DELTA_HEADER_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

@@ -1,18 +1,25 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rstrtmgr.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RmAddFilter(dwsessionhandle : u32, strmodulename : ::windows_sys::core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : ::windows_sys::core::PCWSTR, filteraction : RM_FILTER_ACTION) -> u32);
-::windows_targets::link!("rstrtmgr.dll" "system" fn RmCancelCurrentTask(dwsessionhandle : u32) -> u32);
-::windows_targets::link!("rstrtmgr.dll" "system" fn RmEndSession(dwsessionhandle : u32) -> u32);
-::windows_targets::link!("rstrtmgr.dll" "system" fn RmGetFilterList(dwsessionhandle : u32, pbfilterbuf : *mut u8, cbfilterbuf : u32, cbfilterbufneeded : *mut u32) -> u32);
+::windows_targets::link!("rstrtmgr.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RmAddFilter(dwsessionhandle : u32, strmodulename : ::windows_sys::core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : ::windows_sys::core::PCWSTR, filteraction : RM_FILTER_ACTION) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rstrtmgr.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RmGetList(dwsessionhandle : u32, pnprocinfoneeded : *mut u32, pnprocinfo : *mut u32, rgaffectedapps : *mut RM_PROCESS_INFO, lpdwrebootreasons : *mut u32) -> u32);
-::windows_targets::link!("rstrtmgr.dll" "system" fn RmJoinSession(psessionhandle : *mut u32, strsessionkey : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("rstrtmgr.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RmCancelCurrentTask(dwsessionhandle : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rstrtmgr.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RmRegisterResources(dwsessionhandle : u32, nfiles : u32, rgsfilenames : *const ::windows_sys::core::PCWSTR, napplications : u32, rgapplications : *const RM_UNIQUE_PROCESS, nservices : u32, rgsservicenames : *const ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("rstrtmgr.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RmEndSession(dwsessionhandle : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rstrtmgr.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RmRemoveFilter(dwsessionhandle : u32, strmodulename : ::windows_sys::core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : ::windows_sys::core::PCWSTR) -> u32);
-::windows_targets::link!("rstrtmgr.dll" "system" fn RmRestart(dwsessionhandle : u32, dwrestartflags : u32, fnstatus : RM_WRITE_STATUS_CALLBACK) -> u32);
-::windows_targets::link!("rstrtmgr.dll" "system" fn RmShutdown(dwsessionhandle : u32, lactionflags : u32, fnstatus : RM_WRITE_STATUS_CALLBACK) -> u32);
-::windows_targets::link!("rstrtmgr.dll" "system" fn RmStartSession(psessionhandle : *mut u32, dwsessionflags : u32, strsessionkey : ::windows_sys::core::PWSTR) -> u32);
+::windows_targets::link!("rstrtmgr.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RmGetFilterList(dwsessionhandle : u32, pbfilterbuf : *mut u8, cbfilterbuf : u32, cbfilterbufneeded : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("rstrtmgr.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RmGetList(dwsessionhandle : u32, pnprocinfoneeded : *mut u32, pnprocinfo : *mut u32, rgaffectedapps : *mut RM_PROCESS_INFO, lpdwrebootreasons : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("rstrtmgr.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RmJoinSession(psessionhandle : *mut u32, strsessionkey : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("rstrtmgr.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RmRegisterResources(dwsessionhandle : u32, nfiles : u32, rgsfilenames : *const ::windows_sys::core::PCWSTR, napplications : u32, rgapplications : *const RM_UNIQUE_PROCESS, nservices : u32, rgsservicenames : *const ::windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("rstrtmgr.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RmRemoveFilter(dwsessionhandle : u32, strmodulename : ::windows_sys::core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("rstrtmgr.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RmRestart(dwsessionhandle : u32, dwrestartflags : u32, fnstatus : RM_WRITE_STATUS_CALLBACK) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("rstrtmgr.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RmShutdown(dwsessionhandle : u32, lactionflags : u32, fnstatus : RM_WRITE_STATUS_CALLBACK) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("rstrtmgr.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RmStartSession(psessionhandle : *mut u32, dwsessionflags : u32, strsessionkey : ::windows_sys::core::PWSTR) -> super::super::Foundation:: WIN32_ERROR);
 pub const CCH_RM_MAX_APP_NAME: u32 = 255u32;
 pub const CCH_RM_MAX_SVC_NAME: u32 = 63u32;
 pub const CCH_RM_SESSION_KEY: u32 = 32u32;

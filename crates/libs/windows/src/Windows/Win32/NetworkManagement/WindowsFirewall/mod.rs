@@ -1,4 +1,19 @@
 #[inline]
+pub unsafe fn NcFreeNetconProperties(pprops: *mut NETCON_PROPERTIES) {
+    ::windows_targets::link!("netshell.dll" "system" fn NcFreeNetconProperties(pprops : *mut NETCON_PROPERTIES) -> ());
+    NcFreeNetconProperties(pprops)
+}
+#[doc = "Required features: `Win32_Foundation`"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NcIsValidConnectionName<P0>(pszwname: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+{
+    ::windows_targets::link!("netshell.dll" "system" fn NcIsValidConnectionName(pszwname : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    NcIsValidConnectionName(pszwname.into_param().abi())
+}
+#[inline]
 pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<P0>(wszservername: P0, netisoerror: *mut NETISO_ERROR_TYPE) -> u32
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -13,6 +28,14 @@ pub unsafe fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: *
     ::windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationEnumAppContainers(flags : u32, pdwnumpublicappcs : *mut u32, pppublicappcs : *mut *mut INET_FIREWALL_APP_CONTAINER) -> u32);
     NetworkIsolationEnumAppContainers(flags, pdwnumpublicappcs, pppublicappcs)
 }
+#[doc = "Required features: `Win32_System_Ole`"]
+#[cfg(feature = "Win32_System_Ole")]
+#[inline]
+pub unsafe fn NetworkIsolationEnumerateAppContainerRules() -> ::windows_core::Result<super::super::System::Ole::IEnumVARIANT> {
+    ::windows_targets::link!("firewallapi.dll" "system" fn NetworkIsolationEnumerateAppContainerRules(newenum : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
+    let mut result__ = ::std::mem::zeroed();
+    NetworkIsolationEnumerateAppContainerRules(&mut result__).from_abi(result__)
+}
 #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
@@ -26,6 +49,27 @@ pub unsafe fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWA
 pub unsafe fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32, appcontainersids: *mut *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32 {
     ::windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs : *mut u32, appcontainersids : *mut *mut super::super::Security:: SID_AND_ATTRIBUTES) -> u32);
     NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs, appcontainersids)
+}
+#[doc = "Required features: `Win32_Foundation`"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NetworkIsolationGetEnterpriseIdAsync<P0>(wszservername: P0, dwflags: u32, context: ::core::option::Option<*const ::core::ffi::c_void>, callback: PNETISO_EDP_ID_CALLBACK_FN, hoperation: *mut super::super::Foundation::HANDLE) -> u32
+where
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+{
+    ::windows_targets::link!("firewallapi.dll" "system" fn NetworkIsolationGetEnterpriseIdAsync(wszservername : ::windows_core::PCWSTR, dwflags : u32, context : *const ::core::ffi::c_void, callback : PNETISO_EDP_ID_CALLBACK_FN, hoperation : *mut super::super::Foundation:: HANDLE) -> u32);
+    NetworkIsolationGetEnterpriseIdAsync(wszservername.into_param().abi(), dwflags, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), callback, hoperation)
+}
+#[doc = "Required features: `Win32_Foundation`"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NetworkIsolationGetEnterpriseIdClose<P0, P1>(hoperation: P0, bwaitforoperation: P1) -> u32
+where
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+{
+    ::windows_targets::link!("firewallapi.dll" "system" fn NetworkIsolationGetEnterpriseIdClose(hoperation : super::super::Foundation:: HANDLE, bwaitforoperation : super::super::Foundation:: BOOL) -> u32);
+    NetworkIsolationGetEnterpriseIdClose(hoperation.into_param().abi(), bwaitforoperation.into_param().abi())
 }
 #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]

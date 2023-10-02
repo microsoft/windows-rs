@@ -7714,7 +7714,7 @@ impl IFileOpenDialog_Vtbl {
 pub trait IFileOperation_Impl: Sized {
     fn Advise(&self, pfops: ::core::option::Option<&IFileOperationProgressSink>) -> ::windows_core::Result<u32>;
     fn Unadvise(&self, dwcookie: u32) -> ::windows_core::Result<()>;
-    fn SetOperationFlags(&self, dwoperationflags: u32) -> ::windows_core::Result<()>;
+    fn SetOperationFlags(&self, dwoperationflags: FILEOPERATION_FLAGS) -> ::windows_core::Result<()>;
     fn SetProgressMessage(&self, pszmessage: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn SetProgressDialog(&self, popd: ::core::option::Option<&IOperationsProgressDialog>) -> ::windows_core::Result<()>;
     fn SetProperties(&self, pproparray: ::core::option::Option<&PropertiesSystem::IPropertyChangeArray>) -> ::windows_core::Result<()>;
@@ -7754,7 +7754,7 @@ impl IFileOperation_Vtbl {
             let this = (*this).get_impl();
             this.Unadvise(::core::mem::transmute_copy(&dwcookie)).into()
         }
-        unsafe extern "system" fn SetOperationFlags<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoperationflags: u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetOperationFlags<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoperationflags: FILEOPERATION_FLAGS) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOperationFlags(::core::mem::transmute_copy(&dwoperationflags)).into()
@@ -15470,8 +15470,8 @@ impl IShellIconOverlayManager_Vtbl {
         *iid == <IShellIconOverlayManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Graphics_GdiPlus`, `Win32_System_Com_StructuredStorage`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Graphics_GdiPlus", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IShellImageData_Impl: Sized {
     fn Decode(&self, dwflags: u32, cxdesired: u32, cydesired: u32) -> ::windows_core::Result<()>;
     fn Draw(&self, hdc: super::super::Graphics::Gdi::HDC, prcdest: *mut super::super::Foundation::RECT, prcsrc: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()>;
@@ -15494,7 +15494,7 @@ pub trait IShellImageData_Impl: Sized {
     fn GetDelay(&self, pdwdelay: *mut u32) -> ::windows_core::Result<()>;
     fn GetProperties(&self, dwmode: u32) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::IPropertySetStorage>;
     fn Rotate(&self, dwangle: u32) -> ::windows_core::Result<()>;
-    fn Scale(&self, cx: u32, cy: u32, hints: u32) -> ::windows_core::Result<()>;
+    fn Scale(&self, cx: u32, cy: u32, hints: super::super::Graphics::GdiPlus::InterpolationMode) -> ::windows_core::Result<()>;
     fn DiscardEdit(&self) -> ::windows_core::Result<()>;
     fn SetEncoderParams(&self, pbagenc: ::core::option::Option<&super::super::System::Com::StructuredStorage::IPropertyBag>) -> ::windows_core::Result<()>;
     fn DisplayName(&self, wszname: &::windows_core::PCWSTR, cch: u32) -> ::windows_core::Result<()>;
@@ -15504,9 +15504,9 @@ pub trait IShellImageData_Impl: Sized {
     fn CloneFrame(&self, ppimg: *mut *mut u8) -> ::windows_core::Result<()>;
     fn ReplaceFrame(&self, pimg: *mut u8) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Graphics_GdiPlus", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::windows_core::RuntimeName for IShellImageData {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Graphics_GdiPlus", feature = "Win32_System_Com_StructuredStorage"))]
 impl IShellImageData_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellImageData_Impl, const OFFSET: isize>() -> IShellImageData_Vtbl {
         unsafe extern "system" fn Decode<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellImageData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, cxdesired: u32, cydesired: u32) -> ::windows_core::HRESULT {
@@ -15620,7 +15620,7 @@ impl IShellImageData_Vtbl {
             let this = (*this).get_impl();
             this.Rotate(::core::mem::transmute_copy(&dwangle)).into()
         }
-        unsafe extern "system" fn Scale<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellImageData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cx: u32, cy: u32, hints: u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Scale<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellImageData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cx: u32, cy: u32, hints: super::super::Graphics::GdiPlus::InterpolationMode) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Scale(::core::mem::transmute_copy(&cx), ::core::mem::transmute_copy(&cy), ::core::mem::transmute_copy(&hints)).into()

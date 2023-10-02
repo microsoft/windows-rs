@@ -1653,6 +1653,8 @@ pub const TCP_ICW_LEVEL_MAX: TCP_ICW_LEVEL = 255i32;
 pub const TCP_ICW_LEVEL_VERY_HIGH: TCP_ICW_LEVEL = 2i32;
 pub const TCP_INITIAL_RTO_DEFAULT_MAX_SYN_RETRANSMISSIONS: u32 = 0u32;
 pub const TCP_INITIAL_RTO_DEFAULT_RTT: u32 = 0u32;
+pub const TCP_INITIAL_RTO_NO_SYN_RETRANSMISSIONS: u16 = 65534u16;
+pub const TCP_INITIAL_RTO_UNSPECIFIED_MAX_SYN_RETRANSMISSIONS: u16 = 65535u16;
 pub const TCP_KEEPALIVE: i32 = 3i32;
 pub const TCP_KEEPCNT: i32 = 16i32;
 pub const TCP_KEEPIDLE: i32 = 3i32;
@@ -6466,16 +6468,6 @@ pub struct netent {
 }
 impl ::core::marker::Copy for netent {}
 impl ::core::clone::Clone for netent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct sa_family_t {
-    pub Value: u16,
-}
-impl ::core::marker::Copy for sa_family_t {}
-impl ::core::clone::Clone for sa_family_t {
     fn clone(&self) -> Self {
         *self
     }

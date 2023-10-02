@@ -192,9 +192,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn HttpAddRequestHeadersW(hrequest : *const ::core::ffi::c_void, lpszheaders : ::windows_sys::core::PCWSTR, dwheaderslength : u32, dwmodifiers : HTTP_ADDREQ_FLAG) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn HttpCheckDavComplianceA(lpszurl : ::windows_sys::core::PCSTR, lpszcompliancetoken : ::windows_sys::core::PCSTR, lpffound : *mut i32, hwnd : super::super::Foundation:: HWND, lpvreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn HttpCheckDavComplianceA(lpszurl : ::windows_sys::core::PCSTR, lpszcompliancetoken : ::windows_sys::core::PCSTR, lpffound : *mut super::super::Foundation:: BOOL, hwnd : super::super::Foundation:: HWND, lpvreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn HttpCheckDavComplianceW(lpszurl : ::windows_sys::core::PCWSTR, lpszcompliancetoken : ::windows_sys::core::PCWSTR, lpffound : *mut i32, hwnd : super::super::Foundation:: HWND, lpvreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn HttpCheckDavComplianceW(lpszurl : ::windows_sys::core::PCWSTR, lpszcompliancetoken : ::windows_sys::core::PCWSTR, lpffound : *mut super::super::Foundation:: BOOL, hwnd : super::super::Foundation:: HWND, lpvreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wininet.dll" "system" fn HttpCloseDependencyHandle(hdependencyhandle : *const ::core::ffi::c_void) -> ());
 ::windows_targets::link!("wininet.dll" "system" fn HttpDuplicateDependencyHandle(hdependencyhandle : *const ::core::ffi::c_void, phduplicateddependencyhandle : *mut *mut ::core::ffi::c_void) -> u32);
 #[cfg(feature = "Win32_Foundation")]
@@ -243,10 +243,10 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn IncrementUrlCacheHeaderData(nidx : u32, lpdwdata : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wininet.dll" "system" fn InternalInternetGetCookie(lpszurl : ::windows_sys::core::PCSTR, lpszcookiedata : ::windows_sys::core::PSTR, lpdwdatasize : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn InternetAlgIdToStringA(ai : u32, lpstr : ::windows_sys::core::PSTR, lpdwstrlength : *mut u32, dwreserved : u32) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn InternetAlgIdToStringW(ai : u32, lpstr : ::windows_sys::core::PWSTR, lpdwstrlength : *mut u32, dwreserved : u32) -> super::super::Foundation:: BOOL);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"] fn InternetAlgIdToStringA(ai : super::super::Security::Cryptography:: ALG_ID, lpstr : ::windows_sys::core::PSTR, lpdwstrlength : *mut u32, dwreserved : u32) -> super::super::Foundation:: BOOL);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"] fn InternetAlgIdToStringW(ai : super::super::Security::Cryptography:: ALG_ID, lpstr : ::windows_sys::core::PWSTR, lpdwstrlength : *mut u32, dwreserved : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wininet.dll" "system" fn InternetAttemptConnect(dwreserved : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn InternetAutodial(dwflags : INTERNET_AUTODIAL, hwndparent : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
@@ -2759,17 +2759,17 @@ impl ::core::clone::Clone for INTERNET_PROXY_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Authentication_Identity`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Authentication_Identity`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 pub struct INTERNET_SECURITY_CONNECTION_INFO {
     pub dwSize: u32,
     pub fSecure: super::super::Foundation::BOOL,
     pub connectionInfo: super::super::Security::Authentication::Identity::SecPkgContext_ConnectionInfo,
     pub cipherInfo: super::super::Security::Authentication::Identity::SecPkgContext_CipherInfo,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::core::marker::Copy for INTERNET_SECURITY_CONNECTION_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::core::clone::Clone for INTERNET_SECURITY_CONNECTION_INFO {
     fn clone(&self) -> Self {
         *self

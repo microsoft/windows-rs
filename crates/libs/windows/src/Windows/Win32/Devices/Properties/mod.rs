@@ -195,10 +195,12 @@ pub const DEVPKEY_DrvPkg_Model: DEVPROPKEY = DEVPROPKEY { fmtid: ::windows_core:
 pub const DEVPKEY_DrvPkg_VendorWebSite: DEVPROPKEY = DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132), pid: 3 };
 pub const DEVPKEY_NAME: DEVPROPKEY = DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xb725f130_47ef_101a_a5f1_02608c9eebac), pid: 10 };
 pub const DEVPROPID_FIRST_USABLE: u32 = 2u32;
+pub const DEVPROP_FALSE: DEVPROP_BOOLEAN = DEVPROP_BOOLEAN(0u8);
 pub const DEVPROP_MASK_TYPE: u32 = 4095u32;
 pub const DEVPROP_MASK_TYPEMOD: u32 = 61440u32;
 pub const DEVPROP_STORE_SYSTEM: DEVPROPSTORE = DEVPROPSTORE(0i32);
 pub const DEVPROP_STORE_USER: DEVPROPSTORE = DEVPROPSTORE(1i32);
+pub const DEVPROP_TRUE: DEVPROP_BOOLEAN = DEVPROP_BOOLEAN(255u8);
 pub const DEVPROP_TYPEMOD_ARRAY: u32 = 4096u32;
 pub const DEVPROP_TYPEMOD_LIST: u32 = 8192u32;
 pub const DEVPROP_TYPE_BINARY: DEVPROPTYPE = DEVPROPTYPE(4099u32);
@@ -367,4 +369,26 @@ impl ::core::default::Default for DEVPROPKEY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVPROP_BOOLEAN(pub u8);
+impl ::core::default::Default for DEVPROP_BOOLEAN {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for DEVPROP_BOOLEAN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for DEVPROP_BOOLEAN {}
+impl ::core::fmt::Debug for DEVPROP_BOOLEAN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVPROP_BOOLEAN").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for DEVPROP_BOOLEAN {
+    type TypeKind = ::windows_core::CopyType;
 }

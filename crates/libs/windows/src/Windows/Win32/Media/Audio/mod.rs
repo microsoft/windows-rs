@@ -2267,8 +2267,8 @@ impl IAudioSessionControl2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn IsSystemSoundsSession(&self) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).IsSystemSoundsSession)(::windows_core::Interface::as_raw(self)).ok()
+    pub unsafe fn IsSystemSoundsSession(&self) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).IsSystemSoundsSession)(::windows_core::Interface::as_raw(self))
     }
     #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4639,9 +4639,15 @@ pub const Headset: EndpointFormFactor = EndpointFormFactor(5i32);
 pub const In: DataFlow = DataFlow(0i32);
 pub const LineLevel: EndpointFormFactor = EndpointFormFactor(2i32);
 pub const Low: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(1i32);
+pub const MEVT_COMMENT: u8 = 130u8;
 pub const MEVT_F_CALLBACK: i32 = 1073741824i32;
 pub const MEVT_F_LONG: i32 = -2147483648i32;
 pub const MEVT_F_SHORT: i32 = 0i32;
+pub const MEVT_LONGMSG: u8 = 128u8;
+pub const MEVT_NOP: u8 = 2u8;
+pub const MEVT_SHORTMSG: u8 = 0u8;
+pub const MEVT_TEMPO: u8 = 1u8;
+pub const MEVT_VERSION: u8 = 132u8;
 pub const MHDR_DONE: u32 = 1u32;
 pub const MHDR_INQUEUE: u32 = 4u32;
 pub const MHDR_ISSTRM: u32 = 8u32;

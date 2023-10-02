@@ -92,9 +92,9 @@
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetFileMUIInfo(dwflags : u32, pcwszfilepath : ::windows_sys::core::PCWSTR, pfilemuiinfo : *mut FILEMUIINFO, pcbfilemuiinfo : *mut u32) -> super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetFileMUIPath(dwflags : u32, pcwszfilepath : ::windows_sys::core::PCWSTR, pwszlanguage : ::windows_sys::core::PWSTR, pcchlanguage : *mut u32, pwszfilemuipath : ::windows_sys::core::PWSTR, pcchfilemuipath : *mut u32, pululenumerator : *mut u64) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoA(location : i32, geotype : u32, lpgeodata : ::windows_sys::core::PSTR, cchdata : i32, langid : u16) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoEx(location : ::windows_sys::core::PCWSTR, geotype : u32, geodata : ::windows_sys::core::PWSTR, geodatacount : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoW(location : i32, geotype : u32, lpgeodata : ::windows_sys::core::PWSTR, cchdata : i32, langid : u16) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoA(location : i32, geotype : SYSGEOTYPE, lpgeodata : ::windows_sys::core::PSTR, cchdata : i32, langid : u16) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoEx(location : ::windows_sys::core::PCWSTR, geotype : SYSGEOTYPE, geodata : ::windows_sys::core::PWSTR, geodatacount : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoW(location : i32, geotype : SYSGEOTYPE, lpgeodata : ::windows_sys::core::PWSTR, cchdata : i32, langid : u16) -> i32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetLocaleInfoA(locale : u32, lctype : u32, lplcdata : ::windows_sys::core::PSTR, cchdata : i32) -> i32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetLocaleInfoEx(lplocalename : ::windows_sys::core::PCWSTR, lctype : u32, lplcdata : ::windows_sys::core::PWSTR, cchdata : i32) -> i32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetLocaleInfoW(locale : u32, lctype : u32, lplcdata : ::windows_sys::core::PWSTR, cchdata : i32) -> i32);
@@ -144,7 +144,7 @@
 ::windows_targets::link!("kernel32.dll" "system" fn GetUserDefaultLangID() -> u16);
 ::windows_targets::link!("kernel32.dll" "system" fn GetUserDefaultLocaleName(lplocalename : ::windows_sys::core::PWSTR, cchlocalename : i32) -> i32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetUserDefaultUILanguage() -> u16);
-::windows_targets::link!("kernel32.dll" "system" fn GetUserGeoID(geoclass : u32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetUserGeoID(geoclass : SYSGEOCLASS) -> i32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetUserPreferredUILanguages(dwflags : u32, pulnumlanguages : *mut u32, pwszlanguagesbuffer : ::windows_sys::core::PWSTR, pcchlanguagesbuffer : *mut u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("normaliz.dll" "system" fn IdnToAscii(dwflags : u32, lpunicodecharstr : ::windows_sys::core::PCWSTR, cchunicodechar : i32, lpasciicharstr : ::windows_sys::core::PWSTR, cchasciichar : i32) -> i32);
@@ -281,7 +281,8 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn UCNV_TO_U_CALLBACK_SUBSTITUTE(context : *const ::core::ffi::c_void, touargs : *mut UConverterToUnicodeArgs, codeunits : ::windows_sys::core::PCSTR, length : i32, reason : UConverterCallbackReason, err : *mut UErrorCode) -> ());
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn VerifyScripts(dwflags : u32, lplocalescripts : ::windows_sys::core::PCWSTR, cchlocalescripts : i32, lptestscripts : ::windows_sys::core::PCWSTR, cchtestscripts : i32) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn WideCharToMultiByte(codepage : u32, dwflags : u32, lpwidecharstr : ::windows_sys::core::PCWSTR, cchwidechar : i32, lpmultibytestr : ::windows_sys::core::PSTR, cbmultibyte : i32, lpdefaultchar : ::windows_sys::core::PCSTR, lpuseddefaultchar : *mut i32) -> i32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WideCharToMultiByte(codepage : u32, dwflags : u32, lpwidecharstr : ::windows_sys::core::PCWSTR, cchwidechar : i32, lpmultibytestr : ::windows_sys::core::PSTR, cbmultibyte : i32, lpdefaultchar : ::windows_sys::core::PCSTR, lpuseddefaultchar : *mut super::Foundation:: BOOL) -> i32);
 ::windows_targets::link!("kernel32.dll" "system" fn lstrcatA(lpstring1 : ::windows_sys::core::PSTR, lpstring2 : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
 ::windows_targets::link!("kernel32.dll" "system" fn lstrcatW(lpstring1 : ::windows_sys::core::PWSTR, lpstring2 : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
 ::windows_targets::link!("kernel32.dll" "system" fn lstrcmpA(lpstring1 : ::windows_sys::core::PCSTR, lpstring2 : ::windows_sys::core::PCSTR) -> i32);

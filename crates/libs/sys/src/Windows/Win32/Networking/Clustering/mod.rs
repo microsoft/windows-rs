@@ -167,7 +167,7 @@
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 ::windows_targets::link!("clusapi.dll" "system" #[doc = "Required features: `Win32_Security`, `Win32_System_Registry`"] fn ClusterRegSetKeySecurity(hkey : super::super::System::Registry:: HKEY, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> i32);
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
-::windows_targets::link!("clusapi.dll" "system" #[doc = "Required features: `Win32_Security`, `Win32_System_Registry`"] fn ClusterRegSetKeySecurityEx(hkey : super::super::System::Registry:: HKEY, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, lpszreason : ::windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("clusapi.dll" "system" #[doc = "Required features: `Win32_Security`, `Win32_System_Registry`"] fn ClusterRegSetKeySecurityEx(hkey : super::super::System::Registry:: HKEY, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, lpszreason : ::windows_sys::core::PCWSTR) -> i32);
 #[cfg(feature = "Win32_System_Registry")]
 ::windows_targets::link!("clusapi.dll" "system" #[doc = "Required features: `Win32_System_Registry`"] fn ClusterRegSetValue(hkey : super::super::System::Registry:: HKEY, lpszvaluename : ::windows_sys::core::PCWSTR, dwtype : u32, lpdata : *const u8, cbdata : u32) -> u32);
 #[cfg(feature = "Win32_System_Registry")]

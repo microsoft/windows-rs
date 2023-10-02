@@ -16043,7 +16043,7 @@ impl IFileOperation {
     pub unsafe fn Unadvise(&self, dwcookie: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Unadvise)(::windows_core::Interface::as_raw(self), dwcookie).ok()
     }
-    pub unsafe fn SetOperationFlags(&self, dwoperationflags: u32) -> ::windows_core::Result<()> {
+    pub unsafe fn SetOperationFlags(&self, dwoperationflags: FILEOPERATION_FLAGS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOperationFlags)(::windows_core::Interface::as_raw(self), dwoperationflags).ok()
     }
     pub unsafe fn SetProgressMessage<P0>(&self, pszmessage: P0) -> ::windows_core::Result<()>
@@ -16178,7 +16178,7 @@ pub struct IFileOperation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfops: *mut ::core::ffi::c_void, pdwcookie: *mut u32) -> ::windows_core::HRESULT,
     pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32) -> ::windows_core::HRESULT,
-    pub SetOperationFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoperationflags: u32) -> ::windows_core::HRESULT,
+    pub SetOperationFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoperationflags: FILEOPERATION_FLAGS) -> ::windows_core::HRESULT,
     pub SetProgressMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmessage: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub SetProgressDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, popd: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -16220,7 +16220,7 @@ impl IFileOperation2 {
     pub unsafe fn Unadvise(&self, dwcookie: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Unadvise)(::windows_core::Interface::as_raw(self), dwcookie).ok()
     }
-    pub unsafe fn SetOperationFlags(&self, dwoperationflags: u32) -> ::windows_core::Result<()> {
+    pub unsafe fn SetOperationFlags(&self, dwoperationflags: FILEOPERATION_FLAGS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetOperationFlags)(::windows_core::Interface::as_raw(self), dwoperationflags).ok()
     }
     pub unsafe fn SetProgressMessage<P0>(&self, pszmessage: P0) -> ::windows_core::Result<()>
@@ -25676,7 +25676,9 @@ impl IShellImageData {
     pub unsafe fn Rotate(&self, dwangle: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Rotate)(::windows_core::Interface::as_raw(self), dwangle).ok()
     }
-    pub unsafe fn Scale(&self, cx: u32, cy: u32, hints: u32) -> ::windows_core::Result<()> {
+    #[doc = "Required features: `Win32_Graphics_GdiPlus`"]
+    #[cfg(feature = "Win32_Graphics_GdiPlus")]
+    pub unsafe fn Scale(&self, cx: u32, cy: u32, hints: super::super::Graphics::GdiPlus::InterpolationMode) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Scale)(::windows_core::Interface::as_raw(self), cx, cy, hints).ok()
     }
     pub unsafe fn DiscardEdit(&self) -> ::windows_core::Result<()> {
@@ -25757,7 +25759,10 @@ pub struct IShellImageData_Vtbl {
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     GetProperties: usize,
     pub Rotate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwangle: u32) -> ::windows_core::HRESULT,
-    pub Scale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cx: u32, cy: u32, hints: u32) -> ::windows_core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_GdiPlus")]
+    pub Scale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cx: u32, cy: u32, hints: super::super::Graphics::GdiPlus::InterpolationMode) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_GdiPlus"))]
+    Scale: usize,
     pub DiscardEdit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub SetEncoderParams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbagenc: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -38074,38 +38079,39 @@ pub const FMTID_Volume: ::windows_core::GUID = ::windows_core::GUID::from_u128(0
 pub const FMTID_WebView: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2275480_f782_4291_bd94_f13693513aec);
 pub const FOF2_MERGEFOLDERSONCOLLISION: FILE_OPERATION_FLAGS2 = FILE_OPERATION_FLAGS2(1i32);
 pub const FOF2_NONE: FILE_OPERATION_FLAGS2 = FILE_OPERATION_FLAGS2(0i32);
-pub const FOFX_ADDUNDORECORD: u32 = 536870912u32;
-pub const FOFX_COPYASDOWNLOAD: u32 = 1073741824u32;
-pub const FOFX_DONTDISPLAYDESTPATH: u32 = 134217728u32;
-pub const FOFX_DONTDISPLAYLOCATIONS: u32 = 2147483648u32;
-pub const FOFX_DONTDISPLAYSOURCEPATH: u32 = 67108864u32;
-pub const FOFX_EARLYFAILURE: u32 = 1048576u32;
-pub const FOFX_KEEPNEWERFILE: u32 = 4194304u32;
-pub const FOFX_MOVEACLSACROSSVOLUMES: u32 = 33554432u32;
-pub const FOFX_NOCOPYHOOKS: u32 = 8388608u32;
-pub const FOFX_NOMINIMIZEBOX: u32 = 16777216u32;
-pub const FOFX_NOSKIPJUNCTIONS: u32 = 65536u32;
-pub const FOFX_PREFERHARDLINK: u32 = 131072u32;
-pub const FOFX_PRESERVEFILEEXTENSIONS: u32 = 2097152u32;
-pub const FOFX_RECYCLEONDELETE: u32 = 524288u32;
-pub const FOFX_REQUIREELEVATION: u32 = 268435456u32;
-pub const FOFX_SHOWELEVATIONPROMPT: u32 = 262144u32;
-pub const FOF_ALLOWUNDO: u32 = 64u32;
-pub const FOF_CONFIRMMOUSE: u32 = 2u32;
-pub const FOF_FILESONLY: u32 = 128u32;
-pub const FOF_MULTIDESTFILES: u32 = 1u32;
-pub const FOF_NOCONFIRMATION: u32 = 16u32;
-pub const FOF_NOCONFIRMMKDIR: u32 = 512u32;
-pub const FOF_NOCOPYSECURITYATTRIBS: u32 = 2048u32;
-pub const FOF_NOERRORUI: u32 = 1024u32;
-pub const FOF_NORECURSEREPARSE: u32 = 32768u32;
-pub const FOF_NORECURSION: u32 = 4096u32;
-pub const FOF_NO_CONNECTED_ELEMENTS: u32 = 8192u32;
-pub const FOF_RENAMEONCOLLISION: u32 = 8u32;
-pub const FOF_SILENT: u32 = 4u32;
-pub const FOF_SIMPLEPROGRESS: u32 = 256u32;
-pub const FOF_WANTMAPPINGHANDLE: u32 = 32u32;
-pub const FOF_WANTNUKEWARNING: u32 = 16384u32;
+pub const FOFX_ADDUNDORECORD: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(536870912u32);
+pub const FOFX_COPYASDOWNLOAD: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(1073741824u32);
+pub const FOFX_DONTDISPLAYDESTPATH: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(134217728u32);
+pub const FOFX_DONTDISPLAYLOCATIONS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(2147483648u32);
+pub const FOFX_DONTDISPLAYSOURCEPATH: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(67108864u32);
+pub const FOFX_EARLYFAILURE: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(1048576u32);
+pub const FOFX_KEEPNEWERFILE: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(4194304u32);
+pub const FOFX_MOVEACLSACROSSVOLUMES: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(33554432u32);
+pub const FOFX_NOCOPYHOOKS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(8388608u32);
+pub const FOFX_NOMINIMIZEBOX: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(16777216u32);
+pub const FOFX_NOSKIPJUNCTIONS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(65536u32);
+pub const FOFX_PREFERHARDLINK: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(131072u32);
+pub const FOFX_PRESERVEFILEEXTENSIONS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(2097152u32);
+pub const FOFX_RECYCLEONDELETE: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(524288u32);
+pub const FOFX_REQUIREELEVATION: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(268435456u32);
+pub const FOFX_SHOWELEVATIONPROMPT: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(262144u32);
+pub const FOF_ALLOWUNDO: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(64u32);
+pub const FOF_CONFIRMMOUSE: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(2u32);
+pub const FOF_FILESONLY: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(128u32);
+pub const FOF_MULTIDESTFILES: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(1u32);
+pub const FOF_NOCONFIRMATION: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(16u32);
+pub const FOF_NOCONFIRMMKDIR: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(512u32);
+pub const FOF_NOCOPYSECURITYATTRIBS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(2048u32);
+pub const FOF_NOERRORUI: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(1024u32);
+pub const FOF_NORECURSEREPARSE: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(32768u32);
+pub const FOF_NORECURSION: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(4096u32);
+pub const FOF_NO_CONNECTED_ELEMENTS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(8192u32);
+pub const FOF_NO_UI: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(1556u32);
+pub const FOF_RENAMEONCOLLISION: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(8u32);
+pub const FOF_SILENT: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(4u32);
+pub const FOF_SIMPLEPROGRESS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(256u32);
+pub const FOF_WANTMAPPINGHANDLE: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(32u32);
+pub const FOF_WANTNUKEWARNING: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(16384u32);
 pub const FOLDERID_AccountPictures: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x008ca0b1_55b4_4c56_b8a8_4de4b299d3be);
 pub const FOLDERID_AddNewPrograms: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde61d971_5ebc_4f02_a3a9_6c82895e5c04);
 pub const FOLDERID_AdminTools: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x724ef170_a42d_4fef_9f26_b60e846fba4f);
@@ -39180,6 +39186,27 @@ pub const PROGDLG_NORMAL: u32 = 0u32;
 pub const PROGDLG_NOTIME: u32 = 4u32;
 pub const PROPSTR_EXTENSIONCOMPLETIONSTATE: ::windows_core::PCWSTR = ::windows_core::w!("ExtensionCompletionState");
 pub const PROP_CONTRACT_DELEGATE: ::windows_core::PCWSTR = ::windows_core::w!("ContractDelegate");
+pub const PSGUID_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64440490_4c8b_11d1_8b70_080036b11a03);
+pub const PSGUID_BRIEFCASE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x328d8b21_7729_4bfc_954c_902b329d56b0);
+pub const PSGUID_CONTROLPANEL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x305ca226_d286_468e_b848_2b2e8e697b74);
+pub const PSGUID_CUSTOMIMAGEPROPERTIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7ecd8b0e_c136_4a9b_9411_4ebd6673ccc3);
+pub const PSGUID_DISPLACED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b174b33_40ff_11d2_a27e_00c04fc30871);
+pub const PSGUID_DOCUMENTSUMMARYINFORMATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5cdd502_2e9c_101b_9397_08002b2cf9ae);
+pub const PSGUID_DRM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaeac19e4_89ae_4508_b9b7_bb867abee2ed);
+pub const PSGUID_IMAGEPROPERTIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x14b81da1_0135_4d31_96d9_6cbfc9671a99);
+pub const PSGUID_IMAGESUMMARYINFORMATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6444048f_4c8b_11d1_8b70_080036b11a03);
+pub const PSGUID_LIBRARYPROPERTIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d76b67f_9b3d_44bb_b6ae_25da4f638a67);
+pub const PSGUID_LINK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9b4b3fc_2b51_4a42_b5d8_324146afcf25);
+pub const PSGUID_MEDIAFILESUMMARYINFORMATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64440492_4c8b_11d1_8b70_080036b11a03);
+pub const PSGUID_MISC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b174b34_40ff_11d2_a27e_00c04fc30871);
+pub const PSGUID_MUSIC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x56a3372e_ce9c_11d2_9f0e_006097c686f6);
+pub const PSGUID_QUERY_D: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49691c90_7e17_101a_a91c_08002b2ecda9);
+pub const PSGUID_SHARE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd8c3986f_813b_449c_845d_87b95d674ade);
+pub const PSGUID_SHELLDETAILS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28636aa6_953d_11d2_b5d6_00c04fd918d0);
+pub const PSGUID_SUMMARYINFORMATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9);
+pub const PSGUID_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64440491_4c8b_11d1_8b70_080036b11a03);
+pub const PSGUID_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b174b35_40ff_11d2_a27e_00c04fc30871);
+pub const PSGUID_WEBVIEW: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2275480_f782_4291_bd94_f13693513aec);
 pub const PackageDebugSettings: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb1aec16f_2383_4852_b0e9_8f0b1dc66b4d);
 pub const PasswordCredentialProvider: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x60b78e88_ead8_445c_9cfd_0b87f74ea6cd);
 pub const PreviousVersions: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x596ab062_b4d2_4215_9f74_e9109b0a8153);
@@ -42985,6 +43012,61 @@ impl ::core::ops::BitAndAssign for FILEOPENDIALOGOPTIONS {
     }
 }
 impl ::core::ops::Not for FILEOPENDIALOGOPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FILEOPERATION_FLAGS(pub u32);
+impl ::core::marker::Copy for FILEOPERATION_FLAGS {}
+impl ::core::clone::Clone for FILEOPERATION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FILEOPERATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for FILEOPERATION_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for FILEOPERATION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FILEOPERATION_FLAGS").field(&self.0).finish()
+    }
+}
+impl FILEOPERATION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for FILEOPERATION_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FILEOPERATION_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FILEOPERATION_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FILEOPERATION_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FILEOPERATION_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())

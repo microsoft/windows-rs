@@ -1369,14 +1369,18 @@ where
     ::windows_targets::link!("rasapi32.dll" "system" fn RasGetAutodialAddressW(param0 : ::windows_core::PCWSTR, param1 : *const u32, param2 : *mut RASAUTODIALENTRYW, param3 : *mut u32, param4 : *mut u32) -> u32);
     RasGetAutodialAddressW(param0.into_param().abi(), ::core::mem::transmute(param1.unwrap_or(::std::ptr::null())), ::core::mem::transmute(param2.unwrap_or(::std::ptr::null_mut())), param3, param4)
 }
+#[doc = "Required features: `Win32_Foundation`"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasGetAutodialEnableA(param0: u32, param1: *mut i32) -> u32 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetAutodialEnableA(param0 : u32, param1 : *mut i32) -> u32);
+pub unsafe fn RasGetAutodialEnableA(param0: u32, param1: *mut super::super::Foundation::BOOL) -> u32 {
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetAutodialEnableA(param0 : u32, param1 : *mut super::super::Foundation:: BOOL) -> u32);
     RasGetAutodialEnableA(param0, param1)
 }
+#[doc = "Required features: `Win32_Foundation`"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasGetAutodialEnableW(param0: u32, param1: *mut i32) -> u32 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetAutodialEnableW(param0 : u32, param1 : *mut i32) -> u32);
+pub unsafe fn RasGetAutodialEnableW(param0: u32, param1: *mut super::super::Foundation::BOOL) -> u32 {
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetAutodialEnableW(param0 : u32, param1 : *mut super::super::Foundation:: BOOL) -> u32);
     RasGetAutodialEnableW(param0, param1)
 }
 #[inline]
@@ -1511,20 +1515,24 @@ where
     ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEapUserIdentityW(pszphonebook : ::windows_core::PCWSTR, pszentry : ::windows_core::PCWSTR, dwflags : u32, hwnd : super::super::Foundation:: HWND, ppraseapuseridentity : *mut *mut RASEAPUSERIDENTITYW) -> u32);
     RasGetEapUserIdentityW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), dwflags, hwnd.into_param().abi(), ppraseapuseridentity)
 }
+#[doc = "Required features: `Win32_Foundation`"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasGetEntryDialParamsA<P0>(param0: P0, param1: *mut RASDIALPARAMSA, param2: *mut i32) -> u32
+pub unsafe fn RasGetEntryDialParamsA<P0>(param0: P0, param1: *mut RASDIALPARAMSA, param2: *mut super::super::Foundation::BOOL) -> u32
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsA(param0 : ::windows_core::PCSTR, param1 : *mut RASDIALPARAMSA, param2 : *mut i32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsA(param0 : ::windows_core::PCSTR, param1 : *mut RASDIALPARAMSA, param2 : *mut super::super::Foundation:: BOOL) -> u32);
     RasGetEntryDialParamsA(param0.into_param().abi(), param1, param2)
 }
+#[doc = "Required features: `Win32_Foundation`"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasGetEntryDialParamsW<P0>(param0: P0, param1: *mut RASDIALPARAMSW, param2: *mut i32) -> u32
+pub unsafe fn RasGetEntryDialParamsW<P0>(param0: P0, param1: *mut RASDIALPARAMSW, param2: *mut super::super::Foundation::BOOL) -> u32
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsW(param0 : ::windows_core::PCWSTR, param1 : *mut RASDIALPARAMSW, param2 : *mut i32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsW(param0 : ::windows_core::PCWSTR, param1 : *mut RASDIALPARAMSW, param2 : *mut super::super::Foundation:: BOOL) -> u32);
     RasGetEntryDialParamsW(param0.into_param().abi(), param1, param2)
 }
 #[doc = "Required features: `Win32_Foundation`, `Win32_Networking_WinSock`"]

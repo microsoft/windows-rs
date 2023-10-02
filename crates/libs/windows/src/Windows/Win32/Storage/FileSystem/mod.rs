@@ -275,23 +275,23 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CopyFileExA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: ::core::option::Option<*const ::core::ffi::c_void>, pbcancel: ::core::option::Option<*mut i32>, dwcopyflags: u32) -> ::windows_core::Result<()>
+pub unsafe fn CopyFileExA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: ::core::option::Option<*const ::core::ffi::c_void>, pbcancel: ::core::option::Option<*mut super::super::Foundation::BOOL>, dwcopyflags: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CopyFileExA(lpexistingfilename : ::windows_core::PCSTR, lpnewfilename : ::windows_core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const ::core::ffi::c_void, pbcancel : *mut i32, dwcopyflags : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn CopyFileExA(lpexistingfilename : ::windows_core::PCSTR, lpnewfilename : ::windows_core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const ::core::ffi::c_void, pbcancel : *mut super::super::Foundation:: BOOL, dwcopyflags : u32) -> super::super::Foundation:: BOOL);
     CopyFileExA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), lpprogressroutine, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pbcancel.unwrap_or(::std::ptr::null_mut())), dwcopyflags).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CopyFileExW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: ::core::option::Option<*const ::core::ffi::c_void>, pbcancel: ::core::option::Option<*mut i32>, dwcopyflags: u32) -> ::windows_core::Result<()>
+pub unsafe fn CopyFileExW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: ::core::option::Option<*const ::core::ffi::c_void>, pbcancel: ::core::option::Option<*mut super::super::Foundation::BOOL>, dwcopyflags: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CopyFileExW(lpexistingfilename : ::windows_core::PCWSTR, lpnewfilename : ::windows_core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const ::core::ffi::c_void, pbcancel : *mut i32, dwcopyflags : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn CopyFileExW(lpexistingfilename : ::windows_core::PCWSTR, lpnewfilename : ::windows_core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const ::core::ffi::c_void, pbcancel : *mut super::super::Foundation:: BOOL, dwcopyflags : u32) -> super::super::Foundation:: BOOL);
     CopyFileExW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), lpprogressroutine, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pbcancel.unwrap_or(::std::ptr::null_mut())), dwcopyflags).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -309,25 +309,25 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CopyFileTransactedA<P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: ::core::option::Option<*const ::core::ffi::c_void>, pbcancel: ::core::option::Option<*const i32>, dwcopyflags: u32, htransaction: P2) -> ::windows_core::Result<()>
+pub unsafe fn CopyFileTransactedA<P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: ::core::option::Option<*const ::core::ffi::c_void>, pbcancel: ::core::option::Option<*const super::super::Foundation::BOOL>, dwcopyflags: u32, htransaction: P2) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P2: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CopyFileTransactedA(lpexistingfilename : ::windows_core::PCSTR, lpnewfilename : ::windows_core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const ::core::ffi::c_void, pbcancel : *const i32, dwcopyflags : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn CopyFileTransactedA(lpexistingfilename : ::windows_core::PCSTR, lpnewfilename : ::windows_core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const ::core::ffi::c_void, pbcancel : *const super::super::Foundation:: BOOL, dwcopyflags : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     CopyFileTransactedA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), lpprogressroutine, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pbcancel.unwrap_or(::std::ptr::null())), dwcopyflags, htransaction.into_param().abi()).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CopyFileTransactedW<P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: ::core::option::Option<*const ::core::ffi::c_void>, pbcancel: ::core::option::Option<*const i32>, dwcopyflags: u32, htransaction: P2) -> ::windows_core::Result<()>
+pub unsafe fn CopyFileTransactedW<P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: ::core::option::Option<*const ::core::ffi::c_void>, pbcancel: ::core::option::Option<*const super::super::Foundation::BOOL>, dwcopyflags: u32, htransaction: P2) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P2: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CopyFileTransactedW(lpexistingfilename : ::windows_core::PCWSTR, lpnewfilename : ::windows_core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const ::core::ffi::c_void, pbcancel : *const i32, dwcopyflags : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn CopyFileTransactedW(lpexistingfilename : ::windows_core::PCWSTR, lpnewfilename : ::windows_core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const ::core::ffi::c_void, pbcancel : *const super::super::Foundation:: BOOL, dwcopyflags : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     CopyFileTransactedW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), lpprogressroutine, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pbcancel.unwrap_or(::std::ptr::null())), dwcopyflags, htransaction.into_param().abi()).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -1535,11 +1535,11 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileBandwidthReservation<P0>(hfile: P0, lpperiodmilliseconds: *mut u32, lpbytesperperiod: *mut u32, pdiscardable: *mut i32, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> ::windows_core::Result<()>
+pub unsafe fn GetFileBandwidthReservation<P0>(hfile: P0, lpperiodmilliseconds: *mut u32, lpbytesperperiod: *mut u32, pdiscardable: *mut super::super::Foundation::BOOL, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetFileBandwidthReservation(hfile : super::super::Foundation:: HANDLE, lpperiodmilliseconds : *mut u32, lpbytesperperiod : *mut u32, pdiscardable : *mut i32, lptransfersize : *mut u32, lpnumoutstandingrequests : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetFileBandwidthReservation(hfile : super::super::Foundation:: HANDLE, lpperiodmilliseconds : *mut u32, lpbytesperperiod : *mut u32, pdiscardable : *mut super::super::Foundation:: BOOL, lptransfersize : *mut u32, lpnumoutstandingrequests : *mut u32) -> super::super::Foundation:: BOOL);
     GetFileBandwidthReservation(hfile.into_param().abi(), lpperiodmilliseconds, lpbytesperperiod, pdiscardable, lptransfersize, lpnumoutstandingrequests).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -10256,32 +10256,41 @@ impl ::core::default::Default for EFS_HASH_BLOB {
     }
 }
 #[repr(C)]
+#[doc = "Required features: `Win32_Security_Cryptography`"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct EFS_KEY_INFO {
     pub dwVersion: u32,
     pub Entropy: u32,
-    pub Algorithm: u32,
+    pub Algorithm: super::super::Security::Cryptography::ALG_ID,
     pub KeyLength: u32,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for EFS_KEY_INFO {}
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for EFS_KEY_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for EFS_KEY_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("EFS_KEY_INFO").field("dwVersion", &self.dwVersion).field("Entropy", &self.Entropy).field("Algorithm", &self.Algorithm).field("KeyLength", &self.KeyLength).finish()
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::windows_core::TypeKind for EFS_KEY_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for EFS_KEY_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwVersion == other.dwVersion && self.Entropy == other.Entropy && self.Algorithm == other.Algorithm && self.KeyLength == other.KeyLength
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for EFS_KEY_INFO {}
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for EFS_KEY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16808,7 +16817,7 @@ impl ::core::default::Default for WOF_FILE_COMPRESSION_INFO_V1 {
 }
 #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub type CACHE_ACCESS_CHECK = ::core::option::Option<unsafe extern "system" fn(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, hclienttoken: super::super::Foundation::HANDLE, dwdesiredaccess: u32, genericmapping: *mut super::super::Security::GENERIC_MAPPING, privilegeset: *mut super::super::Security::PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::super::Foundation::BOOL>;
+pub type CACHE_ACCESS_CHECK = ::core::option::Option<unsafe extern "system" fn(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, hclienttoken: super::super::Foundation::HANDLE, dwdesiredaccess: u32, genericmapping: *mut super::super::Security::GENERIC_MAPPING, privilegeset: *mut super::super::Security::PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
 pub type CACHE_DESTROY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(cb: u32, lpb: *mut u8) -> ()>;
 pub type CACHE_KEY_COMPARE = ::core::option::Option<unsafe extern "system" fn(cbkey1: u32, lpbkey1: *mut u8, cbkey2: u32, lpbkey2: *mut u8) -> i32>;
 pub type CACHE_KEY_HASH = ::core::option::Option<unsafe extern "system" fn(lpbkey: *mut u8, cbkey: u32) -> u32>;

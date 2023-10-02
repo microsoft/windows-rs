@@ -985,25 +985,25 @@ pub unsafe fn HttpAddRequestHeadersW(hrequest: *const ::core::ffi::c_void, lpszh
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpCheckDavComplianceA<P0, P1, P2>(lpszurl: P0, lpszcompliancetoken: P1, lpffound: *mut i32, hwnd: P2, lpvreserved: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn HttpCheckDavComplianceA<P0, P1, P2>(lpszurl: P0, lpszcompliancetoken: P1, lpffound: *mut super::super::Foundation::BOOL, hwnd: P2, lpvreserved: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P2: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("wininet.dll" "system" fn HttpCheckDavComplianceA(lpszurl : ::windows_core::PCSTR, lpszcompliancetoken : ::windows_core::PCSTR, lpffound : *mut i32, hwnd : super::super::Foundation:: HWND, lpvreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("wininet.dll" "system" fn HttpCheckDavComplianceA(lpszurl : ::windows_core::PCSTR, lpszcompliancetoken : ::windows_core::PCSTR, lpffound : *mut super::super::Foundation:: BOOL, hwnd : super::super::Foundation:: HWND, lpvreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     HttpCheckDavComplianceA(lpszurl.into_param().abi(), lpszcompliancetoken.into_param().abi(), lpffound, hwnd.into_param().abi(), lpvreserved)
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpCheckDavComplianceW<P0, P1, P2>(lpszurl: P0, lpszcompliancetoken: P1, lpffound: *mut i32, hwnd: P2, lpvreserved: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn HttpCheckDavComplianceW<P0, P1, P2>(lpszurl: P0, lpszcompliancetoken: P1, lpffound: *mut super::super::Foundation::BOOL, hwnd: P2, lpvreserved: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P2: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("wininet.dll" "system" fn HttpCheckDavComplianceW(lpszurl : ::windows_core::PCWSTR, lpszcompliancetoken : ::windows_core::PCWSTR, lpffound : *mut i32, hwnd : super::super::Foundation:: HWND, lpvreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("wininet.dll" "system" fn HttpCheckDavComplianceW(lpszurl : ::windows_core::PCWSTR, lpszcompliancetoken : ::windows_core::PCWSTR, lpffound : *mut super::super::Foundation:: BOOL, hwnd : super::super::Foundation:: HWND, lpvreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     HttpCheckDavComplianceW(lpszurl.into_param().abi(), lpszcompliancetoken.into_param().abi(), lpffound, hwnd.into_param().abi(), lpvreserved)
 }
 #[inline]
@@ -1225,18 +1225,18 @@ where
     ::windows_targets::link!("wininet.dll" "system" fn InternalInternetGetCookie(lpszurl : ::windows_core::PCSTR, lpszcookiedata : ::windows_core::PSTR, lpdwdatasize : *mut u32) -> u32);
     InternalInternetGetCookie(lpszurl.into_param().abi(), ::core::mem::transmute(lpszcookiedata), lpdwdatasize)
 }
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn InternetAlgIdToStringA(ai: u32, lpstr: ::windows_core::PSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("wininet.dll" "system" fn InternetAlgIdToStringA(ai : u32, lpstr : ::windows_core::PSTR, lpdwstrlength : *mut u32, dwreserved : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn InternetAlgIdToStringA(ai: super::super::Security::Cryptography::ALG_ID, lpstr: ::windows_core::PSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("wininet.dll" "system" fn InternetAlgIdToStringA(ai : super::super::Security::Cryptography:: ALG_ID, lpstr : ::windows_core::PSTR, lpdwstrlength : *mut u32, dwreserved : u32) -> super::super::Foundation:: BOOL);
     InternetAlgIdToStringA(ai, ::core::mem::transmute(lpstr), lpdwstrlength, dwreserved)
 }
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn InternetAlgIdToStringW(ai: u32, lpstr: ::windows_core::PWSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("wininet.dll" "system" fn InternetAlgIdToStringW(ai : u32, lpstr : ::windows_core::PWSTR, lpdwstrlength : *mut u32, dwreserved : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn InternetAlgIdToStringW(ai: super::super::Security::Cryptography::ALG_ID, lpstr: ::windows_core::PWSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("wininet.dll" "system" fn InternetAlgIdToStringW(ai : super::super::Security::Cryptography:: ALG_ID, lpstr : ::windows_core::PWSTR, lpdwstrlength : *mut u32, dwreserved : u32) -> super::super::Foundation:: BOOL);
     InternetAlgIdToStringW(ai, ::core::mem::transmute(lpstr), lpdwstrlength, dwreserved)
 }
 #[inline]
@@ -7033,41 +7033,41 @@ impl ::core::default::Default for INTERNET_PROXY_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Authentication_Identity`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Authentication_Identity`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 pub struct INTERNET_SECURITY_CONNECTION_INFO {
     pub dwSize: u32,
     pub fSecure: super::super::Foundation::BOOL,
     pub connectionInfo: super::super::Security::Authentication::Identity::SecPkgContext_ConnectionInfo,
     pub cipherInfo: super::super::Security::Authentication::Identity::SecPkgContext_CipherInfo,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::core::marker::Copy for INTERNET_SECURITY_CONNECTION_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::core::clone::Clone for INTERNET_SECURITY_CONNECTION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for INTERNET_SECURITY_CONNECTION_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("INTERNET_SECURITY_CONNECTION_INFO").field("dwSize", &self.dwSize).field("fSecure", &self.fSecure).field("connectionInfo", &self.connectionInfo).field("cipherInfo", &self.cipherInfo).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::windows_core::TypeKind for INTERNET_SECURITY_CONNECTION_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for INTERNET_SECURITY_CONNECTION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.fSecure == other.fSecure && self.connectionInfo == other.connectionInfo && self.cipherInfo == other.cipherInfo
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::Eq for INTERNET_SECURITY_CONNECTION_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for INTERNET_SECURITY_CONNECTION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

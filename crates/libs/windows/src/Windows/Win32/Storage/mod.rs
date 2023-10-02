@@ -40,6 +40,9 @@ pub mod IscsiDisc;
 #[cfg(feature = "Win32_Storage_Jet")]
 #[doc = "Required features: `Win32_Storage_Jet`"]
 pub mod Jet;
+#[cfg(feature = "Win32_Storage_Nvme")]
+#[doc = "Required features: `Win32_Storage_Nvme`"]
+pub mod Nvme;
 #[cfg(feature = "Win32_Storage_OfflineFiles")]
 #[doc = "Required features: `Win32_Storage_OfflineFiles`"]
 pub mod OfflineFiles;

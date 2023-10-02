@@ -54,15 +54,15 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CopyFileA(lpexistingfilename : ::windows_sys::core::PCSTR, lpnewfilename : ::windows_sys::core::PCSTR, bfailifexists : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CopyFileExA(lpexistingfilename : ::windows_sys::core::PCSTR, lpnewfilename : ::windows_sys::core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const ::core::ffi::c_void, pbcancel : *mut i32, dwcopyflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CopyFileExA(lpexistingfilename : ::windows_sys::core::PCSTR, lpnewfilename : ::windows_sys::core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const ::core::ffi::c_void, pbcancel : *mut super::super::Foundation:: BOOL, dwcopyflags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CopyFileExW(lpexistingfilename : ::windows_sys::core::PCWSTR, lpnewfilename : ::windows_sys::core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const ::core::ffi::c_void, pbcancel : *mut i32, dwcopyflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CopyFileExW(lpexistingfilename : ::windows_sys::core::PCWSTR, lpnewfilename : ::windows_sys::core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const ::core::ffi::c_void, pbcancel : *mut super::super::Foundation:: BOOL, dwcopyflags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CopyFileFromAppW(lpexistingfilename : ::windows_sys::core::PCWSTR, lpnewfilename : ::windows_sys::core::PCWSTR, bfailifexists : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CopyFileTransactedA(lpexistingfilename : ::windows_sys::core::PCSTR, lpnewfilename : ::windows_sys::core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const ::core::ffi::c_void, pbcancel : *const i32, dwcopyflags : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CopyFileTransactedA(lpexistingfilename : ::windows_sys::core::PCSTR, lpnewfilename : ::windows_sys::core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const ::core::ffi::c_void, pbcancel : *const super::super::Foundation:: BOOL, dwcopyflags : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CopyFileTransactedW(lpexistingfilename : ::windows_sys::core::PCWSTR, lpnewfilename : ::windows_sys::core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const ::core::ffi::c_void, pbcancel : *const i32, dwcopyflags : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CopyFileTransactedW(lpexistingfilename : ::windows_sys::core::PCWSTR, lpnewfilename : ::windows_sys::core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const ::core::ffi::c_void, pbcancel : *const super::super::Foundation:: BOOL, dwcopyflags : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CopyFileW(lpexistingfilename : ::windows_sys::core::PCWSTR, lpnewfilename : ::windows_sys::core::PCWSTR, bfailifexists : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn CopyLZFile(hfsource : i32, hfdest : i32) -> i32);
@@ -288,7 +288,7 @@
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetFileAttributesTransactedW(lpfilename : ::windows_sys::core::PCWSTR, finfolevelid : GET_FILEEX_INFO_LEVELS, lpfileinformation : *mut ::core::ffi::c_void, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn GetFileAttributesW(lpfilename : ::windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetFileBandwidthReservation(hfile : super::super::Foundation:: HANDLE, lpperiodmilliseconds : *mut u32, lpbytesperperiod : *mut u32, pdiscardable : *mut i32, lptransfersize : *mut u32, lpnumoutstandingrequests : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetFileBandwidthReservation(hfile : super::super::Foundation:: HANDLE, lpperiodmilliseconds : *mut u32, lpbytesperperiod : *mut u32, pdiscardable : *mut super::super::Foundation:: BOOL, lptransfersize : *mut u32, lpnumoutstandingrequests : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetFileInformationByHandle(hfile : super::super::Foundation:: HANDLE, lpfileinformation : *mut BY_HANDLE_FILE_INFORMATION) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -2491,13 +2491,17 @@ impl ::core::clone::Clone for EFS_HASH_BLOB {
     }
 }
 #[repr(C)]
+#[doc = "Required features: `Win32_Security_Cryptography`"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct EFS_KEY_INFO {
     pub dwVersion: u32,
     pub Entropy: u32,
-    pub Algorithm: u32,
+    pub Algorithm: super::super::Security::Cryptography::ALG_ID,
     pub KeyLength: u32,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for EFS_KEY_INFO {}
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for EFS_KEY_INFO {
     fn clone(&self) -> Self {
         *self
@@ -5285,7 +5289,7 @@ impl ::core::clone::Clone for WOF_FILE_COMPRESSION_INFO_V1 {
 }
 #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub type CACHE_ACCESS_CHECK = ::core::option::Option<unsafe extern "system" fn(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, hclienttoken: super::super::Foundation::HANDLE, dwdesiredaccess: u32, genericmapping: *mut super::super::Security::GENERIC_MAPPING, privilegeset: *mut super::super::Security::PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::super::Foundation::BOOL>;
+pub type CACHE_ACCESS_CHECK = ::core::option::Option<unsafe extern "system" fn(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, hclienttoken: super::super::Foundation::HANDLE, dwdesiredaccess: u32, genericmapping: *mut super::super::Security::GENERIC_MAPPING, privilegeset: *mut super::super::Security::PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
 pub type CACHE_DESTROY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(cb: u32, lpb: *mut u8) -> ()>;
 pub type CACHE_KEY_COMPARE = ::core::option::Option<unsafe extern "system" fn(cbkey1: u32, lpbkey1: *mut u8, cbkey2: u32, lpbkey2: *mut u8) -> i32>;
 pub type CACHE_KEY_HASH = ::core::option::Option<unsafe extern "system" fn(lpbkey: *mut u8, cbkey: u32) -> u32>;

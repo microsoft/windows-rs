@@ -235,20 +235,22 @@ where
 #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RsopAccessCheckByType<P0, P1>(psecuritydescriptor: P0, pprincipalselfsid: P1, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: ::core::option::Option<&[super::super::Security::OBJECT_TYPE_LIST]>, pgenericmapping: *const super::super::Security::GENERIC_MAPPING, pprivilegeset: ::core::option::Option<*const super::super::Security::PRIVILEGE_SET>, pdwprivilegesetlength: ::core::option::Option<*const u32>, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows_core::Result<()>
+pub unsafe fn RsopAccessCheckByType<P0, P1>(psecuritydescriptor: P0, pprincipalselfsid: P1, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: ::core::option::Option<&[super::super::Security::OBJECT_TYPE_LIST]>, pgenericmapping: *const super::super::Security::GENERIC_MAPPING, pprivilegeset: ::core::option::Option<*const super::super::Security::PRIVILEGE_SET>, pdwprivilegesetlength: ::core::option::Option<*const u32>, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows_targets::link!("userenv.dll" "system" fn RsopAccessCheckByType(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pprincipalselfsid : super::super::Foundation:: PSID, prsoptoken : *const ::core::ffi::c_void, dwdesiredaccessmask : u32, pobjecttypelist : *const super::super::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, pgenericmapping : *const super::super::Security:: GENERIC_MAPPING, pprivilegeset : *const super::super::Security:: PRIVILEGE_SET, pdwprivilegesetlength : *const u32, pdwgrantedaccessmask : *mut u32, pbaccessstatus : *mut i32) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("userenv.dll" "system" fn RsopAccessCheckByType(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pprincipalselfsid : super::super::Foundation:: PSID, prsoptoken : *const ::core::ffi::c_void, dwdesiredaccessmask : u32, pobjecttypelist : *const super::super::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, pgenericmapping : *const super::super::Security:: GENERIC_MAPPING, pprivilegeset : *const super::super::Security:: PRIVILEGE_SET, pdwprivilegesetlength : *const u32, pdwgrantedaccessmask : *mut u32, pbaccessstatus : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     RsopAccessCheckByType(psecuritydescriptor.into_param().abi(), pprincipalselfsid.into_param().abi(), prsoptoken, dwdesiredaccessmask, ::core::mem::transmute(pobjecttypelist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pobjecttypelist.as_deref().map_or(0, |slice| slice.len() as _), pgenericmapping, ::core::mem::transmute(pprivilegeset.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdwprivilegesetlength.unwrap_or(::std::ptr::null())), pdwgrantedaccessmask, pbaccessstatus).ok()
 }
+#[doc = "Required features: `Win32_Foundation`"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RsopFileAccessCheck<P0>(pszfilename: P0, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows_core::Result<()>
+pub unsafe fn RsopFileAccessCheck<P0>(pszfilename: P0, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("userenv.dll" "system" fn RsopFileAccessCheck(pszfilename : ::windows_core::PCWSTR, prsoptoken : *const ::core::ffi::c_void, dwdesiredaccessmask : u32, pdwgrantedaccessmask : *mut u32, pbaccessstatus : *mut i32) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("userenv.dll" "system" fn RsopFileAccessCheck(pszfilename : ::windows_core::PCWSTR, prsoptoken : *const ::core::ffi::c_void, dwdesiredaccessmask : u32, pdwgrantedaccessmask : *mut u32, pbaccessstatus : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     RsopFileAccessCheck(pszfilename.into_param().abi(), prsoptoken, dwdesiredaccessmask, pdwgrantedaccessmask, pbaccessstatus).ok()
 }
 #[doc = "Required features: `Win32_System_Wmi`"]
@@ -4727,16 +4729,16 @@ impl IGroupPolicyObject {
     {
         (::windows_core::Interface::vtable(self).New)(::windows_core::Interface::as_raw(self), pszdomainname.into_param().abi(), pszdisplayname.into_param().abi(), dwflags).ok()
     }
-    pub unsafe fn OpenDSGPO<P0>(&self, pszpath: P0, dwflags: u32) -> ::windows_core::Result<()>
+    pub unsafe fn OpenDSGPO<P0>(&self, pszpath: P0, dwflags: GPO_OPEN_FLAGS) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         (::windows_core::Interface::vtable(self).OpenDSGPO)(::windows_core::Interface::as_raw(self), pszpath.into_param().abi(), dwflags).ok()
     }
-    pub unsafe fn OpenLocalMachineGPO(&self, dwflags: u32) -> ::windows_core::Result<()> {
+    pub unsafe fn OpenLocalMachineGPO(&self, dwflags: GPO_OPEN_FLAGS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OpenLocalMachineGPO)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    pub unsafe fn OpenRemoteMachineGPO<P0>(&self, pszcomputername: P0, dwflags: u32) -> ::windows_core::Result<()>
+    pub unsafe fn OpenRemoteMachineGPO<P0>(&self, pszcomputername: P0, dwflags: GPO_OPEN_FLAGS) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
@@ -4777,13 +4779,13 @@ impl IGroupPolicyObject {
     }
     #[doc = "Required features: `Win32_System_Registry`"]
     #[cfg(feature = "Win32_System_Registry")]
-    pub unsafe fn GetRegistryKey(&self, dwsection: u32, hkey: *mut super::Registry::HKEY) -> ::windows_core::Result<()> {
+    pub unsafe fn GetRegistryKey(&self, dwsection: GPO_SECTION, hkey: *mut super::Registry::HKEY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRegistryKey)(::windows_core::Interface::as_raw(self), dwsection, hkey).ok()
     }
-    pub unsafe fn GetOptions(&self, dwoptions: *mut u32) -> ::windows_core::Result<()> {
+    pub unsafe fn GetOptions(&self, dwoptions: *mut GPO_OPTIONS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetOptions)(::windows_core::Interface::as_raw(self), dwoptions).ok()
     }
-    pub unsafe fn SetOptions(&self, dwoptions: u32, dwmask: u32) -> ::windows_core::Result<()> {
+    pub unsafe fn SetOptions(&self, dwoptions: GPO_OPTIONS, dwmask: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOptions)(::windows_core::Interface::as_raw(self), dwoptions, dwmask).ok()
     }
     pub unsafe fn GetType(&self, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> ::windows_core::Result<()> {
@@ -4810,9 +4812,9 @@ unsafe impl ::windows_core::ComInterface for IGroupPolicyObject {
 pub struct IGroupPolicyObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub New: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdomainname: ::windows_core::PCWSTR, pszdisplayname: ::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::HRESULT,
-    pub OpenDSGPO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::HRESULT,
-    pub OpenLocalMachineGPO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
-    pub OpenRemoteMachineGPO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcomputername: ::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::HRESULT,
+    pub OpenDSGPO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows_core::PCWSTR, dwflags: GPO_OPEN_FLAGS) -> ::windows_core::HRESULT,
+    pub OpenLocalMachineGPO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: GPO_OPEN_FLAGS) -> ::windows_core::HRESULT,
+    pub OpenRemoteMachineGPO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcomputername: ::windows_core::PCWSTR, dwflags: GPO_OPEN_FLAGS) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bmachine: super::super::Foundation::BOOL, badd: super::super::Foundation::BOOL, pguidextension: *mut ::windows_core::GUID, pguid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4825,11 +4827,11 @@ pub struct IGroupPolicyObject_Vtbl {
     pub GetDSPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsection: u32, pszpath: ::windows_core::PWSTR, cchmaxpath: i32) -> ::windows_core::HRESULT,
     pub GetFileSysPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsection: u32, pszpath: ::windows_core::PWSTR, cchmaxpath: i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Registry")]
-    pub GetRegistryKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsection: u32, hkey: *mut super::Registry::HKEY) -> ::windows_core::HRESULT,
+    pub GetRegistryKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsection: GPO_SECTION, hkey: *mut super::Registry::HKEY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Registry"))]
     GetRegistryKey: usize,
-    pub GetOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoptions: *mut u32) -> ::windows_core::HRESULT,
-    pub SetOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoptions: u32, dwmask: u32) -> ::windows_core::HRESULT,
+    pub GetOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoptions: *mut GPO_OPTIONS) -> ::windows_core::HRESULT,
+    pub SetOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoptions: GPO_OPTIONS, dwmask: u32) -> ::windows_core::HRESULT,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> ::windows_core::HRESULT,
     pub GetMachineName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PWSTR, cchmaxlength: i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Controls")]
@@ -4873,6 +4875,7 @@ pub struct IRSOPInformation_Vtbl {
     pub GetEventLogEntryText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszeventsource: ::windows_core::PCWSTR, pszeventlogname: ::windows_core::PCWSTR, pszeventtime: ::windows_core::PCWSTR, dweventid: u32, ppsztext: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 pub const ABSENT: APPSTATE = APPSTATE(0i32);
+pub const ADMXCOMMENTS_EXTENSION_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c5a2a86_9eb3_42b9_aa83_a7371ba011b9);
 pub const APPNAME: INSTALLSPECTYPE = INSTALLSPECTYPE(1i32);
 pub const ASSIGNED: APPSTATE = APPSTATE(1i32);
 pub const CLSID_GPESnapIn: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8fc0b734_a0e1_11d1_a7d3_0000f87571e3);
@@ -4970,13 +4973,13 @@ pub const GPO_LIST_FLAG_MACHINE: u32 = 1u32;
 pub const GPO_LIST_FLAG_NO_SECURITYFILTERS: u32 = 8u32;
 pub const GPO_LIST_FLAG_NO_WMIFILTERS: u32 = 4u32;
 pub const GPO_LIST_FLAG_SITEONLY: u32 = 2u32;
-pub const GPO_OPEN_LOAD_REGISTRY: u32 = 1u32;
-pub const GPO_OPEN_READ_ONLY: u32 = 2u32;
-pub const GPO_OPTION_DISABLE_MACHINE: u32 = 2u32;
-pub const GPO_OPTION_DISABLE_USER: u32 = 1u32;
-pub const GPO_SECTION_MACHINE: u32 = 2u32;
-pub const GPO_SECTION_ROOT: u32 = 0u32;
-pub const GPO_SECTION_USER: u32 = 1u32;
+pub const GPO_OPEN_LOAD_REGISTRY: GPO_OPEN_FLAGS = GPO_OPEN_FLAGS(1u32);
+pub const GPO_OPEN_READ_ONLY: GPO_OPEN_FLAGS = GPO_OPEN_FLAGS(2u32);
+pub const GPO_OPTION_DISABLE_MACHINE: GPO_OPTIONS = GPO_OPTIONS(2u32);
+pub const GPO_OPTION_DISABLE_USER: GPO_OPTIONS = GPO_OPTIONS(1u32);
+pub const GPO_SECTION_MACHINE: GPO_SECTION = GPO_SECTION(2u32);
+pub const GPO_SECTION_ROOT: GPO_SECTION = GPO_SECTION(0u32);
+pub const GPO_SECTION_USER: GPO_SECTION = GPO_SECTION(1u32);
 pub const GP_DLLNAME: ::windows_core::PCWSTR = ::windows_core::w!("DllName");
 pub const GP_ENABLEASYNCHRONOUSPROCESSING: ::windows_core::PCWSTR = ::windows_core::w!("EnableAsynchronousProcessing");
 pub const GP_MAXNOGPOLISTCHANGESINTERVAL: ::windows_core::PCWSTR = ::windows_core::w!("MaxNoGPOListChangesInterval");
@@ -4989,6 +4992,7 @@ pub const GP_NOUSERPOLICY: ::windows_core::PCWSTR = ::windows_core::w!("NoUserPo
 pub const GP_PERUSERLOCALSETTINGS: ::windows_core::PCWSTR = ::windows_core::w!("PerUserLocalSettings");
 pub const GP_PROCESSGROUPPOLICY: ::windows_core::PCWSTR = ::windows_core::w!("ProcessGroupPolicy");
 pub const GP_REQUIRESSUCCESSFULREGISTRY: ::windows_core::PCWSTR = ::windows_core::w!("RequiresSuccessfulRegistry");
+pub const GROUP_POLICY_TRIGGER_EVENT_PROVIDER_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbd2f4252_5e1e_49fc_9a30_f3978ad89ee2);
 pub const LOCALSTATE_ASSIGNED: u32 = 1u32;
 pub const LOCALSTATE_ORPHANED: u32 = 32u32;
 pub const LOCALSTATE_POLICYREMOVE_ORPHAN: u32 = 8u32;
@@ -4996,6 +5000,7 @@ pub const LOCALSTATE_POLICYREMOVE_UNINSTALL: u32 = 16u32;
 pub const LOCALSTATE_PUBLISHED: u32 = 2u32;
 pub const LOCALSTATE_UNINSTALLED: u32 = 64u32;
 pub const LOCALSTATE_UNINSTALL_UNMANAGED: u32 = 4u32;
+pub const MACHINE_POLICY_PRESENT_TRIGGER_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x659fcae6_5bdb_4da9_b1ff_ca2a178d46e0);
 pub const MANAGED_APPS_FROMCATEGORY: u32 = 2u32;
 pub const MANAGED_APPS_INFOLEVEL_DEFAULT: u32 = 65536u32;
 pub const MANAGED_APPS_USERAPPLICATIONS: u32 = 1u32;
@@ -5018,6 +5023,7 @@ pub const PT_ROAMING: u32 = 2u32;
 pub const PT_ROAMING_PREEXISTING: u32 = 8u32;
 pub const PT_TEMPORARY: u32 = 1u32;
 pub const PUBLISHED: APPSTATE = APPSTATE(2i32);
+pub const REGISTRY_EXTENSION_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x35378eac_683f_11d2_a89a_00c04fbbcfa2);
 pub const RP_FORCE: u32 = 1u32;
 pub const RP_SYNC: u32 = 2u32;
 pub const RSOPApplied: SETTINGSTATUS = SETTINGSTATUS(1i32);
@@ -5036,6 +5042,7 @@ pub const RSOP_PLANNING_ASSUME_SLOW_LINK: u32 = 1u32;
 pub const RSOP_PLANNING_ASSUME_USER_WQLFILTER_TRUE: u32 = 8u32;
 pub const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4u32;
 pub const RSOP_USER_ACCESS_DENIED: u32 = 1u32;
+pub const USER_POLICY_PRESENT_TRIGGER_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54fb46c8_f089_464c_b1fd_59d1b62c3b50);
 pub const backupMostRecent: GPMSearchProperty = GPMSearchProperty(9i32);
 pub const gpoComputerExtensions: GPMSearchProperty = GPMSearchProperty(5i32);
 pub const gpoDisplayName: GPMSearchProperty = GPMSearchProperty(2i32);
@@ -5387,6 +5394,105 @@ impl ::windows_core::TypeKind for GPO_LINK {
 impl ::core::fmt::Debug for GPO_LINK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GPO_LINK").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GPO_OPEN_FLAGS(pub u32);
+impl ::core::marker::Copy for GPO_OPEN_FLAGS {}
+impl ::core::clone::Clone for GPO_OPEN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GPO_OPEN_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for GPO_OPEN_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for GPO_OPEN_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GPO_OPEN_FLAGS").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GPO_OPTIONS(pub u32);
+impl ::core::marker::Copy for GPO_OPTIONS {}
+impl ::core::clone::Clone for GPO_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GPO_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for GPO_OPTIONS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for GPO_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GPO_OPTIONS").field(&self.0).finish()
+    }
+}
+impl GPO_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for GPO_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GPO_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GPO_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GPO_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GPO_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GPO_SECTION(pub u32);
+impl ::core::marker::Copy for GPO_SECTION {}
+impl ::core::clone::Clone for GPO_SECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GPO_SECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for GPO_SECTION {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for GPO_SECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GPO_SECTION").field(&self.0).finish()
     }
 }
 #[repr(transparent)]

@@ -505,7 +505,7 @@ pub trait IDirectMusicSynth_Impl: Sized {
     fn Open(&self, pportparams: *mut DMUS_PORTPARAMS8) -> ::windows_core::Result<()>;
     fn Close(&self) -> ::windows_core::Result<()>;
     fn SetNumChannelGroups(&self, dwgroups: u32) -> ::windows_core::Result<()>;
-    fn Download(&self, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::core::ffi::c_void, pbfree: *mut i32) -> ::windows_core::Result<()>;
+    fn Download(&self, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::core::ffi::c_void, pbfree: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn Unload(&self, hdownload: super::super::super::Foundation::HANDLE, lpfreehandle: isize, huserdata: super::super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
     fn PlayBuffer(&self, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> ::windows_core::Result<()>;
     fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> ::windows_core::Result<()>;
@@ -540,7 +540,7 @@ impl IDirectMusicSynth_Vtbl {
             let this = (*this).get_impl();
             this.SetNumChannelGroups(::core::mem::transmute_copy(&dwgroups)).into()
         }
-        unsafe extern "system" fn Download<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicSynth_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::core::ffi::c_void, pbfree: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Download<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicSynth_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::core::ffi::c_void, pbfree: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Download(::core::mem::transmute_copy(&phdownload), ::core::mem::transmute_copy(&pvdata), ::core::mem::transmute_copy(&pbfree)).into()

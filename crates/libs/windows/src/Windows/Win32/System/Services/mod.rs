@@ -21,7 +21,7 @@ where
 #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ChangeServiceConfigA<P0, P1, P2, P3, P4, P5, P6>(hservice: P0, dwservicetype: u32, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: P1, lploadordergroup: P2, lpdwtagid: ::core::option::Option<*mut u32>, lpdependencies: P3, lpservicestartname: P4, lppassword: P5, lpdisplayname: P6) -> ::windows_core::Result<()>
+pub unsafe fn ChangeServiceConfigA<P0, P1, P2, P3, P4, P5, P6>(hservice: P0, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: P1, lploadordergroup: P2, lpdwtagid: ::core::option::Option<*mut u32>, lpdependencies: P3, lpservicestartname: P4, lppassword: P5, lpdisplayname: P6) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Security::SC_HANDLE>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
@@ -31,13 +31,13 @@ where
     P5: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P6: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn ChangeServiceConfigA(hservice : super::super::Security:: SC_HANDLE, dwservicetype : u32, dwstarttype : SERVICE_START_TYPE, dwerrorcontrol : SERVICE_ERROR, lpbinarypathname : ::windows_core::PCSTR, lploadordergroup : ::windows_core::PCSTR, lpdwtagid : *mut u32, lpdependencies : ::windows_core::PCSTR, lpservicestartname : ::windows_core::PCSTR, lppassword : ::windows_core::PCSTR, lpdisplayname : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("advapi32.dll" "system" fn ChangeServiceConfigA(hservice : super::super::Security:: SC_HANDLE, dwservicetype : ENUM_SERVICE_TYPE, dwstarttype : SERVICE_START_TYPE, dwerrorcontrol : SERVICE_ERROR, lpbinarypathname : ::windows_core::PCSTR, lploadordergroup : ::windows_core::PCSTR, lpdwtagid : *mut u32, lpdependencies : ::windows_core::PCSTR, lpservicestartname : ::windows_core::PCSTR, lppassword : ::windows_core::PCSTR, lpdisplayname : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     ChangeServiceConfigA(hservice.into_param().abi(), dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.into_param().abi(), lploadordergroup.into_param().abi(), ::core::mem::transmute(lpdwtagid.unwrap_or(::std::ptr::null_mut())), lpdependencies.into_param().abi(), lpservicestartname.into_param().abi(), lppassword.into_param().abi(), lpdisplayname.into_param().abi()).ok()
 }
 #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ChangeServiceConfigW<P0, P1, P2, P3, P4, P5, P6>(hservice: P0, dwservicetype: u32, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: P1, lploadordergroup: P2, lpdwtagid: ::core::option::Option<*mut u32>, lpdependencies: P3, lpservicestartname: P4, lppassword: P5, lpdisplayname: P6) -> ::windows_core::Result<()>
+pub unsafe fn ChangeServiceConfigW<P0, P1, P2, P3, P4, P5, P6>(hservice: P0, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: P1, lploadordergroup: P2, lpdwtagid: ::core::option::Option<*mut u32>, lpdependencies: P3, lpservicestartname: P4, lppassword: P5, lpdisplayname: P6) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Security::SC_HANDLE>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -47,7 +47,7 @@ where
     P5: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P6: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn ChangeServiceConfigW(hservice : super::super::Security:: SC_HANDLE, dwservicetype : u32, dwstarttype : SERVICE_START_TYPE, dwerrorcontrol : SERVICE_ERROR, lpbinarypathname : ::windows_core::PCWSTR, lploadordergroup : ::windows_core::PCWSTR, lpdwtagid : *mut u32, lpdependencies : ::windows_core::PCWSTR, lpservicestartname : ::windows_core::PCWSTR, lppassword : ::windows_core::PCWSTR, lpdisplayname : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("advapi32.dll" "system" fn ChangeServiceConfigW(hservice : super::super::Security:: SC_HANDLE, dwservicetype : ENUM_SERVICE_TYPE, dwstarttype : SERVICE_START_TYPE, dwerrorcontrol : SERVICE_ERROR, lpbinarypathname : ::windows_core::PCWSTR, lploadordergroup : ::windows_core::PCWSTR, lpdwtagid : *mut u32, lpdependencies : ::windows_core::PCWSTR, lpservicestartname : ::windows_core::PCWSTR, lppassword : ::windows_core::PCWSTR, lpdisplayname : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     ChangeServiceConfigW(hservice.into_param().abi(), dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.into_param().abi(), lploadordergroup.into_param().abi(), ::core::mem::transmute(lpdwtagid.unwrap_or(::std::ptr::null_mut())), lpdependencies.into_param().abi(), lpservicestartname.into_param().abi(), lppassword.into_param().abi(), lpdisplayname.into_param().abi()).ok()
 }
 #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]

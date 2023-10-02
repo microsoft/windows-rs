@@ -4680,9 +4680,9 @@ impl IGPMWMIFilterCollection_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_Controls"))]
 pub trait IGroupPolicyObject_Impl: Sized {
     fn New(&self, pszdomainname: &::windows_core::PCWSTR, pszdisplayname: &::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::Result<()>;
-    fn OpenDSGPO(&self, pszpath: &::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::Result<()>;
-    fn OpenLocalMachineGPO(&self, dwflags: u32) -> ::windows_core::Result<()>;
-    fn OpenRemoteMachineGPO(&self, pszcomputername: &::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::Result<()>;
+    fn OpenDSGPO(&self, pszpath: &::windows_core::PCWSTR, dwflags: GPO_OPEN_FLAGS) -> ::windows_core::Result<()>;
+    fn OpenLocalMachineGPO(&self, dwflags: GPO_OPEN_FLAGS) -> ::windows_core::Result<()>;
+    fn OpenRemoteMachineGPO(&self, pszcomputername: &::windows_core::PCWSTR, dwflags: GPO_OPEN_FLAGS) -> ::windows_core::Result<()>;
     fn Save(&self, bmachine: super::super::Foundation::BOOL, badd: super::super::Foundation::BOOL, pguidextension: *mut ::windows_core::GUID, pguid: *mut ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn Delete(&self) -> ::windows_core::Result<()>;
     fn GetName(&self, pszname: ::windows_core::PWSTR, cchmaxlength: i32) -> ::windows_core::Result<()>;
@@ -4691,9 +4691,9 @@ pub trait IGroupPolicyObject_Impl: Sized {
     fn GetPath(&self, pszpath: ::windows_core::PWSTR, cchmaxlength: i32) -> ::windows_core::Result<()>;
     fn GetDSPath(&self, dwsection: u32, pszpath: ::windows_core::PWSTR, cchmaxpath: i32) -> ::windows_core::Result<()>;
     fn GetFileSysPath(&self, dwsection: u32, pszpath: ::windows_core::PWSTR, cchmaxpath: i32) -> ::windows_core::Result<()>;
-    fn GetRegistryKey(&self, dwsection: u32, hkey: *mut super::Registry::HKEY) -> ::windows_core::Result<()>;
-    fn GetOptions(&self, dwoptions: *mut u32) -> ::windows_core::Result<()>;
-    fn SetOptions(&self, dwoptions: u32, dwmask: u32) -> ::windows_core::Result<()>;
+    fn GetRegistryKey(&self, dwsection: GPO_SECTION, hkey: *mut super::Registry::HKEY) -> ::windows_core::Result<()>;
+    fn GetOptions(&self, dwoptions: *mut GPO_OPTIONS) -> ::windows_core::Result<()>;
+    fn SetOptions(&self, dwoptions: GPO_OPTIONS, dwmask: u32) -> ::windows_core::Result<()>;
     fn GetType(&self, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> ::windows_core::Result<()>;
     fn GetMachineName(&self, pszname: ::windows_core::PWSTR, cchmaxlength: i32) -> ::windows_core::Result<()>;
     fn GetPropertySheetPages(&self, hpages: *mut *mut super::super::UI::Controls::HPROPSHEETPAGE, upagecount: *mut u32) -> ::windows_core::Result<()>;
@@ -4708,17 +4708,17 @@ impl IGroupPolicyObject_Vtbl {
             let this = (*this).get_impl();
             this.New(::core::mem::transmute(&pszdomainname), ::core::mem::transmute(&pszdisplayname), ::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn OpenDSGPO<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn OpenDSGPO<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows_core::PCWSTR, dwflags: GPO_OPEN_FLAGS) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OpenDSGPO(::core::mem::transmute(&pszpath), ::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn OpenLocalMachineGPO<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn OpenLocalMachineGPO<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: GPO_OPEN_FLAGS) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OpenLocalMachineGPO(::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn OpenRemoteMachineGPO<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcomputername: ::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn OpenRemoteMachineGPO<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcomputername: ::windows_core::PCWSTR, dwflags: GPO_OPEN_FLAGS) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OpenRemoteMachineGPO(::core::mem::transmute(&pszcomputername), ::core::mem::transmute_copy(&dwflags)).into()
@@ -4763,17 +4763,17 @@ impl IGroupPolicyObject_Vtbl {
             let this = (*this).get_impl();
             this.GetFileSysPath(::core::mem::transmute_copy(&dwsection), ::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&cchmaxpath)).into()
         }
-        unsafe extern "system" fn GetRegistryKey<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, hkey: *mut super::Registry::HKEY) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetRegistryKey<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: GPO_SECTION, hkey: *mut super::Registry::HKEY) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetRegistryKey(::core::mem::transmute_copy(&dwsection), ::core::mem::transmute_copy(&hkey)).into()
         }
-        unsafe extern "system" fn GetOptions<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoptions: *mut u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetOptions<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoptions: *mut GPO_OPTIONS) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetOptions(::core::mem::transmute_copy(&dwoptions)).into()
         }
-        unsafe extern "system" fn SetOptions<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoptions: u32, dwmask: u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetOptions<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoptions: GPO_OPTIONS, dwmask: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOptions(::core::mem::transmute_copy(&dwoptions), ::core::mem::transmute_copy(&dwmask)).into()

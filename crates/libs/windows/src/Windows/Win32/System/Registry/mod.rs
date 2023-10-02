@@ -401,11 +401,11 @@ where
 #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RegGetKeySecurity<P0>(hkey: P0, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> ::windows_core::Result<()>
+pub unsafe fn RegGetKeySecurity<P0>(hkey: P0, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HKEY>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn RegGetKeySecurity(hkey : HKEY, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+    ::windows_targets::link!("advapi32.dll" "system" fn RegGetKeySecurity(hkey : HKEY, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
     RegGetKeySecurity(hkey.into_param().abi(), securityinformation, psecuritydescriptor, lpcbsecuritydescriptor).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -838,12 +838,12 @@ where
 #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RegSetKeySecurity<P0, P1>(hkey: P0, securityinformation: u32, psecuritydescriptor: P1) -> ::windows_core::Result<()>
+pub unsafe fn RegSetKeySecurity<P0, P1>(hkey: P0, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P1) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HKEY>,
     P1: ::windows_core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn RegSetKeySecurity(hkey : HKEY, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: WIN32_ERROR);
+    ::windows_targets::link!("advapi32.dll" "system" fn RegSetKeySecurity(hkey : HKEY, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: WIN32_ERROR);
     RegSetKeySecurity(hkey.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi()).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]

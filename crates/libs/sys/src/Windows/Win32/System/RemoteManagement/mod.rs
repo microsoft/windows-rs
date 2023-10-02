@@ -996,7 +996,7 @@ pub struct WSMAN_PLUGIN_REQUEST {
     pub locale: ::windows_sys::core::PCWSTR,
     pub resourceUri: ::windows_sys::core::PCWSTR,
     pub operationInfo: *mut WSMAN_OPERATION_INFO,
-    pub shutdownNotification: i32,
+    pub shutdownNotification: super::super::Foundation::BOOL,
     pub shutdownNotificationHandle: super::super::Foundation::HANDLE,
     pub dataLocale: ::windows_sys::core::PCWSTR,
 }

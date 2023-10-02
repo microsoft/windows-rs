@@ -1177,13 +1177,13 @@ where
 #[doc = "Required features: `Win32_Security`, `Win32_System_Registry`"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn ClusterRegSetKeySecurityEx<P0, P1, P2>(hkey: P0, securityinformation: u32, psecuritydescriptor: P1, lpszreason: P2) -> i32
+pub unsafe fn ClusterRegSetKeySecurityEx<P0, P1, P2>(hkey: P0, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P1, lpszreason: P2) -> i32
 where
     P0: ::windows_core::IntoParam<super::super::System::Registry::HKEY>,
     P1: ::windows_core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegSetKeySecurityEx(hkey : super::super::System::Registry:: HKEY, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, lpszreason : ::windows_core::PCWSTR) -> i32);
+    ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegSetKeySecurityEx(hkey : super::super::System::Registry:: HKEY, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, lpszreason : ::windows_core::PCWSTR) -> i32);
     ClusterRegSetKeySecurityEx(hkey.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi(), lpszreason.into_param().abi())
 }
 #[doc = "Required features: `Win32_System_Registry`"]

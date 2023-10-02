@@ -136,8 +136,8 @@ pub unsafe fn CMGetNamedProfileInfo(hprofile: isize, pnamedprofileinfo: *mut NAM
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CMIsProfileValid(hprofile: isize, lpbvalid: *mut i32) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("icm32.dll" "system" fn CMIsProfileValid(hprofile : isize, lpbvalid : *mut i32) -> super::super::Foundation:: BOOL);
+pub unsafe fn CMIsProfileValid(hprofile: isize, lpbvalid: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("icm32.dll" "system" fn CMIsProfileValid(hprofile : isize, lpbvalid : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     CMIsProfileValid(hprofile, lpbvalid)
 }
 #[doc = "Required features: `Win32_Foundation`"]

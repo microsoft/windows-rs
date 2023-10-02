@@ -199,8 +199,8 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuditQuerySecurity(securityinformation: u32, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN {
-    ::windows_targets::link!("advapi32.dll" "system" fn AuditQuerySecurity(securityinformation : u32, ppsecuritydescriptor : *mut super::super:: PSECURITY_DESCRIPTOR) -> super::super::super::Foundation:: BOOLEAN);
+pub unsafe fn AuditQuerySecurity(securityinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN {
+    ::windows_targets::link!("advapi32.dll" "system" fn AuditQuerySecurity(securityinformation : super::super:: OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor : *mut super::super:: PSECURITY_DESCRIPTOR) -> super::super::super::Foundation:: BOOLEAN);
     AuditQuerySecurity(securityinformation, ppsecuritydescriptor)
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -243,11 +243,11 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuditSetSecurity<P0>(securityinformation: u32, psecuritydescriptor: P0) -> super::super::super::Foundation::BOOLEAN
+pub unsafe fn AuditSetSecurity<P0>(securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P0) -> super::super::super::Foundation::BOOLEAN
 where
     P0: ::windows_core::IntoParam<super::super::PSECURITY_DESCRIPTOR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn AuditSetSecurity(securityinformation : u32, psecuritydescriptor : super::super:: PSECURITY_DESCRIPTOR) -> super::super::super::Foundation:: BOOLEAN);
+    ::windows_targets::link!("advapi32.dll" "system" fn AuditSetSecurity(securityinformation : super::super:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super:: PSECURITY_DESCRIPTOR) -> super::super::super::Foundation:: BOOLEAN);
     AuditSetSecurity(securityinformation, psecuritydescriptor.into_param().abi())
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -1454,8 +1454,8 @@ pub unsafe fn SetCredentialsAttributesW(phcredential: *const super::super::Crede
     ::windows_targets::link!("secur32.dll" "system" fn SetCredentialsAttributesW(phcredential : *const super::super::Credentials:: SecHandle, ulattribute : u32, pbuffer : *const ::core::ffi::c_void, cbbuffer : u32) -> ::windows_core::HRESULT);
     SetCredentialsAttributesW(phcredential, ulattribute, pbuffer, cbbuffer).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn SslCrackCertificate(pbcertificate: *mut u8, cbcertificate: u32, dwflags: u32, ppcertificate: *mut *mut X509Certificate) -> super::super::super::Foundation::BOOL {
     ::windows_targets::link!("schannel.dll" "system" fn SslCrackCertificate(pbcertificate : *mut u8, cbcertificate : u32, dwflags : u32, ppcertificate : *mut *mut X509Certificate) -> super::super::super::Foundation:: BOOL);
@@ -1489,8 +1489,8 @@ where
     ::windows_targets::link!("schannel.dll" "system" fn SslEmptyCacheW(psztargetname : ::windows_core::PCWSTR, dwflags : u32) -> super::super::super::Foundation:: BOOL);
     SslEmptyCacheW(psztargetname.into_param().abi(), dwflags)
 }
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn SslFreeCertificate(pcertificate: *mut X509Certificate) {
     ::windows_targets::link!("schannel.dll" "system" fn SslFreeCertificate(pcertificate : *mut X509Certificate) -> ());
@@ -11757,33 +11757,42 @@ impl ::core::default::Default for SCHANNEL_CERT_HASH_STORE {
     }
 }
 #[repr(C)]
+#[doc = "Required features: `Win32_Security_Cryptography`"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SCHANNEL_CLIENT_SIGNATURE {
     pub cbLength: u32,
-    pub aiHash: u32,
+    pub aiHash: super::super::Cryptography::ALG_ID,
     pub cbHash: u32,
     pub HashValue: [u8; 36],
     pub CertThumbprint: [u8; 20],
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for SCHANNEL_CLIENT_SIGNATURE {}
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for SCHANNEL_CLIENT_SIGNATURE {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for SCHANNEL_CLIENT_SIGNATURE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SCHANNEL_CLIENT_SIGNATURE").field("cbLength", &self.cbLength).field("aiHash", &self.aiHash).field("cbHash", &self.cbHash).field("HashValue", &self.HashValue).field("CertThumbprint", &self.CertThumbprint).finish()
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::windows_core::TypeKind for SCHANNEL_CLIENT_SIGNATURE {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SCHANNEL_CLIENT_SIGNATURE {
     fn eq(&self, other: &Self) -> bool {
         self.cbLength == other.cbLength && self.aiHash == other.aiHash && self.cbHash == other.cbHash && self.HashValue == other.HashValue && self.CertThumbprint == other.CertThumbprint
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for SCHANNEL_CLIENT_SIGNATURE {}
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for SCHANNEL_CLIENT_SIGNATURE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11800,7 +11809,7 @@ pub struct SCHANNEL_CRED {
     pub cMappers: u32,
     pub aphMappers: *mut *mut _HMAPPER,
     pub cSupportedAlgs: u32,
-    pub palgSupportedAlgs: *mut u32,
+    pub palgSupportedAlgs: *mut super::super::Cryptography::ALG_ID,
     pub grbitEnabledProtocols: u32,
     pub dwMinimumCipherStrength: u32,
     pub dwMaximumCipherStrength: u32,
@@ -15386,35 +15395,44 @@ impl ::core::default::Default for SecPkgContext_ClientSpecifiedTarget {
     }
 }
 #[repr(C)]
+#[doc = "Required features: `Win32_Security_Cryptography`"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SecPkgContext_ConnectionInfo {
     pub dwProtocol: u32,
-    pub aiCipher: u32,
+    pub aiCipher: super::super::Cryptography::ALG_ID,
     pub dwCipherStrength: u32,
-    pub aiHash: u32,
+    pub aiHash: super::super::Cryptography::ALG_ID,
     pub dwHashStrength: u32,
-    pub aiExch: u32,
+    pub aiExch: super::super::Cryptography::ALG_ID,
     pub dwExchStrength: u32,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for SecPkgContext_ConnectionInfo {}
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for SecPkgContext_ConnectionInfo {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for SecPkgContext_ConnectionInfo {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SecPkgContext_ConnectionInfo").field("dwProtocol", &self.dwProtocol).field("aiCipher", &self.aiCipher).field("dwCipherStrength", &self.dwCipherStrength).field("aiHash", &self.aiHash).field("dwHashStrength", &self.dwHashStrength).field("aiExch", &self.aiExch).field("dwExchStrength", &self.dwExchStrength).finish()
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::windows_core::TypeKind for SecPkgContext_ConnectionInfo {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SecPkgContext_ConnectionInfo {
     fn eq(&self, other: &Self) -> bool {
         self.dwProtocol == other.dwProtocol && self.aiCipher == other.aiCipher && self.dwCipherStrength == other.dwCipherStrength && self.aiHash == other.aiHash && self.dwHashStrength == other.dwHashStrength && self.aiExch == other.aiExch && self.dwExchStrength == other.dwExchStrength
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for SecPkgContext_ConnectionInfo {}
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for SecPkgContext_ConnectionInfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17114,30 +17132,39 @@ impl ::core::default::Default for SecPkgCred_SessionTicketKeys {
     }
 }
 #[repr(C)]
+#[doc = "Required features: `Win32_Security_Cryptography`"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SecPkgCred_SupportedAlgs {
     pub cSupportedAlgs: u32,
-    pub palgSupportedAlgs: *mut u32,
+    pub palgSupportedAlgs: *mut super::super::Cryptography::ALG_ID,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for SecPkgCred_SupportedAlgs {}
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for SecPkgCred_SupportedAlgs {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for SecPkgCred_SupportedAlgs {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SecPkgCred_SupportedAlgs").field("cSupportedAlgs", &self.cSupportedAlgs).field("palgSupportedAlgs", &self.palgSupportedAlgs).finish()
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::windows_core::TypeKind for SecPkgCred_SupportedAlgs {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SecPkgCred_SupportedAlgs {
     fn eq(&self, other: &Self) -> bool {
         self.cSupportedAlgs == other.cSupportedAlgs && self.palgSupportedAlgs == other.palgSupportedAlgs
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for SecPkgCred_SupportedAlgs {}
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for SecPkgCred_SupportedAlgs {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18184,45 +18211,45 @@ impl ::core::default::Default for USER_SESSION_KEY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct X509Certificate {
     pub Version: u32,
     pub SerialNumber: [u32; 4],
-    pub SignatureAlgorithm: u32,
+    pub SignatureAlgorithm: super::super::Cryptography::ALG_ID,
     pub ValidFrom: super::super::super::Foundation::FILETIME,
     pub ValidUntil: super::super::super::Foundation::FILETIME,
     pub pszIssuer: ::windows_core::PSTR,
     pub pszSubject: ::windows_core::PSTR,
     pub pPublicKey: *mut PctPublicKey,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::marker::Copy for X509Certificate {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::clone::Clone for X509Certificate {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for X509Certificate {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("X509Certificate").field("Version", &self.Version).field("SerialNumber", &self.SerialNumber).field("SignatureAlgorithm", &self.SignatureAlgorithm).field("ValidFrom", &self.ValidFrom).field("ValidUntil", &self.ValidUntil).field("pszIssuer", &self.pszIssuer).field("pszSubject", &self.pszSubject).field("pPublicKey", &self.pPublicKey).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::windows_core::TypeKind for X509Certificate {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for X509Certificate {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.SerialNumber == other.SerialNumber && self.SignatureAlgorithm == other.SignatureAlgorithm && self.ValidFrom == other.ValidFrom && self.ValidUntil == other.ValidUntil && self.pszIssuer == other.pszIssuer && self.pszSubject == other.pszSubject && self.pPublicKey == other.pPublicKey
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::Eq for X509Certificate {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for X509Certificate {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18701,8 +18728,8 @@ pub type SET_CREDENTIALS_ATTRIBUTES_FN_A = ::core::option::Option<unsafe extern 
 #[doc = "Required features: `Win32_Security_Credentials`"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type SET_CREDENTIALS_ATTRIBUTES_FN_W = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub type SSL_CRACK_CERTIFICATE_FN = ::core::option::Option<unsafe extern "system" fn(pbcertificate: *mut u8, cbcertificate: u32, verifysignature: super::super::super::Foundation::BOOL, ppcertificate: *mut *mut X509Certificate) -> super::super::super::Foundation::BOOL>;
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -18710,8 +18737,8 @@ pub type SSL_EMPTY_CACHE_FN_A = ::core::option::Option<unsafe extern "system" fn
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SSL_EMPTY_CACHE_FN_W = ::core::option::Option<unsafe extern "system" fn(psztargetname: ::windows_core::PCWSTR, dwflags: u32) -> super::super::super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub type SSL_FREE_CERTIFICATE_FN = ::core::option::Option<unsafe extern "system" fn(pcertificate: *mut X509Certificate) -> ()>;
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]

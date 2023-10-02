@@ -2930,8 +2930,12 @@ pub struct ISpResourceManager(::windows_core::IUnknown);
 impl ISpResourceManager {
     #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueryService(&self, guidservice: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.QueryService)(::windows_core::Interface::as_raw(self), guidservice, riid, ppvobject).ok()
+    pub unsafe fn QueryService<T>(&self, guidservice: *const ::windows_core::GUID) -> ::windows_core::Result<T>
+    where
+        T: ::windows_core::ComInterface,
+    {
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows_core::Interface::vtable(self).base__.QueryService)(::windows_core::Interface::as_raw(self), guidservice, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetObject<P0>(&self, guidserviceid: *const ::windows_core::GUID, punkobject: P0) -> ::windows_core::Result<()>
     where

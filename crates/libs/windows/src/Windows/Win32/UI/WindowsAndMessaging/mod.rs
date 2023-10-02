@@ -3764,24 +3764,24 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TrackPopupMenu<P0, P1>(hmenu: P0, uflags: TRACK_POPUP_MENU_FLAGS, x: i32, y: i32, nreserved: i32, hwnd: P1, prcrect: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows_core::Result<()>
+pub unsafe fn TrackPopupMenu<P0, P1>(hmenu: P0, uflags: TRACK_POPUP_MENU_FLAGS, x: i32, y: i32, nreserved: i32, hwnd: P1, prcrect: ::core::option::Option<*const super::super::Foundation::RECT>) -> super::super::Foundation::BOOL
 where
     P0: ::windows_core::IntoParam<HMENU>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn TrackPopupMenu(hmenu : HMENU, uflags : TRACK_POPUP_MENU_FLAGS, x : i32, y : i32, nreserved : i32, hwnd : super::super::Foundation:: HWND, prcrect : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-    TrackPopupMenu(hmenu.into_param().abi(), uflags, x, y, nreserved, hwnd.into_param().abi(), ::core::mem::transmute(prcrect.unwrap_or(::std::ptr::null()))).ok()
+    TrackPopupMenu(hmenu.into_param().abi(), uflags, x, y, nreserved, hwnd.into_param().abi(), ::core::mem::transmute(prcrect.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TrackPopupMenuEx<P0, P1>(hmenu: P0, uflags: u32, x: i32, y: i32, hwnd: P1, lptpm: ::core::option::Option<*const TPMPARAMS>) -> ::windows_core::Result<()>
+pub unsafe fn TrackPopupMenuEx<P0, P1>(hmenu: P0, uflags: u32, x: i32, y: i32, hwnd: P1, lptpm: ::core::option::Option<*const TPMPARAMS>) -> super::super::Foundation::BOOL
 where
     P0: ::windows_core::IntoParam<HMENU>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn TrackPopupMenuEx(hmenu : HMENU, uflags : u32, x : i32, y : i32, hwnd : super::super::Foundation:: HWND, lptpm : *const TPMPARAMS) -> super::super::Foundation:: BOOL);
-    TrackPopupMenuEx(hmenu.into_param().abi(), uflags, x, y, hwnd.into_param().abi(), ::core::mem::transmute(lptpm.unwrap_or(::std::ptr::null()))).ok()
+    TrackPopupMenuEx(hmenu.into_param().abi(), uflags, x, y, hwnd.into_param().abi(), ::core::mem::transmute(lptpm.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4353,13 +4353,6 @@ pub const EVENT_UIA_EVENTID_END: u32 = 20223u32;
 pub const EVENT_UIA_EVENTID_START: u32 = 19968u32;
 pub const EVENT_UIA_PROPID_END: u32 = 30207u32;
 pub const EVENT_UIA_PROPID_START: u32 = 29952u32;
-pub const EWX_ARSO: u32 = 67108864u32;
-pub const EWX_BOOTOPTIONS: u32 = 16777216u32;
-pub const EWX_CHECK_SAFE_FOR_SERVER: u32 = 134217728u32;
-pub const EWX_FORCE: u32 = 4u32;
-pub const EWX_FORCEIFHUNG: u32 = 16u32;
-pub const EWX_QUICKRESOLVE: u32 = 32u32;
-pub const EWX_SYSTEM_INITIATED: u32 = 268435456u32;
 pub const FALT: ACCEL_VIRT_FLAGS = ACCEL_VIRT_FLAGS(16u8);
 pub const FAPPCOMMAND_KEY: u32 = 0u32;
 pub const FAPPCOMMAND_MASK: u32 = 61440u32;
@@ -4609,6 +4602,9 @@ pub const HTZOOM: u32 = 9u32;
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub const HWND_BOTTOM: super::super::Foundation::HWND = super::super::Foundation::HWND(1i32 as _);
+#[doc = "Required features: `Win32_Foundation`"]
+#[cfg(feature = "Win32_Foundation")]
+pub const HWND_BROADCAST: super::super::Foundation::HWND = super::super::Foundation::HWND(65535i32 as _);
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub const HWND_DESKTOP: super::super::Foundation::HWND = super::super::Foundation::HWND(0i32 as _);
@@ -7904,6 +7900,39 @@ impl ::windows_core::TypeKind for REGISTER_NOTIFICATION_FLAGS {
 impl ::core::fmt::Debug for REGISTER_NOTIFICATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("REGISTER_NOTIFICATION_FLAGS").field(&self.0).finish()
+    }
+}
+impl REGISTER_NOTIFICATION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for REGISTER_NOTIFICATION_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for REGISTER_NOTIFICATION_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for REGISTER_NOTIFICATION_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for REGISTER_NOTIFICATION_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for REGISTER_NOTIFICATION_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(transparent)]

@@ -66,17 +66,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn CancelDeviceWakeupRequest(hdevice : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     CancelDeviceWakeupRequest(hdevice.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn CancelTimerQueueTimer<P0, P1>(timerqueue: P0, timer: P1) -> super::super::Foundation::BOOL
-where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-{
-    ::windows_targets::link!("kernel32.dll" "system" fn CancelTimerQueueTimer(timerqueue : super::super::Foundation:: HANDLE, timer : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    CancelTimerQueueTimer(timerqueue.into_param().abi(), timer.into_param().abi())
-}
 #[inline]
 pub unsafe fn CloseINFEngine(hinf: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
     ::windows_targets::link!("advpack.dll" "system" fn CloseINFEngine(hinf : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
@@ -91,27 +80,6 @@ pub unsafe fn ConvertAuxiliaryCounterToPerformanceCounter(ullauxiliarycounterval
 pub unsafe fn ConvertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue: u64, lpauxiliarycountervalue: *mut u64, lpconversionerror: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("api-ms-win-core-realtime-l1-1-2.dll" "system" fn ConvertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue : u64, lpauxiliarycountervalue : *mut u64, lpconversionerror : *mut u64) -> ::windows_core::HRESULT);
     ConvertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue, lpauxiliarycountervalue, ::core::mem::transmute(lpconversionerror.unwrap_or(::std::ptr::null_mut()))).ok()
-}
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
-pub unsafe fn CreateWaitableTimerA<P0, P1>(lptimerattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, bmanualreset: P0, lptimername: P1) -> super::super::Foundation::HANDLE
-where
-    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
-{
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateWaitableTimerA(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, bmanualreset : super::super::Foundation:: BOOL, lptimername : ::windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    CreateWaitableTimerA(::core::mem::transmute(lptimerattributes.unwrap_or(::std::ptr::null())), bmanualreset.into_param().abi(), lptimername.into_param().abi())
-}
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
-pub unsafe fn CreateWaitableTimerExA<P0>(lptimerattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lptimername: P0, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE
-where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-{
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateWaitableTimerExA(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lptimername : ::windows_core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
-    CreateWaitableTimerExA(::core::mem::transmute(lptimerattributes.unwrap_or(::std::ptr::null())), lptimername.into_param().abi(), dwflags, dwdesiredaccess)
 }
 #[inline]
 pub unsafe fn DCIBeginAccess(pdci: *mut DCISURFACEINFO, x: i32, y: i32, dx: i32, dy: i32) -> i32 {
@@ -950,17 +918,6 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn OpenSemaphoreA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : ::windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     OpenSemaphoreA(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi())
-}
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn OpenWaitableTimerA<P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lptimername: P1) -> super::super::Foundation::HANDLE
-where
-    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
-{
-    ::windows_targets::link!("kernel32.dll" "system" fn OpenWaitableTimerA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lptimername : ::windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    OpenWaitableTimerA(dwdesiredaccess, binherithandle.into_param().abi(), lptimername.into_param().abi())
 }
 #[inline]
 pub unsafe fn QueryAuxiliaryCounterFrequency() -> ::windows_core::Result<u64> {

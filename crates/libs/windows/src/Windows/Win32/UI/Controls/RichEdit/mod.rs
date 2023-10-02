@@ -6013,9 +6013,6 @@ pub const ES_SELECTIONBAR: u32 = 16777216u32;
 pub const ES_SELFIME: u32 = 262144u32;
 pub const ES_SUNKEN: u32 = 16384u32;
 pub const ES_VERTICAL: u32 = 4194304u32;
-pub const FR_MATCHALEFHAMZA: u32 = 2147483648u32;
-pub const FR_MATCHDIAC: u32 = 536870912u32;
-pub const FR_MATCHKASHIDA: u32 = 1073741824u32;
 pub const GCMF_GRIPPER: u32 = 1u32;
 pub const GCMF_MOUSEMENU: u32 = 8192u32;
 pub const GCMF_SPELLING: u32 = 2u32;
@@ -6110,45 +6107,48 @@ pub const PC_FOLLOWING: u32 = 1u32;
 pub const PC_LEADING: u32 = 2u32;
 pub const PC_OVERFLOW: u32 = 3u32;
 pub const PFA_CENTER: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(3u16);
-pub const PFA_FULL_GLYPHS: u32 = 8u32;
-pub const PFA_FULL_INTERLETTER: u32 = 6u32;
-pub const PFA_FULL_INTERWORD: u32 = 4u32;
-pub const PFA_FULL_NEWSPAPER: u32 = 5u32;
-pub const PFA_FULL_SCALED: u32 = 7u32;
-pub const PFA_JUSTIFY: u32 = 4u32;
+pub const PFA_FULL_GLYPHS: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(8u16);
+pub const PFA_FULL_INTERLETTER: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(6u16);
+pub const PFA_FULL_INTERWORD: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(4u16);
+pub const PFA_FULL_NEWSPAPER: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(5u16);
+pub const PFA_FULL_SCALED: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(7u16);
+pub const PFA_JUSTIFY: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(4u16);
 pub const PFA_LEFT: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(1u16);
 pub const PFA_RIGHT: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(2u16);
 pub const PFM_ALIGNMENT: PARAFORMAT_MASK = PARAFORMAT_MASK(8u32);
-pub const PFM_BORDER: u32 = 2048u32;
-pub const PFM_BOX: u32 = 67108864u32;
-pub const PFM_COLLAPSED: u32 = 16777216u32;
-pub const PFM_DONOTHYPHEN: u32 = 4194304u32;
-pub const PFM_KEEP: u32 = 131072u32;
-pub const PFM_KEEPNEXT: u32 = 262144u32;
-pub const PFM_LINESPACING: u32 = 256u32;
-pub const PFM_NOLINENUMBER: u32 = 1048576u32;
-pub const PFM_NOWIDOWCONTROL: u32 = 2097152u32;
+pub const PFM_ALL: PARAFORMAT_MASK = PARAFORMAT_MASK(2147549247u32);
+pub const PFM_ALL2: PARAFORMAT_MASK = PARAFORMAT_MASK(3506437631u32);
+pub const PFM_BORDER: PARAFORMAT_MASK = PARAFORMAT_MASK(2048u32);
+pub const PFM_BOX: PARAFORMAT_MASK = PARAFORMAT_MASK(67108864u32);
+pub const PFM_COLLAPSED: PARAFORMAT_MASK = PARAFORMAT_MASK(16777216u32);
+pub const PFM_DONOTHYPHEN: PARAFORMAT_MASK = PARAFORMAT_MASK(4194304u32);
+pub const PFM_EFFECTS: PARAFORMAT_MASK = PARAFORMAT_MASK(1358888960u32);
+pub const PFM_KEEP: PARAFORMAT_MASK = PARAFORMAT_MASK(131072u32);
+pub const PFM_KEEPNEXT: PARAFORMAT_MASK = PARAFORMAT_MASK(262144u32);
+pub const PFM_LINESPACING: PARAFORMAT_MASK = PARAFORMAT_MASK(256u32);
+pub const PFM_NOLINENUMBER: PARAFORMAT_MASK = PARAFORMAT_MASK(1048576u32);
+pub const PFM_NOWIDOWCONTROL: PARAFORMAT_MASK = PARAFORMAT_MASK(2097152u32);
 pub const PFM_NUMBERING: PARAFORMAT_MASK = PARAFORMAT_MASK(32u32);
-pub const PFM_NUMBERINGSTART: u32 = 32768u32;
-pub const PFM_NUMBERINGSTYLE: u32 = 8192u32;
-pub const PFM_NUMBERINGTAB: u32 = 16384u32;
+pub const PFM_NUMBERINGSTART: PARAFORMAT_MASK = PARAFORMAT_MASK(32768u32);
+pub const PFM_NUMBERINGSTYLE: PARAFORMAT_MASK = PARAFORMAT_MASK(8192u32);
+pub const PFM_NUMBERINGTAB: PARAFORMAT_MASK = PARAFORMAT_MASK(16384u32);
 pub const PFM_OFFSET: PARAFORMAT_MASK = PARAFORMAT_MASK(4u32);
 pub const PFM_OFFSETINDENT: PARAFORMAT_MASK = PARAFORMAT_MASK(2147483648u32);
-pub const PFM_OUTLINELEVEL: u32 = 33554432u32;
-pub const PFM_PAGEBREAKBEFORE: u32 = 524288u32;
-pub const PFM_RESERVED2: u32 = 134217728u32;
+pub const PFM_OUTLINELEVEL: PARAFORMAT_MASK = PARAFORMAT_MASK(33554432u32);
+pub const PFM_PAGEBREAKBEFORE: PARAFORMAT_MASK = PARAFORMAT_MASK(524288u32);
+pub const PFM_RESERVED2: PARAFORMAT_MASK = PARAFORMAT_MASK(134217728u32);
 pub const PFM_RIGHTINDENT: PARAFORMAT_MASK = PARAFORMAT_MASK(2u32);
 pub const PFM_RTLPARA: PARAFORMAT_MASK = PARAFORMAT_MASK(65536u32);
-pub const PFM_SHADING: u32 = 4096u32;
-pub const PFM_SIDEBYSIDE: u32 = 8388608u32;
-pub const PFM_SPACEAFTER: u32 = 128u32;
-pub const PFM_SPACEBEFORE: u32 = 64u32;
+pub const PFM_SHADING: PARAFORMAT_MASK = PARAFORMAT_MASK(4096u32);
+pub const PFM_SIDEBYSIDE: PARAFORMAT_MASK = PARAFORMAT_MASK(8388608u32);
+pub const PFM_SPACEAFTER: PARAFORMAT_MASK = PARAFORMAT_MASK(128u32);
+pub const PFM_SPACEBEFORE: PARAFORMAT_MASK = PARAFORMAT_MASK(64u32);
 pub const PFM_STARTINDENT: PARAFORMAT_MASK = PARAFORMAT_MASK(1u32);
-pub const PFM_STYLE: u32 = 1024u32;
-pub const PFM_TABLE: u32 = 1073741824u32;
-pub const PFM_TABLEROWDELIMITER: u32 = 268435456u32;
+pub const PFM_STYLE: PARAFORMAT_MASK = PARAFORMAT_MASK(1024u32);
+pub const PFM_TABLE: PARAFORMAT_MASK = PARAFORMAT_MASK(1073741824u32);
+pub const PFM_TABLEROWDELIMITER: PARAFORMAT_MASK = PARAFORMAT_MASK(268435456u32);
 pub const PFM_TABSTOPS: PARAFORMAT_MASK = PARAFORMAT_MASK(16u32);
-pub const PFM_TEXTWRAPPINGBREAK: u32 = 536870912u32;
+pub const PFM_TEXTWRAPPINGBREAK: PARAFORMAT_MASK = PARAFORMAT_MASK(536870912u32);
 pub const PFNS_NEWNUMBER: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(32768u16);
 pub const PFNS_NONUMBER: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(1024u16);
 pub const PFNS_PAREN: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(0u16);
@@ -9176,54 +9176,66 @@ impl ::core::default::Default for GETCONTEXTMENUEX {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct GETTEXTEX {
     pub cb: u32,
     pub flags: GETTEXTEX_FLAGS,
     pub codepage: u32,
     pub lpDefaultChar: ::windows_core::PCSTR,
-    pub lpUsedDefChar: *mut i32,
+    pub lpUsedDefChar: *mut super::super::super::Foundation::BOOL,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GETTEXTEX {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GETTEXTEX {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GETTEXTEX {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GETTEXTEX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct GETTEXTEX {
     pub cb: u32,
     pub flags: GETTEXTEX_FLAGS,
     pub codepage: u32,
     pub lpDefaultChar: ::windows_core::PCSTR,
-    pub lpUsedDefChar: *mut i32,
+    pub lpUsedDefChar: *mut super::super::super::Foundation::BOOL,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GETTEXTEX {}
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GETTEXTEX {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GETTEXTEX {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GETTEXTEX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

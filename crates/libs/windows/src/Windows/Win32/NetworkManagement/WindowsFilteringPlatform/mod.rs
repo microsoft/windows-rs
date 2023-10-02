@@ -2435,11 +2435,17 @@ pub const FWPS_METADATA_FIELD_TRANSPORT_ENDPOINT_HANDLE: u32 = 32768u32;
 pub const FWPS_METADATA_FIELD_TRANSPORT_HEADER_INCLUDE_HEADER: u32 = 8388608u32;
 pub const FWPS_METADATA_FIELD_TRANSPORT_HEADER_SIZE: u32 = 1024u32;
 pub const FWPS_RIGHT_ACTION_WRITE: u32 = 1u32;
+pub const FWP_ACTION_BLOCK: FWP_ACTION_TYPE = FWP_ACTION_TYPE(4097u32);
+pub const FWP_ACTION_CALLOUT_INSPECTION: FWP_ACTION_TYPE = FWP_ACTION_TYPE(24580u32);
+pub const FWP_ACTION_CALLOUT_TERMINATING: FWP_ACTION_TYPE = FWP_ACTION_TYPE(20483u32);
+pub const FWP_ACTION_CALLOUT_UNKNOWN: FWP_ACTION_TYPE = FWP_ACTION_TYPE(16389u32);
+pub const FWP_ACTION_CONTINUE: FWP_ACTION_TYPE = FWP_ACTION_TYPE(8198u32);
 pub const FWP_ACTION_FLAG_CALLOUT: u32 = 16384u32;
 pub const FWP_ACTION_FLAG_NON_TERMINATING: u32 = 8192u32;
 pub const FWP_ACTION_FLAG_TERMINATING: u32 = 4096u32;
-pub const FWP_ACTION_NONE: u32 = 7u32;
-pub const FWP_ACTION_NONE_NO_MATCH: u32 = 8u32;
+pub const FWP_ACTION_NONE: FWP_ACTION_TYPE = FWP_ACTION_TYPE(7u32);
+pub const FWP_ACTION_NONE_NO_MATCH: FWP_ACTION_TYPE = FWP_ACTION_TYPE(8u32);
+pub const FWP_ACTION_PERMIT: FWP_ACTION_TYPE = FWP_ACTION_TYPE(4098u32);
 pub const FWP_ACTRL_MATCH_FILTER: u32 = 1u32;
 pub const FWP_AF_ETHER: FWP_AF = FWP_AF(2i32);
 pub const FWP_AF_INET: FWP_AF = FWP_AF(0i32);
@@ -3138,6 +3144,28 @@ impl ::windows_core::TypeKind for FWPM_VSWITCH_EVENT_TYPE {
 impl ::core::fmt::Debug for FWPM_VSWITCH_EVENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FWPM_VSWITCH_EVENT_TYPE").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FWP_ACTION_TYPE(pub u32);
+impl ::core::marker::Copy for FWP_ACTION_TYPE {}
+impl ::core::clone::Clone for FWP_ACTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FWP_ACTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for FWP_ACTION_TYPE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for FWP_ACTION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FWP_ACTION_TYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
@@ -4396,7 +4424,7 @@ impl ::core::fmt::Debug for IPSEC_TRANSFORM_TYPE {
 }
 #[repr(C)]
 pub struct FWPM_ACTION0 {
-    pub r#type: u32,
+    pub r#type: FWP_ACTION_TYPE,
     pub Anonymous: FWPM_ACTION0_0,
 }
 impl ::core::marker::Copy for FWPM_ACTION0 {}
