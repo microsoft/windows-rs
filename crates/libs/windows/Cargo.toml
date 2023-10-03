@@ -25,6 +25,7 @@ windows-interface = { path = "../interface",  version = "0.52.0", optional = tru
 
 [features]
 default = []
+doc = []
 deprecated = []
 implement = ["windows-implement", "windows-interface", "windows-core/implement"]
 # generated features

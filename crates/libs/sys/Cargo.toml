@@ -21,6 +21,7 @@ path = "../targets"
 
 [features]
 default = []
+doc = []
 # generated features
 Wdk = []
 Wdk_Foundation = ["Wdk"]
