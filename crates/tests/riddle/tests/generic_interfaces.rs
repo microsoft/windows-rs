@@ -4,7 +4,7 @@ use windows_metadata::*;
 #[test]
 fn test() {
     let files = run_riddle("generic_interfaces", "winrt", &[]);
-    let reader = &Reader::new(&files);
+    let reader = Reader::new(files);
 
     let types: Vec<Item> = reader
         .namespace_items("Test", &Default::default())
@@ -13,24 +13,24 @@ fn test() {
     assert_eq!(types.len(), 4);
 
     let def = reader
-        .get_type_def(TypeName::new("Test", "IIterable"))
+        .get_type_def("Test", "IIterable")
         .next()
         .unwrap();
 
-    assert_eq!(reader.type_def_interface_impls(def).count(), 0);
-    let generics: Vec<GenericParam> = reader.type_def_generics(def).collect();
+    assert_eq!(def.interface_impls().count(), 0);
+    let generics: Vec<GenericParam> = def.generics().collect();
     assert_eq!(generics.len(), 1);
-    assert_eq!(reader.generic_param_name(generics[0]), "T");
+    assert_eq!(generics[0].name(), "T");
 
     let def = reader
-        .get_type_def(TypeName::new("Test", "IMapView"))
+        .get_type_def("Test", "IMapView")
         .next()
         .unwrap();
 
-    let impls: Vec<InterfaceImpl> = reader.type_def_interface_impls(def).collect();
+    let impls: Vec<InterfaceImpl> = def.interface_impls().collect();
     assert_eq!(impls.len(), 1);
-    let generics: Vec<GenericParam> = reader.type_def_generics(def).collect();
+    let generics: Vec<GenericParam> = def.generics().collect();
     assert_eq!(generics.len(), 2);
-    assert_eq!(reader.generic_param_name(generics[0]), "K");
-    assert_eq!(reader.generic_param_name(generics[1]), "V");
+    assert_eq!(generics[0].name(), "K");
+    assert_eq!(generics[1].name(), "V");
 }

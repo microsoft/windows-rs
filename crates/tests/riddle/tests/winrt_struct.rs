@@ -4,19 +4,19 @@ use windows_metadata::*;
 #[test]
 fn test() {
     let files = run_riddle("winrt_struct", "winrt", &[]);
-    let reader = &Reader::new(&files);
+    let reader = Reader::new(files);
 
     let def = reader
-        .get_type_def(TypeName::new("Test", "Type"))
+        .get_type_def("Test", "Type")
         .next()
         .expect("Type missing");
 
-    let flags = reader.type_def_flags(def);
+    let flags = def.flags();
     assert!(flags.contains(TypeAttributes::WindowsRuntime));
 
-    assert_eq!(reader.type_def_kind(def), TypeKind::Struct);
-    let fields: Vec<Field> = reader.type_def_fields(def).collect();
+    assert_eq!(def.kind(), TypeKind::Struct);
+    let fields: Vec<Field> = def.fields().collect();
     assert_eq!(fields.len(), 1);
-    assert_eq!(reader.field_name(fields[0]), "field");
-    assert!(matches!(reader.field_type(fields[0], None), Type::I32));
+    assert_eq!(fields[0].name(), "field");
+    assert!(matches!(fields[0].ty(None), Type::I32));
 }

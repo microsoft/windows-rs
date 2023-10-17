@@ -3,7 +3,7 @@ use metadata::*;
 #[test]
 fn test() {
     let files = tool_lib::default_metadata();
-    let reader = &Reader::new(&files);
+    let reader = &Reader::new(files);
     let filter = Filter::new(
         &["Windows", "BadNamespace", "Windows.AI"],
         &["Windows.Foundation.Rect", "Windows.Foundation.BadType"],
