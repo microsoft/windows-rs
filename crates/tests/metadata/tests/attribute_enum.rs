@@ -6,16 +6,13 @@ fn attribute_enum() {
     let reader = &Reader::new(files);
 
     let (method, _) = reader
-        .get_method_def(
-            "Windows.Win32.UI.WindowsAndMessaging",
-            "SetWindowLongPtrA",
-        )
+        .get_method_def("Windows.Win32.UI.WindowsAndMessaging", "SetWindowLongPtrA")
         .next()
         .unwrap();
 
     check_attr_arg_enum(
         method
-            .find_attribute( "SupportedArchitectureAttribute")
+            .find_attribute("SupportedArchitectureAttribute")
             .unwrap(),
         "",
         "Windows.Win32.Foundation.Metadata.Architecture",
@@ -29,20 +26,16 @@ fn attribute_enum() {
         .unwrap();
 
     check_attr_arg_enum(
-        def.find_attribute( "GCPressureAttribute").unwrap(),
+        def.find_attribute("GCPressureAttribute").unwrap(),
         "amount",
         "Windows.Foundation.Metadata.GCPressureAmount",
         2,
     );
 }
 
-fn check_attr_arg_enum(
-    attr: Attribute,
-    arg_name: &str,
-    expected_type: &str,
-    expected_value: i32,
-) {
-    let (_, value) = attr.args()
+fn check_attr_arg_enum(attr: Attribute, arg_name: &str, expected_type: &str, expected_value: i32) {
+    let (_, value) = attr
+        .args()
         .drain(..)
         .find(|(name, _)| name == arg_name)
         .unwrap();

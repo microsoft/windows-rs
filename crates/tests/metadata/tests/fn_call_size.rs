@@ -316,7 +316,7 @@ fn function_size(reader: &Reader, namespace: &str, name: &str) -> usize {
         .get_method_def(namespace, name)
         .next()
         .expect("Function not found");
-     method.signature(&[]).size()
+    method.signature(&[]).size()
 }
 
 fn struct_size(reader: &Reader, namespace: &str, name: &str) -> usize {
