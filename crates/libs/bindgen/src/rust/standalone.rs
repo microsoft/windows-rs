@@ -10,7 +10,7 @@ pub fn standalone_imp(writer: &Writer) -> String {
 
         match item {
             Item::Type(_) => {}
-            Item::Fn(def, namespace) => _ = functions.insert((def, namespace.clone())),
+            Item::Fn(def, namespace) => _ = functions.insert((def, namespace)),
             Item::Const(def) => _ = constants.insert(def),
         }
     }
@@ -54,10 +54,10 @@ pub fn standalone_imp(writer: &Writer) -> String {
                 );
             }
             Type::TypeDef(def, _) => {
-                let kind = writer.reader.type_def_kind(def);
+                let kind = def.kind();
                 match kind {
                     TypeKind::Class => {
-                        let name = writer.reader.type_def_name(def);
+                        let name = def.name();
                         if writer.sys {
                             let ident = to_ident(name);
                             sorted.insert(name, quote! { pub type #ident = *mut ::core::ffi::c_void; });
@@ -66,7 +66,7 @@ pub fn standalone_imp(writer: &Writer) -> String {
                         }
                     }
                     TypeKind::Interface => {
-                        let name = writer.reader.type_def_name(def);
+                        let name = def.name();
                         if writer.sys {
                             let ident = to_ident(name);
                             sorted.insert(name, quote! { pub type #ident = *mut ::core::ffi::c_void; });
@@ -75,12 +75,12 @@ pub fn standalone_imp(writer: &Writer) -> String {
                         }
                     }
                     TypeKind::Enum => {
-                        sorted.insert(writer.reader.type_def_name(def), enums::writer(writer, def));
+                        sorted.insert(def.name(), enums::writer(writer, def));
                     }
                     TypeKind::Struct => {
-                        let name = writer.reader.type_def_name(def);
-                        if writer.reader.type_def_fields(def).next().is_none() {
-                            if let Some(guid) = type_def_guid(writer.reader, def) {
+                        let name = def.name();
+                        if def.fields().next().is_none() {
+                            if let Some(guid) = type_def_guid(def) {
                                 let ident = to_ident(name);
                                 let value = writer.guid(&guid);
                                 let guid = writer.type_name(&Type::GUID);
@@ -96,7 +96,7 @@ pub fn standalone_imp(writer: &Writer) -> String {
                         sorted.insert(name, structs::writer(writer, def));
                     }
                     TypeKind::Delegate => {
-                        sorted.insert(writer.reader.type_def_name(def), delegates::writer(writer, def));
+                        sorted.insert(def.name(), delegates::writer(writer, def));
                     }
                 }
             }
@@ -105,11 +105,11 @@ pub fn standalone_imp(writer: &Writer) -> String {
     }
 
     for (function, namespace) in functions {
-        sorted.insert(&format!(".{}.{}", writer.reader.method_def_module_name(function), writer.reader.method_def_name(function)), functions::writer(writer, &namespace, function));
+        sorted.insert(&format!(".{}.{}", function.module_name(), function.name()), functions::writer(writer, namespace, function));
     }
 
     for constant in constants {
-        sorted.insert(writer.reader.field_name(constant), constants::writer(writer, constant));
+        sorted.insert(constant.name(), constants::writer(writer, constant));
     }
 
     let mut tokens = TokenStream::new();
@@ -129,9 +129,9 @@ impl SortedTokens {
 fn item_collect_standalone(reader: &Reader, item: Item, set: &mut BTreeSet<Type>) {
     match item {
         Item::Type(def) => type_collect_standalone(reader, &Type::TypeDef(def, vec![]), set),
-        Item::Const(def) => type_collect_standalone(reader, &reader.field_type(def, None).to_const_type(), set),
+        Item::Const(def) => type_collect_standalone(reader, &def.ty(None).to_const_type(), set),
         Item::Fn(def, namespace) => {
-            let signature = method_def_signature(reader, &namespace, def, &[]);
+            let signature = method_def_signature(reader, namespace, def, &[]);
             type_collect_standalone(reader, &signature.return_type, set);
             signature.params.iter().for_each(|param| type_collect_standalone(reader, &param.ty, set));
         }
@@ -157,9 +157,9 @@ fn type_collect_standalone(reader: &Reader, ty: &Type, set: &mut BTreeSet<Type>)
     //
     // Note this is a bit overeager as we can collect a typedef that is used
     // by one architecture but not by another
-    let type_name = reader.type_def_type_name(def);
+    let type_name = def.type_name();
     if !type_name.namespace.is_empty() {
-        for row in reader.get_type_def(type_name) {
+        for row in reader.get_type_def(type_name.namespace, type_name.name) {
             if def != row {
                 type_collect_standalone(reader, &Type::TypeDef(row, Vec::new()), set);
             }
@@ -169,28 +169,28 @@ fn type_collect_standalone(reader: &Reader, ty: &Type, set: &mut BTreeSet<Type>)
     for generic in generics {
         type_collect_standalone(reader, generic, set);
     }
-    for field in reader.type_def_fields(def) {
-        let ty = reader.field_type(field, Some(def));
+    for field in def.fields() {
+        let ty = field.ty(Some(def));
         if let Type::TypeDef(def, _) = &ty {
-            if reader.type_def_namespace(*def).is_empty() {
+            if def.namespace().is_empty() {
                 continue;
             }
         }
         type_collect_standalone(reader, &ty, set);
     }
-    for method in reader.type_def_methods(def) {
+    for method in def.methods() {
         // Skip delegate pseudo-constructors.
-        if reader.method_def_name(method) == ".ctor" {
+        if method.name() == ".ctor" {
             continue;
         }
-        let signature = method_def_signature(reader, reader.type_def_namespace(def), method, generics);
+        let signature = method_def_signature(reader, def.namespace(), method, generics);
         type_collect_standalone(reader, &signature.return_type, set);
         signature.params.iter().for_each(|param| type_collect_standalone(reader, &param.ty, set));
     }
     for interface in type_interfaces(reader, &ty) {
         type_collect_standalone(reader, &interface.ty, set);
     }
-    if reader.type_def_kind(def) == TypeKind::Struct && reader.type_def_fields(def).next().is_none() && type_def_guid(reader, def).is_some() {
+    if def.kind() == TypeKind::Struct && def.fields().next().is_none() && type_def_guid(def).is_some() {
         set.insert(Type::GUID);
     }
 
@@ -201,12 +201,12 @@ fn type_collect_standalone_nested(reader: &Reader, td: TypeDef, set: &mut BTreeS
     for nested in reader.nested_types(td) {
         type_collect_standalone_nested(reader, nested, set);
 
-        for field in reader.type_def_fields(nested) {
-            let ty = reader.field_type(field, Some(nested));
+        for field in nested.fields() {
+            let ty = field.ty(Some(nested));
             if let Type::TypeDef(def, _) = &ty {
                 // Skip the fields that actually refer to the anonymous nested
                 // type, otherwise it will get added to the typeset and emitted
-                if reader.type_def_namespace(*def).is_empty() {
+                if def.namespace().is_empty() {
                     continue;
                 }
 

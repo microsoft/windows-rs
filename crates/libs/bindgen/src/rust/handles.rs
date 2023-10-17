@@ -9,8 +9,8 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
 }
 
 pub fn gen_sys_handle(writer: &Writer, def: TypeDef) -> TokenStream {
-    let ident = to_ident(writer.reader.type_def_name(def));
-    match writer.reader.type_def_underlying_type(def) {
+    let ident = to_ident(def.name());
+    match def.underlying_type() {
         Type::ISize if writer.std => quote! {
             pub type #ident = *mut ::core::ffi::c_void;
         },
@@ -25,9 +25,9 @@ pub fn gen_sys_handle(writer: &Writer, def: TypeDef) -> TokenStream {
 }
 
 pub fn gen_win_handle(writer: &Writer, def: TypeDef) -> TokenStream {
-    let name = writer.reader.type_def_name(def);
+    let name = def.name();
     let ident = to_ident(name);
-    let underlying_type = writer.reader.type_def_underlying_type(def);
+    let underlying_type = def.underlying_type();
     let signature = writer.type_default_name(&underlying_type);
     let check = if underlying_type.is_pointer() {
         quote! {
@@ -38,7 +38,7 @@ pub fn gen_win_handle(writer: &Writer, def: TypeDef) -> TokenStream {
             }
         }
     } else {
-        let invalid = type_def_invalid_values(writer.reader, def);
+        let invalid = type_def_invalid_values(def);
 
         if !invalid.is_empty() {
             let invalid = invalid.iter().map(|value| {
@@ -90,7 +90,7 @@ pub fn gen_win_handle(writer: &Writer, def: TypeDef) -> TokenStream {
     };
 
     if let Some(dependency) = type_def_usable_for(writer.reader, def) {
-        let type_name = writer.reader.type_def_type_name(dependency);
+        let type_name = dependency.type_name();
         let mut dependency = writer.namespace(type_name.namespace);
         dependency.push_str(type_name.name);
 
@@ -108,9 +108,9 @@ pub fn gen_win_handle(writer: &Writer, def: TypeDef) -> TokenStream {
 }
 
 fn type_def_usable_for(reader: &Reader, row: TypeDef) -> Option<TypeDef> {
-    if let Some(attribute) = reader.find_attribute(row, "AlsoUsableForAttribute") {
-        if let Some((_, Value::String(name))) = reader.attribute_args(attribute).get(0) {
-            return reader.get_type_def(TypeName::new(reader.type_def_namespace(row), name.as_str())).next();
+    if let Some(attribute) = row.find_attribute("AlsoUsableForAttribute") {
+        if let Some((_, Value::String(name))) = attribute.args().get(0) {
+            return reader.get_type_def(row.namespace(), name.as_str()).next();
         }
     }
     None

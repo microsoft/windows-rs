@@ -76,37 +76,74 @@ pub enum AsyncKind {
     OperationWithProgress,
 }
 
-pub fn type_def_invoke_method(reader: &Reader, row: TypeDef) -> MethodDef {
-    reader.type_def_methods(row).find(|method| reader.method_def_name(*method) == "Invoke").expect("`Invoke` method not found")
+#[derive(Clone, PartialEq, Eq, Default)]
+pub struct Guid(pub u32, pub u16, pub u16, pub u8, pub u8, pub u8, pub u8, pub u8, pub u8, pub u8, pub u8);
+
+impl Guid {
+    pub fn from_args(args: &[(String, Value)]) -> Self {
+        fn unwrap_u32(value: &Value) -> u32 {
+            match value {
+                Value::U32(value) => *value,
+                rest => unimplemented!("{rest:?}"),
+            }
+        }
+        fn unwrap_u16(value: &Value) -> u16 {
+            match value {
+                Value::U16(value) => *value,
+                rest => unimplemented!("{rest:?}"),
+            }
+        }
+        fn unwrap_u8(value: &Value) -> u8 {
+            match value {
+                Value::U8(value) => *value,
+                rest => unimplemented!("{rest:?}"),
+            }
+        }
+        Self(unwrap_u32(&args[0].1), unwrap_u16(&args[1].1), unwrap_u16(&args[2].1), unwrap_u8(&args[3].1), unwrap_u8(&args[4].1), unwrap_u8(&args[5].1), unwrap_u8(&args[6].1), unwrap_u8(&args[7].1), unwrap_u8(&args[8].1), unwrap_u8(&args[9].1), unwrap_u8(&args[10].1))
+    }
+
+    pub fn from_string_args(args: &[&str]) -> Self {
+        Self(args[0].parse().unwrap(), args[1].parse().unwrap(), args[2].parse().unwrap(), args[3].parse().unwrap(), args[4].parse().unwrap(), args[5].parse().unwrap(), args[6].parse().unwrap(), args[7].parse().unwrap(), args[8].parse().unwrap(), args[9].parse().unwrap(), args[10].parse().unwrap())
+    }
 }
 
-pub fn type_def_generics(reader: &Reader, def: TypeDef) -> Vec<Type> {
-    reader.type_def_generics(def).map(Type::GenericParam).collect()
+impl std::fmt::Debug for Guid {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{:08x?}-{:04x?}-{:04x?}-{:02x?}{:02x?}-{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}", self.0, self.1, self.2, self.3, self.4, self.5, self.6, self.7, self.8, self.9, self.10)
+    }
+}
+
+pub fn type_def_invoke_method(row: TypeDef) -> MethodDef {
+    row.methods().find(|method| method.name() == "Invoke").expect("`Invoke` method not found")
+}
+
+pub fn type_def_generics(def: TypeDef) -> Vec<Type> {
+    def.generics().map(Type::GenericParam).collect()
 }
 
 // TODO: namespace should not be required - it's a hack to accomodate Win32 metadata
 // TODO: this is very Rust-specific and Win32-metadata specific with all of its translation. Replace with literal signature parser that just returns slice of types.
 pub fn method_def_signature(reader: &Reader, namespace: &str, row: MethodDef, generics: &[Type]) -> Signature {
-    let mut blob = reader.row_blob(row, 4);
+    let mut blob = row.blob(4);
     let call_flags = MethodCallAttributes(blob.read_usize() as u8);
     let _param_count = blob.read_usize();
     let mut return_type = reader.type_from_blob(&mut blob, None, generics);
 
-    let mut params: Vec<SignatureParam> = reader
-        .method_def_params(row)
+    let mut params: Vec<SignatureParam> = row
+        .params()
         .filter_map(|param| {
-            let param_is_const = reader.has_attribute(param, "ConstAttribute");
-            if reader.param_sequence(param) == 0 {
+            let param_is_const = param.has_attribute("ConstAttribute");
+            if param.sequence() == 0 {
                 if param_is_const {
                     return_type = return_type.clone().to_const_type();
                 }
                 None
             } else {
-                let is_output = reader.param_flags(param).contains(ParamAttributes::Out);
+                let is_output = param.flags().contains(ParamAttributes::Out);
                 let mut ty = reader.type_from_blob(&mut blob, None, generics);
 
-                if let Some(name) = param_or_enum(reader, param) {
-                    let def = reader.get_type_def(TypeName::new(namespace, &name)).next().expect("Enum not found");
+                if let Some(name) = param_or_enum(param) {
+                    let def = reader.get_type_def(namespace, &name).next().expect("Enum not found");
                     ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(Type::TypeDef(def, Vec::new())));
                 }
 
@@ -116,7 +153,7 @@ pub fn method_def_signature(reader: &Reader, namespace: &str, row: MethodDef, ge
                 if !is_output {
                     ty = ty.to_const_ptr();
                 }
-                let kind = param_kind(reader, param);
+                let kind = param_kind(param);
                 Some(SignatureParam { def: param, ty, kind })
             }
         })
@@ -127,14 +164,14 @@ pub fn method_def_signature(reader: &Reader, namespace: &str, row: MethodDef, ge
         match params[position].kind {
             SignatureParamKind::ArrayRelativeLen(relative) | SignatureParamKind::ArrayRelativeByteLen(relative) => {
                 // The len params must be input only.
-                if !reader.param_flags(params[relative].def).contains(ParamAttributes::Out) && position != relative && !params[relative].ty.is_pointer() {
+                if !params[relative].def.flags().contains(ParamAttributes::Out) && position != relative && !params[relative].ty.is_pointer() {
                     params[relative].kind = SignatureParamKind::ArrayRelativePtr(position);
                 } else {
                     params[position].kind = SignatureParamKind::Other;
                 }
             }
             SignatureParamKind::ArrayFixed(_) => {
-                if reader.has_attribute(params[position].def, "FreeWithAttribute") {
+                if params[position].def.has_attribute("FreeWithAttribute") {
                     params[position].kind = SignatureParamKind::Other;
                 }
             }
@@ -177,16 +214,16 @@ pub fn method_def_signature(reader: &Reader, namespace: &str, row: MethodDef, ge
     for param in &mut params {
         if param.kind == SignatureParamKind::Other {
             if signature_param_is_convertible(reader, param) {
-                if type_is_non_exclusive_winrt_interface(reader, &param.ty) {
+                if type_is_non_exclusive_winrt_interface(&param.ty) {
                     param.kind = SignatureParamKind::TryInto;
                 } else {
                     param.kind = SignatureParamKind::IntoParam;
                 }
             } else {
-                let flags = reader.param_flags(param.def);
-                if param.ty.is_pointer() && (flags.contains(ParamAttributes::Optional) || reader.has_attribute(param.def, "ReservedAttribute")) {
+                let flags = param.def.flags();
+                if param.ty.is_pointer() && (flags.contains(ParamAttributes::Optional) || param.def.has_attribute("ReservedAttribute")) {
                     param.kind = SignatureParamKind::OptionalPointer;
-                } else if type_is_primitive(reader, &param.ty) && (!param.ty.is_pointer() || type_is_blittable(reader, &param.ty.deref())) {
+                } else if type_is_primitive(&param.ty) && (!param.ty.is_pointer() || type_is_blittable(reader, &param.ty.deref())) {
                     param.kind = SignatureParamKind::ValueType;
                 } else if type_is_blittable(reader, &param.ty) {
                     param.kind = SignatureParamKind::Blittable;
@@ -198,11 +235,11 @@ pub fn method_def_signature(reader: &Reader, namespace: &str, row: MethodDef, ge
     Signature { def: row, params, return_type, call_flags }
 }
 
-fn param_kind(reader: &Reader, row: Param) -> SignatureParamKind {
-    for attribute in reader.attributes(row) {
-        match reader.attribute_name(attribute) {
+fn param_kind(row: Param) -> SignatureParamKind {
+    for attribute in row.attributes() {
+        match attribute.name() {
             "NativeArrayInfoAttribute" => {
-                for (_, value) in reader.attribute_args(attribute) {
+                for (_, value) in attribute.args() {
                     match value {
                         Value::I16(value) => return SignatureParamKind::ArrayRelativeLen(value as usize),
                         Value::I32(value) => return SignatureParamKind::ArrayFixed(value as usize),
@@ -211,7 +248,7 @@ fn param_kind(reader: &Reader, row: Param) -> SignatureParamKind {
                 }
             }
             "MemorySizeAttribute" => {
-                for (_, value) in reader.attribute_args(attribute) {
+                for (_, value) in attribute.args() {
                     if let Value::I16(value) = value {
                         return SignatureParamKind::ArrayRelativeByteLen(value as usize);
                     }
@@ -224,9 +261,9 @@ fn param_kind(reader: &Reader, row: Param) -> SignatureParamKind {
 }
 
 // TODO: this is a terribly broken Win32 metadata attribute - need to get rid of it.
-fn param_or_enum(reader: &Reader, row: Param) -> Option<String> {
-    reader.find_attribute(row, "AssociatedEnumAttribute").and_then(|attribute| {
-        for (_, arg) in reader.attribute_args(attribute) {
+fn param_or_enum(row: Param) -> Option<String> {
+    row.find_attribute("AssociatedEnumAttribute").and_then(|attribute| {
+        for (_, arg) in attribute.args() {
             if let Value::String(name) = arg {
                 return Some(name);
             }
@@ -236,13 +273,13 @@ fn param_or_enum(reader: &Reader, row: Param) -> Option<String> {
 }
 
 pub fn signature_param_is_convertible(reader: &Reader, param: &SignatureParam) -> bool {
-    !reader.param_flags(param.def).contains(ParamAttributes::Out) && !param.ty.is_winrt_array() && !param.ty.is_pointer() && !param.kind.is_array() && (type_is_borrowed(reader, &param.ty) || type_is_non_exclusive_winrt_interface(reader, &param.ty) || type_is_trivially_convertible(reader, &param.ty))
+    !param.def.flags().contains(ParamAttributes::Out) && !param.ty.is_winrt_array() && !param.ty.is_pointer() && !param.kind.is_array() && (type_is_borrowed(reader, &param.ty) || type_is_non_exclusive_winrt_interface(&param.ty) || type_is_trivially_convertible(&param.ty))
 }
 
-fn signature_param_is_retval(reader: &Reader, param: &SignatureParam) -> bool {
+fn signature_param_is_retval(param: &SignatureParam) -> bool {
     // The Win32 metadata uses `RetValAttribute` to call out retval methods but it is employed
     // very sparingly, so this heuristic is used to apply the transformation more uniformly.
-    if reader.has_attribute(param.def, "RetValAttribute") {
+    if param.def.has_attribute("RetValAttribute") {
         return true;
     }
     if !param.ty.is_pointer() {
@@ -251,66 +288,66 @@ fn signature_param_is_retval(reader: &Reader, param: &SignatureParam) -> bool {
     if param.ty.is_void() {
         return false;
     }
-    let flags = reader.param_flags(param.def);
+    let flags = param.def.flags();
     if flags.contains(ParamAttributes::In) || !flags.contains(ParamAttributes::Out) || flags.contains(ParamAttributes::Optional) || param.kind.is_array() {
         return false;
     }
-    if param_kind(reader, param.def).is_array() {
+    if param_kind(param.def).is_array() {
         return false;
     }
     // If it's bigger than 128 bits, best to pass as a reference.
-    if reader.type_size(&param.ty.deref()) > 16 {
+    if param.ty.deref().size() > 16 {
         return false;
     }
     // Win32 callbacks are defined as `Option<T>` so we don't include them here to avoid
     // producing the `Result<Option<T>>` anti-pattern.
     match param.ty.deref() {
-        Type::TypeDef(def, _) => !type_def_is_callback(reader, def),
+        Type::TypeDef(def, _) => !type_def_is_callback(def),
         _ => true,
     }
 }
 
-pub fn signature_kind(reader: &Reader, signature: &Signature) -> SignatureKind {
-    if reader.has_attribute(signature.def, "CanReturnMultipleSuccessValuesAttribute") {
+pub fn signature_kind(signature: &Signature) -> SignatureKind {
+    if signature.def.has_attribute("CanReturnMultipleSuccessValuesAttribute") {
         return SignatureKind::PreserveSig;
     }
     match &signature.return_type {
-        Type::Void if signature_is_retval(reader, signature) => SignatureKind::ReturnValue,
+        Type::Void if signature_is_retval(signature) => SignatureKind::ReturnValue,
         Type::Void => SignatureKind::ReturnVoid,
         Type::HRESULT => {
             if signature.params.len() >= 2 {
-                if let Some((guid, object)) = signature_param_is_query(reader, &signature.params) {
-                    if reader.param_flags(signature.params[object].def).contains(ParamAttributes::Optional) {
+                if let Some((guid, object)) = signature_param_is_query(&signature.params) {
+                    if signature.params[object].def.flags().contains(ParamAttributes::Optional) {
                         return SignatureKind::QueryOptional(QueryPosition { object, guid });
                     } else {
                         return SignatureKind::Query(QueryPosition { object, guid });
                     }
                 }
             }
-            if signature_is_retval(reader, signature) {
+            if signature_is_retval(signature) {
                 SignatureKind::ResultValue
             } else {
                 SignatureKind::ResultVoid
             }
         }
-        Type::TypeDef(def, _) if reader.type_def_type_name(*def) == TypeName::WIN32_ERROR => SignatureKind::ResultVoid,
-        Type::TypeDef(def, _) if reader.type_def_type_name(*def) == TypeName::BOOL && method_def_last_error(reader, signature.def) => SignatureKind::ResultVoid,
-        _ if type_is_struct(reader, &signature.return_type) => SignatureKind::ReturnStruct,
+        Type::TypeDef(def, _) if def.type_name() == TypeName::WIN32_ERROR => SignatureKind::ResultVoid,
+        Type::TypeDef(def, _) if def.type_name() == TypeName::BOOL && method_def_last_error(signature.def) => SignatureKind::ResultVoid,
+        _ if type_is_struct(&signature.return_type) => SignatureKind::ReturnStruct,
         _ => SignatureKind::PreserveSig,
     }
 }
 
-fn signature_is_retval(reader: &Reader, signature: &Signature) -> bool {
-    signature.params.last().map_or(false, |param| signature_param_is_retval(reader, param))
+fn signature_is_retval(signature: &Signature) -> bool {
+    signature.params.last().map_or(false, signature_param_is_retval)
         && signature.params[..signature.params.len() - 1].iter().all(|param| {
-            let flags = reader.param_flags(param.def);
+            let flags = param.def.flags();
             !flags.contains(ParamAttributes::Out)
         })
 }
 
-fn signature_param_is_query(reader: &Reader, params: &[SignatureParam]) -> Option<(usize, usize)> {
-    if let Some(guid) = params.iter().rposition(|param| param.ty == Type::ConstPtr(Box::new(Type::GUID), 1) && !reader.param_flags(param.def).contains(ParamAttributes::Out)) {
-        if let Some(object) = params.iter().rposition(|param| param.ty == Type::MutPtr(Box::new(Type::Void), 2) && reader.has_attribute(param.def, "ComOutPtrAttribute")) {
+fn signature_param_is_query(params: &[SignatureParam]) -> Option<(usize, usize)> {
+    if let Some(guid) = params.iter().rposition(|param| param.ty == Type::ConstPtr(Box::new(Type::GUID), 1) && !param.def.flags().contains(ParamAttributes::Out)) {
+        if let Some(object) = params.iter().rposition(|param| param.ty == Type::MutPtr(Box::new(Type::Void), 2) && param.def.has_attribute("ComOutPtrAttribute")) {
             return Some((guid, object));
         }
     }
@@ -318,9 +355,9 @@ fn signature_param_is_query(reader: &Reader, params: &[SignatureParam]) -> Optio
     None
 }
 
-fn method_def_last_error(reader: &Reader, row: MethodDef) -> bool {
-    if let Some(map) = reader.method_def_impl_map(row) {
-        reader.impl_map_flags(map).contains(PInvokeAttributes::SupportsLastError)
+fn method_def_last_error(row: MethodDef) -> bool {
+    if let Some(map) = row.impl_map() {
+        map.flags().contains(PInvokeAttributes::SupportsLastError)
     } else {
         false
     }
@@ -334,16 +371,16 @@ pub fn type_is_borrowed(reader: &Reader, ty: &Type) -> bool {
     }
 }
 
-pub fn type_is_non_exclusive_winrt_interface(reader: &Reader, ty: &Type) -> bool {
+pub fn type_is_non_exclusive_winrt_interface(ty: &Type) -> bool {
     match ty {
         Type::TypeDef(row, _) => {
-            let flags = reader.type_def_flags(*row);
+            let flags = row.flags();
             if !flags.contains(TypeAttributes::WindowsRuntime) {
                 false
             } else {
-                match reader.type_def_kind(*row) {
-                    TypeKind::Interface => !type_def_is_exclusive(reader, *row),
-                    TypeKind::Class => reader.has_attribute(*row, "ComposableAttribute"),
+                match row.kind() {
+                    TypeKind::Interface => !type_def_is_exclusive(*row),
+                    TypeKind::Class => row.has_attribute("ComposableAttribute"),
                     _ => false,
                 }
             }
@@ -352,18 +389,18 @@ pub fn type_is_non_exclusive_winrt_interface(reader: &Reader, ty: &Type) -> bool
     }
 }
 
-fn type_is_trivially_convertible(reader: &Reader, ty: &Type) -> bool {
+fn type_is_trivially_convertible(ty: &Type) -> bool {
     match ty {
-        Type::TypeDef(row, _) => match reader.type_def_kind(*row) {
-            TypeKind::Struct => type_def_is_handle(reader, *row),
+        Type::TypeDef(row, _) => match row.kind() {
+            TypeKind::Struct => type_def_is_handle(*row),
             _ => false,
         },
         _ => false,
     }
 }
 
-fn type_def_is_callback(reader: &Reader, row: TypeDef) -> bool {
-    !reader.type_def_flags(row).contains(TypeAttributes::WindowsRuntime) && reader.type_def_kind(row) == TypeKind::Delegate
+fn type_def_is_callback(row: TypeDef) -> bool {
+    !row.flags().contains(TypeAttributes::WindowsRuntime) && row.kind() == TypeKind::Delegate
 }
 
 pub fn type_has_callback(reader: &Reader, ty: &Type) -> bool {
@@ -374,23 +411,23 @@ pub fn type_has_callback(reader: &Reader, ty: &Type) -> bool {
     }
 }
 pub fn type_def_has_callback(reader: &Reader, row: TypeDef) -> bool {
-    if type_def_is_callback(reader, row) {
+    if type_def_is_callback(row) {
         return true;
     }
-    if reader.type_def_kind(row) != TypeKind::Struct {
+    if row.kind() != TypeKind::Struct {
         return false;
     }
     fn check(reader: &Reader, row: TypeDef) -> bool {
-        if reader.type_def_fields(row).any(|field| type_has_callback(reader, &reader.field_type(field, Some(row)))) {
+        if row.fields().any(|field| type_has_callback(reader, &field.ty(Some(row)))) {
             return true;
         }
         false
     }
-    let type_name = reader.type_def_type_name(row);
+    let type_name = row.type_name();
     if type_name.namespace.is_empty() {
         check(reader, row)
     } else {
-        for row in reader.get_type_def(type_name) {
+        for row in reader.get_type_def(type_name.namespace, type_name.name) {
             if check(reader, row) {
                 return true;
             }
@@ -402,13 +439,10 @@ pub fn type_def_has_callback(reader: &Reader, row: TypeDef) -> bool {
 pub fn type_interfaces(reader: &Reader, ty: &Type) -> Vec<Interface> {
     // TODO: collect into btree map and then return collected vec
     // This will both sort the results and should make finding dupes faster
-    fn walk(reader: &Reader, result: &mut Vec<Interface>, parent: &Type, is_base: bool) {
+    fn walk(result: &mut Vec<Interface>, parent: &Type, is_base: bool) {
         if let Type::TypeDef(row, generics) = parent {
-            for imp in reader.type_def_interface_impls(*row) {
-                let mut child = Interface {
-                    ty: reader.interface_impl_type(imp, generics),
-                    kind: if reader.has_attribute(imp, "DefaultAttribute") { InterfaceKind::Default } else { InterfaceKind::None },
-                };
+            for imp in row.interface_impls() {
+                let mut child = Interface { ty: imp.ty(generics), kind: if imp.has_attribute("DefaultAttribute") { InterfaceKind::Default } else { InterfaceKind::None } };
 
                 child.kind = if !is_base && child.kind == InterfaceKind::Default {
                     InterfaceKind::Default
@@ -429,25 +463,26 @@ pub fn type_interfaces(reader: &Reader, ty: &Type) -> Vec<Interface> {
                     }
                 }
                 if !found {
-                    walk(reader, result, &child.ty, is_base);
+                    walk(result, &child.ty, is_base);
                     result.push(child);
                 }
             }
         }
     }
     let mut result = Vec::new();
-    walk(reader, &mut result, ty, false);
+    walk(&mut result, ty, false);
     if let Type::TypeDef(row, _) = ty {
-        if reader.type_def_kind(*row) == TypeKind::Class {
+        if row.kind() == TypeKind::Class {
             for base in type_def_bases(reader, *row) {
-                walk(reader, &mut result, &Type::TypeDef(base, Vec::new()), true);
+                walk(&mut result, &Type::TypeDef(base, Vec::new()), true);
             }
-            for attribute in reader.attributes(*row) {
-                match reader.attribute_name(attribute) {
+            for attribute in row.attributes() {
+                match attribute.name() {
                     "StaticAttribute" | "ActivatableAttribute" => {
-                        for (_, arg) in reader.attribute_args(attribute) {
+                        for (_, arg) in attribute.args() {
                             if let Value::TypeName(type_name) = arg {
-                                let def = reader.get_type_def(TypeName::parse(&type_name)).next().expect("Type not found");
+                                let type_name = parse_type_name(&type_name);
+                                let def = reader.get_type_def(type_name.0, type_name.1).next().expect("Type not found");
                                 result.push(Interface { ty: Type::TypeDef(def, Vec::new()), kind: InterfaceKind::Static });
                                 break;
                             }
@@ -458,23 +493,23 @@ pub fn type_interfaces(reader: &Reader, ty: &Type) -> Vec<Interface> {
             }
         }
     }
-    result.sort_by(|a, b| type_name(reader, &a.ty).cmp(type_name(reader, &b.ty)));
+    result.sort_by(|a, b| type_name(&a.ty).cmp(type_name(&b.ty)));
     result
 }
 
-fn type_name<'a>(reader: &Reader<'a>, ty: &Type) -> &'a str {
+fn type_name<'a>(ty: &Type) -> &'a str {
     match ty {
-        Type::TypeDef(row, _) => reader.type_def_name(*row),
+        Type::TypeDef(row, _) => row.name(),
         _ => "",
     }
 }
 
 pub fn field_is_blittable(reader: &Reader, row: Field, enclosing: TypeDef) -> bool {
-    type_is_blittable(reader, &reader.field_type(row, Some(enclosing)))
+    type_is_blittable(reader, &row.ty(Some(enclosing)))
 }
 
 pub fn field_is_copyable(reader: &Reader, row: Field, enclosing: TypeDef) -> bool {
-    type_is_copyable(reader, &reader.field_type(row, Some(enclosing)))
+    type_is_copyable(reader, &row.ty(Some(enclosing)))
 }
 
 pub fn type_is_blittable(reader: &Reader, ty: &Type) -> bool {
@@ -498,56 +533,56 @@ fn type_is_copyable(reader: &Reader, ty: &Type) -> bool {
 }
 
 pub fn type_def_is_blittable(reader: &Reader, row: TypeDef) -> bool {
-    match reader.type_def_kind(row) {
+    match row.kind() {
         TypeKind::Struct => {
-            if reader.type_def_flags(row).contains(TypeAttributes::WindowsRuntime) {
-                reader.type_def_fields(row).all(|field| field_is_blittable(reader, field, row))
+            if row.flags().contains(TypeAttributes::WindowsRuntime) {
+                row.fields().all(|field| field_is_blittable(reader, field, row))
             } else {
                 true
             }
         }
         TypeKind::Enum => true,
-        TypeKind::Delegate => !reader.type_def_flags(row).contains(TypeAttributes::WindowsRuntime),
+        TypeKind::Delegate => !row.flags().contains(TypeAttributes::WindowsRuntime),
         _ => false,
     }
 }
 
 pub fn type_def_is_copyable(reader: &Reader, row: TypeDef) -> bool {
-    match reader.type_def_kind(row) {
-        TypeKind::Struct => reader.type_def_fields(row).all(|field| field_is_copyable(reader, field, row)),
+    match row.kind() {
+        TypeKind::Struct => row.fields().all(|field| field_is_copyable(reader, field, row)),
         TypeKind::Enum => true,
-        TypeKind::Delegate => !reader.type_def_flags(row).contains(TypeAttributes::WindowsRuntime),
+        TypeKind::Delegate => !row.flags().contains(TypeAttributes::WindowsRuntime),
         _ => false,
     }
 }
 
-pub fn type_def_is_exclusive(reader: &Reader, row: TypeDef) -> bool {
-    reader.has_attribute(row, "ExclusiveToAttribute")
+pub fn type_def_is_exclusive(row: TypeDef) -> bool {
+    row.has_attribute("ExclusiveToAttribute")
 }
 
-pub fn type_is_struct(reader: &Reader, ty: &Type) -> bool {
+pub fn type_is_struct(ty: &Type) -> bool {
     // This check is used to detect virtual functions that return C-style PODs that affect how the stack is packed for x86.
     // It could be defined as a struct with more than one field but that check is complicated as it would have to detect
     // nested structs. Fortunately, this is rare enough that this check is sufficient.
     match ty {
-        Type::TypeDef(row, _) => reader.type_def_kind(*row) == TypeKind::Struct && !type_def_is_handle(reader, *row),
+        Type::TypeDef(row, _) => row.kind() == TypeKind::Struct && !type_def_is_handle(*row),
         Type::GUID => true,
         _ => false,
     }
 }
 
-fn type_def_is_primitive(reader: &Reader, row: TypeDef) -> bool {
-    match reader.type_def_kind(row) {
+fn type_def_is_primitive(row: TypeDef) -> bool {
+    match row.kind() {
         TypeKind::Enum => true,
-        TypeKind::Struct => type_def_is_handle(reader, row),
-        TypeKind::Delegate => !reader.type_def_flags(row).contains(TypeAttributes::WindowsRuntime),
+        TypeKind::Struct => type_def_is_handle(row),
+        TypeKind::Delegate => !row.flags().contains(TypeAttributes::WindowsRuntime),
         _ => false,
     }
 }
 
-pub fn type_is_primitive(reader: &Reader, ty: &Type) -> bool {
+pub fn type_is_primitive(ty: &Type) -> bool {
     match ty {
-        Type::TypeDef(row, _) => type_def_is_primitive(reader, *row),
+        Type::TypeDef(row, _) => type_def_is_primitive(*row),
         Type::Bool | Type::Char | Type::I8 | Type::U8 | Type::I16 | Type::U16 | Type::I32 | Type::U32 | Type::I64 | Type::U64 | Type::F32 | Type::F64 | Type::ISize | Type::USize | Type::HRESULT | Type::ConstPtr(_, _) | Type::MutPtr(_, _) => true,
         _ => false,
     }
@@ -562,23 +597,23 @@ fn type_has_explicit_layout(reader: &Reader, ty: &Type) -> bool {
 }
 
 pub fn type_def_has_explicit_layout(reader: &Reader, row: TypeDef) -> bool {
-    if reader.type_def_kind(row) != TypeKind::Struct {
+    if row.kind() != TypeKind::Struct {
         return false;
     }
     fn check(reader: &Reader, row: TypeDef) -> bool {
-        if reader.type_def_flags(row).contains(TypeAttributes::ExplicitLayout) {
+        if row.flags().contains(TypeAttributes::ExplicitLayout) {
             return true;
         }
-        if reader.type_def_fields(row).any(|field| type_has_explicit_layout(reader, &reader.field_type(field, Some(row)))) {
+        if row.fields().any(|field| type_has_explicit_layout(reader, &field.ty(Some(row)))) {
             return true;
         }
         false
     }
-    let type_name = reader.type_def_type_name(row);
+    let type_name = row.type_name();
     if type_name.namespace.is_empty() {
         check(reader, row)
     } else {
-        for row in reader.get_type_def(type_name) {
+        for row in reader.get_type_def(type_name.namespace, type_name.name) {
             if check(reader, row) {
                 return true;
             }
@@ -596,23 +631,23 @@ fn type_has_packing(reader: &Reader, ty: &Type) -> bool {
 }
 
 pub fn type_def_has_packing(reader: &Reader, row: TypeDef) -> bool {
-    if reader.type_def_kind(row) != TypeKind::Struct {
+    if row.kind() != TypeKind::Struct {
         return false;
     }
     fn check(reader: &Reader, row: TypeDef) -> bool {
-        if reader.type_def_class_layout(row).is_some() {
+        if row.class_layout().is_some() {
             return true;
         }
-        if reader.type_def_fields(row).any(|field| type_has_packing(reader, &reader.field_type(field, Some(row)))) {
+        if row.fields().any(|field| type_has_packing(reader, &field.ty(Some(row)))) {
             return true;
         }
         false
     }
-    let type_name = reader.type_def_type_name(row);
+    let type_name = row.type_name();
     if type_name.namespace.is_empty() {
         check(reader, row)
     } else {
-        for row in reader.get_type_def(type_name) {
+        for row in reader.get_type_def(type_name.namespace, type_name.name) {
             if check(reader, row) {
                 return true;
             }
@@ -621,8 +656,8 @@ pub fn type_def_has_packing(reader: &Reader, row: TypeDef) -> bool {
     }
 }
 
-pub fn type_def_default_interface(reader: &Reader, row: TypeDef) -> Option<Type> {
-    reader.type_def_interface_impls(row).find_map(move |row| if reader.has_attribute(row, "DefaultAttribute") { Some(reader.interface_impl_type(row, &[])) } else { None })
+pub fn type_def_default_interface(row: TypeDef) -> Option<Type> {
+    row.interface_impls().find_map(move |row| if row.has_attribute("DefaultAttribute") { Some(row.ty(&[])) } else { None })
 }
 
 fn type_signature(reader: &Reader, ty: &Type) -> String {
@@ -651,21 +686,21 @@ fn type_signature(reader: &Reader, ty: &Type) -> String {
 }
 
 pub fn type_def_signature(reader: &Reader, row: TypeDef, generics: &[Type]) -> String {
-    match reader.type_def_kind(row) {
+    match row.kind() {
         TypeKind::Interface => type_def_interface_signature(reader, row, generics),
         TypeKind::Class => {
-            if let Some(Type::TypeDef(default, generics)) = type_def_default_interface(reader, row) {
-                format!("rc({};{})", reader.type_def_type_name(row), type_def_interface_signature(reader, default, &generics))
+            if let Some(Type::TypeDef(default, generics)) = type_def_default_interface(row) {
+                format!("rc({};{})", row.type_name(), type_def_interface_signature(reader, default, &generics))
             } else {
                 unimplemented!();
             }
         }
-        TypeKind::Enum => format!("enum({};{})", reader.type_def_type_name(row), type_signature(reader, &reader.type_def_underlying_type(row))),
+        TypeKind::Enum => format!("enum({};{})", row.type_name(), type_signature(reader, &row.underlying_type())),
         TypeKind::Struct => {
-            let mut result = format!("struct({}", reader.type_def_type_name(row));
-            for field in reader.type_def_fields(row) {
+            let mut result = format!("struct({}", row.type_name());
+            for field in row.fields() {
                 result.push(';');
-                result.push_str(&type_signature(reader, &reader.field_type(field, Some(row))));
+                result.push_str(&type_signature(reader, &field.ty(Some(row))));
             }
             result.push(')');
             result
@@ -681,7 +716,7 @@ pub fn type_def_signature(reader: &Reader, row: TypeDef, generics: &[Type]) -> S
 }
 
 fn type_def_interface_signature(reader: &Reader, row: TypeDef, generics: &[Type]) -> String {
-    let guid = type_def_guid(reader, row).unwrap();
+    let guid = type_def_guid(row).unwrap();
     if generics.is_empty() {
         format!("{{{guid:#?}}}")
     } else {
@@ -695,20 +730,20 @@ fn type_def_interface_signature(reader: &Reader, row: TypeDef, generics: &[Type]
     }
 }
 
-pub fn type_def_is_handle(reader: &Reader, row: TypeDef) -> bool {
-    reader.has_attribute(row, "NativeTypedefAttribute")
+pub fn type_def_is_handle(row: TypeDef) -> bool {
+    row.has_attribute("NativeTypedefAttribute")
 }
 
-pub fn type_def_guid(reader: &Reader, row: TypeDef) -> Option<GUID> {
-    reader.find_attribute(row, "GuidAttribute").map(|attribute| GUID::from_args(&reader.attribute_args(attribute)))
+pub fn type_def_guid(row: TypeDef) -> Option<Guid> {
+    row.find_attribute("GuidAttribute").map(|attribute| Guid::from_args(&attribute.args()))
 }
 
 pub fn type_def_bases(reader: &Reader, mut row: TypeDef) -> Vec<TypeDef> {
     let mut bases = Vec::new();
     loop {
-        match reader.type_def_extends(row) {
+        match row.extends() {
             Some(base) if base != TypeName::Object => {
-                row = reader.get_type_def(base).next().expect("Type not found");
+                row = reader.get_type_def(base.namespace, base.name).next().expect("Type not found");
                 bases.push(row);
             }
             _ => break,
@@ -717,11 +752,11 @@ pub fn type_def_bases(reader: &Reader, mut row: TypeDef) -> Vec<TypeDef> {
     bases
 }
 
-pub fn type_def_invalid_values(reader: &Reader, row: TypeDef) -> Vec<i64> {
+pub fn type_def_invalid_values(row: TypeDef) -> Vec<i64> {
     let mut values = Vec::new();
-    for attribute in reader.attributes(row) {
-        if reader.attribute_name(attribute) == "InvalidHandleValueAttribute" {
-            if let Some((_, Value::I64(value))) = reader.attribute_args(attribute).get(0) {
+    for attribute in row.attributes() {
+        if attribute.name() == "InvalidHandleValueAttribute" {
+            if let Some((_, Value::I64(value))) = attribute.args().get(0) {
                 values.push(*value);
             }
         }
@@ -729,34 +764,34 @@ pub fn type_def_invalid_values(reader: &Reader, row: TypeDef) -> Vec<i64> {
     values
 }
 
-fn type_def_is_nullable(reader: &Reader, row: TypeDef) -> bool {
-    match reader.type_def_kind(row) {
+fn type_def_is_nullable(row: TypeDef) -> bool {
+    match row.kind() {
         TypeKind::Interface | TypeKind::Class => true,
         // Win32 callbacks are defined as `Option<T>` so we don't include them here to avoid them
         // from being doubly wrapped in `Option`.
-        TypeKind::Delegate => reader.type_def_flags(row).contains(TypeAttributes::WindowsRuntime),
+        TypeKind::Delegate => row.flags().contains(TypeAttributes::WindowsRuntime),
         _ => false,
     }
 }
 
-pub fn type_is_nullable(reader: &Reader, ty: &Type) -> bool {
+pub fn type_is_nullable(ty: &Type) -> bool {
     match ty {
-        Type::TypeDef(row, _) => type_def_is_nullable(reader, *row),
+        Type::TypeDef(row, _) => type_def_is_nullable(*row),
         Type::IInspectable | Type::IUnknown => true,
         _ => false,
     }
 }
 
-pub fn type_def_vtables(reader: &Reader, row: TypeDef) -> Vec<Type> {
+pub fn type_def_vtables(row: TypeDef) -> Vec<Type> {
     let mut result = Vec::new();
-    if reader.type_def_flags(row).contains(TypeAttributes::WindowsRuntime) {
+    if row.flags().contains(TypeAttributes::WindowsRuntime) {
         result.push(Type::IUnknown);
-        if reader.type_def_kind(row) != TypeKind::Delegate {
+        if row.kind() != TypeKind::Delegate {
             result.push(Type::IInspectable);
         }
     } else {
         let mut next = row;
-        while let Some(base) = type_def_interfaces(reader, next, &[]).next() {
+        while let Some(base) = type_def_interfaces(next, &[]).next() {
             match base {
                 Type::TypeDef(row, _) => {
                     next = row;
@@ -778,6 +813,6 @@ pub fn type_def_vtables(reader: &Reader, row: TypeDef) -> Vec<Type> {
     result
 }
 
-pub fn type_def_interfaces<'a>(reader: &'a Reader<'a>, row: TypeDef, generics: &'a [Type]) -> impl Iterator<Item = Type> + 'a {
-    reader.type_def_interface_impls(row).map(move |row| reader.interface_impl_type(row, generics))
+pub fn type_def_interfaces(row: TypeDef, generics: &[Type]) -> impl Iterator<Item = Type> + '_ {
+    row.interface_impls().map(move |row| row.ty(generics))
 }

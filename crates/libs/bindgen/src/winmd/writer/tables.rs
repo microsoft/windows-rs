@@ -2,7 +2,7 @@
 
 use super::Write;
 use super::*;
-use metadata::imp::coded_index_size;
+use metadata::*;
 
 #[derive(Default)]
 pub struct Tables {

@@ -1,7 +1,7 @@
 use super::*;
 use crate::tokens::{quote, to_ident, TokenStream};
 use crate::{rdl, Error, Result, Tree};
-use metadata::RowReader;
+use metadata::*;
 
 pub fn from_reader(reader: &metadata::Reader, filter: &metadata::Filter, mut config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
     let dialect = match config.remove("type") {
@@ -58,7 +58,7 @@ enum Dialect {
 }
 
 struct Writer<'a> {
-    reader: &'a metadata::Reader<'a>,
+    reader: &'a metadata::Reader,
     filter: &'a metadata::Filter<'a>,
     namespace: &'a str,
     dialect: Dialect,
@@ -137,7 +137,7 @@ impl<'a> Writer<'a> {
         if !tree.namespace.is_empty() {
             for item in self.reader.namespace_items(tree.namespace, self.filter).filter(|item| match item {
                 metadata::Item::Type(def) => {
-                    let winrt = self.reader.type_def_flags(*def).contains(metadata::TypeAttributes::WindowsRuntime);
+                    let winrt = def.flags().contains(metadata::TypeAttributes::WindowsRuntime);
                     match self.dialect {
                         Dialect::Win32 => !winrt,
                         Dialect::WinRT => winrt,
@@ -148,7 +148,7 @@ impl<'a> Writer<'a> {
                 match item {
                     metadata::Item::Type(def) => types.push(self.type_def(def)),
                     metadata::Item::Const(field) => constants.push(self.constant(field)),
-                    metadata::Item::Fn(method, namespace) => functions.push(self.function(method, &namespace)),
+                    metadata::Item::Fn(method, namespace) => functions.push(self.function(method, namespace)),
                 }
             }
         }
@@ -161,17 +161,17 @@ impl<'a> Writer<'a> {
     }
 
     fn function(&self, def: metadata::MethodDef, _namespace: &str) -> TokenStream {
-        let name = to_ident(self.reader.method_def_name(def));
+        let name = to_ident(def.name());
         quote! { fn #name(); }
     }
 
     fn constant(&self, def: metadata::Field) -> TokenStream {
-        let name = to_ident(self.reader.field_name(def));
+        let name = to_ident(def.name());
         quote! { const #name: i32 = 0; }
     }
 
     fn type_def(&self, def: metadata::TypeDef) -> TokenStream {
-        if let Some(extends) = self.reader.type_def_extends(def) {
+        if let Some(extends) = def.extends() {
             if extends.namespace == "System" {
                 if extends.name == "Enum" {
                     self.enum_def(def)
@@ -191,7 +191,7 @@ impl<'a> Writer<'a> {
     }
 
     fn enum_def(&self, def: metadata::TypeDef) -> TokenStream {
-        let name = to_ident(self.reader.type_def_name(def));
+        let name = to_ident(def.name());
 
         quote! {
             struct #name {
@@ -201,11 +201,11 @@ impl<'a> Writer<'a> {
     }
 
     fn struct_def(&self, def: metadata::TypeDef) -> TokenStream {
-        let name = to_ident(self.reader.type_def_name(def));
+        let name = to_ident(def.name());
 
-        let fields = self.reader.type_def_fields(def).map(|field| {
-            let name = to_ident(self.reader.field_name(field));
-            let ty = self.ty(&self.reader.field_type(field, Some(def)));
+        let fields = def.fields().map(|field| {
+            let name = to_ident(field.name());
+            let ty = self.ty(&field.ty(Some(def)));
             quote! {
                 #name: #ty
             }
@@ -219,7 +219,7 @@ impl<'a> Writer<'a> {
     }
 
     fn delegate_def(&self, def: metadata::TypeDef) -> TokenStream {
-        let name = to_ident(self.reader.type_def_name(def));
+        let name = to_ident(def.name());
 
         quote! {
             struct #name {
@@ -229,7 +229,7 @@ impl<'a> Writer<'a> {
     }
 
     fn class_def(&self, def: metadata::TypeDef) -> TokenStream {
-        let name = to_ident(self.reader.type_def_name(def));
+        let name = to_ident(def.name());
         let implements = self.implements(def, &[]);
 
         quote! {
@@ -238,20 +238,20 @@ impl<'a> Writer<'a> {
     }
 
     fn interface_def(&self, def: metadata::TypeDef) -> TokenStream {
-        let name = to_ident(self.reader.type_def_name(def));
-        let generics = &metadata::type_def_generics(self.reader, def);
+        let name = to_ident(def.name());
+        let generics = &metadata::type_def_generics(def);
         let implements = self.implements(def, generics);
 
-        let methods = self.reader.type_def_methods(def).map(|method| {
-            let name = to_ident(self.reader.method_def_name(method));
+        let methods = def.methods().map(|method| {
+            let name = to_ident(method.name());
 
             // TODO: use reader.method_def_signature instead
-            let signature = metadata::method_def_signature(self.reader, self.reader.type_def_namespace(def), method, generics);
+            let signature = metadata::method_def_signature(self.reader, def.namespace(), method, generics);
 
             let return_type = self.return_type(&signature.return_type);
 
             let params = signature.params.iter().map(|param| {
-                let name = to_ident(self.reader.param_name(param.def));
+                let name = to_ident(param.def.name());
                 let ty = self.ty(&param.ty);
                 quote! { #name: #ty }
             });
@@ -287,16 +287,16 @@ impl<'a> Writer<'a> {
         // TODO: then list default interface first
         // Then everything else
 
-        for imp in self.reader.type_def_interface_impls(def) {
-            let ty = self.reader.interface_impl_type(imp, generics);
-            if self.reader.has_attribute(imp, "DefaultAttribute") {
+        for imp in def.interface_impls() {
+            let ty = imp.ty(generics);
+            if imp.has_attribute("DefaultAttribute") {
                 types.insert(0, self.ty(&ty));
             } else {
                 types.push(self.ty(&ty));
             }
         }
 
-        if let Some(type_name) = self.reader.type_def_extends(def) {
+        if let Some(type_name) = def.extends() {
             if type_name != metadata::TypeName::Object {
                 let namespace = self.namespace(type_name.namespace);
                 let name = to_ident(type_name.name);
@@ -349,8 +349,8 @@ impl<'a> Writer<'a> {
             metadata::Type::IUnknown => quote! { IUnknown },
 
             metadata::Type::TypeDef(def, generics) => {
-                let namespace = self.namespace(self.reader.type_def_namespace(*def));
-                let name = to_ident(self.reader.type_def_name(*def));
+                let namespace = self.namespace(def.namespace());
+                let name = to_ident(def.name());
                 if generics.is_empty() {
                     quote! { #namespace #name }
                 } else {
@@ -360,13 +360,13 @@ impl<'a> Writer<'a> {
             }
 
             metadata::Type::TypeRef(code) => {
-                let type_name = self.reader.type_def_or_ref(*code);
+                let type_name = code.type_name();
                 let namespace = self.namespace(type_name.namespace);
                 let name = to_ident(type_name.name);
                 quote! { #namespace #name }
             }
 
-            metadata::Type::GenericParam(generic) => self.reader.generic_param_name(*generic).into(),
+            metadata::Type::GenericParam(generic) => generic.name().into(),
             metadata::Type::WinrtArray(ty) => self.ty(ty),
             metadata::Type::WinrtArrayRef(ty) => self.ty(ty),
             metadata::Type::ConstRef(ty) => self.ty(ty),
