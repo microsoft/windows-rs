@@ -31,7 +31,7 @@ fn test() {
     assert!(matches!(fields[0].ty(None), Type::Bool));
     assert!(matches!(fields[2].ty(None), Type::USize));
 
-    let Type::TypeDef(def, generics) = fields[1].ty( None) else {
+    let Type::TypeDef(def, generics) = fields[1].ty(None) else {
         panic!("wrong type")
     };
 

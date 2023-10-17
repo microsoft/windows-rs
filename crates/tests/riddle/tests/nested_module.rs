@@ -36,5 +36,5 @@ fn test() {
     let fields: Vec<Field> = def.fields().collect();
     assert_eq!(fields.len(), 1);
     assert_eq!(fields[0].name(), "field");
-    assert!(matches!(fields[0].ty( None), Type::F32));
+    assert!(matches!(fields[0].ty(None), Type::F32));
 }

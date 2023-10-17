@@ -52,7 +52,7 @@ fn test() {
     method(generics, methods[13], Type::USize);
 }
 
-fn method( generics: &[Type], method: MethodDef, expected: Type) {
+fn method(generics: &[Type], method: MethodDef, expected: Type) {
     let sig = method.signature(generics);
     assert_eq!(sig.return_type, expected);
     assert_eq!(sig.params.len(), 2);

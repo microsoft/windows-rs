@@ -12,20 +12,14 @@ fn test() {
 
     assert_eq!(types.len(), 4);
 
-    let def = reader
-        .get_type_def("Test", "IIterable")
-        .next()
-        .unwrap();
+    let def = reader.get_type_def("Test", "IIterable").next().unwrap();
 
     assert_eq!(def.interface_impls().count(), 0);
     let generics: Vec<GenericParam> = def.generics().collect();
     assert_eq!(generics.len(), 1);
     assert_eq!(generics[0].name(), "T");
 
-    let def = reader
-        .get_type_def("Test", "IMapView")
-        .next()
-        .unwrap();
+    let def = reader.get_type_def("Test", "IMapView").next().unwrap();
 
     let impls: Vec<InterfaceImpl> = def.interface_impls().collect();
     assert_eq!(impls.len(), 1);

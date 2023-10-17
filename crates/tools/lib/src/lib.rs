@@ -35,10 +35,11 @@ pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
     // are stable and we don't break the `windows-targets` crate compatibility until the next major
     // release of that crate.
 
-    let compat = vec![
-        metadata::File::new(std::include_bytes!("../Windows.Win32.49.winmd").to_vec())
-            .expect("invalid winmd"),
-    ];
+    let compat =
+        vec![
+            metadata::File::new(std::include_bytes!("../Windows.Win32.49.winmd").to_vec())
+                .expect("invalid winmd"),
+        ];
 
     let reader = &metadata::Reader::new(compat);
     combine_libraries(reader, &mut libraries);
@@ -56,8 +57,7 @@ fn combine_libraries(
         };
 
         let library = method.module_name();
-        let impl_map = method.impl_map()
-            .expect("ImplMap not found");
+        let impl_map = method.impl_map().expect("ImplMap not found");
         let flags = impl_map.flags();
         let name = impl_map.import_name().to_string();
 
