@@ -1,15 +1,11 @@
+use super::*;
+
 #[derive(Default)]
 pub struct Table {
     pub offset: usize,
     pub len: usize,
     pub width: usize,
     pub columns: [Column; 6],
-}
-
-#[derive(Default)]
-pub struct Column {
-    pub offset: usize,
-    pub width: usize,
 }
 
 impl Table {
@@ -47,11 +43,5 @@ impl Table {
             self.offset = *offset;
             *offset = next;
         }
-    }
-}
-
-impl Column {
-    fn new(offset: usize, width: usize) -> Self {
-        Self { offset, width }
     }
 }

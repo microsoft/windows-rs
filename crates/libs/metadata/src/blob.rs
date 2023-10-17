@@ -1,11 +1,11 @@
 use super::*;
 
-pub struct Blob<'a> {
-    pub file: usize,
-    pub slice: &'a [u8],
+pub struct Blob {
+    pub file: &'static File,
+    pub slice: &'static [u8],
 }
 
-impl<'a> std::ops::Deref for Blob<'a> {
+impl std::ops::Deref for Blob {
     type Target = [u8];
 
     fn deref(&self) -> &[u8] {
@@ -13,8 +13,8 @@ impl<'a> std::ops::Deref for Blob<'a> {
     }
 }
 
-impl<'a> Blob<'a> {
-    pub fn new(file: usize, slice: &'a [u8]) -> Self {
+impl Blob {
+    pub fn new(file: &'static File, slice: &'static [u8]) -> Self {
         Self { file, slice }
     }
 

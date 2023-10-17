@@ -1,20 +1,47 @@
-mod reader;
-mod table;
-mod view;
 use super::*;
-pub use reader::RowReader;
-use std::cmp::Ordering;
-use table::Table;
-use view::View;
 type Result<T> = std::result::Result<T, ()>;
 
-#[derive(Default)]
 pub struct File {
-    bytes: Vec<u8>,
-    strings: usize,
-    blobs: usize,
-    tables: [Table; 17],
+    pub reader: *const Reader,
+    pub bytes: Vec<u8>,
+    pub strings: usize,
+    pub blobs: usize,
+    pub tables: [Table; 17],
 }
+
+impl std::fmt::Debug for File {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        std::write!(f, "{:?}", self.bytes.as_ptr())
+    }
+}
+
+impl std::hash::Hash for File {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.bytes.as_ptr().hash(state);
+    }
+}
+
+impl PartialEq for File {
+    fn eq(&self, other: &Self) -> bool {
+        self.bytes.as_ptr() == other.bytes.as_ptr()
+    }
+}
+
+impl Eq for File {}
+
+impl Ord for File {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        self.bytes.as_ptr().cmp(&other.bytes.as_ptr())
+    }
+}
+
+impl PartialOrd for File {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+unsafe impl Sync for File {}
 
 impl File {
     pub fn new(bytes: Vec<u8>) -> Option<Self> {
@@ -22,7 +49,7 @@ impl File {
     }
 
     fn ok(bytes: Vec<u8>) -> Result<Self> {
-        let mut result = File { bytes, ..Default::default() };
+        let mut result = File { bytes, reader: std::ptr::null(), strings: 0, blobs: 0, tables: Default::default() };
 
         let dos = result.bytes.view_as::<IMAGE_DOS_HEADER>(0)?;
 
@@ -282,7 +309,7 @@ impl File {
         Ok(result)
     }
 
-    fn usize(&self, row: usize, table: usize, column: usize) -> usize {
+    pub fn usize(&self, row: usize, table: usize, column: usize) -> usize {
         let table = &self.tables[table];
         let column = &table.columns[column];
         let offset = table.offset + row * table.width + column.offset;
@@ -294,7 +321,7 @@ impl File {
         }
     }
 
-    fn lower_bound_of(&self, table: usize, mut first: usize, last: usize, column: usize, value: usize) -> usize {
+    pub fn lower_bound_of(&self, table: usize, mut first: usize, last: usize, column: usize, value: usize) -> usize {
         let mut count = last - first;
         while count > 0 {
             let count2 = count / 2;
@@ -309,7 +336,7 @@ impl File {
         first
     }
 
-    fn upper_bound_of(&self, table: usize, mut first: usize, last: usize, column: usize, value: usize) -> usize {
+    pub fn upper_bound_of(&self, table: usize, mut first: usize, last: usize, column: usize, value: usize) -> usize {
         let mut count = last - first;
         while count > 0 {
             let count2 = count / 2;
@@ -324,8 +351,8 @@ impl File {
         first
     }
 
-    pub fn table<R: AsRow>(&self, file: usize) -> RowIterator<R> {
-        RowIterator::new(file, 0..self.tables[R::TABLE].len)
+    pub fn table<R: AsRow>(&'static self) -> RowIterator<R> {
+        RowIterator::new(self, 0..self.tables[R::TABLE].len)
     }
 }
 
@@ -335,4 +362,58 @@ fn section_from_rva(sections: &[IMAGE_SECTION_HEADER], rva: u32) -> Result<&IMAG
 
 fn offset_from_rva(section: &IMAGE_SECTION_HEADER, rva: u32) -> usize {
     (rva - section.VirtualAddress + section.PointerToRawData) as usize
+}
+
+trait View {
+    fn view_as<T>(&self, offset: usize) -> Result<&T>;
+    fn view_as_slice_of<T>(&self, offset: usize, len: usize) -> Result<&[T]>;
+    fn copy_as<T: Copy>(&self, offset: usize) -> Result<T>;
+    fn view_as_str(&self, offset: usize) -> Result<&[u8]>;
+    fn is_proper_length<T>(&self, offset: usize) -> Result<()>;
+    fn is_proper_length_and_alignment<T>(&self, offset: usize, count: usize) -> Result<*const T>;
+}
+
+impl View for [u8] {
+    fn view_as<T>(&self, offset: usize) -> Result<&T> {
+        unsafe { Ok(&*self.is_proper_length_and_alignment(offset, 1)?) }
+    }
+
+    fn view_as_slice_of<T>(&self, offset: usize, len: usize) -> Result<&[T]> {
+        unsafe { Ok(std::slice::from_raw_parts(self.is_proper_length_and_alignment(offset, len)?, len)) }
+    }
+
+    fn copy_as<T>(&self, offset: usize) -> Result<T> {
+        self.is_proper_length::<T>(offset)?;
+
+        unsafe {
+            let mut data = std::mem::MaybeUninit::zeroed().assume_init();
+            std::ptr::copy_nonoverlapping(self[offset..].as_ptr(), &mut data as *mut T as *mut u8, std::mem::size_of::<T>());
+            Ok(data)
+        }
+    }
+
+    fn view_as_str(&self, offset: usize) -> Result<&[u8]> {
+        let buffer = &self[offset..];
+        let index = buffer.iter().position(|c| *c == b'\0').ok_or(())?;
+        Ok(&self[offset..offset + index])
+    }
+
+    fn is_proper_length<T>(&self, offset: usize) -> Result<()> {
+        if offset + std::mem::size_of::<T>() <= self.len() {
+            Ok(())
+        } else {
+            Err(())
+        }
+    }
+
+    fn is_proper_length_and_alignment<T>(&self, offset: usize, count: usize) -> Result<*const T> {
+        self.is_proper_length::<T>(offset * count)?;
+        let ptr = &self[offset] as *const u8 as *const T;
+
+        if ptr.align_offset(std::mem::align_of::<T>()) == 0 {
+            Ok(ptr)
+        } else {
+            Err(())
+        }
+    }
 }
