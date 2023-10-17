@@ -6,7 +6,7 @@ fn size() {
     // dumpbin /exports kernel32.lib | findstr /i RtmConvertIpv6AddressAndLengthToNetAddress
 
     let files = tool_lib::default_metadata();
-    let reader = &Reader::new(&files);
+    let reader = &Reader::new(files);
 
     assert_eq!(
         struct_size(reader, "Windows.Win32.System.Variant", "VARIANT"),
@@ -313,16 +313,16 @@ fn size() {
 
 fn function_size(reader: &Reader, namespace: &str, name: &str) -> usize {
     let (method, _) = reader
-        .get_method_def(TypeName::new(namespace, name))
+        .get_method_def(namespace, name)
         .next()
         .expect("Function not found");
-    return reader.method_def_size(method);
+    method.signature(&[]).size()
 }
 
 fn struct_size(reader: &Reader, namespace: &str, name: &str) -> usize {
     let def = reader
-        .get_type_def(TypeName::new(namespace, name))
+        .get_type_def(namespace, name)
         .next()
         .expect("Type not found");
-    return reader.type_def_size(def);
+    def.size()
 }

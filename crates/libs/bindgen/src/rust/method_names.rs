@@ -7,8 +7,8 @@ impl MethodNames {
         Self(BTreeMap::new())
     }
 
-    pub fn add(&mut self, writer: &Writer, method: MethodDef) -> TokenStream {
-        let name = method_def_special_name(writer.reader, method);
+    pub fn add(&mut self, method: MethodDef) -> TokenStream {
+        let name = method_def_special_name(method);
         let overload = self.0.entry(name.to_string()).or_insert(0);
         *overload += 1;
         if *overload > 1 {
@@ -18,20 +18,20 @@ impl MethodNames {
         }
     }
 
-    pub fn add_vtable_types(&mut self, writer: &Writer, def: TypeDef) {
-        for def in type_def_vtables(writer.reader, def) {
+    pub fn add_vtable_types(&mut self, def: TypeDef) {
+        for def in type_def_vtables(def) {
             if let Type::TypeDef(def, _) = def {
-                for method in writer.reader.type_def_methods(def) {
-                    self.add(writer, method);
+                for method in def.methods() {
+                    self.add(method);
                 }
             }
         }
     }
 }
 
-fn method_def_special_name(reader: &Reader, row: MethodDef) -> String {
-    let name = reader.method_def_name(row);
-    if reader.method_def_flags(row).contains(MethodAttributes::SpecialName) {
+fn method_def_special_name(row: MethodDef) -> String {
+    let name = row.name();
+    if row.flags().contains(MethodAttributes::SpecialName) {
         if name.starts_with("get") {
             name[4..].to_string()
         } else if name.starts_with("put") {
@@ -44,8 +44,8 @@ fn method_def_special_name(reader: &Reader, row: MethodDef) -> String {
             name.to_string()
         }
     } else {
-        if let Some(attribute) = reader.find_attribute(row, "OverloadAttribute") {
-            for (_, arg) in reader.attribute_args(attribute) {
+        if let Some(attribute) = row.find_attribute("OverloadAttribute") {
+            for (_, arg) in attribute.args() {
                 if let Value::String(name) = arg {
                     return name;
                 }

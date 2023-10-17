@@ -1,5 +1,4 @@
 use super::*;
-use metadata::RowReader;
 
 pub fn verify(reader: &metadata::Reader, filter: &metadata::Filter) -> crate::Result<()> {
     let unused: Vec<&str> = filter.unused(reader).collect();
@@ -20,24 +19,24 @@ pub fn verify(reader: &metadata::Reader, filter: &metadata::Filter) -> crate::Re
             continue;
         };
 
-        let generics = &metadata::type_def_generics(reader, def);
+        let generics = &metadata::type_def_generics(def);
 
-        reader.type_def_fields(def).try_for_each(|field| not_type_ref(reader, &reader.field_type(field, Some(def))))?;
+        def.fields().try_for_each(|field| not_type_ref(&field.ty(Some(def))))?;
 
-        reader.type_def_methods(def).try_for_each(|method| {
-            let sig = reader.method_def_signature(method, generics);
-            not_type_ref(reader, &sig.return_type)?;
+        def.methods().try_for_each(|method| {
+            let sig = method.signature(generics);
+            not_type_ref(&sig.return_type)?;
 
-            sig.params.iter().try_for_each(|param| not_type_ref(reader, param))
+            sig.params.iter().try_for_each(not_type_ref)
         })?;
     }
 
     Ok(())
 }
 
-fn not_type_ref(reader: &metadata::Reader, ty: &metadata::Type) -> crate::Result<()> {
+fn not_type_ref(ty: &metadata::Type) -> crate::Result<()> {
     if let metadata::Type::TypeRef(ty) = ty {
-        return Err(crate::Error::new(&format!("missing type definition `{}`", reader.type_def_or_ref(*ty))));
+        return Err(crate::Error::new(&format!("missing type definition `{}`", ty.type_name())));
     }
     Ok(())
 }

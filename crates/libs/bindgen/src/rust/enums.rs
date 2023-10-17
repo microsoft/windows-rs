@@ -1,26 +1,25 @@
 use super::*;
 
 pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
-    let type_name = writer.reader.type_def_type_name(def);
+    let type_name = def.type_name();
     let ident = to_ident(type_name.name);
-    let underlying_type = writer.reader.type_def_underlying_type(def);
+    let underlying_type = def.underlying_type();
     let underlying_type = writer.type_name(&underlying_type);
 
     // TODO: unscoped enums should be removed from metadata
-    let is_scoped = writer.reader.type_def_flags(def).contains(TypeAttributes::WindowsRuntime) || writer.reader.has_attribute(def, "ScopedEnumAttribute");
+    let is_scoped = def.flags().contains(TypeAttributes::WindowsRuntime) || def.has_attribute("ScopedEnumAttribute");
 
     let cfg = type_def_cfg(writer.reader, def, &[]);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 
-    let fields: Vec<(TokenStream, TokenStream)> = writer
-        .reader
-        .type_def_fields(def)
+    let fields: Vec<(TokenStream, TokenStream)> = def
+        .fields()
         .filter_map(|field| {
-            if writer.reader.field_flags(field).contains(FieldAttributes::Literal) {
-                let field_name = to_ident(writer.reader.field_name(field));
-                let constant = writer.reader.field_constant(field).unwrap();
-                let value = writer.value(&writer.reader.constant_value(constant));
+            if field.flags().contains(FieldAttributes::Literal) {
+                let field_name = to_ident(field.name());
+                let constant = field.constant().unwrap();
+                let value = writer.value(&constant.value());
 
                 Some((field_name, value))
             } else {
@@ -111,7 +110,7 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
         // Win32 enums use the Flags attribute. WinRT enums don't have the Flags attribute but are paritioned merely based
         // on whether they are signed.
         // TODO: Win32 metadata should just follow WinRT's example here.
-        let type_def_is_flags = writer.reader.has_attribute(def, "FlagsAttribute") || (writer.reader.type_def_flags(def).contains(TypeAttributes::WindowsRuntime) && writer.reader.type_def_underlying_type(def) == Type::U32);
+        let type_def_is_flags = def.has_attribute("FlagsAttribute") || (def.flags().contains(TypeAttributes::WindowsRuntime) && def.underlying_type() == Type::U32);
 
         if type_def_is_flags {
             tokens.combine(&quote! {
@@ -160,7 +159,7 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
             });
         }
 
-        if writer.reader.type_def_flags(def).contains(TypeAttributes::WindowsRuntime) {
+        if def.flags().contains(TypeAttributes::WindowsRuntime) {
             let signature = Literal::byte_string(type_def_signature(writer.reader, def, &[]).as_bytes());
 
             tokens.combine(&quote! {

@@ -4,7 +4,7 @@ use windows_metadata::*;
 #[test]
 fn test() {
     let files = run_riddle("nested_module", "winrt", &[]);
-    let reader = &Reader::new(&files);
+    let reader = Reader::new(files);
 
     let types: Vec<Item> = reader
         .namespace_items("Test", &Default::default())
@@ -15,12 +15,12 @@ fn test() {
         panic!("type expected")
     };
 
-    assert_eq!(reader.type_def_name(def), "TestType");
-    assert_eq!(reader.type_def_kind(def), TypeKind::Struct);
-    let fields: Vec<Field> = reader.type_def_fields(def).collect();
+    assert_eq!(def.name(), "TestType");
+    assert_eq!(def.kind(), TypeKind::Struct);
+    let fields: Vec<Field> = def.fields().collect();
     assert_eq!(fields.len(), 1);
-    assert_eq!(reader.field_name(fields[0]), "field");
-    assert!(matches!(reader.field_type(fields[0], None), Type::I32));
+    assert_eq!(fields[0].name(), "field");
+    assert!(matches!(fields[0].ty(None), Type::I32));
 
     let types: Vec<Item> = reader
         .namespace_items("Test.NestedModule", &Default::default())
@@ -31,10 +31,10 @@ fn test() {
         panic!("type expected")
     };
 
-    assert_eq!(reader.type_def_name(def), "NestedType");
-    assert_eq!(reader.type_def_kind(def), TypeKind::Struct);
-    let fields: Vec<Field> = reader.type_def_fields(def).collect();
+    assert_eq!(def.name(), "NestedType");
+    assert_eq!(def.kind(), TypeKind::Struct);
+    let fields: Vec<Field> = def.fields().collect();
     assert_eq!(fields.len(), 1);
-    assert_eq!(reader.field_name(fields[0]), "field");
-    assert!(matches!(reader.field_type(fields[0], None), Type::F32));
+    assert_eq!(fields[0].name(), "field");
+    assert!(matches!(fields[0].ty(None), Type::F32));
 }

@@ -1,12 +1,14 @@
 #![allow(non_upper_case_globals)]
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct TypeName<'a> {
-    pub namespace: &'a str,
-    pub name: &'a str,
+use super::*;
+
+#[derive(Copy, Clone, PartialEq, Eq)]
+pub struct TypeName {
+    pub namespace: &'static str,
+    pub name: &'static str,
 }
 
-impl<'a> TypeName<'a> {
+impl TypeName {
     pub const Enum: Self = Self::from_const("System", "Enum");
     pub const Delegate: Self = Self::from_const("System", "MulticastDelegate");
     pub const Struct: Self = Self::from_const("System", "ValueType");
@@ -51,18 +53,18 @@ impl<'a> TypeName<'a> {
         Self { namespace, name }
     }
 
-    pub fn new(namespace: &'a str, name: &'a str) -> Self {
-        Self { namespace, name: crate::trim_tick(name) }
-    }
-
-    pub fn parse(full_name: &'a str) -> Self {
-        let index = full_name.rfind('.').expect("Expected full name separated with `.`");
-        Self { namespace: &full_name[0..index], name: &full_name[index + 1..] }
+    pub fn new(namespace: &'static str, name: &'static str) -> Self {
+        Self { namespace, name: trim_tick(name) }
     }
 }
 
-impl<'a> std::fmt::Display for TypeName<'a> {
+impl std::fmt::Display for TypeName {
     fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(fmt, "{}.{}", self.namespace, self.name)
     }
+}
+
+pub fn parse_type_name(full_name: &str) -> (&str, &str) {
+    let index = full_name.rfind('.').expect("Expected full name separated with `.`");
+    (&full_name[0..index], &full_name[index + 1..])
 }

@@ -2,13 +2,13 @@ use super::*;
 
 pub fn writer(writer: &Writer, namespace: &str, def: MethodDef) -> TokenStream {
     // TODO: remove inline functions from metadata
-    if writer.reader.method_def_module_name(def) == "forceinline" {
+    if def.module_name() == "forceinline" {
         return quote! {};
     }
 
     // TODO: remove ordinal functions from metadata
-    if let Some(impl_map) = writer.reader.method_def_impl_map(def) {
-        if writer.reader.impl_map_import_name(impl_map).starts_with('#') {
+    if let Some(impl_map) = def.impl_map() {
+        if impl_map.import_name().starts_with('#') {
             return quote! {};
         }
     }
@@ -29,7 +29,7 @@ fn gen_sys_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
 }
 
 fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenStream {
-    let name = to_ident(writer.reader.method_def_name(def));
+    let name = to_ident(def.name());
     let signature = method_def_signature(writer.reader, namespace, def, &[]);
     let generics = writer.constraint_generics(&signature.params);
     let where_clause = writer.where_clause(&signature.params);
@@ -39,7 +39,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
     let features = writer.cfg_features(&cfg);
     let link = gen_link(writer, namespace, &signature, &cfg);
 
-    let kind = signature_kind(writer.reader, &signature);
+    let kind = signature_kind(&signature);
     match kind {
         SignatureKind::Query(_) => {
             let args = writer.win32_args(&signature.params, kind);
@@ -109,7 +109,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
-            let is_nullable = type_is_nullable(writer.reader, &return_type);
+            let is_nullable = type_is_nullable(&return_type);
             let return_type = writer.type_name(&return_type);
 
             if is_nullable {
@@ -139,7 +139,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
             }
         }
         SignatureKind::ReturnStruct | SignatureKind::PreserveSig => {
-            if handle_last_error(writer, def, &signature) {
+            if handle_last_error(def, &signature) {
                 let args = writer.win32_args(&signature.params, kind);
                 let params = writer.win32_params(&signature.params, kind);
                 let return_type = writer.type_name(&signature.return_type);
@@ -172,7 +172,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
         SignatureKind::ReturnVoid => {
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
-            let does_not_return = does_not_return(writer, def);
+            let does_not_return = does_not_return(def);
 
             quote! {
                 #doc
@@ -188,12 +188,12 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
 }
 
 fn gen_link(writer: &Writer, namespace: &str, signature: &Signature, cfg: &Cfg) -> TokenStream {
-    let name = writer.reader.method_def_name(signature.def);
+    let name = signature.def.name();
     let ident = to_ident(name);
-    let library = writer.reader.method_def_module_name(signature.def);
-    let abi = method_def_extern_abi(writer.reader, signature.def);
+    let library = signature.def.module_name();
+    let abi = method_def_extern_abi(signature.def);
 
-    let symbol = if let Some(impl_map) = writer.reader.method_def_impl_map(signature.def) { writer.reader.impl_map_import_name(impl_map) } else { name };
+    let symbol = if let Some(impl_map) = signature.def.impl_map() { impl_map.import_name() } else { name };
 
     let link_name = if symbol != name {
         quote! { #[link_name = #symbol] }
@@ -240,23 +240,23 @@ fn gen_link(writer: &Writer, namespace: &str, signature: &Signature, cfg: &Cfg) 
     }
 }
 
-fn does_not_return(writer: &Writer, def: MethodDef) -> TokenStream {
-    if writer.reader.has_attribute(def, "DoesNotReturnAttribute") {
+fn does_not_return(def: MethodDef) -> TokenStream {
+    if def.has_attribute("DoesNotReturnAttribute") {
         quote! { -> ! }
     } else {
         quote! {}
     }
 }
 
-fn handle_last_error(writer: &Writer, def: MethodDef, signature: &Signature) -> bool {
-    if let Some(map) = writer.reader.method_def_impl_map(def) {
-        if writer.reader.impl_map_flags(map).contains(PInvokeAttributes::SupportsLastError) {
+fn handle_last_error(def: MethodDef, signature: &Signature) -> bool {
+    if let Some(map) = def.impl_map() {
+        if map.flags().contains(PInvokeAttributes::SupportsLastError) {
             if let Type::TypeDef(return_type, _) = &signature.return_type {
-                if type_def_is_handle(writer.reader, *return_type) {
-                    if writer.reader.type_def_underlying_type(*return_type).is_pointer() {
+                if type_def_is_handle(*return_type) {
+                    if return_type.underlying_type().is_pointer() {
                         return true;
                     }
-                    if !type_def_invalid_values(writer.reader, *return_type).is_empty() {
+                    if !type_def_invalid_values(*return_type).is_empty() {
                         return true;
                     }
                 }
@@ -266,9 +266,9 @@ fn handle_last_error(writer: &Writer, def: MethodDef, signature: &Signature) -> 
     false
 }
 
-fn method_def_extern_abi(reader: &Reader, def: MethodDef) -> &'static str {
-    let impl_map = reader.method_def_impl_map(def).expect("ImplMap not found");
-    let flags = reader.impl_map_flags(impl_map);
+fn method_def_extern_abi(def: MethodDef) -> &'static str {
+    let impl_map = def.impl_map().expect("ImplMap not found");
+    let flags = impl_map.flags();
 
     if flags.contains(PInvokeAttributes::CallConvPlatformapi) {
         "system"

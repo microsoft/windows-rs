@@ -1,6 +1,5 @@
 use super::*;
 use crate::winmd::{self, writer};
-use metadata::RowReader;
 
 pub fn from_reader(reader: &metadata::Reader, filter: &metadata::Filter, config: std::collections::BTreeMap<&str, &str>, output: &str) -> crate::Result<()> {
     let mut writer = winmd::Writer::new(output);
@@ -22,31 +21,31 @@ pub fn from_reader(reader: &metadata::Reader, filter: &metadata::Filter, config:
             continue;
         };
 
-        let generics = &metadata::type_def_generics(reader, def);
+        let generics = &metadata::type_def_generics(def);
 
-        let extends = if let Some(extends) = reader.type_def_extends(def) { writer.insert_type_ref(extends.namespace, extends.name) } else { 0 };
+        let extends = if let Some(extends) = def.extends() { writer.insert_type_ref(extends.namespace, extends.name) } else { 0 };
 
         writer.tables.TypeDef.push(writer::TypeDef {
             Extends: extends,
             FieldList: writer.tables.Field.len() as u32,
-            Flags: reader.type_def_flags(def).0,
+            Flags: def.flags().0,
             MethodList: writer.tables.MethodDef.len() as u32,
-            TypeName: writer.strings.insert(reader.type_def_name(def)),
-            TypeNamespace: writer.strings.insert(reader.type_def_namespace(def)),
+            TypeName: writer.strings.insert(def.name()),
+            TypeNamespace: writer.strings.insert(def.namespace()),
         });
 
-        for generic in reader.type_def_generics(def) {
+        for generic in def.generics() {
             writer.tables.GenericParam.push(writer::GenericParam {
-                Number: reader.generic_param_number(generic),
+                Number: generic.number(),
                 Flags: 0,
                 Owner: writer::TypeOrMethodDef::TypeDef(writer.tables.TypeDef.len() as u32 - 1).encode(),
-                Name: writer.strings.insert(reader.generic_param_name(generic)),
+                Name: writer.strings.insert(generic.name()),
             });
         }
 
-        for imp in reader.type_def_interface_impls(def) {
-            let ty = reader.interface_impl_type(imp, generics);
-            let ty = winmd_type(reader, &ty);
+        for imp in def.interface_impls() {
+            let ty = imp.ty(generics);
+            let ty = winmd_type(&ty);
 
             let reference = match &ty {
                 winmd::Type::TypeRef(type_name) if type_name.generics.is_empty() => writer.insert_type_ref(&type_name.namespace, &type_name.name),
@@ -61,31 +60,31 @@ pub fn from_reader(reader: &metadata::Reader, filter: &metadata::Filter, config:
 
         // TODO: if the class is "Apis" then should we sort the fields (constants) and methods (functions) for stability
 
-        for field in reader.type_def_fields(def) {
-            let ty = winmd_type(reader, &reader.field_type(field, Some(def)));
+        for field in def.fields() {
+            let ty = winmd_type(&field.ty(Some(def)));
             let signature = writer.insert_field_sig(&ty);
 
-            writer.tables.Field.push(writer::Field { Flags: reader.field_flags(field).0, Name: writer.strings.insert(reader.field_name(field)), Signature: signature });
+            writer.tables.Field.push(writer::Field { Flags: field.flags().0, Name: writer.strings.insert(field.name()), Signature: signature });
         }
 
-        for method in reader.type_def_methods(def) {
-            let signature = reader.method_def_signature(method, generics);
-            let return_type = winmd_type(reader, &signature.return_type);
-            let param_types: Vec<Type> = signature.params.iter().map(|param| winmd_type(reader, param)).collect();
+        for method in def.methods() {
+            let signature = method.signature(generics);
+            let return_type = winmd_type(&signature.return_type);
+            let param_types: Vec<Type> = signature.params.iter().map(winmd_type).collect();
 
             let signature = writer.insert_method_sig(signature.call_flags, &return_type, &param_types);
 
             writer.tables.MethodDef.push(winmd::MethodDef {
                 RVA: 0,
-                ImplFlags: reader.method_def_impl_flags(method).0,
-                Flags: reader.method_def_flags(method).0,
-                Name: writer.strings.insert(reader.method_def_name(method)),
+                ImplFlags: method.impl_flags().0,
+                Flags: method.flags().0,
+                Name: writer.strings.insert(method.name()),
                 Signature: signature,
                 ParamList: writer.tables.Param.len() as u32,
             });
 
-            for param in reader.method_def_params(method) {
-                writer.tables.Param.push(writer::Param { Flags: reader.param_flags(param).0, Sequence: reader.param_sequence(param), Name: writer.strings.insert(reader.param_name(param)) });
+            for param in method.params() {
+                writer.tables.Param.push(writer::Param { Flags: param.flags().0, Sequence: param.sequence(), Name: writer.strings.insert(param.name()) });
             }
         }
     }
@@ -96,7 +95,7 @@ pub fn from_reader(reader: &metadata::Reader, filter: &metadata::Filter, config:
 }
 
 // TODO: keep the basic type conversion
-fn winmd_type(reader: &metadata::Reader, ty: &metadata::Type) -> winmd::Type {
+fn winmd_type(ty: &metadata::Type) -> winmd::Type {
     match ty {
         metadata::Type::Void => winmd::Type::Void,
         metadata::Type::Bool => winmd::Type::Bool,
@@ -124,18 +123,14 @@ fn winmd_type(reader: &metadata::Reader, ty: &metadata::Type) -> winmd::Type {
         metadata::Type::PCWSTR => winmd::Type::PCWSTR,
         metadata::Type::BSTR => winmd::Type::BSTR,
         metadata::Type::TypeName => winmd::Type::TypeName,
-        metadata::Type::TypeDef(def, generics) => winmd::Type::TypeRef(winmd::TypeName {
-            namespace: reader.type_def_namespace(*def).to_string(),
-            name: reader.type_def_name(*def).to_string(),
-            generics: generics.iter().map(|ty| winmd_type(reader, ty)).collect(),
-        }),
-        metadata::Type::GenericParam(generic) => winmd::Type::GenericParam(reader.generic_param_number(*generic)),
-        metadata::Type::ConstRef(ty) => winmd::Type::ConstRef(Box::new(winmd_type(reader, ty))),
-        metadata::Type::WinrtArrayRef(ty) => winmd::Type::WinrtArrayRef(Box::new(winmd_type(reader, ty))),
-        metadata::Type::WinrtArray(ty) => winmd::Type::WinrtArray(Box::new(winmd_type(reader, ty))),
-        metadata::Type::MutPtr(ty, pointers) => winmd::Type::MutPtr(Box::new(winmd_type(reader, ty)), *pointers),
-        metadata::Type::ConstPtr(ty, pointers) => winmd::Type::ConstPtr(Box::new(winmd_type(reader, ty)), *pointers),
-        metadata::Type::Win32Array(ty, len) => winmd::Type::Win32Array(Box::new(winmd_type(reader, ty)), *len),
+        metadata::Type::TypeDef(def, generics) => winmd::Type::TypeRef(winmd::TypeName { namespace: def.namespace().to_string(), name: def.name().to_string(), generics: generics.iter().map(winmd_type).collect() }),
+        metadata::Type::GenericParam(generic) => winmd::Type::GenericParam(generic.number()),
+        metadata::Type::ConstRef(ty) => winmd::Type::ConstRef(Box::new(winmd_type(ty))),
+        metadata::Type::WinrtArrayRef(ty) => winmd::Type::WinrtArrayRef(Box::new(winmd_type(ty))),
+        metadata::Type::WinrtArray(ty) => winmd::Type::WinrtArray(Box::new(winmd_type(ty))),
+        metadata::Type::MutPtr(ty, pointers) => winmd::Type::MutPtr(Box::new(winmd_type(ty)), *pointers),
+        metadata::Type::ConstPtr(ty, pointers) => winmd::Type::ConstPtr(Box::new(winmd_type(ty)), *pointers),
+        metadata::Type::Win32Array(ty, len) => winmd::Type::Win32Array(Box::new(winmd_type(ty)), *len),
         rest => unimplemented!("{rest:?}"),
     }
 }

@@ -2,17 +2,17 @@ use super::*;
 
 pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
     if writer.sys {
-        gen_sys_interface(writer, def)
+        gen_sys_interface(def)
     } else {
         gen_win_interface(writer, def)
     }
 }
 
-fn gen_sys_interface(writer: &Writer, def: TypeDef) -> TokenStream {
-    let name = writer.reader.type_def_name(def);
+fn gen_sys_interface(def: TypeDef) -> TokenStream {
+    let name = def.name();
     let ident = to_ident(name);
 
-    if type_def_is_exclusive(writer.reader, def) {
+    if type_def_is_exclusive(def) {
         quote! {}
     } else {
         quote! {
@@ -22,16 +22,16 @@ fn gen_sys_interface(writer: &Writer, def: TypeDef) -> TokenStream {
 }
 
 fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
-    let generics = &type_def_generics(writer.reader, def);
+    let generics = &type_def_generics(def);
     let ident = writer.type_def_name(def, generics);
-    let is_exclusive = type_def_is_exclusive(writer.reader, def);
+    let is_exclusive = type_def_is_exclusive(def);
     let phantoms = writer.generic_phantoms(generics);
     let constraints = writer.generic_constraints(generics);
     let cfg = type_def_cfg(writer.reader, def, &[]);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
     let interfaces = type_interfaces(writer.reader, &Type::TypeDef(def, generics.to_vec()));
-    let vtables = type_def_vtables(writer.reader, def);
+    let vtables = type_def_vtables(def);
     let has_unknown_base = matches!(vtables.first(), Some(Type::IUnknown));
 
     let mut tokens = if is_exclusive {
@@ -63,13 +63,13 @@ fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
         let method_names = &mut MethodNames::new();
         let virtual_names = &mut MethodNames::new();
 
-        if writer.reader.type_def_flags(def).contains(TypeAttributes::WindowsRuntime) {
-            for method in writer.reader.type_def_methods(def) {
+        if def.flags().contains(TypeAttributes::WindowsRuntime) {
+            for method in def.methods() {
                 methods.combine(&winrt_methods::writer(writer, def, generics, InterfaceKind::Default, method, method_names, virtual_names));
             }
             for interface in &interfaces {
                 if let Type::TypeDef(def, generics) = &interface.ty {
-                    for method in writer.reader.type_def_methods(*def) {
+                    for method in def.methods() {
                         methods.combine(&winrt_methods::writer(writer, *def, generics, InterfaceKind::None, method, method_names, virtual_names));
                     }
                 }
@@ -80,8 +80,8 @@ fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
                 match ty {
                     Type::IUnknown | Type::IInspectable => {}
                     Type::TypeDef(def, _) => {
-                        let kind = if writer.reader.type_def_type_name(*def) == TypeName::IDispatch { InterfaceKind::None } else { InterfaceKind::Default };
-                        for method in writer.reader.type_def_methods(*def) {
+                        let kind = if def.type_name() == TypeName::IDispatch { InterfaceKind::None } else { InterfaceKind::Default };
+                        for method in def.methods() {
                             methods.combine(&com_methods::writer(writer, *def, kind, method, method_names, virtual_names, bases));
                         }
                     }
@@ -90,7 +90,7 @@ fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
 
                 bases -= 1;
             }
-            for method in writer.reader.type_def_methods(def) {
+            for method in def.methods() {
                 methods.combine(&com_methods::writer(writer, def, InterfaceKind::Default, method, method_names, virtual_names, 0));
             }
         }
@@ -127,7 +127,7 @@ fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
             }
         }
 
-        if writer.reader.type_def_flags(def).contains(TypeAttributes::WindowsRuntime) {
+        if def.flags().contains(TypeAttributes::WindowsRuntime) {
             for interface in &interfaces {
                 let into = writer.type_name(&interface.ty);
                 let cfg = writer.cfg_features(&cfg.union(&type_cfg(writer.reader, &interface.ty)));

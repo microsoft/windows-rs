@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
+#[derive(Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
 pub enum Type {
     // Primitives in ECMA-335
     Void,
@@ -174,6 +174,31 @@ impl Type {
             Type::ConstPtr(kind, _) | Type::MutPtr(kind, _) => kind.is_byte_size(),
             Type::I8 | Type::U8 | Type::PSTR | Type::PCSTR => true,
             _ => false,
+        }
+    }
+
+    pub fn size(&self) -> usize {
+        match self {
+            Type::I8 | Type::U8 => 1,
+            Type::I16 | Type::U16 => 2,
+            Type::I64 | Type::U64 | Type::F64 => 8,
+            Type::GUID => 16,
+            Type::TypeDef(def, _) => def.size(),
+            Type::Win32Array(ty, len) => ty.size() * len,
+            Type::PrimitiveOrEnum(ty, _) => ty.size(),
+            _ => 4,
+        }
+    }
+
+    pub fn align(&self) -> usize {
+        match self {
+            Type::I8 | Type::U8 => 1,
+            Type::I16 | Type::U16 => 2,
+            Type::I64 | Type::U64 | Type::F64 => 8,
+            Type::GUID => 4,
+            Type::TypeDef(def, _) => def.align(),
+            Type::Win32Array(ty, len) => ty.align() * len,
+            _ => 4,
         }
     }
 }

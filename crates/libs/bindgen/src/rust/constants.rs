@@ -1,27 +1,27 @@
 use super::*;
 
 pub fn writer(writer: &Writer, def: Field) -> TokenStream {
-    let name = to_ident(writer.reader.field_name(def));
-    let ty = writer.reader.field_type(def, None).to_const_type();
+    let name = to_ident(def.name());
+    let ty = def.ty(None).to_const_type();
     let cfg = field_cfg(writer.reader, def);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 
-    if let Some(constant) = writer.reader.field_constant(def) {
-        let constant_type = writer.reader.constant_type(constant);
+    if let Some(constant) = def.constant() {
+        let constant_type = constant.ty();
 
         if ty == constant_type {
             if ty == Type::String {
                 let crate_name = writer.crate_name();
-                if field_is_ansi(writer.reader, def) {
-                    let value = writer.value(&writer.reader.constant_value(constant));
+                if field_is_ansi(def) {
+                    let value = writer.value(&constant.value());
                     quote! {
                         #doc
                         #features
                         pub const #name: #crate_name PCSTR = #crate_name s!(#value);
                     }
                 } else {
-                    let value = writer.value(&writer.reader.constant_value(constant));
+                    let value = writer.value(&constant.value());
                     quote! {
                         #doc
                         #features
@@ -29,7 +29,7 @@ pub fn writer(writer: &Writer, def: Field) -> TokenStream {
                     }
                 }
             } else {
-                let value = writer.typed_value(&writer.reader.constant_value(constant));
+                let value = writer.typed_value(&constant.value());
                 quote! {
                     #doc
                     #features
@@ -38,8 +38,8 @@ pub fn writer(writer: &Writer, def: Field) -> TokenStream {
             }
         } else {
             let kind = writer.type_default_name(&ty);
-            let value = writer.value(&writer.reader.constant_value(constant));
-            let underlying_type = type_underlying_type(writer.reader, &ty);
+            let value = writer.value(&constant.value());
+            let underlying_type = type_underlying_type(&ty);
 
             let value = if underlying_type == constant_type {
                 value
@@ -49,7 +49,7 @@ pub fn writer(writer: &Writer, def: Field) -> TokenStream {
                 quote! { #value as _ }
             };
 
-            if !writer.sys && type_has_replacement(writer.reader, &ty) {
+            if !writer.sys && type_has_replacement(&ty) {
                 quote! {
                     #doc
                     #features
@@ -63,7 +63,7 @@ pub fn writer(writer: &Writer, def: Field) -> TokenStream {
                 }
             }
         }
-    } else if let Some(guid) = field_guid(writer.reader, def) {
+    } else if let Some(guid) = field_guid(def) {
         let value = writer.guid(&guid);
         let guid = writer.type_name(&Type::GUID);
         quote! {
@@ -84,19 +84,19 @@ pub fn writer(writer: &Writer, def: Field) -> TokenStream {
 }
 
 fn initializer(writer: &Writer, def: Field) -> Option<TokenStream> {
-    let Some(value) = constant(writer, def) else {
+    let Some(value) = constant(def) else {
         return None;
     };
 
     let mut input = value.as_str();
 
-    let Type::TypeDef(def, _) = writer.reader.field_type(def, None) else {
+    let Type::TypeDef(def, _) = def.ty(None) else {
         unimplemented!();
     };
 
     let mut result = quote! {};
 
-    for field in writer.reader.type_def_fields(def) {
+    for field in def.fields() {
         let (value, rest) = field_initializer(writer, field, input);
         input = rest;
         result.combine(&value);
@@ -106,12 +106,12 @@ fn initializer(writer: &Writer, def: Field) -> Option<TokenStream> {
 }
 
 fn field_initializer<'a>(writer: &Writer, field: Field, input: &'a str) -> (TokenStream, &'a str) {
-    let name = to_ident(writer.reader.field_name(field));
+    let name = to_ident(field.name());
 
-    match writer.reader.field_type(field, None) {
+    match field.ty(None) {
         Type::GUID => {
             let (literals, rest) = read_literal_array(input, 11);
-            let value = writer.guid(&GUID::from_string_args(&literals));
+            let value = writer.guid(&Guid::from_string_args(&literals));
             (quote! { #name: #value, }, rest)
         }
         Type::Win32Array(_, len) => {
@@ -127,9 +127,9 @@ fn field_initializer<'a>(writer: &Writer, field: Field, input: &'a str) -> (Toke
     }
 }
 
-fn constant(writer: &Writer, def: Field) -> Option<String> {
-    writer.reader.find_attribute(def, "ConstantAttribute").map(|attribute| {
-        let args = writer.reader.attribute_args(attribute);
+fn constant(def: Field) -> Option<String> {
+    def.find_attribute("ConstantAttribute").map(|attribute| {
+        let args = attribute.args();
         match &args[0].1 {
             Value::String(value) => value.clone(),
             rest => unimplemented!("{rest:?}"),
@@ -184,25 +184,25 @@ fn read_literal_array(input: &str, len: usize) -> (Vec<&str>, &str) {
     (result, read_token(input, b'}'))
 }
 
-fn field_guid(reader: &Reader, row: Field) -> Option<GUID> {
-    reader.find_attribute(row, "GuidAttribute").map(|attribute| GUID::from_args(&reader.attribute_args(attribute)))
+fn field_guid(row: Field) -> Option<Guid> {
+    row.find_attribute("GuidAttribute").map(|attribute| Guid::from_args(&attribute.args()))
 }
 
-fn field_is_ansi(reader: &Reader, row: Field) -> bool {
-    reader.find_attribute(row, "NativeEncodingAttribute").is_some_and(|attribute| matches!(reader.attribute_args(attribute).get(0), Some((_, Value::String(encoding))) if encoding == "ansi"))
+fn field_is_ansi(row: Field) -> bool {
+    row.find_attribute("NativeEncodingAttribute").is_some_and(|attribute| matches!(attribute.args().get(0), Some((_, Value::String(encoding))) if encoding == "ansi"))
 }
 
-fn type_has_replacement(reader: &Reader, ty: &Type) -> bool {
+fn type_has_replacement(ty: &Type) -> bool {
     match ty {
         Type::HRESULT | Type::PCSTR | Type::PCWSTR => true,
-        Type::TypeDef(row, _) => type_def_is_handle(reader, *row) || reader.type_def_kind(*row) == TypeKind::Enum,
+        Type::TypeDef(row, _) => type_def_is_handle(*row) || row.kind() == TypeKind::Enum,
         _ => false,
     }
 }
 
-fn type_underlying_type(reader: &Reader, ty: &Type) -> Type {
+fn type_underlying_type(ty: &Type) -> Type {
     match ty {
-        Type::TypeDef(row, _) => reader.type_def_underlying_type(*row),
+        Type::TypeDef(row, _) => row.underlying_type(),
         Type::HRESULT => Type::I32,
         _ => ty.clone(),
     }

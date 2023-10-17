@@ -49,13 +49,13 @@ impl<'a> Filter<'a> {
         false
     }
 
-    pub fn includes_type_name(&self, type_name: TypeName) -> bool {
+    pub fn includes_type_name(&self, namespace: &str, name: &str) -> bool {
         if self.is_empty() {
             return true;
         }
 
         for rule in &self.0 {
-            if match_type_name(rule.0, type_name.namespace, type_name.name) {
+            if match_type_name(rule.0, namespace, name) {
                 return rule.1;
             }
         }
@@ -96,8 +96,9 @@ fn match_type_name(rule: &str, namespace: &str, name: &str) -> bool {
 mod tests {
     use super::*;
 
-    fn includes_type_name(filter: &Filter, full_name: &str) -> bool {
-        filter.includes_type_name(TypeName::parse(full_name))
+    fn includes_type_name(filter: &Filter, full_name: &'static str) -> bool {
+        let type_name = parse_type_name(full_name);
+        filter.includes_type_name(type_name.0, type_name.1)
     }
 
     #[test]

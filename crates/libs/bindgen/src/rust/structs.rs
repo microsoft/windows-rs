@@ -1,21 +1,21 @@
 use super::*;
 
 pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
-    if writer.reader.has_attribute(def, "ApiContractAttribute") {
+    if def.has_attribute("ApiContractAttribute") {
         return quote! {};
     }
 
-    if type_def_is_handle(writer.reader, def) {
+    if type_def_is_handle(def) {
         return handles::writer(writer, def);
     }
 
-    gen_struct_with_name(writer, def, writer.reader.type_def_name(def), &Cfg::default())
+    gen_struct_with_name(writer, def, def.name(), &Cfg::default())
 }
 
 fn gen_struct_with_name(writer: &Writer, def: TypeDef, struct_name: &str, cfg: &Cfg) -> TokenStream {
     let name = to_ident(struct_name);
 
-    if writer.reader.type_def_fields(def).next().is_none() {
+    if def.fields().next().is_none() {
         let mut tokens = quote! {
             #[repr(C)]
             pub struct #name(pub u8);
@@ -36,21 +36,21 @@ fn gen_struct_with_name(writer: &Writer, def: TypeDef, struct_name: &str, cfg: &
         return tokens;
     }
 
-    let flags = writer.reader.type_def_flags(def);
+    let flags = def.flags();
     let cfg = cfg.union(&type_def_cfg(writer.reader, def, &[]));
 
-    let repr = if let Some(layout) = writer.reader.type_def_class_layout(def) {
-        let packing = Literal::usize_unsuffixed(writer.reader.class_layout_packing_size(layout));
+    let repr = if let Some(layout) = def.class_layout() {
+        let packing = Literal::usize_unsuffixed(layout.packing_size());
         quote! { #[repr(C, packed(#packing))] }
     } else {
         quote! { #[repr(C)] }
     };
 
-    let fields = writer.reader.type_def_fields(def).map(|f| {
-        let name = to_ident(writer.reader.field_name(f));
-        let ty = writer.reader.field_type(f, Some(def));
+    let fields = def.fields().map(|f| {
+        let name = to_ident(f.name());
+        let ty = f.ty(Some(def));
 
-        if writer.reader.field_flags(f).contains(FieldAttributes::Literal) {
+        if f.flags().contains(FieldAttributes::Literal) {
             quote! {}
         } else if !writer.sys && flags.contains(TypeAttributes::ExplicitLayout) && !field_is_copyable(writer.reader, f, def) {
             let ty = writer.type_default_name(&ty);
@@ -130,7 +130,7 @@ fn gen_windows_traits(writer: &Writer, def: TypeDef, name: &TokenStream, cfg: &C
             }
         };
 
-        if writer.reader.type_def_flags(def).contains(TypeAttributes::WindowsRuntime) {
+        if def.flags().contains(TypeAttributes::WindowsRuntime) {
             let signature = Literal::byte_string(type_def_signature(writer.reader, def, &[]).as_bytes());
 
             tokens.combine(&quote! {
@@ -151,9 +151,9 @@ fn gen_compare_traits(writer: &Writer, def: TypeDef, name: &TokenStream, cfg: &C
     if writer.sys || type_def_has_explicit_layout(writer.reader, def) || type_def_has_packing(writer.reader, def) || type_def_has_callback(writer.reader, def) {
         quote! {}
     } else {
-        let fields = writer.reader.type_def_fields(def).filter_map(|f| {
-            let name = to_ident(writer.reader.field_name(f));
-            if writer.reader.field_flags(f).contains(FieldAttributes::Literal) {
+        let fields = def.fields().filter_map(|f| {
+            let name = to_ident(f.name());
+            if f.flags().contains(FieldAttributes::Literal) {
                 None
             } else {
                 Some(quote! { self.#name == other.#name })
@@ -180,13 +180,13 @@ fn gen_debug(writer: &Writer, def: TypeDef, ident: &TokenStream, cfg: &Cfg) -> T
         let name = ident.as_str();
         let features = writer.cfg_features(cfg);
 
-        let fields = writer.reader.type_def_fields(def).filter_map(|f| {
-            if writer.reader.field_flags(f).contains(FieldAttributes::Literal) {
+        let fields = def.fields().filter_map(|f| {
+            if f.flags().contains(FieldAttributes::Literal) {
                 None
             } else {
-                let name = writer.reader.field_name(f);
+                let name = f.name();
                 let ident = to_ident(name);
-                let ty = writer.reader.field_type(f, Some(def));
+                let ty = f.ty(Some(def));
                 if type_has_callback(writer.reader, &ty) {
                     None
                 } else {
@@ -220,10 +220,10 @@ fn gen_copy_clone(writer: &Writer, def: TypeDef, name: &TokenStream, cfg: &Cfg) 
                 }
             }
         }
-    } else if writer.reader.type_def_class_layout(def).is_some() {
+    } else if def.class_layout().is_some() {
         // Don't support copy/clone of packed structs: https://github.com/rust-lang/rust/issues/82523
         quote! {}
-    } else if !writer.reader.type_def_flags(def).contains(TypeAttributes::WindowsRuntime) {
+    } else if !def.flags().contains(TypeAttributes::WindowsRuntime) {
         quote! {
             #features
             impl ::core::clone::Clone for #name {
@@ -233,9 +233,9 @@ fn gen_copy_clone(writer: &Writer, def: TypeDef, name: &TokenStream, cfg: &Cfg) 
             }
         }
     } else {
-        let fields = writer.reader.type_def_fields(def).map(|f| {
-            let name = to_ident(writer.reader.field_name(f));
-            if writer.reader.field_flags(f).contains(FieldAttributes::Literal) {
+        let fields = def.fields().map(|f| {
+            let name = to_ident(f.name());
+            if f.flags().contains(FieldAttributes::Literal) {
                 quote! {}
             } else if field_is_blittable(writer.reader, f, def) {
                 quote! { #name: self.#name }
@@ -258,11 +258,11 @@ fn gen_copy_clone(writer: &Writer, def: TypeDef, name: &TokenStream, cfg: &Cfg) 
 fn gen_struct_constants(writer: &Writer, def: TypeDef, struct_name: &TokenStream, cfg: &Cfg) -> TokenStream {
     let features = writer.cfg_features(cfg);
 
-    let constants = writer.reader.type_def_fields(def).filter_map(|f| {
-        if writer.reader.field_flags(f).contains(FieldAttributes::Literal) {
-            if let Some(constant) = writer.reader.field_constant(f) {
-                let name = to_ident(writer.reader.field_name(f));
-                let value = writer.typed_value(&writer.reader.constant_value(constant));
+    let constants = def.fields().filter_map(|f| {
+        if f.flags().contains(FieldAttributes::Literal) {
+            if let Some(constant) = f.constant() {
+                let name = to_ident(f.name());
+                let value = writer.typed_value(&constant.value());
 
                 return Some(quote! {
                     pub const #name: #value;

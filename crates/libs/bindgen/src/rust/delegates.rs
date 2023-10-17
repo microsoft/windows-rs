@@ -1,7 +1,7 @@
 use super::*;
 
 pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
-    if writer.reader.type_def_flags(def).contains(TypeAttributes::WindowsRuntime) {
+    if def.flags().contains(TypeAttributes::WindowsRuntime) {
         gen_delegate(writer, def)
     } else {
         gen_callback(writer, def)
@@ -9,10 +9,10 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
 }
 
 fn gen_callback(writer: &Writer, def: TypeDef) -> TokenStream {
-    let name = to_ident(writer.reader.type_def_name(def));
-    let method = type_def_invoke_method(writer.reader, def);
+    let name = to_ident(def.name());
+    let method = type_def_invoke_method(def);
 
-    let signature = method_def_signature(writer.reader, writer.reader.type_def_namespace(def), method, &[]);
+    let signature = method_def_signature(writer.reader, def.namespace(), method, &[]);
 
     let return_type = writer.return_sig(&signature);
     let cfg = type_def_cfg(writer.reader, def, &[]);
@@ -34,7 +34,7 @@ fn gen_callback(writer: &Writer, def: TypeDef) -> TokenStream {
 
 fn gen_delegate(writer: &Writer, def: TypeDef) -> TokenStream {
     if writer.sys {
-        let name = to_ident(writer.reader.type_def_name(def));
+        let name = to_ident(def.name());
         quote! {
             pub type #name = *mut ::core::ffi::c_void;
         }
@@ -44,20 +44,20 @@ fn gen_delegate(writer: &Writer, def: TypeDef) -> TokenStream {
 }
 
 fn gen_win_delegate(writer: &Writer, def: TypeDef) -> TokenStream {
-    let name = to_ident(writer.reader.type_def_name(def));
+    let name = to_ident(def.name());
     let vtbl = name.join("_Vtbl");
     let boxed = name.join("Box");
 
-    let generics = &type_def_generics(writer.reader, def);
+    let generics = &type_def_generics(def);
     let phantoms = writer.generic_phantoms(generics);
     let named_phantoms = writer.generic_named_phantoms(generics);
     let constraints = writer.generic_constraints(generics);
     let generic_names = writer.generic_names(generics);
 
     let ident = writer.type_def_name(def, generics);
-    let method = type_def_invoke_method(writer.reader, def);
+    let method = type_def_invoke_method(def);
 
-    let signature = method_def_signature(writer.reader, writer.reader.type_def_namespace(def), method, generics);
+    let signature = method_def_signature(writer.reader, def.namespace(), method, generics);
 
     let fn_constraint = gen_fn_constraint(writer, def, &signature);
     let cfg = type_def_cfg(writer.reader, def, generics);

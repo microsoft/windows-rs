@@ -2,8 +2,8 @@ use super::*;
 
 pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
     if writer.sys {
-        if type_def_has_default_interface(writer.reader, def) {
-            let name = to_ident(writer.reader.type_def_name(def));
+        if type_def_has_default_interface(def) {
+            let name = to_ident(def.name());
             quote! {
                 pub type #name = *mut ::core::ffi::c_void;
             }
@@ -16,11 +16,11 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
 }
 
 fn gen_class(writer: &Writer, def: TypeDef) -> TokenStream {
-    if writer.reader.type_def_extends(def) == Some(TypeName::Attribute) {
+    if def.extends() == Some(TypeName::Attribute) {
         return TokenStream::new();
     }
 
-    let name = to_ident(writer.reader.type_def_name(def));
+    let name = to_ident(def.name());
     let interfaces = type_interfaces(writer.reader, &Type::TypeDef(def, Vec::new()));
     let mut methods = quote! {};
     let mut method_names = MethodNames::new();
@@ -33,7 +33,7 @@ fn gen_class(writer: &Writer, def: TypeDef) -> TokenStream {
         if let Type::TypeDef(def, generics) = &interface.ty {
             let mut virtual_names = MethodNames::new();
 
-            for method in writer.reader.type_def_methods(*def) {
+            for method in def.methods() {
                 methods.combine(&winrt_methods::writer(writer, *def, generics, interface.kind, method, &mut method_names, &mut virtual_names));
             }
         }
@@ -42,7 +42,7 @@ fn gen_class(writer: &Writer, def: TypeDef) -> TokenStream {
     let factories = interfaces.iter().filter_map(|interface| match interface.kind {
         InterfaceKind::Static => {
             if let Type::TypeDef(def, generics) = &interface.ty {
-                if writer.reader.type_def_methods(*def).next().is_some() {
+                if def.methods().next().is_some() {
                     let interface_type = writer.type_name(&interface.ty);
                     let features = writer.cfg_features(&type_def_cfg(writer.reader, *def, generics));
 
@@ -64,8 +64,8 @@ fn gen_class(writer: &Writer, def: TypeDef) -> TokenStream {
         _ => None,
     });
 
-    if type_def_has_default_interface(writer.reader, def) {
-        let new = if type_def_has_default_constructor(writer.reader, def) {
+    if type_def_has_default_interface(def) {
+        let new = if type_def_has_default_constructor(def) {
             quote! {
                 pub fn new() -> ::windows_core::Result<Self> {
                     Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -129,7 +129,7 @@ fn gen_conversions(writer: &Writer, def: TypeDef, name: &TokenStream, interfaces
     };
 
     for interface in interfaces {
-        if type_is_exclusive(writer.reader, &interface.ty) {
+        if type_is_exclusive(&interface.ty) {
             continue;
         }
 
@@ -159,10 +159,10 @@ fn gen_conversions(writer: &Writer, def: TypeDef, name: &TokenStream, interfaces
     tokens
 }
 
-fn type_def_has_default_constructor(reader: &Reader, row: TypeDef) -> bool {
-    for attribute in reader.attributes(row) {
-        if reader.attribute_name(attribute) == "ActivatableAttribute" {
-            if reader.attribute_args(attribute).iter().any(|arg| matches!(arg.1, Value::TypeName(_))) {
+fn type_def_has_default_constructor(row: TypeDef) -> bool {
+    for attribute in row.attributes() {
+        if attribute.name() == "ActivatableAttribute" {
+            if attribute.args().iter().any(|arg| matches!(arg.1, Value::TypeName(_))) {
                 continue;
             } else {
                 return true;
@@ -172,13 +172,13 @@ fn type_def_has_default_constructor(reader: &Reader, row: TypeDef) -> bool {
     false
 }
 
-fn type_def_has_default_interface(reader: &Reader, row: TypeDef) -> bool {
-    reader.type_def_interface_impls(row).any(|imp| reader.has_attribute(imp, "DefaultAttribute"))
+fn type_def_has_default_interface(row: TypeDef) -> bool {
+    row.interface_impls().any(|imp| imp.has_attribute("DefaultAttribute"))
 }
 
-fn type_is_exclusive(reader: &Reader, ty: &Type) -> bool {
+fn type_is_exclusive(ty: &Type) -> bool {
     match ty {
-        Type::TypeDef(row, _) => type_def_is_exclusive(reader, *row),
+        Type::TypeDef(row, _) => type_def_is_exclusive(*row),
         _ => false,
     }
 }

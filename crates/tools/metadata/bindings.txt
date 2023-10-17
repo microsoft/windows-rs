@@ -1,5 +1,5 @@
 --in crates/libs/bindgen/default
---out crates/libs/metadata/src/imp/bindings.rs
+--out crates/libs/metadata/src/bindings.rs
 --config flatten sys minimal
 
 --filter

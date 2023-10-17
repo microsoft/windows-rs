@@ -1,5 +1,5 @@
 use super::*;
-use metadata::imp::*;
+use metadata::*;
 use std::mem::*;
 
 pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> Vec<u8> {

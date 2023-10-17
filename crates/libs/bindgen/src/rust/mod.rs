@@ -165,7 +165,7 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
     for item in writer.reader.namespace_items(writer.namespace, writer.filter) {
         match item {
             Item::Type(def) => {
-                let type_name = writer.reader.type_def_type_name(def);
+                let type_name = def.type_name();
                 if REMAP_TYPES.iter().any(|(x, _)| x == &type_name) {
                     continue;
                 }
@@ -173,18 +173,18 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
                     continue;
                 }
                 let name = type_name.name;
-                let kind = writer.reader.type_def_kind(def);
+                let kind = def.kind();
                 match kind {
                     TypeKind::Class => {
-                        if writer.reader.type_def_flags(def).contains(TypeAttributes::WindowsRuntime) {
+                        if def.flags().contains(TypeAttributes::WindowsRuntime) {
                             types.entry(kind).or_default().insert(name, classes::writer(writer, def));
                         }
                     }
                     TypeKind::Interface => types.entry(kind).or_default().entry(name).or_default().combine(&interfaces::writer(writer, def)),
                     TypeKind::Enum => types.entry(kind).or_default().entry(name).or_default().combine(&enums::writer(writer, def)),
                     TypeKind::Struct => {
-                        if writer.reader.type_def_fields(def).next().is_none() {
-                            if let Some(guid) = type_def_guid(writer.reader, def) {
+                        if def.fields().next().is_none() {
+                            if let Some(guid) = type_def_guid(def) {
                                 let ident = to_ident(name);
                                 let value = writer.guid(&guid);
                                 let guid = writer.type_name(&Type::GUID);
@@ -204,11 +204,11 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
                 }
             }
             Item::Fn(def, namespace) => {
-                let name = writer.reader.method_def_name(def);
-                functions.entry(name).or_default().combine(&functions::writer(writer, &namespace, def));
+                let name = def.name();
+                functions.entry(name).or_default().combine(&functions::writer(writer, namespace, def));
             }
             Item::Const(def) => {
-                let name = writer.reader.field_name(def);
+                let name = def.name();
                 types.entry(TypeKind::Class).or_default().entry(name).or_default().combine(&constants::writer(writer, def));
             }
         }
@@ -238,11 +238,11 @@ fn namespace_impl(writer: &Writer, tree: &Tree) -> String {
 
     for item in writer.reader.namespace_items(tree.namespace, writer.filter) {
         if let Item::Type(def) = item {
-            let type_name = writer.reader.type_def_type_name(def);
+            let type_name = def.type_name();
             if CORE_TYPES.iter().any(|(x, _)| x == &type_name) {
                 continue;
             }
-            if writer.reader.type_def_kind(def) != TypeKind::Interface {
+            if def.kind() != TypeKind::Interface {
                 continue;
             }
             let tokens = implements::writer(writer, def);
