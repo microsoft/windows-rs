@@ -29,6 +29,7 @@ pub fn from_reader(reader: &metadata::Reader, filter: &metadata::Filter, mut con
     writer.sys = writer.std || config.remove("sys").is_some();
     writer.implement = config.remove("implement").is_some();
     writer.minimal = config.remove("minimal").is_some();
+    writer.no_inner_attributes = config.remove("no-inner-attributes").is_some();
 
     if writer.package && writer.flatten {
         return Err(Error::new("cannot combine `package` and `flatten` configuration values"));

@@ -18,11 +18,12 @@ pub struct Writer<'a> {
     pub flatten: bool, // strips out namespaces - implies !package
     pub package: bool, // default is single file with no cfg - implies !flatten
     pub minimal: bool, // strips out enumerators - in future possibly other helpers as well
+    pub no_inner_attributes: bool, // skips the inner attributes at the start of the file
 }
 
 impl<'a> Writer<'a> {
     pub fn new(reader: &'a Reader, filter: &'a metadata::Filter, output: &'a str) -> Self {
-        Self { reader, filter, output, namespace: "", implement: false, std: false, sys: false, flatten: false, package: false, minimal: false }
+        Self { reader, filter, output, namespace: "", implement: false, std: false, sys: false, flatten: false, package: false, minimal: false, no_inner_attributes: false }
     }
 
     //
