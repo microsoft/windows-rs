@@ -157,7 +157,11 @@ fn write_std(output: &str, filter: &[&str]) {
 }
 
 fn write_no_inner_attr(output: &str, filter: &[&str]) {
-    riddle(output, filter, &["flatten", "no-inner-attributes", "minimal"]);
+    riddle(
+        output,
+        filter,
+        &["flatten", "no-inner-attributes", "minimal"],
+    );
 }
 
 fn riddle(output: &str, filter: &[&str], config: &[&str]) {
