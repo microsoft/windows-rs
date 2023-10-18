@@ -27,7 +27,7 @@ pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
     let mut libraries = BTreeMap::<String, BTreeMap<String, CallingConvention>>::new();
 
     let files = default_metadata();
-    let reader = &metadata::Reader::new(files);
+    let reader = metadata::Reader::new(files);
     combine_libraries(reader, &mut libraries);
 
     // StgConvertPropertyToVariant was removed https://github.com/microsoft/win32metadata/issues/1566
@@ -41,7 +41,7 @@ pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
                 .expect("invalid winmd"),
         ];
 
-    let reader = &metadata::Reader::new(compat);
+    let reader = metadata::Reader::new(compat);
     combine_libraries(reader, &mut libraries);
 
     libraries
@@ -51,7 +51,7 @@ fn combine_libraries(
     reader: &metadata::Reader,
     libraries: &mut BTreeMap<String, BTreeMap<String, CallingConvention>>,
 ) {
-    for item in reader.items(&Default::default()) {
+    for item in reader.items() {
         let metadata::Item::Fn(method, _) = item else {
             continue;
         };

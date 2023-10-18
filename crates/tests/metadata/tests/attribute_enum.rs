@@ -3,7 +3,7 @@ use metadata::*;
 #[test]
 fn attribute_enum() {
     let files = tool_lib::default_metadata();
-    let reader = &Reader::new(files);
+    let reader = Reader::new(files);
 
     let (method, _) = reader
         .get_method_def("Windows.Win32.UI.WindowsAndMessaging", "SetWindowLongPtrA")

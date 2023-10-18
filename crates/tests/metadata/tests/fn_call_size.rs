@@ -6,7 +6,7 @@ fn size() {
     // dumpbin /exports kernel32.lib | findstr /i RtmConvertIpv6AddressAndLengthToNetAddress
 
     let files = tool_lib::default_metadata();
-    let reader = &Reader::new(files);
+    let reader = Reader::new(files);
 
     assert_eq!(
         struct_size(reader, "Windows.Win32.System.Variant", "VARIANT"),

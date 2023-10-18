@@ -37,7 +37,7 @@ fn gen_struct_with_name(writer: &Writer, def: TypeDef, struct_name: &str, cfg: &
     }
 
     let flags = def.flags();
-    let cfg = cfg.union(&type_def_cfg(writer.reader, def, &[]));
+    let cfg = cfg.union(&type_def_cfg(def, &[]));
 
     let repr = if let Some(layout) = def.class_layout() {
         let packing = Literal::usize_unsuffixed(layout.packing_size());
@@ -52,10 +52,10 @@ fn gen_struct_with_name(writer: &Writer, def: TypeDef, struct_name: &str, cfg: &
 
         if f.flags().contains(FieldAttributes::Literal) {
             quote! {}
-        } else if !writer.sys && flags.contains(TypeAttributes::ExplicitLayout) && !field_is_copyable(writer.reader, f, def) {
+        } else if !writer.sys && flags.contains(TypeAttributes::ExplicitLayout) && !field_is_copyable(f, def) {
             let ty = writer.type_default_name(&ty);
             quote! { pub #name: ::std::mem::ManuallyDrop<#ty>, }
-        } else if !writer.sys && !flags.contains(TypeAttributes::WindowsRuntime) && !field_is_blittable(writer.reader, f, def) {
+        } else if !writer.sys && !flags.contains(TypeAttributes::WindowsRuntime) && !field_is_blittable(f, def) {
             if let Type::Win32Array(ty, len) = ty {
                 let ty = writer.type_default_name(&ty);
                 quote! { pub #name: [::std::mem::ManuallyDrop<#ty>; #len], }
@@ -115,7 +115,7 @@ fn gen_windows_traits(writer: &Writer, def: TypeDef, name: &TokenStream, cfg: &C
         quote! {}
     } else {
         let features = writer.cfg_features(cfg);
-        let is_copy = type_def_is_blittable(writer.reader, def);
+        let is_copy = type_def_is_blittable(def);
 
         let type_kind = if is_copy {
             quote! { CopyType }
@@ -131,7 +131,7 @@ fn gen_windows_traits(writer: &Writer, def: TypeDef, name: &TokenStream, cfg: &C
         };
 
         if def.flags().contains(TypeAttributes::WindowsRuntime) {
-            let signature = Literal::byte_string(type_def_signature(writer.reader, def, &[]).as_bytes());
+            let signature = Literal::byte_string(type_def_signature(def, &[]).as_bytes());
 
             tokens.combine(&quote! {
                 #features
@@ -148,7 +148,7 @@ fn gen_windows_traits(writer: &Writer, def: TypeDef, name: &TokenStream, cfg: &C
 fn gen_compare_traits(writer: &Writer, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> TokenStream {
     let features = writer.cfg_features(cfg);
 
-    if writer.sys || type_def_has_explicit_layout(writer.reader, def) || type_def_has_packing(writer.reader, def) || type_def_has_callback(writer.reader, def) {
+    if writer.sys || type_def_has_explicit_layout(def) || type_def_has_packing(def) || type_def_has_callback(def) {
         quote! {}
     } else {
         let fields = def.fields().filter_map(|f| {
@@ -174,7 +174,7 @@ fn gen_compare_traits(writer: &Writer, def: TypeDef, name: &TokenStream, cfg: &C
 }
 
 fn gen_debug(writer: &Writer, def: TypeDef, ident: &TokenStream, cfg: &Cfg) -> TokenStream {
-    if writer.sys || type_def_has_explicit_layout(writer.reader, def) || type_def_has_packing(writer.reader, def) {
+    if writer.sys || type_def_has_explicit_layout(def) || type_def_has_packing(def) {
         quote! {}
     } else {
         let name = ident.as_str();
@@ -187,7 +187,7 @@ fn gen_debug(writer: &Writer, def: TypeDef, ident: &TokenStream, cfg: &Cfg) -> T
                 let name = f.name();
                 let ident = to_ident(name);
                 let ty = f.ty(Some(def));
-                if type_has_callback(writer.reader, &ty) {
+                if type_has_callback(&ty) {
                     None
                 } else {
                     Some(quote! { .field(#name, &self.#ident) })
@@ -209,7 +209,7 @@ fn gen_debug(writer: &Writer, def: TypeDef, ident: &TokenStream, cfg: &Cfg) -> T
 fn gen_copy_clone(writer: &Writer, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> TokenStream {
     let features = writer.cfg_features(cfg);
 
-    if writer.sys || type_def_is_copyable(writer.reader, def) {
+    if writer.sys || type_def_is_copyable(def) {
         quote! {
             #features
             impl ::core::marker::Copy for #name {}
@@ -237,7 +237,7 @@ fn gen_copy_clone(writer: &Writer, def: TypeDef, name: &TokenStream, cfg: &Cfg) 
             let name = to_ident(f.name());
             if f.flags().contains(FieldAttributes::Literal) {
                 quote! {}
-            } else if field_is_blittable(writer.reader, f, def) {
+            } else if field_is_blittable(f, def) {
                 quote! { #name: self.#name }
             } else {
                 quote! { #name: self.#name.clone() }

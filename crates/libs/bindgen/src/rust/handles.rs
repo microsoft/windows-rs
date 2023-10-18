@@ -89,7 +89,7 @@ pub fn gen_win_handle(writer: &Writer, def: TypeDef) -> TokenStream {
         }
     };
 
-    if let Some(dependency) = type_def_usable_for(writer.reader, def) {
+    if let Some(dependency) = type_def_usable_for(def) {
         let type_name = dependency.type_name();
         let mut dependency = writer.namespace(type_name.namespace);
         dependency.push_str(type_name.name);
@@ -107,10 +107,10 @@ pub fn gen_win_handle(writer: &Writer, def: TypeDef) -> TokenStream {
     tokens
 }
 
-fn type_def_usable_for(reader: &Reader, row: TypeDef) -> Option<TypeDef> {
+fn type_def_usable_for(row: TypeDef) -> Option<TypeDef> {
     if let Some(attribute) = row.find_attribute("AlsoUsableForAttribute") {
         if let Some((_, Value::String(name))) = attribute.args().get(0) {
-            return reader.get_type_def(row.namespace(), name.as_str()).next();
+            return row.reader().get_type_def(row.namespace(), name.as_str()).next();
         }
     }
     None

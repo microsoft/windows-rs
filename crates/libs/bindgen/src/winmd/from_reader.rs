@@ -1,7 +1,7 @@
 use super::*;
 use crate::winmd::{self, writer};
 
-pub fn from_reader(reader: &metadata::Reader, filter: &metadata::Filter, config: std::collections::BTreeMap<&str, &str>, output: &str) -> crate::Result<()> {
+pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap<&str, &str>, output: &str) -> crate::Result<()> {
     let mut writer = winmd::Writer::new(output);
 
     // TODO: do we need any configuration values for winmd generation?
@@ -15,7 +15,7 @@ pub fn from_reader(reader: &metadata::Reader, filter: &metadata::Filter, config:
     // TODO: just use the reader directly since we now have everything in the reader, there's no need to abstract
     // away the source format. Few reprs is always better.
 
-    for item in reader.items(filter) {
+    for item in reader.items() {
         // TODO: cover all variants
         let metadata::Item::Type(def) = item else {
             continue;

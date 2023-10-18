@@ -1,7 +1,7 @@
 use super::*;
 
-pub fn verify(reader: &metadata::Reader, filter: &metadata::Filter) -> crate::Result<()> {
-    let unused: Vec<&str> = filter.unused(reader).collect();
+pub fn verify(reader: &metadata::Reader) -> crate::Result<()> {
+    let unused: Vec<&str> = reader.unused().collect();
 
     if !unused.is_empty() {
         let mut message = "unused filters".to_string();
@@ -13,7 +13,7 @@ pub fn verify(reader: &metadata::Reader, filter: &metadata::Filter) -> crate::Re
         return Err(crate::Error::new(&message));
     }
 
-    for item in reader.items(filter) {
+    for item in reader.items() {
         // TODO: cover all variants
         let metadata::Item::Type(def) = item else {
             continue;

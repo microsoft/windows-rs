@@ -3,14 +3,14 @@ use crate::tokens::{quote, to_ident, TokenStream};
 use crate::{rdl, Error, Result, Tree};
 use metadata::*;
 
-pub fn from_reader(reader: &metadata::Reader, filter: &metadata::Filter, mut config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
+pub fn from_reader(reader: &metadata::Reader, mut config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
     let dialect = match config.remove("type") {
         Some("winrt") => Dialect::WinRT,
         Some("win32") => Dialect::Win32,
         _ => return Err(Error::new("configuration value `type` must be `win32` or `winrt`")),
     };
 
-    let mut writer = Writer::new(reader, filter, output, dialect);
+    let mut writer = Writer::new(reader, output, dialect);
 
     // TODO: be sure to use the same "split" key for winmd splitting.
     // May also want to support split=N similar to the way MIDLRT supports winmd splitting
@@ -29,7 +29,7 @@ pub fn from_reader(reader: &metadata::Reader, filter: &metadata::Filter, mut con
 }
 
 fn gen_split(writer: &Writer) -> Result<()> {
-    let tree = Tree::new(writer.reader, writer.filter);
+    let tree = Tree::new(writer.reader);
     let directory = crate::directory(writer.output);
 
     // TODO: parallelize
@@ -46,7 +46,7 @@ fn gen_split(writer: &Writer) -> Result<()> {
 }
 
 fn gen_file(writer: &Writer) -> Result<()> {
-    let tree = Tree::new(writer.reader, writer.filter);
+    let tree = Tree::new(writer.reader);
     let tokens = writer.tree(&tree);
     writer.write_to_file(writer.output, tokens)
 }
@@ -59,7 +59,6 @@ enum Dialect {
 
 struct Writer<'a> {
     reader: &'a metadata::Reader,
-    filter: &'a metadata::Filter<'a>,
     namespace: &'a str,
     dialect: Dialect,
     split: bool,
@@ -67,12 +66,12 @@ struct Writer<'a> {
 }
 
 impl<'a> Writer<'a> {
-    fn new(reader: &'a metadata::Reader, filter: &'a metadata::Filter, output: &'a str, dialect: Dialect) -> Self {
-        Self { reader, filter, namespace: "", output, dialect, split: false }
+    fn new(reader: &'a metadata::Reader, output: &'a str, dialect: Dialect) -> Self {
+        Self { reader, namespace: "", output, dialect, split: false }
     }
 
     fn with_namespace(&self, namespace: &'a str) -> Self {
-        Self { reader: self.reader, filter: self.filter, namespace, dialect: self.dialect, output: self.output, split: self.split }
+        Self { reader: self.reader, namespace, dialect: self.dialect, output: self.output, split: self.split }
     }
 
     fn write_to_file(&self, output: &str, tokens: TokenStream) -> Result<()> {
@@ -135,7 +134,7 @@ impl<'a> Writer<'a> {
         let mut types = vec![];
 
         if !tree.namespace.is_empty() {
-            for item in self.reader.namespace_items(tree.namespace, self.filter).filter(|item| match item {
+            for item in self.reader.namespace_items(tree.namespace).filter(|item| match item {
                 metadata::Item::Type(def) => {
                     let winrt = def.flags().contains(metadata::TypeAttributes::WindowsRuntime);
                     match self.dialect {
@@ -246,7 +245,7 @@ impl<'a> Writer<'a> {
             let name = to_ident(method.name());
 
             // TODO: use reader.method_def_signature instead
-            let signature = metadata::method_def_signature(self.reader, def.namespace(), method, generics);
+            let signature = metadata::method_def_signature(def.namespace(), method, generics);
 
             let return_type = self.return_type(&signature.return_type);
 

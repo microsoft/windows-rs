@@ -21,8 +21,8 @@ use crate::{Error, Result, Tree};
 use cfg::*;
 use rayon::prelude::*;
 
-pub fn from_reader(reader: &metadata::Reader, filter: &metadata::Filter, mut config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
-    let mut writer = Writer::new(reader, filter, output);
+pub fn from_reader(reader: &metadata::Reader, mut config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
+    let mut writer = Writer::new(reader, output);
     writer.package = config.remove("package").is_some();
     writer.flatten = config.remove("flatten").is_some();
     writer.std = config.remove("std").is_some();
@@ -59,7 +59,7 @@ fn gen_file(writer: &Writer) -> Result<()> {
         crate::write_to_file(writer.output, try_format(writer, &tokens))
     } else {
         let mut tokens = String::new();
-        let root = Tree::new(writer.reader, writer.filter);
+        let root = Tree::new(writer.reader);
 
         for tree in root.nested.values() {
             tokens.push_str(&namespace(writer, tree));
@@ -71,7 +71,7 @@ fn gen_file(writer: &Writer) -> Result<()> {
 
 fn gen_package(writer: &Writer) -> Result<()> {
     let directory = crate::directory(writer.output);
-    let root = Tree::new(writer.reader, writer.filter);
+    let root = Tree::new(writer.reader);
     let mut root_len = 0;
 
     for tree in root.nested.values() {
@@ -163,7 +163,7 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
     let mut functions = BTreeMap::<&str, TokenStream>::new();
     let mut types = BTreeMap::<TypeKind, BTreeMap<&str, TokenStream>>::new();
 
-    for item in writer.reader.namespace_items(writer.namespace, writer.filter) {
+    for item in writer.reader.namespace_items(writer.namespace) {
         match item {
             Item::Type(def) => {
                 let type_name = def.type_name();
@@ -189,7 +189,7 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
                                 let ident = to_ident(name);
                                 let value = writer.guid(&guid);
                                 let guid = writer.type_name(&Type::GUID);
-                                let cfg = type_def_cfg(writer.reader, def, &[]);
+                                let cfg = type_def_cfg(def, &[]);
                                 let doc = writer.cfg_doc(&cfg);
                                 let constant = quote! {
                                     #doc
@@ -237,7 +237,7 @@ fn namespace_impl(writer: &Writer, tree: &Tree) -> String {
     writer.namespace = tree.namespace;
     let mut types = BTreeMap::<&str, TokenStream>::new();
 
-    for item in writer.reader.namespace_items(tree.namespace, writer.filter) {
+    for item in writer.reader.namespace_items(tree.namespace) {
         if let Item::Type(def) = item {
             let type_name = def.type_name();
             if CORE_TYPES.iter().any(|(x, _)| x == &type_name) {

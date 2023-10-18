@@ -6,9 +6,7 @@ fn test() {
     let files = run_riddle("nested_module", "winrt", &[]);
     let reader = Reader::new(files);
 
-    let types: Vec<Item> = reader
-        .namespace_items("Test", &Default::default())
-        .collect();
+    let types: Vec<Item> = reader.namespace_items("Test").collect();
 
     assert_eq!(types.len(), 1);
     let Item::Type(def) = types[0] else {
@@ -22,9 +20,7 @@ fn test() {
     assert_eq!(fields[0].name(), "field");
     assert!(matches!(fields[0].ty(None), Type::I32));
 
-    let types: Vec<Item> = reader
-        .namespace_items("Test.NestedModule", &Default::default())
-        .collect();
+    let types: Vec<Item> = reader.namespace_items("Test.NestedModule").collect();
 
     assert_eq!(types.len(), 1);
     let Item::Type(def) = types[0] else {

@@ -13,7 +13,7 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
     let constraints = writer.generic_constraints(generics);
     let generic_names = writer.generic_names(generics);
     let named_phantoms = writer.generic_named_phantoms(generics);
-    let cfg = type_def_cfg_impl(writer.reader, def, generics);
+    let cfg = type_def_cfg_impl(def, generics);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
     let mut requires = quote! {};
@@ -46,7 +46,7 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
 
     if def.flags().contains(TypeAttributes::WindowsRuntime) {
         // TODO: this awkward wrapping of TypeDefs needs fixing
-        for interface in type_interfaces(writer.reader, &Type::TypeDef(def, generics.to_vec())) {
+        for interface in type_interfaces(&Type::TypeDef(def, generics.to_vec())) {
             if let Type::TypeDef(def, generics) = interface.ty {
                 requires.combine(&gen_required_trait(writer, def, &generics));
             }
@@ -61,7 +61,7 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
     let method_traits = def.methods().map(|method| {
         let name = method_names.add(method);
 
-        let signature = method_def_signature(writer.reader, def.namespace(), method, generics);
+        let signature = method_def_signature(def.namespace(), method, generics);
 
         let signature_tokens = writer.impl_signature(def, &signature);
         quote! { fn #name #signature_tokens; }
@@ -72,7 +72,7 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
 
     let method_impls = def.methods().map(|method| {
         let name = method_names.add(method);
-        let signature = method_def_signature(writer.reader, def.namespace(), method, generics);
+        let signature = method_def_signature(def.namespace(), method, generics);
         let vtbl_signature = writer.vtbl_signature(def, generics, &signature);
 
         let invoke_upcall = if def.flags().contains(TypeAttributes::WindowsRuntime) { winrt_methods::gen_upcall(writer, &signature, quote! { this.#name }) } else { com_methods::gen_upcall(writer, &signature, quote! { this.#name }) };

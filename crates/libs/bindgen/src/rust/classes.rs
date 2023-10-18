@@ -21,11 +21,11 @@ fn gen_class(writer: &Writer, def: TypeDef) -> TokenStream {
     }
 
     let name = to_ident(def.name());
-    let interfaces = type_interfaces(writer.reader, &Type::TypeDef(def, Vec::new()));
+    let interfaces = type_interfaces(&Type::TypeDef(def, Vec::new()));
     let mut methods = quote! {};
     let mut method_names = MethodNames::new();
 
-    let cfg = type_def_cfg(writer.reader, def, &[]);
+    let cfg = type_def_cfg(def, &[]);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 
@@ -44,7 +44,7 @@ fn gen_class(writer: &Writer, def: TypeDef) -> TokenStream {
             if let Type::TypeDef(def, generics) = &interface.ty {
                 if def.methods().next().is_some() {
                     let interface_type = writer.type_name(&interface.ty);
-                    let features = writer.cfg_features(&type_def_cfg(writer.reader, *def, generics));
+                    let features = writer.cfg_features(&type_def_cfg(*def, generics));
 
                     return Some(quote! {
                         #[doc(hidden)]
@@ -138,7 +138,7 @@ fn gen_conversions(writer: &Writer, def: TypeDef, name: &TokenStream, interfaces
         }
 
         let into = writer.type_name(&interface.ty);
-        let features = writer.cfg_features(&cfg.union(&type_cfg(writer.reader, &interface.ty)));
+        let features = writer.cfg_features(&cfg.union(&type_cfg(&interface.ty)));
 
         tokens.combine(&quote! {
             #features
@@ -146,9 +146,9 @@ fn gen_conversions(writer: &Writer, def: TypeDef, name: &TokenStream, interfaces
         });
     }
 
-    for def in type_def_bases(writer.reader, def) {
+    for def in type_def_bases(def) {
         let into = writer.type_def_name(def, &[]);
-        let features = writer.cfg_features(&cfg.union(&type_def_cfg(writer.reader, def, &[])));
+        let features = writer.cfg_features(&cfg.union(&type_def_cfg(def, &[])));
 
         tokens.combine(&quote! {
             #features

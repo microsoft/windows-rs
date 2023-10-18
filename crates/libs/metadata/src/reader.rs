@@ -15,11 +15,17 @@ pub struct Reader {
 
     // TODO: riddle should just avoid nested structs
     nested: HashMap<TypeDef, BTreeMap<&'static str, TypeDef>>,
+
+    filter: Filter,
 }
 
 impl Reader {
     pub fn new(files: Vec<File>) -> &'static Self {
-        let reader: &'static mut Reader = Box::leak(Box::new(Self { items: Default::default(), nested: Default::default() }));
+        Self::filter(files, &[], &[])
+    }
+
+    pub fn filter(files: Vec<File>, include: &[&str], exclude: &[&str]) -> &'static Self {
+        let reader: &'static mut Reader = Box::leak(Box::new(Self { items: Default::default(), nested: Default::default(), filter: Filter::new(include, exclude) }));
 
         for mut file in files {
             file.reader = reader as *mut Reader;
@@ -64,19 +70,27 @@ impl Reader {
         reader
     }
 
+    pub fn includes_namespace(&self, namespace: &str) -> bool {
+        self.filter.includes_namespace(namespace)
+    }
+
     pub fn namespaces(&self) -> impl Iterator<Item = &str> + '_ {
         self.items.keys().copied()
     }
 
-    pub fn items<'a>(&'a self, filter: &'a Filter) -> impl Iterator<Item = Item> + '_ {
-        self.items.iter().filter(move |(namespace, _)| filter.includes_namespace(namespace)).flat_map(move |(namespace, items)| items.iter().filter(move |(name, _)| filter.includes_type_name(namespace, name))).flat_map(move |(_, items)| items).cloned()
+    pub fn items(&self) -> impl Iterator<Item = Item> + '_ {
+        self.items.iter().filter(move |(namespace, _)| self.filter.includes_namespace(namespace)).flat_map(move |(namespace, items)| items.iter().filter(move |(name, _)| self.filter.includes_type_name(namespace, name))).flat_map(move |(_, items)| items).cloned()
     }
 
-    pub fn namespace_items<'a>(&'a self, namespace: &str, filter: &'a Filter) -> impl Iterator<Item = Item> + '_ {
-        self.items.get_key_value(namespace).into_iter().flat_map(move |(namespace, items)| items.iter().filter(move |(name, _)| filter.includes_type_name(namespace, name))).flat_map(move |(_, items)| items).cloned()
+    pub fn namespace_items(&self, namespace: &str) -> impl Iterator<Item = Item> + '_ {
+        self.items.get_key_value(namespace).into_iter().flat_map(move |(namespace, items)| items.iter().filter(move |(name, _)| self.filter.includes_type_name(namespace, name))).flat_map(move |(_, items)| items).cloned()
     }
 
-    pub fn unused(&self, filter: &str) -> bool {
+    pub fn unused(&self) -> impl Iterator<Item = &str> + '_ {
+        self.filter.0.iter().filter_map(|(name, _)| if self.is_unused(name) { Some(name.as_str()) } else { None })
+    }
+
+    fn is_unused(&self, filter: &str) -> bool {
         // Match namespaces
         if self.items.contains_key(filter) {
             return false;
