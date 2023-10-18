@@ -16,7 +16,7 @@ pub fn try_format(writer: &super::Writer, tokens: &str) -> String {
     };
 
     // Packaging - e.g. windows/windows-sys crates - assumes the crate will allow whatever warnings it deems fit.
-    let allow = if writer.package { "" } else { "#![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, dead_code, clippy::all)]\n" };
+    let allow = if writer.package || writer.no_inner_attributes { "" } else { "#![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, dead_code, clippy::all)]\n" };
     let tokens = format!("{preamble}{allow}{tokens}");
 
     let Ok(mut child) = std::process::Command::new("rustfmt").stdin(std::process::Stdio::piped()).stdout(std::process::Stdio::piped()).stderr(std::process::Stdio::null()).spawn() else {

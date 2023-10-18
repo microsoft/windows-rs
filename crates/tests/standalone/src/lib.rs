@@ -26,6 +26,10 @@ mod b_test;
 mod b_unknown;
 mod b_uri;
 mod b_win_enumerator;
+#[allow(non_snake_case)]
+mod included {
+    include!("b_include_me.rs");
+}
 
 #[test]
 fn bstr() {
@@ -165,4 +169,11 @@ fn calendar() -> windows_core::Result<()> {
     let year = calendar.Year()?;
     calendar.SetYear(year)?;
     Ok(())
+}
+
+#[test]
+fn from_included() {
+    unsafe {
+        included::GetVersion();
+    }
 }

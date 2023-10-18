@@ -12,16 +12,28 @@ pub struct Writer<'a> {
     //
     // Maybe this macro is the embedable version of the IDL format?! like a more intelligient
     // version of the existing interface macro...
-    pub std: bool,     // tweaks for internal std library support
-    pub sys: bool,     // writer sys-style bindings
-    pub flatten: bool, // strips out namespaces - implies !package
-    pub package: bool, // default is single file with no cfg - implies !flatten
-    pub minimal: bool, // strips out enumerators - in future possibly other helpers as well
+    pub std: bool,                 // tweaks for internal std library support
+    pub sys: bool,                 // writer sys-style bindings
+    pub flatten: bool,             // strips out namespaces - implies !package
+    pub package: bool,             // default is single file with no cfg - implies !flatten
+    pub minimal: bool,             // strips out enumerators - in future possibly other helpers as well
+    pub no_inner_attributes: bool, // skips the inner attributes at the start of the file
 }
 
 impl<'a> Writer<'a> {
     pub fn new(reader: &'a Reader, output: &'a str) -> Self {
-        Self { reader, output, namespace: "", implement: false, std: false, sys: false, flatten: false, package: false, minimal: false }
+        Self {
+            reader,
+            output,
+            namespace: "",
+            implement: false,
+            std: false,
+            sys: false,
+            flatten: false,
+            package: false,
+            minimal: false,
+            no_inner_attributes: false,
+        }
     }
 
     //
