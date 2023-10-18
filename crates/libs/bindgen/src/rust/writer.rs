@@ -3,7 +3,6 @@ use super::*;
 #[derive(Clone)]
 pub struct Writer<'a> {
     pub reader: &'a Reader,
-    pub filter: &'a metadata::Filter<'a>,
     pub output: &'a str,
     pub namespace: &'a str,
     pub implement: bool, // TODO: ideally we can use this to generate implementation traits on the fly and
@@ -21,8 +20,8 @@ pub struct Writer<'a> {
 }
 
 impl<'a> Writer<'a> {
-    pub fn new(reader: &'a Reader, filter: &'a metadata::Filter, output: &'a str) -> Self {
-        Self { reader, filter, output, namespace: "", implement: false, std: false, sys: false, flatten: false, package: false, minimal: false }
+    pub fn new(reader: &'a Reader, output: &'a str) -> Self {
+        Self { reader, output, namespace: "", implement: false, std: false, sys: false, flatten: false, package: false, minimal: false }
     }
 
     //

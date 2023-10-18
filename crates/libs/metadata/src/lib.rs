@@ -21,11 +21,11 @@ pub use blob::*;
 pub use codes::*;
 pub use column::*;
 pub use file::*;
-pub use filter::*;
+use filter::*;
 pub use r#type::*;
 pub use reader::*;
 pub use row::*;
-pub use table::*;
+use table::*;
 pub use tables::*;
 pub use type_name::*;
 

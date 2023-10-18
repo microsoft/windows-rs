@@ -5,7 +5,7 @@ pub fn standalone_imp(writer: &Writer) -> String {
     let mut functions = BTreeSet::new();
     let mut constants = BTreeSet::new();
 
-    for item in writer.reader.items(writer.filter) {
+    for item in writer.reader.items() {
         item_collect_standalone(item.clone(), &mut types);
 
         match item {

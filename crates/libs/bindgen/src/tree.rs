@@ -7,10 +7,10 @@ pub struct Tree<'a> {
 }
 
 impl<'a> Tree<'a> {
-    pub fn new(reader: &'a metadata::Reader, filter: &'a metadata::Filter) -> Self {
+    pub fn new(reader: &'a metadata::Reader) -> Self {
         let mut tree = Tree::from_namespace("");
         for ns in reader.namespaces() {
-            if filter.includes_namespace(ns) {
+            if reader.includes_namespace(ns) {
                 tree.insert_namespace(ns, 0);
             }
         }

@@ -7,6 +7,5 @@
 // #[test]
 // fn test() {
 //     let files = run_riddle("composition", "winrt", &[]);
-//     let _reader = &Reader::new(&files);
-
+//     let reader = Reader::new(files);
 // }

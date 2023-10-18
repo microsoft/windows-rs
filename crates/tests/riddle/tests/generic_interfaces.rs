@@ -6,9 +6,7 @@ fn test() {
     let files = run_riddle("generic_interfaces", "winrt", &[]);
     let reader = Reader::new(files);
 
-    let types: Vec<Item> = reader
-        .namespace_items("Test", &Default::default())
-        .collect();
+    let types: Vec<Item> = reader.namespace_items("Test").collect();
 
     assert_eq!(types.len(), 4);
 
