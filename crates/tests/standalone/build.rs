@@ -135,6 +135,13 @@ fn main() {
             "Windows.Win32.Security.Cryptography.CMC_ADD_ATTRIBUTES",
         ],
     );
+
+    // Ensure that no-inner-attribute works, and the resulting
+    // file can be `include!` inside a mod{} block.
+    write_no_inner_attr(
+        "src/b_include_me.rs",
+        &["Windows.Win32.System.SystemInformation.GetVersion"],
+    );
 }
 
 fn write_sys(output: &str, filter: &[&str]) {
@@ -147,6 +154,10 @@ fn write_win(output: &str, filter: &[&str]) {
 
 fn write_std(output: &str, filter: &[&str]) {
     riddle(output, filter, &["flatten", "std", "minimal"]);
+}
+
+fn write_no_inner_attr(output: &str, filter: &[&str]) {
+    riddle(output, filter, &["flatten", "no-inner-attributes", "minimal"]);
 }
 
 fn riddle(output: &str, filter: &[&str], config: &[&str]) {
