@@ -1,13 +1,13 @@
 use super::*;
 
 #[derive(Debug)]
-pub struct Tree<'a> {
-    pub namespace: &'a str,
-    pub nested: std::collections::BTreeMap<&'a str, Tree<'a>>,
+pub struct Tree {
+    pub namespace: &'static str,
+    pub nested: std::collections::BTreeMap<&'static str, Tree>,
 }
 
-impl<'a> Tree<'a> {
-    pub fn new(reader: &'a metadata::Reader) -> Self {
+impl Tree {
+    pub fn new(reader: &'static metadata::Reader) -> Self {
         let mut tree = Tree::from_namespace("");
         for ns in reader.namespaces() {
             if reader.includes_namespace(ns) {
@@ -17,10 +17,10 @@ impl<'a> Tree<'a> {
         tree
     }
 
-    fn from_namespace(namespace: &'a str) -> Self {
+    fn from_namespace(namespace: &'static str) -> Self {
         Self { namespace, nested: std::collections::BTreeMap::new() }
     }
-    fn insert_namespace(&mut self, namespace: &'a str, pos: usize) -> &mut Self {
+    fn insert_namespace(&mut self, namespace: &'static str, pos: usize) -> &mut Self {
         if let Some(next) = namespace[pos..].find('.') {
             let next = pos + next;
             self.nested.entry(&namespace[pos..next]).or_insert_with(|| Self::from_namespace(&namespace[..next])).insert_namespace(namespace, next + 1)

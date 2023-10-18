@@ -3,7 +3,7 @@ use crate::tokens::{quote, to_ident, TokenStream};
 use crate::{rdl, Error, Result, Tree};
 use metadata::*;
 
-pub fn from_reader(reader: &metadata::Reader, mut config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
+pub fn from_reader(reader: &'static metadata::Reader, mut config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
     let dialect = match config.remove("type") {
         Some("winrt") => Dialect::WinRT,
         Some("win32") => Dialect::Win32,
@@ -30,7 +30,7 @@ pub fn from_reader(reader: &metadata::Reader, mut config: std::collections::BTre
 
 fn gen_split(writer: &Writer) -> Result<()> {
     let tree = Tree::new(writer.reader);
-    let directory = crate::directory(writer.output);
+    let directory = crate::directory(&writer.output);
 
     // TODO: parallelize
     for tree in tree.flatten() {
@@ -48,7 +48,7 @@ fn gen_split(writer: &Writer) -> Result<()> {
 fn gen_file(writer: &Writer) -> Result<()> {
     let tree = Tree::new(writer.reader);
     let tokens = writer.tree(&tree);
-    writer.write_to_file(writer.output, tokens)
+    writer.write_to_file(&writer.output, tokens)
 }
 
 #[derive(Debug, Copy, Clone, PartialEq)]
@@ -57,21 +57,21 @@ enum Dialect {
     WinRT,
 }
 
-struct Writer<'a> {
-    reader: &'a metadata::Reader,
-    namespace: &'a str,
+struct Writer {
+    reader: &'static metadata::Reader,
+    namespace: &'static str,
     dialect: Dialect,
     split: bool,
-    output: &'a str,
+    output: String,
 }
 
-impl<'a> Writer<'a> {
-    fn new(reader: &'a metadata::Reader, output: &'a str, dialect: Dialect) -> Self {
-        Self { reader, namespace: "", output, dialect, split: false }
+impl Writer {
+    fn new(reader: &'static metadata::Reader, output: &str, dialect: Dialect) -> Self {
+        Self { reader, namespace: "", output: output.to_string(), dialect, split: false }
     }
 
-    fn with_namespace(&self, namespace: &'a str) -> Self {
-        Self { reader: self.reader, namespace, dialect: self.dialect, output: self.output, split: self.split }
+    fn with_namespace(&self, namespace: &'static str) -> Self {
+        Self { reader: self.reader, namespace, dialect: self.dialect, output: self.output.clone(), split: self.split }
     }
 
     fn write_to_file(&self, output: &str, tokens: TokenStream) -> Result<()> {
@@ -90,7 +90,7 @@ impl<'a> Writer<'a> {
         //crate::write_to_file(output, tokens.into_string())
     }
 
-    fn tree(&self, tree: &'a Tree) -> TokenStream {
+    fn tree(&self, tree: &Tree) -> TokenStream {
         let items = self.items(tree);
 
         if self.split {
@@ -128,7 +128,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn items(&self, tree: &'a Tree) -> TokenStream {
+    fn items(&self, tree: &Tree) -> TokenStream {
         let mut functions = vec![];
         let mut constants = vec![];
         let mut types = vec![];

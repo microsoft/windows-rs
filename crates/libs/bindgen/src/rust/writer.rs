@@ -1,10 +1,10 @@
 use super::*;
 
 #[derive(Clone)]
-pub struct Writer<'a> {
-    pub reader: &'a Reader,
-    pub output: &'a str,
-    pub namespace: &'a str,
+pub struct Writer {
+    pub reader: &'static Reader,
+    pub output: String,
+    pub namespace: &'static str,
     pub implement: bool, // TODO: ideally we can use this to generate implementation traits on the fly and
     // and have a single interface definition macro for consumption that expands to include
     // impl traits when the `implement` cfg flag is set and then this writer option would be
@@ -20,11 +20,11 @@ pub struct Writer<'a> {
     pub no_inner_attributes: bool, // skips the inner attributes at the start of the file
 }
 
-impl<'a> Writer<'a> {
-    pub fn new(reader: &'a Reader, output: &'a str) -> Self {
+impl Writer {
+    pub fn new(reader: &'static Reader, output: &str) -> Self {
         Self {
             reader,
-            output,
+            output: output.to_string(),
             namespace: "",
             implement: false,
             std: false,
@@ -403,7 +403,7 @@ impl<'a> Writer<'a> {
         quote! { #arch #features }
     }
 
-    fn cfg_features_imp(&self, cfg: &'a Cfg, namespace: &'a str) -> Vec<&'a str> {
+    fn cfg_features_imp(&self, cfg: &Cfg, namespace: &str) -> Vec<&'static str> {
         let mut compact = Vec::<&'static str>::new();
         if self.package {
             for feature in cfg.types.keys() {

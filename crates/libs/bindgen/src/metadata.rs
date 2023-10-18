@@ -498,7 +498,7 @@ pub fn type_interfaces(ty: &Type) -> Vec<Interface> {
     result
 }
 
-fn type_name<'a>(ty: &Type) -> &'a str {
+fn type_name(ty: &Type) -> &str {
     match ty {
         Type::TypeDef(row, _) => row.name(),
         _ => "",
