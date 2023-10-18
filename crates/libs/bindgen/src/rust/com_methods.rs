@@ -1,13 +1,13 @@
 use super::*;
 
 pub fn writer(writer: &Writer, def: TypeDef, kind: InterfaceKind, method: MethodDef, method_names: &mut MethodNames, virtual_names: &mut MethodNames, base_count: usize) -> TokenStream {
-    let signature = method_def_signature(writer.reader, def.namespace(), method, &[]);
+    let signature = method_def_signature(def.namespace(), method, &[]);
 
     let name = method_names.add(method);
     let vname = virtual_names.add(method);
     let generics = writer.constraint_generics(&signature.params);
     let where_clause = writer.where_clause(&signature.params);
-    let mut cfg = signature_cfg(writer.reader, method);
+    let mut cfg = signature_cfg(method);
     cfg.add_feature(def.namespace());
     let doc = writer.cfg_method_doc(&cfg);
     let features = writer.cfg_features(&cfg);

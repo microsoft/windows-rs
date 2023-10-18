@@ -6,7 +6,7 @@ pub fn standalone_imp(writer: &Writer) -> String {
     let mut constants = BTreeSet::new();
 
     for item in writer.reader.items(writer.filter) {
-        item_collect_standalone(writer.reader, item.clone(), &mut types);
+        item_collect_standalone(item.clone(), &mut types);
 
         match item {
             Item::Type(_) => {}
@@ -126,19 +126,19 @@ impl SortedTokens {
     }
 }
 
-fn item_collect_standalone(reader: &Reader, item: Item, set: &mut BTreeSet<Type>) {
+fn item_collect_standalone(item: Item, set: &mut BTreeSet<Type>) {
     match item {
-        Item::Type(def) => type_collect_standalone(reader, &Type::TypeDef(def, vec![]), set),
-        Item::Const(def) => type_collect_standalone(reader, &def.ty(None).to_const_type(), set),
+        Item::Type(def) => type_collect_standalone(&Type::TypeDef(def, vec![]), set),
+        Item::Const(def) => type_collect_standalone(&def.ty(None).to_const_type(), set),
         Item::Fn(def, namespace) => {
-            let signature = method_def_signature(reader, namespace, def, &[]);
-            type_collect_standalone(reader, &signature.return_type, set);
-            signature.params.iter().for_each(|param| type_collect_standalone(reader, &param.ty, set));
+            let signature = method_def_signature(namespace, def, &[]);
+            type_collect_standalone(&signature.return_type, set);
+            signature.params.iter().for_each(|param| type_collect_standalone(&param.ty, set));
         }
     }
 }
 // TODO: remove or move to riddle
-fn type_collect_standalone(reader: &Reader, ty: &Type, set: &mut BTreeSet<Type>) {
+fn type_collect_standalone(ty: &Type, set: &mut BTreeSet<Type>) {
     let ty = ty.to_underlying_type();
     if !set.insert(ty.clone()) {
         return;
@@ -159,15 +159,15 @@ fn type_collect_standalone(reader: &Reader, ty: &Type, set: &mut BTreeSet<Type>)
     // by one architecture but not by another
     let type_name = def.type_name();
     if !type_name.namespace.is_empty() {
-        for row in reader.get_type_def(type_name.namespace, type_name.name) {
+        for row in def.reader().get_type_def(type_name.namespace, type_name.name) {
             if def != row {
-                type_collect_standalone(reader, &Type::TypeDef(row, Vec::new()), set);
+                type_collect_standalone(&Type::TypeDef(row, Vec::new()), set);
             }
         }
     }
 
     for generic in generics {
-        type_collect_standalone(reader, generic, set);
+        type_collect_standalone(generic, set);
     }
     for field in def.fields() {
         let ty = field.ty(Some(def));
@@ -176,30 +176,30 @@ fn type_collect_standalone(reader: &Reader, ty: &Type, set: &mut BTreeSet<Type>)
                 continue;
             }
         }
-        type_collect_standalone(reader, &ty, set);
+        type_collect_standalone(&ty, set);
     }
     for method in def.methods() {
         // Skip delegate pseudo-constructors.
         if method.name() == ".ctor" {
             continue;
         }
-        let signature = method_def_signature(reader, def.namespace(), method, generics);
-        type_collect_standalone(reader, &signature.return_type, set);
-        signature.params.iter().for_each(|param| type_collect_standalone(reader, &param.ty, set));
+        let signature = method_def_signature(def.namespace(), method, generics);
+        type_collect_standalone(&signature.return_type, set);
+        signature.params.iter().for_each(|param| type_collect_standalone(&param.ty, set));
     }
-    for interface in type_interfaces(reader, &ty) {
-        type_collect_standalone(reader, &interface.ty, set);
+    for interface in type_interfaces(&ty) {
+        type_collect_standalone(&interface.ty, set);
     }
     if def.kind() == TypeKind::Struct && def.fields().next().is_none() && type_def_guid(def).is_some() {
         set.insert(Type::GUID);
     }
 
-    type_collect_standalone_nested(reader, def, set);
+    type_collect_standalone_nested(def, set);
 }
 
-fn type_collect_standalone_nested(reader: &Reader, td: TypeDef, set: &mut BTreeSet<Type>) {
-    for nested in reader.nested_types(td) {
-        type_collect_standalone_nested(reader, nested, set);
+fn type_collect_standalone_nested(td: TypeDef, set: &mut BTreeSet<Type>) {
+    for nested in td.reader().nested_types(td) {
+        type_collect_standalone_nested(nested, set);
 
         for field in nested.fields() {
             let ty = field.ty(Some(nested));
@@ -210,7 +210,7 @@ fn type_collect_standalone_nested(reader: &Reader, td: TypeDef, set: &mut BTreeS
                     continue;
                 }
 
-                type_collect_standalone(reader, &ty, set);
+                type_collect_standalone(&ty, set);
             }
         }
     }

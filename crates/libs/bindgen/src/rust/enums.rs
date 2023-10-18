@@ -9,7 +9,7 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
     // TODO: unscoped enums should be removed from metadata
     let is_scoped = def.flags().contains(TypeAttributes::WindowsRuntime) || def.has_attribute("ScopedEnumAttribute");
 
-    let cfg = type_def_cfg(writer.reader, def, &[]);
+    let cfg = type_def_cfg(def, &[]);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 
@@ -160,7 +160,7 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
         }
 
         if def.flags().contains(TypeAttributes::WindowsRuntime) {
-            let signature = Literal::byte_string(type_def_signature(writer.reader, def, &[]).as_bytes());
+            let signature = Literal::byte_string(type_def_signature(def, &[]).as_bytes());
 
             tokens.combine(&quote! {
                 #features

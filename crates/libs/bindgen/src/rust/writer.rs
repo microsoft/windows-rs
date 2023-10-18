@@ -199,7 +199,7 @@ impl<'a> Writer<'a> {
                 TypeKind::Enum => self.type_def_name(*def, &[]),
                 TypeKind::Struct => {
                     let tokens = self.type_def_name(*def, &[]);
-                    if type_def_is_blittable(self.reader, *def) {
+                    if type_def_is_blittable(*def) {
                         tokens
                     } else {
                         quote! { ::std::mem::MaybeUninit<#tokens> }
@@ -270,7 +270,7 @@ impl<'a> Writer<'a> {
     }
     /// The signature params which are generic (along with their relative index)
     pub fn generic_params<'b>(&'b self, params: &'b [SignatureParam]) -> impl Iterator<Item = (usize, &SignatureParam)> + 'b {
-        params.iter().filter(move |param| signature_param_is_convertible(self.reader, param)).enumerate()
+        params.iter().filter(move |param| signature_param_is_convertible(param)).enumerate()
     }
     /// The generic param names (i.e., `T` in `fn foo<T>()`)
     pub fn constraint_generics(&self, params: &[SignatureParam]) -> TokenStream {
@@ -628,7 +628,7 @@ impl<'a> Writer<'a> {
     pub fn interface_winrt_trait(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, _phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
         if def.flags().contains(TypeAttributes::WindowsRuntime) {
             let type_signature = if def.kind() == TypeKind::Class {
-                let type_signature = Literal::byte_string(type_def_signature(self.reader, def, generics).as_bytes());
+                let type_signature = Literal::byte_string(type_def_signature(def, generics).as_bytes());
                 quote! { ::windows_core::imp::ConstBuffer::from_slice(#type_signature) }
             } else {
                 let signature = Literal::byte_string(
@@ -769,8 +769,8 @@ impl<'a> Writer<'a> {
                 continue;
             }
             let name = method_names.add(method);
-            let signature = method_def_signature(self.reader, def.namespace(), method, generics);
-            let mut cfg = signature_cfg(self.reader, method);
+            let signature = method_def_signature(def.namespace(), method, generics);
+            let mut cfg = signature_cfg(method);
             let signature = self.vtbl_signature(def, generics, &signature);
             cfg.add_feature(def.namespace());
             let cfg_all = self.cfg_features(&cfg);

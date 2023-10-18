@@ -3,7 +3,7 @@ use super::*;
 pub fn writer(writer: &Writer, def: Field) -> TokenStream {
     let name = to_ident(def.name());
     let ty = def.ty(None).to_const_type();
-    let cfg = field_cfg(writer.reader, def);
+    let cfg = field_cfg(def);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 

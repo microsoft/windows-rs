@@ -246,7 +246,7 @@ impl<'a> Writer<'a> {
             let name = to_ident(method.name());
 
             // TODO: use reader.method_def_signature instead
-            let signature = metadata::method_def_signature(self.reader, def.namespace(), method, generics);
+            let signature = metadata::method_def_signature(def.namespace(), method, generics);
 
             let return_type = self.return_type(&signature.return_type);
 
