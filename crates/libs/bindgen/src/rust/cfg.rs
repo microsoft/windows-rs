@@ -58,19 +58,9 @@ pub fn type_def_cfg_impl(def: TypeDef, generics: &[Type]) -> Cfg {
 
     combine(def, generics, &mut cfg);
 
-    // TODO: why do we need both type_def_interfaces for WinRT and type_def_vtables for Win32?
-
-    for def in type_def_vtables(def) {
-        if let Type::TypeDef(def, generics) = def {
+    for interface in type_interfaces(&Type::TypeDef(def, generics.to_vec())) {
+        if let Type::TypeDef(def, generics) = interface.ty {
             combine(def, &generics, &mut cfg);
-        }
-    }
-
-    if def.flags().contains(TypeAttributes::WindowsRuntime) {
-        for interface in type_def_interfaces(def, generics) {
-            if let Type::TypeDef(def, generics) = interface {
-                combine(def, &generics, &mut cfg);
-            }
         }
     }
 
@@ -158,6 +148,7 @@ pub fn type_cfg(ty: &Type) -> Cfg {
     type_cfg_combine(ty, &mut cfg);
     cfg
 }
+
 fn type_cfg_combine(ty: &Type, cfg: &mut Cfg) {
     match ty {
         Type::TypeDef(row, generics) => type_def_cfg_combine(*row, generics, cfg),
