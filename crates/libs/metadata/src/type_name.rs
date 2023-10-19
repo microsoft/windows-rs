@@ -68,8 +68,3 @@ impl std::fmt::Display for TypeName {
         write!(fmt, "{}.{}", self.namespace, self.name)
     }
 }
-
-pub fn parse_type_name(full_name: &str) -> (&str, &str) {
-    let index = full_name.rfind('.').expect("Expected full name separated with `.`");
-    (&full_name[0..index], &full_name[index + 1..])
-}
