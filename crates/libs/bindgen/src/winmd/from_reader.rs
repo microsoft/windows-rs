@@ -122,6 +122,7 @@ fn winmd_type(ty: &metadata::Type) -> winmd::Type {
         metadata::Type::PCSTR => winmd::Type::PCSTR,
         metadata::Type::PCWSTR => winmd::Type::PCWSTR,
         metadata::Type::BSTR => winmd::Type::BSTR,
+        metadata::Type::Type => winmd::Type::Type,
         metadata::Type::TypeDef(def, generics) => winmd::Type::TypeRef(winmd::TypeName { namespace: def.namespace().to_string(), name: def.name().to_string(), generics: generics.iter().map(winmd_type).collect() }),
         metadata::Type::GenericParam(generic) => winmd::Type::GenericParam(generic.number()),
         metadata::Type::ConstRef(ty) => winmd::Type::ConstRef(Box::new(winmd_type(ty))),

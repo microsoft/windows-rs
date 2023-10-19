@@ -378,6 +378,7 @@ impl Writer {
             metadata::Type::PCWSTR => quote! { PCWSTR },
             metadata::Type::BSTR => quote! { BSTR },
             metadata::Type::PrimitiveOrEnum(_, ty) => self.ty(ty),
+            rest => unimplemented!("{rest:?}"),
         }
     }
 

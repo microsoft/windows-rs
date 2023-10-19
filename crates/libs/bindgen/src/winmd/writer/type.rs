@@ -34,6 +34,7 @@ pub enum Type {
     PCSTR,
     PCWSTR,
     BSTR,
+    Type,
     TypeRef(TypeName),
     GenericParam(u16),
     MutPtr(Box<Self>, usize),

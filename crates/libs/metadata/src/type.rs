@@ -23,6 +23,7 @@ pub enum Type {
     GUID,         // Both Win32 and WinRT agree that this is represented by System.Guid
     String,       // TODO: Win32 should use System.String when referring to an HSTRING
     IInspectable, // TODO: Win32 should use System.Object when referring to an IInspectable
+    Type,         // System.Type is needed since WinRT attribute use this as a parameter type.
 
     // Regular ECMA-335 types that map to metadata
     TypeRef(TypeName),

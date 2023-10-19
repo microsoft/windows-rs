@@ -234,6 +234,11 @@ impl Writer {
                 usize_blob(1, blob); // count
                 usize_blob(*bounds, blob);
             }
+            Type::Type => {
+                let code = self.insert_type_ref("System", "Type");
+                blob.push(metadata::ELEMENT_TYPE_CLASS);
+                usize_blob(code as usize, blob);
+            }
             Type::MutPtr(ty, pointers) | Type::ConstPtr(ty, pointers) => {
                 for _ in 0..*pointers {
                     usize_blob(metadata::ELEMENT_TYPE_PTR as usize, blob);
