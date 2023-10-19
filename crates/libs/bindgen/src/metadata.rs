@@ -812,7 +812,3 @@ pub fn type_def_vtables(row: TypeDef) -> Vec<Type> {
     }
     result
 }
-
-pub fn type_def_interfaces(row: TypeDef, generics: &[Type]) -> impl Iterator<Item = Type> + '_ {
-    row.interface_impls().map(move |imp| imp.ty(generics))
-}

@@ -568,7 +568,7 @@ impl Writer {
         let mut async_generics = generics.to_vec();
 
         if kind == AsyncKind::None {
-            for interface in type_def_interfaces(def, generics) {
+            for interface in def.interface_impls().map(move |imp| imp.ty(generics)) {
                 if let Type::TypeDef(interface_def, interface_generics) = &interface {
                     kind = type_def_async_kind(*interface_def);
                     if kind != AsyncKind::None {
