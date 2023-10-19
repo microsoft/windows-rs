@@ -437,6 +437,66 @@ pub fn type_def_has_callback(row: TypeDef) -> bool {
     }
 }
 
+pub fn type_interfaces(ty: &Type) -> Vec<Interface> {
+    // TODO: collect into btree map and then return collected vec
+    // This will both sort the results and should make finding dupes faster
+    fn walk(result: &mut Vec<Interface>, parent: &Type, is_base: bool) {
+        if let Type::TypeDef(row, generics) = parent {
+            for imp in row.interface_impls() {
+                let mut child = Interface { ty: imp.ty(generics), kind: if imp.has_attribute("DefaultAttribute") { InterfaceKind::Default } else { InterfaceKind::None } };
+
+                child.kind = if !is_base && child.kind == InterfaceKind::Default {
+                    InterfaceKind::Default
+                } else if child.kind == InterfaceKind::Overridable {
+                    continue;
+                } else if is_base {
+                    InterfaceKind::Base
+                } else {
+                    InterfaceKind::None
+                };
+                let mut found = false;
+                for existing in result.iter_mut() {
+                    if existing.ty == child.ty {
+                        found = true;
+                        if child.kind == InterfaceKind::Default {
+                            existing.kind = child.kind
+                        }
+                    }
+                }
+                if !found {
+                    walk(result, &child.ty, is_base);
+                    result.push(child);
+                }
+            }
+        }
+    }
+    let mut result = Vec::new();
+    walk(&mut result, ty, false);
+    if let Type::TypeDef(row, _) = ty {
+        if row.kind() == TypeKind::Class {
+            for base in type_def_bases(*row) {
+                walk(&mut result, &Type::TypeDef(base, Vec::new()), true);
+            }
+            for attribute in row.attributes() {
+                match attribute.name() {
+                    "StaticAttribute" | "ActivatableAttribute" => {
+                        for (_, arg) in attribute.args() {
+                            if let Value::TypeName(type_name) = arg {
+                                let def = row.reader().get_type_def(type_name.namespace, type_name.name).next().expect("Type not found");
+                                result.push(Interface { ty: Type::TypeDef(def, Vec::new()), kind: InterfaceKind::Static });
+                                break;
+                            }
+                        }
+                    }
+                    _ => {}
+                }
+            }
+        }
+    }
+    result.sort_by(|a, b| type_name(&a.ty).cmp(type_name(&b.ty)));
+    result
+}
+
 fn type_name(ty: &Type) -> &str {
     match ty {
         Type::TypeDef(row, _) => row.name(),
@@ -755,64 +815,4 @@ pub fn type_def_vtables(row: TypeDef) -> Vec<Type> {
 
 pub fn type_def_interfaces(row: TypeDef, generics: &[Type]) -> impl Iterator<Item = Type> + '_ {
     row.interface_impls().map(move |imp| imp.ty(generics))
-}
-
-pub fn type_interfaces(ty: &Type) -> Vec<Interface> {
-    // TODO: collect into btree map and then return collected vec
-    // This will both sort the results and should make finding dupes faster
-    fn walk(result: &mut Vec<Interface>, parent: &Type, is_base: bool) {
-        if let Type::TypeDef(row, generics) = parent {
-            for imp in row.interface_impls() {
-                let mut child = Interface { ty: imp.ty(generics), kind: if imp.has_attribute("DefaultAttribute") { InterfaceKind::Default } else { InterfaceKind::None } };
-
-                child.kind = if !is_base && child.kind == InterfaceKind::Default {
-                    InterfaceKind::Default
-                } else if child.kind == InterfaceKind::Overridable {
-                    continue;
-                } else if is_base {
-                    InterfaceKind::Base
-                } else {
-                    InterfaceKind::None
-                };
-                let mut found = false;
-                for existing in result.iter_mut() {
-                    if existing.ty == child.ty {
-                        found = true;
-                        if child.kind == InterfaceKind::Default {
-                            existing.kind = child.kind
-                        }
-                    }
-                }
-                if !found {
-                    walk(result, &child.ty, is_base);
-                    result.push(child);
-                }
-            }
-        }
-    }
-    let mut result = Vec::new();
-    walk(&mut result, ty, false);
-    if let Type::TypeDef(row, _) = ty {
-        if row.kind() == TypeKind::Class {
-            for base in type_def_bases(*row) {
-                walk(&mut result, &Type::TypeDef(base, Vec::new()), true);
-            }
-            for attribute in row.attributes() {
-                match attribute.name() {
-                    "StaticAttribute" | "ActivatableAttribute" => {
-                        for (_, arg) in attribute.args() {
-                            if let Value::TypeName(type_name) = arg {
-                                let def = row.reader().get_type_def(type_name.namespace, type_name.name).next().expect("Type not found");
-                                result.push(Interface { ty: Type::TypeDef(def, Vec::new()), kind: InterfaceKind::Static });
-                                break;
-                            }
-                        }
-                    }
-                    _ => {}
-                }
-            }
-        }
-    }
-    result.sort_by(|a, b| type_name(&a.ty).cmp(type_name(&b.ty)));
-    result
 }
