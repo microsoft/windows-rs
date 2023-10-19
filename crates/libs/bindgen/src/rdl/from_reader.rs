@@ -358,8 +358,7 @@ impl Writer {
                 }
             }
 
-            metadata::Type::TypeRef(code) => {
-                let type_name = code.type_name();
+            metadata::Type::TypeRef(type_name) => {
                 let namespace = self.namespace(type_name.namespace);
                 let name = to_ident(type_name.name);
                 quote! { #namespace #name }
@@ -379,7 +378,6 @@ impl Writer {
             metadata::Type::PCWSTR => quote! { PCWSTR },
             metadata::Type::BSTR => quote! { BSTR },
             metadata::Type::PrimitiveOrEnum(_, ty) => self.ty(ty),
-            rest => unimplemented!("{rest:?}"),
         }
     }
 

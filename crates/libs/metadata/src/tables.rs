@@ -48,16 +48,14 @@ impl Attribute {
     }
 
     pub fn name(&self) -> &'static str {
-        let AttributeType::MemberRef(member) = self.ty();
-        assert_eq!(member.name(), ".ctor");
-        let MemberRefParent::TypeRef(ty) = member.parent();
+        let AttributeType::MemberRef(ctor) = self.ty();
+        let MemberRefParent::TypeRef(ty) = ctor.parent();
         ty.name()
     }
 
     pub fn type_name(&self) -> TypeName {
-        let AttributeType::MemberRef(member) = self.ty();
-        assert_eq!(member.name(), ".ctor");
-        let MemberRefParent::TypeRef(ty) = member.parent();
+        let AttributeType::MemberRef(ctor) = self.ty();
+        let MemberRefParent::TypeRef(ty) = ctor.parent();
         ty.type_name()
     }
 
@@ -84,7 +82,7 @@ impl Attribute {
                 Type::I64 => Value::I64(values.read_i64()),
                 Type::U64 => Value::U64(values.read_u64()),
                 Type::String => Value::String(values.read_str().to_string()),
-                Type::TypeName => Value::TypeName(values.read_str().to_string()),
+                Type::TypeRef(type_name) if type_name == TypeName::Type => Value::TypeName(values.read_str().to_string()),
                 Type::TypeDef(def, _) => Value::EnumDef(def, Box::new(values.read_integer(def.underlying_type()))),
                 rest => unimplemented!("{rest:?}"),
             };
@@ -117,9 +115,8 @@ impl Attribute {
             args.push((name.to_string(), arg));
         }
 
-        // TODO: can we debug assert these?
-        assert_eq!(sig.slice.len(), 0);
-        assert_eq!(values.slice.len(), 0);
+        debug_assert_eq!(sig.slice.len(), 0);
+        debug_assert_eq!(values.slice.len(), 0);
 
         args
     }

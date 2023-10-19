@@ -2,7 +2,7 @@
 
 use super::*;
 
-#[derive(Copy, Clone, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
 pub struct TypeName {
     pub namespace: &'static str,
     pub name: &'static str,

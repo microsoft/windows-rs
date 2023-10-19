@@ -35,8 +35,8 @@ pub fn verify(reader: &metadata::Reader) -> crate::Result<()> {
 }
 
 fn not_type_ref(ty: &metadata::Type) -> crate::Result<()> {
-    if let metadata::Type::TypeRef(ty) = ty {
-        return Err(crate::Error::new(&format!("missing type definition `{}`", ty.type_name())));
+    if let metadata::Type::TypeRef(type_name) = ty {
+        return Err(crate::Error::new(&format!("missing type definition `{}`", type_name)));
     }
     Ok(())
 }
