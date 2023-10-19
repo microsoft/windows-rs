@@ -80,7 +80,7 @@ pub enum AsyncKind {
 pub struct Guid(pub u32, pub u16, pub u16, pub u8, pub u8, pub u8, pub u8, pub u8, pub u8, pub u8, pub u8);
 
 impl Guid {
-    pub fn from_args(args: &[(String, Value)]) -> Self {
+    pub fn from_args(args: &[(&str, Value)]) -> Self {
         fn unwrap_u32(value: &Value) -> u32 {
             match value {
                 Value::U32(value) => *value,
@@ -802,8 +802,7 @@ pub fn type_interfaces(ty: &Type) -> Vec<Interface> {
                     "StaticAttribute" | "ActivatableAttribute" => {
                         for (_, arg) in attribute.args() {
                             if let Value::TypeName(type_name) = arg {
-                                let type_name = parse_type_name(&type_name);
-                                let def = row.reader().get_type_def(type_name.0, type_name.1).next().expect("Type not found");
+                                let def = row.reader().get_type_def(type_name.namespace, type_name.name).next().expect("Type not found");
                                 result.push(Interface { ty: Type::TypeDef(def, Vec::new()), kind: InterfaceKind::Static });
                                 break;
                             }

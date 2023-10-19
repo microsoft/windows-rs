@@ -56,6 +56,11 @@ impl TypeName {
     pub fn new(namespace: &'static str, name: &'static str) -> Self {
         Self { namespace, name: trim_tick(name) }
     }
+
+    pub fn parse(full_name: &'static str) -> Self {
+        let index = full_name.rfind('.').expect("Expected full name separated with `.`");
+        Self::new(&full_name[0..index], &full_name[index + 1..])
+    }
 }
 
 impl std::fmt::Display for TypeName {
