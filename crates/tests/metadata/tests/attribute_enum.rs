@@ -37,7 +37,7 @@ fn check_attr_arg_enum(attr: Attribute, arg_name: &str, expected_type: &str, exp
     let (_, value) = attr
         .args()
         .drain(..)
-        .find(|(name, _)| name == arg_name)
+        .find(|(name, _)| *name == arg_name)
         .unwrap();
 
     if let Value::EnumDef(ty, value) = value {

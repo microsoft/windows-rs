@@ -59,7 +59,7 @@ impl Attribute {
         ty.type_name()
     }
 
-    pub fn args(&self) -> Vec<(String, Value)> {
+    pub fn args(&self) -> Vec<(&'static str, Value)> {
         let AttributeType::MemberRef(member) = self.ty();
         let mut sig = member.blob(2);
         let mut values = self.blob(2);
@@ -67,7 +67,7 @@ impl Attribute {
         let _this_and_gen_param_count = sig.read_usize();
         let fixed_arg_count = sig.read_usize();
         let _ret_type = sig.read_usize();
-        let mut args: Vec<(String, Value)> = Vec::with_capacity(fixed_arg_count);
+        let mut args = Vec::with_capacity(fixed_arg_count);
         let reader = self.reader();
 
         for _ in 0..fixed_arg_count {
@@ -87,7 +87,7 @@ impl Attribute {
                 rest => unimplemented!("{rest:?}"),
             };
 
-            args.push((String::new(), arg));
+            args.push(("", arg));
         }
 
         let named_arg_count = values.read_u16();
@@ -96,7 +96,7 @@ impl Attribute {
         for _ in 0..named_arg_count {
             let _id = values.read_u8();
             let arg_type = values.read_u8();
-            let mut name = values.read_str().to_string();
+            let mut name = values.read_str();
             let arg = match arg_type {
                 ELEMENT_TYPE_BOOLEAN => Value::Bool(values.read_bool()),
                 ELEMENT_TYPE_I2 => Value::I16(values.read_i16()),
@@ -107,12 +107,12 @@ impl Attribute {
                 0x55 => {
                     let type_name = parse_type_name(&name);
                     let def = reader.get_type_def(type_name.0, type_name.1).next().expect("Type not found");
-                    name = values.read_str().to_string();
+                    name = values.read_str();
                     Value::EnumDef(def, Box::new(values.read_integer(def.underlying_type())))
                 }
                 rest => unimplemented!("{rest:?}"),
             };
-            args.push((name.to_string(), arg));
+            args.push((name, arg));
         }
 
         debug_assert_eq!(sig.slice.len(), 0);

@@ -58,7 +58,7 @@ impl Blob {
         mods
     }
 
-    pub fn read_str(&mut self) -> &str {
+    pub fn read_str(&mut self) -> &'static str {
         let len = self.read_usize();
         let value = unsafe { std::str::from_utf8_unchecked(&self.slice[..len]) };
         self.offset(len);

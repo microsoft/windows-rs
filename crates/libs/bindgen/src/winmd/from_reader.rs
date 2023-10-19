@@ -36,7 +36,7 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
 
         for generic in def.generics() {
             writer.tables.GenericParam.push(writer::GenericParam {
-                Number: generic.number(),
+                Number: generic.number(), // TODO: isn't this just going to be incremental?
                 Flags: 0,
                 Owner: writer::TypeOrMethodDef::TypeDef(writer.tables.TypeDef.len() as u32 - 1).encode(),
                 Name: writer.strings.insert(generic.name()),
