@@ -43,9 +43,8 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
             });
         }
 
-        for imp in def.interface_impls() {
-            let ty = imp.ty(generics);
-            let ty = winmd_type(&ty);
+        for interface in metadata::type_def_interfaces(def, generics) {
+            let ty = winmd_type(&interface.ty);
 
             let reference = match &ty {
                 winmd::Type::TypeRef(type_name) if type_name.generics.is_empty() => writer.insert_type_ref(&type_name.namespace, &type_name.name),

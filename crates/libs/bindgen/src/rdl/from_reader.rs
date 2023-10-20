@@ -286,12 +286,11 @@ impl Writer {
         // TODO: then list default interface first
         // Then everything else
 
-        for imp in def.interface_impls() {
-            let ty = imp.ty(generics);
-            if imp.has_attribute("DefaultAttribute") {
-                types.insert(0, self.ty(&ty));
+        for interface in type_def_interfaces(def, generics) {
+            if interface.kind == InterfaceKind::Default {
+                types.insert(0, self.ty(&interface.ty));
             } else {
-                types.push(self.ty(&ty));
+                types.push(self.ty(&interface.ty));
             }
         }
 

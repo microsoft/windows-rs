@@ -442,9 +442,7 @@ pub fn type_interfaces(ty: &Type) -> Vec<Interface> {
     // This will both sort the results and should make finding dupes faster
     fn walk(result: &mut Vec<Interface>, parent: &Type, is_base: bool) {
         if let Type::TypeDef(row, generics) = parent {
-            for imp in row.interface_impls() {
-                let mut child = Interface { ty: imp.ty(generics), kind: if imp.has_attribute("DefaultAttribute") { InterfaceKind::Default } else { InterfaceKind::None } };
-
+            for mut child in type_def_interfaces(*row, generics) {
                 child.kind = if !is_base && child.kind == InterfaceKind::Default {
                     InterfaceKind::Default
                 } else if child.kind == InterfaceKind::Overridable {
@@ -656,8 +654,15 @@ pub fn type_def_has_packing(row: TypeDef) -> bool {
     }
 }
 
+pub fn type_def_interfaces(def: TypeDef, generics: &[Type]) -> impl Iterator<Item = Interface> + '_ {
+    def.interface_impls().map(|imp| {
+        let kind = if imp.has_attribute("DefaultAttribute") { InterfaceKind::Default } else { InterfaceKind::None };
+        Interface { kind, ty: imp.ty(generics) }
+    })
+}
+
 pub fn type_def_default_interface(row: TypeDef) -> Option<Type> {
-    row.interface_impls().find_map(move |imp| if imp.has_attribute("DefaultAttribute") { Some(imp.ty(&[])) } else { None })
+    type_def_interfaces(row, &[]).find_map(move |interface| if interface.kind == InterfaceKind::Default { Some(interface.ty) } else { None })
 }
 
 fn type_signature(ty: &Type) -> String {
