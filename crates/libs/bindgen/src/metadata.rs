@@ -48,12 +48,6 @@ pub enum SignatureParamKind {
     Other,
 }
 
-impl SignatureParamKind {
-    fn is_array(&self) -> bool {
-        matches!(self, Self::ArrayFixed(_) | Self::ArrayRelativeLen(_) | Self::ArrayRelativeByteLen(_) | Self::ArrayRelativePtr(_))
-    }
-}
-
 pub struct Signature {
     pub def: MethodDef,
     pub params: Vec<SignatureParam>,
@@ -110,6 +104,89 @@ impl Guid {
 impl std::fmt::Debug for Guid {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{:08x?}-{:04x?}-{:04x?}-{:02x?}{:02x?}-{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}", self.0, self.1, self.2, self.3, self.4, self.5, self.6, self.7, self.8, self.9, self.10)
+    }
+}
+
+impl SignatureParamKind {
+    fn is_array(&self) -> bool {
+        matches!(self, Self::ArrayFixed(_) | Self::ArrayRelativeLen(_) | Self::ArrayRelativeByteLen(_) | Self::ArrayRelativePtr(_))
+    }
+}
+
+impl SignatureParam {
+    pub fn is_convertible(&self) -> bool {
+        !self.def.flags().contains(ParamAttributes::Out) && !self.ty.is_winrt_array() && !self.ty.is_pointer() && !self.kind.is_array() && (type_is_borrowed(&self.ty) || type_is_non_exclusive_winrt_interface(&self.ty) || type_is_trivially_convertible(&self.ty))
+    }
+
+    fn is_retval(&self) -> bool {
+        // The Win32 metadata uses `RetValAttribute` to call out retval methods but it is employed
+        // very sparingly, so this heuristic is used to apply the transformation more uniformly.
+        if self.def.has_attribute("RetValAttribute") {
+            return true;
+        }
+        if !self.ty.is_pointer() {
+            return false;
+        }
+        if self.ty.is_void() {
+            return false;
+        }
+        let flags = self.def.flags();
+        if flags.contains(ParamAttributes::In) || !flags.contains(ParamAttributes::Out) || flags.contains(ParamAttributes::Optional) || self.kind.is_array() {
+            return false;
+        }
+        if param_kind(self.def).is_array() {
+            return false;
+        }
+        // If it's bigger than 128 bits, best to pass as a reference.
+        if self.ty.deref().size() > 16 {
+            return false;
+        }
+        // Win32 callbacks are defined as `Option<T>` so we don't include them here to avoid
+        // producing the `Result<Option<T>>` anti-pattern.
+        match self.ty.deref() {
+            Type::TypeDef(def, _) => !type_def_is_callback(def),
+            _ => true,
+        }
+    }
+}
+
+impl Signature {
+    pub fn kind(&self) -> SignatureKind {
+        if self.def.has_attribute("CanReturnMultipleSuccessValuesAttribute") {
+            return SignatureKind::PreserveSig;
+        }
+        match &self.return_type {
+            Type::Void if self.is_retval() => SignatureKind::ReturnValue,
+            Type::Void => SignatureKind::ReturnVoid,
+            Type::HRESULT => {
+                if self.params.len() >= 2 {
+                    if let Some((guid, object)) = signature_param_is_query(&self.params) {
+                        if self.params[object].def.flags().contains(ParamAttributes::Optional) {
+                            return SignatureKind::QueryOptional(QueryPosition { object, guid });
+                        } else {
+                            return SignatureKind::Query(QueryPosition { object, guid });
+                        }
+                    }
+                }
+                if self.is_retval() {
+                    SignatureKind::ResultValue
+                } else {
+                    SignatureKind::ResultVoid
+                }
+            }
+            Type::TypeDef(def, _) if def.type_name() == TypeName::WIN32_ERROR => SignatureKind::ResultVoid,
+            Type::TypeDef(def, _) if def.type_name() == TypeName::BOOL && method_def_last_error(self.def) => SignatureKind::ResultVoid,
+            _ if type_is_struct(&self.return_type) => SignatureKind::ReturnStruct,
+            _ => SignatureKind::PreserveSig,
+        }
+    }
+
+    fn is_retval(&self) -> bool {
+        self.params.last().map_or(false, |param| param.is_retval())
+            && self.params[..self.params.len() - 1].iter().all(|param| {
+                let flags = param.def.flags();
+                !flags.contains(ParamAttributes::Out)
+            })
     }
 }
 
@@ -214,7 +291,7 @@ pub fn method_def_signature(namespace: &str, row: MethodDef, generics: &[Type]) 
 
     for param in &mut params {
         if param.kind == SignatureParamKind::Other {
-            if signature_param_is_convertible(param) {
+            if param.is_convertible() {
                 if type_is_non_exclusive_winrt_interface(&param.ty) {
                     param.kind = SignatureParamKind::TryInto;
                 } else {
@@ -271,79 +348,6 @@ fn param_or_enum(row: Param) -> Option<String> {
         }
         None
     })
-}
-
-pub fn signature_param_is_convertible(param: &SignatureParam) -> bool {
-    !param.def.flags().contains(ParamAttributes::Out) && !param.ty.is_winrt_array() && !param.ty.is_pointer() && !param.kind.is_array() && (type_is_borrowed(&param.ty) || type_is_non_exclusive_winrt_interface(&param.ty) || type_is_trivially_convertible(&param.ty))
-}
-
-fn signature_param_is_retval(param: &SignatureParam) -> bool {
-    // The Win32 metadata uses `RetValAttribute` to call out retval methods but it is employed
-    // very sparingly, so this heuristic is used to apply the transformation more uniformly.
-    if param.def.has_attribute("RetValAttribute") {
-        return true;
-    }
-    if !param.ty.is_pointer() {
-        return false;
-    }
-    if param.ty.is_void() {
-        return false;
-    }
-    let flags = param.def.flags();
-    if flags.contains(ParamAttributes::In) || !flags.contains(ParamAttributes::Out) || flags.contains(ParamAttributes::Optional) || param.kind.is_array() {
-        return false;
-    }
-    if param_kind(param.def).is_array() {
-        return false;
-    }
-    // If it's bigger than 128 bits, best to pass as a reference.
-    if param.ty.deref().size() > 16 {
-        return false;
-    }
-    // Win32 callbacks are defined as `Option<T>` so we don't include them here to avoid
-    // producing the `Result<Option<T>>` anti-pattern.
-    match param.ty.deref() {
-        Type::TypeDef(def, _) => !type_def_is_callback(def),
-        _ => true,
-    }
-}
-
-pub fn signature_kind(signature: &Signature) -> SignatureKind {
-    if signature.def.has_attribute("CanReturnMultipleSuccessValuesAttribute") {
-        return SignatureKind::PreserveSig;
-    }
-    match &signature.return_type {
-        Type::Void if signature_is_retval(signature) => SignatureKind::ReturnValue,
-        Type::Void => SignatureKind::ReturnVoid,
-        Type::HRESULT => {
-            if signature.params.len() >= 2 {
-                if let Some((guid, object)) = signature_param_is_query(&signature.params) {
-                    if signature.params[object].def.flags().contains(ParamAttributes::Optional) {
-                        return SignatureKind::QueryOptional(QueryPosition { object, guid });
-                    } else {
-                        return SignatureKind::Query(QueryPosition { object, guid });
-                    }
-                }
-            }
-            if signature_is_retval(signature) {
-                SignatureKind::ResultValue
-            } else {
-                SignatureKind::ResultVoid
-            }
-        }
-        Type::TypeDef(def, _) if def.type_name() == TypeName::WIN32_ERROR => SignatureKind::ResultVoid,
-        Type::TypeDef(def, _) if def.type_name() == TypeName::BOOL && method_def_last_error(signature.def) => SignatureKind::ResultVoid,
-        _ if type_is_struct(&signature.return_type) => SignatureKind::ReturnStruct,
-        _ => SignatureKind::PreserveSig,
-    }
-}
-
-fn signature_is_retval(signature: &Signature) -> bool {
-    signature.params.last().map_or(false, signature_param_is_retval)
-        && signature.params[..signature.params.len() - 1].iter().all(|param| {
-            let flags = param.def.flags();
-            !flags.contains(ParamAttributes::Out)
-        })
 }
 
 fn signature_param_is_query(params: &[SignatureParam]) -> Option<(usize, usize)> {
@@ -411,6 +415,7 @@ pub fn type_has_callback(ty: &Type) -> bool {
         _ => false,
     }
 }
+
 pub fn type_def_has_callback(row: TypeDef) -> bool {
     if type_def_is_callback(row) {
         return true;

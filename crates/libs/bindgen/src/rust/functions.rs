@@ -39,7 +39,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
     let features = writer.cfg_features(&cfg);
     let link = gen_link(writer, namespace, &signature, &cfg);
 
-    let kind = signature_kind(&signature);
+    let kind = signature.kind();
     match kind {
         SignatureKind::Query(_) => {
             let args = writer.win32_args(&signature.params, kind);
