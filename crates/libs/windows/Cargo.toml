@@ -15,7 +15,7 @@ categories = ["os::windows-apis"]
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []
-rustc-args = ["--cfg", "docsrs"]
+rustdoc-args = ["--cfg", "docsrs"]
 
 [dependencies]
 windows-core = { path = "../core", version = "0.52.0" }
