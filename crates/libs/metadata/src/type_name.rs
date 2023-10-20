@@ -1,7 +1,5 @@
 #![allow(non_upper_case_globals)]
 
-use super::*;
-
 #[derive(Copy, Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
 pub struct TypeName {
     pub namespace: &'static str,
@@ -54,7 +52,7 @@ impl TypeName {
     }
 
     pub fn new(namespace: &'static str, name: &'static str) -> Self {
-        Self { namespace, name: trim_tick(name) }
+        Self { namespace, name }
     }
 
     pub fn parse(full_name: &'static str) -> Self {

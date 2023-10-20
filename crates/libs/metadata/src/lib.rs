@@ -73,14 +73,6 @@ pub fn coded_index_size(tables: &[usize]) -> usize {
     }
 }
 
-fn trim_tick(name: &str) -> &str {
-    if name.as_bytes().iter().rev().nth(1) == Some(&b'`') {
-        &name[..name.len() - 2]
-    } else {
-        name
-    }
-}
-
 #[derive(Debug)]
 pub enum Value {
     Bool(bool),

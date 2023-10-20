@@ -52,7 +52,7 @@ impl Reader {
                         namespace_items.entry(field.name()).or_default().push(Item::Const(field));
                     }
                 } else {
-                    namespace_items.entry(trim_tick(name)).or_default().push(Item::Type(def));
+                    namespace_items.entry(name).or_default().push(Item::Type(def));
 
                     // TODO: these should all be fields on the Apis class so we don't have to go looking for all of these as well.
                     if def.extends() == Some(TypeName::Enum) && !def.flags().contains(TypeAttributes::WindowsRuntime) && !def.has_attribute("ScopedEnumAttribute") {
