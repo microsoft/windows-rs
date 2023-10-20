@@ -234,7 +234,7 @@ impl Writer {
                 usize_blob(1, blob); // count
                 usize_blob(*bounds, blob);
             }
-            Type::TypeName => {
+            Type::Type => {
                 let code = self.insert_type_ref("System", "Type");
                 blob.push(metadata::ELEMENT_TYPE_CLASS);
                 usize_blob(code as usize, blob);

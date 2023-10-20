@@ -36,16 +36,15 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
 
         for generic in def.generics() {
             writer.tables.GenericParam.push(writer::GenericParam {
-                Number: generic.number(),
+                Number: generic.number(), // TODO: isn't this just going to be incremental?
                 Flags: 0,
                 Owner: writer::TypeOrMethodDef::TypeDef(writer.tables.TypeDef.len() as u32 - 1).encode(),
                 Name: writer.strings.insert(generic.name()),
             });
         }
 
-        for imp in def.interface_impls() {
-            let ty = imp.ty(generics);
-            let ty = winmd_type(&ty);
+        for interface in metadata::type_def_interfaces(def, generics) {
+            let ty = winmd_type(&interface.ty);
 
             let reference = match &ty {
                 winmd::Type::TypeRef(type_name) if type_name.generics.is_empty() => writer.insert_type_ref(&type_name.namespace, &type_name.name),
@@ -122,7 +121,7 @@ fn winmd_type(ty: &metadata::Type) -> winmd::Type {
         metadata::Type::PCSTR => winmd::Type::PCSTR,
         metadata::Type::PCWSTR => winmd::Type::PCWSTR,
         metadata::Type::BSTR => winmd::Type::BSTR,
-        metadata::Type::TypeName => winmd::Type::TypeName,
+        metadata::Type::Type => winmd::Type::Type,
         metadata::Type::TypeDef(def, generics) => winmd::Type::TypeRef(winmd::TypeName { namespace: def.namespace().to_string(), name: def.name().to_string(), generics: generics.iter().map(winmd_type).collect() }),
         metadata::Type::GenericParam(generic) => winmd::Type::GenericParam(generic.number()),
         metadata::Type::ConstRef(ty) => winmd::Type::ConstRef(Box::new(winmd_type(ty))),

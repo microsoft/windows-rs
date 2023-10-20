@@ -21,7 +21,7 @@ use crate::{Error, Result, Tree};
 use cfg::*;
 use rayon::prelude::*;
 
-pub fn from_reader(reader: &metadata::Reader, mut config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
+pub fn from_reader(reader: &'static metadata::Reader, mut config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
     let mut writer = Writer::new(reader, output);
     writer.package = config.remove("package").is_some();
     writer.flatten = config.remove("flatten").is_some();
@@ -56,7 +56,7 @@ fn gen_file(writer: &Writer) -> Result<()> {
 
     if writer.flatten {
         let tokens = standalone::standalone_imp(writer);
-        crate::write_to_file(writer.output, try_format(writer, &tokens))
+        crate::write_to_file(&writer.output, try_format(writer, &tokens))
     } else {
         let mut tokens = String::new();
         let root = Tree::new(writer.reader);
@@ -65,12 +65,12 @@ fn gen_file(writer: &Writer) -> Result<()> {
             tokens.push_str(&namespace(writer, tree));
         }
 
-        crate::write_to_file(writer.output, try_format(writer, &tokens))
+        crate::write_to_file(&writer.output, try_format(writer, &tokens))
     }
 }
 
 fn gen_package(writer: &Writer) -> Result<()> {
-    let directory = crate::directory(writer.output);
+    let directory = crate::directory(&writer.output);
     let root = Tree::new(writer.reader);
     let mut root_len = 0;
 

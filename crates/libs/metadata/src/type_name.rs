@@ -2,7 +2,7 @@
 
 use super::*;
 
-#[derive(Copy, Clone, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
 pub struct TypeName {
     pub namespace: &'static str,
     pub name: &'static str,
@@ -56,15 +56,15 @@ impl TypeName {
     pub fn new(namespace: &'static str, name: &'static str) -> Self {
         Self { namespace, name: trim_tick(name) }
     }
+
+    pub fn parse(full_name: &'static str) -> Self {
+        let index = full_name.rfind('.').expect("Expected full name separated with `.`");
+        Self::new(&full_name[0..index], &full_name[index + 1..])
+    }
 }
 
 impl std::fmt::Display for TypeName {
     fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(fmt, "{}.{}", self.namespace, self.name)
     }
-}
-
-pub fn parse_type_name(full_name: &str) -> (&str, &str) {
-    let index = full_name.rfind('.').expect("Expected full name separated with `.`");
-    (&full_name[0..index], &full_name[index + 1..])
 }

@@ -16,6 +16,8 @@ pub struct Reader {
     // TODO: riddle should just avoid nested structs
     nested: HashMap<TypeDef, BTreeMap<&'static str, TypeDef>>,
 
+    // The reader needs to store the filter since standalone code generation needs more than just the filtered items
+    // in order to chase dependencies automatically. This is why `Reader::filter` can't just filter everything up front.
     filter: Filter,
 }
 
@@ -170,11 +172,10 @@ impl Reader {
         if let Some(def) = self.get_type_def(full_name.namespace, full_name.name).next() {
             Type::TypeDef(def, Vec::new())
         } else {
-            Type::TypeRef(code)
+            Type::TypeRef(full_name)
         }
     }
 
-    // TODO: this shouldn't be public
     pub fn type_from_blob(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
         // Used by WinRT to indicate that a struct input parameter is passed by reference rather than by value on the ABI.
         let is_const = blob.read_modifiers().iter().any(|def| def.type_name() == TypeName::IsConst);
@@ -251,4 +252,4 @@ impl Reader {
 pub const REMAP_TYPES: [(TypeName, TypeName); 2] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2), (TypeName::D3DMATRIX, TypeName::Matrix4x4)];
 
 // TODO: get rid of at least the second tuple if not the whole thing.
-pub const CORE_TYPES: [(TypeName, Type); 11] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::BSTR), (TypeName::IInspectable, Type::IInspectable), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::TypeName), (TypeName::CHAR, Type::U8)];
+pub const CORE_TYPES: [(TypeName, Type); 11] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::BSTR), (TypeName::IInspectable, Type::IInspectable), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::Type), (TypeName::CHAR, Type::U8)];

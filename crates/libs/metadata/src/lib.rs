@@ -19,7 +19,7 @@ pub use attributes::*;
 pub use bindings::*;
 pub use blob::*;
 pub use codes::*;
-pub use column::*;
+use column::*;
 pub use file::*;
 use filter::*;
 pub use r#type::*;
@@ -95,8 +95,7 @@ pub enum Value {
     F32(f32),
     F64(f64),
     String(String),
-    TypeName(String),
-    TypeRef(TypeDefOrRef), // TODO: needed?
+    TypeName(TypeName),
     EnumDef(TypeDef, Box<Self>),
 }
 

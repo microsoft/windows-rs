@@ -2,7 +2,7 @@ use super::*;
 
 pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
     if writer.sys {
-        if type_def_has_default_interface(def) {
+        if def.interface_impls().next().is_some() {
             let name = to_ident(def.name());
             quote! {
                 pub type #name = *mut ::core::ffi::c_void;
@@ -64,7 +64,7 @@ fn gen_class(writer: &Writer, def: TypeDef) -> TokenStream {
         _ => None,
     });
 
-    if type_def_has_default_interface(def) {
+    if def.interface_impls().next().is_some() {
         let new = if type_def_has_default_constructor(def) {
             quote! {
                 pub fn new() -> ::windows_core::Result<Self> {
@@ -170,10 +170,6 @@ fn type_def_has_default_constructor(row: TypeDef) -> bool {
         }
     }
     false
-}
-
-fn type_def_has_default_interface(row: TypeDef) -> bool {
-    row.interface_impls().any(|imp| imp.has_attribute("DefaultAttribute"))
 }
 
 fn type_is_exclusive(ty: &Type) -> bool {

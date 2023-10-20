@@ -80,7 +80,7 @@ pub enum AsyncKind {
 pub struct Guid(pub u32, pub u16, pub u16, pub u8, pub u8, pub u8, pub u8, pub u8, pub u8, pub u8, pub u8);
 
 impl Guid {
-    pub fn from_args(args: &[(String, Value)]) -> Self {
+    pub fn from_args(args: &[(&str, Value)]) -> Self {
         fn unwrap_u32(value: &Value) -> u32 {
             match value {
                 Value::U32(value) => *value,
@@ -442,9 +442,7 @@ pub fn type_interfaces(ty: &Type) -> Vec<Interface> {
     // This will both sort the results and should make finding dupes faster
     fn walk(result: &mut Vec<Interface>, parent: &Type, is_base: bool) {
         if let Type::TypeDef(row, generics) = parent {
-            for imp in row.interface_impls() {
-                let mut child = Interface { ty: imp.ty(generics), kind: if imp.has_attribute("DefaultAttribute") { InterfaceKind::Default } else { InterfaceKind::None } };
-
+            for mut child in type_def_interfaces(*row, generics) {
                 child.kind = if !is_base && child.kind == InterfaceKind::Default {
                     InterfaceKind::Default
                 } else if child.kind == InterfaceKind::Overridable {
@@ -482,8 +480,7 @@ pub fn type_interfaces(ty: &Type) -> Vec<Interface> {
                     "StaticAttribute" | "ActivatableAttribute" => {
                         for (_, arg) in attribute.args() {
                             if let Value::TypeName(type_name) = arg {
-                                let type_name = parse_type_name(&type_name);
-                                let def = row.reader().get_type_def(type_name.0, type_name.1).next().expect("Type not found");
+                                let def = row.reader().get_type_def(type_name.namespace, type_name.name).next().expect("Type not found");
                                 result.push(Interface { ty: Type::TypeDef(def, Vec::new()), kind: InterfaceKind::Static });
                                 break;
                             }
@@ -498,7 +495,7 @@ pub fn type_interfaces(ty: &Type) -> Vec<Interface> {
     result
 }
 
-fn type_name<'a>(ty: &Type) -> &'a str {
+fn type_name(ty: &Type) -> &str {
     match ty {
         Type::TypeDef(row, _) => row.name(),
         _ => "",
@@ -657,8 +654,15 @@ pub fn type_def_has_packing(row: TypeDef) -> bool {
     }
 }
 
+pub fn type_def_interfaces(def: TypeDef, generics: &[Type]) -> impl Iterator<Item = Interface> + '_ {
+    def.interface_impls().map(|imp| {
+        let kind = if imp.has_attribute("DefaultAttribute") { InterfaceKind::Default } else { InterfaceKind::None };
+        Interface { kind, ty: imp.ty(generics) }
+    })
+}
+
 pub fn type_def_default_interface(row: TypeDef) -> Option<Type> {
-    row.interface_impls().find_map(move |row| if row.has_attribute("DefaultAttribute") { Some(row.ty(&[])) } else { None })
+    type_def_interfaces(row, &[]).find_map(move |interface| if interface.kind == InterfaceKind::Default { Some(interface.ty) } else { None })
 }
 
 fn type_signature(ty: &Type) -> String {
@@ -792,7 +796,7 @@ pub fn type_def_vtables(row: TypeDef) -> Vec<Type> {
         }
     } else {
         let mut next = row;
-        while let Some(base) = type_def_interfaces(next, &[]).next() {
+        while let Some(base) = next.interface_impls().map(move |imp| imp.ty(&[])).next() {
             match base {
                 Type::TypeDef(row, _) => {
                     next = row;
@@ -812,8 +816,4 @@ pub fn type_def_vtables(row: TypeDef) -> Vec<Type> {
         }
     }
     result
-}
-
-pub fn type_def_interfaces(row: TypeDef, generics: &[Type]) -> impl Iterator<Item = Type> + '_ {
-    row.interface_impls().map(move |row| row.ty(generics))
 }
