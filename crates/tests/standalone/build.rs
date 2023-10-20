@@ -165,7 +165,7 @@ fn write_no_inner_attr(output: &str, filter: &[&str]) {
 }
 
 fn riddle(output: &str, filter: &[&str], config: &[&str]) {
-    std::fs::remove_file(output).expect("Failed to delete output");
+    _ = std::fs::remove_file(output);
 
     let mut command = std::process::Command::new("cargo");
 
