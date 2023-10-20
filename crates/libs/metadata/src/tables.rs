@@ -298,7 +298,7 @@ impl TypeDef {
     }
 
     pub fn name(&self) -> &'static str {
-        self.str(1)
+        trim_tick(self.str(1))
     }
 
     pub fn namespace(&self) -> &'static str {
@@ -395,7 +395,7 @@ impl TypeDef {
 
 impl TypeRef {
     pub fn name(&self) -> &'static str {
-        self.str(1)
+        trim_tick(self.str(1))
     }
 
     pub fn namespace(&self) -> &'static str {
@@ -408,5 +408,13 @@ impl TypeRef {
 
     pub fn resolution_scope(&self) -> ResolutionScope {
         self.decode(0)
+    }
+}
+
+fn trim_tick(name: &str) -> &str {
+    if name.as_bytes().iter().rev().nth(1) == Some(&b'`') {
+        &name[..name.len() - 2]
+    } else {
+        name
     }
 }

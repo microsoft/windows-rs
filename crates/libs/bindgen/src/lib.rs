@@ -257,11 +257,3 @@ fn extension(path: &str) -> &str {
 fn directory(path: &str) -> &str {
     path.rsplit_once(&['/', '\\']).map_or("", |(directory, _)| directory)
 }
-
-fn trim_tick(name: &str) -> &str {
-    if name.as_bytes().iter().rev().nth(1) == Some(&b'`') {
-        &name[..name.len() - 2]
-    } else {
-        name
-    }
-}
