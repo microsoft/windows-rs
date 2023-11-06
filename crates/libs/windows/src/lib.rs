@@ -13,11 +13,9 @@ extern crate self as windows;
 pub mod core {
     pub use windows_core::*;
 
-    #[doc(hidden)]
     #[cfg(feature = "implement")]
     pub use windows_implement::implement;
 
-    #[doc(hidden)]
     #[cfg(feature = "implement")]
     pub use windows_interface::interface;
 }

@@ -2,13 +2,28 @@ use quote::quote;
 use syn::parse::{Parse, ParseStream};
 use syn::spanned::Spanned;
 
-/// A COM interface definition
+/// Defines a COM interface to call or implement.
 ///
 /// # Example
 /// ```rust,ignore
-/// #[windows_interface::interface("8CEEB155-2849-4ce5-9448-91FF70E1E4D9")]
-/// unsafe trait IUIAnimationVariable: IUnknown {
-///     fn GetValue(&self, value: *mut f64) -> HRESULT;
+/// #[interface("094d70d6-5202-44b8-abb8-43860da5aca2")]
+/// unsafe trait IValue: IUnknown {
+///     fn GetValue(&self, value: *mut i32) -> HRESULT;
+/// }
+///
+/// #[implement(IValue)]
+/// struct Value(i32);
+///
+/// impl IValue_Impl for Value {
+///     unsafe fn GetValue(&self, value: *mut i32) -> HRESULT {
+///         *value = self.0;
+///         HRESULT(0)
+///     }
+/// }
+///
+/// fn main() {
+///     let object: IValue = Value(123).into();
+///     // Call interface methods...
 /// }
 /// ```
 #[proc_macro_attribute]
