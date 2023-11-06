@@ -9,8 +9,6 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 #![cfg_attr(not(feature = "docs"), doc(hidden))]
 
 extern crate self as windows;
-pub use Windows::*;
-mod Windows;
 
 pub mod core {
     pub use windows_core::*;
@@ -23,3 +21,5 @@ pub mod core {
     #[cfg(feature = "implement")]
     pub use windows_interface::interface;
 }
+
+include!("Windows/mod.rs");

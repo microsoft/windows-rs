@@ -109,7 +109,7 @@ fn gen_winrt_params(writer: &Writer, params: &[SignatureParam]) -> TokenStream {
         if param.def.flags().contains(ParamAttributes::In) {
             if param.ty.is_winrt_array() {
                 result.combine(&quote! { #name: &[#default_type], });
-            } else if signature_param_is_convertible(param) {
+            } else if param.is_convertible() {
                 let (position, _) = generic_params.next().unwrap();
                 let kind: TokenStream = format!("P{position}").into();
                 result.combine(&quote! { #name: #kind, });

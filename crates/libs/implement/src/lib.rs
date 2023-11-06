@@ -5,7 +5,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
     let attributes = syn::parse_macro_input!(attributes as ImplementAttributes);
     let interfaces_len = proc_macro2::Literal::usize_unsuffixed(attributes.implement.len());
 
-    let identity_type = if let Some(first) = attributes.implement.get(0) {
+    let identity_type = if let Some(first) = attributes.implement.first() {
         first.to_ident()
     } else {
         quote! { ::windows::core::IInspectable }

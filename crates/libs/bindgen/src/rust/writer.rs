@@ -281,7 +281,7 @@ impl Writer {
     }
     /// The signature params which are generic (along with their relative index)
     pub fn generic_params<'b>(&'b self, params: &'b [SignatureParam]) -> impl Iterator<Item = (usize, &SignatureParam)> + 'b {
-        params.iter().filter(move |param| signature_param_is_convertible(param)).enumerate()
+        params.iter().filter(move |param| param.is_convertible()).enumerate()
     }
     /// The generic param names (i.e., `T` in `fn foo<T>()`)
     pub fn constraint_generics(&self, params: &[SignatureParam]) -> TokenStream {
@@ -1070,7 +1070,7 @@ impl Writer {
 
             quote! { (#this #(#params),*) -> ::windows_core::Result<#return_type> }
         } else {
-            let signature_kind = signature_kind(signature);
+            let signature_kind = signature.kind();
             let mut params = quote! {};
 
             if signature_kind == SignatureKind::ResultValue {
@@ -1207,7 +1207,7 @@ fn type_def_is_agile(row: TypeDef) -> bool {
         match attribute.name() {
             "AgileAttribute" => return true,
             "MarshalingBehaviorAttribute" => {
-                if let Some((_, Value::EnumDef(_, value))) = attribute.args().get(0) {
+                if let Some((_, Value::EnumDef(_, value))) = attribute.args().first() {
                     if let Value::I32(2) = **value {
                         return true;
                     }

@@ -22,7 +22,7 @@ pub fn writer(writer: &Writer, def: TypeDef, kind: InterfaceKind, method: Method
         bases.combine(&quote! { .base__ });
     }
 
-    let kind = signature_kind(&signature);
+    let kind = signature.kind();
     match kind {
         SignatureKind::Query(_) => {
             let args = writer.win32_args(&signature.params, kind);
@@ -153,7 +153,7 @@ pub fn writer(writer: &Writer, def: TypeDef, kind: InterfaceKind, method: Method
 }
 
 pub fn gen_upcall(writer: &Writer, sig: &Signature, inner: TokenStream) -> TokenStream {
-    match signature_kind(sig) {
+    match sig.kind() {
         SignatureKind::ResultValue => {
             let invoke_args = sig.params[..sig.params.len() - 1].iter().map(|param| gen_win32_invoke_arg(writer, param));
 
