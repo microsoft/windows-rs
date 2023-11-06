@@ -766,7 +766,7 @@ pub fn type_def_invalid_values(row: TypeDef) -> Vec<i64> {
     let mut values = Vec::new();
     for attribute in row.attributes() {
         if attribute.name() == "InvalidHandleValueAttribute" {
-            if let Some((_, Value::I64(value))) = attribute.args().get(0) {
+            if let Some((_, Value::I64(value))) = attribute.args().first() {
                 values.push(*value);
             }
         }

@@ -1,4 +1,4 @@
-#![allow(dead_code, clippy::upper_case_acronyms)]
+#![allow(dead_code, clippy::upper_case_acronyms, clippy::enum_variant_names)]
 
 #[derive(Clone, Debug, Hash, PartialEq, Eq)]
 pub struct TypeName {

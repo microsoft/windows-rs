@@ -189,7 +189,7 @@ fn field_guid(row: Field) -> Option<Guid> {
 }
 
 fn field_is_ansi(row: Field) -> bool {
-    row.find_attribute("NativeEncodingAttribute").is_some_and(|attribute| matches!(attribute.args().get(0), Some((_, Value::String(encoding))) if encoding == "ansi"))
+    row.find_attribute("NativeEncodingAttribute").is_some_and(|attribute| matches!(attribute.args().first(), Some((_, Value::String(encoding))) if encoding == "ansi"))
 }
 
 fn type_has_replacement(ty: &Type) -> bool {

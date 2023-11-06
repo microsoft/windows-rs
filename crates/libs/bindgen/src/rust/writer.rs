@@ -1207,7 +1207,7 @@ fn type_def_is_agile(row: TypeDef) -> bool {
         match attribute.name() {
             "AgileAttribute" => return true,
             "MarshalingBehaviorAttribute" => {
-                if let Some((_, Value::EnumDef(_, value))) = attribute.args().get(0) {
+                if let Some((_, Value::EnumDef(_, value))) = attribute.args().first() {
                     if let Value::I32(2) = **value {
                         return true;
                     }

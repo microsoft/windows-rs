@@ -121,7 +121,7 @@ fn cfg_add_attributes<R: AsRow + Into<HasAttribute>>(cfg: &mut Cfg, row: R) {
     for attribute in row.attributes() {
         match attribute.name() {
             "SupportedArchitectureAttribute" => {
-                if let Some((_, Value::EnumDef(_, value))) = attribute.args().get(0) {
+                if let Some((_, Value::EnumDef(_, value))) = attribute.args().first() {
                     if let Value::I32(value) = **value {
                         if value & 1 == 1 {
                             cfg.arches.insert("x86");
