@@ -155,7 +155,7 @@ mod tests {
             results.push(unsafe { library.to_string().unwrap() });
             crate::Result::<()>::Err(crate::Error::OK)
         });
-        assert!(matches!(end_result, None));
+        assert!(end_result.is_none());
         assert_eq!(results, vec!["A.B.dll", "A.dll"]);
     }
 }

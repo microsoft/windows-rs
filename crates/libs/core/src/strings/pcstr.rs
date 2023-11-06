@@ -66,7 +66,7 @@ mod tests {
     #[test]
     fn can_display() {
         // 💖 followed by an invalid byte sequence and then an incomplete one
-        let s = vec![240, 159, 146, 150, 255, 240, 159, 0];
+        let s = [240, 159, 146, 150, 255, 240, 159, 0];
         let s = PCSTR::from_raw(s.as_ptr());
         assert_eq!("💖�", format!("{}", unsafe { s.display() }));
     }

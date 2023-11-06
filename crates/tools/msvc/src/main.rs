@@ -343,15 +343,14 @@ fn test_make_reproducible() {
     for (machine, offset) in [("x86", 0), ("x64", 12), ("arm64", 12)] {
         let mut def = std::fs::File::create("test.def").unwrap();
         def.write_all(
-            format!(
-                r#"
+            r#"
 LIBRARY long-library-name-for-placement-in-long-names-table.dll
 EXPORTS
 A=A.#1
 B=B.#2
 C=C.#3
 "#
-            )
+            .to_string()
             .as_bytes(),
         )
         .unwrap();
@@ -361,8 +360,8 @@ C=C.#3
         cmd.arg("/nologo");
         cmd.arg("/Brepro");
         cmd.arg(format!("/machine:{machine}"));
-        cmd.arg(format!("/out:test.lib"));
-        cmd.arg(format!("/def:test.def"));
+        cmd.arg("/out:test.lib");
+        cmd.arg("/def:test.def");
         cmd.output().unwrap();
 
         let mut archive = std::fs::File::options()
@@ -373,7 +372,7 @@ C=C.#3
 
         let mut buf = [0; 24];
 
-        make_reproducible(&std::path::Path::new("test.lib"));
+        make_reproducible(std::path::Path::new("test.lib"));
 
         // Archive member header timestamp
         archive.seek(SeekFrom::Start(0x18)).unwrap();
