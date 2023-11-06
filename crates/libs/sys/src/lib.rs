@@ -8,6 +8,6 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 #![cfg_attr(not(feature = "docs"), doc(hidden))]
 
 extern crate self as windows_sys;
-mod Windows;
 pub mod core;
-pub use Windows::*;
+
+include!("Windows/mod.rs");
