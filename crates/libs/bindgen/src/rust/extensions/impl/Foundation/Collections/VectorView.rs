@@ -38,7 +38,7 @@ where
         T::from_default(item)
     }
     fn Size(&self) -> ::windows_core::Result<u32> {
-        Ok(self.values.len() as u32)
+        Ok(self.values.len().try_into()?)
     }
     fn IndexOf(&self, value: &T::Default, result: &mut u32) -> ::windows_core::Result<bool> {
         match self.values.iter().position(|element| element == value) {
