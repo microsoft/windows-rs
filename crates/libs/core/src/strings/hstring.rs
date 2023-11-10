@@ -45,7 +45,7 @@ impl HSTRING {
 
     /// Create a `HSTRING` from a slice of 16 bit characters (wchars).
     pub fn from_wide(value: &[u16]) -> Result<Self> {
-        unsafe { Self::from_wide_iter(value.iter().copied(), value.len() as u32) }
+        unsafe { Self::from_wide_iter(value.iter().copied(), value.len()) }
     }
 
     /// Get the contents of this `HSTRING` as a String lossily.
@@ -61,17 +61,17 @@ impl HSTRING {
 
     /// # Safety
     /// len must not be less than the number of items in the iterator.
-    unsafe fn from_wide_iter<I: Iterator<Item = u16>>(iter: I, len: u32) -> Result<Self> {
+    unsafe fn from_wide_iter<I: Iterator<Item = u16>>(iter: I, len: usize) -> Result<Self> {
         if len == 0 {
             return Ok(Self::new());
         }
 
-        let ptr = Header::alloc(len)?;
+        let ptr = Header::alloc(len.try_into()?)?;
 
         // Place each utf-16 character into the buffer and
         // increase len as we go along.
         for (index, wide) in iter.enumerate() {
-            debug_assert!((index as u32) < len);
+            debug_assert!(index < len);
 
             std::ptr::write((*ptr).data.add(index), wide);
             (*ptr).len = index as u32 + 1;
@@ -151,7 +151,7 @@ impl std::fmt::Debug for HSTRING {
 
 impl std::convert::From<&str> for HSTRING {
     fn from(value: &str) -> Self {
-        unsafe { Self::from_wide_iter(value.encode_utf16(), value.len() as u32).unwrap() }
+        unsafe { Self::from_wide_iter(value.encode_utf16(), value.len()).unwrap() }
     }
 }
 
@@ -177,7 +177,7 @@ impl std::convert::From<&std::path::Path> for HSTRING {
 #[cfg(windows)]
 impl std::convert::From<&std::ffi::OsStr> for HSTRING {
     fn from(value: &std::ffi::OsStr) -> Self {
-        unsafe { Self::from_wide_iter(std::os::windows::ffi::OsStrExt::encode_wide(value), value.len() as u32).unwrap() }
+        unsafe { Self::from_wide_iter(std::os::windows::ffi::OsStrExt::encode_wide(value), value.len()).unwrap() }
     }
 }
 

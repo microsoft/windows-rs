@@ -1946,7 +1946,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMany)(
                 ::windows_core::Interface::as_raw(this),
-                items.len() as u32,
+                items.len().try_into()?,
                 ::core::mem::transmute_copy(&items),
                 &mut result__,
             )
@@ -2107,7 +2107,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
             (::windows_core::Interface::vtable(this).GetMany)(
                 ::windows_core::Interface::as_raw(this),
                 startindex,
-                items.len() as u32,
+                items.len().try_into()?,
                 ::core::mem::transmute_copy(&items),
                 &mut result__,
             )
