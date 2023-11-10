@@ -254,7 +254,7 @@ impl INDDownloadEngine {
         P0: ::windows_core::IntoParam<super::super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Open)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), sessionidbytes.len() as u32, sessionidbytes.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Open)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), sessionidbytes.len().try_into()?, sessionidbytes.as_ptr()).ok() }
     }
     #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
@@ -390,7 +390,7 @@ impl INDDownloadEngineNotifier {
     #[cfg(feature = "deprecated")]
     pub fn OnPlayReadyObjectReceived(&self, databytes: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).OnPlayReadyObjectReceived)(::windows_core::Interface::as_raw(this), databytes.len() as u32, databytes.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).OnPlayReadyObjectReceived)(::windows_core::Interface::as_raw(this), databytes.len().try_into()?, databytes.as_ptr()).ok() }
     }
     #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
@@ -405,7 +405,7 @@ impl INDDownloadEngineNotifier {
     #[cfg(feature = "deprecated")]
     pub fn OnDataReceived(&self, databytes: &[u8], bytesreceived: u32) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).OnDataReceived)(::windows_core::Interface::as_raw(this), databytes.len() as u32, databytes.as_ptr(), bytesreceived).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).OnDataReceived)(::windows_core::Interface::as_raw(this), databytes.len().try_into()?, databytes.as_ptr(), bytesreceived).ok() }
     }
     #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
@@ -662,7 +662,7 @@ impl INDMessenger {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SendRegistrationRequestAsync)(::windows_core::Interface::as_raw(this), sessionidbytes.len() as u32, sessionidbytes.as_ptr(), challengedatabytes.len() as u32, challengedatabytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SendRegistrationRequestAsync)(::windows_core::Interface::as_raw(this), sessionidbytes.len().try_into()?, sessionidbytes.as_ptr(), challengedatabytes.len().try_into()?, challengedatabytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
@@ -671,7 +671,7 @@ impl INDMessenger {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SendProximityDetectionStartAsync)(::windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len() as u32, transmitterchannelbytes.as_ptr(), sessionidbytes.len() as u32, sessionidbytes.as_ptr(), challengedatabytes.len() as u32, challengedatabytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SendProximityDetectionStartAsync)(::windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len().try_into()?, transmitterchannelbytes.as_ptr(), sessionidbytes.len().try_into()?, sessionidbytes.as_ptr(), challengedatabytes.len().try_into()?, challengedatabytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
@@ -680,7 +680,7 @@ impl INDMessenger {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SendProximityDetectionResponseAsync)(::windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len() as u32, transmitterchannelbytes.as_ptr(), sessionidbytes.len() as u32, sessionidbytes.as_ptr(), responsedatabytes.len() as u32, responsedatabytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SendProximityDetectionResponseAsync)(::windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len().try_into()?, transmitterchannelbytes.as_ptr(), sessionidbytes.len().try_into()?, sessionidbytes.as_ptr(), responsedatabytes.len().try_into()?, responsedatabytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
@@ -689,7 +689,7 @@ impl INDMessenger {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SendLicenseFetchRequestAsync)(::windows_core::Interface::as_raw(this), sessionidbytes.len() as u32, sessionidbytes.as_ptr(), challengedatabytes.len() as u32, challengedatabytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SendLicenseFetchRequestAsync)(::windows_core::Interface::as_raw(this), sessionidbytes.len().try_into()?, sessionidbytes.as_ptr(), challengedatabytes.len().try_into()?, challengedatabytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -984,7 +984,7 @@ impl INDStreamParser {
     #[cfg(feature = "deprecated")]
     pub fn ParseData(&self, databytes: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).ParseData)(::windows_core::Interface::as_raw(this), databytes.len() as u32, databytes.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).ParseData)(::windows_core::Interface::as_raw(this), databytes.len().try_into()?, databytes.as_ptr()).ok() }
     }
     #[doc = "Required features: `\"Media_Core\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
@@ -1093,7 +1093,7 @@ impl INDStreamParserNotifier {
         P0: ::windows_core::IntoParam<super::super::Core::MediaStreamSample>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).OnSampleParsed)(::windows_core::Interface::as_raw(this), streamid, streamtype, streamsample.into_param().abi(), pts, ccformat, ccdatabytes.len() as u32, ccdatabytes.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).OnSampleParsed)(::windows_core::Interface::as_raw(this), streamid, streamtype, streamsample.into_param().abi(), pts, ccformat, ccdatabytes.len().try_into()?, ccdatabytes.as_ptr()).ok() }
     }
     #[doc = "Required features: `\"Media_Core\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
@@ -1102,7 +1102,7 @@ impl INDStreamParserNotifier {
         P0: ::windows_core::TryIntoParam<super::super::Core::IMediaStreamDescriptor>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).OnBeginSetupDecryptor)(::windows_core::Interface::as_raw(this), descriptor.try_into_param()?.abi(), keyid, probytes.len() as u32, probytes.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).OnBeginSetupDecryptor)(::windows_core::Interface::as_raw(this), descriptor.try_into_param()?.abi(), keyid, probytes.len().try_into()?, probytes.as_ptr()).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1806,7 +1806,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest {
         let this = &::windows_core::ComInterface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len() as u32, responsebytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len().try_into()?, responsebytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2181,7 +2181,7 @@ impl IPlayReadySecureStopServiceRequest {
         let this = &::windows_core::ComInterface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len() as u32, responsebytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len().try_into()?, responsebytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2297,7 +2297,7 @@ impl IPlayReadyServiceRequest {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len() as u32, responsebytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len().try_into()?, responsebytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
     pub fn ProtectionSystem(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -2679,7 +2679,7 @@ impl NDCustomData {
     pub fn CreateInstance(customdatatypeidbytes: &[u8], customdatabytes: &[u8]) -> ::windows_core::Result<NDCustomData> {
         Self::INDCustomDataFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), customdatatypeidbytes.len() as u32, customdatatypeidbytes.as_ptr(), customdatabytes.len() as u32, customdatabytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), customdatatypeidbytes.len().try_into()?, customdatatypeidbytes.as_ptr(), customdatabytes.len().try_into()?, customdatabytes.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2733,7 +2733,7 @@ impl NDDownloadEngineNotifier {
     #[cfg(feature = "deprecated")]
     pub fn OnPlayReadyObjectReceived(&self, databytes: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).OnPlayReadyObjectReceived)(::windows_core::Interface::as_raw(this), databytes.len() as u32, databytes.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).OnPlayReadyObjectReceived)(::windows_core::Interface::as_raw(this), databytes.len().try_into()?, databytes.as_ptr()).ok() }
     }
     #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
@@ -2748,7 +2748,7 @@ impl NDDownloadEngineNotifier {
     #[cfg(feature = "deprecated")]
     pub fn OnDataReceived(&self, databytes: &[u8], bytesreceived: u32) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).OnDataReceived)(::windows_core::Interface::as_raw(this), databytes.len() as u32, databytes.as_ptr(), bytesreceived).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).OnDataReceived)(::windows_core::Interface::as_raw(this), databytes.len().try_into()?, databytes.as_ptr(), bytesreceived).ok() }
     }
     #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
@@ -2834,7 +2834,7 @@ impl NDLicenseFetchDescriptor {
     {
         Self::INDLicenseFetchDescriptorFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), contentidtype, contentidbytes.len() as u32, contentidbytes.as_ptr(), licensefetchchallengecustomdata.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), contentidtype, contentidbytes.len().try_into()?, contentidbytes.as_ptr(), licensefetchchallengecustomdata.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2951,7 +2951,7 @@ impl NDStreamParserNotifier {
         P0: ::windows_core::IntoParam<super::super::Core::MediaStreamSample>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).OnSampleParsed)(::windows_core::Interface::as_raw(this), streamid, streamtype, streamsample.into_param().abi(), pts, ccformat, ccdatabytes.len() as u32, ccdatabytes.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).OnSampleParsed)(::windows_core::Interface::as_raw(this), streamid, streamtype, streamsample.into_param().abi(), pts, ccformat, ccdatabytes.len().try_into()?, ccdatabytes.as_ptr()).ok() }
     }
     #[doc = "Required features: `\"Media_Core\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
@@ -2960,7 +2960,7 @@ impl NDStreamParserNotifier {
         P0: ::windows_core::TryIntoParam<super::super::Core::IMediaStreamDescriptor>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).OnBeginSetupDecryptor)(::windows_core::Interface::as_raw(this), descriptor.try_into_param()?.abi(), keyid, probytes.len() as u32, probytes.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).OnBeginSetupDecryptor)(::windows_core::Interface::as_raw(this), descriptor.try_into_param()?.abi(), keyid, probytes.len().try_into()?, probytes.as_ptr()).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -2996,7 +2996,7 @@ impl NDTCPMessenger {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SendRegistrationRequestAsync)(::windows_core::Interface::as_raw(this), sessionidbytes.len() as u32, sessionidbytes.as_ptr(), challengedatabytes.len() as u32, challengedatabytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SendRegistrationRequestAsync)(::windows_core::Interface::as_raw(this), sessionidbytes.len().try_into()?, sessionidbytes.as_ptr(), challengedatabytes.len().try_into()?, challengedatabytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
@@ -3005,7 +3005,7 @@ impl NDTCPMessenger {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SendProximityDetectionStartAsync)(::windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len() as u32, transmitterchannelbytes.as_ptr(), sessionidbytes.len() as u32, sessionidbytes.as_ptr(), challengedatabytes.len() as u32, challengedatabytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SendProximityDetectionStartAsync)(::windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len().try_into()?, transmitterchannelbytes.as_ptr(), sessionidbytes.len().try_into()?, sessionidbytes.as_ptr(), challengedatabytes.len().try_into()?, challengedatabytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
@@ -3014,7 +3014,7 @@ impl NDTCPMessenger {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SendProximityDetectionResponseAsync)(::windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len() as u32, transmitterchannelbytes.as_ptr(), sessionidbytes.len() as u32, sessionidbytes.as_ptr(), responsedatabytes.len() as u32, responsedatabytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SendProximityDetectionResponseAsync)(::windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len().try_into()?, transmitterchannelbytes.as_ptr(), sessionidbytes.len().try_into()?, sessionidbytes.as_ptr(), responsedatabytes.len().try_into()?, responsedatabytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
@@ -3023,7 +3023,7 @@ impl NDTCPMessenger {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SendLicenseFetchRequestAsync)(::windows_core::Interface::as_raw(this), sessionidbytes.len() as u32, sessionidbytes.as_ptr(), challengedatabytes.len() as u32, challengedatabytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SendLicenseFetchRequestAsync)(::windows_core::Interface::as_raw(this), sessionidbytes.len().try_into()?, sessionidbytes.as_ptr(), challengedatabytes.len().try_into()?, challengedatabytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"deprecated\"`"]
@@ -3162,7 +3162,7 @@ impl PlayReadyContentHeader {
     {
         Self::IPlayReadyContentHeaderFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateInstanceFromWindowsMediaDrmHeader)(::windows_core::Interface::as_raw(this), headerbytes.len() as u32, headerbytes.as_ptr(), licenseacquisitionurl.into_param().abi(), licenseacquisitionuserinterfaceurl.into_param().abi(), ::core::mem::transmute_copy(customattributes), domainserviceid, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateInstanceFromWindowsMediaDrmHeader)(::windows_core::Interface::as_raw(this), headerbytes.len().try_into()?, headerbytes.as_ptr(), licenseacquisitionurl.into_param().abi(), licenseacquisitionuserinterfaceurl.into_param().abi(), ::core::mem::transmute_copy(customattributes), domainserviceid, &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation\"`"]
@@ -3180,7 +3180,7 @@ impl PlayReadyContentHeader {
     pub fn CreateInstanceFromPlayReadyHeader(headerbytes: &[u8]) -> ::windows_core::Result<PlayReadyContentHeader> {
         Self::IPlayReadyContentHeaderFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateInstanceFromPlayReadyHeader)(::windows_core::Interface::as_raw(this), headerbytes.len() as u32, headerbytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateInstanceFromPlayReadyHeader)(::windows_core::Interface::as_raw(this), headerbytes.len().try_into()?, headerbytes.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation\"`"]
@@ -3192,7 +3192,7 @@ impl PlayReadyContentHeader {
     {
         Self::IPlayReadyContentHeaderFactory2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateInstanceFromComponents2)(::windows_core::Interface::as_raw(this), dwflags, contentkeyids.len() as u32, contentkeyids.as_ptr(), contentkeyidstrings.len() as u32, ::core::mem::transmute(contentkeyidstrings.as_ptr()), contentencryptionalgorithm, licenseacquisitionurl.into_param().abi(), licenseacquisitionuserinterfaceurl.into_param().abi(), ::core::mem::transmute_copy(customattributes), domainserviceid, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateInstanceFromComponents2)(::windows_core::Interface::as_raw(this), dwflags, contentkeyids.len().try_into()?, contentkeyids.as_ptr(), contentkeyidstrings.len().try_into()?, ::core::mem::transmute(contentkeyidstrings.as_ptr()), contentencryptionalgorithm, licenseacquisitionurl.into_param().abi(), licenseacquisitionuserinterfaceurl.into_param().abi(), ::core::mem::transmute_copy(customattributes), domainserviceid, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3401,7 +3401,7 @@ impl PlayReadyDomainIterator {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), items.len().try_into()?, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3546,7 +3546,7 @@ impl PlayReadyDomainJoinServiceRequest {
         let this = &::windows_core::ComInterface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len() as u32, responsebytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len().try_into()?, responsebytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3675,7 +3675,7 @@ impl PlayReadyDomainLeaveServiceRequest {
         let this = &::windows_core::ComInterface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len() as u32, responsebytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len().try_into()?, responsebytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3819,7 +3819,7 @@ impl PlayReadyIndividualizationServiceRequest {
         let this = &::windows_core::ComInterface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len() as u32, responsebytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len().try_into()?, responsebytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -4068,7 +4068,7 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
         let this = &::windows_core::ComInterface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len() as u32, responsebytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len().try_into()?, responsebytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -4204,7 +4204,7 @@ impl PlayReadyLicenseIterator {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), items.len().try_into()?, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
         }
     }
 }
@@ -4346,7 +4346,7 @@ impl PlayReadyMeteringReportServiceRequest {
     }
     pub fn SetMeteringCertificate(&self, meteringcertbytes: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetMeteringCertificate)(::windows_core::Interface::as_raw(this), meteringcertbytes.len() as u32, meteringcertbytes.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetMeteringCertificate)(::windows_core::Interface::as_raw(this), meteringcertbytes.len().try_into()?, meteringcertbytes.as_ptr()).ok() }
     }
     #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
@@ -4411,7 +4411,7 @@ impl PlayReadyMeteringReportServiceRequest {
         let this = &::windows_core::ComInterface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len() as u32, responsebytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len().try_into()?, responsebytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -4518,7 +4518,7 @@ impl PlayReadyRevocationServiceRequest {
         let this = &::windows_core::ComInterface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len() as u32, responsebytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len().try_into()?, responsebytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -4558,7 +4558,7 @@ impl PlayReadySecureStopIterable {
     pub fn CreateInstance(publishercertbytes: &[u8]) -> ::windows_core::Result<PlayReadySecureStopIterable> {
         Self::IPlayReadySecureStopIterableFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), publishercertbytes.len() as u32, publishercertbytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), publishercertbytes.len().try_into()?, publishercertbytes.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -4643,7 +4643,7 @@ impl PlayReadySecureStopIterator {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), items.len().try_into()?, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
         }
     }
 }
@@ -4727,13 +4727,13 @@ impl PlayReadySecureStopServiceRequest {
     pub fn CreateInstance(publishercertbytes: &[u8]) -> ::windows_core::Result<PlayReadySecureStopServiceRequest> {
         Self::IPlayReadySecureStopServiceRequestFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), publishercertbytes.len() as u32, publishercertbytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), publishercertbytes.len().try_into()?, publishercertbytes.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateInstanceFromSessionID(sessionid: ::windows_core::GUID, publishercertbytes: &[u8]) -> ::windows_core::Result<PlayReadySecureStopServiceRequest> {
         Self::IPlayReadySecureStopServiceRequestFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateInstanceFromSessionID)(::windows_core::Interface::as_raw(this), sessionid, publishercertbytes.len() as u32, publishercertbytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateInstanceFromSessionID)(::windows_core::Interface::as_raw(this), sessionid, publishercertbytes.len().try_into()?, publishercertbytes.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation\"`"]
@@ -4799,7 +4799,7 @@ impl PlayReadySecureStopServiceRequest {
         let this = &::windows_core::ComInterface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len() as u32, responsebytes.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(::windows_core::Interface::as_raw(this), responsebytes.len().try_into()?, responsebytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
     #[doc(hidden)]

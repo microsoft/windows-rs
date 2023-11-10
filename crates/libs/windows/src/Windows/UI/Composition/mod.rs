@@ -8351,14 +8351,14 @@ impl CompositionColorGradientStopCollection {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), startindex, items.len().try_into()?, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<CompositionColorGradientStop>]) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).ReplaceAll)(::windows_core::Interface::as_raw(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).ReplaceAll)(::windows_core::Interface::as_raw(this), items.len().try_into()?, ::core::mem::transmute(items.as_ptr())).ok() }
     }
 }
 impl ::windows_core::RuntimeType for CompositionColorGradientStopCollection {
@@ -14950,14 +14950,14 @@ impl CompositionShapeCollection {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), startindex, items.len().try_into()?, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<CompositionShape>]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).ReplaceAll)(::windows_core::Interface::as_raw(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).ReplaceAll)(::windows_core::Interface::as_raw(this), items.len().try_into()?, ::core::mem::transmute(items.as_ptr())).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -15568,14 +15568,14 @@ impl CompositionStrokeDashArray {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), startindex, items.len() as u32, items.as_mut_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), startindex, items.len().try_into()?, items.as_mut_ptr(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[f32]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).ReplaceAll)(::windows_core::Interface::as_raw(this), items.len() as u32, items.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).ReplaceAll)(::windows_core::Interface::as_raw(this), items.len().try_into()?, items.as_ptr()).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -16590,7 +16590,7 @@ impl CompositionVirtualDrawingSurface {
     #[cfg(feature = "Graphics")]
     pub fn Trim(&self, rects: &[super::super::Graphics::RectInt32]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Trim)(::windows_core::Interface::as_raw(this), rects.len() as u32, rects.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Trim)(::windows_core::Interface::as_raw(this), rects.len().try_into()?, rects.as_ptr()).ok() }
     }
 }
 impl ::windows_core::RuntimeType for CompositionVirtualDrawingSurface {
@@ -18139,7 +18139,7 @@ impl DelegatedInkTrailVisual {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AddTrailPoints)(::windows_core::Interface::as_raw(this), inkpoints.len() as u32, inkpoints.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AddTrailPoints)(::windows_core::Interface::as_raw(this), inkpoints.len().try_into()?, inkpoints.as_ptr(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation\"`"]
@@ -18148,7 +18148,7 @@ impl DelegatedInkTrailVisual {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AddTrailPointsWithPrediction)(::windows_core::Interface::as_raw(this), inkpoints.len() as u32, inkpoints.as_ptr(), predictedinkpoints.len() as u32, predictedinkpoints.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AddTrailPointsWithPrediction)(::windows_core::Interface::as_raw(this), inkpoints.len().try_into()?, inkpoints.as_ptr(), predictedinkpoints.len().try_into()?, predictedinkpoints.as_ptr(), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoveTrailPoints(&self, generationid: u32) -> ::windows_core::Result<()> {

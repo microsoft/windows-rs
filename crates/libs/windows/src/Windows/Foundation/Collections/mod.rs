@@ -78,7 +78,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), items.len().try_into()?, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
         }
     }
 }
@@ -627,12 +627,12 @@ impl<T: ::windows_core::RuntimeType + 'static> IObservableVector<T> {
         let this = &::windows_core::ComInterface::cast::<IVector<T>>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), startindex, items.len().try_into()?, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
         }
     }
     pub fn ReplaceAll(&self, items: &[<T as ::windows_core::Type<T>>::Default]) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IVector<T>>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).ReplaceAll)(::windows_core::Interface::as_raw(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).ReplaceAll)(::windows_core::Interface::as_raw(this), items.len().try_into()?, ::core::mem::transmute(items.as_ptr())).ok() }
     }
 }
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown> for IObservableVector<T> {}
@@ -851,12 +851,12 @@ impl<T: ::windows_core::RuntimeType + 'static> IVector<T> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), startindex, items.len().try_into()?, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
         }
     }
     pub fn ReplaceAll(&self, items: &[<T as ::windows_core::Type<T>>::Default]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).ReplaceAll)(::windows_core::Interface::as_raw(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).ReplaceAll)(::windows_core::Interface::as_raw(this), items.len().try_into()?, ::core::mem::transmute(items.as_ptr())).ok() }
     }
     pub fn First(&self) -> ::windows_core::Result<IIterator<T>> {
         let this = &::windows_core::ComInterface::cast::<IIterable<T>>(self)?;
@@ -1001,7 +1001,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), startindex, items.len().try_into()?, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
         }
     }
     pub fn First(&self) -> ::windows_core::Result<IIterator<T>> {
