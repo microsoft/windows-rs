@@ -61,7 +61,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn Escape(hdc : super::super::Graphics::Gdi:: HDC, iescape : i32, cjin : i32, pvin : ::windows_core::PCSTR, pvout : *mut ::core::ffi::c_void) -> i32);
-    Escape(hdc.into_param().abi(), iescape, pvin.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pvin.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pvout.unwrap_or(::std::ptr::null_mut())))
+    Escape(hdc.into_param().abi(), iescape, pvin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pvin.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pvout.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -71,7 +71,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn ExtEscape(hdc : super::super::Graphics::Gdi:: HDC, iescape : i32, cjinput : i32, lpindata : ::windows_core::PCSTR, cjoutput : i32, lpoutdata : ::windows_core::PSTR) -> i32);
-    ExtEscape(hdc.into_param().abi(), iescape, lpindata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpindata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoutdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpoutdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+    ExtEscape(hdc.into_param().abi(), iescape, lpindata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(lpindata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoutdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(lpoutdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5966,7 +5966,7 @@ impl IXpsSignature {
         (::windows_core::Interface::vtable(self).GetSignatureXml)(::windows_core::Interface::as_raw(self), signaturexml, count).ok()
     }
     pub unsafe fn SetSignatureXml(&self, signaturexml: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetSignatureXml)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(signaturexml.as_ptr()), signaturexml.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetSignatureXml)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(signaturexml.as_ptr()), signaturexml.len().try_into().unwrap()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsSignature, ::windows_core::IUnknown);

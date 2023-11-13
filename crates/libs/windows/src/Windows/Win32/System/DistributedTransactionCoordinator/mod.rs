@@ -39,10 +39,10 @@ where
 pub struct IDtcLuConfigure(::windows_core::IUnknown);
 impl IDtcLuConfigure {
     pub unsafe fn Add(&self, puclupair: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len() as _).ok()
+        (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len().try_into().unwrap()).ok()
     }
     pub unsafe fn Delete(&self, puclupair: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len() as _).ok()
+        (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len().try_into().unwrap()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDtcLuConfigure, ::windows_core::IUnknown);
@@ -81,7 +81,7 @@ pub struct IDtcLuRecoveryFactory(::windows_core::IUnknown);
 impl IDtcLuRecoveryFactory {
     pub unsafe fn Create(&self, puclupair: &[u8]) -> ::windows_core::Result<IDtcLuRecovery> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDtcLuRecoveryFactory, ::windows_core::IUnknown);
@@ -1211,7 +1211,7 @@ pub struct IKernelTransaction_Vtbl {
 pub struct ILastResourceManager(::windows_core::IUnknown);
 impl ILastResourceManager {
     pub unsafe fn TransactionCommitted(&self, pprepinfo: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).TransactionCommitted)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _).ok()
+        (::windows_core::Interface::vtable(self).TransactionCommitted)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len().try_into().unwrap()).ok()
     }
     pub unsafe fn RecoveryDone(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RecoveryDone)(::windows_core::Interface::as_raw(self)).ok()
@@ -1265,7 +1265,7 @@ impl IPrepareInfo2 {
         (::windows_core::Interface::vtable(self).GetPrepareInfoSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPrepareInfo(&self, pprepinfo: &mut [u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetPrepareInfo)(::windows_core::Interface::as_raw(self), pprepinfo.len() as _, ::core::mem::transmute(pprepinfo.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).GetPrepareInfo)(::windows_core::Interface::as_raw(self), pprepinfo.len().try_into().unwrap(), ::core::mem::transmute(pprepinfo.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrepareInfo2, ::windows_core::IUnknown);
@@ -1330,7 +1330,7 @@ impl IResourceManager {
     }
     pub unsafe fn Reenlist(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows_core::Result<XACTSTAT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Reenlist)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ltimeout, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Reenlist)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len().try_into().unwrap(), ltimeout, &mut result__).from_abi(result__)
     }
     pub unsafe fn ReenlistmentComplete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReenlistmentComplete)(::windows_core::Interface::as_raw(self)).ok()
@@ -1368,7 +1368,7 @@ impl IResourceManager2 {
     }
     pub unsafe fn Reenlist(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows_core::Result<XACTSTAT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Reenlist)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ltimeout, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Reenlist)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len().try_into().unwrap(), ltimeout, &mut result__).from_abi(result__)
     }
     pub unsafe fn ReenlistmentComplete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ReenlistmentComplete)(::windows_core::Interface::as_raw(self)).ok()
@@ -1474,7 +1474,7 @@ impl IResourceManagerRejoinable {
     }
     pub unsafe fn Reenlist(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows_core::Result<XACTSTAT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Reenlist)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ltimeout, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Reenlist)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len().try_into().unwrap(), ltimeout, &mut result__).from_abi(result__)
     }
     pub unsafe fn ReenlistmentComplete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.ReenlistmentComplete)(::windows_core::Interface::as_raw(self)).ok()
@@ -1495,7 +1495,7 @@ impl IResourceManagerRejoinable {
     }
     pub unsafe fn Rejoin(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows_core::Result<XACTSTAT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Rejoin)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ltimeout, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Rejoin)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len().try_into().unwrap(), ltimeout, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IResourceManagerRejoinable, ::windows_core::IUnknown, IResourceManager, IResourceManager2);
@@ -1857,7 +1857,7 @@ impl ITransactionExport {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows_core::Interface::vtable(self).GetTransactionCookie)(::windows_core::Interface::as_raw(self), punktransaction.into_param().abi(), rgbtransactioncookie.len() as _, ::core::mem::transmute(rgbtransactioncookie.as_ptr()), pcbused).ok()
+        (::windows_core::Interface::vtable(self).GetTransactionCookie)(::windows_core::Interface::as_raw(self), punktransaction.into_param().abi(), rgbtransactioncookie.len().try_into().unwrap(), ::core::mem::transmute(rgbtransactioncookie.as_ptr()), pcbused).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITransactionExport, ::windows_core::IUnknown);
@@ -1884,7 +1884,7 @@ impl ITransactionExportFactory {
     }
     pub unsafe fn Create(&self, rgbwhereabouts: &[u8]) -> ::windows_core::Result<ITransactionExport> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), rgbwhereabouts.len() as _, ::core::mem::transmute(rgbwhereabouts.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), rgbwhereabouts.len().try_into().unwrap(), ::core::mem::transmute(rgbwhereabouts.as_ptr()), &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITransactionExportFactory, ::windows_core::IUnknown);
@@ -1910,7 +1910,7 @@ impl ITransactionImport {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Import)(::windows_core::Interface::as_raw(self), rgbtransactioncookie.len() as _, ::core::mem::transmute(rgbtransactioncookie.as_ptr()), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Import)(::windows_core::Interface::as_raw(self), rgbtransactioncookie.len().try_into().unwrap(), ::core::mem::transmute(rgbtransactioncookie.as_ptr()), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITransactionImport, ::windows_core::IUnknown);
@@ -1935,7 +1935,7 @@ impl ITransactionImportWhereabouts {
         (::windows_core::Interface::vtable(self).GetWhereaboutsSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetWhereabouts(&self, rgbwhereabouts: &mut [u8], pcbused: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetWhereabouts)(::windows_core::Interface::as_raw(self), rgbwhereabouts.len() as _, ::core::mem::transmute(rgbwhereabouts.as_ptr()), pcbused).ok()
+        (::windows_core::Interface::vtable(self).GetWhereabouts)(::windows_core::Interface::as_raw(self), rgbwhereabouts.len().try_into().unwrap(), ::core::mem::transmute(rgbwhereabouts.as_ptr()), pcbused).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITransactionImportWhereabouts, ::windows_core::IUnknown);
@@ -2174,14 +2174,14 @@ pub struct ITransactionReceiver(::windows_core::IUnknown);
 impl ITransactionReceiver {
     pub unsafe fn UnmarshalPropagationToken(&self, rgbtoken: &[u8]) -> ::windows_core::Result<ITransaction> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).UnmarshalPropagationToken)(::windows_core::Interface::as_raw(self), rgbtoken.len() as _, ::core::mem::transmute(rgbtoken.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).UnmarshalPropagationToken)(::windows_core::Interface::as_raw(self), rgbtoken.len().try_into().unwrap(), ::core::mem::transmute(rgbtoken.as_ptr()), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetReturnTokenSize(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReturnTokenSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn MarshalReturnToken(&self, rgbreturntoken: &mut [u8], pcbused: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).MarshalReturnToken)(::windows_core::Interface::as_raw(self), rgbreturntoken.len() as _, ::core::mem::transmute(rgbreturntoken.as_ptr()), pcbused).ok()
+        (::windows_core::Interface::vtable(self).MarshalReturnToken)(::windows_core::Interface::as_raw(self), rgbreturntoken.len().try_into().unwrap(), ::core::mem::transmute(rgbreturntoken.as_ptr()), pcbused).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
@@ -2342,10 +2342,10 @@ impl ITransactionTransmitter {
         (::windows_core::Interface::vtable(self).GetPropagationTokenSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn MarshalPropagationToken(&self, rgbtoken: &mut [u8], pcbused: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).MarshalPropagationToken)(::windows_core::Interface::as_raw(self), rgbtoken.len() as _, ::core::mem::transmute(rgbtoken.as_ptr()), pcbused).ok()
+        (::windows_core::Interface::vtable(self).MarshalPropagationToken)(::windows_core::Interface::as_raw(self), rgbtoken.len().try_into().unwrap(), ::core::mem::transmute(rgbtoken.as_ptr()), pcbused).ok()
     }
     pub unsafe fn UnmarshalReturnToken(&self, rgbreturntoken: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).UnmarshalReturnToken)(::windows_core::Interface::as_raw(self), rgbreturntoken.len() as _, ::core::mem::transmute(rgbreturntoken.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).UnmarshalReturnToken)(::windows_core::Interface::as_raw(self), rgbreturntoken.len().try_into().unwrap(), ::core::mem::transmute(rgbreturntoken.as_ptr())).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()

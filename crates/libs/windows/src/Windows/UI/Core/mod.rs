@@ -4813,7 +4813,7 @@ impl TouchHitTestingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).EvaluateProximityToPolygon)(::windows_core::Interface::as_raw(this), controlvertices.len().try_into()?, controlvertices.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).EvaluateProximityToPolygon)(::windows_core::Interface::as_raw(this), controlvertices.len().try_into().unwrap(), controlvertices.as_ptr(), &mut result__).from_abi(result__)
         }
     }
 }

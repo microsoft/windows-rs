@@ -324,7 +324,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("mapi32.dll" "system" fn ScLocalPathFromUNC(lpszunc : ::windows_core::PCSTR, lpszlocal : ::windows_core::PCSTR, cchlocal : u32) -> i32);
-    ScLocalPathFromUNC(lpszunc.into_param().abi(), ::core::mem::transmute(lpszlocal.as_ptr()), lpszlocal.len() as _)
+    ScLocalPathFromUNC(lpszunc.into_param().abi(), ::core::mem::transmute(lpszlocal.as_ptr()), lpszlocal.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -346,7 +346,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("mapi32.dll" "system" fn ScUNCFromLocalPath(lpszlocal : ::windows_core::PCSTR, lpszunc : ::windows_core::PCSTR, cchunc : u32) -> i32);
-    ScUNCFromLocalPath(lpszlocal.into_param().abi(), ::core::mem::transmute(lpszunc.as_ptr()), lpszunc.len() as _)
+    ScUNCFromLocalPath(lpszlocal.into_param().abi(), ::core::mem::transmute(lpszunc.as_ptr()), lpszunc.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn SzFindCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
@@ -1310,7 +1310,7 @@ impl IMAPIStatus {
         (::windows_core::Interface::vtable(self).ChangePassword)(::windows_core::Interface::as_raw(self), lpoldpass, lpnewpass, ulflags).ok()
     }
     pub unsafe fn FlushQueues(&self, uluiparam: usize, lptargettransport: ::core::option::Option<&[ENTRYID]>, ulflags: u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).FlushQueues)(::windows_core::Interface::as_raw(self), uluiparam, lptargettransport.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lptargettransport.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ulflags).ok()
+        (::windows_core::Interface::vtable(self).FlushQueues)(::windows_core::Interface::as_raw(self), uluiparam, lptargettransport.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(lptargettransport.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ulflags).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMAPIStatus, ::windows_core::IUnknown, IMAPIProp);
@@ -1903,7 +1903,7 @@ impl IProviderAdmin {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateProvider(&self, lpszprovider: *const i8, lpprops: &[SPropValue], uluiparam: usize, ulflags: u32) -> ::windows_core::Result<MAPIUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateProvider)(::windows_core::Interface::as_raw(self), lpszprovider, lpprops.len() as _, ::core::mem::transmute(lpprops.as_ptr()), uluiparam, ulflags, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateProvider)(::windows_core::Interface::as_raw(self), lpszprovider, lpprops.len().try_into().unwrap(), ::core::mem::transmute(lpprops.as_ptr()), uluiparam, ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn DeleteProvider(&self, lpuid: *const MAPIUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeleteProvider)(::windows_core::Interface::as_raw(self), lpuid).ok()

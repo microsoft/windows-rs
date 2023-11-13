@@ -280,7 +280,7 @@ impl IMediaObject {
         (::windows_core::Interface::vtable(self).ProcessInput)(::windows_core::Interface::as_raw(self), dwinputstreamindex, pbuffer.into_param().abi(), dwflags, rttimestamp, rttimelength).ok()
     }
     pub unsafe fn ProcessOutput(&self, dwflags: u32, poutputbuffers: &mut [DMO_OUTPUT_DATA_BUFFER], pdwstatus: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ProcessOutput)(::windows_core::Interface::as_raw(self), dwflags, poutputbuffers.len() as _, ::core::mem::transmute(poutputbuffers.as_ptr()), pdwstatus).ok()
+        (::windows_core::Interface::vtable(self).ProcessOutput)(::windows_core::Interface::as_raw(self), dwflags, poutputbuffers.len().try_into().unwrap(), ::core::mem::transmute(poutputbuffers.as_ptr()), pdwstatus).ok()
     }
     pub unsafe fn Lock(&self, block: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Lock)(::windows_core::Interface::as_raw(self), block).ok()
@@ -342,7 +342,7 @@ pub struct IMediaObject_Vtbl {
 pub struct IMediaObjectInPlace(::windows_core::IUnknown);
 impl IMediaObjectInPlace {
     pub unsafe fn Process(&self, pdata: &mut [u8], reftimestart: i64, dwflags: u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Process)(::windows_core::Interface::as_raw(self), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr()), reftimestart, dwflags).ok()
+        (::windows_core::Interface::vtable(self).Process)(::windows_core::Interface::as_raw(self), pdata.len().try_into().unwrap(), ::core::mem::transmute(pdata.as_ptr()), reftimestart, dwflags).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IMediaObjectInPlace> {
         let mut result__ = ::std::mem::zeroed();

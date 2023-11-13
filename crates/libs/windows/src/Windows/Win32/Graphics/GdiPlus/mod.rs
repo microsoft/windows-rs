@@ -1181,7 +1181,7 @@ where
     P0: ::windows_core::IntoParam<super::Gdi::HENHMETAFILE>,
 {
     ::windows_targets::link!("gdiplus.dll" "system" fn GdipEmfToWmfBits(hemf : super::Gdi:: HENHMETAFILE, cbdata16 : u32, pdata16 : *mut u8, imapmode : i32, eflags : i32) -> u32);
-    GdipEmfToWmfBits(hemf.into_param().abi(), pdata16.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata16.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), imapmode, eflags)
+    GdipEmfToWmfBits(hemf.into_param().abi(), pdata16.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pdata16.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), imapmode, eflags)
 }
 #[inline]
 pub unsafe fn GdipEndContainer(graphics: *mut GpGraphics, state: u32) -> Status {
@@ -1520,7 +1520,7 @@ pub unsafe fn GdipGetFontCollectionFamilyCount(fontcollection: *mut GpFontCollec
 #[inline]
 pub unsafe fn GdipGetFontCollectionFamilyList(fontcollection: *const GpFontCollection, gpfamilies: &mut [*mut GpFontFamily], numfound: *mut i32) -> Status {
     ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetFontCollectionFamilyList(fontcollection : *const GpFontCollection, numsought : i32, gpfamilies : *mut *mut GpFontFamily, numfound : *mut i32) -> Status);
-    GdipGetFontCollectionFamilyList(fontcollection, gpfamilies.len() as _, ::core::mem::transmute(gpfamilies.as_ptr()), numfound)
+    GdipGetFontCollectionFamilyList(fontcollection, gpfamilies.len().try_into().unwrap(), ::core::mem::transmute(gpfamilies.as_ptr()), numfound)
 }
 #[inline]
 pub unsafe fn GdipGetFontHeight(font: *const GpFont, graphics: *const GpGraphics, height: *mut f32) -> Status {
@@ -1947,7 +1947,7 @@ pub unsafe fn GdipGetPathPointsI(param0: *mut GpPath, points: *mut Point, count:
 #[inline]
 pub unsafe fn GdipGetPathTypes(path: *const GpPath, types: &mut [u8]) -> Status {
     ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathTypes(path : *const GpPath, types : *mut u8, count : i32) -> Status);
-    GdipGetPathTypes(path, ::core::mem::transmute(types.as_ptr()), types.len() as _)
+    GdipGetPathTypes(path, ::core::mem::transmute(types.as_ptr()), types.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GdipGetPathWorldBounds(path: *mut GpPath, bounds: *mut RectF, matrix: *const Matrix, pen: *const GpPen) -> Status {
@@ -2107,7 +2107,7 @@ pub unsafe fn GdipGetRegionBoundsI(region: *mut GpRegion, graphics: *mut GpGraph
 #[inline]
 pub unsafe fn GdipGetRegionData(region: *mut GpRegion, buffer: &mut [u8], sizefilled: ::core::option::Option<*mut u32>) -> Status {
     ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetRegionData(region : *mut GpRegion, buffer : *mut u8, buffersize : u32, sizefilled : *mut u32) -> Status);
-    GdipGetRegionData(region, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ::core::mem::transmute(sizefilled.unwrap_or(::std::ptr::null_mut())))
+    GdipGetRegionData(region, ::core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), ::core::mem::transmute(sizefilled.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn GdipGetRegionDataSize(region: *mut GpRegion, buffersize: *mut u32) -> Status {

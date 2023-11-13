@@ -59,22 +59,22 @@ pub unsafe fn EnumProcesses(lpidprocess: *mut u32, cb: u32, lpcbneeded: *mut u32
 #[inline]
 pub unsafe fn GetDeviceDriverBaseNameA(imagebase: *const ::core::ffi::c_void, lpfilename: &mut [u8]) -> u32 {
     ::windows_targets::link!("psapi.dll" "system" fn GetDeviceDriverBaseNameA(imagebase : *const ::core::ffi::c_void, lpfilename : ::windows_core::PSTR, nsize : u32) -> u32);
-    GetDeviceDriverBaseNameA(imagebase, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
+    GetDeviceDriverBaseNameA(imagebase, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetDeviceDriverBaseNameW(imagebase: *const ::core::ffi::c_void, lpbasename: &mut [u16]) -> u32 {
     ::windows_targets::link!("psapi.dll" "system" fn GetDeviceDriverBaseNameW(imagebase : *const ::core::ffi::c_void, lpbasename : ::windows_core::PWSTR, nsize : u32) -> u32);
-    GetDeviceDriverBaseNameW(imagebase, ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len() as _)
+    GetDeviceDriverBaseNameW(imagebase, ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetDeviceDriverFileNameA(imagebase: *const ::core::ffi::c_void, lpfilename: &mut [u8]) -> u32 {
     ::windows_targets::link!("psapi.dll" "system" fn GetDeviceDriverFileNameA(imagebase : *const ::core::ffi::c_void, lpfilename : ::windows_core::PSTR, nsize : u32) -> u32);
-    GetDeviceDriverFileNameA(imagebase, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
+    GetDeviceDriverFileNameA(imagebase, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetDeviceDriverFileNameW(imagebase: *const ::core::ffi::c_void, lpfilename: &mut [u16]) -> u32 {
     ::windows_targets::link!("psapi.dll" "system" fn GetDeviceDriverFileNameW(imagebase : *const ::core::ffi::c_void, lpfilename : ::windows_core::PWSTR, nsize : u32) -> u32);
-    GetDeviceDriverFileNameW(imagebase, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
+    GetDeviceDriverFileNameW(imagebase, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -84,7 +84,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("psapi.dll" "system" fn GetMappedFileNameA(hprocess : super::super::Foundation:: HANDLE, lpv : *const ::core::ffi::c_void, lpfilename : ::windows_core::PSTR, nsize : u32) -> u32);
-    GetMappedFileNameA(hprocess.into_param().abi(), lpv, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
+    GetMappedFileNameA(hprocess.into_param().abi(), lpv, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -94,7 +94,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("psapi.dll" "system" fn GetMappedFileNameW(hprocess : super::super::Foundation:: HANDLE, lpv : *const ::core::ffi::c_void, lpfilename : ::windows_core::PWSTR, nsize : u32) -> u32);
-    GetMappedFileNameW(hprocess.into_param().abi(), lpv, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
+    GetMappedFileNameW(hprocess.into_param().abi(), lpv, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -105,7 +105,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
     ::windows_targets::link!("psapi.dll" "system" fn GetModuleBaseNameA(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpbasename : ::windows_core::PSTR, nsize : u32) -> u32);
-    GetModuleBaseNameA(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len() as _)
+    GetModuleBaseNameA(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -116,7 +116,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
     ::windows_targets::link!("psapi.dll" "system" fn GetModuleBaseNameW(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpbasename : ::windows_core::PWSTR, nsize : u32) -> u32);
-    GetModuleBaseNameW(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len() as _)
+    GetModuleBaseNameW(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -127,7 +127,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
     ::windows_targets::link!("psapi.dll" "system" fn GetModuleFileNameExA(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpfilename : ::windows_core::PSTR, nsize : u32) -> u32);
-    GetModuleFileNameExA(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
+    GetModuleFileNameExA(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -138,7 +138,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
     ::windows_targets::link!("psapi.dll" "system" fn GetModuleFileNameExW(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpfilename : ::windows_core::PWSTR, nsize : u32) -> u32);
-    GetModuleFileNameExW(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
+    GetModuleFileNameExW(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -166,7 +166,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("psapi.dll" "system" fn GetProcessImageFileNameA(hprocess : super::super::Foundation:: HANDLE, lpimagefilename : ::windows_core::PSTR, nsize : u32) -> u32);
-    GetProcessImageFileNameA(hprocess.into_param().abi(), ::core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len() as _)
+    GetProcessImageFileNameA(hprocess.into_param().abi(), ::core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -176,7 +176,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("psapi.dll" "system" fn GetProcessImageFileNameW(hprocess : super::super::Foundation:: HANDLE, lpimagefilename : ::windows_core::PWSTR, nsize : u32) -> u32);
-    GetProcessImageFileNameW(hprocess.into_param().abi(), ::core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len() as _)
+    GetProcessImageFileNameW(hprocess.into_param().abi(), ::core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -279,22 +279,22 @@ pub unsafe fn K32EnumProcesses(lpidprocess: *mut u32, cb: u32, lpcbneeded: *mut 
 #[inline]
 pub unsafe fn K32GetDeviceDriverBaseNameA(imagebase: *const ::core::ffi::c_void, lpfilename: &mut [u8]) -> u32 {
     ::windows_targets::link!("kernel32.dll" "system" fn K32GetDeviceDriverBaseNameA(imagebase : *const ::core::ffi::c_void, lpfilename : ::windows_core::PSTR, nsize : u32) -> u32);
-    K32GetDeviceDriverBaseNameA(imagebase, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
+    K32GetDeviceDriverBaseNameA(imagebase, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn K32GetDeviceDriverBaseNameW(imagebase: *const ::core::ffi::c_void, lpbasename: &mut [u16]) -> u32 {
     ::windows_targets::link!("kernel32.dll" "system" fn K32GetDeviceDriverBaseNameW(imagebase : *const ::core::ffi::c_void, lpbasename : ::windows_core::PWSTR, nsize : u32) -> u32);
-    K32GetDeviceDriverBaseNameW(imagebase, ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len() as _)
+    K32GetDeviceDriverBaseNameW(imagebase, ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn K32GetDeviceDriverFileNameA(imagebase: *const ::core::ffi::c_void, lpfilename: &mut [u8]) -> u32 {
     ::windows_targets::link!("kernel32.dll" "system" fn K32GetDeviceDriverFileNameA(imagebase : *const ::core::ffi::c_void, lpfilename : ::windows_core::PSTR, nsize : u32) -> u32);
-    K32GetDeviceDriverFileNameA(imagebase, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
+    K32GetDeviceDriverFileNameA(imagebase, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn K32GetDeviceDriverFileNameW(imagebase: *const ::core::ffi::c_void, lpfilename: &mut [u16]) -> u32 {
     ::windows_targets::link!("kernel32.dll" "system" fn K32GetDeviceDriverFileNameW(imagebase : *const ::core::ffi::c_void, lpfilename : ::windows_core::PWSTR, nsize : u32) -> u32);
-    K32GetDeviceDriverFileNameW(imagebase, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
+    K32GetDeviceDriverFileNameW(imagebase, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -304,7 +304,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn K32GetMappedFileNameA(hprocess : super::super::Foundation:: HANDLE, lpv : *const ::core::ffi::c_void, lpfilename : ::windows_core::PSTR, nsize : u32) -> u32);
-    K32GetMappedFileNameA(hprocess.into_param().abi(), lpv, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
+    K32GetMappedFileNameA(hprocess.into_param().abi(), lpv, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -314,7 +314,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn K32GetMappedFileNameW(hprocess : super::super::Foundation:: HANDLE, lpv : *const ::core::ffi::c_void, lpfilename : ::windows_core::PWSTR, nsize : u32) -> u32);
-    K32GetMappedFileNameW(hprocess.into_param().abi(), lpv, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
+    K32GetMappedFileNameW(hprocess.into_param().abi(), lpv, ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -325,7 +325,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn K32GetModuleBaseNameA(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpbasename : ::windows_core::PSTR, nsize : u32) -> u32);
-    K32GetModuleBaseNameA(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len() as _)
+    K32GetModuleBaseNameA(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -336,7 +336,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn K32GetModuleBaseNameW(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpbasename : ::windows_core::PWSTR, nsize : u32) -> u32);
-    K32GetModuleBaseNameW(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len() as _)
+    K32GetModuleBaseNameW(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -347,7 +347,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn K32GetModuleFileNameExA(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpfilename : ::windows_core::PSTR, nsize : u32) -> u32);
-    K32GetModuleFileNameExA(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
+    K32GetModuleFileNameExA(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -358,7 +358,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn K32GetModuleFileNameExW(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpfilename : ::windows_core::PWSTR, nsize : u32) -> u32);
-    K32GetModuleFileNameExW(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
+    K32GetModuleFileNameExW(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -386,7 +386,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn K32GetProcessImageFileNameA(hprocess : super::super::Foundation:: HANDLE, lpimagefilename : ::windows_core::PSTR, nsize : u32) -> u32);
-    K32GetProcessImageFileNameA(hprocess.into_param().abi(), ::core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len() as _)
+    K32GetProcessImageFileNameA(hprocess.into_param().abi(), ::core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -396,7 +396,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn K32GetProcessImageFileNameW(hprocess : super::super::Foundation:: HANDLE, lpimagefilename : ::windows_core::PWSTR, nsize : u32) -> u32);
-    K32GetProcessImageFileNameW(hprocess.into_param().abi(), ::core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len() as _)
+    K32GetProcessImageFileNameW(hprocess.into_param().abi(), ::core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

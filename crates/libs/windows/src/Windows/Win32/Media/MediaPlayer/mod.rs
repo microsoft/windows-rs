@@ -2007,7 +2007,7 @@ impl IWMPContentPartner {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).GetCommands)(::windows_core::Interface::as_raw(self), location.into_param().abi(), plocationcontext, itemlocation.into_param().abi(), prgitemids.len() as _, ::core::mem::transmute(prgitemids.as_ptr()), pcitemids, pprgitems).ok()
+        (::windows_core::Interface::vtable(self).GetCommands)(::windows_core::Interface::as_raw(self), location.into_param().abi(), plocationcontext, itemlocation.into_param().abi(), prgitemids.len().try_into().unwrap(), ::core::mem::transmute(prgitemids.as_ptr()), pcitemids, pprgitems).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2016,7 +2016,7 @@ impl IWMPContentPartner {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).InvokeCommand)(::windows_core::Interface::as_raw(self), dwcommandid, location.into_param().abi(), plocationcontext, itemlocation.into_param().abi(), rgitemids.len() as _, ::core::mem::transmute(rgitemids.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).InvokeCommand)(::windows_core::Interface::as_raw(self), dwcommandid, location.into_param().abi(), plocationcontext, itemlocation.into_param().abi(), rgitemids.len().try_into().unwrap(), ::core::mem::transmute(rgitemids.as_ptr())).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2254,7 +2254,7 @@ impl IWMPContentPartnerCallback {
         (::windows_core::Interface::vtable(self).ChangeView)(::windows_core::Interface::as_raw(self), bstrtype.into_param().abi(), bstrid.into_param().abi(), bstrfilter.into_param().abi()).ok()
     }
     pub unsafe fn AddListContents(&self, dwlistcookie: u32, prgitems: &[u32]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddListContents)(::windows_core::Interface::as_raw(self), dwlistcookie, prgitems.len() as _, ::core::mem::transmute(prgitems.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).AddListContents)(::windows_core::Interface::as_raw(self), dwlistcookie, prgitems.len().try_into().unwrap(), ::core::mem::transmute(prgitems.as_ptr())).ok()
     }
     pub unsafe fn ListContentsComplete(&self, dwlistcookie: u32, hrsuccess: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ListContentsComplete)(::windows_core::Interface::as_raw(self), dwlistcookie, hrsuccess).ok()

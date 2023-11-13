@@ -197,7 +197,7 @@ impl IGipGameControllerInputSink {
     }
     pub fn OnMessageReceived(&self, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messagebuffer: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).OnMessageReceived)(::windows_core::Interface::as_raw(this), timestamp, messageclass, messageid, sequenceid, messagebuffer.len().try_into()?, messagebuffer.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).OnMessageReceived)(::windows_core::Interface::as_raw(this), timestamp, messageclass, messageid, sequenceid, messagebuffer.len().try_into().unwrap(), messagebuffer.as_ptr()).ok() }
     }
     pub fn OnInputResumed(&self, timestamp: u64) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IGameControllerInputSink>(self)?;
@@ -253,7 +253,7 @@ pub struct IHidGameControllerInputSink(::windows_core::IUnknown);
 impl IHidGameControllerInputSink {
     pub fn OnInputReportReceived(&self, timestamp: u64, reportid: u8, reportbuffer: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).OnInputReportReceived)(::windows_core::Interface::as_raw(this), timestamp, reportid, reportbuffer.len().try_into()?, reportbuffer.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).OnInputReportReceived)(::windows_core::Interface::as_raw(this), timestamp, reportid, reportbuffer.len().try_into().unwrap(), reportbuffer.as_ptr()).ok() }
     }
     pub fn OnInputResumed(&self, timestamp: u64) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IGameControllerInputSink>(self)?;
@@ -307,7 +307,7 @@ pub struct IXusbGameControllerInputSink(::windows_core::IUnknown);
 impl IXusbGameControllerInputSink {
     pub fn OnInputReceived(&self, timestamp: u64, reportid: u8, inputbuffer: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).OnInputReceived)(::windows_core::Interface::as_raw(this), timestamp, reportid, inputbuffer.len().try_into()?, inputbuffer.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).OnInputReceived)(::windows_core::Interface::as_raw(this), timestamp, reportid, inputbuffer.len().try_into().unwrap(), inputbuffer.as_ptr()).ok() }
     }
     pub fn OnInputResumed(&self, timestamp: u64) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IGameControllerInputSink>(self)?;
@@ -477,11 +477,11 @@ impl GipGameControllerProvider {
     }
     pub fn SendMessage(&self, messageclass: GipMessageClass, messageid: u8, messagebuffer: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SendMessage)(::windows_core::Interface::as_raw(this), messageclass, messageid, messagebuffer.len().try_into()?, messagebuffer.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SendMessage)(::windows_core::Interface::as_raw(this), messageclass, messageid, messagebuffer.len().try_into().unwrap(), messagebuffer.as_ptr()).ok() }
     }
     pub fn SendReceiveMessage(&self, messageclass: GipMessageClass, messageid: u8, requestmessagebuffer: &[u8], responsemessagebuffer: &mut [u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SendReceiveMessage)(::windows_core::Interface::as_raw(this), messageclass, messageid, requestmessagebuffer.len().try_into()?, requestmessagebuffer.as_ptr(), responsemessagebuffer.len().try_into()?, responsemessagebuffer.as_mut_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SendReceiveMessage)(::windows_core::Interface::as_raw(this), messageclass, messageid, requestmessagebuffer.len().try_into().unwrap(), requestmessagebuffer.as_ptr(), responsemessagebuffer.len().try_into().unwrap(), responsemessagebuffer.as_mut_ptr()).ok() }
     }
     #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -567,15 +567,15 @@ impl HidGameControllerProvider {
     }
     pub fn GetFeatureReport(&self, reportid: u8, reportbuffer: &mut [u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).GetFeatureReport)(::windows_core::Interface::as_raw(this), reportid, reportbuffer.len().try_into()?, reportbuffer.as_mut_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).GetFeatureReport)(::windows_core::Interface::as_raw(this), reportid, reportbuffer.len().try_into().unwrap(), reportbuffer.as_mut_ptr()).ok() }
     }
     pub fn SendFeatureReport(&self, reportid: u8, reportbuffer: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SendFeatureReport)(::windows_core::Interface::as_raw(this), reportid, reportbuffer.len().try_into()?, reportbuffer.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SendFeatureReport)(::windows_core::Interface::as_raw(this), reportid, reportbuffer.len().try_into().unwrap(), reportbuffer.as_ptr()).ok() }
     }
     pub fn SendOutputReport(&self, reportid: u8, reportbuffer: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SendOutputReport)(::windows_core::Interface::as_raw(this), reportid, reportbuffer.len().try_into()?, reportbuffer.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SendOutputReport)(::windows_core::Interface::as_raw(this), reportid, reportbuffer.len().try_into().unwrap(), reportbuffer.as_ptr()).ok() }
     }
 }
 impl ::windows_core::RuntimeType for HidGameControllerProvider {

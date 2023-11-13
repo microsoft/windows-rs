@@ -439,7 +439,7 @@ impl ILocation {
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
         P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows_core::Interface::vtable(self).RequestPermissions)(::windows_core::Interface::as_raw(self), hparent.into_param().abi(), ::core::mem::transmute(preporttypes.as_ptr()), preporttypes.len() as _, fmodal.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).RequestPermissions)(::windows_core::Interface::as_raw(self), hparent.into_param().abi(), ::core::mem::transmute(preporttypes.as_ptr()), preporttypes.len().try_into().unwrap(), fmodal.into_param().abi()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(ILocation, ::windows_core::IUnknown);

@@ -19,7 +19,7 @@ pub struct IApoAcousticEchoCancellation_Vtbl {
 pub struct IApoAuxiliaryInputConfiguration(::windows_core::IUnknown);
 impl IApoAuxiliaryInputConfiguration {
     pub unsafe fn AddAuxiliaryInput(&self, dwinputid: u32, pbydata: &[u8], pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddAuxiliaryInput)(::windows_core::Interface::as_raw(self), dwinputid, pbydata.len() as _, ::core::mem::transmute(pbydata.as_ptr()), pinputconnection).ok()
+        (::windows_core::Interface::vtable(self).AddAuxiliaryInput)(::windows_core::Interface::as_raw(self), dwinputid, pbydata.len().try_into().unwrap(), ::core::mem::transmute(pbydata.as_ptr()), pinputconnection).ok()
     }
     pub unsafe fn RemoveAuxiliaryInput(&self, dwinputid: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RemoveAuxiliaryInput)(::windows_core::Interface::as_raw(self), dwinputid).ok()
@@ -151,7 +151,7 @@ impl IAudioProcessingObject {
         (::windows_core::Interface::vtable(self).GetRegistrationProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Initialize(&self, pbydata: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), pbydata.len() as _, ::core::mem::transmute(pbydata.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), pbydata.len().try_into().unwrap(), ::core::mem::transmute(pbydata.as_ptr())).ok()
     }
     pub unsafe fn IsInputFormatSupported<P0, P1>(&self, poppositeformat: P0, prequestedinputformat: P1) -> ::windows_core::Result<IAudioMediaType>
     where
@@ -198,7 +198,7 @@ pub struct IAudioProcessingObject_Vtbl {
 pub struct IAudioProcessingObjectConfiguration(::windows_core::IUnknown);
 impl IAudioProcessingObjectConfiguration {
     pub unsafe fn LockForProcess(&self, ppinputconnections: &[*const APO_CONNECTION_DESCRIPTOR], ppoutputconnections: &[*const APO_CONNECTION_DESCRIPTOR]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).LockForProcess)(::windows_core::Interface::as_raw(self), ppinputconnections.len() as _, ::core::mem::transmute(ppinputconnections.as_ptr()), ppoutputconnections.len() as _, ::core::mem::transmute(ppoutputconnections.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).LockForProcess)(::windows_core::Interface::as_raw(self), ppinputconnections.len().try_into().unwrap(), ::core::mem::transmute(ppinputconnections.as_ptr()), ppoutputconnections.len().try_into().unwrap(), ::core::mem::transmute(ppoutputconnections.as_ptr())).ok()
     }
     pub unsafe fn UnlockForProcess(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UnlockForProcess)(::windows_core::Interface::as_raw(self)).ok()

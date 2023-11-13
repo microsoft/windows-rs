@@ -186,7 +186,7 @@ impl IDxcCompiler {
         P4: ::windows_core::IntoParam<IDxcIncludeHandler>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Compile)(::windows_core::Interface::as_raw(self), psource.into_param().abi(), psourcename.into_param().abi(), pentrypoint.into_param().abi(), ptargetprofile.into_param().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, pincludehandler.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Compile)(::windows_core::Interface::as_raw(self), psource.into_param().abi(), psourcename.into_param().abi(), pentrypoint.into_param().abi(), ptargetprofile.into_param().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len().try_into().unwrap(), pincludehandler.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Preprocess<P0, P1, P2>(&self, psource: P0, psourcename: P1, parguments: ::core::option::Option<&[::windows_core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P2) -> ::windows_core::Result<IDxcOperationResult>
     where
@@ -195,7 +195,7 @@ impl IDxcCompiler {
         P2: ::windows_core::IntoParam<IDxcIncludeHandler>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Preprocess)(::windows_core::Interface::as_raw(self), psource.into_param().abi(), psourcename.into_param().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, pincludehandler.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Preprocess)(::windows_core::Interface::as_raw(self), psource.into_param().abi(), psourcename.into_param().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len().try_into().unwrap(), pincludehandler.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Disassemble<P0>(&self, psource: P0) -> ::windows_core::Result<IDxcBlobEncoding>
     where
@@ -233,7 +233,7 @@ impl IDxcCompiler2 {
         P4: ::windows_core::IntoParam<IDxcIncludeHandler>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Compile)(::windows_core::Interface::as_raw(self), psource.into_param().abi(), psourcename.into_param().abi(), pentrypoint.into_param().abi(), ptargetprofile.into_param().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, pincludehandler.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Compile)(::windows_core::Interface::as_raw(self), psource.into_param().abi(), psourcename.into_param().abi(), pentrypoint.into_param().abi(), ptargetprofile.into_param().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len().try_into().unwrap(), pincludehandler.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Preprocess<P0, P1, P2>(&self, psource: P0, psourcename: P1, parguments: ::core::option::Option<&[::windows_core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P2) -> ::windows_core::Result<IDxcOperationResult>
     where
@@ -242,7 +242,7 @@ impl IDxcCompiler2 {
         P2: ::windows_core::IntoParam<IDxcIncludeHandler>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Preprocess)(::windows_core::Interface::as_raw(self), psource.into_param().abi(), psourcename.into_param().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, pincludehandler.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Preprocess)(::windows_core::Interface::as_raw(self), psource.into_param().abi(), psourcename.into_param().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len().try_into().unwrap(), pincludehandler.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Disassemble<P0>(&self, psource: P0) -> ::windows_core::Result<IDxcBlobEncoding>
     where
@@ -266,9 +266,9 @@ impl IDxcCompiler2 {
             pentrypoint.into_param().abi(),
             ptargetprofile.into_param().abi(),
             ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-            parguments.as_deref().map_or(0, |slice| slice.len() as _),
+            parguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
             ::core::mem::transmute(pdefines.as_ptr()),
-            pdefines.len() as _,
+            pdefines.len().try_into().unwrap(),
             pincludehandler.into_param().abi(),
             ::core::mem::transmute(ppresult),
             ::core::mem::transmute(ppdebugblobname.unwrap_or(::std::ptr::null_mut())),
@@ -300,7 +300,7 @@ impl IDxcCompiler3 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Compile)(::windows_core::Interface::as_raw(self), psource, ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), pincludehandler.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Compile)(::windows_core::Interface::as_raw(self), psource, ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pincludehandler.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn Disassemble<T>(&self, pobject: *const DxcBuffer) -> ::windows_core::Result<T>
     where
@@ -335,13 +335,13 @@ impl IDxcCompilerArgs {
         (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self))
     }
     pub unsafe fn AddArguments(&self, parguments: ::core::option::Option<&[::windows_core::PCWSTR]>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddArguments)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+        (::windows_core::Interface::vtable(self).AddArguments)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
     }
     pub unsafe fn AddArgumentsUTF8(&self, parguments: ::core::option::Option<&[::windows_core::PCSTR]>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddArgumentsUTF8)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+        (::windows_core::Interface::vtable(self).AddArgumentsUTF8)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
     }
     pub unsafe fn AddDefines(&self, pdefines: &[DxcDefine]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddDefines)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _).ok()
+        (::windows_core::Interface::vtable(self).AddDefines)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len().try_into().unwrap()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcCompilerArgs, ::windows_core::IUnknown);
@@ -621,7 +621,7 @@ impl IDxcLinker {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Link)(::windows_core::Interface::as_raw(self), pentryname.into_param().abi(), ptargetprofile.into_param().abi(), ::core::mem::transmute(plibnames.as_ptr()), plibnames.len() as _, ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Link)(::windows_core::Interface::as_raw(self), pentryname.into_param().abi(), ptargetprofile.into_param().abi(), ::core::mem::transmute(plibnames.as_ptr()), plibnames.len().try_into().unwrap(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcLinker, ::windows_core::IUnknown);
@@ -686,7 +686,7 @@ impl IDxcOptimizer {
     where
         P0: ::windows_core::IntoParam<IDxcBlob>,
     {
-        (::windows_core::Interface::vtable(self).RunOptimizer)(::windows_core::Interface::as_raw(self), pblob.into_param().abi(), ::core::mem::transmute(ppoptions.as_ptr()), ppoptions.len() as _, ::core::mem::transmute(poutputmodule), ::core::mem::transmute(ppoutputtext.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows_core::Interface::vtable(self).RunOptimizer)(::windows_core::Interface::as_raw(self), pblob.into_param().abi(), ::core::mem::transmute(ppoptions.as_ptr()), ppoptions.len().try_into().unwrap(), ::core::mem::transmute(poutputmodule), ::core::mem::transmute(ppoutputtext.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcOptimizer, ::windows_core::IUnknown);
@@ -1023,7 +1023,7 @@ impl IDxcUtils {
         P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).BuildArguments)(::windows_core::Interface::as_raw(self), psourcename.into_param().abi(), pentrypoint.into_param().abi(), ptargetprofile.into_param().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).BuildArguments)(::windows_core::Interface::as_raw(self), psourcename.into_param().abi(), pentrypoint.into_param().abi(), ptargetprofile.into_param().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPDBContents<P0>(&self, ppdbblob: P0, pphash: *mut ::core::option::Option<IDxcBlob>, ppcontainer: *mut ::core::option::Option<IDxcBlob>) -> ::windows_core::Result<()>
     where

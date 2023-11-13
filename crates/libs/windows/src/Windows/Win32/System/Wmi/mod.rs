@@ -11,7 +11,7 @@ impl IEnumWbemClassObject {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Next(&self, ltimeout: i32, apobjects: &mut [::core::option::Option<IWbemClassObject>], pureturned: *mut u32) -> ::windows_core::HRESULT {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ltimeout, apobjects.len() as _, ::core::mem::transmute(apobjects.as_ptr()), pureturned)
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ltimeout, apobjects.len().try_into().unwrap(), ::core::mem::transmute(apobjects.as_ptr()), pureturned)
     }
     pub unsafe fn NextAsync<P0>(&self, ucount: u32, psink: P0) -> ::windows_core::HRESULT
     where
@@ -65,7 +65,7 @@ impl IMofCompiler {
         P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).CompileBuffer)(::windows_core::Interface::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr()), serverandnamespace.into_param().abi(), user.into_param().abi(), authority.into_param().abi(), password.into_param().abi(), loptionflags, lclassflags, linstanceflags, pinfo).ok()
+        (::windows_core::Interface::vtable(self).CompileBuffer)(::windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr()), serverandnamespace.into_param().abi(), user.into_param().abi(), authority.into_param().abi(), password.into_param().abi(), loptionflags, lclassflags, linstanceflags, pinfo).ok()
     }
     pub unsafe fn CreateBMOF<P0, P1, P2>(&self, textfilename: P0, bmoffilename: P1, serverandnamespace: P2, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows_core::Result<()>
     where
@@ -3725,7 +3725,7 @@ impl IWbemClientConnectionTransport {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Open)(::windows_core::Interface::as_raw(self), straddresstype.into_param().abi(), abbinaryaddress.len() as _, ::core::mem::transmute(abbinaryaddress.as_ptr()), strobject.into_param().abi(), struser.into_param().abi(), strpassword.into_param().abi(), strlocale.into_param().abi(), lflags, pctx.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__, ::core::mem::transmute(pcallres)).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Open)(::windows_core::Interface::as_raw(self), straddresstype.into_param().abi(), abbinaryaddress.len().try_into().unwrap(), ::core::mem::transmute(abbinaryaddress.as_ptr()), strobject.into_param().abi(), struser.into_param().abi(), strpassword.into_param().abi(), strlocale.into_param().abi(), lflags, pctx.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__, ::core::mem::transmute(pcallres)).from_abi(result__)
     }
     pub unsafe fn OpenAsync<P0, P1, P2, P3, P4, P5, P6>(&self, straddresstype: P0, abbinaryaddress: &[u8], strobject: P1, struser: P2, strpassword: P3, strlocale: P4, lflags: i32, pctx: P5, riid: *const ::windows_core::GUID, presponsehandler: P6) -> ::windows_core::Result<()>
     where
@@ -3737,7 +3737,7 @@ impl IWbemClientConnectionTransport {
         P5: ::windows_core::IntoParam<IWbemContext>,
         P6: ::windows_core::IntoParam<IWbemObjectSink>,
     {
-        (::windows_core::Interface::vtable(self).OpenAsync)(::windows_core::Interface::as_raw(self), straddresstype.into_param().abi(), abbinaryaddress.len() as _, ::core::mem::transmute(abbinaryaddress.as_ptr()), strobject.into_param().abi(), struser.into_param().abi(), strpassword.into_param().abi(), strlocale.into_param().abi(), lflags, pctx.into_param().abi(), riid, presponsehandler.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).OpenAsync)(::windows_core::Interface::as_raw(self), straddresstype.into_param().abi(), abbinaryaddress.len().try_into().unwrap(), ::core::mem::transmute(abbinaryaddress.as_ptr()), strobject.into_param().abi(), struser.into_param().abi(), strpassword.into_param().abi(), strlocale.into_param().abi(), lflags, pctx.into_param().abi(), riid, presponsehandler.into_param().abi()).ok()
     }
     pub unsafe fn Cancel<P0>(&self, lflags: i32, phandler: P0) -> ::windows_core::Result<()>
     where
@@ -3776,7 +3776,7 @@ impl IWbemClientTransport {
         P6: ::windows_core::IntoParam<IWbemContext>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ConnectServer)(::windows_core::Interface::as_raw(self), straddresstype.into_param().abi(), abbinaryaddress.len() as _, ::core::mem::transmute(abbinaryaddress.as_ptr()), strnetworkresource.into_param().abi(), struser.into_param().abi(), strpassword.into_param().abi(), strlocale.into_param().abi(), lsecurityflags, strauthority.into_param().abi(), pctx.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ConnectServer)(::windows_core::Interface::as_raw(self), straddresstype.into_param().abi(), abbinaryaddress.len().try_into().unwrap(), ::core::mem::transmute(abbinaryaddress.as_ptr()), strnetworkresource.into_param().abi(), struser.into_param().abi(), strpassword.into_param().abi(), strlocale.into_param().abi(), lsecurityflags, strauthority.into_param().abi(), pctx.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemClientTransport, ::windows_core::IUnknown);
@@ -4162,7 +4162,7 @@ pub struct IWbemEventProviderQuerySink_Vtbl {
 pub struct IWbemEventProviderSecurity(::windows_core::IUnknown);
 impl IWbemEventProviderSecurity {
     pub unsafe fn AccessCheck(&self, wszquerylanguage: *const u16, wszquery: *const u16, psid: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AccessCheck)(::windows_core::Interface::as_raw(self), wszquerylanguage, wszquery, psid.len() as _, ::core::mem::transmute(psid.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).AccessCheck)(::windows_core::Interface::as_raw(self), wszquerylanguage, wszquery, psid.len().try_into().unwrap(), ::core::mem::transmute(psid.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemEventProviderSecurity, ::windows_core::IUnknown);
@@ -4183,7 +4183,7 @@ pub struct IWbemEventProviderSecurity_Vtbl {
 pub struct IWbemEventSink(::windows_core::IUnknown);
 impl IWbemEventSink {
     pub unsafe fn Indicate(&self, apobjarray: &[::core::option::Option<IWbemClassObject>]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.Indicate)(::windows_core::Interface::as_raw(self), apobjarray.len() as _, ::core::mem::transmute(apobjarray.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.Indicate)(::windows_core::Interface::as_raw(self), apobjarray.len().try_into().unwrap(), ::core::mem::transmute(apobjarray.as_ptr())).ok()
     }
     pub unsafe fn SetStatus<P0, P1>(&self, lflags: i32, hresult: ::windows_core::HRESULT, strparam: P0, pobjparam: P1) -> ::windows_core::Result<()>
     where
@@ -4193,7 +4193,7 @@ impl IWbemEventSink {
         (::windows_core::Interface::vtable(self).base__.SetStatus)(::windows_core::Interface::as_raw(self), lflags, hresult, strparam.into_param().abi(), pobjparam.into_param().abi()).ok()
     }
     pub unsafe fn SetSinkSecurity(&self, psd: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetSinkSecurity)(::windows_core::Interface::as_raw(self), psd.len() as _, ::core::mem::transmute(psd.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).SetSinkSecurity)(::windows_core::Interface::as_raw(self), psd.len().try_into().unwrap(), ::core::mem::transmute(psd.as_ptr())).ok()
     }
     pub unsafe fn IsActive(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsActive)(::windows_core::Interface::as_raw(self)).ok()
@@ -4203,7 +4203,7 @@ impl IWbemEventSink {
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetRestrictedSink)(::windows_core::Interface::as_raw(self), awszqueries.len() as _, ::core::mem::transmute(awszqueries.as_ptr()), pcallback.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetRestrictedSink)(::windows_core::Interface::as_raw(self), awszqueries.len().try_into().unwrap(), ::core::mem::transmute(awszqueries.as_ptr()), pcallback.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetBatchingParameters(&self, lflags: i32, dwmaxbuffersize: u32, dwmaxsendlatency: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetBatchingParameters)(::windows_core::Interface::as_raw(self), lflags, dwmaxbuffersize, dwmaxsendlatency).ok()
@@ -4233,10 +4233,10 @@ impl IWbemHiPerfEnum {
         (::windows_core::Interface::vtable(self).AddObjects)(::windows_core::Interface::as_raw(self), lflags, unumobjects, apids, ::core::mem::transmute(apobj)).ok()
     }
     pub unsafe fn RemoveObjects(&self, lflags: i32, apids: &[i32]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).RemoveObjects)(::windows_core::Interface::as_raw(self), lflags, apids.len() as _, ::core::mem::transmute(apids.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).RemoveObjects)(::windows_core::Interface::as_raw(self), lflags, apids.len().try_into().unwrap(), ::core::mem::transmute(apids.as_ptr())).ok()
     }
     pub unsafe fn GetObjects(&self, lflags: i32, apobj: &mut [::core::option::Option<IWbemObjectAccess>], pureturned: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetObjects)(::windows_core::Interface::as_raw(self), lflags, apobj.len() as _, ::core::mem::transmute(apobj.as_ptr()), pureturned).ok()
+        (::windows_core::Interface::vtable(self).GetObjects)(::windows_core::Interface::as_raw(self), lflags, apobj.len().try_into().unwrap(), ::core::mem::transmute(apobj.as_ptr()), pureturned).ok()
     }
     pub unsafe fn RemoveAll(&self, lflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RemoveAll)(::windows_core::Interface::as_raw(self), lflags).ok()
@@ -4309,7 +4309,7 @@ impl IWbemHiPerfProvider {
         P0: ::windows_core::IntoParam<IWbemServices>,
         P1: ::windows_core::IntoParam<IWbemContext>,
     {
-        (::windows_core::Interface::vtable(self).GetObjects)(::windows_core::Interface::as_raw(self), pnamespace.into_param().abi(), apobj.len() as _, ::core::mem::transmute(apobj.as_ptr()), lflags, pcontext.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).GetObjects)(::windows_core::Interface::as_raw(self), pnamespace.into_param().abi(), apobj.len().try_into().unwrap(), ::core::mem::transmute(apobj.as_ptr()), lflags, pcontext.into_param().abi()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemHiPerfProvider, ::windows_core::IUnknown);
@@ -4555,10 +4555,10 @@ impl IWbemObjectAccess {
         (::windows_core::Interface::vtable(self).GetPropertyHandle)(::windows_core::Interface::as_raw(self), wszpropertyname.into_param().abi(), ptype, plhandle).ok()
     }
     pub unsafe fn WritePropertyValue(&self, lhandle: i32, adata: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).WritePropertyValue)(::windows_core::Interface::as_raw(self), lhandle, adata.len() as _, ::core::mem::transmute(adata.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).WritePropertyValue)(::windows_core::Interface::as_raw(self), lhandle, adata.len().try_into().unwrap(), ::core::mem::transmute(adata.as_ptr())).ok()
     }
     pub unsafe fn ReadPropertyValue(&self, lhandle: i32, plnumbytes: *mut i32, adata: &mut [u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ReadPropertyValue)(::windows_core::Interface::as_raw(self), lhandle, adata.len() as _, plnumbytes, ::core::mem::transmute(adata.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).ReadPropertyValue)(::windows_core::Interface::as_raw(self), lhandle, adata.len().try_into().unwrap(), plnumbytes, ::core::mem::transmute(adata.as_ptr())).ok()
     }
     pub unsafe fn ReadDWORD(&self, lhandle: i32) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -4611,7 +4611,7 @@ pub struct IWbemObjectAccess_Vtbl {
 pub struct IWbemObjectSink(::windows_core::IUnknown);
 impl IWbemObjectSink {
     pub unsafe fn Indicate(&self, apobjarray: &[::core::option::Option<IWbemClassObject>]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Indicate)(::windows_core::Interface::as_raw(self), apobjarray.len() as _, ::core::mem::transmute(apobjarray.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).Indicate)(::windows_core::Interface::as_raw(self), apobjarray.len().try_into().unwrap(), ::core::mem::transmute(apobjarray.as_ptr())).ok()
     }
     pub unsafe fn SetStatus<P0, P1>(&self, lflags: i32, hresult: ::windows_core::HRESULT, strparam: P0, pobjparam: P1) -> ::windows_core::Result<()>
     where
@@ -4640,7 +4640,7 @@ pub struct IWbemObjectSink_Vtbl {
 pub struct IWbemObjectSinkEx(::windows_core::IUnknown);
 impl IWbemObjectSinkEx {
     pub unsafe fn Indicate(&self, apobjarray: &[::core::option::Option<IWbemClassObject>]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.Indicate)(::windows_core::Interface::as_raw(self), apobjarray.len() as _, ::core::mem::transmute(apobjarray.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.Indicate)(::windows_core::Interface::as_raw(self), apobjarray.len().try_into().unwrap(), ::core::mem::transmute(apobjarray.as_ptr())).ok()
     }
     pub unsafe fn SetStatus<P0, P1>(&self, lflags: i32, hresult: ::windows_core::HRESULT, strparam: P0, pobjparam: P1) -> ::windows_core::Result<()>
     where
@@ -5565,7 +5565,7 @@ impl IWbemUnboundObjectSink {
     where
         P0: ::windows_core::IntoParam<IWbemClassObject>,
     {
-        (::windows_core::Interface::vtable(self).IndicateToConsumer)(::windows_core::Interface::as_raw(self), plogicalconsumer.into_param().abi(), apobjects.len() as _, ::core::mem::transmute(apobjects.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).IndicateToConsumer)(::windows_core::Interface::as_raw(self), plogicalconsumer.into_param().abi(), apobjects.len().try_into().unwrap(), ::core::mem::transmute(apobjects.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemUnboundObjectSink, ::windows_core::IUnknown);

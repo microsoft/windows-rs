@@ -76,7 +76,7 @@ pub unsafe fn SnmpEncodeMsg(session: isize, srcentity: isize, dstentity: isize, 
 #[inline]
 pub unsafe fn SnmpEntityToStr(entity: isize, string: &mut [u8]) -> u32 {
     ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpEntityToStr(entity : isize, size : u32, string : ::windows_core::PSTR) -> u32);
-    SnmpEntityToStr(entity, string.len() as _, ::core::mem::transmute(string.as_ptr()))
+    SnmpEntityToStr(entity, string.len().try_into().unwrap(), ::core::mem::transmute(string.as_ptr()))
 }
 #[inline]
 pub unsafe fn SnmpFreeContext(context: isize) -> u32 {
@@ -234,7 +234,7 @@ pub unsafe fn SnmpOidCopy(srcoid: *mut smiOID, dstoid: *mut smiOID) -> u32 {
 #[inline]
 pub unsafe fn SnmpOidToStr(srcoid: *const smiOID, string: &mut [u8]) -> u32 {
     ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpOidToStr(srcoid : *const smiOID, size : u32, string : ::windows_core::PSTR) -> u32);
-    SnmpOidToStr(srcoid, string.len() as _, ::core::mem::transmute(string.as_ptr()))
+    SnmpOidToStr(srcoid, string.len().try_into().unwrap(), ::core::mem::transmute(string.as_ptr()))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

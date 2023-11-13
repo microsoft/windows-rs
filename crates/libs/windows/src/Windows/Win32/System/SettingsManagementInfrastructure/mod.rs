@@ -306,7 +306,7 @@ impl ISettingsItem {
         (::windows_core::Interface::vtable(self).GetValueRaw)(::windows_core::Interface::as_raw(self), data, datasize).ok()
     }
     pub unsafe fn SetValueRaw(&self, datatype: i32, data: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetValueRaw)(::windows_core::Interface::as_raw(self), datatype, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetValueRaw)(::windows_core::Interface::as_raw(self), datatype, ::core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]

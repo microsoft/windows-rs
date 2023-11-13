@@ -70,11 +70,11 @@ impl IDedupDataPort {
     }
     pub unsafe fn LookupChunks(&self, phashes: &[DedupHash]) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).LookupChunks)(::windows_core::Interface::as_raw(self), phashes.len() as _, ::core::mem::transmute(phashes.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).LookupChunks)(::windows_core::Interface::as_raw(self), phashes.len().try_into().unwrap(), ::core::mem::transmute(phashes.as_ptr()), &mut result__).from_abi(result__)
     }
     pub unsafe fn InsertChunks(&self, pchunkmetadata: &[DedupChunk], pchunkdata: &[u8]) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).InsertChunks)(::windows_core::Interface::as_raw(self), pchunkmetadata.len() as _, ::core::mem::transmute(pchunkmetadata.as_ptr()), pchunkdata.len() as _, ::core::mem::transmute(pchunkdata.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).InsertChunks)(::windows_core::Interface::as_raw(self), pchunkmetadata.len().try_into().unwrap(), ::core::mem::transmute(pchunkmetadata.as_ptr()), pchunkdata.len().try_into().unwrap(), ::core::mem::transmute(pchunkdata.as_ptr()), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -83,11 +83,11 @@ impl IDedupDataPort {
         P0: ::windows_core::IntoParam<super::super::System::Com::IStream>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).InsertChunksWithStream)(::windows_core::Interface::as_raw(self), pchunkmetadata.len() as _, ::core::mem::transmute(pchunkmetadata.as_ptr()), databytecount, pchunkdatastream.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).InsertChunksWithStream)(::windows_core::Interface::as_raw(self), pchunkmetadata.len().try_into().unwrap(), ::core::mem::transmute(pchunkmetadata.as_ptr()), databytecount, pchunkdatastream.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CommitStreams(&self, pstreams: &[DedupStream], pentries: &[DedupStreamEntry]) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CommitStreams)(::windows_core::Interface::as_raw(self), pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr()), pentries.len() as _, ::core::mem::transmute(pentries.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CommitStreams)(::windows_core::Interface::as_raw(self), pstreams.len().try_into().unwrap(), ::core::mem::transmute(pstreams.as_ptr()), pentries.len().try_into().unwrap(), ::core::mem::transmute(pentries.as_ptr()), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -96,18 +96,18 @@ impl IDedupDataPort {
         P0: ::windows_core::IntoParam<super::super::System::Com::IStream>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CommitStreamsWithStream)(::windows_core::Interface::as_raw(self), pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr()), entrycount, pentriesstream.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CommitStreamsWithStream)(::windows_core::Interface::as_raw(self), pstreams.len().try_into().unwrap(), ::core::mem::transmute(pstreams.as_ptr()), entrycount, pentriesstream.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStreams(&self, pstreampaths: &[::windows_core::BSTR]) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetStreams)(::windows_core::Interface::as_raw(self), pstreampaths.len() as _, ::core::mem::transmute(pstreampaths.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetStreams)(::windows_core::Interface::as_raw(self), pstreampaths.len().try_into().unwrap(), ::core::mem::transmute(pstreampaths.as_ptr()), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStreamsResults(&self, requestid: ::windows_core::GUID, maxwaitms: u32, streamentryindex: u32, pstreamcount: *mut u32, ppstreams: *mut *mut DedupStream, pentrycount: *mut u32, ppentries: *mut *mut DedupStreamEntry, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows_core::HRESULT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStreamsResults)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(requestid), maxwaitms, streamentryindex, pstreamcount, ppstreams, pentrycount, ppentries, pstatus, ppitemresults).ok()
     }
     pub unsafe fn GetChunks(&self, phashes: &[DedupHash]) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetChunks)(::windows_core::Interface::as_raw(self), phashes.len() as _, ::core::mem::transmute(phashes.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetChunks)(::windows_core::Interface::as_raw(self), phashes.len().try_into().unwrap(), ::core::mem::transmute(phashes.as_ptr()), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetChunksResults(&self, requestid: ::windows_core::GUID, maxwaitms: u32, chunkindex: u32, pchunkcount: *mut u32, ppchunkmetadata: *mut *mut DedupChunk, pdatabytecount: *mut u32, ppchunkdata: *mut *mut u8, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows_core::HRESULT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetChunksResults)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(requestid), maxwaitms, chunkindex, pchunkcount, ppchunkmetadata, pdatabytecount, ppchunkdata, pstatus, ppitemresults).ok()
@@ -192,10 +192,10 @@ pub struct IDedupDataPortManager_Vtbl {
 pub struct IDedupIterateChunksHash32(::windows_core::IUnknown);
 impl IDedupIterateChunksHash32 {
     pub unsafe fn PushBuffer(&self, pbuffer: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).PushBuffer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _).ok()
+        (::windows_core::Interface::vtable(self).PushBuffer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap()).ok()
     }
     pub unsafe fn Next(&self, parrchunks: &mut [DEDUP_CHUNK_INFO_HASH32], pulfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), parrchunks.len() as _, ::core::mem::transmute(parrchunks.as_ptr()), pulfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), parrchunks.len().try_into().unwrap(), ::core::mem::transmute(parrchunks.as_ptr()), pulfetched).ok()
     }
     pub unsafe fn Drain(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Drain)(::windows_core::Interface::as_raw(self)).ok()
@@ -228,16 +228,16 @@ impl IDedupReadFileCallback {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).ReadBackupFile)(::windows_core::Interface::as_raw(self), filefullpath.into_param().abi(), fileoffset, filebuffer.len() as _, ::core::mem::transmute(filebuffer.as_ptr()), returnedsize, flags).ok()
+        (::windows_core::Interface::vtable(self).ReadBackupFile)(::windows_core::Interface::as_raw(self), filefullpath.into_param().abi(), fileoffset, filebuffer.len().try_into().unwrap(), ::core::mem::transmute(filebuffer.as_ptr()), returnedsize, flags).ok()
     }
     pub unsafe fn OrderContainersRestore(&self, containerpaths: &[::windows_core::BSTR], readplanentries: *mut u32, readplan: *mut *mut DEDUP_CONTAINER_EXTENT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).OrderContainersRestore)(::windows_core::Interface::as_raw(self), containerpaths.len() as _, ::core::mem::transmute(containerpaths.as_ptr()), readplanentries, readplan).ok()
+        (::windows_core::Interface::vtable(self).OrderContainersRestore)(::windows_core::Interface::as_raw(self), containerpaths.len().try_into().unwrap(), ::core::mem::transmute(containerpaths.as_ptr()), readplanentries, readplan).ok()
     }
     pub unsafe fn PreviewContainerRead<P0>(&self, filefullpath: P0, readoffsets: &[DDP_FILE_EXTENT]) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).PreviewContainerRead)(::windows_core::Interface::as_raw(self), filefullpath.into_param().abi(), readoffsets.len() as _, ::core::mem::transmute(readoffsets.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).PreviewContainerRead)(::windows_core::Interface::as_raw(self), filefullpath.into_param().abi(), readoffsets.len().try_into().unwrap(), ::core::mem::transmute(readoffsets.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDedupReadFileCallback, ::windows_core::IUnknown);

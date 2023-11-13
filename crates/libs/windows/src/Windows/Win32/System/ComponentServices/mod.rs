@@ -1001,10 +1001,10 @@ impl ICOMLBArguments {
         (::windows_core::Interface::vtable(self).SetCLSID)(::windows_core::Interface::as_raw(self), pclsid).ok()
     }
     pub unsafe fn GetMachineName(&self, szservername: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetMachineName)(::windows_core::Interface::as_raw(self), szservername.len() as _, ::core::mem::transmute(szservername.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).GetMachineName)(::windows_core::Interface::as_raw(self), szservername.len().try_into().unwrap(), ::core::mem::transmute(szservername.as_ptr())).ok()
     }
     pub unsafe fn SetMachineName(&self, szservername: &[u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetMachineName)(::windows_core::Interface::as_raw(self), szservername.len() as _, ::core::mem::transmute(szservername.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).SetMachineName)(::windows_core::Interface::as_raw(self), szservername.len().try_into().unwrap(), ::core::mem::transmute(szservername.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICOMLBArguments, ::windows_core::IUnknown);
@@ -2075,7 +2075,7 @@ impl IComSecurityEvents {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows_core::Interface::vtable(self).OnAuthenticate)(::windows_core::Interface::as_raw(self), pinfo, guidactivity, objectid, guidiid, imeth, psidoriginaluser.len() as _, ::core::mem::transmute(psidoriginaluser.as_ptr()), psidcurrentuser.len() as _, ::core::mem::transmute(psidcurrentuser.as_ptr()), bcurrentuserinpersonatinginproc.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).OnAuthenticate)(::windows_core::Interface::as_raw(self), pinfo, guidactivity, objectid, guidiid, imeth, psidoriginaluser.len().try_into().unwrap(), ::core::mem::transmute(psidoriginaluser.as_ptr()), psidcurrentuser.len().try_into().unwrap(), ::core::mem::transmute(psidcurrentuser.as_ptr()), bcurrentuserinpersonatinginproc.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2083,7 +2083,7 @@ impl IComSecurityEvents {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows_core::Interface::vtable(self).OnAuthenticateFail)(::windows_core::Interface::as_raw(self), pinfo, guidactivity, objectid, guidiid, imeth, psidoriginaluser.len() as _, ::core::mem::transmute(psidoriginaluser.as_ptr()), psidcurrentuser.len() as _, ::core::mem::transmute(psidcurrentuser.as_ptr()), bcurrentuserinpersonatinginproc.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).OnAuthenticateFail)(::windows_core::Interface::as_raw(self), pinfo, guidactivity, objectid, guidiid, imeth, psidoriginaluser.len().try_into().unwrap(), ::core::mem::transmute(psidoriginaluser.as_ptr()), psidcurrentuser.len().try_into().unwrap(), ::core::mem::transmute(psidcurrentuser.as_ptr()), bcurrentuserinpersonatinginproc.into_param().abi()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IComSecurityEvents, ::windows_core::IUnknown);
@@ -3103,7 +3103,7 @@ impl ICrmLogControl {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn WriteLogRecord(&self, rgblob: &[super::Com::BLOB]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).WriteLogRecord)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rgblob.as_ptr()), rgblob.len() as _).ok()
+        (::windows_core::Interface::vtable(self).WriteLogRecord)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rgblob.as_ptr()), rgblob.len().try_into().unwrap()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICrmLogControl, ::windows_core::IUnknown);

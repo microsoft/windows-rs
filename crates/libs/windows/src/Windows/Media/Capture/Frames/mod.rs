@@ -1284,7 +1284,7 @@ impl MediaFrameSourceController {
         let this = &::windows_core::ComInterface::cast::<IMediaFrameSourceController2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPropertyByExtendedIdAsync)(::windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into()?, extendedpropertyid.as_ptr(), maxpropertyvaluesize.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetPropertyByExtendedIdAsync)(::windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), maxpropertyvaluesize.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation\"`"]
@@ -1293,7 +1293,7 @@ impl MediaFrameSourceController {
         let this = &::windows_core::ComInterface::cast::<IMediaFrameSourceController2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetPropertyByExtendedIdAsync)(::windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into()?, extendedpropertyid.as_ptr(), propertyvalue.len().try_into()?, propertyvalue.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetPropertyByExtendedIdAsync)(::windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), propertyvalue.len().try_into().unwrap(), propertyvalue.as_ptr(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Media_Devices\"`"]

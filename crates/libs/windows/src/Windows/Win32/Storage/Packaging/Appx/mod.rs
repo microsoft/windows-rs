@@ -1760,7 +1760,7 @@ impl IAppxEncryptedPackageWriter2 {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPayloadFilesEncrypted(&self, payloadfiles: &[APPX_PACKAGE_WRITER_PAYLOAD_STREAM], memorylimit: u64) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddPayloadFilesEncrypted)(::windows_core::Interface::as_raw(self), payloadfiles.len() as _, ::core::mem::transmute(payloadfiles.as_ptr()), memorylimit).ok()
+        (::windows_core::Interface::vtable(self).AddPayloadFilesEncrypted)(::windows_core::Interface::as_raw(self), payloadfiles.len().try_into().unwrap(), ::core::mem::transmute(payloadfiles.as_ptr()), memorylimit).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxEncryptedPackageWriter2, ::windows_core::IUnknown);
@@ -3997,7 +3997,7 @@ impl IAppxPackageWriter3 {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPayloadFiles(&self, payloadfiles: &[APPX_PACKAGE_WRITER_PAYLOAD_STREAM], memorylimit: u64) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddPayloadFiles)(::windows_core::Interface::as_raw(self), payloadfiles.len() as _, ::core::mem::transmute(payloadfiles.as_ptr()), memorylimit).ok()
+        (::windows_core::Interface::vtable(self).AddPayloadFiles)(::windows_core::Interface::as_raw(self), payloadfiles.len().try_into().unwrap(), ::core::mem::transmute(payloadfiles.as_ptr()), memorylimit).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxPackageWriter3, ::windows_core::IUnknown);

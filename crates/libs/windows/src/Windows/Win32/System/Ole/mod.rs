@@ -3060,7 +3060,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("oleaut32.dll" "system" fn VarTokenizeFormatString(pstrformat : ::windows_core::PCWSTR, rgbtok : *mut u8, cbtok : i32, ifirstday : VARFORMAT_FIRST_DAY, ifirstweek : VARFORMAT_FIRST_WEEK, lcid : u32, pcbactual : *const i32) -> ::windows_core::HRESULT);
-    VarTokenizeFormatString(pstrformat.into_param().abi(), ::core::mem::transmute(rgbtok.as_ptr()), rgbtok.len() as _, ifirstday, ifirstweek, lcid, ::core::mem::transmute(pcbactual.unwrap_or(::std::ptr::null()))).ok()
+    VarTokenizeFormatString(pstrformat.into_param().abi(), ::core::mem::transmute(rgbtok.as_ptr()), rgbtok.len().try_into().unwrap(), ifirstday, ifirstweek, lcid, ::core::mem::transmute(pcbactual.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3817,7 +3817,7 @@ impl ICreateTypeInfo {
         (::windows_core::Interface::vtable(self).AddVarDesc)(::windows_core::Interface::as_raw(self), index, pvardesc).ok()
     }
     pub unsafe fn SetFuncAndParamNames(&self, index: u32, rgsznames: &[::windows_core::PCWSTR]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetFuncAndParamNames)(::windows_core::Interface::as_raw(self), index, ::core::mem::transmute(rgsznames.as_ptr()), rgsznames.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetFuncAndParamNames)(::windows_core::Interface::as_raw(self), index, ::core::mem::transmute(rgsznames.as_ptr()), rgsznames.len().try_into().unwrap()).ok()
     }
     pub unsafe fn SetVarName<P0>(&self, index: u32, szname: P0) -> ::windows_core::Result<()>
     where
@@ -3981,7 +3981,7 @@ impl ICreateTypeInfo2 {
         (::windows_core::Interface::vtable(self).base__.AddVarDesc)(::windows_core::Interface::as_raw(self), index, pvardesc).ok()
     }
     pub unsafe fn SetFuncAndParamNames(&self, index: u32, rgsznames: &[::windows_core::PCWSTR]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.SetFuncAndParamNames)(::windows_core::Interface::as_raw(self), index, ::core::mem::transmute(rgsznames.as_ptr()), rgsznames.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.SetFuncAndParamNames)(::windows_core::Interface::as_raw(self), index, ::core::mem::transmute(rgsznames.as_ptr()), rgsznames.len().try_into().unwrap()).ok()
     }
     pub unsafe fn SetVarName<P0>(&self, index: u32, szname: P0) -> ::windows_core::Result<()>
     where
@@ -4585,7 +4585,7 @@ impl IEnumOLEVERB {
     #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn Next(&self, rgelt: &mut [OLEVERB], pceltfetched: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -4656,7 +4656,7 @@ pub struct IEnumOleDocumentViews_Vtbl {
 pub struct IEnumOleUndoUnits(::windows_core::IUnknown);
 impl IEnumOleUndoUnits {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IOleUndoUnit>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -4692,7 +4692,7 @@ impl IEnumVARIANT {
     #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
     pub unsafe fn Next(&self, rgvar: &mut [super::Variant::VARIANT], pceltfetched: *mut u32) -> ::windows_core::HRESULT {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgvar.len() as _, ::core::mem::transmute(rgvar.as_ptr()), pceltfetched)
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgvar.len().try_into().unwrap(), ::core::mem::transmute(rgvar.as_ptr()), pceltfetched)
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt)
@@ -8153,7 +8153,7 @@ impl IPropertyPage {
         (::windows_core::Interface::vtable(self).GetPageInfo)(::windows_core::Interface::as_raw(self), ppageinfo).ok()
     }
     pub unsafe fn SetObjects(&self, ppunk: &[::core::option::Option<::windows_core::IUnknown>]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetObjects)(::windows_core::Interface::as_raw(self), ppunk.len() as _, ::core::mem::transmute(ppunk.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).SetObjects)(::windows_core::Interface::as_raw(self), ppunk.len().try_into().unwrap(), ::core::mem::transmute(ppunk.as_ptr())).ok()
     }
     pub unsafe fn Show(&self, ncmdshow: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Show)(::windows_core::Interface::as_raw(self), ncmdshow).ok()
@@ -8244,7 +8244,7 @@ impl IPropertyPage2 {
         (::windows_core::Interface::vtable(self).base__.GetPageInfo)(::windows_core::Interface::as_raw(self), ppageinfo).ok()
     }
     pub unsafe fn SetObjects(&self, ppunk: &[::core::option::Option<::windows_core::IUnknown>]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.SetObjects)(::windows_core::Interface::as_raw(self), ppunk.len() as _, ::core::mem::transmute(ppunk.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.SetObjects)(::windows_core::Interface::as_raw(self), ppunk.len().try_into().unwrap(), ::core::mem::transmute(ppunk.as_ptr())).ok()
     }
     pub unsafe fn Show(&self, ncmdshow: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Show)(::windows_core::Interface::as_raw(self), ncmdshow).ok()
@@ -8857,10 +8857,10 @@ impl ITypeMarshal {
         (::windows_core::Interface::vtable(self).Size)(::windows_core::Interface::as_raw(self), pvtype, dwdestcontext, pvdestcontext, &mut result__).from_abi(result__)
     }
     pub unsafe fn Marshal(&self, pvtype: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, pbuffer: &mut [u8], pcbwritten: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Marshal)(::windows_core::Interface::as_raw(self), pvtype, dwdestcontext, pvdestcontext, pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr()), pcbwritten).ok()
+        (::windows_core::Interface::vtable(self).Marshal)(::windows_core::Interface::as_raw(self), pvtype, dwdestcontext, pvdestcontext, pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr()), pcbwritten).ok()
     }
     pub unsafe fn Unmarshal(&self, pvtype: *mut ::core::ffi::c_void, dwflags: u32, pbuffer: &[u8], pcbread: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Unmarshal)(::windows_core::Interface::as_raw(self), pvtype, dwflags, pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr()), pcbread).ok()
+        (::windows_core::Interface::vtable(self).Unmarshal)(::windows_core::Interface::as_raw(self), pvtype, dwflags, pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr()), pcbread).ok()
     }
     pub unsafe fn Free(&self, pvtype: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Free)(::windows_core::Interface::as_raw(self), pvtype).ok()

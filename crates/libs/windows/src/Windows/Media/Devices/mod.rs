@@ -4462,14 +4462,14 @@ impl VideoDeviceController {
         let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetDevicePropertyByExtendedId)(::windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into()?, extendedpropertyid.as_ptr(), maxpropertyvaluesize.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetDevicePropertyByExtendedId)(::windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), maxpropertyvaluesize.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDevicePropertyByExtendedId(&self, extendedpropertyid: &[u8], propertyvalue: &[u8]) -> ::windows_core::Result<VideoDeviceControllerSetDevicePropertyStatus> {
         let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetDevicePropertyByExtendedId)(::windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into()?, extendedpropertyid.as_ptr(), propertyvalue.len().try_into()?, propertyvalue.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetDevicePropertyByExtendedId)(::windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), propertyvalue.len().try_into().unwrap(), propertyvalue.as_ptr(), &mut result__).from_abi(result__)
         }
     }
     pub fn VideoTemporalDenoisingControl(&self) -> ::windows_core::Result<VideoTemporalDenoisingControl> {

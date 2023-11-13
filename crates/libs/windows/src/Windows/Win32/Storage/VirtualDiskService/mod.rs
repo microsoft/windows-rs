@@ -3,7 +3,7 @@
 pub struct IEnumVdsObject(::windows_core::IUnknown);
 impl IEnumVdsObject {
     pub unsafe fn Next(&self, ppobjectarray: &mut [::core::option::Option<::windows_core::IUnknown>], pcfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppobjectarray.len() as _, ::core::mem::transmute(ppobjectarray.as_ptr()), pcfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppobjectarray.len().try_into().unwrap(), ::core::mem::transmute(ppobjectarray.as_ptr()), pcfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -232,7 +232,7 @@ pub struct IVdsAdvancedDisk3_Vtbl {
 pub struct IVdsAdviseSink(::windows_core::IUnknown);
 impl IVdsAdviseSink {
     pub unsafe fn OnNotify(&self, pnotificationarray: &[VDS_NOTIFICATION]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).OnNotify)(::windows_core::Interface::as_raw(self), pnotificationarray.len() as _, ::core::mem::transmute(pnotificationarray.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).OnNotify)(::windows_core::Interface::as_raw(self), pnotificationarray.len().try_into().unwrap(), ::core::mem::transmute(pnotificationarray.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsAdviseSink, ::windows_core::IUnknown);
@@ -1184,7 +1184,7 @@ impl IVdsLun {
     }
     pub unsafe fn Extend(&self, ullnumberofbytestoadd: u64, pdriveidarray: &[::windows_core::GUID]) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Extend)(::windows_core::Interface::as_raw(self), ullnumberofbytestoadd, ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Extend)(::windows_core::Interface::as_raw(self), ullnumberofbytestoadd, ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Shrink(&self, ullnumberofbytestoremove: u64) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();
@@ -1216,7 +1216,7 @@ impl IVdsLun {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn AssociateControllers(&self, pactivecontrolleridarray: &[::windows_core::GUID], pinactivecontrolleridarray: &[::windows_core::GUID]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AssociateControllers)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pactivecontrolleridarray.as_ptr()), pactivecontrolleridarray.len() as _, ::core::mem::transmute(pinactivecontrolleridarray.as_ptr()), pinactivecontrolleridarray.len() as _).ok()
+        (::windows_core::Interface::vtable(self).AssociateControllers)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pactivecontrolleridarray.as_ptr()), pactivecontrolleridarray.len().try_into().unwrap(), ::core::mem::transmute(pinactivecontrolleridarray.as_ptr()), pinactivecontrolleridarray.len().try_into().unwrap()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1233,7 +1233,7 @@ impl IVdsLun {
     }
     pub unsafe fn QueryMaxLunExtendSize(&self, pdriveidarray: &[::windows_core::GUID]) -> ::windows_core::Result<u64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).QueryMaxLunExtendSize)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).QueryMaxLunExtendSize)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsLun, ::windows_core::IUnknown);
@@ -1314,7 +1314,7 @@ pub struct IVdsLun2_Vtbl {
 pub struct IVdsLunControllerPorts(::windows_core::IUnknown);
 impl IVdsLunControllerPorts {
     pub unsafe fn AssociateControllerPorts(&self, pactivecontrollerportidarray: &[::windows_core::GUID], pinactivecontrollerportidarray: &[::windows_core::GUID]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AssociateControllerPorts)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pactivecontrollerportidarray.as_ptr()), pactivecontrollerportidarray.len() as _, ::core::mem::transmute(pinactivecontrollerportidarray.as_ptr()), pinactivecontrollerportidarray.len() as _).ok()
+        (::windows_core::Interface::vtable(self).AssociateControllerPorts)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pactivecontrollerportidarray.as_ptr()), pactivecontrollerportidarray.len().try_into().unwrap(), ::core::mem::transmute(pinactivecontrollerportidarray.as_ptr()), pinactivecontrollerportidarray.len().try_into().unwrap()).ok()
     }
     pub unsafe fn QueryActiveControllerPorts(&self) -> ::windows_core::Result<IEnumVdsObject> {
         let mut result__ = ::std::mem::zeroed();
@@ -1340,7 +1340,7 @@ pub struct IVdsLunControllerPorts_Vtbl {
 pub struct IVdsLunIscsi(::windows_core::IUnknown);
 impl IVdsLunIscsi {
     pub unsafe fn AssociateTargets(&self, ptargetidarray: &[::windows_core::GUID]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AssociateTargets)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ptargetidarray.as_ptr()), ptargetidarray.len() as _).ok()
+        (::windows_core::Interface::vtable(self).AssociateTargets)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ptargetidarray.as_ptr()), ptargetidarray.len().try_into().unwrap()).ok()
     }
     pub unsafe fn QueryAssociatedTargets(&self) -> ::windows_core::Result<IEnumVdsObject> {
         let mut result__ = ::std::mem::zeroed();
@@ -1376,7 +1376,7 @@ impl IVdsLunMpio {
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLoadBalancePolicy(&self, policy: VDS_LOADBALANCE_POLICY_ENUM, ppaths: &[VDS_PATH_POLICY]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetLoadBalancePolicy)(::windows_core::Interface::as_raw(self), policy, ::core::mem::transmute(ppaths.as_ptr()), ppaths.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetLoadBalancePolicy)(::windows_core::Interface::as_raw(self), policy, ::core::mem::transmute(ppaths.as_ptr()), ppaths.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetSupportedLbPolicies(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -1632,7 +1632,7 @@ impl IVdsPack {
     }
     pub unsafe fn CreateVolume(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: &[VDS_INPUT_DISK], ulstripesize: u32) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateVolume)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pinputdiskarray.as_ptr()), pinputdiskarray.len() as _, ulstripesize, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateVolume)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pinputdiskarray.as_ptr()), pinputdiskarray.len().try_into().unwrap(), ulstripesize, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1697,7 +1697,7 @@ pub struct IVdsPack2(::windows_core::IUnknown);
 impl IVdsPack2 {
     pub unsafe fn CreateVolume2(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: &[VDS_INPUT_DISK], ulstripesize: u32, ulalign: u32) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateVolume2)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pinputdiskarray.as_ptr()), pinputdiskarray.len() as _, ulstripesize, ulalign, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateVolume2)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pinputdiskarray.as_ptr()), pinputdiskarray.len().try_into().unwrap(), ulstripesize, ulalign, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsPack2, ::windows_core::IUnknown);
@@ -1856,7 +1856,7 @@ impl IVdsService {
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryDriveLetters(&self, wcfirstletter: u16, pdriveletterproparray: &mut [VDS_DRIVE_LETTER_PROP]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).QueryDriveLetters)(::windows_core::Interface::as_raw(self), wcfirstletter, pdriveletterproparray.len() as _, ::core::mem::transmute(pdriveletterproparray.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).QueryDriveLetters)(::windows_core::Interface::as_raw(self), wcfirstletter, pdriveletterproparray.len().try_into().unwrap(), ::core::mem::transmute(pdriveletterproparray.as_ptr())).ok()
     }
     pub unsafe fn QueryFileSystemTypes(&self, ppfilesystemtypeprops: *mut *mut VDS_FILE_SYSTEM_TYPE_PROP, plnumberoffilesystems: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryFileSystemTypes)(::windows_core::Interface::as_raw(self), ppfilesystemtypeprops, plnumberoffilesystems).ok()
@@ -2215,7 +2215,7 @@ impl IVdsSubSystem {
         (::windows_core::Interface::vtable(self).Reenumerate)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SetControllerStatus(&self, ponlinecontrolleridarray: &[::windows_core::GUID], pofflinecontrolleridarray: &[::windows_core::GUID]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetControllerStatus)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ponlinecontrolleridarray.as_ptr()), ponlinecontrolleridarray.len() as _, ::core::mem::transmute(pofflinecontrolleridarray.as_ptr()), pofflinecontrolleridarray.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetControllerStatus)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ponlinecontrolleridarray.as_ptr()), ponlinecontrolleridarray.len().try_into().unwrap(), ::core::mem::transmute(pofflinecontrolleridarray.as_ptr()), pofflinecontrolleridarray.len().try_into().unwrap()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2224,7 +2224,7 @@ impl IVdsSubSystem {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateLun)(::windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len() as _, pwszunmaskinglist.into_param().abi(), phints, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateLun)(::windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len().try_into().unwrap(), pwszunmaskinglist.into_param().abi(), phints, &mut result__).from_abi(result__)
     }
     pub unsafe fn ReplaceDrive(&self, drivetobereplaced: ::windows_core::GUID, replacementdrive: ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReplaceDrive)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(drivetobereplaced), ::core::mem::transmute(replacementdrive)).ok()
@@ -2236,7 +2236,7 @@ impl IVdsSubSystem {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryMaxLunCreateSize(&self, r#type: VDS_LUN_TYPE, pdriveidarray: &[::windows_core::GUID], phints: *const VDS_HINTS) -> ::windows_core::Result<u64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).QueryMaxLunCreateSize)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len() as _, phints, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).QueryMaxLunCreateSize)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len().try_into().unwrap(), phints, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsSubSystem, ::windows_core::IUnknown);
@@ -2287,13 +2287,13 @@ impl IVdsSubSystem2 {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateLun2)(::windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len() as _, pwszunmaskinglist.into_param().abi(), phints2, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateLun2)(::windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len().try_into().unwrap(), pwszunmaskinglist.into_param().abi(), phints2, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: &[::windows_core::GUID], phints2: *const VDS_HINTS2) -> ::windows_core::Result<u64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).QueryMaxLunCreateSize2)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len() as _, phints2, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).QueryMaxLunCreateSize2)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len().try_into().unwrap(), phints2, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsSubSystem2, ::windows_core::IUnknown);
@@ -2586,7 +2586,7 @@ impl IVdsVolume {
     }
     pub unsafe fn Extend(&self, pinputdiskarray: &[VDS_INPUT_DISK]) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Extend)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pinputdiskarray.as_ptr()), pinputdiskarray.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Extend)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pinputdiskarray.as_ptr()), pinputdiskarray.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Shrink(&self, ullnumberofbytestoremove: u64) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();
@@ -2878,7 +2878,7 @@ impl IVdsVolumePlex {
     }
     pub unsafe fn Repair(&self, pinputdiskarray: &[VDS_INPUT_DISK]) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Repair)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pinputdiskarray.as_ptr()), pinputdiskarray.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Repair)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pinputdiskarray.as_ptr()), pinputdiskarray.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsVolumePlex, ::windows_core::IUnknown);

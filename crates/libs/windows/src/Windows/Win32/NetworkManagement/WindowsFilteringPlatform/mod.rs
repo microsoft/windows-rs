@@ -448,7 +448,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
     ::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd0(enginehandle : super::super::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT0, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT0, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-    FwpmIPsecTunnelAdd0(enginehandle.into_param().abi(), flags, ::core::mem::transmute(mainmodepolicy.unwrap_or(::std::ptr::null())), tunnelpolicy, filterconditions.len() as _, ::core::mem::transmute(filterconditions.as_ptr()), sd.into_param().abi())
+    FwpmIPsecTunnelAdd0(enginehandle.into_param().abi(), flags, ::core::mem::transmute(mainmodepolicy.unwrap_or(::std::ptr::null())), tunnelpolicy, filterconditions.len().try_into().unwrap(), ::core::mem::transmute(filterconditions.as_ptr()), sd.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -459,7 +459,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
     ::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd1(enginehandle : super::super::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT1, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT1, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, keymodkey : *const ::windows_core::GUID, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-    FwpmIPsecTunnelAdd1(enginehandle.into_param().abi(), flags, ::core::mem::transmute(mainmodepolicy.unwrap_or(::std::ptr::null())), tunnelpolicy, filterconditions.len() as _, ::core::mem::transmute(filterconditions.as_ptr()), ::core::mem::transmute(keymodkey.unwrap_or(::std::ptr::null())), sd.into_param().abi())
+    FwpmIPsecTunnelAdd1(enginehandle.into_param().abi(), flags, ::core::mem::transmute(mainmodepolicy.unwrap_or(::std::ptr::null())), tunnelpolicy, filterconditions.len().try_into().unwrap(), ::core::mem::transmute(filterconditions.as_ptr()), ::core::mem::transmute(keymodkey.unwrap_or(::std::ptr::null())), sd.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -470,7 +470,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
     ::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd2(enginehandle : super::super::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT2, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT2, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, keymodkey : *const ::windows_core::GUID, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-    FwpmIPsecTunnelAdd2(enginehandle.into_param().abi(), flags, ::core::mem::transmute(mainmodepolicy.unwrap_or(::std::ptr::null())), tunnelpolicy, filterconditions.len() as _, ::core::mem::transmute(filterconditions.as_ptr()), ::core::mem::transmute(keymodkey.unwrap_or(::std::ptr::null())), sd.into_param().abi())
+    FwpmIPsecTunnelAdd2(enginehandle.into_param().abi(), flags, ::core::mem::transmute(mainmodepolicy.unwrap_or(::std::ptr::null())), tunnelpolicy, filterconditions.len().try_into().unwrap(), ::core::mem::transmute(filterconditions.as_ptr()), ::core::mem::transmute(keymodkey.unwrap_or(::std::ptr::null())), sd.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -481,7 +481,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
     ::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd3(enginehandle : super::super::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT3, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT3, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, keymodkey : *const ::windows_core::GUID, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-    FwpmIPsecTunnelAdd3(enginehandle.into_param().abi(), flags, ::core::mem::transmute(mainmodepolicy.unwrap_or(::std::ptr::null())), tunnelpolicy, filterconditions.len() as _, ::core::mem::transmute(filterconditions.as_ptr()), ::core::mem::transmute(keymodkey.unwrap_or(::std::ptr::null())), sd.into_param().abi())
+    FwpmIPsecTunnelAdd3(enginehandle.into_param().abi(), flags, ::core::mem::transmute(mainmodepolicy.unwrap_or(::std::ptr::null())), tunnelpolicy, filterconditions.len().try_into().unwrap(), ::core::mem::transmute(filterconditions.as_ptr()), ::core::mem::transmute(keymodkey.unwrap_or(::std::ptr::null())), sd.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

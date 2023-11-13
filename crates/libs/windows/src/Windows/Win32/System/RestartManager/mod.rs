@@ -28,7 +28,7 @@ pub unsafe fn RmEndSession(dwsessionhandle: u32) -> ::windows_core::Result<()> {
 #[inline]
 pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: ::core::option::Option<&mut [u8]>, cbfilterbufneeded: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("rstrtmgr.dll" "system" fn RmGetFilterList(dwsessionhandle : u32, pbfilterbuf : *mut u8, cbfilterbuf : u32, cbfilterbufneeded : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    RmGetFilterList(dwsessionhandle, ::core::mem::transmute(pbfilterbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbfilterbuf.as_deref().map_or(0, |slice| slice.len() as _), cbfilterbufneeded).ok()
+    RmGetFilterList(dwsessionhandle, ::core::mem::transmute(pbfilterbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbfilterbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), cbfilterbufneeded).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -54,11 +54,11 @@ pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: ::core::op
     ::windows_targets::link!("rstrtmgr.dll" "system" fn RmRegisterResources(dwsessionhandle : u32, nfiles : u32, rgsfilenames : *const ::windows_core::PCWSTR, napplications : u32, rgapplications : *const RM_UNIQUE_PROCESS, nservices : u32, rgsservicenames : *const ::windows_core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
     RmRegisterResources(
         dwsessionhandle,
-        rgsfilenames.as_deref().map_or(0, |slice| slice.len() as _),
+        rgsfilenames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         ::core::mem::transmute(rgsfilenames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        rgapplications.as_deref().map_or(0, |slice| slice.len() as _),
+        rgapplications.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         ::core::mem::transmute(rgapplications.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        rgsservicenames.as_deref().map_or(0, |slice| slice.len() as _),
+        rgsservicenames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         ::core::mem::transmute(rgsservicenames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
     )
     .ok()

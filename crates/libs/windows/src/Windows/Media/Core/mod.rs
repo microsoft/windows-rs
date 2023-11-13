@@ -5332,7 +5332,7 @@ pub struct MediaStreamSampleProtectionProperties(::windows_core::IUnknown);
 impl MediaStreamSampleProtectionProperties {
     pub fn SetKeyIdentifier(&self, value: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetKeyIdentifier)(::windows_core::Interface::as_raw(this), value.len().try_into()?, value.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetKeyIdentifier)(::windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
     pub fn GetKeyIdentifier(&self, value: &mut ::windows_core::Array<u8>) -> ::windows_core::Result<()> {
         let this = self;
@@ -5340,7 +5340,7 @@ impl MediaStreamSampleProtectionProperties {
     }
     pub fn SetInitializationVector(&self, value: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetInitializationVector)(::windows_core::Interface::as_raw(this), value.len().try_into()?, value.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetInitializationVector)(::windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
     pub fn GetInitializationVector(&self, value: &mut ::windows_core::Array<u8>) -> ::windows_core::Result<()> {
         let this = self;
@@ -5348,7 +5348,7 @@ impl MediaStreamSampleProtectionProperties {
     }
     pub fn SetSubSampleMapping(&self, value: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetSubSampleMapping)(::windows_core::Interface::as_raw(this), value.len().try_into()?, value.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetSubSampleMapping)(::windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
     pub fn GetSubSampleMapping(&self, value: &mut ::windows_core::Array<u8>) -> ::windows_core::Result<()> {
         let this = self;
@@ -5581,7 +5581,7 @@ impl MediaStreamSource {
         P0: ::windows_core::TryIntoParam<IMediaStreamDescriptor>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).AddProtectionKey)(::windows_core::Interface::as_raw(this), streamdescriptor.try_into_param()?.abi(), keyidentifier.len().try_into()?, keyidentifier.as_ptr(), licensedata.len().try_into()?, licensedata.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).AddProtectionKey)(::windows_core::Interface::as_raw(this), streamdescriptor.try_into_param()?.abi(), keyidentifier.len().try_into().unwrap(), keyidentifier.as_ptr(), licensedata.len().try_into().unwrap(), licensedata.as_ptr()).ok() }
     }
     #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]

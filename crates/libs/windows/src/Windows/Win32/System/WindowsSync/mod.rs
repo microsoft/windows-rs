@@ -727,7 +727,7 @@ impl IEnumSyncProviderConfigUIInfos {
     #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Next(&self, ppsyncproviderconfiguiinfo: &mut [::core::option::Option<ISyncProviderConfigUIInfo>], pcfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppsyncproviderconfiguiinfo.len() as _, ::core::mem::transmute(ppsyncproviderconfiguiinfo.as_ptr()), pcfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppsyncproviderconfiguiinfo.len().try_into().unwrap(), ::core::mem::transmute(ppsyncproviderconfiguiinfo.as_ptr()), pcfetched).ok()
     }
     pub unsafe fn Skip(&self, cfactories: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cfactories).ok()
@@ -766,7 +766,7 @@ impl IEnumSyncProviderInfos {
     #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Next(&self, ppsyncproviderinfo: &mut [::core::option::Option<ISyncProviderInfo>], pcfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppsyncproviderinfo.len() as _, ::core::mem::transmute(ppsyncproviderinfo.as_ptr()), pcfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppsyncproviderinfo.len().try_into().unwrap(), ::core::mem::transmute(ppsyncproviderinfo.as_ptr()), pcfetched).ok()
     }
     pub unsafe fn Skip(&self, cinstances: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cinstances).ok()

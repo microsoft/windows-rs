@@ -11197,7 +11197,7 @@ impl IXMLHTTPRequest3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).SetClientCertificate)(::windows_core::Interface::as_raw(self), pbclientcertificatehash.len() as _, ::core::mem::transmute(pbclientcertificatehash.as_ptr()), pwszpin.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetClientCertificate)(::windows_core::Interface::as_raw(self), pbclientcertificatehash.len().try_into().unwrap(), ::core::mem::transmute(pbclientcertificatehash.as_ptr()), pwszpin.into_param().abi()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXMLHTTPRequest3, ::windows_core::IUnknown, IXMLHTTPRequest2);
@@ -11259,13 +11259,13 @@ impl IXMLHTTPRequest3Callback {
     where
         P0: ::windows_core::IntoParam<IXMLHTTPRequest3>,
     {
-        (::windows_core::Interface::vtable(self).OnServerCertificateReceived)(::windows_core::Interface::as_raw(self), pxhr.into_param().abi(), dwcertificateerrors, rgservercertificatechain.len() as _, ::core::mem::transmute(rgservercertificatechain.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).OnServerCertificateReceived)(::windows_core::Interface::as_raw(self), pxhr.into_param().abi(), dwcertificateerrors, rgservercertificatechain.len().try_into().unwrap(), ::core::mem::transmute(rgservercertificatechain.as_ptr())).ok()
     }
     pub unsafe fn OnClientCertificateRequested<P0>(&self, pxhr: P0, rgpwszissuerlist: &[*const u16]) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IXMLHTTPRequest3>,
     {
-        (::windows_core::Interface::vtable(self).OnClientCertificateRequested)(::windows_core::Interface::as_raw(self), pxhr.into_param().abi(), rgpwszissuerlist.len() as _, ::core::mem::transmute(rgpwszissuerlist.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).OnClientCertificateRequested)(::windows_core::Interface::as_raw(self), pxhr.into_param().abi(), rgpwszissuerlist.len().try_into().unwrap(), ::core::mem::transmute(rgpwszissuerlist.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXMLHTTPRequest3Callback, ::windows_core::IUnknown, IXMLHTTPRequest2Callback);

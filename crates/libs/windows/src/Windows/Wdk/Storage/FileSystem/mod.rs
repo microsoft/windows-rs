@@ -588,7 +588,7 @@ pub unsafe fn FsRtlBalanceReads(targetdevice: *const super::super::Foundation::D
 #[inline]
 pub unsafe fn FsRtlCancellableWaitForMultipleObjects(objectarray: &[*const ::core::ffi::c_void], waittype: super::super::super::Win32::System::Kernel::WAIT_TYPE, timeout: ::core::option::Option<*const i64>, waitblockarray: ::core::option::Option<*const super::super::Foundation::KWAIT_BLOCK>, irp: ::core::option::Option<*const super::super::Foundation::IRP>) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlCancellableWaitForMultipleObjects(count : u32, objectarray : *const *const ::core::ffi::c_void, waittype : super::super::super::Win32::System::Kernel:: WAIT_TYPE, timeout : *const i64, waitblockarray : *const super::super::Foundation:: KWAIT_BLOCK, irp : *const super::super::Foundation:: IRP) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FsRtlCancellableWaitForMultipleObjects(objectarray.len() as _, ::core::mem::transmute(objectarray.as_ptr()), waittype, ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())), ::core::mem::transmute(waitblockarray.unwrap_or(::std::ptr::null())), ::core::mem::transmute(irp.unwrap_or(::std::ptr::null())))
+    FsRtlCancellableWaitForMultipleObjects(objectarray.len().try_into().unwrap(), ::core::mem::transmute(objectarray.as_ptr()), waittype, ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())), ::core::mem::transmute(waitblockarray.unwrap_or(::std::ptr::null())), ::core::mem::transmute(irp.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
@@ -2345,7 +2345,7 @@ where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn KeRemoveQueueEx(queue : *mut super::super::Foundation:: KQUEUE, waitmode : i8, alertable : super::super::super::Win32::Foundation:: BOOLEAN, timeout : *const i64, entryarray : *mut *mut super::super::super::Win32::System::Kernel:: LIST_ENTRY, count : u32) -> u32);
-    KeRemoveQueueEx(queue, waitmode, alertable.into_param().abi(), ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())), ::core::mem::transmute(entryarray.as_ptr()), entryarray.len() as _)
+    KeRemoveQueueEx(queue, waitmode, alertable.into_param().abi(), ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())), ::core::mem::transmute(entryarray.as_ptr()), entryarray.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -2486,7 +2486,7 @@ pub unsafe fn MmMdlPagesAreZero(mdl: *const super::super::Foundation::MDL) -> u3
 #[inline]
 pub unsafe fn MmPrefetchPages(readlists: &[*const READ_LIST]) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn MmPrefetchPages(numberoflists : u32, readlists : *const *const READ_LIST) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    MmPrefetchPages(readlists.len() as _, ::core::mem::transmute(readlists.as_ptr()))
+    MmPrefetchPages(readlists.len().try_into().unwrap(), ::core::mem::transmute(readlists.as_ptr()))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2532,7 +2532,24 @@ where
     P2: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn NtAccessCheckByTypeAndAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const ::core::ffi::c_void, objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, principalselfsid : super::super::super::Win32::Foundation:: PSID, desiredaccess : u32, audittype : super::super::super::Win32::Security:: AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::super::super::Win32::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING, objectcreation : super::super::super::Win32::Foundation:: BOOLEAN, grantedaccess : *mut u32, accessstatus : *mut i32, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtAccessCheckByTypeAndAuditAlarm(subsystemname, ::core::mem::transmute(handleid.unwrap_or(::std::ptr::null())), objecttypename, objectname, securitydescriptor.into_param().abi(), principalselfsid.into_param().abi(), desiredaccess, audittype, flags, ::core::mem::transmute(objecttypelist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.as_deref().map_or(0, |slice| slice.len() as _), genericmapping, objectcreation.into_param().abi(), grantedaccess, accessstatus, generateonclose)
+    NtAccessCheckByTypeAndAuditAlarm(
+        subsystemname,
+        ::core::mem::transmute(handleid.unwrap_or(::std::ptr::null())),
+        objecttypename,
+        objectname,
+        securitydescriptor.into_param().abi(),
+        principalselfsid.into_param().abi(),
+        desiredaccess,
+        audittype,
+        flags,
+        ::core::mem::transmute(objecttypelist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        genericmapping,
+        objectcreation.into_param().abi(),
+        grantedaccess,
+        accessstatus,
+        generateonclose,
+    )
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -2671,7 +2688,7 @@ where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn NtCreateSectionEx(sectionhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, maximumsize : *const i64, sectionpageprotection : u32, allocationattributes : u32, filehandle : super::super::super::Win32::Foundation:: HANDLE, extendedparameters : *mut super::super::super::Win32::System::Memory:: MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtCreateSectionEx(sectionhandle, desiredaccess, ::core::mem::transmute(objectattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(maximumsize.unwrap_or(::std::ptr::null())), sectionpageprotection, allocationattributes, filehandle.into_param().abi(), ::core::mem::transmute(extendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len() as _))
+    NtCreateSectionEx(sectionhandle, desiredaccess, ::core::mem::transmute(objectattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(maximumsize.unwrap_or(::std::ptr::null())), sectionpageprotection, allocationattributes, filehandle.into_param().abi(), ::core::mem::transmute(extendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2985,7 +3002,7 @@ where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn NtSetInformationVirtualMemory(processhandle : super::super::super::Win32::Foundation:: HANDLE, vminformationclass : VIRTUAL_MEMORY_INFORMATION_CLASS, numberofentries : usize, virtualaddresses : *const MEMORY_RANGE_ENTRY, vminformation : *const ::core::ffi::c_void, vminformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtSetInformationVirtualMemory(processhandle.into_param().abi(), vminformationclass, virtualaddresses.len() as _, ::core::mem::transmute(virtualaddresses.as_ptr()), vminformation, vminformationlength)
+    NtSetInformationVirtualMemory(processhandle.into_param().abi(), vminformationclass, virtualaddresses.len().try_into().unwrap(), ::core::mem::transmute(virtualaddresses.as_ptr()), vminformation, vminformationlength)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -3369,7 +3386,7 @@ pub unsafe fn RtlAllocateAndInitializeSid(identifierauthority: *const super::sup
 #[inline]
 pub unsafe fn RtlAllocateAndInitializeSidEx(identifierauthority: *const super::super::super::Win32::Security::SID_IDENTIFIER_AUTHORITY, subauthorities: &[u32], sid: *mut super::super::super::Win32::Foundation::PSID) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlAllocateAndInitializeSidEx(identifierauthority : *const super::super::super::Win32::Security:: SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8, subauthorities : *const u32, sid : *mut super::super::super::Win32::Foundation:: PSID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlAllocateAndInitializeSidEx(identifierauthority, subauthorities.len() as _, ::core::mem::transmute(subauthorities.as_ptr()), sid)
+    RtlAllocateAndInitializeSidEx(identifierauthority, subauthorities.len().try_into().unwrap(), ::core::mem::transmute(subauthorities.as_ptr()), sid)
 }
 #[inline]
 pub unsafe fn RtlAllocateHeap(heaphandle: *const ::core::ffi::c_void, flags: u32, size: usize) -> *mut ::core::ffi::c_void {
@@ -3400,14 +3417,14 @@ pub unsafe fn RtlCompareMemoryUlong(source: *const ::core::ffi::c_void, length: 
 #[inline]
 pub unsafe fn RtlCompressBuffer(compressionformatandengine: u16, uncompressedbuffer: &[u8], compressedbuffer: &mut [u8], uncompressedchunksize: u32, finalcompressedsize: *mut u32, workspace: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlCompressBuffer(compressionformatandengine : u16, uncompressedbuffer : *const u8, uncompressedbuffersize : u32, compressedbuffer : *mut u8, compressedbuffersize : u32, uncompressedchunksize : u32, finalcompressedsize : *mut u32, workspace : *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlCompressBuffer(compressionformatandengine, ::core::mem::transmute(uncompressedbuffer.as_ptr()), uncompressedbuffer.len() as _, ::core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len() as _, uncompressedchunksize, finalcompressedsize, workspace)
+    RtlCompressBuffer(compressionformatandengine, ::core::mem::transmute(uncompressedbuffer.as_ptr()), uncompressedbuffer.len().try_into().unwrap(), ::core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len().try_into().unwrap(), uncompressedchunksize, finalcompressedsize, workspace)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlCompressChunks(uncompressedbuffer: &[u8], compressedbuffer: &mut [u8], compresseddatainfo: *mut COMPRESSED_DATA_INFO, compresseddatainfolength: u32, workspace: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn RtlCompressChunks(uncompressedbuffer : *const u8, uncompressedbuffersize : u32, compressedbuffer : *mut u8, compressedbuffersize : u32, compresseddatainfo : *mut COMPRESSED_DATA_INFO, compresseddatainfolength : u32, workspace : *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlCompressChunks(::core::mem::transmute(uncompressedbuffer.as_ptr()), uncompressedbuffer.len() as _, ::core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len() as _, compresseddatainfo, compresseddatainfolength, workspace)
+    RtlCompressChunks(::core::mem::transmute(uncompressedbuffer.as_ptr()), uncompressedbuffer.len().try_into().unwrap(), ::core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len().try_into().unwrap(), compresseddatainfo, compresseddatainfolength, workspace)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3487,49 +3504,49 @@ pub unsafe fn RtlCreateVirtualAccountSid(name: *const super::super::super::Win32
 #[inline]
 pub unsafe fn RtlCustomCPToUnicodeN(customcp: *const CPTABLEINFO, unicodestring: ::windows_core::PWSTR, maxbytesinunicodestring: u32, bytesinunicodestring: ::core::option::Option<*mut u32>, customcpstring: &[u8]) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlCustomCPToUnicodeN(customcp : *const CPTABLEINFO, unicodestring : ::windows_core::PWSTR, maxbytesinunicodestring : u32, bytesinunicodestring : *mut u32, customcpstring : ::windows_core::PCSTR, bytesincustomcpstring : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlCustomCPToUnicodeN(customcp, ::core::mem::transmute(unicodestring), maxbytesinunicodestring, ::core::mem::transmute(bytesinunicodestring.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(customcpstring.as_ptr()), customcpstring.len() as _)
+    RtlCustomCPToUnicodeN(customcp, ::core::mem::transmute(unicodestring), maxbytesinunicodestring, ::core::mem::transmute(bytesinunicodestring.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(customcpstring.as_ptr()), customcpstring.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlDecompressBuffer(compressionformat: u16, uncompressedbuffer: &mut [u8], compressedbuffer: &[u8], finaluncompressedsize: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlDecompressBuffer(compressionformat : u16, uncompressedbuffer : *mut u8, uncompressedbuffersize : u32, compressedbuffer : *const u8, compressedbuffersize : u32, finaluncompressedsize : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlDecompressBuffer(compressionformat, ::core::mem::transmute(uncompressedbuffer.as_ptr()), uncompressedbuffer.len() as _, ::core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len() as _, finaluncompressedsize)
+    RtlDecompressBuffer(compressionformat, ::core::mem::transmute(uncompressedbuffer.as_ptr()), uncompressedbuffer.len().try_into().unwrap(), ::core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len().try_into().unwrap(), finaluncompressedsize)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlDecompressBufferEx(compressionformat: u16, uncompressedbuffer: &mut [u8], compressedbuffer: &[u8], finaluncompressedsize: *mut u32, workspace: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlDecompressBufferEx(compressionformat : u16, uncompressedbuffer : *mut u8, uncompressedbuffersize : u32, compressedbuffer : *const u8, compressedbuffersize : u32, finaluncompressedsize : *mut u32, workspace : *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlDecompressBufferEx(compressionformat, ::core::mem::transmute(uncompressedbuffer.as_ptr()), uncompressedbuffer.len() as _, ::core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len() as _, finaluncompressedsize, ::core::mem::transmute(workspace.unwrap_or(::std::ptr::null())))
+    RtlDecompressBufferEx(compressionformat, ::core::mem::transmute(uncompressedbuffer.as_ptr()), uncompressedbuffer.len().try_into().unwrap(), ::core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len().try_into().unwrap(), finaluncompressedsize, ::core::mem::transmute(workspace.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlDecompressBufferEx2(compressionformat: u16, uncompressedbuffer: &mut [u8], compressedbuffer: &[u8], uncompressedchunksize: u32, finaluncompressedsize: *mut u32, workspace: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn RtlDecompressBufferEx2(compressionformat : u16, uncompressedbuffer : *mut u8, uncompressedbuffersize : u32, compressedbuffer : *const u8, compressedbuffersize : u32, uncompressedchunksize : u32, finaluncompressedsize : *mut u32, workspace : *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlDecompressBufferEx2(compressionformat, ::core::mem::transmute(uncompressedbuffer.as_ptr()), uncompressedbuffer.len() as _, ::core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len() as _, uncompressedchunksize, finaluncompressedsize, ::core::mem::transmute(workspace.unwrap_or(::std::ptr::null())))
+    RtlDecompressBufferEx2(compressionformat, ::core::mem::transmute(uncompressedbuffer.as_ptr()), uncompressedbuffer.len().try_into().unwrap(), ::core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len().try_into().unwrap(), uncompressedchunksize, finaluncompressedsize, ::core::mem::transmute(workspace.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlDecompressChunks(uncompressedbuffer: &mut [u8], compressedbuffer: &[u8], compressedtail: &[u8], compresseddatainfo: *const COMPRESSED_DATA_INFO) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn RtlDecompressChunks(uncompressedbuffer : *mut u8, uncompressedbuffersize : u32, compressedbuffer : *const u8, compressedbuffersize : u32, compressedtail : *const u8, compressedtailsize : u32, compresseddatainfo : *const COMPRESSED_DATA_INFO) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlDecompressChunks(::core::mem::transmute(uncompressedbuffer.as_ptr()), uncompressedbuffer.len() as _, ::core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len() as _, ::core::mem::transmute(compressedtail.as_ptr()), compressedtail.len() as _, compresseddatainfo)
+    RtlDecompressChunks(::core::mem::transmute(uncompressedbuffer.as_ptr()), uncompressedbuffer.len().try_into().unwrap(), ::core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len().try_into().unwrap(), ::core::mem::transmute(compressedtail.as_ptr()), compressedtail.len().try_into().unwrap(), compresseddatainfo)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlDecompressFragment(compressionformat: u16, uncompressedfragment: &mut [u8], compressedbuffer: &[u8], fragmentoffset: u32, finaluncompressedsize: *mut u32, workspace: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlDecompressFragment(compressionformat : u16, uncompressedfragment : *mut u8, uncompressedfragmentsize : u32, compressedbuffer : *const u8, compressedbuffersize : u32, fragmentoffset : u32, finaluncompressedsize : *mut u32, workspace : *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlDecompressFragment(compressionformat, ::core::mem::transmute(uncompressedfragment.as_ptr()), uncompressedfragment.len() as _, ::core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len() as _, fragmentoffset, finaluncompressedsize, workspace)
+    RtlDecompressFragment(compressionformat, ::core::mem::transmute(uncompressedfragment.as_ptr()), uncompressedfragment.len().try_into().unwrap(), ::core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len().try_into().unwrap(), fragmentoffset, finaluncompressedsize, workspace)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlDecompressFragmentEx(compressionformat: u16, uncompressedfragment: &mut [u8], compressedbuffer: &[u8], fragmentoffset: u32, uncompressedchunksize: u32, finaluncompressedsize: *mut u32, workspace: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn RtlDecompressFragmentEx(compressionformat : u16, uncompressedfragment : *mut u8, uncompressedfragmentsize : u32, compressedbuffer : *const u8, compressedbuffersize : u32, fragmentoffset : u32, uncompressedchunksize : u32, finaluncompressedsize : *mut u32, workspace : *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlDecompressFragmentEx(compressionformat, ::core::mem::transmute(uncompressedfragment.as_ptr()), uncompressedfragment.len() as _, ::core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len() as _, fragmentoffset, uncompressedchunksize, finaluncompressedsize, workspace)
+    RtlDecompressFragmentEx(compressionformat, ::core::mem::transmute(uncompressedfragment.as_ptr()), uncompressedfragment.len().try_into().unwrap(), ::core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len().try_into().unwrap(), fragmentoffset, uncompressedchunksize, finaluncompressedsize, workspace)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -3842,14 +3859,14 @@ where
 #[inline]
 pub unsafe fn RtlMultiByteToUnicodeN(unicodestring: ::windows_core::PWSTR, maxbytesinunicodestring: u32, bytesinunicodestring: ::core::option::Option<*mut u32>, multibytestring: &[u8]) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlMultiByteToUnicodeN(unicodestring : ::windows_core::PWSTR, maxbytesinunicodestring : u32, bytesinunicodestring : *mut u32, multibytestring : ::windows_core::PCSTR, bytesinmultibytestring : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlMultiByteToUnicodeN(::core::mem::transmute(unicodestring), maxbytesinunicodestring, ::core::mem::transmute(bytesinunicodestring.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len() as _)
+    RtlMultiByteToUnicodeN(::core::mem::transmute(unicodestring), maxbytesinunicodestring, ::core::mem::transmute(bytesinunicodestring.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlMultiByteToUnicodeSize(bytesinunicodestring: *mut u32, multibytestring: &[u8]) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlMultiByteToUnicodeSize(bytesinunicodestring : *mut u32, multibytestring : ::windows_core::PCSTR, bytesinmultibytestring : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlMultiByteToUnicodeSize(bytesinunicodestring, ::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len() as _)
+    RtlMultiByteToUnicodeSize(bytesinunicodestring, ::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
@@ -3906,7 +3923,7 @@ where
 #[inline]
 pub unsafe fn RtlOemToUnicodeN(unicodestring: ::windows_core::PWSTR, maxbytesinunicodestring: u32, bytesinunicodestring: ::core::option::Option<*mut u32>, oemstring: &[u8]) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlOemToUnicodeN(unicodestring : ::windows_core::PWSTR, maxbytesinunicodestring : u32, bytesinunicodestring : *mut u32, oemstring : ::windows_core::PCSTR, bytesinoemstring : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlOemToUnicodeN(::core::mem::transmute(unicodestring), maxbytesinunicodestring, ::core::mem::transmute(bytesinunicodestring.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(oemstring.as_ptr()), oemstring.len() as _)
+    RtlOemToUnicodeN(::core::mem::transmute(unicodestring), maxbytesinunicodestring, ::core::mem::transmute(bytesinunicodestring.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(oemstring.as_ptr()), oemstring.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -4078,21 +4095,21 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlUnicodeToCustomCPN(customcp : *const CPTABLEINFO, customcpstring : ::windows_core::PSTR, maxbytesincustomcpstring : u32, bytesincustomcpstring : *mut u32, unicodestring : ::windows_core::PCWSTR, bytesinunicodestring : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlUnicodeToCustomCPN(customcp, ::core::mem::transmute(customcpstring.as_ptr()), customcpstring.len() as _, ::core::mem::transmute(bytesincustomcpstring.unwrap_or(::std::ptr::null_mut())), unicodestring.into_param().abi(), bytesinunicodestring)
+    RtlUnicodeToCustomCPN(customcp, ::core::mem::transmute(customcpstring.as_ptr()), customcpstring.len().try_into().unwrap(), ::core::mem::transmute(bytesincustomcpstring.unwrap_or(::std::ptr::null_mut())), unicodestring.into_param().abi(), bytesinunicodestring)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlUnicodeToMultiByteN(multibytestring: &mut [u8], bytesinmultibytestring: ::core::option::Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlUnicodeToMultiByteN(multibytestring : ::windows_core::PSTR, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlUnicodeToMultiByteN(::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len() as _, ::core::mem::transmute(bytesinmultibytestring.unwrap_or(::std::ptr::null_mut())), unicodestring, bytesinunicodestring)
+    RtlUnicodeToMultiByteN(::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len().try_into().unwrap(), ::core::mem::transmute(bytesinmultibytestring.unwrap_or(::std::ptr::null_mut())), unicodestring, bytesinunicodestring)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlUnicodeToOemN(oemstring: &mut [u8], bytesinoemstring: ::core::option::Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlUnicodeToOemN(oemstring : ::windows_core::PSTR, maxbytesinoemstring : u32, bytesinoemstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlUnicodeToOemN(::core::mem::transmute(oemstring.as_ptr()), oemstring.len() as _, ::core::mem::transmute(bytesinoemstring.unwrap_or(::std::ptr::null_mut())), unicodestring, bytesinunicodestring)
+    RtlUnicodeToOemN(::core::mem::transmute(oemstring.as_ptr()), oemstring.len().try_into().unwrap(), ::core::mem::transmute(bytesinoemstring.unwrap_or(::std::ptr::null_mut())), unicodestring, bytesinunicodestring)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -4122,21 +4139,21 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToCustomCPN(customcp : *const CPTABLEINFO, customcpstring : ::windows_core::PSTR, maxbytesincustomcpstring : u32, bytesincustomcpstring : *mut u32, unicodestring : ::windows_core::PCWSTR, bytesinunicodestring : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlUpcaseUnicodeToCustomCPN(customcp, ::core::mem::transmute(customcpstring.as_ptr()), customcpstring.len() as _, ::core::mem::transmute(bytesincustomcpstring.unwrap_or(::std::ptr::null_mut())), unicodestring.into_param().abi(), bytesinunicodestring)
+    RtlUpcaseUnicodeToCustomCPN(customcp, ::core::mem::transmute(customcpstring.as_ptr()), customcpstring.len().try_into().unwrap(), ::core::mem::transmute(bytesincustomcpstring.unwrap_or(::std::ptr::null_mut())), unicodestring.into_param().abi(), bytesinunicodestring)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlUpcaseUnicodeToMultiByteN(multibytestring: &mut [u8], bytesinmultibytestring: ::core::option::Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToMultiByteN(multibytestring : ::windows_core::PSTR, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlUpcaseUnicodeToMultiByteN(::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len() as _, ::core::mem::transmute(bytesinmultibytestring.unwrap_or(::std::ptr::null_mut())), unicodestring, bytesinunicodestring)
+    RtlUpcaseUnicodeToMultiByteN(::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len().try_into().unwrap(), ::core::mem::transmute(bytesinmultibytestring.unwrap_or(::std::ptr::null_mut())), unicodestring, bytesinunicodestring)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlUpcaseUnicodeToOemN(oemstring: &mut [u8], bytesinoemstring: ::core::option::Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToOemN(oemstring : ::windows_core::PSTR, maxbytesinoemstring : u32, bytesinoemstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlUpcaseUnicodeToOemN(::core::mem::transmute(oemstring.as_ptr()), oemstring.len() as _, ::core::mem::transmute(bytesinoemstring.unwrap_or(::std::ptr::null_mut())), unicodestring, bytesinunicodestring)
+    RtlUpcaseUnicodeToOemN(::core::mem::transmute(oemstring.as_ptr()), oemstring.len().try_into().unwrap(), ::core::mem::transmute(bytesinoemstring.unwrap_or(::std::ptr::null_mut())), unicodestring, bytesinunicodestring)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4913,7 +4930,7 @@ where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn ZwAllocateVirtualMemoryEx(processhandle : super::super::super::Win32::Foundation:: HANDLE, baseaddress : *mut *mut ::core::ffi::c_void, regionsize : *mut usize, allocationtype : u32, pageprotection : u32, extendedparameters : *mut super::super::super::Win32::System::Memory:: MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwAllocateVirtualMemoryEx(processhandle.into_param().abi(), baseaddress, regionsize, allocationtype, pageprotection, ::core::mem::transmute(extendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len() as _))
+    ZwAllocateVirtualMemoryEx(processhandle.into_param().abi(), baseaddress, regionsize, allocationtype, pageprotection, ::core::mem::transmute(extendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -5204,7 +5221,7 @@ where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn ZwSetInformationVirtualMemory(processhandle : super::super::super::Win32::Foundation:: HANDLE, vminformationclass : VIRTUAL_MEMORY_INFORMATION_CLASS, numberofentries : usize, virtualaddresses : *const MEMORY_RANGE_ENTRY, vminformation : *const ::core::ffi::c_void, vminformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwSetInformationVirtualMemory(processhandle.into_param().abi(), vminformationclass, virtualaddresses.len() as _, ::core::mem::transmute(virtualaddresses.as_ptr()), vminformation, vminformationlength)
+    ZwSetInformationVirtualMemory(processhandle.into_param().abi(), vminformationclass, virtualaddresses.len().try_into().unwrap(), ::core::mem::transmute(virtualaddresses.as_ptr()), vminformation, vminformationlength)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]

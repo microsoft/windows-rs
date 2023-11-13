@@ -65,7 +65,7 @@ impl RemoteTextConnection {
     }
     pub fn ReportDataReceived(&self, pdudata: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).ReportDataReceived)(::windows_core::Interface::as_raw(this), pdudata.len().try_into()?, pdudata.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).ReportDataReceived)(::windows_core::Interface::as_raw(this), pdudata.len().try_into().unwrap(), pdudata.as_ptr()).ok() }
     }
     pub fn CreateInstance<P0>(connectionid: ::windows_core::GUID, pduforwarder: P0) -> ::windows_core::Result<RemoteTextConnection>
     where
@@ -111,7 +111,7 @@ impl RemoteTextConnectionDataHandler {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), pdudata.len().try_into()?, pdudata.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), pdudata.len().try_into().unwrap(), pdudata.as_ptr(), &mut result__).from_abi(result__)
         }
     }
 }

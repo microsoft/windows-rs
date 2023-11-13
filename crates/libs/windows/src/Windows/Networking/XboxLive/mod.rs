@@ -392,7 +392,7 @@ impl XboxLiveDeviceAddress {
     }
     pub fn GetSnapshotAsBytes(&self, buffer: &mut [u8], byteswritten: &mut u32) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).GetSnapshotAsBytes)(::windows_core::Interface::as_raw(this), buffer.len().try_into()?, buffer.as_mut_ptr(), byteswritten).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).GetSnapshotAsBytes)(::windows_core::Interface::as_raw(this), buffer.len().try_into().unwrap(), buffer.as_mut_ptr(), byteswritten).ok() }
     }
     pub fn Compare<P0>(&self, otherdeviceaddress: P0) -> ::windows_core::Result<i32>
     where
@@ -445,7 +445,7 @@ impl XboxLiveDeviceAddress {
     pub fn CreateFromSnapshotBytes(buffer: &[u8]) -> ::windows_core::Result<XboxLiveDeviceAddress> {
         Self::IXboxLiveDeviceAddressStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromSnapshotBytes)(::windows_core::Interface::as_raw(this), buffer.len().try_into()?, buffer.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromSnapshotBytes)(::windows_core::Interface::as_raw(this), buffer.len().try_into().unwrap(), buffer.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     pub fn GetLocal() -> ::windows_core::Result<XboxLiveDeviceAddress> {
@@ -514,11 +514,11 @@ impl XboxLiveEndpointPair {
     }
     pub fn GetRemoteSocketAddressBytes(&self, socketaddress: &mut [u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).GetRemoteSocketAddressBytes)(::windows_core::Interface::as_raw(this), socketaddress.len().try_into()?, socketaddress.as_mut_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).GetRemoteSocketAddressBytes)(::windows_core::Interface::as_raw(this), socketaddress.len().try_into().unwrap(), socketaddress.as_mut_ptr()).ok() }
     }
     pub fn GetLocalSocketAddressBytes(&self, socketaddress: &mut [u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).GetLocalSocketAddressBytes)(::windows_core::Interface::as_raw(this), socketaddress.len().try_into()?, socketaddress.as_mut_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).GetLocalSocketAddressBytes)(::windows_core::Interface::as_raw(this), socketaddress.len().try_into().unwrap(), socketaddress.as_mut_ptr()).ok() }
     }
     pub fn State(&self) -> ::windows_core::Result<XboxLiveEndpointPairState> {
         let this = self;
@@ -572,7 +572,7 @@ impl XboxLiveEndpointPair {
     pub fn FindEndpointPairBySocketAddressBytes(localsocketaddress: &[u8], remotesocketaddress: &[u8]) -> ::windows_core::Result<XboxLiveEndpointPair> {
         Self::IXboxLiveEndpointPairStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FindEndpointPairBySocketAddressBytes)(::windows_core::Interface::as_raw(this), localsocketaddress.len().try_into()?, localsocketaddress.as_ptr(), remotesocketaddress.len().try_into()?, remotesocketaddress.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FindEndpointPairBySocketAddressBytes)(::windows_core::Interface::as_raw(this), localsocketaddress.len().try_into().unwrap(), localsocketaddress.as_ptr(), remotesocketaddress.len().try_into().unwrap(), remotesocketaddress.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     pub fn FindEndpointPairByHostNamesAndPorts<P0, P1>(localhostname: P0, localport: &::windows_core::HSTRING, remotehostname: P1, remoteport: &::windows_core::HSTRING) -> ::windows_core::Result<XboxLiveEndpointPair>
@@ -1009,7 +1009,7 @@ impl XboxLiveQualityOfServiceMeasurement {
         }
     }
     pub fn PublishPrivatePayloadBytes(payload: &[u8]) -> ::windows_core::Result<()> {
-        Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows_core::Interface::vtable(this).PublishPrivatePayloadBytes)(::windows_core::Interface::as_raw(this), payload.len().try_into()?, payload.as_ptr()).ok() })
+        Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows_core::Interface::vtable(this).PublishPrivatePayloadBytes)(::windows_core::Interface::as_raw(this), payload.len().try_into().unwrap(), payload.as_ptr()).ok() })
     }
     pub fn ClearPrivatePayload() -> ::windows_core::Result<()> {
         Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows_core::Interface::vtable(this).ClearPrivatePayload)(::windows_core::Interface::as_raw(this)).ok() })

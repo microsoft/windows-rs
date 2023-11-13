@@ -96,7 +96,7 @@ impl CryptographicBuffer {
     pub fn CreateFromByteArray(value: &[u8]) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromByteArray)(::windows_core::Interface::as_raw(this), value.len().try_into()?, value.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromByteArray)(::windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]

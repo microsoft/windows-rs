@@ -227,7 +227,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("ieframe.dll" "system" fn IERegSetValueEx(lpsubkey : ::windows_core::PCWSTR, lpvaluename : ::windows_core::PCWSTR, reserved : u32, dwtype : u32, lpdata : *const u8, cbdata : u32) -> ::windows_core::HRESULT);
-    IERegSetValueEx(lpsubkey.into_param().abi(), lpvaluename.into_param().abi(), reserved, dwtype, ::core::mem::transmute(lpdata.as_ptr()), lpdata.len() as _).ok()
+    IERegSetValueEx(lpsubkey.into_param().abi(), lpvaluename.into_param().abi(), reserved, dwtype, ::core::mem::transmute(lpdata.as_ptr()), lpdata.len().try_into().unwrap()).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -247,7 +247,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("ieframe.dll" "system" fn IERegisterWritableRegistryValue(guid : ::windows_core::GUID, lppath : ::windows_core::PCWSTR, lpvaluename : ::windows_core::PCWSTR, dwtype : u32, lpdata : *const u8, cbmaxdata : u32) -> ::windows_core::HRESULT);
-    IERegisterWritableRegistryValue(::core::mem::transmute(guid), lppath.into_param().abi(), lpvaluename.into_param().abi(), dwtype, ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    IERegisterWritableRegistryValue(::core::mem::transmute(guid), lppath.into_param().abi(), lpvaluename.into_param().abi(), dwtype, ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -291,7 +291,7 @@ where
     P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("ieframe.dll" "system" fn IEShowOpenFileDialog(hwnd : super::super::Foundation:: HWND, lpwstrfilename : ::windows_core::PWSTR, cchmaxfilename : u32, lpwstrinitialdir : ::windows_core::PCWSTR, lpwstrfilter : ::windows_core::PCWSTR, lpwstrdefext : ::windows_core::PCWSTR, dwfilterindex : u32, dwflags : u32, phfile : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
-    IEShowOpenFileDialog(hwnd.into_param().abi(), ::core::mem::transmute(lpwstrfilename.as_ptr()), lpwstrfilename.len() as _, lpwstrinitialdir.into_param().abi(), lpwstrfilter.into_param().abi(), lpwstrdefext.into_param().abi(), dwfilterindex, dwflags, phfile).ok()
+    IEShowOpenFileDialog(hwnd.into_param().abi(), ::core::mem::transmute(lpwstrfilename.as_ptr()), lpwstrfilename.len().try_into().unwrap(), lpwstrinitialdir.into_param().abi(), lpwstrfilter.into_param().abi(), lpwstrdefext.into_param().abi(), dwfilterindex, dwflags, phfile).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -382,7 +382,7 @@ where
     P4: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("msrating.dll" "system" fn RatingAddToApprovedSites(hdlg : super::super::Foundation:: HWND, cbpasswordblob : u32, pbpasswordblob : *mut u8, lpszurl : ::windows_core::PCWSTR, falwaysnever : super::super::Foundation:: BOOL, fsitepage : super::super::Foundation:: BOOL, fapprovedsitesenforced : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
-    RatingAddToApprovedSites(hdlg.into_param().abi(), pbpasswordblob.len() as _, ::core::mem::transmute(pbpasswordblob.as_ptr()), lpszurl.into_param().abi(), falwaysnever.into_param().abi(), fsitepage.into_param().abi(), fapprovedsitesenforced.into_param().abi()).ok()
+    RatingAddToApprovedSites(hdlg.into_param().abi(), pbpasswordblob.len().try_into().unwrap(), ::core::mem::transmute(pbpasswordblob.as_ptr()), lpszurl.into_param().abi(), falwaysnever.into_param().abi(), fsitepage.into_param().abi(), fapprovedsitesenforced.into_param().abi()).ok()
 }
 #[inline]
 pub unsafe fn RatingCheckUserAccess<P0, P1, P2>(pszusername: P0, pszurl: P1, pszratinginfo: P2, pdata: ::core::option::Option<&[u8]>, ppratingdetails: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -392,7 +392,7 @@ where
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("msrating.dll" "system" fn RatingCheckUserAccess(pszusername : ::windows_core::PCSTR, pszurl : ::windows_core::PCSTR, pszratinginfo : ::windows_core::PCSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
-    RatingCheckUserAccess(pszusername.into_param().abi(), pszurl.into_param().abi(), pszratinginfo.into_param().abi(), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppratingdetails.unwrap_or(::std::ptr::null_mut()))).ok()
+    RatingCheckUserAccess(pszusername.into_param().abi(), pszurl.into_param().abi(), pszratinginfo.into_param().abi(), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(ppratingdetails.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn RatingCheckUserAccessW<P0, P1, P2>(pszusername: P0, pszurl: P1, pszratinginfo: P2, pdata: ::core::option::Option<&[u8]>, ppratingdetails: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -402,7 +402,7 @@ where
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("msrating.dll" "system" fn RatingCheckUserAccessW(pszusername : ::windows_core::PCWSTR, pszurl : ::windows_core::PCWSTR, pszratinginfo : ::windows_core::PCWSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
-    RatingCheckUserAccessW(pszusername.into_param().abi(), pszurl.into_param().abi(), pszratinginfo.into_param().abi(), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppratingdetails.unwrap_or(::std::ptr::null_mut()))).ok()
+    RatingCheckUserAccessW(pszusername.into_param().abi(), pszurl.into_param().abi(), pszratinginfo.into_param().abi(), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(ppratingdetails.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -958,7 +958,7 @@ impl IEnumManagerFrames {
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next(&self, ppwindows: &mut [*mut super::super::Foundation::HWND], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppwindows.len() as _, ::core::mem::transmute(ppwindows.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppwindows.len().try_into().unwrap(), ::core::mem::transmute(ppwindows.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Count(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -1000,7 +1000,7 @@ pub struct IEnumManagerFrames_Vtbl {
 pub struct IEnumOpenServiceActivity(::windows_core::IUnknown);
 impl IEnumOpenServiceActivity {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IOpenServiceActivity>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -1034,7 +1034,7 @@ pub struct IEnumOpenServiceActivity_Vtbl {
 pub struct IEnumOpenServiceActivityCategory(::windows_core::IUnknown);
 impl IEnumOpenServiceActivityCategory {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IOpenServiceActivityCategory>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -3130,7 +3130,7 @@ impl ITargetFrame {
         (::windows_core::Interface::vtable(self).GetFrameMargins)(::windows_core::Interface::as_raw(self), pdwwidth, pdwheight).ok()
     }
     pub unsafe fn RemoteNavigate(&self, puldata: &[u32]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).RemoteNavigate)(::windows_core::Interface::as_raw(self), puldata.len() as _, ::core::mem::transmute(puldata.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).RemoteNavigate)(::windows_core::Interface::as_raw(self), puldata.len().try_into().unwrap(), ::core::mem::transmute(puldata.as_ptr())).ok()
     }
     pub unsafe fn OnChildFrameActivate<P0>(&self, punkchildframe: P0) -> ::windows_core::Result<()>
     where

@@ -123,7 +123,7 @@ pub unsafe fn GetPointerInfoHistory(pointerid: u32, entriescount: *mut u32, poin
 #[inline]
 pub unsafe fn GetPointerInputTransform(pointerid: u32, inputtransform: &mut [INPUT_TRANSFORM]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerInputTransform(pointerid : u32, historycount : u32, inputtransform : *mut INPUT_TRANSFORM) -> super::super::super::Foundation:: BOOL);
-    GetPointerInputTransform(pointerid, inputtransform.len() as _, ::core::mem::transmute(inputtransform.as_ptr())).ok()
+    GetPointerInputTransform(pointerid, inputtransform.len().try_into().unwrap(), ::core::mem::transmute(inputtransform.as_ptr())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -165,7 +165,7 @@ pub unsafe fn GetPointerType(pointerid: u32, pointertype: *mut super::super::Win
 #[inline]
 pub unsafe fn GetRawPointerDeviceData(pointerid: u32, historycount: u32, pproperties: &[super::super::Controls::POINTER_DEVICE_PROPERTY], pvalues: *mut i32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetRawPointerDeviceData(pointerid : u32, historycount : u32, propertiescount : u32, pproperties : *const super::super::Controls:: POINTER_DEVICE_PROPERTY, pvalues : *mut i32) -> super::super::super::Foundation:: BOOL);
-    GetRawPointerDeviceData(pointerid, historycount, pproperties.len() as _, ::core::mem::transmute(pproperties.as_ptr()), pvalues).ok()
+    GetRawPointerDeviceData(pointerid, historycount, pproperties.len().try_into().unwrap(), ::core::mem::transmute(pproperties.as_ptr()), pvalues).ok()
 }
 #[inline]
 pub unsafe fn GetUnpredictedMessagePos() -> u32 {
@@ -187,14 +187,14 @@ where
     P0: ::windows_core::IntoParam<super::super::Controls::HSYNTHETICPOINTERDEVICE>,
 {
     ::windows_targets::link!("user32.dll" "system" fn InjectSyntheticPointerInput(device : super::super::Controls:: HSYNTHETICPOINTERDEVICE, pointerinfo : *const super::super::Controls:: POINTER_TYPE_INFO, count : u32) -> super::super::super::Foundation:: BOOL);
-    InjectSyntheticPointerInput(device.into_param().abi(), ::core::mem::transmute(pointerinfo.as_ptr()), pointerinfo.len() as _).ok()
+    InjectSyntheticPointerInput(device.into_param().abi(), ::core::mem::transmute(pointerinfo.as_ptr()), pointerinfo.len().try_into().unwrap()).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn InjectTouchInput(contacts: &[POINTER_TOUCH_INFO]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn InjectTouchInput(count : u32, contacts : *const POINTER_TOUCH_INFO) -> super::super::super::Foundation:: BOOL);
-    InjectTouchInput(contacts.len() as _, ::core::mem::transmute(contacts.as_ptr())).ok()
+    InjectTouchInput(contacts.len().try_into().unwrap(), ::core::mem::transmute(contacts.as_ptr())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

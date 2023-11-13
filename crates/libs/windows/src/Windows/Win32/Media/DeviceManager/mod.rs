@@ -3,7 +3,7 @@
 pub struct IComponentAuthenticate(::windows_core::IUnknown);
 impl IComponentAuthenticate {
     pub unsafe fn SACAuth(&self, dwprotocolid: u32, dwpass: u32, pbdatain: &[u8], ppbdataout: *mut *mut u8, pdwdataoutlen: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SACAuth)(::windows_core::Interface::as_raw(self), dwprotocolid, dwpass, ::core::mem::transmute(pbdatain.as_ptr()), pbdatain.len() as _, ppbdataout, pdwdataoutlen).ok()
+        (::windows_core::Interface::vtable(self).SACAuth)(::windows_core::Interface::as_raw(self), dwprotocolid, dwpass, ::core::mem::transmute(pbdatain.as_ptr()), pbdatain.len().try_into().unwrap(), ppbdataout, pdwdataoutlen).ok()
     }
     pub unsafe fn SACGetProtocols(&self, ppdwprotocols: *mut *mut u32, pdwprotocolcount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SACGetProtocols)(::windows_core::Interface::as_raw(self), ppdwprotocols, pdwprotocolcount).ok()
@@ -28,10 +28,10 @@ pub struct IComponentAuthenticate_Vtbl {
 pub struct IMDSPDevice(::windows_core::IUnknown);
 impl IMDSPDevice {
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetManufacturer(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetManufacturer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).GetManufacturer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetVersion(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -99,10 +99,10 @@ pub struct IMDSPDevice_Vtbl {
 pub struct IMDSPDevice2(::windows_core::IUnknown);
 impl IMDSPDevice2 {
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetManufacturer(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetManufacturer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.GetManufacturer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetVersion(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -156,7 +156,7 @@ impl IMDSPDevice2 {
         (::windows_core::Interface::vtable(self).GetSpecifyPropertyPages)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppspecifyproppages), pppunknowns, pcunks).ok()
     }
     pub unsafe fn GetCanonicalName(&self, pwszpnpname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetCanonicalName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszpnpname.as_ptr()), pwszpnpname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).GetCanonicalName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszpnpname.as_ptr()), pwszpnpname.len().try_into().unwrap()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMDSPDevice2, ::windows_core::IUnknown, IMDSPDevice);
@@ -186,10 +186,10 @@ pub struct IMDSPDevice2_Vtbl {
 pub struct IMDSPDevice3(::windows_core::IUnknown);
 impl IMDSPDevice3 {
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetManufacturer(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.GetManufacturer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.GetManufacturer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetVersion(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -243,7 +243,7 @@ impl IMDSPDevice3 {
         (::windows_core::Interface::vtable(self).base__.GetSpecifyPropertyPages)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppspecifyproppages), pppunknowns, pcunks).ok()
     }
     pub unsafe fn GetCanonicalName(&self, pwszpnpname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetCanonicalName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszpnpname.as_ptr()), pwszpnpname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.GetCanonicalName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszpnpname.as_ptr()), pwszpnpname.len().try_into().unwrap()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -269,7 +269,7 @@ impl IMDSPDevice3 {
         (::windows_core::Interface::vtable(self).GetFormatCapability)(::windows_core::Interface::as_raw(self), format, &mut result__).from_abi(result__)
     }
     pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: &[u8], lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).DeviceIoControl)(::windows_core::Interface::as_raw(self), dwiocontrolcode, ::core::mem::transmute(lpinbuffer.as_ptr()), lpinbuffer.len() as _, lpoutbuffer, pnoutbuffersize).ok()
+        (::windows_core::Interface::vtable(self).DeviceIoControl)(::windows_core::Interface::as_raw(self), dwiocontrolcode, ::core::mem::transmute(lpinbuffer.as_ptr()), lpinbuffer.len().try_into().unwrap(), lpoutbuffer, pnoutbuffersize).ok()
     }
     pub unsafe fn FindStorage<P0>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P0) -> ::windows_core::Result<IMDSPStorage>
     where
@@ -395,7 +395,7 @@ pub struct IMDSPDirectTransfer_Vtbl {
 pub struct IMDSPEnumDevice(::windows_core::IUnknown);
 impl IMDSPEnumDevice {
     pub unsafe fn Next(&self, ppdevice: &mut [::core::option::Option<IMDSPDevice>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppdevice.len() as _, ::core::mem::transmute(ppdevice.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppdevice.len().try_into().unwrap(), ::core::mem::transmute(ppdevice.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -430,7 +430,7 @@ pub struct IMDSPEnumDevice_Vtbl {
 pub struct IMDSPEnumStorage(::windows_core::IUnknown);
 impl IMDSPEnumStorage {
     pub unsafe fn Next(&self, ppstorage: &mut [::core::option::Option<IMDSPStorage>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppstorage.len() as _, ::core::mem::transmute(ppstorage.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppstorage.len().try_into().unwrap(), ::core::mem::transmute(ppstorage.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -670,7 +670,7 @@ impl IMDSPStorage {
         (::windows_core::Interface::vtable(self).GetAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetDate(&self) -> ::windows_core::Result<WMDMDATETIME> {
         let mut result__ = ::std::mem::zeroed();
@@ -749,7 +749,7 @@ impl IMDSPStorage2 {
         (::windows_core::Interface::vtable(self).base__.GetAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetDate(&self) -> ::windows_core::Result<WMDMDATETIME> {
         let mut result__ = ::std::mem::zeroed();
@@ -848,7 +848,7 @@ impl IMDSPStorage3 {
         (::windows_core::Interface::vtable(self).base__.base__.GetAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetDate(&self) -> ::windows_core::Result<WMDMDATETIME> {
         let mut result__ = ::std::mem::zeroed();
@@ -948,7 +948,7 @@ impl IMDSPStorage4 {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetDate(&self) -> ::windows_core::Result<WMDMDATETIME> {
         let mut result__ = ::std::mem::zeroed();
@@ -1015,7 +1015,7 @@ impl IMDSPStorage4 {
         (::windows_core::Interface::vtable(self).base__.SetMetadata)(::windows_core::Interface::as_raw(self), pmetadata.into_param().abi()).ok()
     }
     pub unsafe fn SetReferences(&self, ppispstorage: ::core::option::Option<&[::core::option::Option<IMDSPStorage>]>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetReferences)(::windows_core::Interface::as_raw(self), ppispstorage.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppispstorage.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+        (::windows_core::Interface::vtable(self).SetReferences)(::windows_core::Interface::as_raw(self), ppispstorage.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(ppispstorage.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn GetReferences(&self, pdwrefs: *mut u32, pppispstorage: *mut *mut ::core::option::Option<IMDSPStorage>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetReferences)(::windows_core::Interface::as_raw(self), pdwrefs, pppispstorage).ok()
@@ -1032,7 +1032,7 @@ impl IMDSPStorage4 {
     where
         P0: ::windows_core::IntoParam<IWMDMMetaData>,
     {
-        (::windows_core::Interface::vtable(self).GetSpecifiedMetadata)(::windows_core::Interface::as_raw(self), ppwszpropnames.len() as _, ::core::mem::transmute(ppwszpropnames.as_ptr()), pmetadata.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).GetSpecifiedMetadata)(::windows_core::Interface::as_raw(self), ppwszpropnames.len().try_into().unwrap(), ::core::mem::transmute(ppwszpropnames.as_ptr()), pmetadata.into_param().abi()).ok()
     }
     pub unsafe fn FindStorage<P0>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P0) -> ::windows_core::Result<IMDSPStorage>
     where
@@ -1271,7 +1271,7 @@ pub struct ISCPSecureAuthenticate2_Vtbl {
 pub struct ISCPSecureExchange(::windows_core::IUnknown);
 impl ISCPSecureExchange {
     pub unsafe fn TransferContainerData(&self, pdata: &[u8], pfureadyflags: *mut u32, abmac: &mut [u8; 8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).TransferContainerData)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, pfureadyflags, ::core::mem::transmute(abmac.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).TransferContainerData)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), pfureadyflags, ::core::mem::transmute(abmac.as_ptr())).ok()
     }
     pub unsafe fn ObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: &mut [u8; 8]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ObjectData)(::windows_core::Interface::as_raw(self), pdata, pdwsize, ::core::mem::transmute(abmac.as_ptr())).ok()
@@ -1300,7 +1300,7 @@ pub struct ISCPSecureExchange_Vtbl {
 pub struct ISCPSecureExchange2(::windows_core::IUnknown);
 impl ISCPSecureExchange2 {
     pub unsafe fn TransferContainerData(&self, pdata: &[u8], pfureadyflags: *mut u32, abmac: &mut [u8; 8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.TransferContainerData)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, pfureadyflags, ::core::mem::transmute(abmac.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.TransferContainerData)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), pfureadyflags, ::core::mem::transmute(abmac.as_ptr())).ok()
     }
     pub unsafe fn ObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: &mut [u8; 8]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ObjectData)(::windows_core::Interface::as_raw(self), pdata, pdwsize, ::core::mem::transmute(abmac.as_ptr())).ok()
@@ -1312,7 +1312,7 @@ impl ISCPSecureExchange2 {
     where
         P0: ::windows_core::IntoParam<IWMDMProgress3>,
     {
-        (::windows_core::Interface::vtable(self).TransferContainerData2)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, pprogresscallback.into_param().abi(), pfureadyflags, ::core::mem::transmute(abmac.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).TransferContainerData2)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), pprogresscallback.into_param().abi(), pfureadyflags, ::core::mem::transmute(abmac.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISCPSecureExchange2, ::windows_core::IUnknown, ISCPSecureExchange);
@@ -1333,7 +1333,7 @@ pub struct ISCPSecureExchange2_Vtbl {
 pub struct ISCPSecureExchange3(::windows_core::IUnknown);
 impl ISCPSecureExchange3 {
     pub unsafe fn TransferContainerData(&self, pdata: &[u8], pfureadyflags: *mut u32, abmac: &mut [u8; 8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.TransferContainerData)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, pfureadyflags, ::core::mem::transmute(abmac.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.TransferContainerData)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), pfureadyflags, ::core::mem::transmute(abmac.as_ptr())).ok()
     }
     pub unsafe fn ObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: &mut [u8; 8]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.ObjectData)(::windows_core::Interface::as_raw(self), pdata, pdwsize, ::core::mem::transmute(abmac.as_ptr())).ok()
@@ -1345,7 +1345,7 @@ impl ISCPSecureExchange3 {
     where
         P0: ::windows_core::IntoParam<IWMDMProgress3>,
     {
-        (::windows_core::Interface::vtable(self).base__.TransferContainerData2)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, pprogresscallback.into_param().abi(), pfureadyflags, ::core::mem::transmute(abmac.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.TransferContainerData2)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), pprogresscallback.into_param().abi(), pfureadyflags, ::core::mem::transmute(abmac.as_ptr())).ok()
     }
     pub unsafe fn TransferContainerDataOnClearChannel<P0, P1>(&self, pdevice: P0, pdata: &[u8], pprogresscallback: P1) -> ::windows_core::Result<u32>
     where
@@ -1353,7 +1353,7 @@ impl ISCPSecureExchange3 {
         P1: ::windows_core::IntoParam<IWMDMProgress3>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).TransferContainerDataOnClearChannel)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, pprogresscallback.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).TransferContainerDataOnClearChannel)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), pprogresscallback.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetObjectDataOnClearChannel<P0>(&self, pdevice: P0, pdata: *mut u8, pdwsize: *mut u32) -> ::windows_core::Result<()>
     where
@@ -1394,19 +1394,19 @@ impl ISCPSecureQuery {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).ExamineData)(::windows_core::Interface::as_raw(self), fuflags, pwszextension.into_param().abi(), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, ::core::mem::transmute(abmac.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).ExamineData)(::windows_core::Interface::as_raw(self), fuflags, pwszextension.into_param().abi(), ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), ::core::mem::transmute(abmac.as_ptr())).ok()
     }
     pub unsafe fn MakeDecision<P0>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P0, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: &mut [u8; 8]) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IMDSPStorageGlobals>,
     {
-        (::windows_core::Interface::vtable(self).MakeDecision)(::windows_core::Interface::as_raw(self), fuflags, ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, dwappsec, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len() as _, pstorageglobals.into_param().abi(), ::core::mem::transmute(ppexchange), ::core::mem::transmute(abmac.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).MakeDecision)(::windows_core::Interface::as_raw(self), fuflags, ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), dwappsec, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len().try_into().unwrap(), pstorageglobals.into_param().abi(), ::core::mem::transmute(ppexchange), ::core::mem::transmute(abmac.as_ptr())).ok()
     }
     pub unsafe fn GetRights<P0>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: P0, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: &mut [u8; 8]) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IMDSPStorageGlobals>,
     {
-        (::windows_core::Interface::vtable(self).GetRights)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len() as _, pstgglobals.into_param().abi(), pprights, pnrightscount, ::core::mem::transmute(abmac.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).GetRights)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len().try_into().unwrap(), pstgglobals.into_param().abi(), pprights, pnrightscount, ::core::mem::transmute(abmac.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISCPSecureQuery, ::windows_core::IUnknown);
@@ -1436,19 +1436,19 @@ impl ISCPSecureQuery2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.ExamineData)(::windows_core::Interface::as_raw(self), fuflags, pwszextension.into_param().abi(), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, ::core::mem::transmute(abmac.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.ExamineData)(::windows_core::Interface::as_raw(self), fuflags, pwszextension.into_param().abi(), ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), ::core::mem::transmute(abmac.as_ptr())).ok()
     }
     pub unsafe fn MakeDecision<P0>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P0, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: &mut [u8; 8]) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IMDSPStorageGlobals>,
     {
-        (::windows_core::Interface::vtable(self).base__.MakeDecision)(::windows_core::Interface::as_raw(self), fuflags, ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, dwappsec, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len() as _, pstorageglobals.into_param().abi(), ::core::mem::transmute(ppexchange), ::core::mem::transmute(abmac.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.MakeDecision)(::windows_core::Interface::as_raw(self), fuflags, ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), dwappsec, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len().try_into().unwrap(), pstorageglobals.into_param().abi(), ::core::mem::transmute(ppexchange), ::core::mem::transmute(abmac.as_ptr())).ok()
     }
     pub unsafe fn GetRights<P0>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: P0, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: &mut [u8; 8]) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IMDSPStorageGlobals>,
     {
-        (::windows_core::Interface::vtable(self).base__.GetRights)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len() as _, pstgglobals.into_param().abi(), pprights, pnrightscount, ::core::mem::transmute(abmac.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.GetRights)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len().try_into().unwrap(), pstgglobals.into_param().abi(), pprights, pnrightscount, ::core::mem::transmute(abmac.as_ptr())).ok()
     }
     pub unsafe fn MakeDecision2<P0, P1>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P0, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut ::windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: ::core::option::Option<*mut u64>, punknown: P1, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: &mut [u8; 8]) -> ::windows_core::Result<()>
     where
@@ -1459,15 +1459,15 @@ impl ISCPSecureQuery2 {
             ::windows_core::Interface::as_raw(self),
             fuflags,
             ::core::mem::transmute(pdata.as_ptr()),
-            pdata.len() as _,
+            pdata.len().try_into().unwrap(),
             dwappsec,
             ::core::mem::transmute(pbspsessionkey.as_ptr()),
-            pbspsessionkey.len() as _,
+            pbspsessionkey.len().try_into().unwrap(),
             pstorageglobals.into_param().abi(),
             ::core::mem::transmute(pappcertapp.as_ptr()),
-            pappcertapp.len() as _,
+            pappcertapp.len().try_into().unwrap(),
             ::core::mem::transmute(pappcertsp.as_ptr()),
-            pappcertsp.len() as _,
+            pappcertsp.len().try_into().unwrap(),
             pszrevocationurl,
             pdwrevocationurllen,
             pdwrevocationbitflag,
@@ -1503,19 +1503,19 @@ impl ISCPSecureQuery3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.ExamineData)(::windows_core::Interface::as_raw(self), fuflags, pwszextension.into_param().abi(), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, ::core::mem::transmute(abmac.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.ExamineData)(::windows_core::Interface::as_raw(self), fuflags, pwszextension.into_param().abi(), ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), ::core::mem::transmute(abmac.as_ptr())).ok()
     }
     pub unsafe fn MakeDecision<P0>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P0, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: &mut [u8; 8]) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IMDSPStorageGlobals>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.MakeDecision)(::windows_core::Interface::as_raw(self), fuflags, ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, dwappsec, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len() as _, pstorageglobals.into_param().abi(), ::core::mem::transmute(ppexchange), ::core::mem::transmute(abmac.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.MakeDecision)(::windows_core::Interface::as_raw(self), fuflags, ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), dwappsec, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len().try_into().unwrap(), pstorageglobals.into_param().abi(), ::core::mem::transmute(ppexchange), ::core::mem::transmute(abmac.as_ptr())).ok()
     }
     pub unsafe fn GetRights<P0>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: P0, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: &mut [u8; 8]) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IMDSPStorageGlobals>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.GetRights)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len() as _, pstgglobals.into_param().abi(), pprights, pnrightscount, ::core::mem::transmute(abmac.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.GetRights)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len().try_into().unwrap(), pstgglobals.into_param().abi(), pprights, pnrightscount, ::core::mem::transmute(abmac.as_ptr())).ok()
     }
     pub unsafe fn MakeDecision2<P0, P1>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P0, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut ::windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: ::core::option::Option<*mut u64>, punknown: P1, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: &mut [u8; 8]) -> ::windows_core::Result<()>
     where
@@ -1526,15 +1526,15 @@ impl ISCPSecureQuery3 {
             ::windows_core::Interface::as_raw(self),
             fuflags,
             ::core::mem::transmute(pdata.as_ptr()),
-            pdata.len() as _,
+            pdata.len().try_into().unwrap(),
             dwappsec,
             ::core::mem::transmute(pbspsessionkey.as_ptr()),
-            pbspsessionkey.len() as _,
+            pbspsessionkey.len().try_into().unwrap(),
             pstorageglobals.into_param().abi(),
             ::core::mem::transmute(pappcertapp.as_ptr()),
-            pappcertapp.len() as _,
+            pappcertapp.len().try_into().unwrap(),
             ::core::mem::transmute(pappcertsp.as_ptr()),
-            pappcertsp.len() as _,
+            pappcertsp.len().try_into().unwrap(),
             pszrevocationurl,
             pdwrevocationurllen,
             pdwrevocationbitflag,
@@ -1550,7 +1550,7 @@ impl ISCPSecureQuery3 {
         P0: ::windows_core::IntoParam<IMDSPStorageGlobals>,
         P1: ::windows_core::IntoParam<IWMDMProgress3>,
     {
-        (::windows_core::Interface::vtable(self).GetRightsOnClearChannel)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len() as _, pstgglobals.into_param().abi(), pprogresscallback.into_param().abi(), pprights, pnrightscount).ok()
+        (::windows_core::Interface::vtable(self).GetRightsOnClearChannel)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len().try_into().unwrap(), pstgglobals.into_param().abi(), pprogresscallback.into_param().abi(), pprights, pnrightscount).ok()
     }
     pub unsafe fn MakeDecisionOnClearChannel<P0, P1, P2>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P0, pprogresscallback: P1, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut ::windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: ::core::option::Option<*mut u64>, punknown: P2, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>) -> ::windows_core::Result<()>
     where
@@ -1562,16 +1562,16 @@ impl ISCPSecureQuery3 {
             ::windows_core::Interface::as_raw(self),
             fuflags,
             ::core::mem::transmute(pdata.as_ptr()),
-            pdata.len() as _,
+            pdata.len().try_into().unwrap(),
             dwappsec,
             ::core::mem::transmute(pbspsessionkey.as_ptr()),
-            pbspsessionkey.len() as _,
+            pbspsessionkey.len().try_into().unwrap(),
             pstorageglobals.into_param().abi(),
             pprogresscallback.into_param().abi(),
             ::core::mem::transmute(pappcertapp.as_ptr()),
-            pappcertapp.len() as _,
+            pappcertapp.len().try_into().unwrap(),
             ::core::mem::transmute(pappcertsp.as_ptr()),
-            pappcertsp.len() as _,
+            pappcertsp.len().try_into().unwrap(),
             pszrevocationurl,
             pdwrevocationurllen,
             pdwrevocationbitflag,
@@ -1604,10 +1604,10 @@ impl ISCPSession {
     where
         P0: ::windows_core::IntoParam<IMDSPDevice>,
     {
-        (::windows_core::Interface::vtable(self).BeginSession)(::windows_core::Interface::as_raw(self), pidevice.into_param().abi(), ::core::mem::transmute(pctx.as_ptr()), pctx.len() as _).ok()
+        (::windows_core::Interface::vtable(self).BeginSession)(::windows_core::Interface::as_raw(self), pidevice.into_param().abi(), ::core::mem::transmute(pctx.as_ptr()), pctx.len().try_into().unwrap()).ok()
     }
     pub unsafe fn EndSession(&self, pctx: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).EndSession)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pctx.as_ptr()), pctx.len() as _).ok()
+        (::windows_core::Interface::vtable(self).EndSession)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pctx.as_ptr()), pctx.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetSecureQuery(&self) -> ::windows_core::Result<ISCPSecureQuery> {
         let mut result__ = ::std::mem::zeroed();
@@ -1634,10 +1634,10 @@ pub struct ISCPSession_Vtbl {
 pub struct IWMDMDevice(::windows_core::IUnknown);
 impl IWMDMDevice {
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetManufacturer(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetManufacturer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).GetManufacturer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetVersion(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -1705,10 +1705,10 @@ pub struct IWMDMDevice_Vtbl {
 pub struct IWMDMDevice2(::windows_core::IUnknown);
 impl IWMDMDevice2 {
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetManufacturer(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetManufacturer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.GetManufacturer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetVersion(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -1762,7 +1762,7 @@ impl IWMDMDevice2 {
         (::windows_core::Interface::vtable(self).GetSpecifyPropertyPages)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppspecifyproppages), pppunknowns, pcunks).ok()
     }
     pub unsafe fn GetCanonicalName(&self, pwszpnpname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetCanonicalName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszpnpname.as_ptr()), pwszpnpname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).GetCanonicalName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszpnpname.as_ptr()), pwszpnpname.len().try_into().unwrap()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWMDMDevice2, ::windows_core::IUnknown, IWMDMDevice);
@@ -1792,10 +1792,10 @@ pub struct IWMDMDevice2_Vtbl {
 pub struct IWMDMDevice3(::windows_core::IUnknown);
 impl IWMDMDevice3 {
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetManufacturer(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.GetManufacturer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.GetManufacturer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetVersion(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -1849,7 +1849,7 @@ impl IWMDMDevice3 {
         (::windows_core::Interface::vtable(self).base__.GetSpecifyPropertyPages)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppspecifyproppages), pppunknowns, pcunks).ok()
     }
     pub unsafe fn GetCanonicalName(&self, pwszpnpname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetCanonicalName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszpnpname.as_ptr()), pwszpnpname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.GetCanonicalName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszpnpname.as_ptr()), pwszpnpname.len().try_into().unwrap()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -1875,7 +1875,7 @@ impl IWMDMDevice3 {
         (::windows_core::Interface::vtable(self).GetFormatCapability)(::windows_core::Interface::as_raw(self), format, &mut result__).from_abi(result__)
     }
     pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: &[u8], lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).DeviceIoControl)(::windows_core::Interface::as_raw(self), dwiocontrolcode, ::core::mem::transmute(lpinbuffer.as_ptr()), lpinbuffer.len() as _, lpoutbuffer, pnoutbuffersize).ok()
+        (::windows_core::Interface::vtable(self).DeviceIoControl)(::windows_core::Interface::as_raw(self), dwiocontrolcode, ::core::mem::transmute(lpinbuffer.as_ptr()), lpinbuffer.len().try_into().unwrap(), lpoutbuffer, pnoutbuffersize).ok()
     }
     pub unsafe fn FindStorage<P0>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P0) -> ::windows_core::Result<IWMDMStorage>
     where
@@ -1972,10 +1972,10 @@ pub struct IWMDMDeviceControl_Vtbl {
 pub struct IWMDMDeviceSession(::windows_core::IUnknown);
 impl IWMDMDeviceSession {
     pub unsafe fn BeginSession(&self, r#type: WMDM_SESSION_TYPE, pctx: ::core::option::Option<&[u8]>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).BeginSession)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pctx.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pctx.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+        (::windows_core::Interface::vtable(self).BeginSession)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pctx.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pctx.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
     }
     pub unsafe fn EndSession(&self, r#type: WMDM_SESSION_TYPE, pctx: ::core::option::Option<&[u8]>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).EndSession)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pctx.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pctx.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+        (::windows_core::Interface::vtable(self).EndSession)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pctx.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pctx.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWMDMDeviceSession, ::windows_core::IUnknown);
@@ -1997,7 +1997,7 @@ pub struct IWMDMDeviceSession_Vtbl {
 pub struct IWMDMEnumDevice(::windows_core::IUnknown);
 impl IWMDMEnumDevice {
     pub unsafe fn Next(&self, ppdevice: &mut [::core::option::Option<IWMDMDevice>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppdevice.len() as _, ::core::mem::transmute(ppdevice.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppdevice.len().try_into().unwrap(), ::core::mem::transmute(ppdevice.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -2032,7 +2032,7 @@ pub struct IWMDMEnumDevice_Vtbl {
 pub struct IWMDMEnumStorage(::windows_core::IUnknown);
 impl IWMDMEnumStorage {
     pub unsafe fn Next(&self, ppstorage: &mut [::core::option::Option<IWMDMStorage>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppstorage.len() as _, ::core::mem::transmute(ppstorage.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppstorage.len().try_into().unwrap(), ::core::mem::transmute(ppstorage.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -2148,7 +2148,7 @@ impl IWMDMMetaData {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).AddItem)(::windows_core::Interface::as_raw(self), r#type, pwsztagname.into_param().abi(), ::core::mem::transmute(pvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvalue.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+        (::windows_core::Interface::vtable(self).AddItem)(::windows_core::Interface::as_raw(self), r#type, pwsztagname.into_param().abi(), ::core::mem::transmute(pvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvalue.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
     }
     pub unsafe fn QueryByName<P0>(&self, pwsztagname: P0, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows_core::Result<()>
     where
@@ -2265,10 +2265,10 @@ impl IWMDMOperation {
         (::windows_core::Interface::vtable(self).BeginWrite)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetObjectName(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetObjectName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).GetObjectName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn SetObjectName(&self, pwszname: &[u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetObjectName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetObjectName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
@@ -2335,10 +2335,10 @@ impl IWMDMOperation2 {
         (::windows_core::Interface::vtable(self).base__.BeginWrite)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetObjectName(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetObjectName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.GetObjectName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn SetObjectName(&self, pwszname: &[u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.SetObjectName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.SetObjectName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
@@ -2407,10 +2407,10 @@ impl IWMDMOperation3 {
         (::windows_core::Interface::vtable(self).base__.BeginWrite)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetObjectName(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetObjectName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.GetObjectName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn SetObjectName(&self, pwszname: &[u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.SetObjectName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.SetObjectName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
@@ -2594,7 +2594,7 @@ impl IWMDMStorage {
         (::windows_core::Interface::vtable(self).GetAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetDate(&self) -> ::windows_core::Result<WMDMDATETIME> {
         let mut result__ = ::std::mem::zeroed();
@@ -2660,7 +2660,7 @@ impl IWMDMStorage2 {
         (::windows_core::Interface::vtable(self).base__.GetAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetDate(&self) -> ::windows_core::Result<WMDMDATETIME> {
         let mut result__ = ::std::mem::zeroed();
@@ -2737,7 +2737,7 @@ impl IWMDMStorage3 {
         (::windows_core::Interface::vtable(self).base__.base__.GetAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetDate(&self) -> ::windows_core::Result<WMDMDATETIME> {
         let mut result__ = ::std::mem::zeroed();
@@ -2788,7 +2788,7 @@ impl IWMDMStorage3 {
         (::windows_core::Interface::vtable(self).CreateEmptyMetadataObject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEnumPreference(&self, pmode: *mut WMDM_STORAGE_ENUM_MODE, pviews: ::core::option::Option<&[WMDMMetadataView]>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetEnumPreference)(::windows_core::Interface::as_raw(self), pmode, pviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+        (::windows_core::Interface::vtable(self).SetEnumPreference)(::windows_core::Interface::as_raw(self), pmode, pviews.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWMDMStorage3, ::windows_core::IUnknown, IWMDMStorage, IWMDMStorage2);
@@ -2826,7 +2826,7 @@ impl IWMDMStorage4 {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetAttributes)(::windows_core::Interface::as_raw(self), pdwattributes, ::core::mem::transmute(pformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetDate(&self) -> ::windows_core::Result<WMDMDATETIME> {
         let mut result__ = ::std::mem::zeroed();
@@ -2877,10 +2877,10 @@ impl IWMDMStorage4 {
         (::windows_core::Interface::vtable(self).base__.CreateEmptyMetadataObject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEnumPreference(&self, pmode: *mut WMDM_STORAGE_ENUM_MODE, pviews: ::core::option::Option<&[WMDMMetadataView]>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.SetEnumPreference)(::windows_core::Interface::as_raw(self), pmode, pviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+        (::windows_core::Interface::vtable(self).base__.SetEnumPreference)(::windows_core::Interface::as_raw(self), pmode, pviews.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn SetReferences(&self, ppiwmdmstorage: ::core::option::Option<&[::core::option::Option<IWMDMStorage>]>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetReferences)(::windows_core::Interface::as_raw(self), ppiwmdmstorage.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppiwmdmstorage.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+        (::windows_core::Interface::vtable(self).SetReferences)(::windows_core::Interface::as_raw(self), ppiwmdmstorage.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(ppiwmdmstorage.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn GetReferences(&self, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut ::core::option::Option<IWMDMStorage>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetReferences)(::windows_core::Interface::as_raw(self), pdwrefs, pppiwmdmstorage).ok()
@@ -2893,7 +2893,7 @@ impl IWMDMStorage4 {
     }
     pub unsafe fn GetSpecifiedMetadata(&self, ppwszpropnames: &[::windows_core::PCWSTR]) -> ::windows_core::Result<IWMDMMetaData> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSpecifiedMetadata)(::windows_core::Interface::as_raw(self), ppwszpropnames.len() as _, ::core::mem::transmute(ppwszpropnames.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSpecifiedMetadata)(::windows_core::Interface::as_raw(self), ppwszpropnames.len().try_into().unwrap(), ::core::mem::transmute(ppwszpropnames.as_ptr()), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindStorage<P0>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P0) -> ::windows_core::Result<IWMDMStorage>
     where

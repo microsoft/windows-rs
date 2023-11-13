@@ -2389,7 +2389,7 @@ impl TensorBoolean {
     {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -2407,7 +2407,7 @@ impl TensorBoolean {
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[bool]) -> ::windows_core::Result<TensorBoolean> {
         Self::ITensorBooleanStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -2418,7 +2418,7 @@ impl TensorBoolean {
     {
         Self::ITensorBooleanStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2529,7 +2529,7 @@ impl TensorDouble {
     {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -2547,7 +2547,7 @@ impl TensorDouble {
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[f64]) -> ::windows_core::Result<TensorDouble> {
         Self::ITensorDoubleStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -2558,7 +2558,7 @@ impl TensorDouble {
     {
         Self::ITensorDoubleStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2734,7 +2734,7 @@ impl TensorFloat {
     {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -2752,7 +2752,7 @@ impl TensorFloat {
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[f32]) -> ::windows_core::Result<TensorFloat> {
         Self::ITensorFloatStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -2763,7 +2763,7 @@ impl TensorFloat {
     {
         Self::ITensorFloatStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2874,7 +2874,7 @@ impl TensorFloat16Bit {
     {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -2892,7 +2892,7 @@ impl TensorFloat16Bit {
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[f32]) -> ::windows_core::Result<TensorFloat16Bit> {
         Self::ITensorFloat16BitStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -2903,7 +2903,7 @@ impl TensorFloat16Bit {
     {
         Self::ITensorFloat16BitStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3014,7 +3014,7 @@ impl TensorInt16Bit {
     {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -3032,7 +3032,7 @@ impl TensorInt16Bit {
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[i16]) -> ::windows_core::Result<TensorInt16Bit> {
         Self::ITensorInt16BitStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -3043,7 +3043,7 @@ impl TensorInt16Bit {
     {
         Self::ITensorInt16BitStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3154,7 +3154,7 @@ impl TensorInt32Bit {
     {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -3172,7 +3172,7 @@ impl TensorInt32Bit {
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[i32]) -> ::windows_core::Result<TensorInt32Bit> {
         Self::ITensorInt32BitStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -3183,7 +3183,7 @@ impl TensorInt32Bit {
     {
         Self::ITensorInt32BitStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3294,7 +3294,7 @@ impl TensorInt64Bit {
     {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -3312,7 +3312,7 @@ impl TensorInt64Bit {
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[i64]) -> ::windows_core::Result<TensorInt64Bit> {
         Self::ITensorInt64BitStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -3323,7 +3323,7 @@ impl TensorInt64Bit {
     {
         Self::ITensorInt64BitStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3434,7 +3434,7 @@ impl TensorInt8Bit {
     {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -3452,7 +3452,7 @@ impl TensorInt8Bit {
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u8]) -> ::windows_core::Result<TensorInt8Bit> {
         Self::ITensorInt8BitStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -3463,7 +3463,7 @@ impl TensorInt8Bit {
     {
         Self::ITensorInt8BitStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3574,7 +3574,7 @@ impl TensorString {
     {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into()?, ::core::mem::transmute(data.as_ptr()), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into().unwrap(), ::core::mem::transmute(data.as_ptr()), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -3592,7 +3592,7 @@ impl TensorString {
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[::windows_core::HSTRING]) -> ::windows_core::Result<TensorString> {
         Self::ITensorStringStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), data.len().try_into()?, ::core::mem::transmute(data.as_ptr()), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), ::core::mem::transmute(data.as_ptr()), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3703,7 +3703,7 @@ impl TensorUInt16Bit {
     {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -3721,7 +3721,7 @@ impl TensorUInt16Bit {
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u16]) -> ::windows_core::Result<TensorUInt16Bit> {
         Self::ITensorUInt16BitStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -3732,7 +3732,7 @@ impl TensorUInt16Bit {
     {
         Self::ITensorUInt16BitStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3843,7 +3843,7 @@ impl TensorUInt32Bit {
     {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -3861,7 +3861,7 @@ impl TensorUInt32Bit {
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u32]) -> ::windows_core::Result<TensorUInt32Bit> {
         Self::ITensorUInt32BitStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -3872,7 +3872,7 @@ impl TensorUInt32Bit {
     {
         Self::ITensorUInt32BitStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3983,7 +3983,7 @@ impl TensorUInt64Bit {
     {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -4001,7 +4001,7 @@ impl TensorUInt64Bit {
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u64]) -> ::windows_core::Result<TensorUInt64Bit> {
         Self::ITensorUInt64BitStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -4012,7 +4012,7 @@ impl TensorUInt64Bit {
     {
         Self::ITensorUInt64BitStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -4123,7 +4123,7 @@ impl TensorUInt8Bit {
     {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.try_into_param()?.abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -4141,7 +4141,7 @@ impl TensorUInt8Bit {
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u8]) -> ::windows_core::Result<TensorUInt8Bit> {
         Self::ITensorUInt8BitStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), data.len().try_into()?, data.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -4152,7 +4152,7 @@ impl TensorUInt8Bit {
     {
         Self::ITensorUInt8BitStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into()?, shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

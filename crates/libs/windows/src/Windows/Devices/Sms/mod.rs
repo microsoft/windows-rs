@@ -79,7 +79,7 @@ impl ISmsBinaryMessage {
     #[cfg(feature = "deprecated")]
     pub fn SetData(&self, value: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetData)(::windows_core::Interface::as_raw(this), value.len().try_into()?, value.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetData)(::windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
     pub fn Id(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<ISmsMessage>(self)?;
@@ -2213,7 +2213,7 @@ impl SmsBinaryMessage {
     #[cfg(feature = "deprecated")]
     pub fn SetData(&self, value: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetData)(::windows_core::Interface::as_raw(this), value.len().try_into()?, value.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetData)(::windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
     pub fn Id(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<ISmsMessage>(self)?;
@@ -3536,7 +3536,7 @@ impl SmsTextMessage {
     pub fn FromBinaryData(format: SmsDataFormat, value: &[u8]) -> ::windows_core::Result<SmsTextMessage> {
         Self::ISmsTextMessageStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FromBinaryData)(::windows_core::Interface::as_raw(this), format, value.len().try_into()?, value.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FromBinaryData)(::windows_core::Interface::as_raw(this), format, value.len().try_into().unwrap(), value.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

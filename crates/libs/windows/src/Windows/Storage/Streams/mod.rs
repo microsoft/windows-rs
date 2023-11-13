@@ -159,7 +159,7 @@ impl IDataReader {
     }
     pub fn ReadBytes(&self, value: &mut [u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).ReadBytes)(::windows_core::Interface::as_raw(this), value.len().try_into()?, value.as_mut_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).ReadBytes)(::windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_mut_ptr()).ok() }
     }
     pub fn ReadBuffer(&self, length: u32) -> ::windows_core::Result<IBuffer> {
         let this = self;
@@ -408,7 +408,7 @@ impl IDataWriter {
     }
     pub fn WriteBytes(&self, value: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).WriteBytes)(::windows_core::Interface::as_raw(this), value.len().try_into()?, value.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).WriteBytes)(::windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
     pub fn WriteBuffer<P0>(&self, buffer: P0) -> ::windows_core::Result<()>
     where
@@ -1299,7 +1299,7 @@ impl DataReader {
     }
     pub fn ReadBytes(&self, value: &mut [u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).ReadBytes)(::windows_core::Interface::as_raw(this), value.len().try_into()?, value.as_mut_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).ReadBytes)(::windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_mut_ptr()).ok() }
     }
     pub fn ReadBuffer(&self, length: u32) -> ::windows_core::Result<IBuffer> {
         let this = self;
@@ -1656,7 +1656,7 @@ impl DataWriter {
     }
     pub fn WriteBytes(&self, value: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).WriteBytes)(::windows_core::Interface::as_raw(this), value.len().try_into()?, value.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).WriteBytes)(::windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
     pub fn WriteBuffer<P0>(&self, buffer: P0) -> ::windows_core::Result<()>
     where

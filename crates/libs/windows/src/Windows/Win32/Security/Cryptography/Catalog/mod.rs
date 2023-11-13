@@ -47,7 +47,7 @@ where
 #[inline]
 pub unsafe fn CryptCATAdminEnumCatalogFromHash(hcatadmin: isize, pbhash: &[u8], dwflags: u32, phprevcatinfo: ::core::option::Option<*mut isize>) -> isize {
     ::windows_targets::link!("wintrust.dll" "system" fn CryptCATAdminEnumCatalogFromHash(hcatadmin : isize, pbhash : *const u8, cbhash : u32, dwflags : u32, phprevcatinfo : *mut isize) -> isize);
-    CryptCATAdminEnumCatalogFromHash(hcatadmin, ::core::mem::transmute(pbhash.as_ptr()), pbhash.len() as _, dwflags, ::core::mem::transmute(phprevcatinfo.unwrap_or(::std::ptr::null_mut())))
+    CryptCATAdminEnumCatalogFromHash(hcatadmin, ::core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), dwflags, ::core::mem::transmute(phprevcatinfo.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

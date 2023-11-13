@@ -179,7 +179,7 @@ impl IEnhancedStorageSilo {
         (::windows_core::Interface::vtable(self).GetActions)(::windows_core::Interface::as_raw(self), pppienhancedstoragesiloactions, pcenhancedstoragesiloactions).ok()
     }
     pub unsafe fn SendCommand(&self, command: u8, pbcommandbuffer: &[u8], pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SendCommand)(::windows_core::Interface::as_raw(self), command, ::core::mem::transmute(pbcommandbuffer.as_ptr()), pbcommandbuffer.len() as _, pbresponsebuffer, pcbresponsebuffer).ok()
+        (::windows_core::Interface::vtable(self).SendCommand)(::windows_core::Interface::as_raw(self), command, ::core::mem::transmute(pbcommandbuffer.as_ptr()), pbcommandbuffer.len().try_into().unwrap(), pbresponsebuffer, pcbresponsebuffer).ok()
     }
     #[doc = "Required features: `\"Win32_Devices_PortableDevices\"`"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]

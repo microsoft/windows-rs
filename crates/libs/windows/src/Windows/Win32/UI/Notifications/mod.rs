@@ -7,7 +7,7 @@ impl INotificationActivationCallback {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).Activate)(::windows_core::Interface::as_raw(self), appusermodelid.into_param().abi(), invokedargs.into_param().abi(), ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
+        (::windows_core::Interface::vtable(self).Activate)(::windows_core::Interface::as_raw(self), appusermodelid.into_param().abi(), invokedargs.into_param().abi(), ::core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(INotificationActivationCallback, ::windows_core::IUnknown);

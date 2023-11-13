@@ -16,7 +16,7 @@ pub unsafe fn JsBooleanToBool(value: *const ::core::ffi::c_void, boolvalue: *mut
 #[inline]
 pub unsafe fn JsCallFunction(function: *const ::core::ffi::c_void, arguments: &[*const ::core::ffi::c_void], result: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> JsErrorCode {
     ::windows_targets::link!("chakra.dll" "system" fn JsCallFunction(function : *const ::core::ffi::c_void, arguments : *const *const ::core::ffi::c_void, argumentcount : u16, result : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
-    JsCallFunction(function, ::core::mem::transmute(arguments.as_ptr()), arguments.len() as _, ::core::mem::transmute(result.unwrap_or(::std::ptr::null_mut())))
+    JsCallFunction(function, ::core::mem::transmute(arguments.as_ptr()), arguments.len().try_into().unwrap(), ::core::mem::transmute(result.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn JsCollectGarbage(runtime: *const ::core::ffi::c_void) -> JsErrorCode {
@@ -26,7 +26,7 @@ pub unsafe fn JsCollectGarbage(runtime: *const ::core::ffi::c_void) -> JsErrorCo
 #[inline]
 pub unsafe fn JsConstructObject(function: *const ::core::ffi::c_void, arguments: &[*const ::core::ffi::c_void], result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows_targets::link!("chakra.dll" "system" fn JsConstructObject(function : *const ::core::ffi::c_void, arguments : *const *const ::core::ffi::c_void, argumentcount : u16, result : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
-    JsConstructObject(function, ::core::mem::transmute(arguments.as_ptr()), arguments.len() as _, result)
+    JsConstructObject(function, ::core::mem::transmute(arguments.as_ptr()), arguments.len().try_into().unwrap(), result)
 }
 #[inline]
 pub unsafe fn JsConvertValueToBoolean(value: *const ::core::ffi::c_void, booleanvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
@@ -346,7 +346,7 @@ where
 #[inline]
 pub unsafe fn JsPointerToString(stringvalue: &[u16], value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows_targets::link!("chakra.dll" "system" fn JsPointerToString(stringvalue : ::windows_core::PCWSTR, stringlength : usize, value : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
-    JsPointerToString(::core::mem::transmute(stringvalue.as_ptr()), stringvalue.len() as _, value)
+    JsPointerToString(::core::mem::transmute(stringvalue.as_ptr()), stringvalue.len().try_into().unwrap(), value)
 }
 #[inline]
 pub unsafe fn JsPreventExtension(object: *const ::core::ffi::c_void) -> JsErrorCode {

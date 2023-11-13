@@ -90,7 +90,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("fltlib.dll" "system" fn FilterGetDosName(lpvolumename : ::windows_core::PCWSTR, lpdosname : ::windows_core::PWSTR, dwdosnamebuffersize : u32) -> ::windows_core::HRESULT);
-    FilterGetDosName(lpvolumename.into_param().abi(), ::core::mem::transmute(lpdosname.as_ptr()), lpdosname.len() as _).ok()
+    FilterGetDosName(lpvolumename.into_param().abi(), ::core::mem::transmute(lpdosname.as_ptr()), lpdosname.len().try_into().unwrap()).ok()
 }
 #[inline]
 pub unsafe fn FilterGetInformation<P0>(hfilter: P0, dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows_core::Result<()>

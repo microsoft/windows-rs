@@ -6,7 +6,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("avifil32.dll" "system" fn AVIBuildFilterA(lpszfilter : ::windows_core::PSTR, cbfilter : i32, fsaving : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
-    AVIBuildFilterA(::core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len() as _, fsaving.into_param().abi()).ok()
+    AVIBuildFilterA(::core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.into_param().abi()).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16,7 +16,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("avifil32.dll" "system" fn AVIBuildFilterW(lpszfilter : ::windows_core::PWSTR, cbfilter : i32, fsaving : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
-    AVIBuildFilterW(::core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len() as _, fsaving.into_param().abi()).ok()
+    AVIBuildFilterW(::core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.into_param().abi()).ok()
 }
 #[inline]
 pub unsafe fn AVIClearClipboard() -> ::windows_core::Result<()> {
@@ -150,7 +150,7 @@ where
 #[inline]
 pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut ::core::option::Option<IAVIFile>, papstreams: &[::core::option::Option<IAVIStream>]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("avifil32.dll" "system" fn AVIMakeFileFromStreams(ppfile : *mut * mut::core::ffi::c_void, nstreams : i32, papstreams : *const * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
-    AVIMakeFileFromStreams(::core::mem::transmute(ppfile), papstreams.len() as _, ::core::mem::transmute(papstreams.as_ptr())).ok()
+    AVIMakeFileFromStreams(::core::mem::transmute(ppfile), papstreams.len().try_into().unwrap(), ::core::mem::transmute(papstreams.as_ptr())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -195,7 +195,7 @@ where
 #[inline]
 pub unsafe fn AVISaveOptionsFree(plpoptions: &[*const AVICOMPRESSOPTIONS]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("avifil32.dll" "system" fn AVISaveOptionsFree(nstreams : i32, plpoptions : *const *const AVICOMPRESSOPTIONS) -> ::windows_core::HRESULT);
-    AVISaveOptionsFree(plpoptions.len() as _, ::core::mem::transmute(plpoptions.as_ptr())).ok()
+    AVISaveOptionsFree(plpoptions.len().try_into().unwrap(), ::core::mem::transmute(plpoptions.as_ptr())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -462,7 +462,7 @@ where
 #[inline]
 pub unsafe fn DrawDibChangePalette(hdd: isize, istart: i32, lppe: &[super::super::Graphics::Gdi::PALETTEENTRY]) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msvfw32.dll" "system" fn DrawDibChangePalette(hdd : isize, istart : i32, ilen : i32, lppe : *const super::super::Graphics::Gdi:: PALETTEENTRY) -> super::super::Foundation:: BOOL);
-    DrawDibChangePalette(hdd, istart, lppe.len() as _, ::core::mem::transmute(lppe.as_ptr()))
+    DrawDibChangePalette(hdd, istart, lppe.len().try_into().unwrap(), ::core::mem::transmute(lppe.as_ptr()))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -957,14 +957,14 @@ where
 #[inline]
 pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: &mut [u8], lpszver: &mut [u8]) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("avicap32.dll" "system" fn capGetDriverDescriptionA(wdriverindex : u32, lpszname : ::windows_core::PSTR, cbname : i32, lpszver : ::windows_core::PSTR, cbver : i32) -> super::super::Foundation:: BOOL);
-    capGetDriverDescriptionA(wdriverindex, ::core::mem::transmute(lpszname.as_ptr()), lpszname.len() as _, ::core::mem::transmute(lpszver.as_ptr()), lpszver.len() as _)
+    capGetDriverDescriptionA(wdriverindex, ::core::mem::transmute(lpszname.as_ptr()), lpszname.len().try_into().unwrap(), ::core::mem::transmute(lpszver.as_ptr()), lpszver.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: &mut [u16], lpszver: &mut [u16]) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("avicap32.dll" "system" fn capGetDriverDescriptionW(wdriverindex : u32, lpszname : ::windows_core::PWSTR, cbname : i32, lpszver : ::windows_core::PWSTR, cbver : i32) -> super::super::Foundation:: BOOL);
-    capGetDriverDescriptionW(wdriverindex, ::core::mem::transmute(lpszname.as_ptr()), lpszname.len() as _, ::core::mem::transmute(lpszver.as_ptr()), lpszver.len() as _)
+    capGetDriverDescriptionW(wdriverindex, ::core::mem::transmute(lpszname.as_ptr()), lpszname.len().try_into().unwrap(), ::core::mem::transmute(lpszver.as_ptr()), lpszver.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32 {
@@ -1086,14 +1086,14 @@ pub unsafe fn mciGetDriverData(wdeviceid: u32) -> usize {
 #[inline]
 pub unsafe fn mciGetErrorStringA(mcierr: u32, psztext: &mut [u8]) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("winmm.dll" "system" fn mciGetErrorStringA(mcierr : u32, psztext : ::windows_core::PSTR, cchtext : u32) -> super::super::Foundation:: BOOL);
-    mciGetErrorStringA(mcierr, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
+    mciGetErrorStringA(mcierr, ::core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetErrorStringW(mcierr: u32, psztext: &mut [u16]) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("winmm.dll" "system" fn mciGetErrorStringW(mcierr : u32, psztext : ::windows_core::PWSTR, cchtext : u32) -> super::super::Foundation:: BOOL);
-    mciGetErrorStringW(mcierr, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
+    mciGetErrorStringW(mcierr, ::core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC {
@@ -1130,7 +1130,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("winmm.dll" "system" fn mciSendStringA(lpstrcommand : ::windows_core::PCSTR, lpstrreturnstring : ::windows_core::PSTR, ureturnlength : u32, hwndcallback : super::super::Foundation:: HWND) -> u32);
-    mciSendStringA(lpstrcommand.into_param().abi(), ::core::mem::transmute(lpstrreturnstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len() as _), hwndcallback.into_param().abi())
+    mciSendStringA(lpstrcommand.into_param().abi(), ::core::mem::transmute(lpstrreturnstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), hwndcallback.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1141,7 +1141,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("winmm.dll" "system" fn mciSendStringW(lpstrcommand : ::windows_core::PCWSTR, lpstrreturnstring : ::windows_core::PWSTR, ureturnlength : u32, hwndcallback : super::super::Foundation:: HWND) -> u32);
-    mciSendStringW(lpstrcommand.into_param().abi(), ::core::mem::transmute(lpstrreturnstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len() as _), hwndcallback.into_param().abi())
+    mciSendStringW(lpstrcommand.into_param().abi(), ::core::mem::transmute(lpstrreturnstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), hwndcallback.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1289,7 +1289,7 @@ where
     P0: ::windows_core::IntoParam<HMMIO>,
 {
     ::windows_targets::link!("winmm.dll" "system" fn mmioRead(hmmio : HMMIO, pch : *mut i8, cch : i32) -> i32);
-    mmioRead(hmmio.into_param().abi(), ::core::mem::transmute(pch.as_ptr()), pch.len() as _)
+    mmioRead(hmmio.into_param().abi(), ::core::mem::transmute(pch.as_ptr()), pch.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1339,7 +1339,7 @@ where
     P0: ::windows_core::IntoParam<HMMIO>,
 {
     ::windows_targets::link!("winmm.dll" "system" fn mmioSetBuffer(hmmio : HMMIO, pchbuffer : ::windows_core::PSTR, cchbuffer : i32, fubuffer : u32) -> u32);
-    mmioSetBuffer(hmmio.into_param().abi(), ::core::mem::transmute(pchbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pchbuffer.as_deref().map_or(0, |slice| slice.len() as _), fubuffer)
+    mmioSetBuffer(hmmio.into_param().abi(), ::core::mem::transmute(pchbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pchbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), fubuffer)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1373,7 +1373,7 @@ where
     P0: ::windows_core::IntoParam<HMMIO>,
 {
     ::windows_targets::link!("winmm.dll" "system" fn mmioWrite(hmmio : HMMIO, pch : ::windows_core::PCSTR, cch : i32) -> i32);
-    mmioWrite(hmmio.into_param().abi(), ::core::mem::transmute(pch.as_ptr()), pch.len() as _)
+    mmioWrite(hmmio.into_param().abi(), ::core::mem::transmute(pch.as_ptr()), pch.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

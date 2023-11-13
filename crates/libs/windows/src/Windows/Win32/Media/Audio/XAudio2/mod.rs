@@ -47,7 +47,7 @@ impl IXAPO {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self))
     }
     pub unsafe fn LockForProcess(&self, pinputlockedparameters: ::core::option::Option<&[XAPO_LOCKFORPROCESS_PARAMETERS]>, poutputlockedparameters: ::core::option::Option<&[XAPO_LOCKFORPROCESS_PARAMETERS]>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).LockForProcess)(::windows_core::Interface::as_raw(self), pinputlockedparameters.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pinputlockedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), poutputlockedparameters.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(poutputlockedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+        (::windows_core::Interface::vtable(self).LockForProcess)(::windows_core::Interface::as_raw(self), pinputlockedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pinputlockedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), poutputlockedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(poutputlockedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn UnlockForProcess(&self) {
         (::windows_core::Interface::vtable(self).UnlockForProcess)(::windows_core::Interface::as_raw(self))
@@ -58,7 +58,7 @@ impl IXAPO {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
-        (::windows_core::Interface::vtable(self).Process)(::windows_core::Interface::as_raw(self), pinputprocessparameters.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pinputprocessparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), poutputprocessparameters.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(poutputprocessparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), isenabled.into_param().abi())
+        (::windows_core::Interface::vtable(self).Process)(::windows_core::Interface::as_raw(self), pinputprocessparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pinputprocessparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), poutputprocessparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(poutputprocessparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), isenabled.into_param().abi())
     }
     pub unsafe fn CalcInputFrames(&self, outputframecount: u32) -> u32 {
         (::windows_core::Interface::vtable(self).CalcInputFrames)(::windows_core::Interface::as_raw(self), outputframecount)
@@ -355,10 +355,10 @@ impl IXAudio2MasteringVoice {
         ::std::mem::transmute(result__)
     }
     pub unsafe fn SetChannelVolumes(&self, pvolumes: &[f32], operationset: u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.SetChannelVolumes)(::windows_core::Interface::as_raw(self), pvolumes.len() as _, ::core::mem::transmute(pvolumes.as_ptr()), operationset).ok()
+        (::windows_core::Interface::vtable(self).base__.SetChannelVolumes)(::windows_core::Interface::as_raw(self), pvolumes.len().try_into().unwrap(), ::core::mem::transmute(pvolumes.as_ptr()), operationset).ok()
     }
     pub unsafe fn GetChannelVolumes(&self, pvolumes: &mut [f32]) {
-        (::windows_core::Interface::vtable(self).base__.GetChannelVolumes)(::windows_core::Interface::as_raw(self), pvolumes.len() as _, ::core::mem::transmute(pvolumes.as_ptr()))
+        (::windows_core::Interface::vtable(self).base__.GetChannelVolumes)(::windows_core::Interface::as_raw(self), pvolumes.len().try_into().unwrap(), ::core::mem::transmute(pvolumes.as_ptr()))
     }
     pub unsafe fn SetOutputMatrix<P0>(&self, pdestinationvoice: P0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows_core::Result<()>
     where
@@ -459,10 +459,10 @@ impl IXAudio2SourceVoice {
         ::std::mem::transmute(result__)
     }
     pub unsafe fn SetChannelVolumes(&self, pvolumes: &[f32], operationset: u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.SetChannelVolumes)(::windows_core::Interface::as_raw(self), pvolumes.len() as _, ::core::mem::transmute(pvolumes.as_ptr()), operationset).ok()
+        (::windows_core::Interface::vtable(self).base__.SetChannelVolumes)(::windows_core::Interface::as_raw(self), pvolumes.len().try_into().unwrap(), ::core::mem::transmute(pvolumes.as_ptr()), operationset).ok()
     }
     pub unsafe fn GetChannelVolumes(&self, pvolumes: &mut [f32]) {
-        (::windows_core::Interface::vtable(self).base__.GetChannelVolumes)(::windows_core::Interface::as_raw(self), pvolumes.len() as _, ::core::mem::transmute(pvolumes.as_ptr()))
+        (::windows_core::Interface::vtable(self).base__.GetChannelVolumes)(::windows_core::Interface::as_raw(self), pvolumes.len().try_into().unwrap(), ::core::mem::transmute(pvolumes.as_ptr()))
     }
     pub unsafe fn SetOutputMatrix<P0>(&self, pdestinationvoice: P0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows_core::Result<()>
     where
@@ -600,10 +600,10 @@ impl IXAudio2SubmixVoice {
         ::std::mem::transmute(result__)
     }
     pub unsafe fn SetChannelVolumes(&self, pvolumes: &[f32], operationset: u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.SetChannelVolumes)(::windows_core::Interface::as_raw(self), pvolumes.len() as _, ::core::mem::transmute(pvolumes.as_ptr()), operationset).ok()
+        (::windows_core::Interface::vtable(self).base__.SetChannelVolumes)(::windows_core::Interface::as_raw(self), pvolumes.len().try_into().unwrap(), ::core::mem::transmute(pvolumes.as_ptr()), operationset).ok()
     }
     pub unsafe fn GetChannelVolumes(&self, pvolumes: &mut [f32]) {
-        (::windows_core::Interface::vtable(self).base__.GetChannelVolumes)(::windows_core::Interface::as_raw(self), pvolumes.len() as _, ::core::mem::transmute(pvolumes.as_ptr()))
+        (::windows_core::Interface::vtable(self).base__.GetChannelVolumes)(::windows_core::Interface::as_raw(self), pvolumes.len().try_into().unwrap(), ::core::mem::transmute(pvolumes.as_ptr()))
     }
     pub unsafe fn SetOutputMatrix<P0>(&self, pdestinationvoice: P0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows_core::Result<()>
     where
@@ -699,10 +699,10 @@ impl IXAudio2Voice {
         ::std::mem::transmute(result__)
     }
     pub unsafe fn SetChannelVolumes(&self, pvolumes: &[f32], operationset: u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetChannelVolumes)(::windows_core::Interface::as_raw(self), pvolumes.len() as _, ::core::mem::transmute(pvolumes.as_ptr()), operationset).ok()
+        (::windows_core::Interface::vtable(self).SetChannelVolumes)(::windows_core::Interface::as_raw(self), pvolumes.len().try_into().unwrap(), ::core::mem::transmute(pvolumes.as_ptr()), operationset).ok()
     }
     pub unsafe fn GetChannelVolumes(&self, pvolumes: &mut [f32]) {
-        (::windows_core::Interface::vtable(self).GetChannelVolumes)(::windows_core::Interface::as_raw(self), pvolumes.len() as _, ::core::mem::transmute(pvolumes.as_ptr()))
+        (::windows_core::Interface::vtable(self).GetChannelVolumes)(::windows_core::Interface::as_raw(self), pvolumes.len().try_into().unwrap(), ::core::mem::transmute(pvolumes.as_ptr()))
     }
     pub unsafe fn SetOutputMatrix<P0>(&self, pdestinationvoice: P0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows_core::Result<()>
     where

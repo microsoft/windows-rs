@@ -375,7 +375,7 @@ pub unsafe fn WindowsConcatString(string1: &::windows_core::HSTRING, string2: &:
 pub unsafe fn WindowsCreateString(sourcestring: ::core::option::Option<&[u16]>) -> ::windows_core::Result<::windows_core::HSTRING> {
     ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateString(sourcestring : ::windows_core::PCWSTR, length : u32, string : *mut ::std::mem::MaybeUninit <::windows_core::HSTRING >) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WindowsCreateString(::core::mem::transmute(sourcestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), sourcestring.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
+    WindowsCreateString(::core::mem::transmute(sourcestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), sourcestring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn WindowsCreateStringReference<P0>(sourcestring: P0, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut ::windows_core::HSTRING) -> ::windows_core::Result<()>

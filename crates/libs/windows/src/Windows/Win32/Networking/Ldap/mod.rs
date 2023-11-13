@@ -13,12 +13,12 @@ pub unsafe fn LdapMapErrorToWin32(ldaperror: LDAP_RETCODE) -> ::windows_core::Re
 #[inline]
 pub unsafe fn LdapUTF8ToUnicode(lpsrcstr: &[u8], lpdeststr: &mut [u16]) -> i32 {
     ::windows_targets::link!("wldap32.dll" "cdecl" fn LdapUTF8ToUnicode(lpsrcstr : ::windows_core::PCSTR, cchsrc : i32, lpdeststr : ::windows_core::PWSTR, cchdest : i32) -> i32);
-    LdapUTF8ToUnicode(::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr.as_ptr()), lpdeststr.len() as _)
+    LdapUTF8ToUnicode(::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), ::core::mem::transmute(lpdeststr.as_ptr()), lpdeststr.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn LdapUnicodeToUTF8(lpsrcstr: &[u16], lpdeststr: &mut [u8]) -> i32 {
     ::windows_targets::link!("wldap32.dll" "cdecl" fn LdapUnicodeToUTF8(lpsrcstr : ::windows_core::PCWSTR, cchsrc : i32, lpdeststr : ::windows_core::PSTR, cchdest : i32) -> i32);
-    LdapUnicodeToUTF8(::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr.as_ptr()), lpdeststr.len() as _)
+    LdapUnicodeToUTF8(::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), ::core::mem::transmute(lpdeststr.as_ptr()), lpdeststr.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn ber_alloc_t(options: i32) -> *mut BerElement {
@@ -762,17 +762,17 @@ pub unsafe fn ldap_err2stringW(err: u32) -> ::windows_core::PWSTR {
 #[inline]
 pub unsafe fn ldap_escape_filter_element(sourcefilterelement: &[u8], destfilterelement: ::core::option::Option<&mut [u8]>) -> u32 {
     ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_escape_filter_element(sourcefilterelement : ::windows_core::PCSTR, sourcelength : u32, destfilterelement : ::windows_core::PSTR, destlength : u32) -> u32);
-    ldap_escape_filter_element(::core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len() as _, ::core::mem::transmute(destfilterelement.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), destfilterelement.as_deref().map_or(0, |slice| slice.len() as _))
+    ldap_escape_filter_element(::core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len().try_into().unwrap(), ::core::mem::transmute(destfilterelement.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), destfilterelement.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn ldap_escape_filter_elementA(sourcefilterelement: &[u8], destfilterelement: ::core::option::Option<&mut [u8]>) -> u32 {
     ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_escape_filter_elementA(sourcefilterelement : ::windows_core::PCSTR, sourcelength : u32, destfilterelement : ::windows_core::PSTR, destlength : u32) -> u32);
-    ldap_escape_filter_elementA(::core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len() as _, ::core::mem::transmute(destfilterelement.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), destfilterelement.as_deref().map_or(0, |slice| slice.len() as _))
+    ldap_escape_filter_elementA(::core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len().try_into().unwrap(), ::core::mem::transmute(destfilterelement.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), destfilterelement.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn ldap_escape_filter_elementW(sourcefilterelement: &[u8], destfilterelement: ::windows_core::PWSTR, destlength: u32) -> u32 {
     ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_escape_filter_elementW(sourcefilterelement : ::windows_core::PCSTR, sourcelength : u32, destfilterelement : ::windows_core::PWSTR, destlength : u32) -> u32);
-    ldap_escape_filter_elementW(::core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len() as _, ::core::mem::transmute(destfilterelement), destlength)
+    ldap_escape_filter_elementW(::core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len().try_into().unwrap(), ::core::mem::transmute(destfilterelement), destlength)
 }
 #[inline]
 pub unsafe fn ldap_explode_dn<P0>(dn: P0, notypes: u32) -> *mut ::windows_core::PSTR

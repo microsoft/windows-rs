@@ -412,7 +412,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("wtsapi32.dll" "system" fn WTSSendMessageA(hserver : super::super::Foundation:: HANDLE, sessionid : u32, ptitle : ::windows_core::PCSTR, titlelength : u32, pmessage : ::windows_core::PCSTR, messagelength : u32, style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE, timeout : u32, presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    WTSSendMessageA(hserver.into_param().abi(), sessionid, ::core::mem::transmute(ptitle.as_ptr()), ptitle.len() as _, ::core::mem::transmute(pmessage.as_ptr()), pmessage.len() as _, style, timeout, presponse, bwait.into_param().abi()).ok()
+    WTSSendMessageA(hserver.into_param().abi(), sessionid, ::core::mem::transmute(ptitle.as_ptr()), ptitle.len().try_into().unwrap(), ::core::mem::transmute(pmessage.as_ptr()), pmessage.len().try_into().unwrap(), style, timeout, presponse, bwait.into_param().abi()).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -459,7 +459,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("wtsapi32.dll" "system" fn WTSSetRenderHint(prenderhintid : *mut u64, hwndowner : super::super::Foundation:: HWND, renderhinttype : u32, cbhintdatalength : u32, phintdata : *const u8) -> ::windows_core::HRESULT);
-    WTSSetRenderHint(prenderhintid, hwndowner.into_param().abi(), renderhinttype, phintdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phintdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    WTSSetRenderHint(prenderhintid, hwndowner.into_param().abi(), renderhinttype, phintdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(phintdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -470,7 +470,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("wtsapi32.dll" "system" fn WTSSetUserConfigA(pservername : ::windows_core::PCSTR, pusername : ::windows_core::PCSTR, wtsconfigclass : WTS_CONFIG_CLASS, pbuffer : ::windows_core::PCSTR, datalength : u32) -> super::super::Foundation:: BOOL);
-    WTSSetUserConfigA(pservername.into_param().abi(), pusername.into_param().abi(), wtsconfigclass, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _).ok()
+    WTSSetUserConfigA(pservername.into_param().abi(), pusername.into_param().abi(), wtsconfigclass, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap()).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -623,7 +623,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelRead(hchannelhandle : super::super::Foundation:: HANDLE, timeout : u32, buffer : ::windows_core::PSTR, buffersize : u32, pbytesread : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSVirtualChannelRead(hchannelhandle.into_param().abi(), timeout, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, pbytesread).ok()
+    WTSVirtualChannelRead(hchannelhandle.into_param().abi(), timeout, ::core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), pbytesread).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -633,7 +633,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelWrite(hchannelhandle : super::super::Foundation:: HANDLE, buffer : ::windows_core::PCSTR, length : u32, pbyteswritten : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSVirtualChannelWrite(hchannelhandle.into_param().abi(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, pbyteswritten).ok()
+    WTSVirtualChannelWrite(hchannelhandle.into_param().abi(), ::core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), pbyteswritten).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1451,7 +1451,7 @@ pub struct ITSGAuthenticationEngine_Vtbl {
 pub struct ITSGAuthorizeConnectionSink(::windows_core::IUnknown);
 impl ITSGAuthorizeConnectionSink {
     pub unsafe fn OnConnectionAuthorized(&self, hrin: ::windows_core::HRESULT, mainsessionid: ::windows_core::GUID, pbsohresponse: &[u8], idletimeout: u32, sessiontimeout: u32, sessiontimeoutaction: SESSION_TIMEOUT_ACTION_TYPE, trustclass: AATrustClassID, policyattributes: *const u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).OnConnectionAuthorized)(::windows_core::Interface::as_raw(self), hrin, ::core::mem::transmute(mainsessionid), pbsohresponse.len() as _, ::core::mem::transmute(pbsohresponse.as_ptr()), idletimeout, sessiontimeout, sessiontimeoutaction, trustclass, policyattributes).ok()
+        (::windows_core::Interface::vtable(self).OnConnectionAuthorized)(::windows_core::Interface::as_raw(self), hrin, ::core::mem::transmute(mainsessionid), pbsohresponse.len().try_into().unwrap(), ::core::mem::transmute(pbsohresponse.as_ptr()), idletimeout, sessiontimeout, sessiontimeoutaction, trustclass, policyattributes).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITSGAuthorizeConnectionSink, ::windows_core::IUnknown);
@@ -1472,7 +1472,7 @@ pub struct ITSGAuthorizeConnectionSink_Vtbl {
 pub struct ITSGAuthorizeResourceSink(::windows_core::IUnknown);
 impl ITSGAuthorizeResourceSink {
     pub unsafe fn OnChannelAuthorized(&self, hrin: ::windows_core::HRESULT, mainsessionid: ::windows_core::GUID, subsessionid: i32, allowedresourcenames: &[::windows_core::BSTR], failedresourcenames: &[::windows_core::BSTR]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).OnChannelAuthorized)(::windows_core::Interface::as_raw(self), hrin, ::core::mem::transmute(mainsessionid), subsessionid, ::core::mem::transmute(allowedresourcenames.as_ptr()), allowedresourcenames.len() as _, ::core::mem::transmute(failedresourcenames.as_ptr()), failedresourcenames.len() as _).ok()
+        (::windows_core::Interface::vtable(self).OnChannelAuthorized)(::windows_core::Interface::as_raw(self), hrin, ::core::mem::transmute(mainsessionid), subsessionid, ::core::mem::transmute(allowedresourcenames.as_ptr()), allowedresourcenames.len().try_into().unwrap(), ::core::mem::transmute(failedresourcenames.as_ptr()), failedresourcenames.len().try_into().unwrap()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITSGAuthorizeResourceSink, ::windows_core::IUnknown);
@@ -1502,7 +1502,7 @@ impl ITSGPolicyEngine {
         P3: ::windows_core::IntoParam<super::super::Foundation::HANDLE_PTR>,
         P4: ::windows_core::IntoParam<ITSGAuthorizeConnectionSink>,
     {
-        (::windows_core::Interface::vtable(self).AuthorizeConnection)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(mainsessionid), username.into_param().abi(), authtype, clientmachineip.into_param().abi(), clientmachinename.into_param().abi(), ::core::mem::transmute(sohdata.as_ptr()), sohdata.len() as _, ::core::mem::transmute(cookiedata.as_ptr()), cookiedata.len() as _, usertoken.into_param().abi(), psink.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).AuthorizeConnection)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(mainsessionid), username.into_param().abi(), authtype, clientmachineip.into_param().abi(), clientmachinename.into_param().abi(), ::core::mem::transmute(sohdata.as_ptr()), sohdata.len().try_into().unwrap(), ::core::mem::transmute(cookiedata.as_ptr()), cookiedata.len().try_into().unwrap(), usertoken.into_param().abi(), psink.into_param().abi()).ok()
     }
     pub unsafe fn AuthorizeResource<P0, P1, P2>(&self, mainsessionid: ::windows_core::GUID, subsessionid: i32, username: P0, resourcenames: &[::windows_core::BSTR], alternateresourcenames: &[::windows_core::BSTR], portnumber: u32, operation: P1, cookie: &[u8], psink: P2) -> ::windows_core::Result<()>
     where
@@ -1510,7 +1510,7 @@ impl ITSGPolicyEngine {
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
         P2: ::windows_core::IntoParam<ITSGAuthorizeResourceSink>,
     {
-        (::windows_core::Interface::vtable(self).AuthorizeResource)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(mainsessionid), subsessionid, username.into_param().abi(), ::core::mem::transmute(resourcenames.as_ptr()), resourcenames.len() as _, ::core::mem::transmute(alternateresourcenames.as_ptr()), alternateresourcenames.len() as _, portnumber, operation.into_param().abi(), ::core::mem::transmute(cookie.as_ptr()), cookie.len() as _, psink.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).AuthorizeResource)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(mainsessionid), subsessionid, username.into_param().abi(), ::core::mem::transmute(resourcenames.as_ptr()), resourcenames.len().try_into().unwrap(), ::core::mem::transmute(alternateresourcenames.as_ptr()), alternateresourcenames.len().try_into().unwrap(), portnumber, operation.into_param().abi(), ::core::mem::transmute(cookie.as_ptr()), cookie.len().try_into().unwrap(), psink.into_param().abi()).ok()
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
@@ -3173,7 +3173,7 @@ impl ITsSbTarget {
         (::windows_core::Interface::vtable(self).get_IpAddresses)(::windows_core::Interface::as_raw(self), sockaddr, numaddresses).ok()
     }
     pub unsafe fn put_IpAddresses(&self, sockaddr: &[TSSD_ConnectionPoint]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).put_IpAddresses)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(sockaddr.as_ptr()), sockaddr.len() as _).ok()
+        (::windows_core::Interface::vtable(self).put_IpAddresses)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(sockaddr.as_ptr()), sockaddr.len().try_into().unwrap()).ok()
     }
     pub unsafe fn TargetState(&self) -> ::windows_core::Result<TARGET_STATE> {
         let mut result__ = ::std::mem::zeroed();
@@ -3406,7 +3406,7 @@ impl ITsSbTaskPlugin {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).SetTaskQueue)(::windows_core::Interface::as_raw(self), pszhostname.into_param().abi(), pitssbtaskinfo.len() as _, ::core::mem::transmute(pitssbtaskinfo.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).SetTaskQueue)(::windows_core::Interface::as_raw(self), pszhostname.into_param().abi(), pitssbtaskinfo.len().try_into().unwrap(), ::core::mem::transmute(pitssbtaskinfo.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbTaskPlugin, ::windows_core::IUnknown, ITsSbPlugin);
@@ -3723,7 +3723,7 @@ impl IWRdsProtocolConnection {
         (::windows_core::Interface::vtable(self).CreateVirtualChannel)(::windows_core::Interface::as_raw(self), szendpointname.into_param().abi(), bstatic.into_param().abi(), requestedpriority, &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryProperty(&self, querytype: ::windows_core::GUID, ppropertyentriesin: &[WTS_PROPERTY_VALUE], ppropertyentriesout: &mut [WTS_PROPERTY_VALUE]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).QueryProperty)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(querytype), ppropertyentriesin.len() as _, ppropertyentriesout.len() as _, ::core::mem::transmute(ppropertyentriesin.as_ptr()), ::core::mem::transmute(ppropertyentriesout.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).QueryProperty)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(querytype), ppropertyentriesin.len().try_into().unwrap(), ppropertyentriesout.len().try_into().unwrap(), ::core::mem::transmute(ppropertyentriesin.as_ptr()), ::core::mem::transmute(ppropertyentriesout.as_ptr())).ok()
     }
     pub unsafe fn GetShadowConnection(&self) -> ::windows_core::Result<IWRdsProtocolShadowConnection> {
         let mut result__ = ::std::mem::zeroed();
@@ -3866,10 +3866,10 @@ impl IWRdsProtocolLicenseConnection {
         (::windows_core::Interface::vtable(self).RequestLicensingCapabilities)(::windows_core::Interface::as_raw(self), pplicensecapabilities, pcblicensecapabilities).ok()
     }
     pub unsafe fn SendClientLicense(&self, pclientlicense: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SendClientLicense)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pclientlicense.as_ptr()), pclientlicense.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SendClientLicense)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pclientlicense.as_ptr()), pclientlicense.len().try_into().unwrap()).ok()
     }
     pub unsafe fn RequestClientLicense(&self, reserve1: &[u8], ppclientlicense: *mut u8, pcbclientlicense: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).RequestClientLicense)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(reserve1.as_ptr()), reserve1.len() as _, ppclientlicense, pcbclientlicense).ok()
+        (::windows_core::Interface::vtable(self).RequestClientLicense)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(reserve1.as_ptr()), reserve1.len().try_into().unwrap(), ppclientlicense, pcbclientlicense).ok()
     }
     pub unsafe fn ProtocolComplete(&self, ulcomplete: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ProtocolComplete)(::windows_core::Interface::as_raw(self), ulcomplete).ok()
@@ -4117,7 +4117,7 @@ impl IWRdsProtocolShadowCallback {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).InvokeTargetShadow)(::windows_core::Interface::as_raw(self), ptargetservername.into_param().abi(), targetsessionid, ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).InvokeTargetShadow)(::windows_core::Interface::as_raw(self), ptargetservername.into_param().abi(), targetsessionid, ::core::mem::transmute(pparam1.as_ptr()), pparam1.len().try_into().unwrap(), ::core::mem::transmute(pparam2.as_ptr()), pparam2.len().try_into().unwrap(), ::core::mem::transmute(pparam3.as_ptr()), pparam3.len().try_into().unwrap(), ::core::mem::transmute(pparam4.as_ptr()), pparam4.len().try_into().unwrap(), pclientname.into_param().abi()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWRdsProtocolShadowCallback, ::windows_core::IUnknown);
@@ -4152,7 +4152,7 @@ impl IWRdsProtocolShadowConnection {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).DoTarget)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).DoTarget)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pparam1.as_ptr()), pparam1.len().try_into().unwrap(), ::core::mem::transmute(pparam2.as_ptr()), pparam2.len().try_into().unwrap(), ::core::mem::transmute(pparam3.as_ptr()), pparam3.len().try_into().unwrap(), ::core::mem::transmute(pparam4.as_ptr()), pparam4.len().try_into().unwrap(), pclientname.into_param().abi()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWRdsProtocolShadowConnection, ::windows_core::IUnknown);
@@ -4175,7 +4175,7 @@ pub struct IWRdsProtocolShadowConnection_Vtbl {
 pub struct IWRdsWddmIddProps(::windows_core::IUnknown);
 impl IWRdsWddmIddProps {
     pub unsafe fn GetHardwareId(&self, pdisplaydriverhardwareid: &[u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetHardwareId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdisplaydriverhardwareid.as_ptr()), pdisplaydriverhardwareid.len() as _).ok()
+        (::windows_core::Interface::vtable(self).GetHardwareId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdisplaydriverhardwareid.as_ptr()), pdisplaydriverhardwareid.len().try_into().unwrap()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4249,7 +4249,7 @@ pub struct IWTSBitmapRenderService_Vtbl {
 pub struct IWTSBitmapRenderer(::windows_core::IUnknown);
 impl IWTSBitmapRenderer {
     pub unsafe fn Render(&self, imageformat: ::windows_core::GUID, dwwidth: u32, dwheight: u32, cbstride: i32, pimagebuffer: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Render)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(imageformat), dwwidth, dwheight, cbstride, pimagebuffer.len() as _, ::core::mem::transmute(pimagebuffer.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).Render)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(imageformat), dwwidth, dwheight, cbstride, pimagebuffer.len().try_into().unwrap(), ::core::mem::transmute(pimagebuffer.as_ptr())).ok()
     }
     pub unsafe fn GetRendererStatistics(&self) -> ::windows_core::Result<BITMAP_RENDERER_STATISTICS> {
         let mut result__ = ::std::mem::zeroed();
@@ -4521,7 +4521,7 @@ impl IWTSProtocolConnection {
         (::windows_core::Interface::vtable(self).CreateVirtualChannel)(::windows_core::Interface::as_raw(self), szendpointname.into_param().abi(), bstatic.into_param().abi(), requestedpriority, &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryProperty(&self, querytype: ::windows_core::GUID, ppropertyentriesin: &[WTS_PROPERTY_VALUE], ppropertyentriesout: &mut [WTS_PROPERTY_VALUE]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).QueryProperty)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(querytype), ppropertyentriesin.len() as _, ppropertyentriesout.len() as _, ::core::mem::transmute(ppropertyentriesin.as_ptr()), ::core::mem::transmute(ppropertyentriesout.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).QueryProperty)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(querytype), ppropertyentriesin.len().try_into().unwrap(), ppropertyentriesout.len().try_into().unwrap(), ::core::mem::transmute(ppropertyentriesin.as_ptr()), ::core::mem::transmute(ppropertyentriesout.as_ptr())).ok()
     }
     pub unsafe fn GetShadowConnection(&self) -> ::windows_core::Result<IWTSProtocolShadowConnection> {
         let mut result__ = ::std::mem::zeroed();
@@ -4634,10 +4634,10 @@ impl IWTSProtocolLicenseConnection {
         (::windows_core::Interface::vtable(self).RequestLicensingCapabilities)(::windows_core::Interface::as_raw(self), pplicensecapabilities, pcblicensecapabilities).ok()
     }
     pub unsafe fn SendClientLicense(&self, pclientlicense: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SendClientLicense)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pclientlicense.as_ptr()), pclientlicense.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SendClientLicense)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pclientlicense.as_ptr()), pclientlicense.len().try_into().unwrap()).ok()
     }
     pub unsafe fn RequestClientLicense(&self, reserve1: &[u8], ppclientlicense: *mut u8, pcbclientlicense: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).RequestClientLicense)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(reserve1.as_ptr()), reserve1.len() as _, ppclientlicense, pcbclientlicense).ok()
+        (::windows_core::Interface::vtable(self).RequestClientLicense)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(reserve1.as_ptr()), reserve1.len().try_into().unwrap(), ppclientlicense, pcbclientlicense).ok()
     }
     pub unsafe fn ProtocolComplete(&self, ulcomplete: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ProtocolComplete)(::windows_core::Interface::as_raw(self), ulcomplete).ok()
@@ -4815,7 +4815,7 @@ impl IWTSProtocolShadowCallback {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).InvokeTargetShadow)(::windows_core::Interface::as_raw(self), ptargetservername.into_param().abi(), targetsessionid, ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).InvokeTargetShadow)(::windows_core::Interface::as_raw(self), ptargetservername.into_param().abi(), targetsessionid, ::core::mem::transmute(pparam1.as_ptr()), pparam1.len().try_into().unwrap(), ::core::mem::transmute(pparam2.as_ptr()), pparam2.len().try_into().unwrap(), ::core::mem::transmute(pparam3.as_ptr()), pparam3.len().try_into().unwrap(), ::core::mem::transmute(pparam4.as_ptr()), pparam4.len().try_into().unwrap(), pclientname.into_param().abi()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSProtocolShadowCallback, ::windows_core::IUnknown);
@@ -4850,7 +4850,7 @@ impl IWTSProtocolShadowConnection {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).DoTarget)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).DoTarget)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pparam1.as_ptr()), pparam1.len().try_into().unwrap(), ::core::mem::transmute(pparam2.as_ptr()), pparam2.len().try_into().unwrap(), ::core::mem::transmute(pparam3.as_ptr()), pparam3.len().try_into().unwrap(), ::core::mem::transmute(pparam4.as_ptr()), pparam4.len().try_into().unwrap(), pclientname.into_param().abi()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSProtocolShadowConnection, ::windows_core::IUnknown);
@@ -4882,7 +4882,7 @@ impl IWTSSBPlugin {
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WTSSBX_SessionChangeNotification(&self, notificationtype: WTSSBX_NOTIFICATION_TYPE, machineid: i32, sessioninfo: &[WTSSBX_SESSION_INFO]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).WTSSBX_SessionChangeNotification)(::windows_core::Interface::as_raw(self), notificationtype, machineid, sessioninfo.len() as _, ::core::mem::transmute(sessioninfo.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).WTSSBX_SessionChangeNotification)(::windows_core::Interface::as_raw(self), notificationtype, machineid, sessioninfo.len().try_into().unwrap(), ::core::mem::transmute(sessioninfo.as_ptr())).ok()
     }
     pub unsafe fn WTSSBX_GetMostSuitableServer<P0, P1, P2, P3>(&self, username: P0, domainname: P1, applicationtype: P2, farmname: P3, pmachineid: *mut i32) -> ::windows_core::Result<()>
     where
@@ -4934,7 +4934,7 @@ impl IWTSVirtualChannel {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows_core::Interface::vtable(self).Write)(::windows_core::Interface::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr()), preserved.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).Write)(::windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr()), preserved.into_param().abi()).ok()
     }
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
@@ -4959,7 +4959,7 @@ pub struct IWTSVirtualChannel_Vtbl {
 pub struct IWTSVirtualChannelCallback(::windows_core::IUnknown);
 impl IWTSVirtualChannelCallback {
     pub unsafe fn OnDataReceived(&self, pbuffer: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).OnDataReceived)(::windows_core::Interface::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).OnDataReceived)(::windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr())).ok()
     }
     pub unsafe fn OnClose(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnClose)(::windows_core::Interface::as_raw(self)).ok()

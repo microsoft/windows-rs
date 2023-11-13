@@ -434,12 +434,12 @@ pub unsafe fn I_UuidCreate(uuid: *mut ::windows_core::GUID) -> RPC_STATUS {
 #[inline]
 pub unsafe fn MesBufferHandleReset(handle: *const ::core::ffi::c_void, handlestyle: u32, operation: MIDL_ES_CODE, pbuffer: ::core::option::Option<&[u8]>, pencodedsize: ::core::option::Option<*mut u32>) -> RPC_STATUS {
     ::windows_targets::link!("rpcrt4.dll" "system" fn MesBufferHandleReset(handle : *const ::core::ffi::c_void, handlestyle : u32, operation : MIDL_ES_CODE, pbuffer : *const *const i8, buffersize : u32, pencodedsize : *mut u32) -> RPC_STATUS);
-    MesBufferHandleReset(handle, handlestyle, operation, ::core::mem::transmute(pbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pencodedsize.unwrap_or(::std::ptr::null_mut())))
+    MesBufferHandleReset(handle, handlestyle, operation, ::core::mem::transmute(pbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pencodedsize.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn MesDecodeBufferHandleCreate(buffer: &[u8], phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     ::windows_targets::link!("rpcrt4.dll" "system" fn MesDecodeBufferHandleCreate(buffer : ::windows_core::PCSTR, buffersize : u32, phandle : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    MesDecodeBufferHandleCreate(::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, phandle)
+    MesDecodeBufferHandleCreate(::core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), phandle)
 }
 #[inline]
 pub unsafe fn MesDecodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, readfn: MIDL_ES_READ, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
@@ -454,7 +454,7 @@ pub unsafe fn MesEncodeDynBufferHandleCreate(pbuffer: *mut *mut i8, pencodedsize
 #[inline]
 pub unsafe fn MesEncodeFixedBufferHandleCreate(pbuffer: &mut [u8], pencodedsize: *mut u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     ::windows_targets::link!("rpcrt4.dll" "system" fn MesEncodeFixedBufferHandleCreate(pbuffer : ::windows_core::PSTR, buffersize : u32, pencodedsize : *mut u32, phandle : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    MesEncodeFixedBufferHandleCreate(::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, pencodedsize, phandle)
+    MesEncodeFixedBufferHandleCreate(::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), pencodedsize, phandle)
 }
 #[inline]
 pub unsafe fn MesEncodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, allocfn: MIDL_ES_ALLOC, writefn: MIDL_ES_WRITE, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
@@ -2746,12 +2746,12 @@ pub unsafe fn RpcServerInterfaceGroupClose(ifgroup: *const ::core::ffi::c_void) 
 #[inline]
 pub unsafe fn RpcServerInterfaceGroupCreateA(interfaces: &[RPC_INTERFACE_TEMPLATEA], endpoints: &[RPC_ENDPOINT_TEMPLATEA], idleperiod: u32, idlecallbackfn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupCreateA(interfaces : *const RPC_INTERFACE_TEMPLATEA, numifs : u32, endpoints : *const RPC_ENDPOINT_TEMPLATEA, numendpoints : u32, idleperiod : u32, idlecallbackfn : RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, idlecallbackcontext : *const ::core::ffi::c_void, ifgroup : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerInterfaceGroupCreateA(::core::mem::transmute(interfaces.as_ptr()), interfaces.len() as _, ::core::mem::transmute(endpoints.as_ptr()), endpoints.len() as _, idleperiod, idlecallbackfn, idlecallbackcontext, ifgroup)
+    RpcServerInterfaceGroupCreateA(::core::mem::transmute(interfaces.as_ptr()), interfaces.len().try_into().unwrap(), ::core::mem::transmute(endpoints.as_ptr()), endpoints.len().try_into().unwrap(), idleperiod, idlecallbackfn, idlecallbackcontext, ifgroup)
 }
 #[inline]
 pub unsafe fn RpcServerInterfaceGroupCreateW(interfaces: &[RPC_INTERFACE_TEMPLATEW], endpoints: &[RPC_ENDPOINT_TEMPLATEW], idleperiod: u32, idlecallbackfn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupCreateW(interfaces : *const RPC_INTERFACE_TEMPLATEW, numifs : u32, endpoints : *const RPC_ENDPOINT_TEMPLATEW, numendpoints : u32, idleperiod : u32, idlecallbackfn : RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, idlecallbackcontext : *const ::core::ffi::c_void, ifgroup : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerInterfaceGroupCreateW(::core::mem::transmute(interfaces.as_ptr()), interfaces.len() as _, ::core::mem::transmute(endpoints.as_ptr()), endpoints.len() as _, idleperiod, idlecallbackfn, idlecallbackcontext, ifgroup)
+    RpcServerInterfaceGroupCreateW(::core::mem::transmute(interfaces.as_ptr()), interfaces.len().try_into().unwrap(), ::core::mem::transmute(endpoints.as_ptr()), endpoints.len().try_into().unwrap(), idleperiod, idlecallbackfn, idlecallbackcontext, ifgroup)
 }
 #[inline]
 pub unsafe fn RpcServerInterfaceGroupDeactivate(ifgroup: *const ::core::ffi::c_void, forcedeactivation: u32) -> RPC_STATUS {

@@ -146,7 +146,7 @@ impl IRdcGenerator {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows_core::Interface::vtable(self).Process)(::windows_core::Interface::as_raw(self), endofinput.into_param().abi(), endofoutput, inputbuffer, outputbuffers.len() as _, ::core::mem::transmute(outputbuffers.as_ptr()), rdc_errorcode).ok()
+        (::windows_core::Interface::vtable(self).Process)(::windows_core::Interface::as_raw(self), endofinput.into_param().abi(), endofoutput, inputbuffer, outputbuffers.len().try_into().unwrap(), ::core::mem::transmute(outputbuffers.as_ptr()), rdc_errorcode).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRdcGenerator, ::windows_core::IUnknown);
@@ -254,7 +254,7 @@ impl IRdcLibrary {
     }
     pub unsafe fn CreateGenerator(&self, igeneratorparametersarray: &[::core::option::Option<IRdcGeneratorParameters>]) -> ::windows_core::Result<IRdcGenerator> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateGenerator)(::windows_core::Interface::as_raw(self), igeneratorparametersarray.len() as _, ::core::mem::transmute(igeneratorparametersarray.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateGenerator)(::windows_core::Interface::as_raw(self), igeneratorparametersarray.len().try_into().unwrap(), ::core::mem::transmute(igeneratorparametersarray.as_ptr()), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateComparator<P0>(&self, iseedsignaturesfile: P0, comparatorbuffersize: u32) -> ::windows_core::Result<IRdcComparator>
     where

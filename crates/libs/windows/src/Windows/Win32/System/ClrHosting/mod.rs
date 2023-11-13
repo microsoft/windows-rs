@@ -109,17 +109,17 @@ pub unsafe fn GetCLRIdentityManager(riid: *const ::windows_core::GUID) -> ::wind
 #[inline]
 pub unsafe fn GetCORRequiredVersion(pbuffer: &mut [u16], dwlength: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mscoree.dll" "system" fn GetCORRequiredVersion(pbuffer : ::windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_core::HRESULT);
-    GetCORRequiredVersion(::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, dwlength).ok()
+    GetCORRequiredVersion(::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), dwlength).ok()
 }
 #[inline]
 pub unsafe fn GetCORSystemDirectory(pbuffer: &mut [u16], dwlength: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mscoree.dll" "system" fn GetCORSystemDirectory(pbuffer : ::windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_core::HRESULT);
-    GetCORSystemDirectory(::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, dwlength).ok()
+    GetCORSystemDirectory(::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), dwlength).ok()
 }
 #[inline]
 pub unsafe fn GetCORVersion(pbbuffer: &mut [u16], dwlength: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mscoree.dll" "system" fn GetCORVersion(pbbuffer : ::windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_core::HRESULT);
-    GetCORVersion(::core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len() as _, dwlength).ok()
+    GetCORVersion(::core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len().try_into().unwrap(), dwlength).ok()
 }
 #[inline]
 pub unsafe fn GetFileVersion<P0>(szfilename: P0, szbuffer: ::core::option::Option<&mut [u16]>, dwlength: *mut u32) -> ::windows_core::Result<()>
@@ -127,7 +127,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("mscoree.dll" "system" fn GetFileVersion(szfilename : ::windows_core::PCWSTR, szbuffer : ::windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_core::HRESULT);
-    GetFileVersion(szfilename.into_param().abi(), ::core::mem::transmute(szbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szbuffer.as_deref().map_or(0, |slice| slice.len() as _), dwlength).ok()
+    GetFileVersion(szfilename.into_param().abi(), ::core::mem::transmute(szbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwlength).ok()
 }
 #[inline]
 pub unsafe fn GetRealProcAddress<P0>(pwszprocname: P0, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -152,10 +152,10 @@ where
         startupflags,
         runtimeinfoflags,
         ::core::mem::transmute(pdirectory.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        pdirectory.as_deref().map_or(0, |slice| slice.len() as _),
+        pdirectory.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         ::core::mem::transmute(dwdirectorylength.unwrap_or(::std::ptr::null_mut())),
         ::core::mem::transmute(pversion.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        pversion.as_deref().map_or(0, |slice| slice.len() as _),
+        pversion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         ::core::mem::transmute(dwlength.unwrap_or(::std::ptr::null_mut())),
     )
     .ok()
@@ -166,12 +166,12 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("mscoree.dll" "system" fn GetRequestedRuntimeVersion(pexe : ::windows_core::PCWSTR, pversion : ::windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_core::HRESULT);
-    GetRequestedRuntimeVersion(pexe.into_param().abi(), ::core::mem::transmute(pversion.as_ptr()), pversion.len() as _, dwlength).ok()
+    GetRequestedRuntimeVersion(pexe.into_param().abi(), ::core::mem::transmute(pversion.as_ptr()), pversion.len().try_into().unwrap(), dwlength).ok()
 }
 #[inline]
 pub unsafe fn GetRequestedRuntimeVersionForCLSID(rclsid: *const ::windows_core::GUID, pversion: ::core::option::Option<&mut [u16]>, dwlength: ::core::option::Option<*mut u32>, dwresolutionflags: CLSID_RESOLUTION_FLAGS) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mscoree.dll" "system" fn GetRequestedRuntimeVersionForCLSID(rclsid : *const ::windows_core::GUID, pversion : ::windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32, dwresolutionflags : CLSID_RESOLUTION_FLAGS) -> ::windows_core::HRESULT);
-    GetRequestedRuntimeVersionForCLSID(rclsid, ::core::mem::transmute(pversion.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pversion.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(dwlength.unwrap_or(::std::ptr::null_mut())), dwresolutionflags).ok()
+    GetRequestedRuntimeVersionForCLSID(rclsid, ::core::mem::transmute(pversion.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pversion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(dwlength.unwrap_or(::std::ptr::null_mut())), dwresolutionflags).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -181,7 +181,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mscoree.dll" "system" fn GetVersionFromProcess(hprocess : super::super::Foundation:: HANDLE, pversion : ::windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_core::HRESULT);
-    GetVersionFromProcess(hprocess.into_param().abi(), ::core::mem::transmute(pversion.as_ptr()), pversion.len() as _, dwlength).ok()
+    GetVersionFromProcess(hprocess.into_param().abi(), ::core::mem::transmute(pversion.as_ptr()), pversion.len().try_into().unwrap(), dwlength).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -197,12 +197,12 @@ where
 #[inline]
 pub unsafe fn LoadStringRC(iresouceid: u32, szbuffer: &mut [u16], bquiet: i32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mscoree.dll" "system" fn LoadStringRC(iresouceid : u32, szbuffer : ::windows_core::PWSTR, imax : i32, bquiet : i32) -> ::windows_core::HRESULT);
-    LoadStringRC(iresouceid, ::core::mem::transmute(szbuffer.as_ptr()), szbuffer.len() as _, bquiet).ok()
+    LoadStringRC(iresouceid, ::core::mem::transmute(szbuffer.as_ptr()), szbuffer.len().try_into().unwrap(), bquiet).ok()
 }
 #[inline]
 pub unsafe fn LoadStringRCEx(lcid: u32, iresouceid: u32, szbuffer: &mut [u16], bquiet: i32, pcwchused: *mut i32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mscoree.dll" "system" fn LoadStringRCEx(lcid : u32, iresouceid : u32, szbuffer : ::windows_core::PWSTR, imax : i32, bquiet : i32, pcwchused : *mut i32) -> ::windows_core::HRESULT);
-    LoadStringRCEx(lcid, iresouceid, ::core::mem::transmute(szbuffer.as_ptr()), szbuffer.len() as _, bquiet, pcwchused).ok()
+    LoadStringRCEx(lcid, iresouceid, ::core::mem::transmute(szbuffer.as_ptr()), szbuffer.len().try_into().unwrap(), bquiet, pcwchused).ok()
 }
 #[inline]
 pub unsafe fn LockClrVersion(hostcallback: FLockClrVersionCallback, pbeginhostsetup: *mut FLockClrVersionCallback, pendhostsetup: *mut FLockClrVersionCallback) -> ::windows_core::Result<()> {
@@ -472,7 +472,7 @@ impl ICLRDebugManager {
         (::windows_core::Interface::vtable(self).BeginConnection)(::windows_core::Interface::as_raw(self), dwconnectionid, szconnectionname.into_param().abi()).ok()
     }
     pub unsafe fn SetConnectionTasks(&self, id: u32, ppclrtask: &[::core::option::Option<ICLRTask>]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetConnectionTasks)(::windows_core::Interface::as_raw(self), id, ppclrtask.len() as _, ::core::mem::transmute(ppclrtask.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).SetConnectionTasks)(::windows_core::Interface::as_raw(self), id, ppclrtask.len().try_into().unwrap(), ::core::mem::transmute(ppclrtask.as_ptr())).ok()
     }
     pub unsafe fn EndConnection(&self, dwconnectionid: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EndConnection)(::windows_core::Interface::as_raw(self), dwconnectionid).ok()
@@ -632,7 +632,7 @@ impl ICLRErrorReportingManager {
         (::windows_core::Interface::vtable(self).GetBucketParametersForCurrentException)(::windows_core::Interface::as_raw(self), pparams).ok()
     }
     pub unsafe fn BeginCustomDump(&self, dwflavor: ECustomDumpFlavor, items: &[CustomDumpItem], dwreserved: u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).BeginCustomDump)(::windows_core::Interface::as_raw(self), dwflavor, items.len() as _, ::core::mem::transmute(items.as_ptr()), dwreserved).ok()
+        (::windows_core::Interface::vtable(self).BeginCustomDump)(::windows_core::Interface::as_raw(self), dwflavor, items.len().try_into().unwrap(), ::core::mem::transmute(items.as_ptr()), dwreserved).ok()
     }
     pub unsafe fn EndCustomDump(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EndCustomDump)(::windows_core::Interface::as_raw(self)).ok()
@@ -1019,7 +1019,7 @@ impl ICLRProfiling {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).AttachProfiler)(::windows_core::Interface::as_raw(self), dwprofileeprocessid, dwmillisecondsmax, pclsidprofiler, wszprofilerpath.into_param().abi(), ::core::mem::transmute(pvclientdata.as_ptr()), pvclientdata.len() as _).ok()
+        (::windows_core::Interface::vtable(self).AttachProfiler)(::windows_core::Interface::as_raw(self), dwprofileeprocessid, dwmillisecondsmax, pclsidprofiler, wszprofilerpath.into_param().abi(), ::core::mem::transmute(pvclientdata.as_ptr()), pvclientdata.len().try_into().unwrap()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRProfiling, ::windows_core::IUnknown);
@@ -1246,28 +1246,28 @@ impl ICLRStrongName {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        (::windows_core::Interface::vtable(self).GetHashFromAssemblyFile)(::windows_core::Interface::as_raw(self), pszfilepath.into_param().abi(), pihashalg, ::core::mem::transmute(pbhash.as_ptr()), pbhash.len() as _, pchhash).ok()
+        (::windows_core::Interface::vtable(self).GetHashFromAssemblyFile)(::windows_core::Interface::as_raw(self), pszfilepath.into_param().abi(), pihashalg, ::core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), pchhash).ok()
     }
     pub unsafe fn GetHashFromAssemblyFileW<P0>(&self, pwzfilepath: P0, pihashalg: *mut u32, pbhash: &mut [u8], pchhash: *mut u32) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).GetHashFromAssemblyFileW)(::windows_core::Interface::as_raw(self), pwzfilepath.into_param().abi(), pihashalg, ::core::mem::transmute(pbhash.as_ptr()), pbhash.len() as _, pchhash).ok()
+        (::windows_core::Interface::vtable(self).GetHashFromAssemblyFileW)(::windows_core::Interface::as_raw(self), pwzfilepath.into_param().abi(), pihashalg, ::core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), pchhash).ok()
     }
     pub unsafe fn GetHashFromBlob(&self, pbblob: *const u8, cchblob: u32, pihashalg: *mut u32, pbhash: &mut [u8], pchhash: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetHashFromBlob)(::windows_core::Interface::as_raw(self), pbblob, cchblob, pihashalg, ::core::mem::transmute(pbhash.as_ptr()), pbhash.len() as _, pchhash).ok()
+        (::windows_core::Interface::vtable(self).GetHashFromBlob)(::windows_core::Interface::as_raw(self), pbblob, cchblob, pihashalg, ::core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), pchhash).ok()
     }
     pub unsafe fn GetHashFromFile<P0>(&self, pszfilepath: P0, pihashalg: *mut u32, pbhash: &mut [u8], pchhash: *mut u32) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        (::windows_core::Interface::vtable(self).GetHashFromFile)(::windows_core::Interface::as_raw(self), pszfilepath.into_param().abi(), pihashalg, ::core::mem::transmute(pbhash.as_ptr()), pbhash.len() as _, pchhash).ok()
+        (::windows_core::Interface::vtable(self).GetHashFromFile)(::windows_core::Interface::as_raw(self), pszfilepath.into_param().abi(), pihashalg, ::core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), pchhash).ok()
     }
     pub unsafe fn GetHashFromFileW<P0>(&self, pwzfilepath: P0, pihashalg: *mut u32, pbhash: &mut [u8], pchhash: *mut u32) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).GetHashFromFileW)(::windows_core::Interface::as_raw(self), pwzfilepath.into_param().abi(), pihashalg, ::core::mem::transmute(pbhash.as_ptr()), pbhash.len() as _, pchhash).ok()
+        (::windows_core::Interface::vtable(self).GetHashFromFileW)(::windows_core::Interface::as_raw(self), pwzfilepath.into_param().abi(), pihashalg, ::core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), pchhash).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1275,7 +1275,7 @@ impl ICLRStrongName {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     {
-        (::windows_core::Interface::vtable(self).GetHashFromHandle)(::windows_core::Interface::as_raw(self), hfile.into_param().abi(), pihashalg, ::core::mem::transmute(pbhash.as_ptr()), pbhash.len() as _, pchhash).ok()
+        (::windows_core::Interface::vtable(self).GetHashFromHandle)(::windows_core::Interface::as_raw(self), hfile.into_param().abi(), pihashalg, ::core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), pchhash).ok()
     }
     pub unsafe fn StrongNameCompareAssemblies<P0, P1>(&self, pwzassembly1: P0, pwzassembly2: P1) -> ::windows_core::Result<u32>
     where
@@ -1295,7 +1295,7 @@ impl ICLRStrongName {
         (::windows_core::Interface::vtable(self).StrongNameGetBlob)(::windows_core::Interface::as_raw(self), pwzfilepath.into_param().abi(), pbblob, pcbblob).ok()
     }
     pub unsafe fn StrongNameGetBlobFromImage(&self, pbbase: &[u8], pbblob: *mut u8, pcbblob: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).StrongNameGetBlobFromImage)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbbase.as_ptr()), pbbase.len() as _, pbblob, pcbblob).ok()
+        (::windows_core::Interface::vtable(self).StrongNameGetBlobFromImage)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbbase.as_ptr()), pbbase.len().try_into().unwrap(), pbblob, pcbblob).ok()
     }
     pub unsafe fn StrongNameGetPublicKey<P0>(&self, pwzkeycontainer: P0, pbkeyblob: *const u8, cbkeyblob: u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32) -> ::windows_core::Result<()>
     where
@@ -1480,13 +1480,13 @@ impl ICLRStrongName3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).StrongNameDigestSign)(::windows_core::Interface::as_raw(self), wszkeycontainer.into_param().abi(), ::core::mem::transmute(pbkeyblob.as_ptr()), pbkeyblob.len() as _, ::core::mem::transmute(pbdigestblob.as_ptr()), pbdigestblob.len() as _, hashalgid, ppbsignatureblob, pcbsignatureblob, dwflags).ok()
+        (::windows_core::Interface::vtable(self).StrongNameDigestSign)(::windows_core::Interface::as_raw(self), wszkeycontainer.into_param().abi(), ::core::mem::transmute(pbkeyblob.as_ptr()), pbkeyblob.len().try_into().unwrap(), ::core::mem::transmute(pbdigestblob.as_ptr()), pbdigestblob.len().try_into().unwrap(), hashalgid, ppbsignatureblob, pcbsignatureblob, dwflags).ok()
     }
     pub unsafe fn StrongNameDigestEmbed<P0>(&self, wszfilepath: P0, pbsignatureblob: &[u8]) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).StrongNameDigestEmbed)(::windows_core::Interface::as_raw(self), wszfilepath.into_param().abi(), ::core::mem::transmute(pbsignatureblob.as_ptr()), pbsignatureblob.len() as _).ok()
+        (::windows_core::Interface::vtable(self).StrongNameDigestEmbed)(::windows_core::Interface::as_raw(self), wszfilepath.into_param().abi(), ::core::mem::transmute(pbsignatureblob.as_ptr()), pbsignatureblob.len().try_into().unwrap()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRStrongName3, ::windows_core::IUnknown);

@@ -35,7 +35,7 @@ where
 pub unsafe fn D3DCompressShaders(pshaderdata: &[D3D_SHADER_DATA], uflags: u32) -> ::windows_core::Result<super::ID3DBlob> {
     ::windows_targets::link!("d3dcompiler_47.dll" "system" fn D3DCompressShaders(unumshaders : u32, pshaderdata : *const D3D_SHADER_DATA, uflags : u32, ppcompresseddata : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    D3DCompressShaders(pshaderdata.len() as _, ::core::mem::transmute(pshaderdata.as_ptr()), uflags, &mut result__).from_abi(result__)
+    D3DCompressShaders(pshaderdata.len().try_into().unwrap(), ::core::mem::transmute(pshaderdata.as_ptr()), uflags, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn D3DCreateBlob(size: usize) -> ::windows_core::Result<super::ID3DBlob> {
@@ -125,7 +125,7 @@ pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, sr
 #[inline]
 pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, startinstindex: usize, poffsets: ::core::option::Option<&mut [usize]>, ptotalinsts: ::core::option::Option<*mut usize>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("d3dcompiler_47.dll" "system" fn D3DGetTraceInstructionOffsets(psrcdata : *const ::core::ffi::c_void, srcdatasize : usize, flags : u32, startinstindex : usize, numinsts : usize, poffsets : *mut usize, ptotalinsts : *mut usize) -> ::windows_core::HRESULT);
-    D3DGetTraceInstructionOffsets(psrcdata, srcdatasize, flags, startinstindex, poffsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(poffsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(ptotalinsts.unwrap_or(::std::ptr::null_mut()))).ok()
+    D3DGetTraceInstructionOffsets(psrcdata, srcdatasize, flags, startinstindex, poffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(poffsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(ptotalinsts.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D11\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
