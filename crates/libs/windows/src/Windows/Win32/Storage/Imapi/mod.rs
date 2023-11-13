@@ -1974,10 +1974,10 @@ pub struct IDiscMasterProgressEvents_Vtbl {
 pub struct IDiscRecorder(::windows_core::IUnknown);
 impl IDiscRecorder {
     pub unsafe fn Init(&self, pbyuniqueid: &[u8], nuldrivenumber: u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Init)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbyuniqueid.as_ptr()), pbyuniqueid.len() as _, nuldrivenumber).ok()
+        (::windows_core::Interface::vtable(self).Init)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbyuniqueid.as_ptr()), pbyuniqueid.len().try_into().unwrap(), nuldrivenumber).ok()
     }
     pub unsafe fn GetRecorderGUID(&self, pbyuniqueid: ::core::option::Option<&mut [u8]>, pulreturnsizerequired: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetRecorderGUID)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbyuniqueid.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbyuniqueid.as_deref().map_or(0, |slice| slice.len() as _), pulreturnsizerequired).ok()
+        (::windows_core::Interface::vtable(self).GetRecorderGUID)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbyuniqueid.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbyuniqueid.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pulreturnsizerequired).ok()
     }
     pub unsafe fn GetRecorderType(&self) -> ::windows_core::Result<RECORDER_TYPES> {
         let mut result__ = ::std::mem::zeroed();
@@ -2238,19 +2238,19 @@ pub struct IDiscRecorder2_Vtbl {
 pub struct IDiscRecorder2Ex(::windows_core::IUnknown);
 impl IDiscRecorder2Ex {
     pub unsafe fn SendCommandNoData(&self, cdb: &[u8], sensebuffer: &mut [u8; 18], timeout: u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SendCommandNoData)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(cdb.as_ptr()), cdb.len() as _, ::core::mem::transmute(sensebuffer.as_ptr()), timeout).ok()
+        (::windows_core::Interface::vtable(self).SendCommandNoData)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(cdb.as_ptr()), cdb.len().try_into().unwrap(), ::core::mem::transmute(sensebuffer.as_ptr()), timeout).ok()
     }
     pub unsafe fn SendCommandSendDataToDevice(&self, cdb: &[u8], sensebuffer: &mut [u8; 18], timeout: u32, buffer: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SendCommandSendDataToDevice)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(cdb.as_ptr()), cdb.len() as _, ::core::mem::transmute(sensebuffer.as_ptr()), timeout, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SendCommandSendDataToDevice)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(cdb.as_ptr()), cdb.len().try_into().unwrap(), ::core::mem::transmute(sensebuffer.as_ptr()), timeout, ::core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()).ok()
     }
     pub unsafe fn SendCommandGetDataFromDevice(&self, cdb: &[u8], sensebuffer: &mut [u8; 18], timeout: u32, buffer: &mut [u8], bufferfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SendCommandGetDataFromDevice)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(cdb.as_ptr()), cdb.len() as _, ::core::mem::transmute(sensebuffer.as_ptr()), timeout, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, bufferfetched).ok()
+        (::windows_core::Interface::vtable(self).SendCommandGetDataFromDevice)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(cdb.as_ptr()), cdb.len().try_into().unwrap(), ::core::mem::transmute(sensebuffer.as_ptr()), timeout, ::core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), bufferfetched).ok()
     }
     pub unsafe fn ReadDvdStructure(&self, format: u32, address: u32, layer: u32, agid: u32, data: *mut *mut u8, count: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReadDvdStructure)(::windows_core::Interface::as_raw(self), format, address, layer, agid, data, count).ok()
     }
     pub unsafe fn SendDvdStructure(&self, format: u32, data: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SendDvdStructure)(::windows_core::Interface::as_raw(self), format, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SendDvdStructure)(::windows_core::Interface::as_raw(self), format, ::core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetAdapterDescriptor(&self, data: *mut *mut u8, bytesize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAdapterDescriptor)(::windows_core::Interface::as_raw(self), data, bytesize).ok()
@@ -2276,7 +2276,7 @@ impl IDiscRecorder2Ex {
         (::windows_core::Interface::vtable(self).GetModePage)(::windows_core::Interface::as_raw(self), requestedmodepage, requesttype, modepagedata, bytesize).ok()
     }
     pub unsafe fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetModePage)(::windows_core::Interface::as_raw(self), requesttype, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetModePage)(::windows_core::Interface::as_raw(self), requesttype, ::core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2354,7 +2354,7 @@ pub struct IDiscRecorder2Ex_Vtbl {
 pub struct IEnumDiscMasterFormats(::windows_core::IUnknown);
 impl IEnumDiscMasterFormats {
     pub unsafe fn Next(&self, lpiidformatid: &mut [::windows_core::GUID], pcfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), lpiidformatid.len() as _, ::core::mem::transmute(lpiidformatid.as_ptr()), pcfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), lpiidformatid.len().try_into().unwrap(), ::core::mem::transmute(lpiidformatid.as_ptr()), pcfetched).ok()
     }
     pub unsafe fn Skip(&self, cformats: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cformats).ok()
@@ -2388,7 +2388,7 @@ pub struct IEnumDiscMasterFormats_Vtbl {
 pub struct IEnumDiscRecorders(::windows_core::IUnknown);
 impl IEnumDiscRecorders {
     pub unsafe fn Next(&self, pprecorder: &mut [::core::option::Option<IDiscRecorder>], pcfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pprecorder.len() as _, ::core::mem::transmute(pprecorder.as_ptr()), pcfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pprecorder.len().try_into().unwrap(), ::core::mem::transmute(pprecorder.as_ptr()), pcfetched).ok()
     }
     pub unsafe fn Skip(&self, crecorders: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), crecorders).ok()
@@ -2424,7 +2424,7 @@ impl IEnumFsiItems {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IFsiItem>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -2463,7 +2463,7 @@ impl IEnumProgressItems {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IProgressItem>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -5202,7 +5202,7 @@ impl IRedbookDiscMaster {
         (::windows_core::Interface::vtable(self).CreateAudioTrack)(::windows_core::Interface::as_raw(self), nblocks).ok()
     }
     pub unsafe fn AddAudioTrackBlocks(&self, pby: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddAudioTrackBlocks)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pby.as_ptr()), pby.len() as _).ok()
+        (::windows_core::Interface::vtable(self).AddAudioTrackBlocks)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pby.as_ptr()), pby.len().try_into().unwrap()).ok()
     }
     pub unsafe fn CloseAudioTrack(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CloseAudioTrack)(::windows_core::Interface::as_raw(self)).ok()
@@ -5306,7 +5306,7 @@ impl IStreamConcatenate {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize2(&self, streams: &[::core::option::Option<super::super::System::Com::IStream>]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Initialize2)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(streams.as_ptr()), streams.len() as _).ok()
+        (::windows_core::Interface::vtable(self).Initialize2)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(streams.as_ptr()), streams.len().try_into().unwrap()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5319,7 +5319,7 @@ impl IStreamConcatenate {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Append2(&self, streams: &[::core::option::Option<super::super::System::Com::IStream>]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Append2)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(streams.as_ptr()), streams.len() as _).ok()
+        (::windows_core::Interface::vtable(self).Append2)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(streams.as_ptr()), streams.len().try_into().unwrap()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5520,7 +5520,7 @@ impl IStreamPseudoRandomBased {
         (::windows_core::Interface::vtable(self).Seed)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn put_ExtendedSeed(&self, values: &[u32]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).put_ExtendedSeed)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(values.as_ptr()), values.len() as _).ok()
+        (::windows_core::Interface::vtable(self).put_ExtendedSeed)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(values.as_ptr()), values.len().try_into().unwrap()).ok()
     }
     pub unsafe fn get_ExtendedSeed(&self, values: *mut *mut u32, ecount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).get_ExtendedSeed)(::windows_core::Interface::as_raw(self), values, ecount).ok()

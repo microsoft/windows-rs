@@ -95,7 +95,7 @@ where
     P2: ::windows_core::IntoParam<super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn AccessCheckByType(psecuritydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : super::Foundation:: PSID, clienttoken : super::Foundation:: HANDLE, desiredaccess : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, privilegeset : *mut PRIVILEGE_SET, privilegesetlength : *mut u32, grantedaccess : *mut u32, accessstatus : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-    AccessCheckByType(psecuritydescriptor.into_param().abi(), principalselfsid.into_param().abi(), clienttoken.into_param().abi(), desiredaccess, ::core::mem::transmute(objecttypelist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.as_deref().map_or(0, |slice| slice.len() as _), genericmapping, ::core::mem::transmute(privilegeset.unwrap_or(::std::ptr::null_mut())), privilegesetlength, grantedaccess, accessstatus).ok()
+    AccessCheckByType(psecuritydescriptor.into_param().abi(), principalselfsid.into_param().abi(), clienttoken.into_param().abi(), desiredaccess, ::core::mem::transmute(objecttypelist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, ::core::mem::transmute(privilegeset.unwrap_or(::std::ptr::null_mut())), privilegesetlength, grantedaccess, accessstatus).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -121,7 +121,7 @@ where
         audittype,
         flags,
         ::core::mem::transmute(objecttypelist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        objecttypelist.as_deref().map_or(0, |slice| slice.len() as _),
+        objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         genericmapping,
         objectcreation.into_param().abi(),
         grantedaccess,
@@ -154,7 +154,7 @@ where
         audittype,
         flags,
         ::core::mem::transmute(objecttypelist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        objecttypelist.as_deref().map_or(0, |slice| slice.len() as _),
+        objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         genericmapping,
         objectcreation.into_param().abi(),
         grantedaccess,
@@ -522,7 +522,7 @@ where
     P3: ::windows_core::IntoParam<super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor : PSECURITY_DESCRIPTOR, creatordescriptor : PSECURITY_DESCRIPTOR, newdescriptor : *mut PSECURITY_DESCRIPTOR, objecttypes : *const *const ::windows_core::GUID, guidcount : u32, iscontainerobject : super::Foundation:: BOOL, autoinheritflags : SECURITY_AUTO_INHERIT_FLAGS, token : super::Foundation:: HANDLE, genericmapping : *const GENERIC_MAPPING) -> super::Foundation:: BOOL);
-    CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor.into_param().abi(), creatordescriptor.into_param().abi(), newdescriptor, ::core::mem::transmute(objecttypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), objecttypes.as_deref().map_or(0, |slice| slice.len() as _), iscontainerobject.into_param().abi(), autoinheritflags, token.into_param().abi(), genericmapping).ok()
+    CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor.into_param().abi(), creatordescriptor.into_param().abi(), newdescriptor, ::core::mem::transmute(objecttypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), objecttypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), iscontainerobject.into_param().abi(), autoinheritflags, token.into_param().abi(), genericmapping).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -535,11 +535,11 @@ where
     CreateRestrictedToken(
         existingtokenhandle.into_param().abi(),
         flags,
-        sidstodisable.as_deref().map_or(0, |slice| slice.len() as _),
+        sidstodisable.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         ::core::mem::transmute(sidstodisable.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        privilegestodelete.as_deref().map_or(0, |slice| slice.len() as _),
+        privilegestodelete.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         ::core::mem::transmute(privilegestodelete.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        sidstorestrict.as_deref().map_or(0, |slice| slice.len() as _),
+        sidstorestrict.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         ::core::mem::transmute(sidstorestrict.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         newtokenhandle,
     )
@@ -1344,7 +1344,7 @@ where
     P0: ::windows_core::IntoParam<super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn SetCachedSigningLevel(sourcefiles : *const super::Foundation:: HANDLE, sourcefilecount : u32, flags : u32, targetfile : super::Foundation:: HANDLE) -> super::Foundation:: BOOL);
-    SetCachedSigningLevel(::core::mem::transmute(sourcefiles.as_ptr()), sourcefiles.len() as _, flags, targetfile.into_param().abi())
+    SetCachedSigningLevel(::core::mem::transmute(sourcefiles.as_ptr()), sourcefiles.len().try_into().unwrap(), flags, targetfile.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

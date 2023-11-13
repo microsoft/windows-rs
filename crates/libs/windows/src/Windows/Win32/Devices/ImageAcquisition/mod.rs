@@ -786,7 +786,7 @@ impl IWiaItem {
         (::windows_core::Interface::vtable(self).DumpTreeItemData)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Diagnostic(&self, pbuffer: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Diagnostic)(::windows_core::Interface::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).Diagnostic)(::windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaItem, ::windows_core::IUnknown);
@@ -900,7 +900,7 @@ impl IWiaItem2 {
         (::windows_core::Interface::vtable(self).EnumRegisterEventInfo)(::windows_core::Interface::as_raw(self), lflags, peventguid, &mut result__).from_abi(result__)
     }
     pub unsafe fn Diagnostic(&self, pbuffer: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Diagnostic)(::windows_core::Interface::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).Diagnostic)(::windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaItem2, ::windows_core::IUnknown);
@@ -946,7 +946,7 @@ impl IWiaItemExtras {
         (::windows_core::Interface::vtable(self).GetExtendedErrorInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Escape(&self, dwescapecode: u32, lpindata: &[u8], poutdata: &mut [u8], pdwactualdatasize: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Escape)(::windows_core::Interface::as_raw(self), dwescapecode, ::core::mem::transmute(lpindata.as_ptr()), lpindata.len() as _, ::core::mem::transmute(poutdata.as_ptr()), poutdata.len() as _, pdwactualdatasize).ok()
+        (::windows_core::Interface::vtable(self).Escape)(::windows_core::Interface::as_raw(self), dwescapecode, ::core::mem::transmute(lpindata.as_ptr()), lpindata.len().try_into().unwrap(), ::core::mem::transmute(poutdata.as_ptr()), poutdata.len().try_into().unwrap(), pdwactualdatasize).ok()
     }
     pub unsafe fn CancelPendingIO(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CancelPendingIO)(::windows_core::Interface::as_raw(self)).ok()
@@ -1304,7 +1304,7 @@ impl IWiaPropertyStorage {
     #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn DeleteMultiple(&self, rgpspec: &[super::super::System::Com::StructuredStorage::PROPSPEC]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).DeleteMultiple)(::windows_core::Interface::as_raw(self), rgpspec.len() as _, ::core::mem::transmute(rgpspec.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).DeleteMultiple)(::windows_core::Interface::as_raw(self), rgpspec.len().try_into().unwrap(), ::core::mem::transmute(rgpspec.as_ptr())).ok()
     }
     pub unsafe fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReadPropertyNames)(::windows_core::Interface::as_raw(self), cpropid, rgpropid, rglpwstrname).ok()
@@ -1313,7 +1313,7 @@ impl IWiaPropertyStorage {
         (::windows_core::Interface::vtable(self).WritePropertyNames)(::windows_core::Interface::as_raw(self), cpropid, rgpropid, rglpwstrname).ok()
     }
     pub unsafe fn DeletePropertyNames(&self, rgpropid: &[u32]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).DeletePropertyNames)(::windows_core::Interface::as_raw(self), rgpropid.len() as _, ::core::mem::transmute(rgpropid.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).DeletePropertyNames)(::windows_core::Interface::as_raw(self), rgpropid.len().try_into().unwrap(), ::core::mem::transmute(rgpropid.as_ptr())).ok()
     }
     pub unsafe fn Commit(&self, grfcommitflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Commit)(::windows_core::Interface::as_raw(self), grfcommitflags).ok()

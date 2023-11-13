@@ -1696,10 +1696,10 @@ impl ISpPhoneticAlphabetConverter {
         (::windows_core::Interface::vtable(self).SetLangId)(::windows_core::Interface::as_raw(self), langid).ok()
     }
     pub unsafe fn SAPI2UPS(&self, pszsapiid: *const u16, pszupsid: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SAPI2UPS)(::windows_core::Interface::as_raw(self), pszsapiid, ::core::mem::transmute(pszupsid.as_ptr()), pszupsid.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SAPI2UPS)(::windows_core::Interface::as_raw(self), pszsapiid, ::core::mem::transmute(pszupsid.as_ptr()), pszupsid.len().try_into().unwrap()).ok()
     }
     pub unsafe fn UPS2SAPI(&self, pszupsid: *const u16, pszsapiid: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).UPS2SAPI)(::windows_core::Interface::as_raw(self), pszupsid, ::core::mem::transmute(pszsapiid.as_ptr()), pszsapiid.len() as _).ok()
+        (::windows_core::Interface::vtable(self).UPS2SAPI)(::windows_core::Interface::as_raw(self), pszupsid, ::core::mem::transmute(pszsapiid.as_ptr()), pszsapiid.len().try_into().unwrap()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2300,7 +2300,7 @@ impl ISpRecoGrammar {
         (::windows_core::Interface::vtable(self).SetDictationState)(::windows_core::Interface::as_raw(self), newstate).ok()
     }
     pub unsafe fn SetWordSequenceData(&self, ptext: ::core::option::Option<&[u16]>, pinfo: *const SPTEXTSELECTIONINFO) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetWordSequenceData)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ptext.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ptext.as_deref().map_or(0, |slice| slice.len() as _), pinfo).ok()
+        (::windows_core::Interface::vtable(self).SetWordSequenceData)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ptext.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ptext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pinfo).ok()
     }
     pub unsafe fn SetTextSelection(&self, pinfo: *const SPTEXTSELECTIONINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetTextSelection)(::windows_core::Interface::as_raw(self), pinfo).ok()
@@ -2473,7 +2473,7 @@ impl ISpRecoResult {
         (::windows_core::Interface::vtable(self).GetResultTimes)(::windows_core::Interface::as_raw(self), ptimes).ok()
     }
     pub unsafe fn GetAlternates(&self, ulstartelement: u32, celements: u32, ppphrases: &mut [::core::option::Option<ISpPhraseAlt>], pcphrasesreturned: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetAlternates)(::windows_core::Interface::as_raw(self), ulstartelement, celements, ppphrases.len() as _, ::core::mem::transmute(ppphrases.as_ptr()), pcphrasesreturned).ok()
+        (::windows_core::Interface::vtable(self).GetAlternates)(::windows_core::Interface::as_raw(self), ulstartelement, celements, ppphrases.len().try_into().unwrap(), ::core::mem::transmute(ppphrases.as_ptr()), pcphrasesreturned).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2556,7 +2556,7 @@ impl ISpRecoResult2 {
         (::windows_core::Interface::vtable(self).base__.GetResultTimes)(::windows_core::Interface::as_raw(self), ptimes).ok()
     }
     pub unsafe fn GetAlternates(&self, ulstartelement: u32, celements: u32, ppphrases: &mut [::core::option::Option<ISpPhraseAlt>], pcphrasesreturned: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetAlternates)(::windows_core::Interface::as_raw(self), ulstartelement, celements, ppphrases.len() as _, ::core::mem::transmute(ppphrases.as_ptr()), pcphrasesreturned).ok()
+        (::windows_core::Interface::vtable(self).base__.GetAlternates)(::windows_core::Interface::as_raw(self), ulstartelement, celements, ppphrases.len().try_into().unwrap(), ::core::mem::transmute(ppphrases.as_ptr()), pcphrasesreturned).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3703,7 +3703,7 @@ impl ISpXMLRecoResult {
         (::windows_core::Interface::vtable(self).base__.GetResultTimes)(::windows_core::Interface::as_raw(self), ptimes).ok()
     }
     pub unsafe fn GetAlternates(&self, ulstartelement: u32, celements: u32, ppphrases: &mut [::core::option::Option<ISpPhraseAlt>], pcphrasesreturned: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetAlternates)(::windows_core::Interface::as_raw(self), ulstartelement, celements, ppphrases.len() as _, ::core::mem::transmute(ppphrases.as_ptr()), pcphrasesreturned).ok()
+        (::windows_core::Interface::vtable(self).base__.GetAlternates)(::windows_core::Interface::as_raw(self), ulstartelement, celements, ppphrases.len().try_into().unwrap(), ::core::mem::transmute(ppphrases.as_ptr()), pcphrasesreturned).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]

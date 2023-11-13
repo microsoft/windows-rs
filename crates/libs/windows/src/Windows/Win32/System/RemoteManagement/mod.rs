@@ -116,7 +116,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("wsmsvc.dll" "system" fn WSManGetErrorMessage(apihandle : WSMAN_API_HANDLE, flags : u32, languagecode : ::windows_core::PCWSTR, errorcode : u32, messagelength : u32, message : ::windows_core::PWSTR, messagelengthused : *mut u32) -> u32);
-    WSManGetErrorMessage(apihandle.into_param().abi(), flags, languagecode.into_param().abi(), errorcode, message.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(message.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), messagelengthused)
+    WSManGetErrorMessage(apihandle.into_param().abi(), flags, languagecode.into_param().abi(), errorcode, message.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(message.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), messagelengthused)
 }
 #[inline]
 pub unsafe fn WSManGetSessionOptionAsDword<P0>(session: P0, option: WSManSessionOption, value: *mut u32) -> u32
@@ -132,7 +132,7 @@ where
     P0: ::windows_core::IntoParam<WSMAN_SESSION_HANDLE>,
 {
     ::windows_targets::link!("wsmsvc.dll" "system" fn WSManGetSessionOptionAsString(session : WSMAN_SESSION_HANDLE, option : WSManSessionOption, stringlength : u32, string : ::windows_core::PWSTR, stringlengthused : *mut u32) -> u32);
-    WSManGetSessionOptionAsString(session.into_param().abi(), option, string.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(string.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), stringlengthused)
+    WSManGetSessionOptionAsString(session.into_param().abi(), option, string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(string.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), stringlengthused)
 }
 #[inline]
 pub unsafe fn WSManInitialize(flags: u32, apihandle: *mut WSMAN_API_HANDLE) -> u32 {

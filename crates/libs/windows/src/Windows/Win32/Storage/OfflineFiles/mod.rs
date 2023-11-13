@@ -32,7 +32,7 @@ pub unsafe fn OfflineFilesStart() -> u32 {
 pub struct IEnumOfflineFilesItems(::windows_core::IUnknown);
 impl IEnumOfflineFilesItems {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IOfflineFilesItem>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -66,7 +66,7 @@ pub struct IEnumOfflineFilesItems_Vtbl {
 pub struct IEnumOfflineFilesSettings(::windows_core::IUnknown);
 impl IEnumOfflineFilesSettings {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IOfflineFilesSetting>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -108,7 +108,7 @@ impl IOfflineFilesCache {
         P2: ::windows_core::IntoParam<IOfflineFilesSyncConflictHandler>,
         P3: ::windows_core::IntoParam<IOfflineFilesSyncProgress>,
     {
-        (::windows_core::Interface::vtable(self).Synchronize)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len() as _, basync.into_param().abi(), dwsynccontrol, pisyncconflicthandler.into_param().abi(), piprogress.into_param().abi(), ::core::mem::transmute(psyncid.unwrap_or(::std::ptr::null()))).ok()
+        (::windows_core::Interface::vtable(self).Synchronize)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), basync.into_param().abi(), dwsynccontrol, pisyncconflicthandler.into_param().abi(), piprogress.into_param().abi(), ::core::mem::transmute(psyncid.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -117,7 +117,7 @@ impl IOfflineFilesCache {
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
         P1: ::windows_core::IntoParam<IOfflineFilesSimpleProgress>,
     {
-        (::windows_core::Interface::vtable(self).DeleteItems)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len() as _, dwflags, basync.into_param().abi(), piprogress.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).DeleteItems)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), dwflags, basync.into_param().abi(), piprogress.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -127,7 +127,7 @@ impl IOfflineFilesCache {
         P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
         P2: ::windows_core::IntoParam<IOfflineFilesSimpleProgress>,
     {
-        (::windows_core::Interface::vtable(self).DeleteItemsForUser)(::windows_core::Interface::as_raw(self), pszuser.into_param().abi(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len() as _, dwflags, basync.into_param().abi(), piprogress.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).DeleteItemsForUser)(::windows_core::Interface::as_raw(self), pszuser.into_param().abi(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), dwflags, basync.into_param().abi(), piprogress.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -138,7 +138,7 @@ impl IOfflineFilesCache {
         P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
         P3: ::windows_core::IntoParam<IOfflineFilesSyncProgress>,
     {
-        (::windows_core::Interface::vtable(self).Pin)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len() as _, bdeep.into_param().abi(), basync.into_param().abi(), dwpincontrolflags, piprogress.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).Pin)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), bdeep.into_param().abi(), basync.into_param().abi(), dwpincontrolflags, piprogress.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -149,7 +149,7 @@ impl IOfflineFilesCache {
         P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
         P3: ::windows_core::IntoParam<IOfflineFilesSyncProgress>,
     {
-        (::windows_core::Interface::vtable(self).Unpin)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len() as _, bdeep.into_param().abi(), basync.into_param().abi(), dwpincontrolflags, piprogress.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).Unpin)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), bdeep.into_param().abi(), basync.into_param().abi(), dwpincontrolflags, piprogress.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -301,7 +301,7 @@ impl IOfflineFilesCache2 {
         P2: ::windows_core::IntoParam<IOfflineFilesSyncConflictHandler>,
         P3: ::windows_core::IntoParam<IOfflineFilesSyncProgress>,
     {
-        (::windows_core::Interface::vtable(self).base__.Synchronize)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len() as _, basync.into_param().abi(), dwsynccontrol, pisyncconflicthandler.into_param().abi(), piprogress.into_param().abi(), ::core::mem::transmute(psyncid.unwrap_or(::std::ptr::null()))).ok()
+        (::windows_core::Interface::vtable(self).base__.Synchronize)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), basync.into_param().abi(), dwsynccontrol, pisyncconflicthandler.into_param().abi(), piprogress.into_param().abi(), ::core::mem::transmute(psyncid.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -310,7 +310,7 @@ impl IOfflineFilesCache2 {
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
         P1: ::windows_core::IntoParam<IOfflineFilesSimpleProgress>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteItems)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len() as _, dwflags, basync.into_param().abi(), piprogress.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteItems)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), dwflags, basync.into_param().abi(), piprogress.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -320,7 +320,7 @@ impl IOfflineFilesCache2 {
         P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
         P2: ::windows_core::IntoParam<IOfflineFilesSimpleProgress>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteItemsForUser)(::windows_core::Interface::as_raw(self), pszuser.into_param().abi(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len() as _, dwflags, basync.into_param().abi(), piprogress.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteItemsForUser)(::windows_core::Interface::as_raw(self), pszuser.into_param().abi(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), dwflags, basync.into_param().abi(), piprogress.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -331,7 +331,7 @@ impl IOfflineFilesCache2 {
         P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
         P3: ::windows_core::IntoParam<IOfflineFilesSyncProgress>,
     {
-        (::windows_core::Interface::vtable(self).base__.Pin)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len() as _, bdeep.into_param().abi(), basync.into_param().abi(), dwpincontrolflags, piprogress.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.Pin)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), bdeep.into_param().abi(), basync.into_param().abi(), dwpincontrolflags, piprogress.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -342,7 +342,7 @@ impl IOfflineFilesCache2 {
         P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
         P3: ::windows_core::IntoParam<IOfflineFilesSyncProgress>,
     {
-        (::windows_core::Interface::vtable(self).base__.Unpin)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len() as _, bdeep.into_param().abi(), basync.into_param().abi(), dwpincontrolflags, piprogress.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.Unpin)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), bdeep.into_param().abi(), basync.into_param().abi(), dwpincontrolflags, piprogress.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1532,10 +1532,10 @@ impl IOfflineFilesEventsFilter {
         (::windows_core::Interface::vtable(self).GetPathFilter)(::windows_core::Interface::as_raw(self), ppszfilter, pmatch).ok()
     }
     pub unsafe fn GetIncludedEvents(&self, prgevents: &mut [OFFLINEFILES_EVENTS], pcevents: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetIncludedEvents)(::windows_core::Interface::as_raw(self), prgevents.len() as _, ::core::mem::transmute(prgevents.as_ptr()), pcevents).ok()
+        (::windows_core::Interface::vtable(self).GetIncludedEvents)(::windows_core::Interface::as_raw(self), prgevents.len().try_into().unwrap(), ::core::mem::transmute(prgevents.as_ptr()), pcevents).ok()
     }
     pub unsafe fn GetExcludedEvents(&self, prgevents: &mut [OFFLINEFILES_EVENTS], pcevents: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetExcludedEvents)(::windows_core::Interface::as_raw(self), prgevents.len() as _, ::core::mem::transmute(prgevents.as_ptr()), pcevents).ok()
+        (::windows_core::Interface::vtable(self).GetExcludedEvents)(::windows_core::Interface::as_raw(self), prgevents.len().try_into().unwrap(), ::core::mem::transmute(prgevents.as_ptr()), pcevents).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOfflineFilesEventsFilter, ::windows_core::IUnknown);
@@ -1766,7 +1766,7 @@ impl IOfflineFilesItemFilter {
         (::windows_core::Interface::vtable(self).GetTimeFilter)(::windows_core::Interface::as_raw(self), pfttime, pbevaltimeofday, ptimetype, pcompare).ok()
     }
     pub unsafe fn GetPatternFilter(&self, pszpattern: &mut [u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetPatternFilter)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pszpattern.as_ptr()), pszpattern.len() as _).ok()
+        (::windows_core::Interface::vtable(self).GetPatternFilter)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pszpattern.as_ptr()), pszpattern.len().try_into().unwrap()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOfflineFilesItemFilter, ::windows_core::IUnknown);

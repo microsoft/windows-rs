@@ -110,12 +110,12 @@ where
 #[inline]
 pub unsafe fn SysAllocStringByteLen(psz: ::core::option::Option<&[u8]>) -> ::windows_core::BSTR {
     ::windows_targets::link!("oleaut32.dll" "system" fn SysAllocStringByteLen(psz : ::windows_core::PCSTR, len : u32) -> ::windows_core::BSTR);
-    SysAllocStringByteLen(::core::mem::transmute(psz.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len() as _))
+    SysAllocStringByteLen(::core::mem::transmute(psz.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn SysAllocStringLen(strin: ::core::option::Option<&[u16]>) -> ::windows_core::BSTR {
     ::windows_targets::link!("oleaut32.dll" "system" fn SysAllocStringLen(strin : ::windows_core::PCWSTR, ui : u32) -> ::windows_core::BSTR);
-    SysAllocStringLen(::core::mem::transmute(strin.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), strin.as_deref().map_or(0, |slice| slice.len() as _))
+    SysAllocStringLen(::core::mem::transmute(strin.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), strin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn SysFreeString<P0>(bstrstring: P0)

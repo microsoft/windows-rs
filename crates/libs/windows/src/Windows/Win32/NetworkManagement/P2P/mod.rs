@@ -405,7 +405,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("p2p.dll" "system" fn PeerCollabRegisterEvent(hevent : super::super::Foundation:: HANDLE, ceventregistration : u32, peventregistrations : *const PEER_COLLAB_EVENT_REGISTRATION, phpeerevent : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
-    PeerCollabRegisterEvent(hevent.into_param().abi(), peventregistrations.len() as _, ::core::mem::transmute(peventregistrations.as_ptr()), phpeerevent).ok()
+    PeerCollabRegisterEvent(hevent.into_param().abi(), peventregistrations.len().try_into().unwrap(), ::core::mem::transmute(peventregistrations.as_ptr()), phpeerevent).ok()
 }
 #[inline]
 pub unsafe fn PeerCollabSetEndpointName<P0>(pwzendpointname: P0) -> ::windows_core::Result<()>
@@ -496,21 +496,21 @@ where
 #[inline]
 pub unsafe fn PeerDistClientAddContentInformation(hpeerdist: isize, hcontenthandle: isize, pbuffer: &[u8], lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistClientAddContentInformation(hpeerdist : isize, hcontenthandle : isize, cbnumberofbytes : u32, pbuffer : *const u8, lpoverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
-    PeerDistClientAddContentInformation(hpeerdist, hcontenthandle, pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr()), lpoverlapped)
+    PeerDistClientAddContentInformation(hpeerdist, hcontenthandle, pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr()), lpoverlapped)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn PeerDistClientAddData(hpeerdist: isize, hcontenthandle: isize, pbuffer: &[u8], lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistClientAddData(hpeerdist : isize, hcontenthandle : isize, cbnumberofbytes : u32, pbuffer : *const u8, lpoverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
-    PeerDistClientAddData(hpeerdist, hcontenthandle, pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr()), lpoverlapped)
+    PeerDistClientAddData(hpeerdist, hcontenthandle, pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr()), lpoverlapped)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn PeerDistClientBlockRead(hpeerdist: isize, hcontenthandle: isize, pbuffer: ::core::option::Option<&mut [u8]>, dwtimeoutinmilliseconds: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistClientBlockRead(hpeerdist : isize, hcontenthandle : isize, cbmaxnumberofbytes : u32, pbuffer : *mut u8, dwtimeoutinmilliseconds : u32, lpoverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
-    PeerDistClientBlockRead(hpeerdist, hcontenthandle, pbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwtimeoutinmilliseconds, lpoverlapped)
+    PeerDistClientBlockRead(hpeerdist, hcontenthandle, pbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwtimeoutinmilliseconds, lpoverlapped)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -561,7 +561,7 @@ where
 #[inline]
 pub unsafe fn PeerDistClientStreamRead(hpeerdist: isize, hcontenthandle: isize, pbuffer: ::core::option::Option<&mut [u8]>, dwtimeoutinmilliseconds: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistClientStreamRead(hpeerdist : isize, hcontenthandle : isize, cbmaxnumberofbytes : u32, pbuffer : *mut u8, dwtimeoutinmilliseconds : u32, lpoverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
-    PeerDistClientStreamRead(hpeerdist, hcontenthandle, pbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwtimeoutinmilliseconds, lpoverlapped)
+    PeerDistClientStreamRead(hpeerdist, hcontenthandle, pbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwtimeoutinmilliseconds, lpoverlapped)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -608,7 +608,7 @@ where
 #[inline]
 pub unsafe fn PeerDistServerCancelAsyncOperation(hpeerdist: isize, pcontentidentifier: &[u8], poverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistServerCancelAsyncOperation(hpeerdist : isize, cbcontentidentifier : u32, pcontentidentifier : *const u8, poverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
-    PeerDistServerCancelAsyncOperation(hpeerdist, pcontentidentifier.len() as _, ::core::mem::transmute(pcontentidentifier.as_ptr()), poverlapped)
+    PeerDistServerCancelAsyncOperation(hpeerdist, pcontentidentifier.len().try_into().unwrap(), ::core::mem::transmute(pcontentidentifier.as_ptr()), poverlapped)
 }
 #[inline]
 pub unsafe fn PeerDistServerCloseContentInformation(hpeerdist: isize, hcontentinfo: isize) -> u32 {
@@ -628,7 +628,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistServerOpenContentInformation(hpeerdist : isize, cbcontentidentifier : u32, pcontentidentifier : *const u8, ullcontentoffset : u64, cbcontentlength : u64, hcompletionport : super::super::Foundation:: HANDLE, ulcompletionkey : usize, phcontentinfo : *mut isize) -> u32);
-    PeerDistServerOpenContentInformation(hpeerdist, pcontentidentifier.len() as _, ::core::mem::transmute(pcontentidentifier.as_ptr()), ullcontentoffset, cbcontentlength, hcompletionport.into_param().abi(), ulcompletionkey, phcontentinfo)
+    PeerDistServerOpenContentInformation(hpeerdist, pcontentidentifier.len().try_into().unwrap(), ::core::mem::transmute(pcontentidentifier.as_ptr()), ullcontentoffset, cbcontentlength, hcompletionport.into_param().abi(), ulcompletionkey, phcontentinfo)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -638,14 +638,14 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistServerOpenContentInformationEx(hpeerdist : isize, cbcontentidentifier : u32, pcontentidentifier : *const u8, ullcontentoffset : u64, cbcontentlength : u64, pretrievaloptions : *const PEERDIST_RETRIEVAL_OPTIONS, hcompletionport : super::super::Foundation:: HANDLE, ulcompletionkey : usize, phcontentinfo : *mut isize) -> u32);
-    PeerDistServerOpenContentInformationEx(hpeerdist, pcontentidentifier.len() as _, ::core::mem::transmute(pcontentidentifier.as_ptr()), ullcontentoffset, cbcontentlength, pretrievaloptions, hcompletionport.into_param().abi(), ulcompletionkey, phcontentinfo)
+    PeerDistServerOpenContentInformationEx(hpeerdist, pcontentidentifier.len().try_into().unwrap(), ::core::mem::transmute(pcontentidentifier.as_ptr()), ullcontentoffset, cbcontentlength, pretrievaloptions, hcompletionport.into_param().abi(), ulcompletionkey, phcontentinfo)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn PeerDistServerPublishAddToStream(hpeerdist: isize, hstream: isize, pbuffer: &[u8], lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistServerPublishAddToStream(hpeerdist : isize, hstream : isize, cbnumberofbytes : u32, pbuffer : *const u8, lpoverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
-    PeerDistServerPublishAddToStream(hpeerdist, hstream, pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr()), lpoverlapped)
+    PeerDistServerPublishAddToStream(hpeerdist, hstream, pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr()), lpoverlapped)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -662,19 +662,19 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistServerPublishStream(hpeerdist : isize, cbcontentidentifier : u32, pcontentidentifier : *const u8, cbcontentlength : u64, ppublishoptions : *const PEERDIST_PUBLICATION_OPTIONS, hcompletionport : super::super::Foundation:: HANDLE, ulcompletionkey : usize, phstream : *mut isize) -> u32);
-    PeerDistServerPublishStream(hpeerdist, pcontentidentifier.len() as _, ::core::mem::transmute(pcontentidentifier.as_ptr()), cbcontentlength, ::core::mem::transmute(ppublishoptions.unwrap_or(::std::ptr::null())), hcompletionport.into_param().abi(), ulcompletionkey, phstream)
+    PeerDistServerPublishStream(hpeerdist, pcontentidentifier.len().try_into().unwrap(), ::core::mem::transmute(pcontentidentifier.as_ptr()), cbcontentlength, ::core::mem::transmute(ppublishoptions.unwrap_or(::std::ptr::null())), hcompletionport.into_param().abi(), ulcompletionkey, phstream)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn PeerDistServerRetrieveContentInformation(hpeerdist: isize, hcontentinfo: isize, pbuffer: &mut [u8], lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistServerRetrieveContentInformation(hpeerdist : isize, hcontentinfo : isize, cbmaxnumberofbytes : u32, pbuffer : *mut u8, lpoverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
-    PeerDistServerRetrieveContentInformation(hpeerdist, hcontentinfo, pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr()), lpoverlapped)
+    PeerDistServerRetrieveContentInformation(hpeerdist, hcontentinfo, pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr()), lpoverlapped)
 }
 #[inline]
 pub unsafe fn PeerDistServerUnpublish(hpeerdist: isize, pcontentidentifier: &[u8]) -> u32 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistServerUnpublish(hpeerdist : isize, cbcontentidentifier : u32, pcontentidentifier : *const u8) -> u32);
-    PeerDistServerUnpublish(hpeerdist, pcontentidentifier.len() as _, ::core::mem::transmute(pcontentidentifier.as_ptr()))
+    PeerDistServerUnpublish(hpeerdist, pcontentidentifier.len().try_into().unwrap(), ::core::mem::transmute(pcontentidentifier.as_ptr()))
 }
 #[inline]
 pub unsafe fn PeerDistShutdown(hpeerdist: isize) -> u32 {
@@ -891,7 +891,7 @@ where
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphOpen(pwzgraphid : ::windows_core::PCWSTR, pwzpeerid : ::windows_core::PCWSTR, pwzdatabasename : ::windows_core::PCWSTR, psecurityinterface : *const PEER_SECURITY_INTERFACE, crecordtypesyncprecedence : u32, precordtypesyncprecedence : *const ::windows_core::GUID, phgraph : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
-    PeerGraphOpen(pwzgraphid.into_param().abi(), pwzpeerid.into_param().abi(), pwzdatabasename.into_param().abi(), ::core::mem::transmute(psecurityinterface.unwrap_or(::std::ptr::null())), precordtypesyncprecedence.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(precordtypesyncprecedence.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), phgraph).ok()
+    PeerGraphOpen(pwzgraphid.into_param().abi(), pwzpeerid.into_param().abi(), pwzdatabasename.into_param().abi(), ::core::mem::transmute(psecurityinterface.unwrap_or(::std::ptr::null())), precordtypesyncprecedence.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(precordtypesyncprecedence.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), phgraph).ok()
 }
 #[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -920,7 +920,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphRegisterEvent(hgraph : *const ::core::ffi::c_void, hevent : super::super::Foundation:: HANDLE, ceventregistrations : u32, peventregistrations : *const PEER_GRAPH_EVENT_REGISTRATION, phpeerevent : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
-    PeerGraphRegisterEvent(hgraph, hevent.into_param().abi(), peventregistrations.len() as _, ::core::mem::transmute(peventregistrations.as_ptr()), phpeerevent).ok()
+    PeerGraphRegisterEvent(hgraph, hevent.into_param().abi(), peventregistrations.len().try_into().unwrap(), ::core::mem::transmute(peventregistrations.as_ptr()), phpeerevent).ok()
 }
 #[inline]
 pub unsafe fn PeerGraphSearchRecords<P0>(hgraph: *const ::core::ffi::c_void, pwzcriteria: P0, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -992,7 +992,7 @@ pub unsafe fn PeerGraphUpdateRecord(hgraph: *const ::core::ffi::c_void, precord:
 #[inline]
 pub unsafe fn PeerGraphValidateDeferredRecords(hgraph: *const ::core::ffi::c_void, precordids: &[::windows_core::GUID]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphValidateDeferredRecords(hgraph : *const ::core::ffi::c_void, crecordids : u32, precordids : *const ::windows_core::GUID) -> ::windows_core::HRESULT);
-    PeerGraphValidateDeferredRecords(hgraph, precordids.len() as _, ::core::mem::transmute(precordids.as_ptr())).ok()
+    PeerGraphValidateDeferredRecords(hgraph, precordids.len().try_into().unwrap(), ::core::mem::transmute(precordids.as_ptr())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1022,7 +1022,7 @@ pub unsafe fn PeerGroupConnect(hgroup: *const ::core::ffi::c_void) -> ::windows_
 #[inline]
 pub unsafe fn PeerGroupConnectByAddress(hgroup: *const ::core::ffi::c_void, paddresses: &[PEER_ADDRESS]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("p2p.dll" "system" fn PeerGroupConnectByAddress(hgroup : *const ::core::ffi::c_void, caddresses : u32, paddresses : *const PEER_ADDRESS) -> ::windows_core::HRESULT);
-    PeerGroupConnectByAddress(hgroup, paddresses.len() as _, ::core::mem::transmute(paddresses.as_ptr())).ok()
+    PeerGroupConnectByAddress(hgroup, paddresses.len().try_into().unwrap(), ::core::mem::transmute(paddresses.as_ptr())).ok()
 }
 #[inline]
 pub unsafe fn PeerGroupCreate(pproperties: *const PEER_GROUP_PROPERTIES, phgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -1038,7 +1038,7 @@ where
 {
     ::windows_targets::link!("p2p.dll" "system" fn PeerGroupCreateInvitation(hgroup : *const ::core::ffi::c_void, pwzidentityinfo : ::windows_core::PCWSTR, pftexpiration : *const super::super::Foundation:: FILETIME, croles : u32, proles : *const ::windows_core::GUID, ppwzinvitation : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    PeerGroupCreateInvitation(hgroup, pwzidentityinfo.into_param().abi(), ::core::mem::transmute(pftexpiration.unwrap_or(::std::ptr::null())), proles.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(proles.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
+    PeerGroupCreateInvitation(hgroup, pwzidentityinfo.into_param().abi(), ::core::mem::transmute(pftexpiration.unwrap_or(::std::ptr::null())), proles.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(proles.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn PeerGroupCreatePasswordInvitation(hgroup: *const ::core::ffi::c_void) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -1220,7 +1220,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("p2p.dll" "system" fn PeerGroupRegisterEvent(hgroup : *const ::core::ffi::c_void, hevent : super::super::Foundation:: HANDLE, ceventregistration : u32, peventregistrations : *const PEER_GROUP_EVENT_REGISTRATION, phpeerevent : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
-    PeerGroupRegisterEvent(hgroup, hevent.into_param().abi(), peventregistrations.len() as _, ::core::mem::transmute(peventregistrations.as_ptr()), phpeerevent).ok()
+    PeerGroupRegisterEvent(hgroup, hevent.into_param().abi(), peventregistrations.len().try_into().unwrap(), ::core::mem::transmute(peventregistrations.as_ptr()), phpeerevent).ok()
 }
 #[inline]
 pub unsafe fn PeerGroupResumePasswordAuthentication(hgroup: *const ::core::ffi::c_void, hpeereventhandle: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {

@@ -83,7 +83,7 @@ where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::PSID>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyBySid(psid : super::super::super::Foundation:: PSID, psubcategoryguids : *const ::windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation:: BOOLEAN);
-    AuditComputeEffectivePolicyBySid(psid.into_param().abi(), ::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ppauditpolicy)
+    AuditComputeEffectivePolicyBySid(psid.into_param().abi(), ::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -93,7 +93,7 @@ where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyByToken(htokenhandle : super::super::super::Foundation:: HANDLE, psubcategoryguids : *const ::windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation:: BOOLEAN);
-    AuditComputeEffectivePolicyByToken(htokenhandle.into_param().abi(), ::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ppauditpolicy)
+    AuditComputeEffectivePolicyByToken(htokenhandle.into_param().abi(), ::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -194,7 +194,7 @@ where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::PSID>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn AuditQueryPerUserPolicy(psid : super::super::super::Foundation:: PSID, psubcategoryguids : *const ::windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation:: BOOLEAN);
-    AuditQueryPerUserPolicy(psid.into_param().abi(), ::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ppauditpolicy)
+    AuditQueryPerUserPolicy(psid.into_param().abi(), ::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -208,7 +208,7 @@ pub unsafe fn AuditQuerySecurity(securityinformation: super::super::OBJECT_SECUR
 #[inline]
 pub unsafe fn AuditQuerySystemPolicy(psubcategoryguids: &[::windows_core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN {
     ::windows_targets::link!("advapi32.dll" "system" fn AuditQuerySystemPolicy(psubcategoryguids : *const ::windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation:: BOOLEAN);
-    AuditQuerySystemPolicy(::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ppauditpolicy)
+    AuditQuerySystemPolicy(::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -238,7 +238,7 @@ where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::PSID>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn AuditSetPerUserPolicy(psid : super::super::super::Foundation:: PSID, pauditpolicy : *const AUDIT_POLICY_INFORMATION, dwpolicycount : u32) -> super::super::super::Foundation:: BOOLEAN);
-    AuditSetPerUserPolicy(psid.into_param().abi(), ::core::mem::transmute(pauditpolicy.as_ptr()), pauditpolicy.len() as _)
+    AuditSetPerUserPolicy(psid.into_param().abi(), ::core::mem::transmute(pauditpolicy.as_ptr()), pauditpolicy.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -255,7 +255,7 @@ where
 #[inline]
 pub unsafe fn AuditSetSystemPolicy(pauditpolicy: &[AUDIT_POLICY_INFORMATION]) -> super::super::super::Foundation::BOOLEAN {
     ::windows_targets::link!("advapi32.dll" "system" fn AuditSetSystemPolicy(pauditpolicy : *const AUDIT_POLICY_INFORMATION, dwpolicycount : u32) -> super::super::super::Foundation:: BOOLEAN);
-    AuditSetSystemPolicy(::core::mem::transmute(pauditpolicy.as_ptr()), pauditpolicy.len() as _)
+    AuditSetSystemPolicy(::core::mem::transmute(pauditpolicy.as_ptr()), pauditpolicy.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -484,7 +484,7 @@ where
     P1: ::windows_core::IntoParam<super::super::super::Foundation::PSID>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn LsaAddAccountRights(policyhandle : LSA_HANDLE, accountsid : super::super::super::Foundation:: PSID, userrights : *const LSA_UNICODE_STRING, countofrights : u32) -> super::super::super::Foundation:: NTSTATUS);
-    LsaAddAccountRights(policyhandle.into_param().abi(), accountsid.into_param().abi(), ::core::mem::transmute(userrights.as_ptr()), userrights.len() as _)
+    LsaAddAccountRights(policyhandle.into_param().abi(), accountsid.into_param().abi(), ::core::mem::transmute(userrights.as_ptr()), userrights.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -712,7 +712,7 @@ where
 #[inline]
 pub unsafe fn LsaQueryCAPs(capids: ::core::option::Option<&[super::super::super::Foundation::PSID]>, caps: *mut *mut CENTRAL_ACCESS_POLICY, capcount: *mut u32) -> super::super::super::Foundation::NTSTATUS {
     ::windows_targets::link!("advapi32.dll" "system" fn LsaQueryCAPs(capids : *const super::super::super::Foundation:: PSID, capidcount : u32, caps : *mut *mut CENTRAL_ACCESS_POLICY, capcount : *mut u32) -> super::super::super::Foundation:: NTSTATUS);
-    LsaQueryCAPs(::core::mem::transmute(capids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), capids.as_deref().map_or(0, |slice| slice.len() as _), caps, capcount)
+    LsaQueryCAPs(::core::mem::transmute(capids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), capids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), caps, capcount)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -802,7 +802,7 @@ where
     P2: ::windows_core::IntoParam<super::super::super::Foundation::BOOLEAN>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn LsaRemoveAccountRights(policyhandle : LSA_HANDLE, accountsid : super::super::super::Foundation:: PSID, allrights : super::super::super::Foundation:: BOOLEAN, userrights : *const LSA_UNICODE_STRING, countofrights : u32) -> super::super::super::Foundation:: NTSTATUS);
-    LsaRemoveAccountRights(policyhandle.into_param().abi(), accountsid.into_param().abi(), allrights.into_param().abi(), ::core::mem::transmute(userrights.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), userrights.as_deref().map_or(0, |slice| slice.len() as _))
+    LsaRemoveAccountRights(policyhandle.into_param().abi(), accountsid.into_param().abi(), allrights.into_param().abi(), ::core::mem::transmute(userrights.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), userrights.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -819,7 +819,7 @@ where
 #[inline]
 pub unsafe fn LsaSetCAPs(capdns: ::core::option::Option<&[LSA_UNICODE_STRING]>, flags: u32) -> super::super::super::Foundation::NTSTATUS {
     ::windows_targets::link!("advapi32.dll" "system" fn LsaSetCAPs(capdns : *const LSA_UNICODE_STRING, capdncount : u32, flags : u32) -> super::super::super::Foundation:: NTSTATUS);
-    LsaSetCAPs(::core::mem::transmute(capdns.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), capdns.as_deref().map_or(0, |slice| slice.len() as _), flags)
+    LsaSetCAPs(::core::mem::transmute(capdns.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), capdns.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), flags)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1119,7 +1119,7 @@ pub unsafe fn SLGetLicense(hslc: *const ::core::ffi::c_void, plicensefileid: *co
 pub unsafe fn SLGetLicenseFileId(hslc: *const ::core::ffi::c_void, pblicenseblob: &[u8]) -> ::windows_core::Result<::windows_core::GUID> {
     ::windows_targets::link!("slc.dll" "system" fn SLGetLicenseFileId(hslc : *const ::core::ffi::c_void, cblicenseblob : u32, pblicenseblob : *const u8, plicensefileid : *mut ::windows_core::GUID) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    SLGetLicenseFileId(hslc, pblicenseblob.len() as _, ::core::mem::transmute(pblicenseblob.as_ptr()), &mut result__).from_abi(result__)
+    SLGetLicenseFileId(hslc, pblicenseblob.len().try_into().unwrap(), ::core::mem::transmute(pblicenseblob.as_ptr()), &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn SLGetLicenseInformation<P0>(hslc: *const ::core::ffi::c_void, psllicenseid: *const ::windows_core::GUID, pwszvaluename: P0, pedatatype: ::core::option::Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows_core::Result<()>
@@ -1145,7 +1145,7 @@ where
 {
     ::windows_targets::link!("slc.dll" "system" fn SLGetPKeyId(hslc : *const ::core::ffi::c_void, pwszpkeyalgorithm : ::windows_core::PCWSTR, pwszpkeystring : ::windows_core::PCWSTR, cbpkeyspecificdata : u32, pbpkeyspecificdata : *const u8, ppkeyid : *mut ::windows_core::GUID) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    SLGetPKeyId(hslc, pwszpkeyalgorithm.into_param().abi(), pwszpkeystring.into_param().abi(), pbpkeyspecificdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbpkeyspecificdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
+    SLGetPKeyId(hslc, pwszpkeyalgorithm.into_param().abi(), pwszpkeystring.into_param().abi(), pbpkeyspecificdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pbpkeyspecificdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn SLGetPKeyInformation<P0>(hslc: *const ::core::ffi::c_void, ppkeyid: *const ::windows_core::GUID, pwszvaluename: P0, pedatatype: ::core::option::Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows_core::Result<()>
@@ -1234,7 +1234,7 @@ where
 pub unsafe fn SLInstallLicense(hslc: *const ::core::ffi::c_void, pblicenseblob: &[u8]) -> ::windows_core::Result<::windows_core::GUID> {
     ::windows_targets::link!("slc.dll" "system" fn SLInstallLicense(hslc : *const ::core::ffi::c_void, cblicenseblob : u32, pblicenseblob : *const u8, plicensefileid : *mut ::windows_core::GUID) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    SLInstallLicense(hslc, pblicenseblob.len() as _, ::core::mem::transmute(pblicenseblob.as_ptr()), &mut result__).from_abi(result__)
+    SLInstallLicense(hslc, pblicenseblob.len().try_into().unwrap(), ::core::mem::transmute(pblicenseblob.as_ptr()), &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn SLInstallProofOfPurchase<P0, P1>(hslc: *const ::core::ffi::c_void, pwszpkeyalgorithm: P0, pwszpkeystring: P1, pbpkeyspecificdata: ::core::option::Option<&[u8]>) -> ::windows_core::Result<::windows_core::GUID>
@@ -1244,7 +1244,7 @@ where
 {
     ::windows_targets::link!("slc.dll" "system" fn SLInstallProofOfPurchase(hslc : *const ::core::ffi::c_void, pwszpkeyalgorithm : ::windows_core::PCWSTR, pwszpkeystring : ::windows_core::PCWSTR, cbpkeyspecificdata : u32, pbpkeyspecificdata : *const u8, ppkeyid : *mut ::windows_core::GUID) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    SLInstallProofOfPurchase(hslc, pwszpkeyalgorithm.into_param().abi(), pwszpkeystring.into_param().abi(), pbpkeyspecificdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbpkeyspecificdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
+    SLInstallProofOfPurchase(hslc, pwszpkeyalgorithm.into_param().abi(), pwszpkeystring.into_param().abi(), pbpkeyspecificdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pbpkeyspecificdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn SLIsGenuineLocal(pappid: *const ::windows_core::GUID, pgenuinestate: *mut SL_GENUINE_STATE, puioptions: ::core::option::Option<*mut SL_NONGENUINE_UI_OPTIONS>) -> ::windows_core::Result<()> {
@@ -1286,7 +1286,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("slc.dll" "system" fn SLSetGenuineInformation(pqueryid : *const ::windows_core::GUID, pwszvaluename : ::windows_core::PCWSTR, edatatype : SLDATATYPE, cbvalue : u32, pbvalue : *const u8) -> ::windows_core::HRESULT);
-    SLSetGenuineInformation(pqueryid, pwszvaluename.into_param().abi(), edatatype, pbvalue.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    SLSetGenuineInformation(pqueryid, pwszvaluename.into_param().abi(), edatatype, pbvalue.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pbvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
 }
 #[inline]
 pub unsafe fn SLUninstallLicense(hslc: *const ::core::ffi::c_void, plicensefileid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -1504,7 +1504,7 @@ pub unsafe fn SslGenerateRandomBits(prandomdata: *mut u8, crandomdata: i32) {
 #[inline]
 pub unsafe fn SslGetExtensions(clienthello: &[u8], genericextensions: &mut [SCH_EXTENSION_DATA], bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> ::windows_core::Result<()> {
     ::windows_targets::link!("schannel.dll" "system" fn SslGetExtensions(clienthello : *const u8, clienthellobytesize : u32, genericextensions : *mut SCH_EXTENSION_DATA, genericextensionscount : u8, bytestoread : *mut u32, flags : SchGetExtensionsOptions) -> ::windows_core::HRESULT);
-    SslGetExtensions(::core::mem::transmute(clienthello.as_ptr()), clienthello.len() as _, ::core::mem::transmute(genericextensions.as_ptr()), genericextensions.len() as _, bytestoread, flags).ok()
+    SslGetExtensions(::core::mem::transmute(clienthello.as_ptr()), clienthello.len().try_into().unwrap(), ::core::mem::transmute(genericextensions.as_ptr()), genericextensions.len().try_into().unwrap(), bytestoread, flags).ok()
 }
 #[inline]
 pub unsafe fn SslGetMaximumKeySize(reserved: u32) -> u32 {
@@ -1514,7 +1514,7 @@ pub unsafe fn SslGetMaximumKeySize(reserved: u32) -> u32 {
 #[inline]
 pub unsafe fn SslGetServerIdentity(clienthello: &[u8], serveridentity: *mut *mut u8, serveridentitysize: *mut u32, flags: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("schannel.dll" "system" fn SslGetServerIdentity(clienthello : *const u8, clienthellosize : u32, serveridentity : *mut *mut u8, serveridentitysize : *mut u32, flags : u32) -> ::windows_core::HRESULT);
-    SslGetServerIdentity(::core::mem::transmute(clienthello.as_ptr()), clienthello.len() as _, serveridentity, serveridentitysize, flags).ok()
+    SslGetServerIdentity(::core::mem::transmute(clienthello.as_ptr()), clienthello.len().try_into().unwrap(), serveridentity, serveridentitysize, flags).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1646,7 +1646,7 @@ where
 #[inline]
 pub unsafe fn SspiUnmarshalAuthIdentity(authidentitybytearray: &[u8], ppauthidentity: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
     ::windows_targets::link!("secur32.dll" "system" fn SspiUnmarshalAuthIdentity(authidentitylength : u32, authidentitybytearray : ::windows_core::PCSTR, ppauthidentity : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
-    SspiUnmarshalAuthIdentity(authidentitybytearray.len() as _, ::core::mem::transmute(authidentitybytearray.as_ptr()), ppauthidentity).ok()
+    SspiUnmarshalAuthIdentity(authidentitybytearray.len().try_into().unwrap(), ::core::mem::transmute(authidentitybytearray.as_ptr()), ppauthidentity).ok()
 }
 #[inline]
 pub unsafe fn SspiValidateAuthIdentity(authdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {

@@ -7629,7 +7629,7 @@ impl IESEventFactory {
         P2: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateESEvent)(::windows_core::Interface::as_raw(self), pserviceprovider.into_param().abi(), dweventid, ::core::mem::transmute(guideventtype), peventdata.len() as _, ::core::mem::transmute(peventdata.as_ptr()), bstrbaseurl.into_param().abi(), pinitcontext.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateESEvent)(::windows_core::Interface::as_raw(self), pserviceprovider.into_param().abi(), dweventid, ::core::mem::transmute(guideventtype), peventdata.len().try_into().unwrap(), ::core::mem::transmute(peventdata.as_ptr()), bstrbaseurl.into_param().abi(), pinitcontext.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IESEventFactory, ::windows_core::IUnknown);
@@ -8241,7 +8241,7 @@ impl IEnumComponentTypes {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IComponentType>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -8280,7 +8280,7 @@ impl IEnumComponents {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IComponent>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -8390,7 +8390,7 @@ pub struct IEnumMSVidGraphSegment_Vtbl {
 pub struct IEnumStreamBufferRecordingAttrib(::windows_core::IUnknown);
 impl IEnumStreamBufferRecordingAttrib {
     pub unsafe fn Next(&self, pstreambufferattribute: &mut [STREAMBUFFER_ATTRIBUTE], pcreceived: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pstreambufferattribute.len() as _, ::core::mem::transmute(pstreambufferattribute.as_ptr()), pcreceived).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pstreambufferattribute.len().try_into().unwrap(), ::core::mem::transmute(pstreambufferattribute.as_ptr()), pcreceived).ok()
     }
     pub unsafe fn Skip(&self, crecords: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), crecords).ok()
@@ -8465,7 +8465,7 @@ impl IEnumTuningSpaces {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<ITuningSpace>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -19981,7 +19981,7 @@ pub struct IPBDASiParser_Vtbl {
 pub struct IPBDA_EIT(::windows_core::IUnknown);
 impl IPBDA_EIT {
     pub unsafe fn Initialize(&self, pbuffer: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr())).ok()
     }
     pub unsafe fn GetTableId(&self) -> ::windows_core::Result<u8> {
         let mut result__ = ::std::mem::zeroed();
@@ -20051,7 +20051,7 @@ pub struct IPBDA_EIT_Vtbl {
 pub struct IPBDA_Services(::windows_core::IUnknown);
 impl IPBDA_Services {
     pub unsafe fn Initialize(&self, pbuffer: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr())).ok()
     }
     pub unsafe fn GetCountOfRecords(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -20446,7 +20446,7 @@ pub struct ISBE2Crossbar_Vtbl {
 pub struct ISBE2EnumStream(::windows_core::IUnknown);
 impl ISBE2EnumStream {
     pub unsafe fn Next(&self, pstreamdesc: &mut [SBE2_STREAM_DESC], pcreceived: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pstreamdesc.len() as _, ::core::mem::transmute(pstreamdesc.as_ptr()), pcreceived).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pstreamdesc.len().try_into().unwrap(), ::core::mem::transmute(pstreamdesc.as_ptr()), pcreceived).ok()
     }
     pub unsafe fn Skip(&self, crecords: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), crecords).ok()
@@ -21715,7 +21715,7 @@ impl IStreamBufferRecordingAttribute {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).SetAttribute)(::windows_core::Interface::as_raw(self), ulreserved, pszattributename.into_param().abi(), streambufferattributetype, ::core::mem::transmute(pbattribute.as_ptr()), pbattribute.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetAttribute)(::windows_core::Interface::as_raw(self), ulreserved, pszattributename.into_param().abi(), streambufferattributetype, ::core::mem::transmute(pbattribute.as_ptr()), pbattribute.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetAttributeCount(&self, ulreserved: u32) -> ::windows_core::Result<u16> {
         let mut result__ = ::std::mem::zeroed();

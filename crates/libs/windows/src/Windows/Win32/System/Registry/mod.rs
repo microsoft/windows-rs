@@ -336,7 +336,7 @@ where
     P0: ::windows_core::IntoParam<HKEY>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn RegEnumKeyA(hkey : HKEY, dwindex : u32, lpname : ::windows_core::PSTR, cchname : u32) -> super::super::Foundation:: WIN32_ERROR);
-    RegEnumKeyA(hkey.into_param().abi(), dwindex, ::core::mem::transmute(lpname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpname.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    RegEnumKeyA(hkey.into_param().abi(), dwindex, ::core::mem::transmute(lpname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -366,7 +366,7 @@ where
     P0: ::windows_core::IntoParam<HKEY>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn RegEnumKeyW(hkey : HKEY, dwindex : u32, lpname : ::windows_core::PWSTR, cchname : u32) -> super::super::Foundation:: WIN32_ERROR);
-    RegEnumKeyW(hkey.into_param().abi(), dwindex, ::core::mem::transmute(lpname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpname.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    RegEnumKeyW(hkey.into_param().abi(), dwindex, ::core::mem::transmute(lpname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -486,7 +486,7 @@ where
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn RegLoadMUIStringA(hkey : HKEY, pszvalue : ::windows_core::PCSTR, pszoutbuf : ::windows_core::PSTR, cboutbuf : u32, pcbdata : *mut u32, flags : u32, pszdirectory : ::windows_core::PCSTR) -> super::super::Foundation:: WIN32_ERROR);
-    RegLoadMUIStringA(hkey.into_param().abi(), pszvalue.into_param().abi(), ::core::mem::transmute(pszoutbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszoutbuf.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())), flags, pszdirectory.into_param().abi()).ok()
+    RegLoadMUIStringA(hkey.into_param().abi(), pszvalue.into_param().abi(), ::core::mem::transmute(pszoutbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszoutbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())), flags, pszdirectory.into_param().abi()).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -665,7 +665,7 @@ where
     P0: ::windows_core::IntoParam<HKEY>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn RegQueryMultipleValuesA(hkey : HKEY, val_list : *mut VALENTA, num_vals : u32, lpvaluebuf : ::windows_core::PSTR, ldwtotsize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    RegQueryMultipleValuesA(hkey.into_param().abi(), ::core::mem::transmute(val_list.as_ptr()), val_list.len() as _, ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(ldwtotsize.unwrap_or(::std::ptr::null_mut()))).ok()
+    RegQueryMultipleValuesA(hkey.into_param().abi(), ::core::mem::transmute(val_list.as_ptr()), val_list.len().try_into().unwrap(), ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(ldwtotsize.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -675,7 +675,7 @@ where
     P0: ::windows_core::IntoParam<HKEY>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn RegQueryMultipleValuesW(hkey : HKEY, val_list : *mut VALENTW, num_vals : u32, lpvaluebuf : ::windows_core::PWSTR, ldwtotsize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    RegQueryMultipleValuesW(hkey.into_param().abi(), ::core::mem::transmute(val_list.as_ptr()), val_list.len() as _, ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(ldwtotsize.unwrap_or(::std::ptr::null_mut()))).ok()
+    RegQueryMultipleValuesW(hkey.into_param().abi(), ::core::mem::transmute(val_list.as_ptr()), val_list.len().try_into().unwrap(), ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(ldwtotsize.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -879,7 +879,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn RegSetValueA(hkey : HKEY, lpsubkey : ::windows_core::PCSTR, dwtype : REG_VALUE_TYPE, lpdata : ::windows_core::PCSTR, cbdata : u32) -> super::super::Foundation:: WIN32_ERROR);
-    RegSetValueA(hkey.into_param().abi(), lpsubkey.into_param().abi(), dwtype, ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    RegSetValueA(hkey.into_param().abi(), lpsubkey.into_param().abi(), dwtype, ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -890,7 +890,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn RegSetValueExA(hkey : HKEY, lpvaluename : ::windows_core::PCSTR, reserved : u32, dwtype : REG_VALUE_TYPE, lpdata : *const u8, cbdata : u32) -> super::super::Foundation:: WIN32_ERROR);
-    RegSetValueExA(hkey.into_param().abi(), lpvaluename.into_param().abi(), reserved, dwtype, ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    RegSetValueExA(hkey.into_param().abi(), lpvaluename.into_param().abi(), reserved, dwtype, ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -901,7 +901,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn RegSetValueExW(hkey : HKEY, lpvaluename : ::windows_core::PCWSTR, reserved : u32, dwtype : REG_VALUE_TYPE, lpdata : *const u8, cbdata : u32) -> super::super::Foundation:: WIN32_ERROR);
-    RegSetValueExW(hkey.into_param().abi(), lpvaluename.into_param().abi(), reserved, dwtype, ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    RegSetValueExW(hkey.into_param().abi(), lpvaluename.into_param().abi(), reserved, dwtype, ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

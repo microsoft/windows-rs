@@ -126,7 +126,7 @@ impl ICoreAutomationRemoteOperationExtensionProvider {
         P0: ::windows_core::IntoParam<CoreAutomationRemoteOperationContext>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).CallExtension)(::windows_core::Interface::as_raw(this), extensionid, context.into_param().abi(), operandids.len() as u32, operandids.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).CallExtension)(::windows_core::Interface::as_raw(this), extensionid, context.into_param().abi(), operandids.len().try_into().unwrap(), operandids.as_ptr()).ok() }
     }
     pub fn IsExtensionSupported(&self, extensionid: ::windows_core::GUID) -> ::windows_core::Result<bool> {
         let this = self;
@@ -392,7 +392,7 @@ impl CoreAutomationRemoteOperation {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Execute)(::windows_core::Interface::as_raw(this), bytecodebuffer.len() as u32, bytecodebuffer.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Execute)(::windows_core::Interface::as_raw(this), bytecodebuffer.len().try_into().unwrap(), bytecodebuffer.as_ptr(), &mut result__).from_abi(result__)
         }
     }
     pub fn ImportConnectionBoundObject<P0>(&self, operandid: AutomationRemoteOperationOperandId, connectionboundobject: P0) -> ::windows_core::Result<()>

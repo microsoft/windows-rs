@@ -1591,7 +1591,7 @@ impl RawGameController {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetCurrentReading)(::windows_core::Interface::as_raw(this), buttonarray.len() as u32, buttonarray.as_mut_ptr(), switcharray.len() as u32, switcharray.as_mut_ptr(), axisarray.len() as u32, axisarray.as_mut_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetCurrentReading)(::windows_core::Interface::as_raw(this), buttonarray.len().try_into().unwrap(), buttonarray.as_mut_ptr(), switcharray.len().try_into().unwrap(), switcharray.as_mut_ptr(), axisarray.len().try_into().unwrap(), axisarray.as_mut_ptr(), &mut result__).from_abi(result__)
         }
     }
     pub fn GetSwitchKind(&self, switchindex: i32) -> ::windows_core::Result<GameControllerSwitchKind> {

@@ -238,7 +238,7 @@ impl HandMeshObserver {
     }
     pub fn GetTriangleIndices(&self, indices: &mut [u16]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).GetTriangleIndices)(::windows_core::Interface::as_raw(this), indices.len() as u32, indices.as_mut_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).GetTriangleIndices)(::windows_core::Interface::as_raw(this), indices.len().try_into().unwrap(), indices.as_mut_ptr()).ok() }
     }
     pub fn GetVertexStateForPose<P0>(&self, handpose: P0) -> ::windows_core::Result<HandMeshVertexState>
     where
@@ -304,7 +304,7 @@ impl HandMeshVertexState {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn GetVertices(&self, vertices: &mut [HandMeshVertex]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).GetVertices)(::windows_core::Interface::as_raw(this), vertices.len() as u32, vertices.as_mut_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).GetVertices)(::windows_core::Interface::as_raw(this), vertices.len().try_into().unwrap(), vertices.as_mut_ptr()).ok() }
     }
     pub fn UpdateTimestamp(&self) -> ::windows_core::Result<super::PerceptionTimestamp> {
         let this = self;
@@ -354,7 +354,7 @@ impl HandPose {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryGetJoints)(::windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), joints.len() as u32, joints.as_ptr(), jointposes.len() as u32, jointposes.as_mut_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryGetJoints)(::windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), joints.len().try_into().unwrap(), joints.as_ptr(), jointposes.len().try_into().unwrap(), jointposes.as_mut_ptr(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation_Numerics\"`"]
@@ -370,7 +370,7 @@ impl HandPose {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn GetRelativeJoints(&self, joints: &[HandJointKind], referencejoints: &[HandJointKind], jointposes: &mut [JointPose]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).GetRelativeJoints)(::windows_core::Interface::as_raw(this), joints.len() as u32, joints.as_ptr(), referencejoints.len() as u32, referencejoints.as_ptr(), jointposes.len() as u32, jointposes.as_mut_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).GetRelativeJoints)(::windows_core::Interface::as_raw(this), joints.len().try_into().unwrap(), joints.as_ptr(), referencejoints.len().try_into().unwrap(), referencejoints.as_ptr(), jointposes.len().try_into().unwrap(), jointposes.as_mut_ptr()).ok() }
     }
 }
 impl ::windows_core::RuntimeType for HandPose {

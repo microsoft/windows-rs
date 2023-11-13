@@ -83,7 +83,7 @@ where
     P1: ::windows_core::IntoParam<HPSSWALK>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn PssWalkSnapshot(snapshothandle : HPSS, informationclass : PSS_WALK_INFORMATION_CLASS, walkmarkerhandle : HPSSWALK, buffer : *mut ::core::ffi::c_void, bufferlength : u32) -> u32);
-    PssWalkSnapshot(snapshothandle.into_param().abi(), informationclass, walkmarkerhandle.into_param().abi(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _))
+    PssWalkSnapshot(snapshothandle.into_param().abi(), informationclass, walkmarkerhandle.into_param().abi(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 pub const PSS_CAPTURE_HANDLES: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(4u32);
 pub const PSS_CAPTURE_HANDLE_BASIC_INFORMATION: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(16u32);

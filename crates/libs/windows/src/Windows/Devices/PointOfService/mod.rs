@@ -6090,7 +6090,7 @@ impl ClaimedMagneticStripeReader {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AuthenticateDeviceAsync)(::windows_core::Interface::as_raw(this), responsetoken.len() as u32, responsetoken.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AuthenticateDeviceAsync)(::windows_core::Interface::as_raw(this), responsetoken.len().try_into().unwrap(), responsetoken.as_ptr(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation\"`"]
@@ -6099,7 +6099,7 @@ impl ClaimedMagneticStripeReader {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DeAuthenticateDeviceAsync)(::windows_core::Interface::as_raw(this), responsetoken.len() as u32, responsetoken.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DeAuthenticateDeviceAsync)(::windows_core::Interface::as_raw(this), responsetoken.len().try_into().unwrap(), responsetoken.as_ptr(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation\"`"]

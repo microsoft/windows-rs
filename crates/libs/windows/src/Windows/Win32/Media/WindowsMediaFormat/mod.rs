@@ -472,7 +472,7 @@ impl IWMBackupRestoreProps {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).SetProp)(::windows_core::Interface::as_raw(self), pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetProp)(::windows_core::Interface::as_raw(self), pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn RemoveProp<P0>(&self, pcwszname: P0) -> ::windows_core::Result<()>
     where
@@ -708,7 +708,7 @@ impl IWMCodecInfo3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).SetCodecEnumerationSetting)(::windows_core::Interface::as_raw(self), guidtype, dwcodecindex, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetCodecEnumerationSetting)(::windows_core::Interface::as_raw(self), guidtype, dwcodecindex, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetCodecEnumerationSetting<P0>(&self, guidtype: *const ::windows_core::GUID, dwcodecindex: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows_core::Result<()>
     where
@@ -742,7 +742,7 @@ impl IWMCredentialCallback {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).AcquireCredentials)(::windows_core::Interface::as_raw(self), pwszrealm.into_param().abi(), pwszsite.into_param().abi(), ::core::mem::transmute(pwszuser.as_ptr()), pwszuser.len() as _, ::core::mem::transmute(pwszpassword.as_ptr()), pwszpassword.len() as _, hrstatus, pdwflags).ok()
+        (::windows_core::Interface::vtable(self).AcquireCredentials)(::windows_core::Interface::as_raw(self), pwszrealm.into_param().abi(), pwszsite.into_param().abi(), ::core::mem::transmute(pwszuser.as_ptr()), pwszuser.len().try_into().unwrap(), ::core::mem::transmute(pwszpassword.as_ptr()), pwszpassword.len().try_into().unwrap(), hrstatus, pdwflags).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWMCredentialCallback, ::windows_core::IUnknown);
@@ -787,10 +787,10 @@ pub struct IWMDRMEditor_Vtbl {
 pub struct IWMDRMMessageParser(::windows_core::IUnknown);
 impl IWMDRMMessageParser {
     pub unsafe fn ParseRegistrationReqMsg(&self, pbregistrationreqmsg: &[u8], ppdevicecert: *mut ::core::option::Option<INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ParseRegistrationReqMsg)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbregistrationreqmsg.as_ptr()), pbregistrationreqmsg.len() as _, ::core::mem::transmute(ppdevicecert), pdeviceserialnumber).ok()
+        (::windows_core::Interface::vtable(self).ParseRegistrationReqMsg)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbregistrationreqmsg.as_ptr()), pbregistrationreqmsg.len().try_into().unwrap(), ::core::mem::transmute(ppdevicecert), pdeviceserialnumber).ok()
     }
     pub unsafe fn ParseLicenseRequestMsg(&self, pblicenserequestmsg: &[u8], ppdevicecert: *mut ::core::option::Option<INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16, pbstraction: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ParseLicenseRequestMsg)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pblicenserequestmsg.as_ptr()), pblicenserequestmsg.len() as _, ::core::mem::transmute(ppdevicecert), pdeviceserialnumber, ::core::mem::transmute(pbstraction)).ok()
+        (::windows_core::Interface::vtable(self).ParseLicenseRequestMsg)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pblicenserequestmsg.as_ptr()), pblicenserequestmsg.len().try_into().unwrap(), ::core::mem::transmute(ppdevicecert), pdeviceserialnumber, ::core::mem::transmute(pbstraction)).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWMDRMMessageParser, ::windows_core::IUnknown);
@@ -833,7 +833,7 @@ impl IWMDRMReader {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).SetDRMProperty)(::windows_core::Interface::as_raw(self), pwstrname.into_param().abi(), dwtype, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetDRMProperty)(::windows_core::Interface::as_raw(self), pwstrname.into_param().abi(), dwtype, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetDRMProperty<P0>(&self, pwstrname: P0, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::Result<()>
     where
@@ -888,7 +888,7 @@ impl IWMDRMReader2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.SetDRMProperty)(::windows_core::Interface::as_raw(self), pwstrname.into_param().abi(), dwtype, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.SetDRMProperty)(::windows_core::Interface::as_raw(self), pwstrname.into_param().abi(), dwtype, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetDRMProperty<P0>(&self, pwstrname: P0, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::Result<()>
     where
@@ -959,7 +959,7 @@ impl IWMDRMReader3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.SetDRMProperty)(::windows_core::Interface::as_raw(self), pwstrname.into_param().abi(), dwtype, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.SetDRMProperty)(::windows_core::Interface::as_raw(self), pwstrname.into_param().abi(), dwtype, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetDRMProperty<P0>(&self, pwstrname: P0, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::Result<()>
     where
@@ -1144,7 +1144,7 @@ impl IWMDRMWriter {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).SetDRMAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetDRMAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWMDRMWriter, ::windows_core::IUnknown);
@@ -1180,7 +1180,7 @@ impl IWMDRMWriter2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.SetDRMAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.SetDRMAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1224,7 +1224,7 @@ impl IWMDRMWriter3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.SetDRMAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.SetDRMAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1257,10 +1257,10 @@ pub struct IWMDeviceRegistration(::windows_core::IUnknown);
 impl IWMDeviceRegistration {
     pub unsafe fn RegisterDevice(&self, dwregistertype: u32, pbcertificate: &[u8], serialnumber: DRM_VAL16) -> ::windows_core::Result<IWMRegisteredDevice> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).RegisterDevice)(::windows_core::Interface::as_raw(self), dwregistertype, ::core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len() as _, ::core::mem::transmute(serialnumber), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).RegisterDevice)(::windows_core::Interface::as_raw(self), dwregistertype, ::core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len().try_into().unwrap(), ::core::mem::transmute(serialnumber), &mut result__).from_abi(result__)
     }
     pub unsafe fn UnregisterDevice(&self, dwregistertype: u32, pbcertificate: &[u8], serialnumber: DRM_VAL16) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).UnregisterDevice)(::windows_core::Interface::as_raw(self), dwregistertype, ::core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len() as _, ::core::mem::transmute(serialnumber)).ok()
+        (::windows_core::Interface::vtable(self).UnregisterDevice)(::windows_core::Interface::as_raw(self), dwregistertype, ::core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len().try_into().unwrap(), ::core::mem::transmute(serialnumber)).ok()
     }
     pub unsafe fn GetRegistrationStats(&self, dwregistertype: u32) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -1276,7 +1276,7 @@ impl IWMDeviceRegistration {
     }
     pub unsafe fn GetRegisteredDeviceByID(&self, dwregistertype: u32, pbcertificate: &[u8], serialnumber: DRM_VAL16) -> ::windows_core::Result<IWMRegisteredDevice> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetRegisteredDeviceByID)(::windows_core::Interface::as_raw(self), dwregistertype, ::core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len() as _, ::core::mem::transmute(serialnumber), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetRegisteredDeviceByID)(::windows_core::Interface::as_raw(self), dwregistertype, ::core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len().try_into().unwrap(), ::core::mem::transmute(serialnumber), &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWMDeviceRegistration, ::windows_core::IUnknown);
@@ -1340,7 +1340,7 @@ impl IWMHeaderInfo {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).SetAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetMarkerCount(&self) -> ::windows_core::Result<u16> {
         let mut result__ = ::std::mem::zeroed();
@@ -1421,7 +1421,7 @@ impl IWMHeaderInfo2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.SetAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.SetAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetMarkerCount(&self) -> ::windows_core::Result<u16> {
         let mut result__ = ::std::mem::zeroed();
@@ -1499,7 +1499,7 @@ impl IWMHeaderInfo3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.SetAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.SetAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetMarkerCount(&self) -> ::windows_core::Result<u16> {
         let mut result__ = ::std::mem::zeroed();
@@ -1555,13 +1555,13 @@ impl IWMHeaderInfo3 {
         (::windows_core::Interface::vtable(self).GetAttributeByIndexEx)(::windows_core::Interface::as_raw(self), wstreamnum, windex, ::core::mem::transmute(pwszname), pwnamelen, ptype, pwlangindex, pvalue, pdwdatalength).ok()
     }
     pub unsafe fn ModifyAttribute(&self, wstreamnum: u16, windex: u16, r#type: WMT_ATTR_DATATYPE, wlangindex: u16, pvalue: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ModifyAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, windex, r#type, wlangindex, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).ModifyAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, windex, r#type, wlangindex, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn AddAttribute<P0>(&self, wstreamnum: u16, pszname: P0, pwindex: *mut u16, r#type: WMT_ATTR_DATATYPE, wlangindex: u16, pvalue: &[u8]) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).AddAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, pszname.into_param().abi(), pwindex, r#type, wlangindex, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).AddAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, pszname.into_param().abi(), pwindex, r#type, wlangindex, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn DeleteAttribute(&self, wstreamnum: u16, windex: u16) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeleteAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, windex).ok()
@@ -1571,7 +1571,7 @@ impl IWMHeaderInfo3 {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).AddCodecInfo)(::windows_core::Interface::as_raw(self), pwszname.into_param().abi(), pwszdescription.into_param().abi(), codectype, pbcodecinfo.len() as _, ::core::mem::transmute(pbcodecinfo.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).AddCodecInfo)(::windows_core::Interface::as_raw(self), pwszname.into_param().abi(), pwszdescription.into_param().abi(), codectype, pbcodecinfo.len().try_into().unwrap(), ::core::mem::transmute(pbcodecinfo.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWMHeaderInfo3, ::windows_core::IUnknown, IWMHeaderInfo, IWMHeaderInfo2);
@@ -2803,7 +2803,7 @@ impl IWMProximityDetection {
     where
         P0: ::windows_core::IntoParam<IWMStatusCallback>,
     {
-        (::windows_core::Interface::vtable(self).StartDetection)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbregistrationmsg.as_ptr()), pbregistrationmsg.len() as _, ::core::mem::transmute(pblocaladdress.as_ptr()), pblocaladdress.len() as _, dwextraportsallowed, ::core::mem::transmute(ppregistrationresponsemsg), pcallback.into_param().abi(), pvcontext).ok()
+        (::windows_core::Interface::vtable(self).StartDetection)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbregistrationmsg.as_ptr()), pbregistrationmsg.len().try_into().unwrap(), ::core::mem::transmute(pblocaladdress.as_ptr()), pblocaladdress.len().try_into().unwrap(), dwextraportsallowed, ::core::mem::transmute(ppregistrationresponsemsg), pcallback.into_param().abi(), pvcontext).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWMProximityDetection, ::windows_core::IUnknown);
@@ -3266,7 +3266,7 @@ impl IWMReaderAdvanced2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).SetOutputSetting)(::windows_core::Interface::as_raw(self), dwoutputnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetOutputSetting)(::windows_core::Interface::as_raw(self), dwoutputnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Preroll)(::windows_core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
@@ -3490,7 +3490,7 @@ impl IWMReaderAdvanced3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.SetOutputSetting)(::windows_core::Interface::as_raw(self), dwoutputnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.SetOutputSetting)(::windows_core::Interface::as_raw(self), dwoutputnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Preroll)(::windows_core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
@@ -3698,7 +3698,7 @@ impl IWMReaderAdvanced4 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.SetOutputSetting)(::windows_core::Interface::as_raw(self), dwoutputnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.SetOutputSetting)(::windows_core::Interface::as_raw(self), dwoutputnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Preroll)(::windows_core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
@@ -3959,7 +3959,7 @@ impl IWMReaderAdvanced5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.SetOutputSetting)(::windows_core::Interface::as_raw(self), dwoutputnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.base__.SetOutputSetting)(::windows_core::Interface::as_raw(self), dwoutputnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.Preroll)(::windows_core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
@@ -4212,7 +4212,7 @@ impl IWMReaderAdvanced6 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetOutputSetting)(::windows_core::Interface::as_raw(self), dwoutputnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetOutputSetting)(::windows_core::Interface::as_raw(self), dwoutputnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.Preroll)(::windows_core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
@@ -4296,7 +4296,7 @@ impl IWMReaderAdvanced6 {
         (::windows_core::Interface::vtable(self).base__.SetPlayerHook)(::windows_core::Interface::as_raw(self), dwoutputnum, phook.into_param().abi()).ok()
     }
     pub unsafe fn SetProtectStreamSamples(&self, pbcertificate: &[u8], dwcertificatetype: u32, dwflags: u32, pbinitializationvector: *mut u8, pcbinitializationvector: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetProtectStreamSamples)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len() as _, dwcertificatetype, dwflags, pbinitializationvector, pcbinitializationvector).ok()
+        (::windows_core::Interface::vtable(self).SetProtectStreamSamples)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len().try_into().unwrap(), dwcertificatetype, dwflags, pbinitializationvector, pcbinitializationvector).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWMReaderAdvanced6, ::windows_core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3, IWMReaderAdvanced4, IWMReaderAdvanced5);
@@ -4428,7 +4428,7 @@ impl IWMReaderNetworkConfig {
         (::windows_core::Interface::vtable(self).GetUDPPortRanges)(::windows_core::Interface::as_raw(self), prangearray, pcranges).ok()
     }
     pub unsafe fn SetUDPPortRanges(&self, prangearray: &[WM_PORT_NUMBER_RANGE]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetUDPPortRanges)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(prangearray.as_ptr()), prangearray.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetUDPPortRanges)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(prangearray.as_ptr()), prangearray.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetProxySettings<P0>(&self, pwszprotocol: P0) -> ::windows_core::Result<WMT_PROXY_SETTINGS>
     where
@@ -4700,7 +4700,7 @@ impl IWMReaderNetworkConfig2 {
         (::windows_core::Interface::vtable(self).base__.GetUDPPortRanges)(::windows_core::Interface::as_raw(self), prangearray, pcranges).ok()
     }
     pub unsafe fn SetUDPPortRanges(&self, prangearray: &[WM_PORT_NUMBER_RANGE]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.SetUDPPortRanges)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(prangearray.as_ptr()), prangearray.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.SetUDPPortRanges)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(prangearray.as_ptr()), prangearray.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetProxySettings<P0>(&self, pwszprotocol: P0) -> ::windows_core::Result<WMT_PROXY_SETTINGS>
     where
@@ -5844,7 +5844,7 @@ impl IWMStreamConfig2 {
         (::windows_core::Interface::vtable(self).SetTransportType)(::windows_core::Interface::as_raw(self), ntransporttype).ok()
     }
     pub unsafe fn AddDataUnitExtension(&self, guidextensionsystemid: ::windows_core::GUID, cbextensiondatasize: u16, pbextensionsysteminfo: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddDataUnitExtension)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(guidextensionsystemid), cbextensiondatasize, ::core::mem::transmute(pbextensionsysteminfo.as_ptr()), pbextensionsysteminfo.len() as _).ok()
+        (::windows_core::Interface::vtable(self).AddDataUnitExtension)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(guidextensionsystemid), cbextensiondatasize, ::core::mem::transmute(pbextensionsysteminfo.as_ptr()), pbextensionsysteminfo.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetDataUnitExtensionCount(&self) -> ::windows_core::Result<u16> {
         let mut result__ = ::std::mem::zeroed();
@@ -5930,7 +5930,7 @@ impl IWMStreamConfig3 {
         (::windows_core::Interface::vtable(self).base__.SetTransportType)(::windows_core::Interface::as_raw(self), ntransporttype).ok()
     }
     pub unsafe fn AddDataUnitExtension(&self, guidextensionsystemid: ::windows_core::GUID, cbextensiondatasize: u16, pbextensionsysteminfo: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.AddDataUnitExtension)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(guidextensionsystemid), cbextensiondatasize, ::core::mem::transmute(pbextensionsysteminfo.as_ptr()), pbextensionsysteminfo.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.AddDataUnitExtension)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(guidextensionsystemid), cbextensiondatasize, ::core::mem::transmute(pbextensionsysteminfo.as_ptr()), pbextensionsysteminfo.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetDataUnitExtensionCount(&self) -> ::windows_core::Result<u16> {
         let mut result__ = ::std::mem::zeroed();
@@ -6083,7 +6083,7 @@ impl IWMSyncReader {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).SetOutputSetting)(::windows_core::Interface::as_raw(self), dwoutputnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetOutputSetting)(::windows_core::Interface::as_raw(self), dwoutputnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetOutputCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -6227,7 +6227,7 @@ impl IWMSyncReader2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.SetOutputSetting)(::windows_core::Interface::as_raw(self), dwoutputnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.SetOutputSetting)(::windows_core::Interface::as_raw(self), dwoutputnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetOutputCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -6638,7 +6638,7 @@ impl IWMWriterAdvanced2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).SetInputSetting)(::windows_core::Interface::as_raw(self), dwinputnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetInputSetting)(::windows_core::Interface::as_raw(self), dwinputnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWMWriterAdvanced2, ::windows_core::IUnknown, IWMWriterAdvanced);
@@ -6723,7 +6723,7 @@ impl IWMWriterAdvanced3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.SetInputSetting)(::windows_core::Interface::as_raw(self), dwinputnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).base__.SetInputSetting)(::windows_core::Interface::as_raw(self), dwinputnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetStatisticsEx(&self, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS_EX) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStatisticsEx)(::windows_core::Interface::as_raw(self), wstreamnum, pstats).ok()

@@ -734,7 +734,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprAddV4PolicyCondition(policy : *mut DHCP_POLICY, parentexpr : u32, r#type : DHCP_POL_ATTR_TYPE, optionid : u32, suboptionid : u32, vendorname : ::windows_core::PCWSTR, operator : DHCP_POL_COMPARATOR, value : *const u8, valuelength : u32, conditionindex : *mut u32) -> u32);
-    DhcpHlprAddV4PolicyCondition(policy, parentexpr, r#type, optionid, suboptionid, vendorname.into_param().abi(), operator, ::core::mem::transmute(value.as_ptr()), value.len() as _, conditionindex)
+    DhcpHlprAddV4PolicyCondition(policy, parentexpr, r#type, optionid, suboptionid, vendorname.into_param().abi(), operator, ::core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap(), conditionindex)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1081,7 +1081,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerQueryDnsRegCredentials(serveripaddress : ::windows_core::PCWSTR, unamesize : u32, uname : ::windows_core::PWSTR, domainsize : u32, domain : ::windows_core::PWSTR) -> u32);
-    DhcpServerQueryDnsRegCredentials(serveripaddress.into_param().abi(), uname.len() as _, ::core::mem::transmute(uname.as_ptr()), domain.len() as _, ::core::mem::transmute(domain.as_ptr()))
+    DhcpServerQueryDnsRegCredentials(serveripaddress.into_param().abi(), uname.len().try_into().unwrap(), ::core::mem::transmute(uname.as_ptr()), domain.len().try_into().unwrap(), ::core::mem::transmute(domain.as_ptr()))
 }
 #[inline]
 pub unsafe fn DhcpServerRedoAuthorization<P0>(serveripaddr: P0, dwreserved: u32) -> u32

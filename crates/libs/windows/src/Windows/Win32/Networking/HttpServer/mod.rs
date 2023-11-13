@@ -277,7 +277,7 @@ where
         requestqueuehandle.into_param().abi(),
         requestid,
         flags,
-        entitychunks.as_deref().map_or(0, |slice| slice.len() as _),
+        entitychunks.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         ::core::mem::transmute(entitychunks.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         ::core::mem::transmute(bytessent.unwrap_or(::std::ptr::null_mut())),
         ::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())),

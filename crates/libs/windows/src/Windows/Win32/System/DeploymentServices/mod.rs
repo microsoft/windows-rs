@@ -56,7 +56,7 @@ pub unsafe fn PxeDhcpv6AppendOptionRaw(preply: *mut ::core::ffi::c_void, cbreply
 #[inline]
 pub unsafe fn PxeDhcpv6CreateRelayRepl(prelaymessages: &[PXE_DHCPV6_NESTED_RELAY_MESSAGE], pinnerpacket: &[u8], preplybuffer: *mut ::core::ffi::c_void, cbreplybuffer: u32, pcbreplybuffer: *mut u32) -> u32 {
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpv6CreateRelayRepl(prelaymessages : *const PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages : u32, pinnerpacket : *const u8, cbinnerpacket : u32, preplybuffer : *mut ::core::ffi::c_void, cbreplybuffer : u32, pcbreplybuffer : *mut u32) -> u32);
-    PxeDhcpv6CreateRelayRepl(::core::mem::transmute(prelaymessages.as_ptr()), prelaymessages.len() as _, ::core::mem::transmute(pinnerpacket.as_ptr()), pinnerpacket.len() as _, preplybuffer, cbreplybuffer, pcbreplybuffer)
+    PxeDhcpv6CreateRelayRepl(::core::mem::transmute(prelaymessages.as_ptr()), prelaymessages.len().try_into().unwrap(), ::core::mem::transmute(pinnerpacket.as_ptr()), pinnerpacket.len().try_into().unwrap(), preplybuffer, cbreplybuffer, pcbreplybuffer)
 }
 #[inline]
 pub unsafe fn PxeDhcpv6GetOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, uinstance: u32, woption: u16, pwoptionlen: ::core::option::Option<*mut u16>, ppoptionvalue: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> u32 {
@@ -86,7 +86,7 @@ where
 #[inline]
 pub unsafe fn PxeDhcpv6ParseRelayForw(prelayforwpacket: *const ::core::ffi::c_void, urelayforwpacketlen: u32, prelaymessages: &mut [PXE_DHCPV6_NESTED_RELAY_MESSAGE], pnrelaymessages: *mut u32, ppinnerpacket: *mut *mut u8, pcbinnerpacket: *mut u32) -> u32 {
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpv6ParseRelayForw(prelayforwpacket : *const ::core::ffi::c_void, urelayforwpacketlen : u32, prelaymessages : *mut PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages : u32, pnrelaymessages : *mut u32, ppinnerpacket : *mut *mut u8, pcbinnerpacket : *mut u32) -> u32);
-    PxeDhcpv6ParseRelayForw(prelayforwpacket, urelayforwpacketlen, ::core::mem::transmute(prelaymessages.as_ptr()), prelaymessages.len() as _, pnrelaymessages, ppinnerpacket, pcbinnerpacket)
+    PxeDhcpv6ParseRelayForw(prelayforwpacket, urelayforwpacketlen, ::core::mem::transmute(prelaymessages.as_ptr()), prelaymessages.len().try_into().unwrap(), pnrelaymessages, ppinnerpacket, pcbinnerpacket)
 }
 #[inline]
 pub unsafe fn PxeGetServerInfo(uinfotype: u32, pbuffer: *mut ::core::ffi::c_void, ubufferlen: u32) -> u32 {
@@ -360,7 +360,7 @@ where
 #[inline]
 pub unsafe fn WdsCliFreeStringArray(ppwszarray: ::core::option::Option<&mut [::windows_core::PWSTR]>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliFreeStringArray(ppwszarray : *mut ::windows_core::PWSTR, ulcount : u32) -> ::windows_core::HRESULT);
-    WdsCliFreeStringArray(::core::mem::transmute(ppwszarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ppwszarray.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    WdsCliFreeStringArray(::core::mem::transmute(ppwszarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ppwszarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
 #[inline]
 pub unsafe fn WdsCliGetDriverQueryXml<P0>(pwszwindirpath: P0) -> ::windows_core::Result<::windows_core::PWSTR>

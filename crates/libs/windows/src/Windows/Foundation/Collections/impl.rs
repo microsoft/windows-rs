@@ -837,7 +837,7 @@ where
         V::from_default(value)
     }
     fn Size(&self) -> ::windows_core::Result<u32> {
-        Ok(self.map.len() as u32)
+        Ok(self.map.len().try_into()?)
     }
     fn HasKey(&self, key: &K::Default) -> ::windows_core::Result<bool> {
         Ok(self.map.contains_key(key))
@@ -981,7 +981,7 @@ where
         T::from_default(item)
     }
     fn Size(&self) -> ::windows_core::Result<u32> {
-        Ok(self.values.len() as u32)
+        Ok(self.values.len().try_into()?)
     }
     fn IndexOf(&self, value: &T::Default, result: &mut u32) -> ::windows_core::Result<bool> {
         match self.values.iter().position(|element| element == value) {

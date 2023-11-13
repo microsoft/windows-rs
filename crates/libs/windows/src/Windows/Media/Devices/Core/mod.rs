@@ -541,13 +541,13 @@ impl CameraIntrinsics {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn ProjectManyOntoFrame(&self, coordinates: &[super::super::super::Foundation::Numerics::Vector3], results: &mut [super::super::super::Foundation::Point]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).ProjectManyOntoFrame)(::windows_core::Interface::as_raw(this), coordinates.len() as u32, coordinates.as_ptr(), results.len() as u32, results.as_mut_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).ProjectManyOntoFrame)(::windows_core::Interface::as_raw(this), coordinates.len().try_into().unwrap(), coordinates.as_ptr(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
     }
     #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn UnprojectPixelsAtUnitDepth(&self, pixelcoordinates: &[super::super::super::Foundation::Point], results: &mut [super::super::super::Foundation::Numerics::Vector2]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).UnprojectPixelsAtUnitDepth)(::windows_core::Interface::as_raw(this), pixelcoordinates.len() as u32, pixelcoordinates.as_ptr(), results.len() as u32, results.as_mut_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).UnprojectPixelsAtUnitDepth)(::windows_core::Interface::as_raw(this), pixelcoordinates.len().try_into().unwrap(), pixelcoordinates.as_ptr(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
     }
     #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -571,7 +571,7 @@ impl CameraIntrinsics {
     #[cfg(feature = "Foundation")]
     pub fn DistortPoints(&self, inputs: &[super::super::super::Foundation::Point], results: &mut [super::super::super::Foundation::Point]) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ICameraIntrinsics2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).DistortPoints)(::windows_core::Interface::as_raw(this), inputs.len() as u32, inputs.as_ptr(), results.len() as u32, results.as_mut_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).DistortPoints)(::windows_core::Interface::as_raw(this), inputs.len().try_into().unwrap(), inputs.as_ptr(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
     }
     #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
@@ -586,7 +586,7 @@ impl CameraIntrinsics {
     #[cfg(feature = "Foundation")]
     pub fn UndistortPoints(&self, inputs: &[super::super::super::Foundation::Point], results: &mut [super::super::super::Foundation::Point]) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ICameraIntrinsics2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).UndistortPoints)(::windows_core::Interface::as_raw(this), inputs.len() as u32, inputs.as_ptr(), results.len() as u32, results.as_mut_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).UndistortPoints)(::windows_core::Interface::as_raw(this), inputs.len().try_into().unwrap(), inputs.as_ptr(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
     }
     #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -646,7 +646,7 @@ impl DepthCorrelatedCoordinateMapper {
         P0: ::windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).UnprojectPoints)(::windows_core::Interface::as_raw(this), sourcepoints.len() as u32, sourcepoints.as_ptr(), targetcoordinatesystem.into_param().abi(), results.len() as u32, results.as_mut_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).UnprojectPoints)(::windows_core::Interface::as_raw(this), sourcepoints.len().try_into().unwrap(), sourcepoints.as_ptr(), targetcoordinatesystem.into_param().abi(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
     }
     #[doc = "Required features: `\"Foundation\"`, `\"Perception_Spatial\"`"]
     #[cfg(all(feature = "Foundation", feature = "Perception_Spatial"))]
@@ -669,7 +669,7 @@ impl DepthCorrelatedCoordinateMapper {
         P1: ::windows_core::IntoParam<CameraIntrinsics>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).MapPoints)(::windows_core::Interface::as_raw(this), sourcepoints.len() as u32, sourcepoints.as_ptr(), targetcoordinatesystem.into_param().abi(), targetcameraintrinsics.into_param().abi(), results.len() as u32, results.as_mut_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).MapPoints)(::windows_core::Interface::as_raw(this), sourcepoints.len().try_into().unwrap(), sourcepoints.as_ptr(), targetcoordinatesystem.into_param().abi(), targetcameraintrinsics.into_param().abi(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
     }
 }
 impl ::windows_core::RuntimeType for DepthCorrelatedCoordinateMapper {

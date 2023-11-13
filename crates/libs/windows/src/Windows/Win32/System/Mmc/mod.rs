@@ -1548,7 +1548,7 @@ pub struct IDisplayHelp_Vtbl {
 pub struct IEnumTASK(::windows_core::IUnknown);
 impl IEnumTASK {
     pub unsafe fn Next(&self, rgelt: &mut [MMC_TASK], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -2681,7 +2681,7 @@ impl ISnapinProperties {
     #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PropertiesChanged(&self, pproperties: &[MMC_SNAPIN_PROPERTY]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).PropertiesChanged)(::windows_core::Interface::as_raw(self), pproperties.len() as _, ::core::mem::transmute(pproperties.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).PropertiesChanged)(::windows_core::Interface::as_raw(self), pproperties.len().try_into().unwrap(), ::core::mem::transmute(pproperties.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISnapinProperties, ::windows_core::IUnknown);
@@ -2741,7 +2741,7 @@ impl IStringTable {
         (::windows_core::Interface::vtable(self).AddString)(::windows_core::Interface::as_raw(self), pszadd.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetString(&self, stringid: u32, lpbuffer: &mut [u16], pcchout: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetString)(::windows_core::Interface::as_raw(self), stringid, lpbuffer.len() as _, ::core::mem::transmute(lpbuffer.as_ptr()), pcchout).ok()
+        (::windows_core::Interface::vtable(self).GetString)(::windows_core::Interface::as_raw(self), stringid, lpbuffer.len().try_into().unwrap(), ::core::mem::transmute(lpbuffer.as_ptr()), pcchout).ok()
     }
     pub unsafe fn GetStringLength(&self, stringid: u32) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();

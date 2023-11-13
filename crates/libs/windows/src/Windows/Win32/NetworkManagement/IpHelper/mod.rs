@@ -78,7 +78,7 @@ pub unsafe fn ConvertInterfaceIndexToLuid(interfaceindex: u32, interfaceluid: *m
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToAlias(interfaceluid: *const super::Ndis::NET_LUID_LH, interfacealias: &mut [u16]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToAlias(interfaceluid : *const super::Ndis:: NET_LUID_LH, interfacealias : ::windows_core::PWSTR, length : usize) -> super::super::Foundation:: WIN32_ERROR);
-    ConvertInterfaceLuidToAlias(interfaceluid, ::core::mem::transmute(interfacealias.as_ptr()), interfacealias.len() as _).ok()
+    ConvertInterfaceLuidToAlias(interfaceluid, ::core::mem::transmute(interfacealias.as_ptr()), interfacealias.len().try_into().unwrap()).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -99,14 +99,14 @@ pub unsafe fn ConvertInterfaceLuidToIndex(interfaceluid: *const super::Ndis::NET
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToNameA(interfaceluid: *const super::Ndis::NET_LUID_LH, interfacename: &mut [u8]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToNameA(interfaceluid : *const super::Ndis:: NET_LUID_LH, interfacename : ::windows_core::PSTR, length : usize) -> super::super::Foundation:: WIN32_ERROR);
-    ConvertInterfaceLuidToNameA(interfaceluid, ::core::mem::transmute(interfacename.as_ptr()), interfacename.len() as _).ok()
+    ConvertInterfaceLuidToNameA(interfaceluid, ::core::mem::transmute(interfacename.as_ptr()), interfacename.len().try_into().unwrap()).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToNameW(interfaceluid: *const super::Ndis::NET_LUID_LH, interfacename: &mut [u16]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToNameW(interfaceluid : *const super::Ndis:: NET_LUID_LH, interfacename : ::windows_core::PWSTR, length : usize) -> super::super::Foundation:: WIN32_ERROR);
-    ConvertInterfaceLuidToNameW(interfaceluid, ::core::mem::transmute(interfacename.as_ptr()), interfacename.len() as _).ok()
+    ConvertInterfaceLuidToNameW(interfaceluid, ::core::mem::transmute(interfacename.as_ptr()), interfacename.len().try_into().unwrap()).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -692,7 +692,7 @@ pub unsafe fn GetNetworkConnectivityHintForInterface(interfaceindex: u32, connec
 #[inline]
 pub unsafe fn GetNetworkInformation(networkguid: *const ::windows_core::GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: &mut [u16]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("iphlpapi.dll" "system" fn GetNetworkInformation(networkguid : *const ::windows_core::GUID, compartmentid : *mut u32, siteid : *mut u32, networkname : ::windows_core::PWSTR, length : u32) -> super::super::Foundation:: WIN32_ERROR);
-    GetNetworkInformation(networkguid, compartmentid, siteid, ::core::mem::transmute(networkname.as_ptr()), networkname.len() as _).ok()
+    GetNetworkInformation(networkguid, compartmentid, siteid, ::core::mem::transmute(networkname.as_ptr()), networkname.len().try_into().unwrap()).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -741,12 +741,36 @@ pub unsafe fn GetPerAdapterInfo(ifindex: u32, pperadapterinfo: ::core::option::O
 #[inline]
 pub unsafe fn GetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: ::core::option::Option<&mut [u8]>, rwversion: u32, ros: ::core::option::Option<&mut [u8]>, rosversion: u32, rod: ::core::option::Option<&mut [u8]>, rodversion: u32) -> u32 {
     ::windows_targets::link!("iphlpapi.dll" "system" fn GetPerTcp6ConnectionEStats(row : *const MIB_TCP6ROW, estatstype : TCP_ESTATS_TYPE, rw : *mut u8, rwversion : u32, rwsize : u32, ros : *mut u8, rosversion : u32, rossize : u32, rod : *mut u8, rodversion : u32, rodsize : u32) -> u32);
-    GetPerTcp6ConnectionEStats(row, estatstype, ::core::mem::transmute(rw.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rwversion, rw.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ros.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rosversion, ros.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rod.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rodversion, rod.as_deref().map_or(0, |slice| slice.len() as _))
+    GetPerTcp6ConnectionEStats(
+        row,
+        estatstype,
+        ::core::mem::transmute(rw.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        rwversion,
+        rw.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        ::core::mem::transmute(ros.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        rosversion,
+        ros.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        ::core::mem::transmute(rod.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        rodversion,
+        rod.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+    )
 }
 #[inline]
 pub unsafe fn GetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: ::core::option::Option<&mut [u8]>, rwversion: u32, ros: ::core::option::Option<&mut [u8]>, rosversion: u32, rod: ::core::option::Option<&mut [u8]>, rodversion: u32) -> u32 {
     ::windows_targets::link!("iphlpapi.dll" "system" fn GetPerTcpConnectionEStats(row : *const MIB_TCPROW_LH, estatstype : TCP_ESTATS_TYPE, rw : *mut u8, rwversion : u32, rwsize : u32, ros : *mut u8, rosversion : u32, rossize : u32, rod : *mut u8, rodversion : u32, rodsize : u32) -> u32);
-    GetPerTcpConnectionEStats(row, estatstype, ::core::mem::transmute(rw.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rwversion, rw.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ros.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rosversion, ros.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rod.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rodversion, rod.as_deref().map_or(0, |slice| slice.len() as _))
+    GetPerTcpConnectionEStats(
+        row,
+        estatstype,
+        ::core::mem::transmute(rw.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        rwversion,
+        rw.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        ::core::mem::transmute(ros.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        rosversion,
+        ros.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        ::core::mem::transmute(rod.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        rodversion,
+        rod.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+    )
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1328,12 +1352,12 @@ where
 #[inline]
 pub unsafe fn SetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: &[u8], rwversion: u32, offset: u32) -> u32 {
     ::windows_targets::link!("iphlpapi.dll" "system" fn SetPerTcp6ConnectionEStats(row : *const MIB_TCP6ROW, estatstype : TCP_ESTATS_TYPE, rw : *const u8, rwversion : u32, rwsize : u32, offset : u32) -> u32);
-    SetPerTcp6ConnectionEStats(row, estatstype, ::core::mem::transmute(rw.as_ptr()), rwversion, rw.len() as _, offset)
+    SetPerTcp6ConnectionEStats(row, estatstype, ::core::mem::transmute(rw.as_ptr()), rwversion, rw.len().try_into().unwrap(), offset)
 }
 #[inline]
 pub unsafe fn SetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: &[u8], rwversion: u32, offset: u32) -> u32 {
     ::windows_targets::link!("iphlpapi.dll" "system" fn SetPerTcpConnectionEStats(row : *const MIB_TCPROW_LH, estatstype : TCP_ESTATS_TYPE, rw : *const u8, rwversion : u32, rwsize : u32, offset : u32) -> u32);
-    SetPerTcpConnectionEStats(row, estatstype, ::core::mem::transmute(rw.as_ptr()), rwversion, rw.len() as _, offset)
+    SetPerTcpConnectionEStats(row, estatstype, ::core::mem::transmute(rw.as_ptr()), rwversion, rw.len().try_into().unwrap(), offset)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

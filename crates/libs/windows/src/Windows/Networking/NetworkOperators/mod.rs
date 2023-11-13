@@ -7490,7 +7490,7 @@ impl UssdMessage {
     }
     pub fn SetPayload(&self, value: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetPayload)(::windows_core::Interface::as_raw(this), value.len() as u32, value.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetPayload)(::windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
     pub fn PayloadAsText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;

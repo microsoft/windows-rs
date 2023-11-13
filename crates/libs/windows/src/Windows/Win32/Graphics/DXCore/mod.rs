@@ -78,7 +78,7 @@ impl IDXCoreAdapterFactory {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateAdapterList)(::windows_core::Interface::as_raw(self), filterattributes.len() as _, ::core::mem::transmute(filterattributes.as_ptr()), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateAdapterList)(::windows_core::Interface::as_raw(self), filterattributes.len().try_into().unwrap(), ::core::mem::transmute(filterattributes.as_ptr()), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -148,7 +148,7 @@ impl IDXCoreAdapterList {
         (::windows_core::Interface::vtable(self).GetFactory)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn Sort(&self, preferences: &[DXCoreAdapterPreference]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Sort)(::windows_core::Interface::as_raw(self), preferences.len() as _, ::core::mem::transmute(preferences.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).Sort)(::windows_core::Interface::as_raw(self), preferences.len().try_into().unwrap(), ::core::mem::transmute(preferences.as_ptr())).ok()
     }
     pub unsafe fn IsAdapterPreferenceSupported(&self, preference: DXCoreAdapterPreference) -> bool {
         (::windows_core::Interface::vtable(self).IsAdapterPreferenceSupported)(::windows_core::Interface::as_raw(self), preference)

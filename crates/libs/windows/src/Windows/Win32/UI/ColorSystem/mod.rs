@@ -65,12 +65,12 @@ pub unsafe fn CMConvertIndexToColorName(hprofile: isize, paindex: *const u32, pa
 #[inline]
 pub unsafe fn CMCreateDeviceLinkProfile(pahprofiles: &[isize], padwintents: &[u32], dwflags: u32, lpprofiledata: *mut *mut u8) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("icm32.dll" "system" fn CMCreateDeviceLinkProfile(pahprofiles : *const isize, nprofiles : u32, padwintents : *const u32, nintents : u32, dwflags : u32, lpprofiledata : *mut *mut u8) -> super::super::Foundation:: BOOL);
-    CMCreateDeviceLinkProfile(::core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len() as _, ::core::mem::transmute(padwintents.as_ptr()), padwintents.len() as _, dwflags, lpprofiledata)
+    CMCreateDeviceLinkProfile(::core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len().try_into().unwrap(), ::core::mem::transmute(padwintents.as_ptr()), padwintents.len().try_into().unwrap(), dwflags, lpprofiledata)
 }
 #[inline]
 pub unsafe fn CMCreateMultiProfileTransform(pahprofiles: &[isize], padwintents: &[u32], dwflags: u32) -> isize {
     ::windows_targets::link!("icm32.dll" "system" fn CMCreateMultiProfileTransform(pahprofiles : *const isize, nprofiles : u32, padwintents : *const u32, nintents : u32, dwflags : u32) -> isize);
-    CMCreateMultiProfileTransform(::core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len() as _, ::core::mem::transmute(padwintents.as_ptr()), padwintents.len() as _, dwflags)
+    CMCreateMultiProfileTransform(::core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len().try_into().unwrap(), ::core::mem::transmute(padwintents.as_ptr()), padwintents.len().try_into().unwrap(), dwflags)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -333,12 +333,12 @@ pub unsafe fn CreateColorTransformW(plogcolorspace: *const LOGCOLORSPACEW, hdest
 #[inline]
 pub unsafe fn CreateDeviceLinkProfile(hprofile: &[isize], padwintent: &[u32], dwflags: u32, pprofiledata: *mut *mut u8, indexpreferredcmm: u32) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("mscms.dll" "system" fn CreateDeviceLinkProfile(hprofile : *const isize, nprofiles : u32, padwintent : *const u32, nintents : u32, dwflags : u32, pprofiledata : *mut *mut u8, indexpreferredcmm : u32) -> super::super::Foundation:: BOOL);
-    CreateDeviceLinkProfile(::core::mem::transmute(hprofile.as_ptr()), hprofile.len() as _, ::core::mem::transmute(padwintent.as_ptr()), padwintent.len() as _, dwflags, pprofiledata, indexpreferredcmm)
+    CreateDeviceLinkProfile(::core::mem::transmute(hprofile.as_ptr()), hprofile.len().try_into().unwrap(), ::core::mem::transmute(padwintent.as_ptr()), padwintent.len().try_into().unwrap(), dwflags, pprofiledata, indexpreferredcmm)
 }
 #[inline]
 pub unsafe fn CreateMultiProfileTransform(pahprofiles: &[isize], padwintent: &[u32], dwflags: u32, indexpreferredcmm: u32) -> isize {
     ::windows_targets::link!("mscms.dll" "system" fn CreateMultiProfileTransform(pahprofiles : *const isize, nprofiles : u32, padwintent : *const u32, nintents : u32, dwflags : u32, indexpreferredcmm : u32) -> isize);
-    CreateMultiProfileTransform(::core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len() as _, ::core::mem::transmute(padwintent.as_ptr()), padwintent.len() as _, dwflags, indexpreferredcmm)
+    CreateMultiProfileTransform(::core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len().try_into().unwrap(), ::core::mem::transmute(padwintent.as_ptr()), padwintent.len().try_into().unwrap(), dwflags, indexpreferredcmm)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -896,7 +896,7 @@ where
 #[inline]
 pub unsafe fn WcsCheckColors(hcolortransform: isize, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const ::core::ffi::c_void, paresult: &mut [u8]) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("mscms.dll" "system" fn WcsCheckColors(hcolortransform : isize, ncolors : u32, ninputchannels : u32, cdtinput : COLORDATATYPE, cbinput : u32, pinputdata : *const ::core::ffi::c_void, paresult : *mut u8) -> super::super::Foundation:: BOOL);
-    WcsCheckColors(hcolortransform, paresult.len() as _, ninputchannels, cdtinput, cbinput, pinputdata, ::core::mem::transmute(paresult.as_ptr()))
+    WcsCheckColors(hcolortransform, paresult.len().try_into().unwrap(), ninputchannels, cdtinput, cbinput, pinputdata, ::core::mem::transmute(paresult.as_ptr()))
 }
 #[inline]
 pub unsafe fn WcsCreateIccProfile(hwcsprofile: isize, dwoptions: u32) -> isize {
@@ -919,7 +919,7 @@ where
 #[inline]
 pub unsafe fn WcsEnumColorProfiles(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pbuffer: &mut [u8], pnprofiles: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("mscms.dll" "system" fn WcsEnumColorProfiles(scope : WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord : *const ENUMTYPEW, pbuffer : *mut u8, dwsize : u32, pnprofiles : *mut u32) -> super::super::Foundation:: BOOL);
-    WcsEnumColorProfiles(scope, penumrecord, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, ::core::mem::transmute(pnprofiles.unwrap_or(::std::ptr::null_mut())))
+    WcsEnumColorProfiles(scope, penumrecord, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pnprofiles.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1043,11 +1043,11 @@ impl IDeviceModelPlugIn {
         (::windows_core::Interface::vtable(self).GetNumChannels)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DeviceToColorimetricColors(&self, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: &mut [XYZColorF]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).DeviceToColorimetricColors)(::windows_core::Interface::as_raw(self), pxyzcolors.len() as _, cchannels, pdevicevalues, ::core::mem::transmute(pxyzcolors.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).DeviceToColorimetricColors)(::windows_core::Interface::as_raw(self), pxyzcolors.len().try_into().unwrap(), cchannels, pdevicevalues, ::core::mem::transmute(pxyzcolors.as_ptr())).ok()
     }
     pub unsafe fn ColorimetricToDeviceColors(&self, cchannels: u32, pxyzcolors: &[XYZColorF]) -> ::windows_core::Result<f32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ColorimetricToDeviceColors)(::windows_core::Interface::as_raw(self), pxyzcolors.len() as _, cchannels, ::core::mem::transmute(pxyzcolors.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ColorimetricToDeviceColors)(::windows_core::Interface::as_raw(self), pxyzcolors.len().try_into().unwrap(), cchannels, ::core::mem::transmute(pxyzcolors.as_ptr()), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1068,14 +1068,14 @@ impl IDeviceModelPlugIn {
         (::windows_core::Interface::vtable(self).GetGamutBoundaryMeshSize)(::windows_core::Interface::as_raw(self), pnumvertices, pnumtriangles).ok()
     }
     pub unsafe fn GetGamutBoundaryMesh(&self, cchannels: u32, cvertices: u32, pvertices: *mut f32, ptriangles: &mut [GamutShellTriangle]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetGamutBoundaryMesh)(::windows_core::Interface::as_raw(self), cchannels, cvertices, ptriangles.len() as _, pvertices, ::core::mem::transmute(ptriangles.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).GetGamutBoundaryMesh)(::windows_core::Interface::as_raw(self), cchannels, cvertices, ptriangles.len().try_into().unwrap(), pvertices, ::core::mem::transmute(ptriangles.as_ptr())).ok()
     }
     pub unsafe fn GetNeutralAxisSize(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNeutralAxisSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNeutralAxis(&self, pxyzcolors: &mut [XYZColorF]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetNeutralAxis)(::windows_core::Interface::as_raw(self), pxyzcolors.len() as _, ::core::mem::transmute(pxyzcolors.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).GetNeutralAxis)(::windows_core::Interface::as_raw(self), pxyzcolors.len().try_into().unwrap(), ::core::mem::transmute(pxyzcolors.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDeviceModelPlugIn, ::windows_core::IUnknown);

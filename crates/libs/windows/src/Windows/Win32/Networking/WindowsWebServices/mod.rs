@@ -29,7 +29,7 @@ pub unsafe fn WebAuthNCancelCurrentOperation(pcancellationid: *const ::windows_c
 #[inline]
 pub unsafe fn WebAuthNDeletePlatformCredential(pbcredentialid: &[u8]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNDeletePlatformCredential(cbcredentialid : u32, pbcredentialid : *const u8) -> ::windows_core::HRESULT);
-    WebAuthNDeletePlatformCredential(pbcredentialid.len() as _, ::core::mem::transmute(pbcredentialid.as_ptr())).ok()
+    WebAuthNDeletePlatformCredential(pbcredentialid.len().try_into().unwrap(), ::core::mem::transmute(pbcredentialid.as_ptr())).ok()
 }
 #[inline]
 pub unsafe fn WebAuthNFreeAssertion(pwebauthnassertion: *const WEBAUTHN_ASSERTION) {
@@ -161,7 +161,7 @@ pub unsafe fn WsAsyncExecute(asyncstate: *const WS_ASYNC_STATE, operation: WS_AS
 #[inline]
 pub unsafe fn WsCall(serviceproxy: *const WS_SERVICE_PROXY, operation: *const WS_OPERATION_DESCRIPTION, arguments: ::core::option::Option<*const *const ::core::ffi::c_void>, heap: *const WS_HEAP, callproperties: ::core::option::Option<&[WS_CALL_PROPERTY]>, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsCall(serviceproxy : *const WS_SERVICE_PROXY, operation : *const WS_OPERATION_DESCRIPTION, arguments : *const *const ::core::ffi::c_void, heap : *const WS_HEAP, callproperties : *const WS_CALL_PROPERTY, callpropertycount : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsCall(serviceproxy, operation, ::core::mem::transmute(arguments.unwrap_or(::std::ptr::null())), heap, ::core::mem::transmute(callproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), callproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsCall(serviceproxy, operation, ::core::mem::transmute(arguments.unwrap_or(::std::ptr::null())), heap, ::core::mem::transmute(callproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), callproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCheckMustUnderstandHeaders(message: *const WS_MESSAGE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
@@ -206,18 +206,18 @@ pub unsafe fn WsCopyNode(writer: *const WS_XML_WRITER, reader: *const WS_XML_REA
 #[inline]
 pub unsafe fn WsCreateChannel(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: ::core::option::Option<&[WS_CHANNEL_PROPERTY]>, securitydescription: ::core::option::Option<*const WS_SECURITY_DESCRIPTION>, channel: *mut *mut WS_CHANNEL, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsCreateChannel(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, properties : *const WS_CHANNEL_PROPERTY, propertycount : u32, securitydescription : *const WS_SECURITY_DESCRIPTION, channel : *mut *mut WS_CHANNEL, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsCreateChannel(channeltype, channelbinding, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(securitydescription.unwrap_or(::std::ptr::null())), channel, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsCreateChannel(channeltype, channelbinding, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(securitydescription.unwrap_or(::std::ptr::null())), channel, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateChannelForListener(listener: *const WS_LISTENER, properties: ::core::option::Option<&[WS_CHANNEL_PROPERTY]>, channel: *mut *mut WS_CHANNEL, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsCreateChannelForListener(listener : *const WS_LISTENER, properties : *const WS_CHANNEL_PROPERTY, propertycount : u32, channel : *mut *mut WS_CHANNEL, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsCreateChannelForListener(listener, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), channel, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsCreateChannelForListener(listener, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), channel, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateError(properties: ::core::option::Option<&[WS_ERROR_PROPERTY]>) -> ::windows_core::Result<*mut WS_ERROR> {
     ::windows_targets::link!("webservices.dll" "system" fn WsCreateError(properties : *const WS_ERROR_PROPERTY, propertycount : u32, error : *mut *mut WS_ERROR) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WsCreateError(::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
+    WsCreateError(::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).from_abi(result__)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -234,27 +234,27 @@ pub unsafe fn WsCreateHeap(maxsize: usize, trimsize: usize, properties: ::core::
 #[inline]
 pub unsafe fn WsCreateListener(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: ::core::option::Option<&[WS_LISTENER_PROPERTY]>, securitydescription: ::core::option::Option<*const WS_SECURITY_DESCRIPTION>, listener: *mut *mut WS_LISTENER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsCreateListener(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, properties : *const WS_LISTENER_PROPERTY, propertycount : u32, securitydescription : *const WS_SECURITY_DESCRIPTION, listener : *mut *mut WS_LISTENER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsCreateListener(channeltype, channelbinding, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(securitydescription.unwrap_or(::std::ptr::null())), listener, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsCreateListener(channeltype, channelbinding, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(securitydescription.unwrap_or(::std::ptr::null())), listener, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateMessage(envelopeversion: WS_ENVELOPE_VERSION, addressingversion: WS_ADDRESSING_VERSION, properties: ::core::option::Option<&[WS_MESSAGE_PROPERTY]>, message: *mut *mut WS_MESSAGE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsCreateMessage(envelopeversion : WS_ENVELOPE_VERSION, addressingversion : WS_ADDRESSING_VERSION, properties : *const WS_MESSAGE_PROPERTY, propertycount : u32, message : *mut *mut WS_MESSAGE, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsCreateMessage(envelopeversion, addressingversion, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), message, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsCreateMessage(envelopeversion, addressingversion, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), message, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateMessageForChannel(channel: *const WS_CHANNEL, properties: ::core::option::Option<&[WS_MESSAGE_PROPERTY]>, message: *mut *mut WS_MESSAGE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsCreateMessageForChannel(channel : *const WS_CHANNEL, properties : *const WS_MESSAGE_PROPERTY, propertycount : u32, message : *mut *mut WS_MESSAGE, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsCreateMessageForChannel(channel, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), message, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsCreateMessageForChannel(channel, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), message, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateMetadata(properties: ::core::option::Option<&[WS_METADATA_PROPERTY]>, metadata: *mut *mut WS_METADATA, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsCreateMetadata(properties : *const WS_METADATA_PROPERTY, propertycount : u32, metadata : *mut *mut WS_METADATA, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsCreateMetadata(::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), metadata, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsCreateMetadata(::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), metadata, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateReader(properties: ::core::option::Option<&[WS_XML_READER_PROPERTY]>, reader: *mut *mut WS_XML_READER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsCreateReader(properties : *const WS_XML_READER_PROPERTY, propertycount : u32, reader : *mut *mut WS_XML_READER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsCreateReader(::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), reader, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsCreateReader(::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), reader, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -264,7 +264,7 @@ pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, 
     WsCreateServiceEndpointFromTemplate(
         channeltype,
         ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        properties.as_deref().map_or(0, |slice| slice.len() as _),
+        properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         ::core::mem::transmute(addressurl.unwrap_or(::std::ptr::null())),
         contract,
         authorizationcallback,
@@ -284,7 +284,7 @@ pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, 
 #[inline]
 pub unsafe fn WsCreateServiceHost(endpoints: ::core::option::Option<&[*const WS_SERVICE_ENDPOINT]>, serviceproperties: ::core::option::Option<&[WS_SERVICE_PROPERTY]>, servicehost: *mut *mut WS_SERVICE_HOST, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsCreateServiceHost(endpoints : *const *const WS_SERVICE_ENDPOINT, endpointcount : u16, serviceproperties : *const WS_SERVICE_PROPERTY, servicepropertycount : u32, servicehost : *mut *mut WS_SERVICE_HOST, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsCreateServiceHost(::core::mem::transmute(endpoints.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), endpoints.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(serviceproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), serviceproperties.as_deref().map_or(0, |slice| slice.len() as _), servicehost, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsCreateServiceHost(::core::mem::transmute(endpoints.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), endpoints.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(serviceproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), serviceproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), servicehost, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, securitydescription: ::core::option::Option<*const WS_SECURITY_DESCRIPTION>, properties: ::core::option::Option<&[WS_PROXY_PROPERTY]>, channelproperties: ::core::option::Option<&[WS_CHANNEL_PROPERTY]>, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
@@ -294,9 +294,9 @@ pub unsafe fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding:
         channelbinding,
         ::core::mem::transmute(securitydescription.unwrap_or(::std::ptr::null())),
         ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        properties.as_deref().map_or(0, |slice| slice.len() as _),
+        properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         ::core::mem::transmute(channelproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        channelproperties.as_deref().map_or(0, |slice| slice.len() as _),
+        channelproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         serviceproxy,
         ::core::mem::transmute(error.unwrap_or(::std::ptr::null())),
     )
@@ -305,22 +305,22 @@ pub unsafe fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding:
 #[inline]
 pub unsafe fn WsCreateServiceProxyFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: ::core::option::Option<&[WS_PROXY_PROPERTY]>, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: ::core::option::Option<*const ::core::ffi::c_void>, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsCreateServiceProxyFromTemplate(channeltype : WS_CHANNEL_TYPE, properties : *const WS_PROXY_PROPERTY, propertycount : u32, templatetype : WS_BINDING_TEMPLATE_TYPE, templatevalue : *const ::core::ffi::c_void, templatesize : u32, templatedescription : *const ::core::ffi::c_void, templatedescriptionsize : u32, serviceproxy : *mut *mut WS_SERVICE_PROXY, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsCreateServiceProxyFromTemplate(channeltype, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), templatetype, ::core::mem::transmute(templatevalue.unwrap_or(::std::ptr::null())), templatesize, templatedescription, templatedescriptionsize, serviceproxy, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsCreateServiceProxyFromTemplate(channeltype, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), templatetype, ::core::mem::transmute(templatevalue.unwrap_or(::std::ptr::null())), templatesize, templatedescription, templatedescriptionsize, serviceproxy, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateWriter(properties: ::core::option::Option<&[WS_XML_WRITER_PROPERTY]>, writer: *mut *mut WS_XML_WRITER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsCreateWriter(properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, writer : *mut *mut WS_XML_WRITER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsCreateWriter(::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), writer, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsCreateWriter(::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), writer, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateXmlBuffer(heap: *const WS_HEAP, properties: ::core::option::Option<&[WS_XML_BUFFER_PROPERTY]>, buffer: *mut *mut WS_XML_BUFFER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsCreateXmlBuffer(heap : *const WS_HEAP, properties : *const WS_XML_BUFFER_PROPERTY, propertycount : u32, buffer : *mut *mut WS_XML_BUFFER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsCreateXmlBuffer(heap, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), buffer, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsCreateXmlBuffer(heap, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), buffer, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateXmlSecurityToken(tokenxml: ::core::option::Option<*const WS_XML_BUFFER>, tokenkey: ::core::option::Option<*const WS_SECURITY_KEY_HANDLE>, properties: ::core::option::Option<&[WS_XML_SECURITY_TOKEN_PROPERTY]>, token: *mut *mut WS_SECURITY_TOKEN, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsCreateXmlSecurityToken(tokenxml : *const WS_XML_BUFFER, tokenkey : *const WS_SECURITY_KEY_HANDLE, properties : *const WS_XML_SECURITY_TOKEN_PROPERTY, propertycount : u32, token : *mut *mut WS_SECURITY_TOKEN, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsCreateXmlSecurityToken(::core::mem::transmute(tokenxml.unwrap_or(::std::ptr::null())), ::core::mem::transmute(tokenkey.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), token, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsCreateXmlSecurityToken(::core::mem::transmute(tokenxml.unwrap_or(::std::ptr::null())), ::core::mem::transmute(tokenkey.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), token, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -712,12 +712,12 @@ pub unsafe fn WsReadBytes(reader: *const WS_XML_READER, bytes: *mut ::core::ffi:
 #[inline]
 pub unsafe fn WsReadChars(reader: *const WS_XML_READER, chars: &mut [u16], actualcharcount: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsReadChars(reader : *const WS_XML_READER, chars : ::windows_core::PWSTR, maxcharcount : u32, actualcharcount : *mut u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsReadChars(reader, ::core::mem::transmute(chars.as_ptr()), chars.len() as _, actualcharcount, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsReadChars(reader, ::core::mem::transmute(chars.as_ptr()), chars.len().try_into().unwrap(), actualcharcount, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadCharsUtf8(reader: *const WS_XML_READER, bytes: &mut [u8], actualbytecount: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsReadCharsUtf8(reader : *const WS_XML_READER, bytes : *mut u8, maxbytecount : u32, actualbytecount : *mut u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsReadCharsUtf8(reader, ::core::mem::transmute(bytes.as_ptr()), bytes.len() as _, actualbytecount, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsReadCharsUtf8(reader, ::core::mem::transmute(bytes.as_ptr()), bytes.len().try_into().unwrap(), actualbytecount, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -813,14 +813,14 @@ pub unsafe fn WsReadXmlBuffer(reader: *const WS_XML_READER, heap: *const WS_HEAP
 #[inline]
 pub unsafe fn WsReadXmlBufferFromBytes(reader: *const WS_XML_READER, encoding: ::core::option::Option<*const WS_XML_READER_ENCODING>, properties: ::core::option::Option<&[WS_XML_READER_PROPERTY]>, bytes: *const ::core::ffi::c_void, bytecount: u32, heap: *const WS_HEAP, xmlbuffer: *mut *mut WS_XML_BUFFER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsReadXmlBufferFromBytes(reader : *const WS_XML_READER, encoding : *const WS_XML_READER_ENCODING, properties : *const WS_XML_READER_PROPERTY, propertycount : u32, bytes : *const ::core::ffi::c_void, bytecount : u32, heap : *const WS_HEAP, xmlbuffer : *mut *mut WS_XML_BUFFER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsReadXmlBufferFromBytes(reader, ::core::mem::transmute(encoding.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), bytes, bytecount, heap, xmlbuffer, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsReadXmlBufferFromBytes(reader, ::core::mem::transmute(encoding.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), bytes, bytecount, heap, xmlbuffer, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsReceiveMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescriptions: &[*const WS_MESSAGE_DESCRIPTION], receiveoption: WS_RECEIVE_OPTION, readbodyoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32, index: ::core::option::Option<*mut u32>, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsReceiveMessage(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, messagedescriptions : *const *const WS_MESSAGE_DESCRIPTION, messagedescriptioncount : u32, receiveoption : WS_RECEIVE_OPTION, readbodyoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, index : *mut u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsReceiveMessage(channel, message, ::core::mem::transmute(messagedescriptions.as_ptr()), messagedescriptions.len() as _, receiveoption, readbodyoption, ::core::mem::transmute(heap.unwrap_or(::std::ptr::null())), value, valuesize, ::core::mem::transmute(index.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsReceiveMessage(channel, message, ::core::mem::transmute(messagedescriptions.as_ptr()), messagedescriptions.len().try_into().unwrap(), receiveoption, readbodyoption, ::core::mem::transmute(heap.unwrap_or(::std::ptr::null())), value, valuesize, ::core::mem::transmute(index.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsRegisterOperationForCancel(context: *const WS_OPERATION_CONTEXT, cancelcallback: WS_OPERATION_CANCEL_CALLBACK, freestatecallback: WS_OPERATION_FREE_STATE_CALLBACK, userstate: ::core::option::Option<*const ::core::ffi::c_void>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
@@ -861,7 +861,7 @@ pub unsafe fn WsRequestReply(channel: *const WS_CHANNEL, requestmessage: *const 
 #[inline]
 pub unsafe fn WsRequestSecurityToken(channel: *const WS_CHANNEL, properties: ::core::option::Option<&[WS_REQUEST_SECURITY_TOKEN_PROPERTY]>, token: *mut *mut WS_SECURITY_TOKEN, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsRequestSecurityToken(channel : *const WS_CHANNEL, properties : *const WS_REQUEST_SECURITY_TOKEN_PROPERTY, propertycount : u32, token : *mut *mut WS_SECURITY_TOKEN, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsRequestSecurityToken(channel, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), token, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsRequestSecurityToken(channel, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), token, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsResetChannel(channel: *const WS_CHANNEL, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
@@ -957,12 +957,12 @@ pub unsafe fn WsSetHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE
 #[inline]
 pub unsafe fn WsSetInput(reader: *const WS_XML_READER, encoding: ::core::option::Option<*const WS_XML_READER_ENCODING>, input: ::core::option::Option<*const WS_XML_READER_INPUT>, properties: ::core::option::Option<&[WS_XML_READER_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsSetInput(reader : *const WS_XML_READER, encoding : *const WS_XML_READER_ENCODING, input : *const WS_XML_READER_INPUT, properties : *const WS_XML_READER_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsSetInput(reader, ::core::mem::transmute(encoding.unwrap_or(::std::ptr::null())), ::core::mem::transmute(input.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsSetInput(reader, ::core::mem::transmute(encoding.unwrap_or(::std::ptr::null())), ::core::mem::transmute(input.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsSetInputToBuffer(reader: *const WS_XML_READER, buffer: *const WS_XML_BUFFER, properties: ::core::option::Option<&[WS_XML_READER_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsSetInputToBuffer(reader : *const WS_XML_READER, buffer : *const WS_XML_BUFFER, properties : *const WS_XML_READER_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsSetInputToBuffer(reader, buffer, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsSetInputToBuffer(reader, buffer, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsSetListenerProperty(listener: *const WS_LISTENER, id: WS_LISTENER_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
@@ -977,12 +977,12 @@ pub unsafe fn WsSetMessageProperty(message: *const WS_MESSAGE, id: WS_MESSAGE_PR
 #[inline]
 pub unsafe fn WsSetOutput(writer: *const WS_XML_WRITER, encoding: ::core::option::Option<*const WS_XML_WRITER_ENCODING>, output: ::core::option::Option<*const WS_XML_WRITER_OUTPUT>, properties: ::core::option::Option<&[WS_XML_WRITER_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsSetOutput(writer : *const WS_XML_WRITER, encoding : *const WS_XML_WRITER_ENCODING, output : *const WS_XML_WRITER_OUTPUT, properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsSetOutput(writer, ::core::mem::transmute(encoding.unwrap_or(::std::ptr::null())), ::core::mem::transmute(output.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsSetOutput(writer, ::core::mem::transmute(encoding.unwrap_or(::std::ptr::null())), ::core::mem::transmute(output.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsSetOutputToBuffer(writer: *const WS_XML_WRITER, buffer: *const WS_XML_BUFFER, properties: ::core::option::Option<&[WS_XML_WRITER_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsSetOutputToBuffer(writer : *const WS_XML_WRITER, buffer : *const WS_XML_BUFFER, properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsSetOutputToBuffer(writer, buffer, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsSetOutputToBuffer(writer, buffer, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsSetReaderPosition(reader: *const WS_XML_READER, nodeposition: *const WS_XML_NODE_POSITION, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
@@ -1007,22 +1007,22 @@ pub unsafe fn WsSkipNode(reader: *const WS_XML_READER, error: ::core::option::Op
 #[inline]
 pub unsafe fn WsStartReaderCanonicalization(reader: *const WS_XML_READER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: ::core::option::Option<*const ::core::ffi::c_void>, properties: ::core::option::Option<&[WS_XML_CANONICALIZATION_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsStartReaderCanonicalization(reader : *const WS_XML_READER, writecallback : WS_WRITE_CALLBACK, writecallbackstate : *const ::core::ffi::c_void, properties : *const WS_XML_CANONICALIZATION_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsStartReaderCanonicalization(reader, writecallback, ::core::mem::transmute(writecallbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsStartReaderCanonicalization(reader, writecallback, ::core::mem::transmute(writecallbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsStartWriterCanonicalization(writer: *const WS_XML_WRITER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: ::core::option::Option<*const ::core::ffi::c_void>, properties: ::core::option::Option<&[WS_XML_CANONICALIZATION_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsStartWriterCanonicalization(writer : *const WS_XML_WRITER, writecallback : WS_WRITE_CALLBACK, writecallbackstate : *const ::core::ffi::c_void, properties : *const WS_XML_CANONICALIZATION_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsStartWriterCanonicalization(writer, writecallback, ::core::mem::transmute(writecallbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsStartWriterCanonicalization(writer, writecallback, ::core::mem::transmute(writecallbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsTrimXmlWhitespace(chars: &[u16], trimmedchars: *mut *mut u16, trimmedcount: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsTrimXmlWhitespace(chars : ::windows_core::PCWSTR, charcount : u32, trimmedchars : *mut *mut u16, trimmedcount : *mut u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsTrimXmlWhitespace(::core::mem::transmute(chars.as_ptr()), chars.len() as _, trimmedchars, trimmedcount, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsTrimXmlWhitespace(::core::mem::transmute(chars.as_ptr()), chars.len().try_into().unwrap(), trimmedchars, trimmedcount, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsVerifyXmlNCName(ncnamechars: &[u16], error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsVerifyXmlNCName(ncnamechars : ::windows_core::PCWSTR, ncnamecharcount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsVerifyXmlNCName(::core::mem::transmute(ncnamechars.as_ptr()), ncnamechars.len() as _, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsVerifyXmlNCName(::core::mem::transmute(ncnamechars.as_ptr()), ncnamechars.len().try_into().unwrap(), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1053,12 +1053,12 @@ pub unsafe fn WsWriteBytes(writer: *const WS_XML_WRITER, bytes: *const ::core::f
 #[inline]
 pub unsafe fn WsWriteChars(writer: *const WS_XML_WRITER, chars: &[u16], error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsWriteChars(writer : *const WS_XML_WRITER, chars : ::windows_core::PCWSTR, charcount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsWriteChars(writer, ::core::mem::transmute(chars.as_ptr()), chars.len() as _, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsWriteChars(writer, ::core::mem::transmute(chars.as_ptr()), chars.len().try_into().unwrap(), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteCharsUtf8(writer: *const WS_XML_WRITER, bytes: &[u8], error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsWriteCharsUtf8(writer : *const WS_XML_WRITER, bytes : *const u8, bytecount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsWriteCharsUtf8(writer, ::core::mem::transmute(bytes.as_ptr()), bytes.len() as _, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsWriteCharsUtf8(writer, ::core::mem::transmute(bytes.as_ptr()), bytes.len().try_into().unwrap(), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1164,7 +1164,7 @@ pub unsafe fn WsWriteXmlBuffer(writer: *const WS_XML_WRITER, xmlbuffer: *const W
 #[inline]
 pub unsafe fn WsWriteXmlBufferToBytes(writer: *const WS_XML_WRITER, xmlbuffer: *const WS_XML_BUFFER, encoding: ::core::option::Option<*const WS_XML_WRITER_ENCODING>, properties: ::core::option::Option<&[WS_XML_WRITER_PROPERTY]>, heap: *const WS_HEAP, bytes: *mut *mut ::core::ffi::c_void, bytecount: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("webservices.dll" "system" fn WsWriteXmlBufferToBytes(writer : *const WS_XML_WRITER, xmlbuffer : *const WS_XML_BUFFER, encoding : *const WS_XML_WRITER_ENCODING, properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, heap : *const WS_HEAP, bytes : *mut *mut ::core::ffi::c_void, bytecount : *mut u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
-    WsWriteXmlBufferToBytes(writer, xmlbuffer, ::core::mem::transmute(encoding.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), heap, bytes, bytecount, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsWriteXmlBufferToBytes(writer, xmlbuffer, ::core::mem::transmute(encoding.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), heap, bytes, bytecount, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

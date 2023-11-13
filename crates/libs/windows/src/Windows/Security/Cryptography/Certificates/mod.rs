@@ -1404,7 +1404,7 @@ impl CertificateExtension {
     }
     pub fn SetValue(&self, value: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetValue)(::windows_core::Interface::as_raw(this), value.len() as u32, value.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetValue)(::windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
 }
 impl ::windows_core::RuntimeType for CertificateExtension {
@@ -1588,7 +1588,7 @@ impl CertificateQuery {
     }
     pub fn SetThumbprint(&self, value: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetThumbprint)(::windows_core::Interface::as_raw(this), value.len() as u32, value.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetThumbprint)(::windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
     pub fn HardwareOnly(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -1819,7 +1819,7 @@ impl CertificateRequestProperties {
     }
     pub fn SetCurveParameters(&self, value: &[u8]) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ICertificateRequestProperties3>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetCurveParameters)(::windows_core::Interface::as_raw(this), value.len() as u32, value.as_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetCurveParameters)(::windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
     pub fn ContainerNamePrefix(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<ICertificateRequestProperties3>(self)?;

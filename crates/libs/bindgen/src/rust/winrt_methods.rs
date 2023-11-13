@@ -138,9 +138,9 @@ fn gen_winrt_abi_args(writer: &Writer, params: &[SignatureParam]) -> TokenStream
         let param = if param.def.flags().contains(ParamAttributes::In) {
             if param.ty.is_winrt_array() {
                 if type_is_blittable(&param.ty) {
-                    quote! { #name.len() as u32, #name.as_ptr(), }
+                    quote! { #name.len().try_into().unwrap(), #name.as_ptr(), }
                 } else {
-                    quote! { #name.len() as u32, ::core::mem::transmute(#name.as_ptr()), }
+                    quote! { #name.len().try_into().unwrap(), ::core::mem::transmute(#name.as_ptr()), }
                 }
             } else if type_is_non_exclusive_winrt_interface(&param.ty) {
                 quote! { #name.try_into_param()?.abi(), }
@@ -157,9 +157,9 @@ fn gen_winrt_abi_args(writer: &Writer, params: &[SignatureParam]) -> TokenStream
             }
         } else if param.ty.is_winrt_array() {
             if type_is_blittable(&param.ty) {
-                quote! { #name.len() as u32, #name.as_mut_ptr(), }
+                quote! { #name.len().try_into().unwrap(), #name.as_mut_ptr(), }
             } else {
-                quote! { #name.len() as u32, ::core::mem::transmute_copy(&#name), }
+                quote! { #name.len().try_into().unwrap(), ::core::mem::transmute_copy(&#name), }
             }
         } else if param.ty.is_winrt_array_ref() {
             quote! { #name.set_abi_len(), #name as *mut _ as _, }

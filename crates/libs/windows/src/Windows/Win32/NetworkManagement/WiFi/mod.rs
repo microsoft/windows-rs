@@ -145,7 +145,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanExtractPsdIEDataList(hclienthandle : super::super::Foundation:: HANDLE, dwiedatasize : u32, prawiedata : *const u8, strformat : ::windows_core::PCWSTR, preserved : *const ::core::ffi::c_void, pppsdiedatalist : *mut *mut WLAN_RAW_DATA_LIST) -> u32);
-    WlanExtractPsdIEDataList(hclienthandle.into_param().abi(), prawiedata.len() as _, ::core::mem::transmute(prawiedata.as_ptr()), strformat.into_param().abi(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), pppsdiedatalist)
+    WlanExtractPsdIEDataList(hclienthandle.into_param().abi(), prawiedata.len().try_into().unwrap(), ::core::mem::transmute(prawiedata.as_ptr()), strformat.into_param().abi(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), pppsdiedatalist)
 }
 #[inline]
 pub unsafe fn WlanFreeMemory(pmemory: *const ::core::ffi::c_void) {
@@ -345,7 +345,7 @@ where
     P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkSetSecondaryKey(hclienthandle : super::super::Foundation:: HANDLE, dwkeylength : u32, puckeydata : *const u8, bispassphrase : super::super::Foundation:: BOOL, bpersistent : super::super::Foundation:: BOOL, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
-    WlanHostedNetworkSetSecondaryKey(hclienthandle.into_param().abi(), puckeydata.len() as _, ::core::mem::transmute(puckeydata.as_ptr()), bispassphrase.into_param().abi(), bpersistent.into_param().abi(), ::core::mem::transmute(pfailreason.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())))
+    WlanHostedNetworkSetSecondaryKey(hclienthandle.into_param().abi(), puckeydata.len().try_into().unwrap(), ::core::mem::transmute(puckeydata.as_ptr()), bispassphrase.into_param().abi(), bpersistent.into_param().abi(), ::core::mem::transmute(pfailreason.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -407,7 +407,7 @@ where
 #[inline]
 pub unsafe fn WlanReasonCodeToString(dwreasoncode: u32, pstringbuffer: &[u16], preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32 {
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanReasonCodeToString(dwreasoncode : u32, dwbuffersize : u32, pstringbuffer : ::windows_core::PCWSTR, preserved : *const ::core::ffi::c_void) -> u32);
-    WlanReasonCodeToString(dwreasoncode, pstringbuffer.len() as _, ::core::mem::transmute(pstringbuffer.as_ptr()), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
+    WlanReasonCodeToString(dwreasoncode, pstringbuffer.len().try_into().unwrap(), ::core::mem::transmute(pstringbuffer.as_ptr()), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -528,7 +528,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfileCustomUserData(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, strprofilename : ::windows_core::PCWSTR, dwdatasize : u32, pdata : *const u8, preserved : *const ::core::ffi::c_void) -> u32);
-    WlanSetProfileCustomUserData(hclienthandle.into_param().abi(), pinterfaceguid, strprofilename.into_param().abi(), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr()), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
+    WlanSetProfileCustomUserData(hclienthandle.into_param().abi(), pinterfaceguid, strprofilename.into_param().abi(), pdata.len().try_into().unwrap(), ::core::mem::transmute(pdata.as_ptr()), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
@@ -539,7 +539,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfileEapUserData(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, strprofilename : ::windows_core::PCWSTR, eaptype : super::super::Security::ExtensibleAuthenticationProtocol:: EAP_METHOD_TYPE, dwflags : WLAN_SET_EAPHOST_FLAGS, dweapuserdatasize : u32, pbeapuserdata : *const u8, preserved : *const ::core::ffi::c_void) -> u32);
-    WlanSetProfileEapUserData(hclienthandle.into_param().abi(), pinterfaceguid, strprofilename.into_param().abi(), ::core::mem::transmute(eaptype), dwflags, pbeapuserdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbeapuserdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
+    WlanSetProfileEapUserData(hclienthandle.into_param().abi(), pinterfaceguid, strprofilename.into_param().abi(), ::core::mem::transmute(eaptype), dwflags, pbeapuserdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pbeapuserdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -561,7 +561,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfileList(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, dwitems : u32, strprofilenames : *const ::windows_core::PCWSTR, preserved : *const ::core::ffi::c_void) -> u32);
-    WlanSetProfileList(hclienthandle.into_param().abi(), pinterfaceguid, strprofilenames.len() as _, ::core::mem::transmute(strprofilenames.as_ptr()), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
+    WlanSetProfileList(hclienthandle.into_param().abi(), pinterfaceguid, strprofilenames.len().try_into().unwrap(), ::core::mem::transmute(strprofilenames.as_ptr()), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -915,7 +915,7 @@ pub struct IDot11AdHocSecuritySettings_Vtbl {
 pub struct IEnumDot11AdHocInterfaces(::windows_core::IUnknown);
 impl IEnumDot11AdHocInterfaces {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IDot11AdHocInterface>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -949,7 +949,7 @@ pub struct IEnumDot11AdHocInterfaces_Vtbl {
 pub struct IEnumDot11AdHocNetworks(::windows_core::IUnknown);
 impl IEnumDot11AdHocNetworks {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IDot11AdHocNetwork>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -983,7 +983,7 @@ pub struct IEnumDot11AdHocNetworks_Vtbl {
 pub struct IEnumDot11AdHocSecuritySettings(::windows_core::IUnknown);
 impl IEnumDot11AdHocSecuritySettings {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IDot11AdHocSecuritySettings>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()

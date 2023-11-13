@@ -162,7 +162,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn CascadeWindows(hwndparent : super::super::Foundation:: HWND, whow : CASCADE_WINDOWS_HOW, lprect : *const super::super::Foundation:: RECT, ckids : u32, lpkids : *const super::super::Foundation:: HWND) -> u16);
-    CascadeWindows(hwndparent.into_param().abi(), whow, ::core::mem::transmute(lprect.unwrap_or(::std::ptr::null())), lpkids.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpkids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+    CascadeWindows(hwndparent.into_param().abi(), whow, ::core::mem::transmute(lprect.unwrap_or(::std::ptr::null())), lpkids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(lpkids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -211,12 +211,12 @@ pub unsafe fn CharLowerA(lpsz: ::windows_core::PSTR) -> ::windows_core::PSTR {
 #[inline]
 pub unsafe fn CharLowerBuffA(lpsz: &mut [u8]) -> u32 {
     ::windows_targets::link!("user32.dll" "system" fn CharLowerBuffA(lpsz : ::windows_core::PSTR, cchlength : u32) -> u32);
-    CharLowerBuffA(::core::mem::transmute(lpsz.as_ptr()), lpsz.len() as _)
+    CharLowerBuffA(::core::mem::transmute(lpsz.as_ptr()), lpsz.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn CharLowerBuffW(lpsz: &mut [u16]) -> u32 {
     ::windows_targets::link!("user32.dll" "system" fn CharLowerBuffW(lpsz : ::windows_core::PWSTR, cchlength : u32) -> u32);
-    CharLowerBuffW(::core::mem::transmute(lpsz.as_ptr()), lpsz.len() as _)
+    CharLowerBuffW(::core::mem::transmute(lpsz.as_ptr()), lpsz.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn CharLowerW(lpsz: ::windows_core::PWSTR) -> ::windows_core::PWSTR {
@@ -292,7 +292,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("user32.dll" "system" fn CharToOemBuffA(lpszsrc : ::windows_core::PCSTR, lpszdst : ::windows_core::PSTR, cchdstlength : u32) -> super::super::Foundation:: BOOL);
-    CharToOemBuffA(lpszsrc.into_param().abi(), ::core::mem::transmute(lpszdst.as_ptr()), lpszdst.len() as _).ok()
+    CharToOemBuffA(lpszsrc.into_param().abi(), ::core::mem::transmute(lpszdst.as_ptr()), lpszdst.len().try_into().unwrap()).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -302,7 +302,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("user32.dll" "system" fn CharToOemBuffW(lpszsrc : ::windows_core::PCWSTR, lpszdst : ::windows_core::PSTR, cchdstlength : u32) -> super::super::Foundation:: BOOL);
-    CharToOemBuffW(lpszsrc.into_param().abi(), ::core::mem::transmute(lpszdst.as_ptr()), lpszdst.len() as _).ok()
+    CharToOemBuffW(lpszsrc.into_param().abi(), ::core::mem::transmute(lpszdst.as_ptr()), lpszdst.len().try_into().unwrap()).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -322,12 +322,12 @@ pub unsafe fn CharUpperA(lpsz: ::windows_core::PSTR) -> ::windows_core::PSTR {
 #[inline]
 pub unsafe fn CharUpperBuffA(lpsz: &mut [u8]) -> u32 {
     ::windows_targets::link!("user32.dll" "system" fn CharUpperBuffA(lpsz : ::windows_core::PSTR, cchlength : u32) -> u32);
-    CharUpperBuffA(::core::mem::transmute(lpsz.as_ptr()), lpsz.len() as _)
+    CharUpperBuffA(::core::mem::transmute(lpsz.as_ptr()), lpsz.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn CharUpperBuffW(lpsz: &mut [u16]) -> u32 {
     ::windows_targets::link!("user32.dll" "system" fn CharUpperBuffW(lpsz : ::windows_core::PWSTR, cchlength : u32) -> u32);
-    CharUpperBuffW(::core::mem::transmute(lpsz.as_ptr()), lpsz.len() as _)
+    CharUpperBuffW(::core::mem::transmute(lpsz.as_ptr()), lpsz.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn CharUpperW(lpsz: ::windows_core::PWSTR) -> ::windows_core::PWSTR {
@@ -395,7 +395,7 @@ where
     P0: ::windows_core::IntoParam<HACCEL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn CopyAcceleratorTableA(haccelsrc : HACCEL, lpacceldst : *mut ACCEL, caccelentries : i32) -> i32);
-    CopyAcceleratorTableA(haccelsrc.into_param().abi(), ::core::mem::transmute(lpacceldst.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpacceldst.as_deref().map_or(0, |slice| slice.len() as _))
+    CopyAcceleratorTableA(haccelsrc.into_param().abi(), ::core::mem::transmute(lpacceldst.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpacceldst.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn CopyAcceleratorTableW<P0>(haccelsrc: P0, lpacceldst: ::core::option::Option<&mut [ACCEL]>) -> i32
@@ -403,7 +403,7 @@ where
     P0: ::windows_core::IntoParam<HACCEL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn CopyAcceleratorTableW(haccelsrc : HACCEL, lpacceldst : *mut ACCEL, caccelentries : i32) -> i32);
-    CopyAcceleratorTableW(haccelsrc.into_param().abi(), ::core::mem::transmute(lpacceldst.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpacceldst.as_deref().map_or(0, |slice| slice.len() as _))
+    CopyAcceleratorTableW(haccelsrc.into_param().abi(), ::core::mem::transmute(lpacceldst.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpacceldst.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn CopyIcon<P0>(hicon: P0) -> ::windows_core::Result<HICON>
@@ -428,13 +428,13 @@ where
 #[inline]
 pub unsafe fn CreateAcceleratorTableA(paccel: &[ACCEL]) -> ::windows_core::Result<HACCEL> {
     ::windows_targets::link!("user32.dll" "system" fn CreateAcceleratorTableA(paccel : *const ACCEL, caccel : i32) -> HACCEL);
-    let result__ = CreateAcceleratorTableA(::core::mem::transmute(paccel.as_ptr()), paccel.len() as _);
+    let result__ = CreateAcceleratorTableA(::core::mem::transmute(paccel.as_ptr()), paccel.len().try_into().unwrap());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn CreateAcceleratorTableW(paccel: &[ACCEL]) -> ::windows_core::Result<HACCEL> {
     ::windows_targets::link!("user32.dll" "system" fn CreateAcceleratorTableW(paccel : *const ACCEL, caccel : i32) -> HACCEL);
-    let result__ = CreateAcceleratorTableW(::core::mem::transmute(paccel.as_ptr()), paccel.len() as _);
+    let result__ = CreateAcceleratorTableW(::core::mem::transmute(paccel.as_ptr()), paccel.len().try_into().unwrap());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
@@ -528,7 +528,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn CreateIconFromResource(presbits : *const u8, dwressize : u32, ficon : super::super::Foundation:: BOOL, dwver : u32) -> HICON);
-    let result__ = CreateIconFromResource(::core::mem::transmute(presbits.as_ptr()), presbits.len() as _, ficon.into_param().abi(), dwver);
+    let result__ = CreateIconFromResource(::core::mem::transmute(presbits.as_ptr()), presbits.len().try_into().unwrap(), ficon.into_param().abi(), dwver);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -539,7 +539,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn CreateIconFromResourceEx(presbits : *const u8, dwressize : u32, ficon : super::super::Foundation:: BOOL, dwver : u32, cxdesired : i32, cydesired : i32, flags : IMAGE_FLAGS) -> HICON);
-    let result__ = CreateIconFromResourceEx(::core::mem::transmute(presbits.as_ptr()), presbits.len() as _, ficon.into_param().abi(), dwver, cxdesired, cydesired, flags);
+    let result__ = CreateIconFromResourceEx(::core::mem::transmute(presbits.as_ptr()), presbits.len().try_into().unwrap(), ficon.into_param().abi(), dwver, cxdesired, cydesired, flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
@@ -801,7 +801,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("mrmsupport.dll" "system" fn DestroyIndexedResults(resourceuri : ::windows_core::PCWSTR, qualifiercount : u32, qualifiers : *const IndexedResourceQualifier) -> ());
-    DestroyIndexedResults(resourceuri.into_param().abi(), qualifiers.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(qualifiers.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+    DestroyIndexedResults(resourceuri.into_param().abi(), qualifiers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(qualifiers.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1126,7 +1126,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetAltTabInfoA(hwnd : super::super::Foundation:: HWND, iitem : i32, pati : *mut ALTTABINFO, pszitemtext : ::windows_core::PSTR, cchitemtext : u32) -> super::super::Foundation:: BOOL);
-    GetAltTabInfoA(hwnd.into_param().abi(), iitem, pati, ::core::mem::transmute(pszitemtext.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszitemtext.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    GetAltTabInfoA(hwnd.into_param().abi(), iitem, pati, ::core::mem::transmute(pszitemtext.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszitemtext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1136,7 +1136,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetAltTabInfoW(hwnd : super::super::Foundation:: HWND, iitem : i32, pati : *mut ALTTABINFO, pszitemtext : ::windows_core::PWSTR, cchitemtext : u32) -> super::super::Foundation:: BOOL);
-    GetAltTabInfoW(hwnd.into_param().abi(), iitem, pati, ::core::mem::transmute(pszitemtext.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszitemtext.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    GetAltTabInfoW(hwnd.into_param().abi(), iitem, pati, ::core::mem::transmute(pszitemtext.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszitemtext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1254,7 +1254,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetClassNameA(hwnd : super::super::Foundation:: HWND, lpclassname : ::windows_core::PSTR, nmaxcount : i32) -> i32);
-    GetClassNameA(hwnd.into_param().abi(), ::core::mem::transmute(lpclassname.as_ptr()), lpclassname.len() as _)
+    GetClassNameA(hwnd.into_param().abi(), ::core::mem::transmute(lpclassname.as_ptr()), lpclassname.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1264,7 +1264,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetClassNameW(hwnd : super::super::Foundation:: HWND, lpclassname : ::windows_core::PWSTR, nmaxcount : i32) -> i32);
-    GetClassNameW(hwnd.into_param().abi(), ::core::mem::transmute(lpclassname.as_ptr()), lpclassname.len() as _)
+    GetClassNameW(hwnd.into_param().abi(), ::core::mem::transmute(lpclassname.as_ptr()), lpclassname.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1363,7 +1363,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetDlgItemTextA(hdlg : super::super::Foundation:: HWND, niddlgitem : i32, lpstring : ::windows_core::PSTR, cchmax : i32) -> u32);
-    GetDlgItemTextA(hdlg.into_param().abi(), niddlgitem, ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _)
+    GetDlgItemTextA(hdlg.into_param().abi(), niddlgitem, ::core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1373,7 +1373,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetDlgItemTextW(hdlg : super::super::Foundation:: HWND, niddlgitem : i32, lpstring : ::windows_core::PWSTR, cchmax : i32) -> u32);
-    GetDlgItemTextW(hdlg.into_param().abi(), niddlgitem, ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _)
+    GetDlgItemTextW(hdlg.into_param().abi(), niddlgitem, ::core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1552,7 +1552,7 @@ where
     P0: ::windows_core::IntoParam<HMENU>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetMenuStringA(hmenu : HMENU, uiditem : u32, lpstring : ::windows_core::PSTR, cchmax : i32, flags : MENU_ITEM_FLAGS) -> i32);
-    GetMenuStringA(hmenu.into_param().abi(), uiditem, ::core::mem::transmute(lpstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstring.as_deref().map_or(0, |slice| slice.len() as _), flags)
+    GetMenuStringA(hmenu.into_param().abi(), uiditem, ::core::mem::transmute(lpstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), flags)
 }
 #[inline]
 pub unsafe fn GetMenuStringW<P0>(hmenu: P0, uiditem: u32, lpstring: ::core::option::Option<&mut [u16]>, flags: MENU_ITEM_FLAGS) -> i32
@@ -1560,7 +1560,7 @@ where
     P0: ::windows_core::IntoParam<HMENU>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetMenuStringW(hmenu : HMENU, uiditem : u32, lpstring : ::windows_core::PWSTR, cchmax : i32, flags : MENU_ITEM_FLAGS) -> i32);
-    GetMenuStringW(hmenu.into_param().abi(), uiditem, ::core::mem::transmute(lpstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstring.as_deref().map_or(0, |slice| slice.len() as _), flags)
+    GetMenuStringW(hmenu.into_param().abi(), uiditem, ::core::mem::transmute(lpstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), flags)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1845,7 +1845,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetWindowModuleFileNameA(hwnd : super::super::Foundation:: HWND, pszfilename : ::windows_core::PSTR, cchfilenamemax : u32) -> u32);
-    GetWindowModuleFileNameA(hwnd.into_param().abi(), ::core::mem::transmute(pszfilename.as_ptr()), pszfilename.len() as _)
+    GetWindowModuleFileNameA(hwnd.into_param().abi(), ::core::mem::transmute(pszfilename.as_ptr()), pszfilename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1855,7 +1855,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetWindowModuleFileNameW(hwnd : super::super::Foundation:: HWND, pszfilename : ::windows_core::PWSTR, cchfilenamemax : u32) -> u32);
-    GetWindowModuleFileNameW(hwnd.into_param().abi(), ::core::mem::transmute(pszfilename.as_ptr()), pszfilename.len() as _)
+    GetWindowModuleFileNameW(hwnd.into_param().abi(), ::core::mem::transmute(pszfilename.as_ptr()), pszfilename.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1885,7 +1885,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetWindowTextA(hwnd : super::super::Foundation:: HWND, lpstring : ::windows_core::PSTR, nmaxcount : i32) -> i32);
-    GetWindowTextA(hwnd.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _)
+    GetWindowTextA(hwnd.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1915,7 +1915,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetWindowTextW(hwnd : super::super::Foundation:: HWND, lpstring : ::windows_core::PWSTR, nmaxcount : i32) -> i32);
-    GetWindowTextW(hwnd.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _)
+    GetWindowTextW(hwnd.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2041,7 +2041,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn InternalGetWindowText(hwnd : super::super::Foundation:: HWND, pstring : ::windows_core::PWSTR, cchmaxcount : i32) -> i32);
-    InternalGetWindowText(hwnd.into_param().abi(), ::core::mem::transmute(pstring.as_ptr()), pstring.len() as _)
+    InternalGetWindowText(hwnd.into_param().abi(), ::core::mem::transmute(pstring.as_ptr()), pstring.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2605,7 +2605,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("mrmsupport.dll" "system" fn MrmCreateResourceIndexerFromPreviousPriData(projectroot : ::windows_core::PCWSTR, platformversion : MrmPlatformVersion, defaultqualifiers : ::windows_core::PCWSTR, pridata : *const u8, prisize : u32, indexer : *mut MrmResourceIndexerHandle) -> ::windows_core::HRESULT);
-    MrmCreateResourceIndexerFromPreviousPriData(projectroot.into_param().abi(), platformversion, defaultqualifiers.into_param().abi(), ::core::mem::transmute(pridata.as_ptr()), pridata.len() as _, indexer).ok()
+    MrmCreateResourceIndexerFromPreviousPriData(projectroot.into_param().abi(), platformversion, defaultqualifiers.into_param().abi(), ::core::mem::transmute(pridata.as_ptr()), pridata.len().try_into().unwrap(), indexer).ok()
 }
 #[inline]
 pub unsafe fn MrmCreateResourceIndexerFromPreviousPriFile<P0, P1, P2>(projectroot: P0, platformversion: MrmPlatformVersion, defaultqualifiers: P1, prifile: P2, indexer: *mut MrmResourceIndexerHandle) -> ::windows_core::Result<()>
@@ -2624,7 +2624,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("mrmsupport.dll" "system" fn MrmCreateResourceIndexerFromPreviousSchemaData(projectroot : ::windows_core::PCWSTR, platformversion : MrmPlatformVersion, defaultqualifiers : ::windows_core::PCWSTR, schemaxmldata : *const u8, schemaxmlsize : u32, indexer : *mut MrmResourceIndexerHandle) -> ::windows_core::HRESULT);
-    MrmCreateResourceIndexerFromPreviousSchemaData(projectroot.into_param().abi(), platformversion, defaultqualifiers.into_param().abi(), ::core::mem::transmute(schemaxmldata.as_ptr()), schemaxmldata.len() as _, indexer).ok()
+    MrmCreateResourceIndexerFromPreviousSchemaData(projectroot.into_param().abi(), platformversion, defaultqualifiers.into_param().abi(), ::core::mem::transmute(schemaxmldata.as_ptr()), schemaxmldata.len().try_into().unwrap(), indexer).ok()
 }
 #[inline]
 pub unsafe fn MrmCreateResourceIndexerFromPreviousSchemaFile<P0, P1, P2>(projectroot: P0, platformversion: MrmPlatformVersion, defaultqualifiers: P1, schemafile: P2, indexer: *mut MrmResourceIndexerHandle) -> ::windows_core::Result<()>
@@ -2654,7 +2654,7 @@ pub unsafe fn MrmDestroyIndexerAndMessages(indexer: MrmResourceIndexerHandle) ->
 #[inline]
 pub unsafe fn MrmDumpPriDataInMemory(inputpridata: &[u8], schemapridata: ::core::option::Option<&[u8]>, dumptype: MrmDumpType, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mrmsupport.dll" "system" fn MrmDumpPriDataInMemory(inputpridata : *const u8, inputprisize : u32, schemapridata : *const u8, schemaprisize : u32, dumptype : MrmDumpType, outputxmldata : *mut *mut u8, outputxmlsize : *mut u32) -> ::windows_core::HRESULT);
-    MrmDumpPriDataInMemory(::core::mem::transmute(inputpridata.as_ptr()), inputpridata.len() as _, ::core::mem::transmute(schemapridata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), schemapridata.as_deref().map_or(0, |slice| slice.len() as _), dumptype, outputxmldata, outputxmlsize).ok()
+    MrmDumpPriDataInMemory(::core::mem::transmute(inputpridata.as_ptr()), inputpridata.len().try_into().unwrap(), ::core::mem::transmute(schemapridata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), schemapridata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dumptype, outputxmldata, outputxmlsize).ok()
 }
 #[inline]
 pub unsafe fn MrmDumpPriFile<P0, P1, P2>(indexfilename: P0, schemaprifile: P1, dumptype: MrmDumpType, outputxmlfile: P2) -> ::windows_core::Result<()>
@@ -2696,7 +2696,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("mrmsupport.dll" "system" fn MrmIndexEmbeddedData(indexer : MrmResourceIndexerHandle, resourceuri : ::windows_core::PCWSTR, embeddeddata : *const u8, embeddeddatasize : u32, qualifiers : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
-    MrmIndexEmbeddedData(::core::mem::transmute(indexer), resourceuri.into_param().abi(), ::core::mem::transmute(embeddeddata.as_ptr()), embeddeddata.len() as _, qualifiers.into_param().abi()).ok()
+    MrmIndexEmbeddedData(::core::mem::transmute(indexer), resourceuri.into_param().abi(), ::core::mem::transmute(embeddeddata.as_ptr()), embeddeddata.len().try_into().unwrap(), qualifiers.into_param().abi()).ok()
 }
 #[inline]
 pub unsafe fn MrmIndexFile<P0, P1, P2>(indexer: MrmResourceIndexerHandle, resourceuri: P0, filepath: P1, qualifiers: P2) -> ::windows_core::Result<()>
@@ -2747,14 +2747,14 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn MsgWaitForMultipleObjects(ncount : u32, phandles : *const super::super::Foundation:: HANDLE, fwaitall : super::super::Foundation:: BOOL, dwmilliseconds : u32, dwwakemask : QUEUE_STATUS_FLAGS) -> super::super::Foundation:: WAIT_EVENT);
-    MsgWaitForMultipleObjects(phandles.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phandles.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), fwaitall.into_param().abi(), dwmilliseconds, dwwakemask)
+    MsgWaitForMultipleObjects(phandles.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(phandles.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), fwaitall.into_param().abi(), dwmilliseconds, dwwakemask)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsgWaitForMultipleObjectsEx(phandles: ::core::option::Option<&[super::super::Foundation::HANDLE]>, dwmilliseconds: u32, dwwakemask: QUEUE_STATUS_FLAGS, dwflags: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS) -> super::super::Foundation::WAIT_EVENT {
     ::windows_targets::link!("user32.dll" "system" fn MsgWaitForMultipleObjectsEx(ncount : u32, phandles : *const super::super::Foundation:: HANDLE, dwmilliseconds : u32, dwwakemask : QUEUE_STATUS_FLAGS, dwflags : MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS) -> super::super::Foundation:: WAIT_EVENT);
-    MsgWaitForMultipleObjectsEx(phandles.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phandles.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwmilliseconds, dwwakemask, dwflags)
+    MsgWaitForMultipleObjectsEx(phandles.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(phandles.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwmilliseconds, dwwakemask, dwflags)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2774,7 +2774,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("user32.dll" "system" fn OemToCharBuffA(lpszsrc : ::windows_core::PCSTR, lpszdst : ::windows_core::PSTR, cchdstlength : u32) -> super::super::Foundation:: BOOL);
-    OemToCharBuffA(lpszsrc.into_param().abi(), ::core::mem::transmute(lpszdst.as_ptr()), lpszdst.len() as _).ok()
+    OemToCharBuffA(lpszsrc.into_param().abi(), ::core::mem::transmute(lpszdst.as_ptr()), lpszdst.len().try_into().unwrap()).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2784,7 +2784,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("user32.dll" "system" fn OemToCharBuffW(lpszsrc : ::windows_core::PCSTR, lpszdst : ::windows_core::PWSTR, cchdstlength : u32) -> super::super::Foundation:: BOOL);
-    OemToCharBuffW(lpszsrc.into_param().abi(), ::core::mem::transmute(lpszdst.as_ptr()), lpszdst.len() as _).ok()
+    OemToCharBuffW(lpszsrc.into_param().abi(), ::core::mem::transmute(lpszdst.as_ptr()), lpszdst.len().try_into().unwrap()).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2890,12 +2890,12 @@ where
 #[inline]
 pub unsafe fn PrivateExtractIconsA(szfilename: &[u8; 260], niconindex: i32, cxicon: i32, cyicon: i32, phicon: ::core::option::Option<&mut [HICON]>, piconid: ::core::option::Option<*mut u32>, flags: u32) -> u32 {
     ::windows_targets::link!("user32.dll" "system" fn PrivateExtractIconsA(szfilename : ::windows_core::PCSTR, niconindex : i32, cxicon : i32, cyicon : i32, phicon : *mut HICON, piconid : *mut u32, nicons : u32, flags : u32) -> u32);
-    PrivateExtractIconsA(::core::mem::transmute(szfilename.as_ptr()), niconindex, cxicon, cyicon, ::core::mem::transmute(phicon.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(piconid.unwrap_or(::std::ptr::null_mut())), phicon.as_deref().map_or(0, |slice| slice.len() as _), flags)
+    PrivateExtractIconsA(::core::mem::transmute(szfilename.as_ptr()), niconindex, cxicon, cyicon, ::core::mem::transmute(phicon.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(piconid.unwrap_or(::std::ptr::null_mut())), phicon.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), flags)
 }
 #[inline]
 pub unsafe fn PrivateExtractIconsW(szfilename: &[u16; 260], niconindex: i32, cxicon: i32, cyicon: i32, phicon: ::core::option::Option<&mut [HICON]>, piconid: ::core::option::Option<*mut u32>, flags: u32) -> u32 {
     ::windows_targets::link!("user32.dll" "system" fn PrivateExtractIconsW(szfilename : ::windows_core::PCWSTR, niconindex : i32, cxicon : i32, cyicon : i32, phicon : *mut HICON, piconid : *mut u32, nicons : u32, flags : u32) -> u32);
-    PrivateExtractIconsW(::core::mem::transmute(szfilename.as_ptr()), niconindex, cxicon, cyicon, ::core::mem::transmute(phicon.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(piconid.unwrap_or(::std::ptr::null_mut())), phicon.as_deref().map_or(0, |slice| slice.len() as _), flags)
+    PrivateExtractIconsW(::core::mem::transmute(szfilename.as_ptr()), niconindex, cxicon, cyicon, ::core::mem::transmute(phicon.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(piconid.unwrap_or(::std::ptr::null_mut())), phicon.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), flags)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2915,7 +2915,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn RealGetWindowClassA(hwnd : super::super::Foundation:: HWND, ptszclassname : ::windows_core::PSTR, cchclassnamemax : u32) -> u32);
-    RealGetWindowClassA(hwnd.into_param().abi(), ::core::mem::transmute(ptszclassname.as_ptr()), ptszclassname.len() as _)
+    RealGetWindowClassA(hwnd.into_param().abi(), ::core::mem::transmute(ptszclassname.as_ptr()), ptszclassname.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2925,7 +2925,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn RealGetWindowClassW(hwnd : super::super::Foundation:: HWND, ptszclassname : ::windows_core::PWSTR, cchclassnamemax : u32) -> u32);
-    RealGetWindowClassW(hwnd.into_param().abi(), ::core::mem::transmute(ptszclassname.as_ptr()), ptszclassname.len() as _)
+    RealGetWindowClassW(hwnd.into_param().abi(), ::core::mem::transmute(ptszclassname.as_ptr()), ptszclassname.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3217,7 +3217,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn SetAdditionalForegroundBoostProcesses(toplevelwindow : super::super::Foundation:: HWND, processhandlecount : u32, processhandlearray : *const super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    SetAdditionalForegroundBoostProcesses(toplevelwindow.into_param().abi(), processhandlearray.len() as _, ::core::mem::transmute(processhandlearray.as_ptr()))
+    SetAdditionalForegroundBoostProcesses(toplevelwindow.into_param().abi(), processhandlearray.len().try_into().unwrap(), ::core::mem::transmute(processhandlearray.as_ptr()))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3759,7 +3759,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn TileWindows(hwndparent : super::super::Foundation:: HWND, whow : TILE_WINDOWS_HOW, lprect : *const super::super::Foundation:: RECT, ckids : u32, lpkids : *const super::super::Foundation:: HWND) -> u16);
-    TileWindows(hwndparent.into_param().abi(), whow, ::core::mem::transmute(lprect.unwrap_or(::std::ptr::null())), lpkids.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpkids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+    TileWindows(hwndparent.into_param().abi(), whow, ::core::mem::transmute(lprect.unwrap_or(::std::ptr::null())), lpkids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(lpkids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

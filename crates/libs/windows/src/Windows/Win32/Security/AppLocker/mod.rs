@@ -48,7 +48,7 @@ pub unsafe fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SA
 #[inline]
 pub unsafe fn SaferIdentifyLevel(pcodeproperties: ::core::option::Option<&[SAFER_CODE_PROPERTIES_V2]>, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("advapi32.dll" "system" fn SaferIdentifyLevel(dwnumproperties : u32, pcodeproperties : *const SAFER_CODE_PROPERTIES_V2, plevelhandle : *mut super:: SAFER_LEVEL_HANDLE, lpreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    SaferIdentifyLevel(pcodeproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcodeproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), plevelhandle, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null()))).ok()
+    SaferIdentifyLevel(pcodeproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pcodeproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), plevelhandle, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

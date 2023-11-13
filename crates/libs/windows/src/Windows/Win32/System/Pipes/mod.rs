@@ -74,7 +74,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetNamedPipeClientComputerNameA(pipe : super::super::Foundation:: HANDLE, clientcomputername : ::windows_core::PSTR, clientcomputernamelength : u32) -> super::super::Foundation:: BOOL);
-    GetNamedPipeClientComputerNameA(pipe.into_param().abi(), ::core::mem::transmute(clientcomputername.as_ptr()), clientcomputername.len() as _).ok()
+    GetNamedPipeClientComputerNameA(pipe.into_param().abi(), ::core::mem::transmute(clientcomputername.as_ptr()), clientcomputername.len().try_into().unwrap()).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -121,7 +121,7 @@ where
         ::core::mem::transmute(lpmaxcollectioncount.unwrap_or(::std::ptr::null_mut())),
         ::core::mem::transmute(lpcollectdatatimeout.unwrap_or(::std::ptr::null_mut())),
         ::core::mem::transmute(lpusername.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpusername.as_deref().map_or(0, |slice| slice.len() as _),
+        lpusername.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
     )
     .ok()
 }
@@ -140,7 +140,7 @@ where
         ::core::mem::transmute(lpmaxcollectioncount.unwrap_or(::std::ptr::null_mut())),
         ::core::mem::transmute(lpcollectdatatimeout.unwrap_or(::std::ptr::null_mut())),
         ::core::mem::transmute(lpusername.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpusername.as_deref().map_or(0, |slice| slice.len() as _),
+        lpusername.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
     )
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]

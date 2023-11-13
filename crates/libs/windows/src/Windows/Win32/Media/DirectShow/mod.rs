@@ -7,12 +7,12 @@ pub mod Xml;
 #[inline]
 pub unsafe fn AMGetErrorTextA(hr: ::windows_core::HRESULT, pbuffer: &mut [u8]) -> u32 {
     ::windows_targets::link!("quartz.dll" "system" fn AMGetErrorTextA(hr : ::windows_core::HRESULT, pbuffer : ::windows_core::PSTR, maxlen : u32) -> u32);
-    AMGetErrorTextA(hr, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _)
+    AMGetErrorTextA(hr, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn AMGetErrorTextW(hr: ::windows_core::HRESULT, pbuffer: &mut [u16]) -> u32 {
     ::windows_targets::link!("quartz.dll" "system" fn AMGetErrorTextW(hr : ::windows_core::HRESULT, pbuffer : ::windows_core::PWSTR, maxlen : u32) -> u32);
-    AMGetErrorTextW(hr, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _)
+    AMGetErrorTextW(hr, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap())
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1613,7 +1613,7 @@ impl IAMMediaTypeSample {
         (::windows_core::Interface::vtable(self).base__.CompletionStatus)(::windows_core::Interface::as_raw(self), dwflags, dwmilliseconds).ok()
     }
     pub unsafe fn SetPointer(&self, pbuffer: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetPointer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetPointer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetPointer(&self) -> ::windows_core::Result<*mut u8> {
         let mut result__ = ::std::mem::zeroed();
@@ -3403,7 +3403,7 @@ impl IAMVideoAccelerator {
         (::windows_core::Interface::vtable(self).ReleaseBuffer)(::windows_core::Interface::as_raw(self), dwtypeindex, dwbufferindex).ok()
     }
     pub unsafe fn Execute(&self, dwfunction: u32, lpprivateinputdata: *const ::core::ffi::c_void, cbprivateinputdata: u32, lpprivateoutputdat: *const ::core::ffi::c_void, cbprivateoutputdata: u32, pamvabufferinfo: &[AMVABUFFERINFO]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Execute)(::windows_core::Interface::as_raw(self), dwfunction, lpprivateinputdata, cbprivateinputdata, lpprivateoutputdat, cbprivateoutputdata, pamvabufferinfo.len() as _, ::core::mem::transmute(pamvabufferinfo.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).Execute)(::windows_core::Interface::as_raw(self), dwfunction, lpprivateinputdata, cbprivateinputdata, lpprivateoutputdat, cbprivateoutputdata, pamvabufferinfo.len().try_into().unwrap(), ::core::mem::transmute(pamvabufferinfo.as_ptr())).ok()
     }
     pub unsafe fn QueryRenderStatus(&self, dwtypeindex: u32, dwbufferindex: u32, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryRenderStatus)(::windows_core::Interface::as_raw(self), dwtypeindex, dwbufferindex, dwflags).ok()
@@ -3936,7 +3936,7 @@ impl IAsyncReader {
         (::windows_core::Interface::vtable(self).SyncReadAligned)(::windows_core::Interface::as_raw(self), psample.into_param().abi()).ok()
     }
     pub unsafe fn SyncRead(&self, llposition: i64, pbuffer: &mut [u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SyncRead)(::windows_core::Interface::as_raw(self), llposition, pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).SyncRead)(::windows_core::Interface::as_raw(self), llposition, pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr())).ok()
     }
     pub unsafe fn Length(&self, ptotal: *mut i64, pavailable: *mut i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Length)(::windows_core::Interface::as_raw(self), ptotal, pavailable).ok()
@@ -4218,7 +4218,7 @@ impl IBDA_ConditionalAccess {
         (::windows_core::Interface::vtable(self).get_SmartCardInfo)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbstrcardname), ::core::mem::transmute(pbstrcardmanufacturer), pfdaylightsavings, pbyratingregion, pltimezoneoffsetminutes, ::core::mem::transmute(pbstrlanguage), pealocationcode).ok()
     }
     pub unsafe fn get_SmartCardApplications(&self, pulcapplications: *mut u32, rgapplications: &mut [SmartCardApplication]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).get_SmartCardApplications)(::windows_core::Interface::as_raw(self), pulcapplications, rgapplications.len() as _, ::core::mem::transmute(rgapplications.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).get_SmartCardApplications)(::windows_core::Interface::as_raw(self), pulcapplications, rgapplications.len().try_into().unwrap(), ::core::mem::transmute(rgapplications.as_ptr())).ok()
     }
     pub unsafe fn get_Entitlement(&self, usvirtualchannel: u16) -> ::windows_core::Result<EntitlementType> {
         let mut result__ = ::std::mem::zeroed();
@@ -4281,10 +4281,10 @@ impl IBDA_ConditionalAccessEx {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CheckEntitlementToken)(::windows_core::Interface::as_raw(self), uldialogrequest, bstrlanguage.into_param().abi(), requesttype, pbentitlementtoken.len() as _, ::core::mem::transmute(pbentitlementtoken.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CheckEntitlementToken)(::windows_core::Interface::as_raw(self), uldialogrequest, bstrlanguage.into_param().abi(), requesttype, pbentitlementtoken.len().try_into().unwrap(), ::core::mem::transmute(pbentitlementtoken.as_ptr()), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCaptureToken(&self, pbcapturetoken: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetCaptureToken)(::windows_core::Interface::as_raw(self), pbcapturetoken.len() as _, ::core::mem::transmute(pbcapturetoken.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).SetCaptureToken)(::windows_core::Interface::as_raw(self), pbcapturetoken.len().try_into().unwrap(), ::core::mem::transmute(pbcapturetoken.as_ptr())).ok()
     }
     pub unsafe fn OpenBroadcastMmi<P0>(&self, uldialogrequest: u32, bstrlanguage: P0, eventid: u32) -> ::windows_core::Result<()>
     where
@@ -4361,16 +4361,16 @@ impl IBDA_DRIWMDRMSession {
         (::windows_core::Interface::vtable(self).AcknowledgeLicense)(::windows_core::Interface::as_raw(self), hrlicenseack).ok()
     }
     pub unsafe fn ProcessLicenseChallenge(&self, pblicensemessage: &[u8], pdwcblicenseresponse: *mut u32, ppblicenseresponse: *mut *mut u8) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ProcessLicenseChallenge)(::windows_core::Interface::as_raw(self), pblicensemessage.len() as _, ::core::mem::transmute(pblicensemessage.as_ptr()), pdwcblicenseresponse, ppblicenseresponse).ok()
+        (::windows_core::Interface::vtable(self).ProcessLicenseChallenge)(::windows_core::Interface::as_raw(self), pblicensemessage.len().try_into().unwrap(), ::core::mem::transmute(pblicensemessage.as_ptr()), pdwcblicenseresponse, ppblicenseresponse).ok()
     }
     pub unsafe fn ProcessRegistrationChallenge(&self, pbregistrationmessage: &[u8], pdwcbregistrationresponse: *mut u32, ppbregistrationresponse: *mut *mut u8) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ProcessRegistrationChallenge)(::windows_core::Interface::as_raw(self), pbregistrationmessage.len() as _, ::core::mem::transmute(pbregistrationmessage.as_ptr()), pdwcbregistrationresponse, ppbregistrationresponse).ok()
+        (::windows_core::Interface::vtable(self).ProcessRegistrationChallenge)(::windows_core::Interface::as_raw(self), pbregistrationmessage.len().try_into().unwrap(), ::core::mem::transmute(pbregistrationmessage.as_ptr()), pdwcbregistrationresponse, ppbregistrationresponse).ok()
     }
     pub unsafe fn SetRevInfo(&self, pbrevinfo: &[u8], pdwresponse: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetRevInfo)(::windows_core::Interface::as_raw(self), pbrevinfo.len() as _, ::core::mem::transmute(pbrevinfo.as_ptr()), pdwresponse).ok()
+        (::windows_core::Interface::vtable(self).SetRevInfo)(::windows_core::Interface::as_raw(self), pbrevinfo.len().try_into().unwrap(), ::core::mem::transmute(pbrevinfo.as_ptr()), pdwresponse).ok()
     }
     pub unsafe fn SetCrl(&self, pbcrllen: &[u8], pdwresponse: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetCrl)(::windows_core::Interface::as_raw(self), pbcrllen.len() as _, ::core::mem::transmute(pbcrllen.as_ptr()), pdwresponse).ok()
+        (::windows_core::Interface::vtable(self).SetCrl)(::windows_core::Interface::as_raw(self), pbcrllen.len().try_into().unwrap(), ::core::mem::transmute(pbcrllen.as_ptr()), pdwresponse).ok()
     }
     pub unsafe fn GetHMSAssociationData(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetHMSAssociationData)(::windows_core::Interface::as_raw(self)).ok()
@@ -4820,7 +4820,7 @@ impl IBDA_DiseqCommand {
         (::windows_core::Interface::vtable(self).SetDiseqRepeats)(::windows_core::Interface::as_raw(self), ulrepeats).ok()
     }
     pub unsafe fn put_DiseqSendCommand(&self, ulrequestid: u32, pbcommand: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).put_DiseqSendCommand)(::windows_core::Interface::as_raw(self), ulrequestid, pbcommand.len() as _, ::core::mem::transmute(pbcommand.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).put_DiseqSendCommand)(::windows_core::Interface::as_raw(self), ulrequestid, pbcommand.len().try_into().unwrap(), ::core::mem::transmute(pbcommand.as_ptr())).ok()
     }
     pub unsafe fn get_DiseqResponse(&self, ulrequestid: u32, pulcbresponselen: *mut u32, pbresponse: *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).get_DiseqResponse)(::windows_core::Interface::as_raw(self), ulrequestid, pulcbresponselen, pbresponse).ok()
@@ -4921,7 +4921,7 @@ impl IBDA_EthernetFilter {
         (::windows_core::Interface::vtable(self).GetMulticastListSize)(::windows_core::Interface::as_raw(self), pulcbaddresses).ok()
     }
     pub unsafe fn PutMulticastList(&self, paddresslist: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).PutMulticastList)(::windows_core::Interface::as_raw(self), paddresslist.len() as _, ::core::mem::transmute(paddresslist.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).PutMulticastList)(::windows_core::Interface::as_raw(self), paddresslist.len().try_into().unwrap(), ::core::mem::transmute(paddresslist.as_ptr())).ok()
     }
     pub unsafe fn GetMulticastList(&self, pulcbaddresses: *mut u32, paddresslist: *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetMulticastList)(::windows_core::Interface::as_raw(self), pulcbaddresses, paddresslist).ok()
@@ -5215,7 +5215,7 @@ impl IBDA_IPV4Filter {
         (::windows_core::Interface::vtable(self).GetMulticastListSize)(::windows_core::Interface::as_raw(self), pulcbaddresses).ok()
     }
     pub unsafe fn PutMulticastList(&self, paddresslist: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).PutMulticastList)(::windows_core::Interface::as_raw(self), paddresslist.len() as _, ::core::mem::transmute(paddresslist.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).PutMulticastList)(::windows_core::Interface::as_raw(self), paddresslist.len().try_into().unwrap(), ::core::mem::transmute(paddresslist.as_ptr())).ok()
     }
     pub unsafe fn GetMulticastList(&self, pulcbaddresses: *mut u32, paddresslist: *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetMulticastList)(::windows_core::Interface::as_raw(self), pulcbaddresses, paddresslist).ok()
@@ -5253,7 +5253,7 @@ impl IBDA_IPV6Filter {
         (::windows_core::Interface::vtable(self).GetMulticastListSize)(::windows_core::Interface::as_raw(self), pulcbaddresses).ok()
     }
     pub unsafe fn PutMulticastList(&self, paddresslist: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).PutMulticastList)(::windows_core::Interface::as_raw(self), paddresslist.len() as _, ::core::mem::transmute(paddresslist.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).PutMulticastList)(::windows_core::Interface::as_raw(self), paddresslist.len().try_into().unwrap(), ::core::mem::transmute(paddresslist.as_ptr())).ok()
     }
     pub unsafe fn GetMulticastList(&self, pulcbaddresses: *mut u32, paddresslist: *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetMulticastList)(::windows_core::Interface::as_raw(self), pulcbaddresses, paddresslist).ok()
@@ -5288,7 +5288,7 @@ pub struct IBDA_IPV6Filter_Vtbl {
 pub struct IBDA_ISDBConditionalAccess(::windows_core::IUnknown);
 impl IBDA_ISDBConditionalAccess {
     pub unsafe fn SetIsdbCasRequest(&self, ulrequestid: u32, pbrequestbuffer: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetIsdbCasRequest)(::windows_core::Interface::as_raw(self), ulrequestid, pbrequestbuffer.len() as _, ::core::mem::transmute(pbrequestbuffer.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).SetIsdbCasRequest)(::windows_core::Interface::as_raw(self), ulrequestid, pbrequestbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbrequestbuffer.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBDA_ISDBConditionalAccess, ::windows_core::IUnknown);
@@ -5350,7 +5350,7 @@ pub struct IBDA_LNBInfo_Vtbl {
 pub struct IBDA_MUX(::windows_core::IUnknown);
 impl IBDA_MUX {
     pub unsafe fn SetPidList(&self, pbpidlistbuffer: &[BDA_MUX_PIDLISTITEM]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetPidList)(::windows_core::Interface::as_raw(self), pbpidlistbuffer.len() as _, ::core::mem::transmute(pbpidlistbuffer.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).SetPidList)(::windows_core::Interface::as_raw(self), pbpidlistbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbpidlistbuffer.as_ptr())).ok()
     }
     pub unsafe fn GetPidList(&self, pulpidlistcount: *mut u32, pbpidlistbuffer: *mut BDA_MUX_PIDLISTITEM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPidList)(::windows_core::Interface::as_raw(self), pulpidlistcount, pbpidlistbuffer).ok()
@@ -5631,19 +5631,19 @@ pub struct IBDA_SignalStatistics_Vtbl {
 pub struct IBDA_Topology(::windows_core::IUnknown);
 impl IBDA_Topology {
     pub unsafe fn GetNodeTypes(&self, pulcnodetypes: *mut u32, rgulnodetypes: &mut [u32]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetNodeTypes)(::windows_core::Interface::as_raw(self), pulcnodetypes, rgulnodetypes.len() as _, ::core::mem::transmute(rgulnodetypes.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).GetNodeTypes)(::windows_core::Interface::as_raw(self), pulcnodetypes, rgulnodetypes.len().try_into().unwrap(), ::core::mem::transmute(rgulnodetypes.as_ptr())).ok()
     }
     pub unsafe fn GetNodeDescriptors(&self, ulcnodedescriptors: *mut u32, rgnodedescriptors: &mut [BDANODE_DESCRIPTOR]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetNodeDescriptors)(::windows_core::Interface::as_raw(self), ulcnodedescriptors, rgnodedescriptors.len() as _, ::core::mem::transmute(rgnodedescriptors.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).GetNodeDescriptors)(::windows_core::Interface::as_raw(self), ulcnodedescriptors, rgnodedescriptors.len().try_into().unwrap(), ::core::mem::transmute(rgnodedescriptors.as_ptr())).ok()
     }
     pub unsafe fn GetNodeInterfaces(&self, ulnodetype: u32, pulcinterfaces: *mut u32, rgguidinterfaces: &mut [::windows_core::GUID]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetNodeInterfaces)(::windows_core::Interface::as_raw(self), ulnodetype, pulcinterfaces, rgguidinterfaces.len() as _, ::core::mem::transmute(rgguidinterfaces.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).GetNodeInterfaces)(::windows_core::Interface::as_raw(self), ulnodetype, pulcinterfaces, rgguidinterfaces.len().try_into().unwrap(), ::core::mem::transmute(rgguidinterfaces.as_ptr())).ok()
     }
     pub unsafe fn GetPinTypes(&self, pulcpintypes: *mut u32, rgulpintypes: &mut [u32]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetPinTypes)(::windows_core::Interface::as_raw(self), pulcpintypes, rgulpintypes.len() as _, ::core::mem::transmute(rgulpintypes.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).GetPinTypes)(::windows_core::Interface::as_raw(self), pulcpintypes, rgulpintypes.len().try_into().unwrap(), ::core::mem::transmute(rgulpintypes.as_ptr())).ok()
     }
     pub unsafe fn GetTemplateConnections(&self, pulcconnections: *mut u32, rgconnections: &mut [BDA_TEMPLATE_CONNECTION]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetTemplateConnections)(::windows_core::Interface::as_raw(self), pulcconnections, rgconnections.len() as _, ::core::mem::transmute(rgconnections.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).GetTemplateConnections)(::windows_core::Interface::as_raw(self), pulcconnections, rgconnections.len().try_into().unwrap(), ::core::mem::transmute(rgconnections.as_ptr())).ok()
     }
     pub unsafe fn CreatePin(&self, ulpintype: u32, pulpinid: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreatePin)(::windows_core::Interface::as_raw(self), ulpintype, pulpinid).ok()
@@ -5802,13 +5802,13 @@ impl IBDA_WMDRMSession {
         (::windows_core::Interface::vtable(self).GetStatus)(::windows_core::Interface::as_raw(self), maxcapturetoken, maxstreamingpid, maxlicense, minsecuritylevel, revinfosequencenumber, revinfoissuedtime, revinfottl, revlistversion, ulstate).ok()
     }
     pub unsafe fn SetRevInfo(&self, pbrevinfo: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetRevInfo)(::windows_core::Interface::as_raw(self), pbrevinfo.len() as _, ::core::mem::transmute(pbrevinfo.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).SetRevInfo)(::windows_core::Interface::as_raw(self), pbrevinfo.len().try_into().unwrap(), ::core::mem::transmute(pbrevinfo.as_ptr())).ok()
     }
     pub unsafe fn SetCrl(&self, pbcrllen: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetCrl)(::windows_core::Interface::as_raw(self), pbcrllen.len() as _, ::core::mem::transmute(pbcrllen.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).SetCrl)(::windows_core::Interface::as_raw(self), pbcrllen.len().try_into().unwrap(), ::core::mem::transmute(pbcrllen.as_ptr())).ok()
     }
     pub unsafe fn TransactMessage(&self, pbrequest: &[u8], pulcbresponse: *mut u32, pbresponse: *mut u8) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).TransactMessage)(::windows_core::Interface::as_raw(self), pbrequest.len() as _, ::core::mem::transmute(pbrequest.as_ptr()), pulcbresponse, pbresponse).ok()
+        (::windows_core::Interface::vtable(self).TransactMessage)(::windows_core::Interface::as_raw(self), pbrequest.len().try_into().unwrap(), ::core::mem::transmute(pbrequest.as_ptr()), pulcbresponse, pbresponse).ok()
     }
     pub unsafe fn GetLicense(&self, uuidkey: *const ::windows_core::GUID, pulpackagelen: *mut u32, pbpackage: *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLicense)(::windows_core::Interface::as_raw(self), uuidkey, pulpackagelen, pbpackage).ok()
@@ -5817,7 +5817,7 @@ impl IBDA_WMDRMSession {
         (::windows_core::Interface::vtable(self).ReissueLicense)(::windows_core::Interface::as_raw(self), uuidkey).ok()
     }
     pub unsafe fn RenewLicense(&self, pbinxmrlicense: &[u8], pbentitlementtoken: &[u8], puldescramblestatus: *mut u32, puloutxmrlicenselen: *mut u32, pboutxmrlicense: *mut u8) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).RenewLicense)(::windows_core::Interface::as_raw(self), pbinxmrlicense.len() as _, ::core::mem::transmute(pbinxmrlicense.as_ptr()), pbentitlementtoken.len() as _, ::core::mem::transmute(pbentitlementtoken.as_ptr()), puldescramblestatus, puloutxmrlicenselen, pboutxmrlicense).ok()
+        (::windows_core::Interface::vtable(self).RenewLicense)(::windows_core::Interface::as_raw(self), pbinxmrlicense.len().try_into().unwrap(), ::core::mem::transmute(pbinxmrlicense.as_ptr()), pbentitlementtoken.len().try_into().unwrap(), ::core::mem::transmute(pbentitlementtoken.as_ptr()), puldescramblestatus, puloutxmrlicenselen, pboutxmrlicense).ok()
     }
     pub unsafe fn GetKeyInfo(&self, pulkeyinfolen: *mut u32, pbkeyinfo: *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetKeyInfo)(::windows_core::Interface::as_raw(self), pulkeyinfolen, pbkeyinfo).ok()
@@ -5851,10 +5851,10 @@ impl IBDA_WMDRMTuner {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).PurchaseEntitlement)(::windows_core::Interface::as_raw(self), uldialogrequest, bstrlanguage.into_param().abi(), pbpurchasetoken.len() as _, ::core::mem::transmute(pbpurchasetoken.as_ptr()), puldescramblestatus, pulcapturetokenlen, pbcapturetoken).ok()
+        (::windows_core::Interface::vtable(self).PurchaseEntitlement)(::windows_core::Interface::as_raw(self), uldialogrequest, bstrlanguage.into_param().abi(), pbpurchasetoken.len().try_into().unwrap(), ::core::mem::transmute(pbpurchasetoken.as_ptr()), puldescramblestatus, pulcapturetokenlen, pbcapturetoken).ok()
     }
     pub unsafe fn CancelCaptureToken(&self, pbcapturetoken: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).CancelCaptureToken)(::windows_core::Interface::as_raw(self), pbcapturetoken.len() as _, ::core::mem::transmute(pbcapturetoken.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).CancelCaptureToken)(::windows_core::Interface::as_raw(self), pbcapturetoken.len().try_into().unwrap(), ::core::mem::transmute(pbcapturetoken.as_ptr())).ok()
     }
     pub unsafe fn SetPidProtection(&self, ulpid: u32, uuidkey: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPidProtection)(::windows_core::Interface::as_raw(self), ulpid, uuidkey).ok()
@@ -8513,7 +8513,7 @@ impl IDvdInfo {
         (::windows_core::Interface::vtable(self).GetCurrentVolumeInfo)(::windows_core::Interface::as_raw(self), pulnumofvol, pulthisvolnum, pside, pulnumoftitles).ok()
     }
     pub unsafe fn GetDVDTextInfo(&self, ptextmanager: &mut [u8], pulactualsize: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetDVDTextInfo)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ptextmanager.as_ptr()), ptextmanager.len() as _, pulactualsize).ok()
+        (::windows_core::Interface::vtable(self).GetDVDTextInfo)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ptextmanager.as_ptr()), ptextmanager.len().try_into().unwrap(), pulactualsize).ok()
     }
     pub unsafe fn GetPlayerParentalLevel(&self, pulparentallevel: *mut u32, pulcountrycode: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPlayerParentalLevel)(::windows_core::Interface::as_raw(self), pulparentallevel, pulcountrycode).ok()
@@ -8527,7 +8527,7 @@ impl IDvdInfo {
         (::windows_core::Interface::vtable(self).GetTitleParentalLevels)(::windows_core::Interface::as_raw(self), ultitle, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRoot(&self, proot: &mut [u8], pulactualsize: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetRoot)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(proot.as_ptr()), proot.len() as _, pulactualsize).ok()
+        (::windows_core::Interface::vtable(self).GetRoot)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(proot.as_ptr()), proot.len().try_into().unwrap(), pulactualsize).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvdInfo, ::windows_core::IUnknown);
@@ -8674,7 +8674,7 @@ impl IDvdInfo2 {
         (::windows_core::Interface::vtable(self).GetTitleParentalLevels)(::windows_core::Interface::as_raw(self), ultitle, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDVDDirectory(&self, pszwpath: &mut [u16], pulactualsize: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetDVDDirectory)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pszwpath.as_ptr()), pszwpath.len() as _, pulactualsize).ok()
+        (::windows_core::Interface::vtable(self).GetDVDDirectory)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pszwpath.as_ptr()), pszwpath.len().try_into().unwrap(), pulactualsize).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8989,7 +8989,7 @@ impl IEnumFilters {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, ppfilter: &mut [::core::option::Option<IBaseFilter>], pcfetched: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppfilter.len() as _, ::core::mem::transmute(ppfilter.as_ptr()), ::core::mem::transmute(pcfetched.unwrap_or(::std::ptr::null_mut())))
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppfilter.len().try_into().unwrap(), ::core::mem::transmute(ppfilter.as_ptr()), ::core::mem::transmute(pcfetched.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn Skip(&self, cfilters: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cfilters).ok()
@@ -9028,7 +9028,7 @@ impl IEnumMediaTypes {
     #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn Next(&self, ppmediatypes: &mut [*mut super::MediaFoundation::AM_MEDIA_TYPE], pcfetched: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppmediatypes.len() as _, ::core::mem::transmute(ppmediatypes.as_ptr()), ::core::mem::transmute(pcfetched.unwrap_or(::std::ptr::null_mut())))
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppmediatypes.len().try_into().unwrap(), ::core::mem::transmute(ppmediatypes.as_ptr()), ::core::mem::transmute(pcfetched.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn Skip(&self, cmediatypes: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cmediatypes).ok()
@@ -9065,7 +9065,7 @@ pub struct IEnumMediaTypes_Vtbl {
 pub struct IEnumPIDMap(::windows_core::IUnknown);
 impl IEnumPIDMap {
     pub unsafe fn Next(&self, ppidmap: &mut [PID_MAP], pcreceived: *mut u32) -> ::windows_core::HRESULT {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppidmap.len() as _, ::core::mem::transmute(ppidmap.as_ptr()), pcreceived)
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppidmap.len().try_into().unwrap(), ::core::mem::transmute(ppidmap.as_ptr()), pcreceived)
     }
     pub unsafe fn Skip(&self, crecords: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), crecords).ok()
@@ -9099,7 +9099,7 @@ pub struct IEnumPIDMap_Vtbl {
 pub struct IEnumPins(::windows_core::IUnknown);
 impl IEnumPins {
     pub unsafe fn Next(&self, pppins: &mut [::core::option::Option<IPin>], pcfetched: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pppins.len() as _, ::core::mem::transmute(pppins.as_ptr()), ::core::mem::transmute(pcfetched.unwrap_or(::std::ptr::null_mut())))
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pppins.len().try_into().unwrap(), ::core::mem::transmute(pppins.as_ptr()), ::core::mem::transmute(pcfetched.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn Skip(&self, cpins: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cpins).ok()
@@ -9133,7 +9133,7 @@ pub struct IEnumPins_Vtbl {
 pub struct IEnumRegFilters(::windows_core::IUnknown);
 impl IEnumRegFilters {
     pub unsafe fn Next(&self, apregfilter: &mut [*mut REGFILTER], pcfetched: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), apregfilter.len() as _, ::core::mem::transmute(apregfilter.as_ptr()), ::core::mem::transmute(pcfetched.unwrap_or(::std::ptr::null_mut())))
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), apregfilter.len().try_into().unwrap(), ::core::mem::transmute(apregfilter.as_ptr()), ::core::mem::transmute(pcfetched.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn Skip(&self, cfilters: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cfilters).ok()
@@ -9167,7 +9167,7 @@ pub struct IEnumRegFilters_Vtbl {
 pub struct IEnumStreamIdMap(::windows_core::IUnknown);
 impl IEnumStreamIdMap {
     pub unsafe fn Next(&self, pstreamidmap: &mut [STREAM_ID_MAP], pcreceived: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pstreamidmap.len() as _, ::core::mem::transmute(pstreamidmap.as_ptr()), ::core::mem::transmute(pcreceived.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pstreamidmap.len().try_into().unwrap(), ::core::mem::transmute(pstreamidmap.as_ptr()), ::core::mem::transmute(pcreceived.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn Skip(&self, crecords: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), crecords).ok()
@@ -10085,7 +10085,7 @@ impl IFrequencyMap {
         (::windows_core::Interface::vtable(self).get_FrequencyMapping)(::windows_core::Interface::as_raw(self), ulcount, ppullist).ok()
     }
     pub unsafe fn put_FrequencyMapping(&self, plist: &[u32]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).put_FrequencyMapping)(::windows_core::Interface::as_raw(self), plist.len() as _, ::core::mem::transmute(plist.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).put_FrequencyMapping)(::windows_core::Interface::as_raw(self), plist.len().try_into().unwrap(), ::core::mem::transmute(plist.as_ptr())).ok()
     }
     pub unsafe fn CountryCode(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -10725,7 +10725,7 @@ impl IMPEG2StreamIdMap {
         (::windows_core::Interface::vtable(self).MapStreamId)(::windows_core::Interface::as_raw(self), ulstreamid, mediasamplecontent, ulsubstreamfiltervalue, idataoffset).ok()
     }
     pub unsafe fn UnmapStreamId(&self, pulstreamid: &[u32]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).UnmapStreamId)(::windows_core::Interface::as_raw(self), pulstreamid.len() as _, ::core::mem::transmute(pulstreamid.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).UnmapStreamId)(::windows_core::Interface::as_raw(self), pulstreamid.len().try_into().unwrap(), ::core::mem::transmute(pulstreamid.as_ptr())).ok()
     }
     pub unsafe fn EnumStreamIdMap(&self) -> ::windows_core::Result<IEnumStreamIdMap> {
         let mut result__ = ::std::mem::zeroed();
@@ -11418,10 +11418,10 @@ impl IMediaSample2 {
         (::windows_core::Interface::vtable(self).base__.SetMediaTime)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ptimestart.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ptimeend.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn GetProperties(&self, pbproperties: &mut [u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), pbproperties.len() as _, ::core::mem::transmute(pbproperties.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), pbproperties.len().try_into().unwrap(), ::core::mem::transmute(pbproperties.as_ptr())).ok()
     }
     pub unsafe fn SetProperties(&self, pbproperties: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetProperties)(::windows_core::Interface::as_raw(self), pbproperties.len() as _, ::core::mem::transmute(pbproperties.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).SetProperties)(::windows_core::Interface::as_raw(self), pbproperties.len().try_into().unwrap(), ::core::mem::transmute(pbproperties.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMediaSample2, ::windows_core::IUnknown, IMediaSample);
@@ -11921,7 +11921,7 @@ impl IMemInputPin {
     }
     pub unsafe fn ReceiveMultiple(&self, psamples: &[::core::option::Option<IMediaSample>]) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ReceiveMultiple)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(psamples.as_ptr()), psamples.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ReceiveMultiple)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(psamples.as_ptr()), psamples.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
     pub unsafe fn ReceiveCanBlock(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReceiveCanBlock)(::windows_core::Interface::as_raw(self)).ok()
@@ -12451,7 +12451,7 @@ impl IOverlay {
     #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetPalette(&self, ppalette: &[super::super::Graphics::Gdi::PALETTEENTRY]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetPalette)(::windows_core::Interface::as_raw(self), ppalette.len() as _, ::core::mem::transmute(ppalette.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).SetPalette)(::windows_core::Interface::as_raw(self), ppalette.len().try_into().unwrap(), ::core::mem::transmute(ppalette.as_ptr())).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13233,7 +13233,7 @@ impl IResourceManager {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).RegisterGroup)(::windows_core::Interface::as_raw(self), pname.into_param().abi(), paltokens.len() as _, ::core::mem::transmute(paltokens.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).RegisterGroup)(::windows_core::Interface::as_raw(self), pname.into_param().abi(), paltokens.len().try_into().unwrap(), ::core::mem::transmute(paltokens.as_ptr()), &mut result__).from_abi(result__)
     }
     pub unsafe fn RequestResource<P0, P1>(&self, idresource: i32, pfocusobject: P0, pconsumer: P1) -> ::windows_core::Result<()>
     where
@@ -14282,7 +14282,7 @@ impl IVMRMonitorConfig {
     #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetAvailableMonitors(&self, pinfo: &mut [VMRMONITORINFO], pdwnumdevices: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetAvailableMonitors)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pinfo.as_ptr()), pinfo.len() as _, pdwnumdevices).ok()
+        (::windows_core::Interface::vtable(self).GetAvailableMonitors)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pinfo.as_ptr()), pinfo.len().try_into().unwrap(), pdwnumdevices).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVMRMonitorConfig, ::windows_core::IUnknown);
@@ -14326,7 +14326,7 @@ impl IVMRMonitorConfig9 {
     #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetAvailableMonitors(&self, pinfo: &mut [VMR9MonitorInfo], pdwnumdevices: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetAvailableMonitors)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pinfo.as_ptr()), pinfo.len() as _, pdwnumdevices).ok()
+        (::windows_core::Interface::vtable(self).GetAvailableMonitors)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pinfo.as_ptr()), pinfo.len().try_into().unwrap(), pdwnumdevices).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVMRMonitorConfig9, ::windows_core::IUnknown);

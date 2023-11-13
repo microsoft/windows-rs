@@ -5,7 +5,7 @@ where
 {
     ::windows_targets::link!("dmprocessxmlfiltered.dll" "system" fn DMProcessConfigXMLFiltered(pszxmlin : ::windows_core::PCWSTR, rgszallowedcspnodes : *const ::windows_core::PCWSTR, dwnumallowedcspnodes : u32, pbstrxmlout : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    DMProcessConfigXMLFiltered(pszxmlin.into_param().abi(), ::core::mem::transmute(rgszallowedcspnodes.as_ptr()), rgszallowedcspnodes.len() as _, &mut result__).from_abi(result__)
+    DMProcessConfigXMLFiltered(pszxmlin.into_param().abi(), ::core::mem::transmute(rgszallowedcspnodes.as_ptr()), rgszallowedcspnodes.len().try_into().unwrap(), &mut result__).from_abi(result__)
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -33,7 +33,7 @@ pub struct IConnectionRequestCallback_Vtbl {
 pub struct IEnumPortableDeviceConnectors(::windows_core::IUnknown);
 impl IEnumPortableDeviceConnectors {
     pub unsafe fn Next(&self, pconnectors: &mut [::core::option::Option<IPortableDeviceConnector>], pcfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pconnectors.len() as _, ::core::mem::transmute(pconnectors.as_ptr()), pcfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pconnectors.len().try_into().unwrap(), ::core::mem::transmute(pconnectors.as_ptr()), pcfetched).ok()
     }
     pub unsafe fn Skip(&self, cconnectors: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cconnectors).ok()
@@ -67,7 +67,7 @@ pub struct IEnumPortableDeviceConnectors_Vtbl {
 pub struct IEnumPortableDeviceObjectIDs(::windows_core::IUnknown);
 impl IEnumPortableDeviceObjectIDs {
     pub unsafe fn Next(&self, pobjids: &mut [::windows_core::PWSTR], pcfetched: *mut u32) -> ::windows_core::HRESULT {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pobjids.len() as _, ::core::mem::transmute(pobjids.as_ptr()), pcfetched)
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pobjids.len().try_into().unwrap(), ::core::mem::transmute(pobjids.as_ptr()), pcfetched)
     }
     pub unsafe fn Skip(&self, cobjects: u32) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cobjects)
@@ -347,7 +347,7 @@ impl IPortableDeviceConnector {
     #[doc = "Required features: `\"Win32_Devices_Properties\"`"]
     #[cfg(feature = "Win32_Devices_Properties")]
     pub unsafe fn SetProperty(&self, ppropertykey: *const super::Properties::DEVPROPKEY, propertytype: super::Properties::DEVPROPTYPE, pdata: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), ppropertykey, propertytype, ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), ppropertykey, propertytype, ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetPnPID(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -1617,7 +1617,7 @@ impl IPortableDeviceValues {
     #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn SetBufferValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetBufferValue)(::windows_core::Interface::as_raw(self), key, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetBufferValue)(::windows_core::Interface::as_raw(self), key, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -2055,13 +2055,13 @@ pub struct IWpdSerializer(::windows_core::IUnknown);
 impl IWpdSerializer {
     pub unsafe fn GetIPortableDeviceValuesFromBuffer(&self, pbuffer: &[u8]) -> ::windows_core::Result<IPortableDeviceValues> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetIPortableDeviceValuesFromBuffer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetIPortableDeviceValuesFromBuffer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
     pub unsafe fn WriteIPortableDeviceValuesToBuffer<P0>(&self, presults: P0, pbuffer: &mut [u8], pdwbyteswritten: *mut u32) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IPortableDeviceValues>,
     {
-        (::windows_core::Interface::vtable(self).WriteIPortableDeviceValuesToBuffer)(::windows_core::Interface::as_raw(self), pbuffer.len() as _, presults.into_param().abi(), ::core::mem::transmute(pbuffer.as_ptr()), pdwbyteswritten).ok()
+        (::windows_core::Interface::vtable(self).WriteIPortableDeviceValuesToBuffer)(::windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), presults.into_param().abi(), ::core::mem::transmute(pbuffer.as_ptr()), pdwbyteswritten).ok()
     }
     pub unsafe fn GetBufferFromIPortableDeviceValues<P0>(&self, psource: P0, ppbuffer: *mut *mut u8, pdwbuffersize: *mut u32) -> ::windows_core::Result<()>
     where

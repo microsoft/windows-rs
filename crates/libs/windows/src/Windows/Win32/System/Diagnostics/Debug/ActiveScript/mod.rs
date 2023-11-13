@@ -1264,13 +1264,13 @@ pub struct IActiveScriptProfilerControl5_Vtbl {
 pub struct IActiveScriptProfilerHeapEnum(::windows_core::IUnknown);
 impl IActiveScriptProfilerHeapEnum {
     pub unsafe fn Next(&self, heapobjects: &mut [*mut PROFILER_HEAP_OBJECT], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), heapobjects.len() as _, ::core::mem::transmute(heapobjects.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), heapobjects.len().try_into().unwrap(), ::core::mem::transmute(heapobjects.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn GetOptionalInfo(&self, heapobject: *const PROFILER_HEAP_OBJECT, optionalinfo: &mut [PROFILER_HEAP_OBJECT_OPTIONAL_INFO]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetOptionalInfo)(::windows_core::Interface::as_raw(self), heapobject, optionalinfo.len() as _, ::core::mem::transmute(optionalinfo.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).GetOptionalInfo)(::windows_core::Interface::as_raw(self), heapobject, optionalinfo.len().try_into().unwrap(), ::core::mem::transmute(optionalinfo.as_ptr())).ok()
     }
     pub unsafe fn FreeObjectAndOptionalInfo(&self, heapobjects: &[*const PROFILER_HEAP_OBJECT]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).FreeObjectAndOptionalInfo)(::windows_core::Interface::as_raw(self), heapobjects.len() as _, ::core::mem::transmute(heapobjects.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).FreeObjectAndOptionalInfo)(::windows_core::Interface::as_raw(self), heapobjects.len().try_into().unwrap(), ::core::mem::transmute(heapobjects.as_ptr())).ok()
     }
     pub unsafe fn GetNameIdMap(&self, pnamelist: *mut *mut *mut ::windows_core::PCWSTR, pcelt: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetNameIdMap)(::windows_core::Interface::as_raw(self), pnamelist, pcelt).ok()
@@ -1912,7 +1912,7 @@ impl IDebugApplication11032 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CallableWaitForHandles(&self, phandles: &[super::super::super::super::Foundation::HANDLE]) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CallableWaitForHandles)(::windows_core::Interface::as_raw(self), phandles.len() as _, ::core::mem::transmute(phandles.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CallableWaitForHandles)(::windows_core::Interface::as_raw(self), phandles.len().try_into().unwrap(), ::core::mem::transmute(phandles.as_ptr()), &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugApplication11032, ::windows_core::IUnknown, IRemoteDebugApplication110);
@@ -1964,7 +1964,7 @@ impl IDebugApplication11064 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CallableWaitForHandles(&self, phandles: &[super::super::super::super::Foundation::HANDLE]) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CallableWaitForHandles)(::windows_core::Interface::as_raw(self), phandles.len() as _, ::core::mem::transmute(phandles.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CallableWaitForHandles)(::windows_core::Interface::as_raw(self), phandles.len().try_into().unwrap(), ::core::mem::transmute(phandles.as_ptr()), &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugApplication11064, ::windows_core::IUnknown, IRemoteDebugApplication110);
@@ -3021,7 +3021,7 @@ impl IDebugDocumentHelper32 {
         (::windows_core::Interface::vtable(self).SetDefaultTextAttr)(::windows_core::Interface::as_raw(self), statextattr).ok()
     }
     pub unsafe fn SetTextAttributes(&self, ulcharoffset: u32, pstatextattr: &[u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetTextAttributes)(::windows_core::Interface::as_raw(self), ulcharoffset, pstatextattr.len() as _, ::core::mem::transmute(pstatextattr.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).SetTextAttributes)(::windows_core::Interface::as_raw(self), ulcharoffset, pstatextattr.len().try_into().unwrap(), ::core::mem::transmute(pstatextattr.as_ptr())).ok()
     }
     pub unsafe fn SetLongName<P0>(&self, pszlongname: P0) -> ::windows_core::Result<()>
     where
@@ -3148,7 +3148,7 @@ impl IDebugDocumentHelper64 {
         (::windows_core::Interface::vtable(self).SetDefaultTextAttr)(::windows_core::Interface::as_raw(self), statextattr).ok()
     }
     pub unsafe fn SetTextAttributes(&self, ulcharoffset: u32, pstatextattr: &[u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetTextAttributes)(::windows_core::Interface::as_raw(self), ulcharoffset, pstatextattr.len() as _, ::core::mem::transmute(pstatextattr.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).SetTextAttributes)(::windows_core::Interface::as_raw(self), ulcharoffset, pstatextattr.len().try_into().unwrap(), ::core::mem::transmute(pstatextattr.as_ptr())).ok()
     }
     pub unsafe fn SetLongName<P0>(&self, pszlongname: P0) -> ::windows_core::Result<()>
     where
@@ -3427,13 +3427,13 @@ impl IDebugDocumentTextAuthor {
         (::windows_core::Interface::vtable(self).base__.GetContextOfPosition)(::windows_core::Interface::as_raw(self), ccharacterposition, cnumchars, &mut result__).from_abi(result__)
     }
     pub unsafe fn InsertText(&self, ccharacterposition: u32, pchartext: &[u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).InsertText)(::windows_core::Interface::as_raw(self), ccharacterposition, pchartext.len() as _, ::core::mem::transmute(pchartext.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).InsertText)(::windows_core::Interface::as_raw(self), ccharacterposition, pchartext.len().try_into().unwrap(), ::core::mem::transmute(pchartext.as_ptr())).ok()
     }
     pub unsafe fn RemoveText(&self, ccharacterposition: u32, cnumtoremove: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RemoveText)(::windows_core::Interface::as_raw(self), ccharacterposition, cnumtoremove).ok()
     }
     pub unsafe fn ReplaceText(&self, ccharacterposition: u32, pchartext: &[u16]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ReplaceText)(::windows_core::Interface::as_raw(self), ccharacterposition, pchartext.len() as _, ::core::mem::transmute(pchartext.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).ReplaceText)(::windows_core::Interface::as_raw(self), ccharacterposition, pchartext.len().try_into().unwrap(), ::core::mem::transmute(pchartext.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugDocumentTextAuthor, ::windows_core::IUnknown, IDebugDocumentInfo, IDebugDocument, IDebugDocumentText);
@@ -4200,7 +4200,7 @@ pub struct IEnumDebugStackFrames64_Vtbl {
 pub struct IEnumJsStackFrames(::windows_core::IUnknown);
 impl IEnumJsStackFrames {
     pub unsafe fn Next(&self, pframes: &mut [JS_NATIVE_FRAME], pcfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pframes.len() as _, ::core::mem::transmute(pframes.as_ptr()), pcfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pframes.len().try_into().unwrap(), ::core::mem::transmute(pframes.as_ptr()), pcfetched).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
@@ -4361,10 +4361,10 @@ pub struct IJsDebugBreakPoint_Vtbl {
 pub struct IJsDebugDataTarget(::windows_core::IUnknown);
 impl IJsDebugDataTarget {
     pub unsafe fn ReadMemory(&self, address: u64, flags: JsDebugReadMemoryFlags, pbuffer: &mut [u8], pbytesread: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ReadMemory)(::windows_core::Interface::as_raw(self), address, flags, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, pbytesread).ok()
+        (::windows_core::Interface::vtable(self).ReadMemory)(::windows_core::Interface::as_raw(self), address, flags, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), pbytesread).ok()
     }
     pub unsafe fn WriteMemory(&self, address: u64, pmemory: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).WriteMemory)(::windows_core::Interface::as_raw(self), address, ::core::mem::transmute(pmemory.as_ptr()), pmemory.len() as _).ok()
+        (::windows_core::Interface::vtable(self).WriteMemory)(::windows_core::Interface::as_raw(self), address, ::core::mem::transmute(pmemory.as_ptr()), pmemory.len().try_into().unwrap()).ok()
     }
     pub unsafe fn AllocateVirtualMemory(&self, address: u64, size: u32, allocationtype: u32, pageprotection: u32) -> ::windows_core::Result<u64> {
         let mut result__ = ::std::mem::zeroed();
@@ -4390,7 +4390,7 @@ impl IJsDebugDataTarget {
         (::windows_core::Interface::vtable(self).CreateStackFrameEnumerator)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadContext(&self, threadid: u32, contextflags: u32, pcontext: &mut [u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, contextflags, pcontext.len() as _, ::core::mem::transmute(pcontext.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, contextflags, pcontext.len().try_into().unwrap(), ::core::mem::transmute(pcontext.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IJsDebugDataTarget, ::windows_core::IUnknown);
@@ -4562,7 +4562,7 @@ pub struct IJsDebugStackWalker_Vtbl {
 pub struct IJsEnumDebugProperty(::windows_core::IUnknown);
 impl IJsEnumDebugProperty {
     pub unsafe fn Next(&self, ppdebugproperty: &mut [::core::option::Option<IJsDebugProperty>], pactualcount: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppdebugproperty.len() as _, ::core::mem::transmute(ppdebugproperty.as_ptr()), pactualcount).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppdebugproperty.len().try_into().unwrap(), ::core::mem::transmute(ppdebugproperty.as_ptr()), pactualcount).ok()
     }
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -5143,7 +5143,7 @@ impl IScriptEntry {
         P3: ::windows_core::IntoParam<super::super::super::Com::ITypeInfo>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateChildHandler)(::windows_core::Interface::as_raw(self), pszdefaultname.into_param().abi(), ::core::mem::transmute(prgpsznames.as_ptr()), prgpsznames.len() as _, pszevent.into_param().abi(), pszdelimiter.into_param().abi(), ptisignature.into_param().abi(), imethodsignature, isn, dwcookie, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateChildHandler)(::windows_core::Interface::as_raw(self), pszdefaultname.into_param().abi(), ::core::mem::transmute(prgpsznames.as_ptr()), prgpsznames.len().try_into().unwrap(), pszevent.into_param().abi(), pszdelimiter.into_param().abi(), ptisignature.into_param().abi(), imethodsignature, isn, dwcookie, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -5314,7 +5314,7 @@ impl IScriptNode {
         P3: ::windows_core::IntoParam<super::super::super::Com::ITypeInfo>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateChildHandler)(::windows_core::Interface::as_raw(self), pszdefaultname.into_param().abi(), ::core::mem::transmute(prgpsznames.as_ptr()), prgpsznames.len() as _, pszevent.into_param().abi(), pszdelimiter.into_param().abi(), ptisignature.into_param().abi(), imethodsignature, isn, dwcookie, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateChildHandler)(::windows_core::Interface::as_raw(self), pszdefaultname.into_param().abi(), ::core::mem::transmute(prgpsznames.as_ptr()), prgpsznames.len().try_into().unwrap(), pszevent.into_param().abi(), pszdelimiter.into_param().abi(), ptisignature.into_param().abi(), imethodsignature, isn, dwcookie, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IScriptNode, ::windows_core::IUnknown);
@@ -5393,7 +5393,7 @@ impl IScriptScriptlet {
         P3: ::windows_core::IntoParam<super::super::super::Com::ITypeInfo>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.CreateChildHandler)(::windows_core::Interface::as_raw(self), pszdefaultname.into_param().abi(), ::core::mem::transmute(prgpsznames.as_ptr()), prgpsznames.len() as _, pszevent.into_param().abi(), pszdelimiter.into_param().abi(), ptisignature.into_param().abi(), imethodsignature, isn, dwcookie, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.CreateChildHandler)(::windows_core::Interface::as_raw(self), pszdefaultname.into_param().abi(), ::core::mem::transmute(prgpsznames.as_ptr()), prgpsznames.len().try_into().unwrap(), pszevent.into_param().abi(), pszdelimiter.into_param().abi(), ptisignature.into_param().abi(), imethodsignature, isn, dwcookie, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();

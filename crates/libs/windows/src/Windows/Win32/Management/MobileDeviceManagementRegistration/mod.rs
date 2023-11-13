@@ -41,14 +41,14 @@ pub unsafe fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INF
 #[inline]
 pub unsafe fn GetManagementAppHyperlink(pszhyperlink: &mut [u16]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mdmregistration.dll" "system" fn GetManagementAppHyperlink(cchhyperlink : u32, pszhyperlink : ::windows_core::PWSTR) -> ::windows_core::HRESULT);
-    GetManagementAppHyperlink(pszhyperlink.len() as _, ::core::mem::transmute(pszhyperlink.as_ptr())).ok()
+    GetManagementAppHyperlink(pszhyperlink.len().try_into().unwrap(), ::core::mem::transmute(pszhyperlink.as_ptr())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: *mut super::super::Foundation::BOOL, pszupn: ::core::option::Option<&mut [u16]>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mdmregistration.dll" "system" fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement : *mut super::super::Foundation:: BOOL, cchupn : u32, pszupn : ::windows_core::PWSTR) -> ::windows_core::HRESULT);
-    IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement, pszupn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pszupn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement, pszupn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pszupn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -69,7 +69,7 @@ pub unsafe fn IsMdmUxWithoutAadAllowed() -> ::windows_core::Result<super::super:
 #[inline]
 pub unsafe fn RegisterDeviceDualEnrollMmpcUsingAADDeviceCredentials(pszenrollmentid: &mut [u16]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mdmregistration.dll" "system" fn RegisterDeviceDualEnrollMmpcUsingAADDeviceCredentials(cchenrollmentid : u32, pszenrollmentid : ::windows_core::PWSTR) -> ::windows_core::HRESULT);
-    RegisterDeviceDualEnrollMmpcUsingAADDeviceCredentials(pszenrollmentid.len() as _, ::core::mem::transmute(pszenrollmentid.as_ptr())).ok()
+    RegisterDeviceDualEnrollMmpcUsingAADDeviceCredentials(pszenrollmentid.len().try_into().unwrap(), ::core::mem::transmute(pszenrollmentid.as_ptr())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

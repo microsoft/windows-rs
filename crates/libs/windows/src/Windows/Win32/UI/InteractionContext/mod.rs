@@ -14,7 +14,7 @@ where
     P0: ::windows_core::IntoParam<HINTERACTIONCONTEXT>,
 {
     ::windows_targets::link!("ninput.dll" "system" fn BufferPointerPacketsInteractionContext(interactioncontext : HINTERACTIONCONTEXT, entriescount : u32, pointerinfo : *const super::Input::Pointer:: POINTER_INFO) -> ::windows_core::HRESULT);
-    BufferPointerPacketsInteractionContext(interactioncontext.into_param().abi(), pointerinfo.len() as _, ::core::mem::transmute(pointerinfo.as_ptr())).ok()
+    BufferPointerPacketsInteractionContext(interactioncontext.into_param().abi(), pointerinfo.len().try_into().unwrap(), ::core::mem::transmute(pointerinfo.as_ptr())).ok()
 }
 #[inline]
 pub unsafe fn CreateInteractionContext() -> ::windows_core::Result<HINTERACTIONCONTEXT> {
@@ -63,7 +63,7 @@ where
     P0: ::windows_core::IntoParam<HINTERACTIONCONTEXT>,
 {
     ::windows_targets::link!("ninput.dll" "system" fn GetInteractionConfigurationInteractionContext(interactioncontext : HINTERACTIONCONTEXT, configurationcount : u32, configuration : *mut INTERACTION_CONTEXT_CONFIGURATION) -> ::windows_core::HRESULT);
-    GetInteractionConfigurationInteractionContext(interactioncontext.into_param().abi(), configuration.len() as _, ::core::mem::transmute(configuration.as_ptr())).ok()
+    GetInteractionConfigurationInteractionContext(interactioncontext.into_param().abi(), configuration.len().try_into().unwrap(), ::core::mem::transmute(configuration.as_ptr())).ok()
 }
 #[inline]
 pub unsafe fn GetMouseWheelParameterInteractionContext<P0>(interactioncontext: P0, parameter: MOUSE_WHEEL_PARAMETER) -> ::windows_core::Result<f32>
@@ -180,7 +180,7 @@ where
     P0: ::windows_core::IntoParam<HINTERACTIONCONTEXT>,
 {
     ::windows_targets::link!("ninput.dll" "system" fn SetCrossSlideParametersInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parametercount : u32, crossslideparameters : *const CROSS_SLIDE_PARAMETER) -> ::windows_core::HRESULT);
-    SetCrossSlideParametersInteractionContext(interactioncontext.into_param().abi(), crossslideparameters.len() as _, ::core::mem::transmute(crossslideparameters.as_ptr())).ok()
+    SetCrossSlideParametersInteractionContext(interactioncontext.into_param().abi(), crossslideparameters.len().try_into().unwrap(), ::core::mem::transmute(crossslideparameters.as_ptr())).ok()
 }
 #[inline]
 pub unsafe fn SetHoldParameterInteractionContext<P0>(interactioncontext: P0, parameter: HOLD_PARAMETER, value: f32) -> ::windows_core::Result<()>
@@ -204,7 +204,7 @@ where
     P0: ::windows_core::IntoParam<HINTERACTIONCONTEXT>,
 {
     ::windows_targets::link!("ninput.dll" "system" fn SetInteractionConfigurationInteractionContext(interactioncontext : HINTERACTIONCONTEXT, configurationcount : u32, configuration : *const INTERACTION_CONTEXT_CONFIGURATION) -> ::windows_core::HRESULT);
-    SetInteractionConfigurationInteractionContext(interactioncontext.into_param().abi(), configuration.len() as _, ::core::mem::transmute(configuration.as_ptr())).ok()
+    SetInteractionConfigurationInteractionContext(interactioncontext.into_param().abi(), configuration.len().try_into().unwrap(), ::core::mem::transmute(configuration.as_ptr())).ok()
 }
 #[inline]
 pub unsafe fn SetMouseWheelParameterInteractionContext<P0>(interactioncontext: P0, parameter: MOUSE_WHEEL_PARAMETER, value: f32) -> ::windows_core::Result<()>

@@ -11,7 +11,7 @@ where
     ::windows_targets::link!("ntdll.dll" "system" fn NtNotifyChangeMultipleKeys(masterkeyhandle : super::super::super::Win32::Foundation:: HANDLE, count : u32, subordinateobjects : *const super::super::Foundation:: OBJECT_ATTRIBUTES, event : super::super::super::Win32::Foundation:: HANDLE, apcroutine : super::super::super::Win32::System::IO:: PIO_APC_ROUTINE, apccontext : *const ::core::ffi::c_void, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, completionfilter : u32, watchtree : super::super::super::Win32::Foundation:: BOOLEAN, buffer : *mut ::core::ffi::c_void, buffersize : u32, asynchronous : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtNotifyChangeMultipleKeys(
         masterkeyhandle.into_param().abi(),
-        subordinateobjects.as_deref().map_or(0, |slice| slice.len() as _),
+        subordinateobjects.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         ::core::mem::transmute(subordinateobjects.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         event.into_param().abi(),
         apcroutine,
@@ -32,7 +32,7 @@ where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn NtQueryMultipleValueKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, valueentries : *mut KEY_VALUE_ENTRY, entrycount : u32, valuebuffer : *mut ::core::ffi::c_void, bufferlength : *mut u32, requiredbufferlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtQueryMultipleValueKey(keyhandle.into_param().abi(), ::core::mem::transmute(valueentries.as_ptr()), valueentries.len() as _, valuebuffer, bufferlength, ::core::mem::transmute(requiredbufferlength.unwrap_or(::std::ptr::null_mut())))
+    NtQueryMultipleValueKey(keyhandle.into_param().abi(), ::core::mem::transmute(valueentries.as_ptr()), valueentries.len().try_into().unwrap(), valuebuffer, bufferlength, ::core::mem::transmute(requiredbufferlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

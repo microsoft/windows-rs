@@ -190,7 +190,7 @@ impl IBackgroundCopyCallback1 {
         P0: ::windows_core::IntoParam<IBackgroundCopyGroup>,
         P1: ::windows_core::IntoParam<IBackgroundCopyJob1>,
     {
-        (::windows_core::Interface::vtable(self).OnProgressEx)(::windows_core::Interface::as_raw(self), progresstype, pgroup.into_param().abi(), pjob.into_param().abi(), dwfileindex, dwprogressvalue, pbyte.len() as _, ::core::mem::transmute(pbyte.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).OnProgressEx)(::windows_core::Interface::as_raw(self), progresstype, pgroup.into_param().abi(), pjob.into_param().abi(), dwfileindex, dwprogressvalue, pbyte.len().try_into().unwrap(), ::core::mem::transmute(pbyte.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyCallback1, ::windows_core::IUnknown);
@@ -287,7 +287,7 @@ impl IBackgroundCopyCallback3 {
         P0: ::windows_core::IntoParam<IBackgroundCopyJob>,
         P1: ::windows_core::IntoParam<IBackgroundCopyFile>,
     {
-        (::windows_core::Interface::vtable(self).FileRangesTransferred)(::windows_core::Interface::as_raw(self), job.into_param().abi(), file.into_param().abi(), ranges.len() as _, ::core::mem::transmute(ranges.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).FileRangesTransferred)(::windows_core::Interface::as_raw(self), job.into_param().abi(), file.into_param().abi(), ranges.len().try_into().unwrap(), ::core::mem::transmute(ranges.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyCallback3, ::windows_core::IUnknown, IBackgroundCopyCallback, IBackgroundCopyCallback2);
@@ -703,7 +703,7 @@ impl IBackgroundCopyFile6 {
         (::windows_core::Interface::vtable(self).UpdateDownloadPosition)(::windows_core::Interface::as_raw(self), offset).ok()
     }
     pub unsafe fn RequestFileRanges(&self, ranges: &[BG_FILE_RANGE]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).RequestFileRanges)(::windows_core::Interface::as_raw(self), ranges.len() as _, ::core::mem::transmute(ranges.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).RequestFileRanges)(::windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), ::core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn GetFilledFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFilledFileRanges)(::windows_core::Interface::as_raw(self), rangecount, ranges).ok()
@@ -827,7 +827,7 @@ pub struct IBackgroundCopyGroup_Vtbl {
 pub struct IBackgroundCopyJob(::windows_core::IUnknown);
 impl IBackgroundCopyJob {
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddFileSet)(::windows_core::Interface::as_raw(self), pfileset.len() as _, ::core::mem::transmute(pfileset.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).AddFileSet)(::windows_core::Interface::as_raw(self), pfileset.len().try_into().unwrap(), ::core::mem::transmute(pfileset.as_ptr())).ok()
     }
     pub unsafe fn AddFile<P0, P1>(&self, remoteurl: P0, localname: P1) -> ::windows_core::Result<()>
     where
@@ -1018,7 +1018,7 @@ impl IBackgroundCopyJob1 {
         (::windows_core::Interface::vtable(self).GetStatus)(::windows_core::Interface::as_raw(self), pdwstatus, pdwwin32result, pdwtransportresult, pdwnumofretries).ok()
     }
     pub unsafe fn AddFiles(&self, ppfileset: &[*const FILESETINFO]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddFiles)(::windows_core::Interface::as_raw(self), ppfileset.len() as _, ::core::mem::transmute(ppfileset.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).AddFiles)(::windows_core::Interface::as_raw(self), ppfileset.len().try_into().unwrap(), ::core::mem::transmute(ppfileset.as_ptr())).ok()
     }
     pub unsafe fn GetFile(&self, cfileindex: u32) -> ::windows_core::Result<FILESETINFO> {
         let mut result__ = ::std::mem::zeroed();
@@ -1061,7 +1061,7 @@ pub struct IBackgroundCopyJob1_Vtbl {
 pub struct IBackgroundCopyJob2(::windows_core::IUnknown);
 impl IBackgroundCopyJob2 {
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.AddFileSet)(::windows_core::Interface::as_raw(self), pfileset.len() as _, ::core::mem::transmute(pfileset.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.AddFileSet)(::windows_core::Interface::as_raw(self), pfileset.len().try_into().unwrap(), ::core::mem::transmute(pfileset.as_ptr())).ok()
     }
     pub unsafe fn AddFile<P0, P1>(&self, remoteurl: P0, localname: P1) -> ::windows_core::Result<()>
     where
@@ -1247,7 +1247,7 @@ pub struct IBackgroundCopyJob2_Vtbl {
 pub struct IBackgroundCopyJob3(::windows_core::IUnknown);
 impl IBackgroundCopyJob3 {
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.AddFileSet)(::windows_core::Interface::as_raw(self), pfileset.len() as _, ::core::mem::transmute(pfileset.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.AddFileSet)(::windows_core::Interface::as_raw(self), pfileset.len().try_into().unwrap(), ::core::mem::transmute(pfileset.as_ptr())).ok()
     }
     pub unsafe fn AddFile<P0, P1>(&self, remoteurl: P0, localname: P1) -> ::windows_core::Result<()>
     where
@@ -1419,7 +1419,7 @@ impl IBackgroundCopyJob3 {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).AddFileWithRanges)(::windows_core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi(), ranges.len() as _, ::core::mem::transmute(ranges.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).AddFileWithRanges)(::windows_core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi(), ranges.len().try_into().unwrap(), ::core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn SetFileACLFlags(&self, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFileACLFlags)(::windows_core::Interface::as_raw(self), flags).ok()
@@ -1450,7 +1450,7 @@ pub struct IBackgroundCopyJob3_Vtbl {
 pub struct IBackgroundCopyJob4(::windows_core::IUnknown);
 impl IBackgroundCopyJob4 {
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.AddFileSet)(::windows_core::Interface::as_raw(self), pfileset.len() as _, ::core::mem::transmute(pfileset.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.base__.AddFileSet)(::windows_core::Interface::as_raw(self), pfileset.len().try_into().unwrap(), ::core::mem::transmute(pfileset.as_ptr())).ok()
     }
     pub unsafe fn AddFile<P0, P1>(&self, remoteurl: P0, localname: P1) -> ::windows_core::Result<()>
     where
@@ -1622,7 +1622,7 @@ impl IBackgroundCopyJob4 {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddFileWithRanges)(::windows_core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi(), ranges.len() as _, ::core::mem::transmute(ranges.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.AddFileWithRanges)(::windows_core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi(), ranges.len().try_into().unwrap(), ::core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn SetFileACLFlags(&self, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetFileACLFlags)(::windows_core::Interface::as_raw(self), flags).ok()
@@ -1682,7 +1682,7 @@ pub struct IBackgroundCopyJob4_Vtbl {
 pub struct IBackgroundCopyJob5(::windows_core::IUnknown);
 impl IBackgroundCopyJob5 {
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.AddFileSet)(::windows_core::Interface::as_raw(self), pfileset.len() as _, ::core::mem::transmute(pfileset.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.AddFileSet)(::windows_core::Interface::as_raw(self), pfileset.len().try_into().unwrap(), ::core::mem::transmute(pfileset.as_ptr())).ok()
     }
     pub unsafe fn AddFile<P0, P1>(&self, remoteurl: P0, localname: P1) -> ::windows_core::Result<()>
     where
@@ -1854,7 +1854,7 @@ impl IBackgroundCopyJob5 {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.AddFileWithRanges)(::windows_core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi(), ranges.len() as _, ::core::mem::transmute(ranges.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.AddFileWithRanges)(::windows_core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi(), ranges.len().try_into().unwrap(), ::core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn SetFileACLFlags(&self, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetFileACLFlags)(::windows_core::Interface::as_raw(self), flags).ok()
@@ -2199,7 +2199,7 @@ impl IBackgroundCopyServerCertificateValidationCallback {
         P0: ::windows_core::IntoParam<IBackgroundCopyJob>,
         P1: ::windows_core::IntoParam<IBackgroundCopyFile>,
     {
-        (::windows_core::Interface::vtable(self).ValidateServerCertificate)(::windows_core::Interface::as_raw(self), job.into_param().abi(), file.into_param().abi(), certdata.len() as _, ::core::mem::transmute(certdata.as_ptr()), certencodingtype, certstoredata.len() as _, ::core::mem::transmute(certstoredata.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).ValidateServerCertificate)(::windows_core::Interface::as_raw(self), job.into_param().abi(), file.into_param().abi(), certdata.len().try_into().unwrap(), ::core::mem::transmute(certdata.as_ptr()), certencodingtype, certstoredata.len().try_into().unwrap(), ::core::mem::transmute(certstoredata.as_ptr())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyServerCertificateValidationCallback, ::windows_core::IUnknown);
@@ -2443,7 +2443,7 @@ pub struct IBitsTokenOptions_Vtbl {
 pub struct IEnumBackgroundCopyFiles(::windows_core::IUnknown);
 impl IEnumBackgroundCopyFiles {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IBackgroundCopyFile>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -2482,7 +2482,7 @@ pub struct IEnumBackgroundCopyFiles_Vtbl {
 pub struct IEnumBackgroundCopyGroups(::windows_core::IUnknown);
 impl IEnumBackgroundCopyGroups {
     pub unsafe fn Next(&self, rgelt: &mut [::windows_core::GUID], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -2521,7 +2521,7 @@ pub struct IEnumBackgroundCopyGroups_Vtbl {
 pub struct IEnumBackgroundCopyJobs(::windows_core::IUnknown);
 impl IEnumBackgroundCopyJobs {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IBackgroundCopyJob>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -2560,7 +2560,7 @@ pub struct IEnumBackgroundCopyJobs_Vtbl {
 pub struct IEnumBackgroundCopyJobs1(::windows_core::IUnknown);
 impl IEnumBackgroundCopyJobs1 {
     pub unsafe fn Next(&self, rgelt: &mut [::windows_core::GUID], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -2599,7 +2599,7 @@ pub struct IEnumBackgroundCopyJobs1_Vtbl {
 pub struct IEnumBitsPeerCacheRecords(::windows_core::IUnknown);
 impl IEnumBitsPeerCacheRecords {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IBitsPeerCacheRecord>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -2638,7 +2638,7 @@ pub struct IEnumBitsPeerCacheRecords_Vtbl {
 pub struct IEnumBitsPeers(::windows_core::IUnknown);
 impl IEnumBitsPeers {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IBitsPeer>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()

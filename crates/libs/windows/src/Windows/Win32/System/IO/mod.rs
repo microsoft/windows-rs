@@ -101,7 +101,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetQueuedCompletionStatusEx(completionport : super::super::Foundation:: HANDLE, lpcompletionportentries : *mut OVERLAPPED_ENTRY, ulcount : u32, ulnumentriesremoved : *mut u32, dwmilliseconds : u32, falertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    GetQueuedCompletionStatusEx(completionport.into_param().abi(), ::core::mem::transmute(lpcompletionportentries.as_ptr()), lpcompletionportentries.len() as _, ulnumentriesremoved, dwmilliseconds, falertable.into_param().abi()).ok()
+    GetQueuedCompletionStatusEx(completionport.into_param().abi(), ::core::mem::transmute(lpcompletionportentries.as_ptr()), lpcompletionportentries.len().try_into().unwrap(), ulnumentriesremoved, dwmilliseconds, falertable.into_param().abi()).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

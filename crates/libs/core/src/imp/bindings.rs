@@ -22,6 +22,7 @@
 pub type BOOL = i32;
 pub type BSTR = *const u16;
 pub const ERROR_NO_UNICODE_TRANSLATION: WIN32_ERROR = 1113u32;
+pub const E_INVALIDARG: HRESULT = -2147024809i32;
 pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: FORMAT_MESSAGE_OPTIONS = 256u32;
 pub const FORMAT_MESSAGE_FROM_SYSTEM: FORMAT_MESSAGE_OPTIONS = 4096u32;
@@ -30,6 +31,7 @@ pub type FORMAT_MESSAGE_OPTIONS = u32;
 pub type HANDLE = isize;
 pub type HEAP_FLAGS = u32;
 pub type HMODULE = isize;
+pub type HRESULT = i32;
 pub type LOAD_LIBRARY_FLAGS = u32;
 pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = 4096u32;
 pub type PCSTR = *const u8;

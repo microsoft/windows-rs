@@ -76,7 +76,7 @@ pub struct AsyncIAssociatedIdentityProvider_Vtbl {
 pub struct AsyncIConnectedIdentityProvider(::windows_core::IUnknown);
 impl AsyncIConnectedIdentityProvider {
     pub unsafe fn Begin_ConnectIdentity(&self, authbuffer: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Begin_ConnectIdentity)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(authbuffer.as_ptr()), authbuffer.len() as _).ok()
+        (::windows_core::Interface::vtable(self).Begin_ConnectIdentity)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(authbuffer.as_ptr()), authbuffer.len().try_into().unwrap()).ok()
     }
     pub unsafe fn Finish_ConnectIdentity(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Finish_ConnectIdentity)(::windows_core::Interface::as_raw(self)).ok()
@@ -181,7 +181,7 @@ pub struct AsyncIIdentityAdvise_Vtbl {
 pub struct AsyncIIdentityAuthentication(::windows_core::IUnknown);
 impl AsyncIIdentityAuthentication {
     pub unsafe fn Begin_SetIdentityCredential(&self, credbuffer: ::core::option::Option<&[u8]>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Begin_SetIdentityCredential)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(credbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), credbuffer.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+        (::windows_core::Interface::vtable(self).Begin_SetIdentityCredential)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(credbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), credbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
     }
     pub unsafe fn Finish_SetIdentityCredential(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Finish_SetIdentityCredential)(::windows_core::Interface::as_raw(self)).ok()
@@ -189,7 +189,7 @@ impl AsyncIIdentityAuthentication {
     #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Begin_ValidateIdentityCredential(&self, credbuffer: &[u8], ppidentityproperties: ::core::option::Option<*mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Begin_ValidateIdentityCredential)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(credbuffer.as_ptr()), credbuffer.len() as _, ::core::mem::transmute(ppidentityproperties.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows_core::Interface::vtable(self).Begin_ValidateIdentityCredential)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(credbuffer.as_ptr()), credbuffer.len().try_into().unwrap(), ::core::mem::transmute(ppidentityproperties.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -544,7 +544,7 @@ pub struct IAssociatedIdentityProvider_Vtbl {
 pub struct IConnectedIdentityProvider(::windows_core::IUnknown);
 impl IConnectedIdentityProvider {
     pub unsafe fn ConnectIdentity(&self, authbuffer: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ConnectIdentity)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(authbuffer.as_ptr()), authbuffer.len() as _).ok()
+        (::windows_core::Interface::vtable(self).ConnectIdentity)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(authbuffer.as_ptr()), authbuffer.len().try_into().unwrap()).ok()
     }
     pub unsafe fn DisconnectIdentity(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DisconnectIdentity)(::windows_core::Interface::as_raw(self)).ok()
@@ -620,12 +620,12 @@ pub struct IIdentityAdvise_Vtbl {
 pub struct IIdentityAuthentication(::windows_core::IUnknown);
 impl IIdentityAuthentication {
     pub unsafe fn SetIdentityCredential(&self, credbuffer: ::core::option::Option<&[u8]>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetIdentityCredential)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(credbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), credbuffer.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+        (::windows_core::Interface::vtable(self).SetIdentityCredential)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(credbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), credbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
     }
     #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn ValidateIdentityCredential(&self, credbuffer: &[u8], ppidentityproperties: ::core::option::Option<*mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ValidateIdentityCredential)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(credbuffer.as_ptr()), credbuffer.len() as _, ::core::mem::transmute(ppidentityproperties.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows_core::Interface::vtable(self).ValidateIdentityCredential)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(credbuffer.as_ptr()), credbuffer.len().try_into().unwrap(), ::core::mem::transmute(ppidentityproperties.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIdentityAuthentication, ::windows_core::IUnknown);
@@ -764,7 +764,7 @@ impl IIdentityStore {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).ConvertToSid)(::windows_core::Interface::as_raw(self), lpszuniqueid.into_param().abi(), providerguid, psid.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(psid.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcbrequiredsid).ok()
+        (::windows_core::Interface::vtable(self).ConvertToSid)(::windows_core::Interface::as_raw(self), lpszuniqueid.into_param().abi(), providerguid, psid.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(psid.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcbrequiredsid).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]

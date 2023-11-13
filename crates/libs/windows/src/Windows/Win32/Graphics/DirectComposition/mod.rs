@@ -97,7 +97,7 @@ pub unsafe fn DCompositionGetTargetStatistics(frameid: u64, targetid: *const COM
 #[inline]
 pub unsafe fn DCompositionWaitForCompositorClock(handles: ::core::option::Option<&[super::super::Foundation::HANDLE]>, timeoutinms: u32) -> u32 {
     ::windows_targets::link!("dcomp.dll" "system" fn DCompositionWaitForCompositorClock(count : u32, handles : *const super::super::Foundation:: HANDLE, timeoutinms : u32) -> u32);
-    DCompositionWaitForCompositorClock(handles.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(handles.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), timeoutinms)
+    DCompositionWaitForCompositorClock(handles.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(handles.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), timeoutinms)
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -535,11 +535,11 @@ pub struct IDCompositionDelegatedInkTrail(::windows_core::IUnknown);
 impl IDCompositionDelegatedInkTrail {
     pub unsafe fn AddTrailPoints(&self, inkpoints: &[DCompositionInkTrailPoint]) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).AddTrailPoints)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(inkpoints.as_ptr()), inkpoints.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).AddTrailPoints)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(inkpoints.as_ptr()), inkpoints.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddTrailPointsWithPrediction(&self, inkpoints: &[DCompositionInkTrailPoint], predictedinkpoints: &[DCompositionInkTrailPoint]) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).AddTrailPointsWithPrediction)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(inkpoints.as_ptr()), inkpoints.len() as _, ::core::mem::transmute(predictedinkpoints.as_ptr()), predictedinkpoints.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).AddTrailPointsWithPrediction)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(inkpoints.as_ptr()), inkpoints.len().try_into().unwrap(), ::core::mem::transmute(predictedinkpoints.as_ptr()), predictedinkpoints.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveTrailPoints(&self, generationid: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RemoveTrailPoints)(::windows_core::Interface::as_raw(self), generationid).ok()
@@ -629,7 +629,7 @@ impl IDCompositionDesktopDevice {
     }
     pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows_core::Result<IDCompositionTransform> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateTransformGroup)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateTransformGroup)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform3D(&self) -> ::windows_core::Result<IDCompositionTranslateTransform3D> {
         let mut result__ = ::std::mem::zeroed();
@@ -649,7 +649,7 @@ impl IDCompositionDesktopDevice {
     }
     pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows_core::Result<IDCompositionTransform3D> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateTransform3DGroup)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateTransform3DGroup)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateEffectGroup(&self) -> ::windows_core::Result<IDCompositionEffectGroup> {
         let mut result__ = ::std::mem::zeroed();
@@ -797,7 +797,7 @@ impl IDCompositionDevice {
     }
     pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows_core::Result<IDCompositionTransform> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateTransformGroup)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateTransformGroup)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform3D(&self) -> ::windows_core::Result<IDCompositionTranslateTransform3D> {
         let mut result__ = ::std::mem::zeroed();
@@ -817,7 +817,7 @@ impl IDCompositionDevice {
     }
     pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows_core::Result<IDCompositionTransform3D> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateTransform3DGroup)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateTransform3DGroup)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateEffectGroup(&self) -> ::windows_core::Result<IDCompositionEffectGroup> {
         let mut result__ = ::std::mem::zeroed();
@@ -955,7 +955,7 @@ impl IDCompositionDevice2 {
     }
     pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows_core::Result<IDCompositionTransform> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateTransformGroup)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateTransformGroup)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform3D(&self) -> ::windows_core::Result<IDCompositionTranslateTransform3D> {
         let mut result__ = ::std::mem::zeroed();
@@ -975,7 +975,7 @@ impl IDCompositionDevice2 {
     }
     pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows_core::Result<IDCompositionTransform3D> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateTransform3DGroup)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateTransform3DGroup)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateEffectGroup(&self) -> ::windows_core::Result<IDCompositionEffectGroup> {
         let mut result__ = ::std::mem::zeroed();
@@ -1092,7 +1092,7 @@ impl IDCompositionDevice3 {
     }
     pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows_core::Result<IDCompositionTransform> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateTransformGroup)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateTransformGroup)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform3D(&self) -> ::windows_core::Result<IDCompositionTranslateTransform3D> {
         let mut result__ = ::std::mem::zeroed();
@@ -1112,7 +1112,7 @@ impl IDCompositionDevice3 {
     }
     pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows_core::Result<IDCompositionTransform3D> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateTransform3DGroup)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateTransform3DGroup)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateEffectGroup(&self) -> ::windows_core::Result<IDCompositionEffectGroup> {
         let mut result__ = ::std::mem::zeroed();
@@ -2374,16 +2374,16 @@ impl IDCompositionTableTransferEffect {
         (::windows_core::Interface::vtable(self).base__.SetInput)(::windows_core::Interface::as_raw(self), index, input.into_param().abi(), flags).ok()
     }
     pub unsafe fn SetRedTable(&self, tablevalues: &[f32]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetRedTable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetRedTable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len().try_into().unwrap()).ok()
     }
     pub unsafe fn SetGreenTable(&self, tablevalues: &[f32]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetGreenTable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetGreenTable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len().try_into().unwrap()).ok()
     }
     pub unsafe fn SetBlueTable(&self, tablevalues: &[f32]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetBlueTable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetBlueTable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len().try_into().unwrap()).ok()
     }
     pub unsafe fn SetAlphaTable(&self, tablevalues: &[f32]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetAlphaTable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len() as _).ok()
+        (::windows_core::Interface::vtable(self).SetAlphaTable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len().try_into().unwrap()).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2763,7 +2763,7 @@ impl IDCompositionVirtualSurface {
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Trim(&self, rectangles: ::core::option::Option<&[super::super::Foundation::RECT]>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Trim)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rectangles.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rectangles.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+        (::windows_core::Interface::vtable(self).Trim)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rectangles.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rectangles.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionVirtualSurface, ::windows_core::IUnknown, IDCompositionSurface);

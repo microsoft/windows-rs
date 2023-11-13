@@ -117,7 +117,7 @@ where
 #[inline]
 pub unsafe fn EvtCreateRenderContext(valuepaths: ::core::option::Option<&[::windows_core::PCWSTR]>, flags: u32) -> ::windows_core::Result<EVT_HANDLE> {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtCreateRenderContext(valuepathscount : u32, valuepaths : *const ::windows_core::PCWSTR, flags : u32) -> EVT_HANDLE);
-    let result__ = EvtCreateRenderContext(valuepaths.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(valuepaths.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), flags);
+    let result__ = EvtCreateRenderContext(valuepaths.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(valuepaths.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -142,7 +142,7 @@ where
     P1: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtFormatMessage(publishermetadata : EVT_HANDLE, event : EVT_HANDLE, messageid : u32, valuecount : u32, values : *const EVT_VARIANT, flags : u32, buffersize : u32, buffer : ::windows_core::PWSTR, bufferused : *mut u32) -> super::super::Foundation:: BOOL);
-    EvtFormatMessage(publishermetadata.into_param().abi(), event.into_param().abi(), messageid, values.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(values.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), flags, buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bufferused).ok()
+    EvtFormatMessage(publishermetadata.into_param().abi(), event.into_param().abi(), messageid, values.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(values.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), flags, buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bufferused).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -177,7 +177,7 @@ where
 #[inline]
 pub unsafe fn EvtGetExtendedStatus(buffer: ::core::option::Option<&mut [u16]>, bufferused: *mut u32) -> u32 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetExtendedStatus(buffersize : u32, buffer : ::windows_core::PWSTR, bufferused : *mut u32) -> u32);
-    EvtGetExtendedStatus(buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bufferused)
+    EvtGetExtendedStatus(buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bufferused)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -231,7 +231,7 @@ where
     P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtNext(resultset : EVT_HANDLE, eventssize : u32, events : *mut isize, timeout : u32, flags : u32, returned : *mut u32) -> super::super::Foundation:: BOOL);
-    EvtNext(resultset.into_param().abi(), events.len() as _, ::core::mem::transmute(events.as_ptr()), timeout, flags, returned).ok()
+    EvtNext(resultset.into_param().abi(), events.len().try_into().unwrap(), ::core::mem::transmute(events.as_ptr()), timeout, flags, returned).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -241,7 +241,7 @@ where
     P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtNextChannelPath(channelenum : EVT_HANDLE, channelpathbuffersize : u32, channelpathbuffer : ::windows_core::PWSTR, channelpathbufferused : *mut u32) -> super::super::Foundation:: BOOL);
-    EvtNextChannelPath(channelenum.into_param().abi(), channelpathbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(channelpathbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), channelpathbufferused).ok()
+    EvtNextChannelPath(channelenum.into_param().abi(), channelpathbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(channelpathbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), channelpathbufferused).ok()
 }
 #[inline]
 pub unsafe fn EvtNextEventMetadata<P0>(eventmetadataenum: P0, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
@@ -260,7 +260,7 @@ where
     P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtNextPublisherId(publisherenum : EVT_HANDLE, publisheridbuffersize : u32, publisheridbuffer : ::windows_core::PWSTR, publisheridbufferused : *mut u32) -> super::super::Foundation:: BOOL);
-    EvtNextPublisherId(publisherenum.into_param().abi(), publisheridbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(publisheridbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), publisheridbufferused).ok()
+    EvtNextPublisherId(publisherenum.into_param().abi(), publisheridbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(publisheridbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), publisheridbufferused).ok()
 }
 #[inline]
 pub unsafe fn EvtOpenChannelConfig<P0, P1>(session: P0, channelpath: P1, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
@@ -547,7 +547,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Foundation::PSID>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn ReportEventA(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Foundation:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const ::windows_core::PCSTR, lprawdata : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    ReportEventA(heventlog.into_param().abi(), wtype, wcategory, dweventid, lpusersid.into_param().abi(), lpstrings.as_deref().map_or(0, |slice| slice.len() as _), dwdatasize, ::core::mem::transmute(lpstrings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lprawdata.unwrap_or(::std::ptr::null()))).ok()
+    ReportEventA(heventlog.into_param().abi(), wtype, wcategory, dweventid, lpusersid.into_param().abi(), lpstrings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwdatasize, ::core::mem::transmute(lpstrings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lprawdata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -558,7 +558,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Foundation::PSID>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn ReportEventW(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Foundation:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const ::windows_core::PCWSTR, lprawdata : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    ReportEventW(heventlog.into_param().abi(), wtype, wcategory, dweventid, lpusersid.into_param().abi(), lpstrings.as_deref().map_or(0, |slice| slice.len() as _), dwdatasize, ::core::mem::transmute(lpstrings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lprawdata.unwrap_or(::std::ptr::null()))).ok()
+    ReportEventW(heventlog.into_param().abi(), wtype, wcategory, dweventid, lpusersid.into_param().abi(), lpstrings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwdatasize, ::core::mem::transmute(lpstrings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lprawdata.unwrap_or(::std::ptr::null()))).ok()
 }
 pub const EVENTLOG_AUDIT_FAILURE: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(16u16);
 pub const EVENTLOG_AUDIT_SUCCESS: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(8u16);

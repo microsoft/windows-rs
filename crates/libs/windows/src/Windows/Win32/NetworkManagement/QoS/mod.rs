@@ -196,7 +196,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("traffic.dll" "system" fn TcGetFlowNameA(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : ::windows_core::PSTR) -> u32);
-    TcGetFlowNameA(flowhandle.into_param().abi(), pflowname.len() as _, ::core::mem::transmute(pflowname.as_ptr()))
+    TcGetFlowNameA(flowhandle.into_param().abi(), pflowname.len().try_into().unwrap(), ::core::mem::transmute(pflowname.as_ptr()))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -206,7 +206,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("traffic.dll" "system" fn TcGetFlowNameW(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : ::windows_core::PWSTR) -> u32);
-    TcGetFlowNameW(flowhandle.into_param().abi(), pflowname.len() as _, ::core::mem::transmute(pflowname.as_ptr()))
+    TcGetFlowNameW(flowhandle.into_param().abi(), pflowname.len().try_into().unwrap(), ::core::mem::transmute(pflowname.as_ptr()))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]

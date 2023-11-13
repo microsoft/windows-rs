@@ -206,7 +206,7 @@ where
     P0: ::windows_core::IntoParam<HRECOCONTEXT>,
 {
     ::windows_targets::link!("inkobjcore.dll" "system" fn SetTextContext(hrc : HRECOCONTEXT, cwcbefore : u32, pwcbefore : ::windows_core::PCWSTR, cwcafter : u32, pwcafter : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
-    SetTextContext(hrc.into_param().abi(), pwcbefore.len() as _, ::core::mem::transmute(pwcbefore.as_ptr()), pwcafter.len() as _, ::core::mem::transmute(pwcafter.as_ptr())).ok()
+    SetTextContext(hrc.into_param().abi(), pwcbefore.len().try_into().unwrap(), ::core::mem::transmute(pwcbefore.as_ptr()), pwcafter.len().try_into().unwrap(), ::core::mem::transmute(pwcafter.as_ptr())).ok()
 }
 #[inline]
 pub unsafe fn SetWordList<P0, P1>(hrc: P0, hwl: P1) -> ::windows_core::Result<()>
@@ -409,7 +409,7 @@ impl IGestureRecognizer {
         (::windows_core::Interface::vtable(self).SetMaxStrokeCount)(::windows_core::Interface::as_raw(self), cstrokes).ok()
     }
     pub unsafe fn EnableGestures(&self, pgestures: &[i32]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).EnableGestures)(::windows_core::Interface::as_raw(self), pgestures.len() as _, ::core::mem::transmute(pgestures.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).EnableGestures)(::windows_core::Interface::as_raw(self), pgestures.len().try_into().unwrap(), ::core::mem::transmute(pgestures.as_ptr())).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
@@ -6259,7 +6259,7 @@ impl IRealTimeStylus {
         (::windows_core::Interface::vtable(self).putref_ChildRealTimeStylusPlugin)(::windows_core::Interface::as_raw(self), pirts.into_param().abi()).ok()
     }
     pub unsafe fn AddCustomStylusDataToQueue(&self, sq: StylusQueue, pguidid: *const ::windows_core::GUID, pbdata: ::core::option::Option<&[u8]>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddCustomStylusDataToQueue)(::windows_core::Interface::as_raw(self), sq, pguidid, pbdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+        (::windows_core::Interface::vtable(self).AddCustomStylusDataToQueue)(::windows_core::Interface::as_raw(self), sq, pguidid, pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn ClearStylusQueues(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ClearStylusQueues)(::windows_core::Interface::as_raw(self)).ok()
@@ -6317,7 +6317,7 @@ impl IRealTimeStylus {
         (::windows_core::Interface::vtable(self).GetStylusForId)(::windows_core::Interface::as_raw(self), sid, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDesiredPacketDescription(&self, ppropertyguids: &[::windows_core::GUID]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetDesiredPacketDescription)(::windows_core::Interface::as_raw(self), ppropertyguids.len() as _, ::core::mem::transmute(ppropertyguids.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).SetDesiredPacketDescription)(::windows_core::Interface::as_raw(self), ppropertyguids.len().try_into().unwrap(), ::core::mem::transmute(ppropertyguids.as_ptr())).ok()
     }
     pub unsafe fn GetDesiredPacketDescription(&self, pcproperties: *mut u32, pppropertyguids: *mut *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDesiredPacketDescription)(::windows_core::Interface::as_raw(self), pcproperties, pppropertyguids).ok()
@@ -6541,15 +6541,15 @@ impl IStrokeBuilder {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateStroke(&self, ppackets: &[i32], ppacketproperties: &[PACKET_PROPERTY], finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: *mut ::core::option::Option<IInkStrokeDisp>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).CreateStroke)(::windows_core::Interface::as_raw(self), ppackets.len() as _, ::core::mem::transmute(ppackets.as_ptr()), ppacketproperties.len() as _, ::core::mem::transmute(ppacketproperties.as_ptr()), finktodevicescalex, finktodevicescaley, ::core::mem::transmute(ppiinkstroke)).ok()
+        (::windows_core::Interface::vtable(self).CreateStroke)(::windows_core::Interface::as_raw(self), ppackets.len().try_into().unwrap(), ::core::mem::transmute(ppackets.as_ptr()), ppacketproperties.len().try_into().unwrap(), ::core::mem::transmute(ppacketproperties.as_ptr()), finktodevicescalex, finktodevicescaley, ::core::mem::transmute(ppiinkstroke)).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BeginStroke(&self, tcid: u32, sid: u32, ppacket: *const i32, ppacketproperties: &[PACKET_PROPERTY], finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: ::core::option::Option<*mut ::core::option::Option<IInkStrokeDisp>>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).BeginStroke)(::windows_core::Interface::as_raw(self), tcid, sid, ppacket, ppacketproperties.len() as _, ::core::mem::transmute(ppacketproperties.as_ptr()), finktodevicescalex, finktodevicescaley, ::core::mem::transmute(ppiinkstroke.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows_core::Interface::vtable(self).BeginStroke)(::windows_core::Interface::as_raw(self), tcid, sid, ppacket, ppacketproperties.len().try_into().unwrap(), ::core::mem::transmute(ppacketproperties.as_ptr()), finktodevicescalex, finktodevicescaley, ::core::mem::transmute(ppiinkstroke.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn AppendPackets(&self, tcid: u32, sid: u32, ppackets: &[i32]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AppendPackets)(::windows_core::Interface::as_raw(self), tcid, sid, ppackets.len() as _, ::core::mem::transmute(ppackets.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).AppendPackets)(::windows_core::Interface::as_raw(self), tcid, sid, ppackets.len().try_into().unwrap(), ::core::mem::transmute(ppackets.as_ptr())).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6612,13 +6612,13 @@ impl IStylusAsyncPlugin {
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).base__.RealTimeStylusEnabled)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), ptcids.len() as _, ::core::mem::transmute(ptcids.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.RealTimeStylusEnabled)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), ptcids.len().try_into().unwrap(), ::core::mem::transmute(ptcids.as_ptr())).ok()
     }
     pub unsafe fn RealTimeStylusDisabled<P0>(&self, pirtssrc: P0, ptcids: &[u32]) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).base__.RealTimeStylusDisabled)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), ptcids.len() as _, ::core::mem::transmute(ptcids.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.RealTimeStylusDisabled)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), ptcids.len().try_into().unwrap(), ::core::mem::transmute(ptcids.as_ptr())).ok()
     }
     pub unsafe fn StylusInRange<P0>(&self, pirtssrc: P0, tcid: u32, sid: u32) -> ::windows_core::Result<()>
     where
@@ -6638,7 +6638,7 @@ impl IStylusAsyncPlugin {
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).base__.StylusDown)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, ppacket.len() as _, ::core::mem::transmute(ppacket.as_ptr()), ppinoutpkt).ok()
+        (::windows_core::Interface::vtable(self).base__.StylusDown)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, ppacket.len().try_into().unwrap(), ::core::mem::transmute(ppacket.as_ptr()), ppinoutpkt).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6646,7 +6646,7 @@ impl IStylusAsyncPlugin {
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).base__.StylusUp)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, ppacket.len() as _, ::core::mem::transmute(ppacket.as_ptr()), ppinoutpkt).ok()
+        (::windows_core::Interface::vtable(self).base__.StylusUp)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, ppacket.len().try_into().unwrap(), ::core::mem::transmute(ppacket.as_ptr()), ppinoutpkt).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6670,7 +6670,7 @@ impl IStylusAsyncPlugin {
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).base__.InAirPackets)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, cpktcount, ppackets.len() as _, ::core::mem::transmute(ppackets.as_ptr()), pcinoutpkts, ppinoutpkts).ok()
+        (::windows_core::Interface::vtable(self).base__.InAirPackets)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, cpktcount, ppackets.len().try_into().unwrap(), ::core::mem::transmute(ppackets.as_ptr()), pcinoutpkts, ppinoutpkts).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6678,13 +6678,13 @@ impl IStylusAsyncPlugin {
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).base__.Packets)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, cpktcount, ppackets.len() as _, ::core::mem::transmute(ppackets.as_ptr()), pcinoutpkts, ppinoutpkts).ok()
+        (::windows_core::Interface::vtable(self).base__.Packets)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, cpktcount, ppackets.len().try_into().unwrap(), ::core::mem::transmute(ppackets.as_ptr()), pcinoutpkts, ppinoutpkts).ok()
     }
     pub unsafe fn CustomStylusDataAdded<P0>(&self, pirtssrc: P0, pguidid: *const ::windows_core::GUID, pbdata: ::core::option::Option<&[u8]>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).base__.CustomStylusDataAdded)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pguidid, pbdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+        (::windows_core::Interface::vtable(self).base__.CustomStylusDataAdded)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pguidid, pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn SystemEvent<P0>(&self, pirtssrc: P0, tcid: u32, sid: u32, event: u16, eventdata: SYSTEM_EVENT_DATA) -> ::windows_core::Result<()>
     where
@@ -6745,13 +6745,13 @@ impl IStylusPlugin {
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).RealTimeStylusEnabled)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), ptcids.len() as _, ::core::mem::transmute(ptcids.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).RealTimeStylusEnabled)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), ptcids.len().try_into().unwrap(), ::core::mem::transmute(ptcids.as_ptr())).ok()
     }
     pub unsafe fn RealTimeStylusDisabled<P0>(&self, pirtssrc: P0, ptcids: &[u32]) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).RealTimeStylusDisabled)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), ptcids.len() as _, ::core::mem::transmute(ptcids.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).RealTimeStylusDisabled)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), ptcids.len().try_into().unwrap(), ::core::mem::transmute(ptcids.as_ptr())).ok()
     }
     pub unsafe fn StylusInRange<P0>(&self, pirtssrc: P0, tcid: u32, sid: u32) -> ::windows_core::Result<()>
     where
@@ -6771,7 +6771,7 @@ impl IStylusPlugin {
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).StylusDown)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, ppacket.len() as _, ::core::mem::transmute(ppacket.as_ptr()), ppinoutpkt).ok()
+        (::windows_core::Interface::vtable(self).StylusDown)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, ppacket.len().try_into().unwrap(), ::core::mem::transmute(ppacket.as_ptr()), ppinoutpkt).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6779,7 +6779,7 @@ impl IStylusPlugin {
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).StylusUp)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, ppacket.len() as _, ::core::mem::transmute(ppacket.as_ptr()), ppinoutpkt).ok()
+        (::windows_core::Interface::vtable(self).StylusUp)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, ppacket.len().try_into().unwrap(), ::core::mem::transmute(ppacket.as_ptr()), ppinoutpkt).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6803,7 +6803,7 @@ impl IStylusPlugin {
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).InAirPackets)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, cpktcount, ppackets.len() as _, ::core::mem::transmute(ppackets.as_ptr()), pcinoutpkts, ppinoutpkts).ok()
+        (::windows_core::Interface::vtable(self).InAirPackets)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, cpktcount, ppackets.len().try_into().unwrap(), ::core::mem::transmute(ppackets.as_ptr()), pcinoutpkts, ppinoutpkts).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6811,13 +6811,13 @@ impl IStylusPlugin {
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).Packets)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, cpktcount, ppackets.len() as _, ::core::mem::transmute(ppackets.as_ptr()), pcinoutpkts, ppinoutpkts).ok()
+        (::windows_core::Interface::vtable(self).Packets)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, cpktcount, ppackets.len().try_into().unwrap(), ::core::mem::transmute(ppackets.as_ptr()), pcinoutpkts, ppinoutpkts).ok()
     }
     pub unsafe fn CustomStylusDataAdded<P0>(&self, pirtssrc: P0, pguidid: *const ::windows_core::GUID, pbdata: ::core::option::Option<&[u8]>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).CustomStylusDataAdded)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pguidid, pbdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+        (::windows_core::Interface::vtable(self).CustomStylusDataAdded)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pguidid, pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn SystemEvent<P0>(&self, pirtssrc: P0, tcid: u32, sid: u32, event: u16, eventdata: SYSTEM_EVENT_DATA) -> ::windows_core::Result<()>
     where
@@ -6916,13 +6916,13 @@ impl IStylusSyncPlugin {
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).base__.RealTimeStylusEnabled)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), ptcids.len() as _, ::core::mem::transmute(ptcids.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.RealTimeStylusEnabled)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), ptcids.len().try_into().unwrap(), ::core::mem::transmute(ptcids.as_ptr())).ok()
     }
     pub unsafe fn RealTimeStylusDisabled<P0>(&self, pirtssrc: P0, ptcids: &[u32]) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).base__.RealTimeStylusDisabled)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), ptcids.len() as _, ::core::mem::transmute(ptcids.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.RealTimeStylusDisabled)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), ptcids.len().try_into().unwrap(), ::core::mem::transmute(ptcids.as_ptr())).ok()
     }
     pub unsafe fn StylusInRange<P0>(&self, pirtssrc: P0, tcid: u32, sid: u32) -> ::windows_core::Result<()>
     where
@@ -6942,7 +6942,7 @@ impl IStylusSyncPlugin {
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).base__.StylusDown)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, ppacket.len() as _, ::core::mem::transmute(ppacket.as_ptr()), ppinoutpkt).ok()
+        (::windows_core::Interface::vtable(self).base__.StylusDown)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, ppacket.len().try_into().unwrap(), ::core::mem::transmute(ppacket.as_ptr()), ppinoutpkt).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6950,7 +6950,7 @@ impl IStylusSyncPlugin {
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).base__.StylusUp)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, ppacket.len() as _, ::core::mem::transmute(ppacket.as_ptr()), ppinoutpkt).ok()
+        (::windows_core::Interface::vtable(self).base__.StylusUp)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, ppacket.len().try_into().unwrap(), ::core::mem::transmute(ppacket.as_ptr()), ppinoutpkt).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6974,7 +6974,7 @@ impl IStylusSyncPlugin {
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).base__.InAirPackets)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, cpktcount, ppackets.len() as _, ::core::mem::transmute(ppackets.as_ptr()), pcinoutpkts, ppinoutpkts).ok()
+        (::windows_core::Interface::vtable(self).base__.InAirPackets)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, cpktcount, ppackets.len().try_into().unwrap(), ::core::mem::transmute(ppackets.as_ptr()), pcinoutpkts, ppinoutpkts).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6982,13 +6982,13 @@ impl IStylusSyncPlugin {
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).base__.Packets)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, cpktcount, ppackets.len() as _, ::core::mem::transmute(ppackets.as_ptr()), pcinoutpkts, ppinoutpkts).ok()
+        (::windows_core::Interface::vtable(self).base__.Packets)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pstylusinfo, cpktcount, ppackets.len().try_into().unwrap(), ::core::mem::transmute(ppackets.as_ptr()), pcinoutpkts, ppinoutpkts).ok()
     }
     pub unsafe fn CustomStylusDataAdded<P0>(&self, pirtssrc: P0, pguidid: *const ::windows_core::GUID, pbdata: ::core::option::Option<&[u8]>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IRealTimeStylus>,
     {
-        (::windows_core::Interface::vtable(self).base__.CustomStylusDataAdded)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pguidid, pbdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+        (::windows_core::Interface::vtable(self).base__.CustomStylusDataAdded)(::windows_core::Interface::as_raw(self), pirtssrc.into_param().abi(), pguidid, pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn SystemEvent<P0>(&self, pirtssrc: P0, tcid: u32, sid: u32, event: u16, eventdata: SYSTEM_EVENT_DATA) -> ::windows_core::Result<()>
     where

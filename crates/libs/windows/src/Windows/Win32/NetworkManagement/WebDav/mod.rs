@@ -8,7 +8,7 @@ where
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("netapi32.dll" "system" fn DavAddConnection(connectionhandle : *mut super::super::Foundation:: HANDLE, remotename : ::windows_core::PCWSTR, username : ::windows_core::PCWSTR, password : ::windows_core::PCWSTR, clientcert : *const u8, certsize : u32) -> u32);
-    DavAddConnection(connectionhandle, remotename.into_param().abi(), username.into_param().abi(), password.into_param().abi(), ::core::mem::transmute(clientcert.as_ptr()), clientcert.len() as _)
+    DavAddConnection(connectionhandle, remotename.into_param().abi(), username.into_param().abi(), password.into_param().abi(), ::core::mem::transmute(clientcert.as_ptr()), clientcert.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

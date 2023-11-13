@@ -39,7 +39,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn AddJobA(hprinter : super::super::Foundation:: HANDLE, level : u32, pdata : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    AddJobA(hprinter.into_param().abi(), level, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded)
+    AddJobA(hprinter.into_param().abi(), level, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -49,7 +49,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn AddJobW(hprinter : super::super::Foundation:: HANDLE, level : u32, pdata : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    AddJobW(hprinter.into_param().abi(), level, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded)
+    AddJobW(hprinter.into_param().abi(), level, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -804,7 +804,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumFormsA(hprinter : super::super::Foundation:: HANDLE, level : u32, pform : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumFormsA(hprinter.into_param().abi(), level, ::core::mem::transmute(pform.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pform.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded, pcreturned)
+    EnumFormsA(hprinter.into_param().abi(), level, ::core::mem::transmute(pform.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pform.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -814,7 +814,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumFormsW(hprinter : super::super::Foundation:: HANDLE, level : u32, pform : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumFormsW(hprinter.into_param().abi(), level, ::core::mem::transmute(pform.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pform.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded, pcreturned)
+    EnumFormsW(hprinter.into_param().abi(), level, ::core::mem::transmute(pform.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pform.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -834,7 +834,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumJobsA(hprinter : super::super::Foundation:: HANDLE, firstjob : u32, nojobs : u32, level : u32, pjob : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumJobsA(hprinter.into_param().abi(), firstjob, nojobs, level, ::core::mem::transmute(pjob.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pjob.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded, pcreturned).ok()
+    EnumJobsA(hprinter.into_param().abi(), firstjob, nojobs, level, ::core::mem::transmute(pjob.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pjob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -844,7 +844,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumJobsW(hprinter : super::super::Foundation:: HANDLE, firstjob : u32, nojobs : u32, level : u32, pjob : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumJobsW(hprinter.into_param().abi(), firstjob, nojobs, level, ::core::mem::transmute(pjob.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pjob.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded, pcreturned).ok()
+    EnumJobsW(hprinter.into_param().abi(), firstjob, nojobs, level, ::core::mem::transmute(pjob.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pjob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -854,7 +854,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumMonitorsA(pname : ::windows_core::PCSTR, level : u32, pmonitor : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumMonitorsA(pname.into_param().abi(), level, ::core::mem::transmute(pmonitor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pmonitor.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded, pcreturned)
+    EnumMonitorsA(pname.into_param().abi(), level, ::core::mem::transmute(pmonitor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pmonitor.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -864,7 +864,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumMonitorsW(pname : ::windows_core::PCWSTR, level : u32, pmonitor : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumMonitorsW(pname.into_param().abi(), level, ::core::mem::transmute(pmonitor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pmonitor.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded, pcreturned)
+    EnumMonitorsW(pname.into_param().abi(), level, ::core::mem::transmute(pmonitor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pmonitor.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -874,7 +874,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumPortsA(pname : ::windows_core::PCSTR, level : u32, pport : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumPortsA(pname.into_param().abi(), level, ::core::mem::transmute(pport.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pport.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded, pcreturned)
+    EnumPortsA(pname.into_param().abi(), level, ::core::mem::transmute(pport.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pport.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -884,7 +884,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumPortsW(pname : ::windows_core::PCWSTR, level : u32, pport : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumPortsW(pname.into_param().abi(), level, ::core::mem::transmute(pport.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pport.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded, pcreturned)
+    EnumPortsW(pname.into_param().abi(), level, ::core::mem::transmute(pport.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pport.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -895,7 +895,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumPrintProcessorDatatypesA(pname : ::windows_core::PCSTR, pprintprocessorname : ::windows_core::PCSTR, level : u32, pdatatypes : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumPrintProcessorDatatypesA(pname.into_param().abi(), pprintprocessorname.into_param().abi(), level, ::core::mem::transmute(pdatatypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdatatypes.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded, pcreturned)
+    EnumPrintProcessorDatatypesA(pname.into_param().abi(), pprintprocessorname.into_param().abi(), level, ::core::mem::transmute(pdatatypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdatatypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -906,7 +906,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumPrintProcessorDatatypesW(pname : ::windows_core::PCWSTR, pprintprocessorname : ::windows_core::PCWSTR, level : u32, pdatatypes : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumPrintProcessorDatatypesW(pname.into_param().abi(), pprintprocessorname.into_param().abi(), level, ::core::mem::transmute(pdatatypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdatatypes.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded, pcreturned)
+    EnumPrintProcessorDatatypesW(pname.into_param().abi(), pprintprocessorname.into_param().abi(), level, ::core::mem::transmute(pdatatypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdatatypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -917,7 +917,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumPrintProcessorsA(pname : ::windows_core::PCSTR, penvironment : ::windows_core::PCSTR, level : u32, pprintprocessorinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumPrintProcessorsA(pname.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pprintprocessorinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pprintprocessorinfo.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded, pcreturned)
+    EnumPrintProcessorsA(pname.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pprintprocessorinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pprintprocessorinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -928,7 +928,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumPrintProcessorsW(pname : ::windows_core::PCWSTR, penvironment : ::windows_core::PCWSTR, level : u32, pprintprocessorinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumPrintProcessorsW(pname.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pprintprocessorinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pprintprocessorinfo.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded, pcreturned)
+    EnumPrintProcessorsW(pname.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pprintprocessorinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pprintprocessorinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -938,7 +938,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumPrinterDataA(hprinter : super::super::Foundation:: HANDLE, dwindex : u32, pvaluename : ::windows_core::PSTR, cbvaluename : u32, pcbvaluename : *mut u32, ptype : *mut u32, pdata : *mut u8, cbdata : u32, pcbdata : *mut u32) -> u32);
-    EnumPrinterDataA(hprinter.into_param().abi(), dwindex, ::core::mem::transmute(pvaluename.as_ptr()), pvaluename.len() as _, pcbvaluename, ::core::mem::transmute(ptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
+    EnumPrinterDataA(hprinter.into_param().abi(), dwindex, ::core::mem::transmute(pvaluename.as_ptr()), pvaluename.len().try_into().unwrap(), pcbvaluename, ::core::mem::transmute(ptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -949,7 +949,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumPrinterDataExA(hprinter : super::super::Foundation:: HANDLE, pkeyname : ::windows_core::PCSTR, penumvalues : *mut u8, cbenumvalues : u32, pcbenumvalues : *mut u32, pnenumvalues : *mut u32) -> u32);
-    EnumPrinterDataExA(hprinter.into_param().abi(), pkeyname.into_param().abi(), ::core::mem::transmute(penumvalues.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), penumvalues.as_deref().map_or(0, |slice| slice.len() as _), pcbenumvalues, pnenumvalues)
+    EnumPrinterDataExA(hprinter.into_param().abi(), pkeyname.into_param().abi(), ::core::mem::transmute(penumvalues.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), penumvalues.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbenumvalues, pnenumvalues)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -960,7 +960,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumPrinterDataExW(hprinter : super::super::Foundation:: HANDLE, pkeyname : ::windows_core::PCWSTR, penumvalues : *mut u8, cbenumvalues : u32, pcbenumvalues : *mut u32, pnenumvalues : *mut u32) -> u32);
-    EnumPrinterDataExW(hprinter.into_param().abi(), pkeyname.into_param().abi(), ::core::mem::transmute(penumvalues.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), penumvalues.as_deref().map_or(0, |slice| slice.len() as _), pcbenumvalues, pnenumvalues)
+    EnumPrinterDataExW(hprinter.into_param().abi(), pkeyname.into_param().abi(), ::core::mem::transmute(penumvalues.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), penumvalues.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbenumvalues, pnenumvalues)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -970,7 +970,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumPrinterDataW(hprinter : super::super::Foundation:: HANDLE, dwindex : u32, pvaluename : ::windows_core::PWSTR, cbvaluename : u32, pcbvaluename : *mut u32, ptype : *mut u32, pdata : *mut u8, cbdata : u32, pcbdata : *mut u32) -> u32);
-    EnumPrinterDataW(hprinter.into_param().abi(), dwindex, ::core::mem::transmute(pvaluename), cbvaluename, pcbvaluename, ::core::mem::transmute(ptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
+    EnumPrinterDataW(hprinter.into_param().abi(), dwindex, ::core::mem::transmute(pvaluename), cbvaluename, pcbvaluename, ::core::mem::transmute(ptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -981,7 +981,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumPrinterDriversA(pname : ::windows_core::PCSTR, penvironment : ::windows_core::PCSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumPrinterDriversA(pname.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pdriverinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded, pcreturned).ok()
+    EnumPrinterDriversA(pname.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pdriverinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -992,7 +992,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumPrinterDriversW(pname : ::windows_core::PCWSTR, penvironment : ::windows_core::PCWSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumPrinterDriversW(pname.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pdriverinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded, pcreturned).ok()
+    EnumPrinterDriversW(pname.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pdriverinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1003,7 +1003,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumPrinterKeyA(hprinter : super::super::Foundation:: HANDLE, pkeyname : ::windows_core::PCSTR, psubkey : ::windows_core::PSTR, cbsubkey : u32, pcbsubkey : *mut u32) -> u32);
-    EnumPrinterKeyA(hprinter.into_param().abi(), pkeyname.into_param().abi(), ::core::mem::transmute(psubkey.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psubkey.as_deref().map_or(0, |slice| slice.len() as _), pcbsubkey)
+    EnumPrinterKeyA(hprinter.into_param().abi(), pkeyname.into_param().abi(), ::core::mem::transmute(psubkey.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psubkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbsubkey)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1024,7 +1024,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumPrintersA(flags : u32, name : ::windows_core::PCSTR, level : u32, pprinterenum : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumPrintersA(flags, name.into_param().abi(), level, ::core::mem::transmute(pprinterenum.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pprinterenum.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded, pcreturned).ok()
+    EnumPrintersA(flags, name.into_param().abi(), level, ::core::mem::transmute(pprinterenum.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pprinterenum.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1034,7 +1034,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn EnumPrintersW(flags : u32, name : ::windows_core::PCWSTR, level : u32, pprinterenum : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumPrintersW(flags, name.into_param().abi(), level, ::core::mem::transmute(pprinterenum.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pprinterenum.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded, pcreturned).ok()
+    EnumPrintersW(flags, name.into_param().abi(), level, ::core::mem::transmute(pprinterenum.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pprinterenum.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1093,7 +1093,7 @@ where
 #[inline]
 pub unsafe fn FreePrintNamedPropertyArray(ppproperties: ::core::option::Option<&mut [*mut PrintNamedProperty]>) {
     ::windows_targets::link!("winspool.drv" "system" fn FreePrintNamedPropertyArray(cproperties : u32, ppproperties : *mut *mut PrintNamedProperty) -> ());
-    FreePrintNamedPropertyArray(ppproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+    FreePrintNamedPropertyArray(ppproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(ppproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
 pub unsafe fn FreePrintPropertyValue(pvalue: *mut PrintPropertyValue) {
@@ -1258,7 +1258,7 @@ where
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetCorePrinterDriversA(pszserver : ::windows_core::PCSTR, pszenvironment : ::windows_core::PCSTR, pszzcoredriverdependencies : ::windows_core::PCSTR, ccoreprinterdrivers : u32, pcoreprinterdrivers : *mut CORE_PRINTER_DRIVERA) -> ::windows_core::HRESULT);
-    GetCorePrinterDriversA(pszserver.into_param().abi(), pszenvironment.into_param().abi(), pszzcoredriverdependencies.into_param().abi(), pcoreprinterdrivers.len() as _, ::core::mem::transmute(pcoreprinterdrivers.as_ptr())).ok()
+    GetCorePrinterDriversA(pszserver.into_param().abi(), pszenvironment.into_param().abi(), pszzcoredriverdependencies.into_param().abi(), pcoreprinterdrivers.len().try_into().unwrap(), ::core::mem::transmute(pcoreprinterdrivers.as_ptr())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1270,7 +1270,7 @@ where
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetCorePrinterDriversW(pszserver : ::windows_core::PCWSTR, pszenvironment : ::windows_core::PCWSTR, pszzcoredriverdependencies : ::windows_core::PCWSTR, ccoreprinterdrivers : u32, pcoreprinterdrivers : *mut CORE_PRINTER_DRIVERW) -> ::windows_core::HRESULT);
-    GetCorePrinterDriversW(pszserver.into_param().abi(), pszenvironment.into_param().abi(), pszzcoredriverdependencies.into_param().abi(), pcoreprinterdrivers.len() as _, ::core::mem::transmute(pcoreprinterdrivers.as_ptr())).ok()
+    GetCorePrinterDriversW(pszserver.into_param().abi(), pszenvironment.into_param().abi(), pszzcoredriverdependencies.into_param().abi(), pcoreprinterdrivers.len().try_into().unwrap(), ::core::mem::transmute(pcoreprinterdrivers.as_ptr())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1295,7 +1295,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetFormA(hprinter : super::super::Foundation:: HANDLE, pformname : ::windows_core::PCSTR, level : u32, pform : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetFormA(hprinter.into_param().abi(), pformname.into_param().abi(), level, ::core::mem::transmute(pform.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pform.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded)
+    GetFormA(hprinter.into_param().abi(), pformname.into_param().abi(), level, ::core::mem::transmute(pform.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pform.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1306,7 +1306,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetFormW(hprinter : super::super::Foundation:: HANDLE, pformname : ::windows_core::PCWSTR, level : u32, pform : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetFormW(hprinter.into_param().abi(), pformname.into_param().abi(), level, ::core::mem::transmute(pform.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pform.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded)
+    GetFormW(hprinter.into_param().abi(), pformname.into_param().abi(), level, ::core::mem::transmute(pform.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pform.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1316,7 +1316,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetJobA(hprinter : super::super::Foundation:: HANDLE, jobid : u32, level : u32, pjob : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetJobA(hprinter.into_param().abi(), jobid, level, ::core::mem::transmute(pjob.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pjob.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded)
+    GetJobA(hprinter.into_param().abi(), jobid, level, ::core::mem::transmute(pjob.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pjob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1336,7 +1336,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("spoolss.dll" "system" fn GetJobAttributesEx(pprintername : ::windows_core::PCWSTR, pdevmode : *const super::Gdi:: DEVMODEW, dwlevel : u32, pattributeinfo : *mut u8, nsize : u32, dwflags : u32) -> super::super::Foundation:: BOOL);
-    GetJobAttributesEx(pprintername.into_param().abi(), pdevmode, dwlevel, ::core::mem::transmute(pattributeinfo.as_ptr()), pattributeinfo.len() as _, dwflags)
+    GetJobAttributesEx(pprintername.into_param().abi(), pdevmode, dwlevel, ::core::mem::transmute(pattributeinfo.as_ptr()), pattributeinfo.len().try_into().unwrap(), dwflags)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1357,7 +1357,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetJobW(hprinter : super::super::Foundation:: HANDLE, jobid : u32, level : u32, pjob : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetJobW(hprinter.into_param().abi(), jobid, level, ::core::mem::transmute(pjob.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pjob.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded)
+    GetJobW(hprinter.into_param().abi(), jobid, level, ::core::mem::transmute(pjob.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pjob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1386,7 +1386,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetPrintProcessorDirectoryA(pname : ::windows_core::PCSTR, penvironment : ::windows_core::PCSTR, level : u32, pprintprocessorinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetPrintProcessorDirectoryA(pname.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pprintprocessorinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pprintprocessorinfo.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded)
+    GetPrintProcessorDirectoryA(pname.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pprintprocessorinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pprintprocessorinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1397,7 +1397,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetPrintProcessorDirectoryW(pname : ::windows_core::PCWSTR, penvironment : ::windows_core::PCWSTR, level : u32, pprintprocessorinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetPrintProcessorDirectoryW(pname.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pprintprocessorinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pprintprocessorinfo.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded)
+    GetPrintProcessorDirectoryW(pname.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pprintprocessorinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pprintprocessorinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1407,7 +1407,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetPrinterA(hprinter : super::super::Foundation:: HANDLE, level : u32, pprinter : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetPrinterA(hprinter.into_param().abi(), level, ::core::mem::transmute(pprinter.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pprinter.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded).ok()
+    GetPrinterA(hprinter.into_param().abi(), level, ::core::mem::transmute(pprinter.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pprinter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1418,7 +1418,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetPrinterDataA(hprinter : super::super::Foundation:: HANDLE, pvaluename : ::windows_core::PCSTR, ptype : *mut u32, pdata : *mut u8, nsize : u32, pcbneeded : *mut u32) -> u32);
-    GetPrinterDataA(hprinter.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(ptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded)
+    GetPrinterDataA(hprinter.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(ptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1430,7 +1430,7 @@ where
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetPrinterDataExA(hprinter : super::super::Foundation:: HANDLE, pkeyname : ::windows_core::PCSTR, pvaluename : ::windows_core::PCSTR, ptype : *mut u32, pdata : *mut u8, nsize : u32, pcbneeded : *mut u32) -> u32);
-    GetPrinterDataExA(hprinter.into_param().abi(), pkeyname.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(ptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded)
+    GetPrinterDataExA(hprinter.into_param().abi(), pkeyname.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(ptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1442,7 +1442,7 @@ where
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetPrinterDataExW(hprinter : super::super::Foundation:: HANDLE, pkeyname : ::windows_core::PCWSTR, pvaluename : ::windows_core::PCWSTR, ptype : *mut u32, pdata : *mut u8, nsize : u32, pcbneeded : *mut u32) -> u32);
-    GetPrinterDataExW(hprinter.into_param().abi(), pkeyname.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(ptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded)
+    GetPrinterDataExW(hprinter.into_param().abi(), pkeyname.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(ptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1453,7 +1453,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetPrinterDataW(hprinter : super::super::Foundation:: HANDLE, pvaluename : ::windows_core::PCWSTR, ptype : *mut u32, pdata : *mut u8, nsize : u32, pcbneeded : *mut u32) -> u32);
-    GetPrinterDataW(hprinter.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(ptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded)
+    GetPrinterDataW(hprinter.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(ptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1465,7 +1465,7 @@ where
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetPrinterDriver2A(hwnd : super::super::Foundation:: HWND, hprinter : super::super::Foundation:: HANDLE, penvironment : ::windows_core::PCSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetPrinterDriver2A(hwnd.into_param().abi(), hprinter.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pdriverinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded)
+    GetPrinterDriver2A(hwnd.into_param().abi(), hprinter.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pdriverinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1477,7 +1477,7 @@ where
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetPrinterDriver2W(hwnd : super::super::Foundation:: HWND, hprinter : super::super::Foundation:: HANDLE, penvironment : ::windows_core::PCWSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetPrinterDriver2W(hwnd.into_param().abi(), hprinter.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pdriverinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded)
+    GetPrinterDriver2W(hwnd.into_param().abi(), hprinter.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pdriverinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1488,7 +1488,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetPrinterDriverA(hprinter : super::super::Foundation:: HANDLE, penvironment : ::windows_core::PCSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetPrinterDriverA(hprinter.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pdriverinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded)
+    GetPrinterDriverA(hprinter.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pdriverinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1499,7 +1499,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetPrinterDriverDirectoryA(pname : ::windows_core::PCSTR, penvironment : ::windows_core::PCSTR, level : u32, pdriverdirectory : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetPrinterDriverDirectoryA(pname.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pdriverdirectory.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriverdirectory.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded)
+    GetPrinterDriverDirectoryA(pname.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pdriverdirectory.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriverdirectory.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1510,7 +1510,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetPrinterDriverDirectoryW(pname : ::windows_core::PCWSTR, penvironment : ::windows_core::PCWSTR, level : u32, pdriverdirectory : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetPrinterDriverDirectoryW(pname.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pdriverdirectory.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriverdirectory.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded)
+    GetPrinterDriverDirectoryW(pname.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pdriverdirectory.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriverdirectory.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[inline]
 pub unsafe fn GetPrinterDriverPackagePathA<P0, P1, P2, P3>(pszserver: P0, pszenvironment: P1, pszlanguage: P2, pszpackageid: P3, pszdriverpackagecab: ::core::option::Option<&mut [u8]>, pcchrequiredsize: *mut u32) -> ::windows_core::Result<()>
@@ -1521,7 +1521,7 @@ where
     P3: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetPrinterDriverPackagePathA(pszserver : ::windows_core::PCSTR, pszenvironment : ::windows_core::PCSTR, pszlanguage : ::windows_core::PCSTR, pszpackageid : ::windows_core::PCSTR, pszdriverpackagecab : ::windows_core::PSTR, cchdriverpackagecab : u32, pcchrequiredsize : *mut u32) -> ::windows_core::HRESULT);
-    GetPrinterDriverPackagePathA(pszserver.into_param().abi(), pszenvironment.into_param().abi(), pszlanguage.into_param().abi(), pszpackageid.into_param().abi(), ::core::mem::transmute(pszdriverpackagecab.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszdriverpackagecab.as_deref().map_or(0, |slice| slice.len() as _), pcchrequiredsize).ok()
+    GetPrinterDriverPackagePathA(pszserver.into_param().abi(), pszenvironment.into_param().abi(), pszlanguage.into_param().abi(), pszpackageid.into_param().abi(), ::core::mem::transmute(pszdriverpackagecab.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszdriverpackagecab.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchrequiredsize).ok()
 }
 #[inline]
 pub unsafe fn GetPrinterDriverPackagePathW<P0, P1, P2, P3>(pszserver: P0, pszenvironment: P1, pszlanguage: P2, pszpackageid: P3, pszdriverpackagecab: ::core::option::Option<&mut [u16]>, pcchrequiredsize: *mut u32) -> ::windows_core::Result<()>
@@ -1532,7 +1532,7 @@ where
     P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetPrinterDriverPackagePathW(pszserver : ::windows_core::PCWSTR, pszenvironment : ::windows_core::PCWSTR, pszlanguage : ::windows_core::PCWSTR, pszpackageid : ::windows_core::PCWSTR, pszdriverpackagecab : ::windows_core::PWSTR, cchdriverpackagecab : u32, pcchrequiredsize : *mut u32) -> ::windows_core::HRESULT);
-    GetPrinterDriverPackagePathW(pszserver.into_param().abi(), pszenvironment.into_param().abi(), pszlanguage.into_param().abi(), pszpackageid.into_param().abi(), ::core::mem::transmute(pszdriverpackagecab.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszdriverpackagecab.as_deref().map_or(0, |slice| slice.len() as _), pcchrequiredsize).ok()
+    GetPrinterDriverPackagePathW(pszserver.into_param().abi(), pszenvironment.into_param().abi(), pszlanguage.into_param().abi(), pszpackageid.into_param().abi(), ::core::mem::transmute(pszdriverpackagecab.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszdriverpackagecab.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchrequiredsize).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1543,7 +1543,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetPrinterDriverW(hprinter : super::super::Foundation:: HANDLE, penvironment : ::windows_core::PCWSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetPrinterDriverW(hprinter.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pdriverinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded)
+    GetPrinterDriverW(hprinter.into_param().abi(), penvironment.into_param().abi(), level, ::core::mem::transmute(pdriverinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1553,7 +1553,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn GetPrinterW(hprinter : super::super::Foundation:: HANDLE, level : u32, pprinter : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetPrinterW(hprinter.into_param().abi(), level, ::core::mem::transmute(pprinter.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pprinter.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded).ok()
+    GetPrinterW(hprinter.into_param().abi(), level, ::core::mem::transmute(pprinter.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pprinter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1670,7 +1670,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn PlayGdiScriptOnPrinterIC(hprinteric : super::super::Foundation:: HANDLE, pin : *const u8, cin : u32, pout : *mut u8, cout : u32, ul : u32) -> super::super::Foundation:: BOOL);
-    PlayGdiScriptOnPrinterIC(hprinteric.into_param().abi(), ::core::mem::transmute(pin.as_ptr()), pin.len() as _, ::core::mem::transmute(pout.as_ptr()), pout.len() as _, ul)
+    PlayGdiScriptOnPrinterIC(hprinteric.into_param().abi(), ::core::mem::transmute(pin.as_ptr()), pin.len().try_into().unwrap(), ::core::mem::transmute(pout.as_ptr()), pout.len().try_into().unwrap(), ul)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1988,7 +1988,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn SetPrinterDataA(hprinter : super::super::Foundation:: HANDLE, pvaluename : ::windows_core::PCSTR, r#type : u32, pdata : *const u8, cbdata : u32) -> u32);
-    SetPrinterDataA(hprinter.into_param().abi(), pvaluename.into_param().abi(), r#type, ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _)
+    SetPrinterDataA(hprinter.into_param().abi(), pvaluename.into_param().abi(), r#type, ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2000,7 +2000,7 @@ where
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn SetPrinterDataExA(hprinter : super::super::Foundation:: HANDLE, pkeyname : ::windows_core::PCSTR, pvaluename : ::windows_core::PCSTR, r#type : u32, pdata : *const u8, cbdata : u32) -> u32);
-    SetPrinterDataExA(hprinter.into_param().abi(), pkeyname.into_param().abi(), pvaluename.into_param().abi(), r#type, ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _)
+    SetPrinterDataExA(hprinter.into_param().abi(), pkeyname.into_param().abi(), pvaluename.into_param().abi(), r#type, ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2012,7 +2012,7 @@ where
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn SetPrinterDataExW(hprinter : super::super::Foundation:: HANDLE, pkeyname : ::windows_core::PCWSTR, pvaluename : ::windows_core::PCWSTR, r#type : u32, pdata : *const u8, cbdata : u32) -> u32);
-    SetPrinterDataExW(hprinter.into_param().abi(), pkeyname.into_param().abi(), pvaluename.into_param().abi(), r#type, ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _)
+    SetPrinterDataExW(hprinter.into_param().abi(), pkeyname.into_param().abi(), pvaluename.into_param().abi(), r#type, ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2023,7 +2023,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn SetPrinterDataW(hprinter : super::super::Foundation:: HANDLE, pvaluename : ::windows_core::PCWSTR, r#type : u32, pdata : *const u8, cbdata : u32) -> u32);
-    SetPrinterDataW(hprinter.into_param().abi(), pvaluename.into_param().abi(), r#type, ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _)
+    SetPrinterDataW(hprinter.into_param().abi(), pvaluename.into_param().abi(), r#type, ::core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2217,7 +2217,16 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("winspool.drv" "system" fn XcvDataW(hxcv : super::super::Foundation:: HANDLE, pszdataname : ::windows_core::PCWSTR, pinputdata : *const u8, cbinputdata : u32, poutputdata : *mut u8, cboutputdata : u32, pcboutputneeded : *mut u32, pdwstatus : *mut u32) -> super::super::Foundation:: BOOL);
-    XcvDataW(hxcv.into_param().abi(), pszdataname.into_param().abi(), ::core::mem::transmute(pinputdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pinputdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(poutputdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), poutputdata.as_deref().map_or(0, |slice| slice.len() as _), pcboutputneeded, ::core::mem::transmute(pdwstatus.unwrap_or(::std::ptr::null_mut())))
+    XcvDataW(
+        hxcv.into_param().abi(),
+        pszdataname.into_param().abi(),
+        ::core::mem::transmute(pinputdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        pinputdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        ::core::mem::transmute(poutputdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        poutputdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        pcboutputneeded,
+        ::core::mem::transmute(pdwstatus.unwrap_or(::std::ptr::null_mut())),
+    )
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3892,13 +3901,13 @@ impl IPrintCoreUI2 {
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOptions(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pmszfeaturesrequested: ::core::option::Option<&[u8]>, pmszfeatureoptionbuf: ::core::option::Option<&mut [u8]>, pcbneeded: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetOptions)(::windows_core::Interface::as_raw(self), poemuiobj, dwflags, ::core::mem::transmute(pmszfeaturesrequested.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pmszfeaturesrequested.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pmszfeatureoptionbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pmszfeatureoptionbuf.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded).ok()
+        (::windows_core::Interface::vtable(self).GetOptions)(::windows_core::Interface::as_raw(self), poemuiobj, dwflags, ::core::mem::transmute(pmszfeaturesrequested.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pmszfeaturesrequested.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pmszfeatureoptionbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pmszfeatureoptionbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOptions(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pmszfeatureoptionbuf: &[u8]) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SetOptions)(::windows_core::Interface::as_raw(self), poemuiobj, dwflags, ::core::mem::transmute(pmszfeatureoptionbuf.as_ptr()), pmszfeatureoptionbuf.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).SetOptions)(::windows_core::Interface::as_raw(self), poemuiobj, dwflags, ::core::mem::transmute(pmszfeatureoptionbuf.as_ptr()), pmszfeatureoptionbuf.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3906,7 +3915,7 @@ impl IPrintCoreUI2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        (::windows_core::Interface::vtable(self).EnumConstrainedOptions)(::windows_core::Interface::as_raw(self), poemuiobj, dwflags, pszfeaturekeyword.into_param().abi(), ::core::mem::transmute(pmszconstrainedoptionlist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pmszconstrainedoptionlist.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded).ok()
+        (::windows_core::Interface::vtable(self).EnumConstrainedOptions)(::windows_core::Interface::as_raw(self), poemuiobj, dwflags, pszfeaturekeyword.into_param().abi(), ::core::mem::transmute(pmszconstrainedoptionlist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pmszconstrainedoptionlist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3915,7 +3924,7 @@ impl IPrintCoreUI2 {
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        (::windows_core::Interface::vtable(self).WhyConstrained)(::windows_core::Interface::as_raw(self), poemuiobj, dwflags, pszfeaturekeyword.into_param().abi(), pszoptionkeyword.into_param().abi(), ::core::mem::transmute(pmszreasonlist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pmszreasonlist.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded).ok()
+        (::windows_core::Interface::vtable(self).WhyConstrained)(::windows_core::Interface::as_raw(self), poemuiobj, dwflags, pszfeaturekeyword.into_param().abi(), pszoptionkeyword.into_param().abi(), ::core::mem::transmute(pmszreasonlist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pmszreasonlist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3923,7 +3932,7 @@ impl IPrintCoreUI2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        (::windows_core::Interface::vtable(self).GetGlobalAttribute)(::windows_core::Interface::as_raw(self), poemuiobj, dwflags, pszattribute.into_param().abi(), pdwdatatype, ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbdata.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded).ok()
+        (::windows_core::Interface::vtable(self).GetGlobalAttribute)(::windows_core::Interface::as_raw(self), poemuiobj, dwflags, pszattribute.into_param().abi(), pdwdatatype, ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3932,7 +3941,7 @@ impl IPrintCoreUI2 {
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        (::windows_core::Interface::vtable(self).GetFeatureAttribute)(::windows_core::Interface::as_raw(self), poemuiobj, dwflags, pszfeaturekeyword.into_param().abi(), pszattribute.into_param().abi(), pdwdatatype, ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbdata.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded).ok()
+        (::windows_core::Interface::vtable(self).GetFeatureAttribute)(::windows_core::Interface::as_raw(self), poemuiobj, dwflags, pszfeaturekeyword.into_param().abi(), pszattribute.into_param().abi(), pdwdatatype, ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3942,12 +3951,12 @@ impl IPrintCoreUI2 {
         P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
         P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        (::windows_core::Interface::vtable(self).GetOptionAttribute)(::windows_core::Interface::as_raw(self), poemuiobj, dwflags, pszfeaturekeyword.into_param().abi(), pszoptionkeyword.into_param().abi(), pszattribute.into_param().abi(), pdwdatatype, ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbdata.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded).ok()
+        (::windows_core::Interface::vtable(self).GetOptionAttribute)(::windows_core::Interface::as_raw(self), poemuiobj, dwflags, pszfeaturekeyword.into_param().abi(), pszoptionkeyword.into_param().abi(), pszattribute.into_param().abi(), pdwdatatype, ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumFeatures(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pmszfeaturelist: ::core::option::Option<&mut [u8]>, pcbneeded: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).EnumFeatures)(::windows_core::Interface::as_raw(self), poemuiobj, dwflags, ::core::mem::transmute(pmszfeaturelist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pmszfeaturelist.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded).ok()
+        (::windows_core::Interface::vtable(self).EnumFeatures)(::windows_core::Interface::as_raw(self), poemuiobj, dwflags, ::core::mem::transmute(pmszfeaturelist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pmszfeaturelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3955,7 +3964,7 @@ impl IPrintCoreUI2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        (::windows_core::Interface::vtable(self).EnumOptions)(::windows_core::Interface::as_raw(self), poemuiobj, dwflags, pszfeaturekeyword.into_param().abi(), ::core::mem::transmute(pmszoptionlist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pmszoptionlist.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded).ok()
+        (::windows_core::Interface::vtable(self).EnumOptions)(::windows_core::Interface::as_raw(self), poemuiobj, dwflags, pszfeaturekeyword.into_param().abi(), ::core::mem::transmute(pmszoptionlist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pmszoptionlist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3963,7 +3972,7 @@ impl IPrintCoreUI2 {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     {
-        (::windows_core::Interface::vtable(self).QuerySimulationSupport)(::windows_core::Interface::as_raw(self), hprinter.into_param().abi(), dwlevel, ::core::mem::transmute(pcaps.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcaps.as_deref().map_or(0, |slice| slice.len() as _), pcbneeded).ok()
+        (::windows_core::Interface::vtable(self).QuerySimulationSupport)(::windows_core::Interface::as_raw(self), hprinter.into_param().abi(), dwlevel, ::core::mem::transmute(pcaps.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcaps.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintCoreUI2, ::windows_core::IUnknown, IPrintOemDriverUI);
@@ -6539,7 +6548,7 @@ impl IPrinterPropertyBag {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).SetBytes)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), pvalue.len() as _, ::core::mem::transmute(pvalue.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).SetBytes)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), pvalue.len().try_into().unwrap(), ::core::mem::transmute(pvalue.as_ptr())).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]

@@ -36,7 +36,7 @@ where
     P0: ::windows_core::IntoParam<HGESTUREINFO>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetGestureExtraArgs(hgestureinfo : HGESTUREINFO, cbextraargs : u32, pextraargs : *mut u8) -> super::super::super::Foundation:: BOOL);
-    GetGestureExtraArgs(hgestureinfo.into_param().abi(), pextraargs.len() as _, ::core::mem::transmute(pextraargs.as_ptr())).ok()
+    GetGestureExtraArgs(hgestureinfo.into_param().abi(), pextraargs.len().try_into().unwrap(), ::core::mem::transmute(pextraargs.as_ptr())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56,7 +56,7 @@ where
     P0: ::windows_core::IntoParam<HTOUCHINPUT>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetTouchInputInfo(htouchinput : HTOUCHINPUT, cinputs : u32, pinputs : *mut TOUCHINPUT, cbsize : i32) -> super::super::super::Foundation:: BOOL);
-    GetTouchInputInfo(htouchinput.into_param().abi(), pinputs.len() as _, ::core::mem::transmute(pinputs.as_ptr()), cbsize).ok()
+    GetTouchInputInfo(htouchinput.into_param().abi(), pinputs.len().try_into().unwrap(), ::core::mem::transmute(pinputs.as_ptr()), cbsize).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -86,7 +86,7 @@ where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn SetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, cids : u32, pgestureconfig : *const GESTURECONFIG, cbsize : u32) -> super::super::super::Foundation:: BOOL);
-    SetGestureConfig(hwnd.into_param().abi(), dwreserved, pgestureconfig.len() as _, ::core::mem::transmute(pgestureconfig.as_ptr()), cbsize).ok()
+    SetGestureConfig(hwnd.into_param().abi(), dwreserved, pgestureconfig.len().try_into().unwrap(), ::core::mem::transmute(pgestureconfig.as_ptr()), cbsize).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

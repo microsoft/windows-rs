@@ -920,9 +920,9 @@ impl Writer {
                             let name = self.param_name(params[relative].def);
                             let flags = params[relative].def.flags();
                             if flags.contains(ParamAttributes::Optional) {
-                                quote! { #name.as_deref().map_or(0, |slice|slice.len() as _), }
+                                quote! { #name.as_deref().map_or(0, |slice|slice.len().try_into().unwrap()), }
                             } else {
-                                quote! { #name.len() as _, }
+                                quote! { #name.len().try_into().unwrap(), }
                             }
                         }
                         SignatureParamKind::TryInto => {

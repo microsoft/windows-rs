@@ -20,7 +20,7 @@ pub unsafe fn RtlFlushNonVolatileMemory(nvtoken: *const ::core::ffi::c_void, nvb
 #[inline]
 pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: *const ::core::ffi::c_void, nvranges: &[NV_MEMORY_RANGE], flags: u32) -> u32 {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlFlushNonVolatileMemoryRanges(nvtoken : *const ::core::ffi::c_void, nvranges : *const NV_MEMORY_RANGE, numranges : usize, flags : u32) -> u32);
-    RtlFlushNonVolatileMemoryRanges(nvtoken, ::core::mem::transmute(nvranges.as_ptr()), nvranges.len() as _, flags)
+    RtlFlushNonVolatileMemoryRanges(nvtoken, ::core::mem::transmute(nvranges.as_ptr()), nvranges.len().try_into().unwrap(), flags)
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]

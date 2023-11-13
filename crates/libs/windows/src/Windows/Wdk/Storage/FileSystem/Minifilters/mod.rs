@@ -209,7 +209,7 @@ pub unsafe fn FltCancelIo(callbackdata: *const FLT_CALLBACK_DATA) -> super::supe
 #[inline]
 pub unsafe fn FltCancellableWaitForMultipleObjects(objectarray: &[*const ::core::ffi::c_void], waittype: super::super::super::super::Win32::System::Kernel::WAIT_TYPE, timeout: ::core::option::Option<*const i64>, waitblockarray: ::core::option::Option<*const super::super::super::Foundation::KWAIT_BLOCK>, callbackdata: *const FLT_CALLBACK_DATA) -> super::super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("fltmgr.sys" "system" fn FltCancellableWaitForMultipleObjects(count : u32, objectarray : *const *const ::core::ffi::c_void, waittype : super::super::super::super::Win32::System::Kernel:: WAIT_TYPE, timeout : *const i64, waitblockarray : *const super::super::super::Foundation:: KWAIT_BLOCK, callbackdata : *const FLT_CALLBACK_DATA) -> super::super::super::super::Win32::Foundation:: NTSTATUS);
-    FltCancellableWaitForMultipleObjects(objectarray.len() as _, ::core::mem::transmute(objectarray.as_ptr()), waittype, ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())), ::core::mem::transmute(waitblockarray.unwrap_or(::std::ptr::null())), callbackdata)
+    FltCancellableWaitForMultipleObjects(objectarray.len().try_into().unwrap(), ::core::mem::transmute(objectarray.as_ptr()), waittype, ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())), ::core::mem::transmute(waitblockarray.unwrap_or(::std::ptr::null())), callbackdata)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
@@ -686,7 +686,7 @@ pub unsafe fn FltEnumerateFilterInformation(index: u32, informationclass: super:
 #[inline]
 pub unsafe fn FltEnumerateFilters(filterlist: ::core::option::Option<&mut [PFLT_FILTER]>, numberfiltersreturned: *mut u32) -> super::super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("fltmgr.sys" "system" fn FltEnumerateFilters(filterlist : *mut PFLT_FILTER, filterlistsize : u32, numberfiltersreturned : *mut u32) -> super::super::super::super::Win32::Foundation:: NTSTATUS);
-    FltEnumerateFilters(::core::mem::transmute(filterlist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), filterlist.as_deref().map_or(0, |slice| slice.len() as _), numberfiltersreturned)
+    FltEnumerateFilters(::core::mem::transmute(filterlist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), filterlist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), numberfiltersreturned)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_InstallableFileSystems", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
@@ -731,7 +731,7 @@ where
     P1: ::windows_core::IntoParam<PFLT_FILTER>,
 {
     ::windows_targets::link!("fltmgr.sys" "system" fn FltEnumerateInstances(volume : PFLT_VOLUME, filter : PFLT_FILTER, instancelist : *mut PFLT_INSTANCE, instancelistsize : u32, numberinstancesreturned : *mut u32) -> super::super::super::super::Win32::Foundation:: NTSTATUS);
-    FltEnumerateInstances(volume.into_param().abi(), filter.into_param().abi(), ::core::mem::transmute(instancelist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), instancelist.as_deref().map_or(0, |slice| slice.len() as _), numberinstancesreturned)
+    FltEnumerateInstances(volume.into_param().abi(), filter.into_param().abi(), ::core::mem::transmute(instancelist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), instancelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), numberinstancesreturned)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_InstallableFileSystems\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_InstallableFileSystems"))]
@@ -751,7 +751,7 @@ where
     P0: ::windows_core::IntoParam<PFLT_FILTER>,
 {
     ::windows_targets::link!("fltmgr.sys" "system" fn FltEnumerateVolumes(filter : PFLT_FILTER, volumelist : *mut PFLT_VOLUME, volumelistsize : u32, numbervolumesreturned : *mut u32) -> super::super::super::super::Win32::Foundation:: NTSTATUS);
-    FltEnumerateVolumes(filter.into_param().abi(), ::core::mem::transmute(volumelist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), volumelist.as_deref().map_or(0, |slice| slice.len() as _), numbervolumesreturned)
+    FltEnumerateVolumes(filter.into_param().abi(), ::core::mem::transmute(volumelist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), volumelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), numbervolumesreturned)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]

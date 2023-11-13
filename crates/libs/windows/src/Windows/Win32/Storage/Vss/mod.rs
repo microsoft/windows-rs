@@ -1157,7 +1157,7 @@ pub struct IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
 pub struct IVssEnumMgmtObject(::windows_core::IUnknown);
 impl IVssEnumMgmtObject {
     pub unsafe fn Next(&self, rgelt: &mut [VSS_MGMT_OBJECT_PROP], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -1190,7 +1190,7 @@ pub struct IVssEnumMgmtObject_Vtbl {
 pub struct IVssEnumObject(::windows_core::IUnknown);
 impl IVssEnumObject {
     pub unsafe fn Next(&self, rgelt: &mut [VSS_OBJECT_PROP], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -1359,7 +1359,7 @@ impl IVssHardwareSnapshotProvider {
     #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     pub unsafe fn LocateLuns(&self, rgsourceluns: &[super::VirtualDiskService::VDS_LUN_INFORMATION]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).LocateLuns)(::windows_core::Interface::as_raw(self), rgsourceluns.len() as _, ::core::mem::transmute(rgsourceluns.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).LocateLuns)(::windows_core::Interface::as_raw(self), rgsourceluns.len().try_into().unwrap(), ::core::mem::transmute(rgsourceluns.as_ptr())).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
@@ -1430,7 +1430,7 @@ impl IVssHardwareSnapshotProviderEx {
     #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     pub unsafe fn LocateLuns(&self, rgsourceluns: &[super::VirtualDiskService::VDS_LUN_INFORMATION]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.LocateLuns)(::windows_core::Interface::as_raw(self), rgsourceluns.len() as _, ::core::mem::transmute(rgsourceluns.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).base__.LocateLuns)(::windows_core::Interface::as_raw(self), rgsourceluns.len().try_into().unwrap(), ::core::mem::transmute(rgsourceluns.as_ptr())).ok()
     }
     #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]

@@ -17,7 +17,7 @@ pub unsafe fn CollectionsListCopyAndMarshall(target: *mut SENSOR_COLLECTION_LIST
 #[inline]
 pub unsafe fn CollectionsListDeserializeFromBuffer(sourcebuffer: &[u8], targetcollection: *mut SENSOR_COLLECTION_LIST) -> super::super::Foundation::NTSTATUS {
     ::windows_targets::link!("sensorsutilsv2.dll" "system" fn CollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes : u32, sourcebuffer : *const u8, targetcollection : *mut SENSOR_COLLECTION_LIST) -> super::super::Foundation:: NTSTATUS);
-    CollectionsListDeserializeFromBuffer(sourcebuffer.len() as _, ::core::mem::transmute(sourcebuffer.as_ptr()), targetcollection)
+    CollectionsListDeserializeFromBuffer(sourcebuffer.len().try_into().unwrap(), ::core::mem::transmute(sourcebuffer.as_ptr()), targetcollection)
 }
 #[inline]
 pub unsafe fn CollectionsListGetFillableCount(buffersizebytes: u32) -> u32 {
@@ -57,7 +57,7 @@ pub unsafe fn CollectionsListMarshall(target: *mut SENSOR_COLLECTION_LIST) -> su
 #[inline]
 pub unsafe fn CollectionsListSerializeToBuffer(sourcecollection: *const SENSOR_COLLECTION_LIST, targetbuffer: &mut [u8]) -> super::super::Foundation::NTSTATUS {
     ::windows_targets::link!("sensorsutilsv2.dll" "system" fn CollectionsListSerializeToBuffer(sourcecollection : *const SENSOR_COLLECTION_LIST, targetbuffersizeinbytes : u32, targetbuffer : *mut u8) -> super::super::Foundation:: NTSTATUS);
-    CollectionsListSerializeToBuffer(sourcecollection, targetbuffer.len() as _, ::core::mem::transmute(targetbuffer.as_ptr()))
+    CollectionsListSerializeToBuffer(sourcecollection, targetbuffer.len().try_into().unwrap(), ::core::mem::transmute(targetbuffer.as_ptr()))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -93,7 +93,7 @@ pub unsafe fn GetPerformanceTime(timems: *mut u32) -> super::super::Foundation::
 pub unsafe fn InitPropVariantFromCLSIDArray(members: &[::windows_core::GUID]) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
     ::windows_targets::link!("sensorsutilsv2.dll" "system" fn InitPropVariantFromCLSIDArray(members : *const ::windows_core::GUID, size : u32, ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    InitPropVariantFromCLSIDArray(::core::mem::transmute(members.as_ptr()), members.len() as _, &mut result__).from_abi(result__)
+    InitPropVariantFromCLSIDArray(::core::mem::transmute(members.as_ptr()), members.len().try_into().unwrap(), &mut result__).from_abi(result__)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -115,7 +115,7 @@ pub unsafe fn IsCollectionListSame(lista: *const SENSOR_COLLECTION_LIST, listb: 
 #[inline]
 pub unsafe fn IsGUIDPresentInList(guidarray: &[::windows_core::GUID], guidelem: *const ::windows_core::GUID) -> super::super::Foundation::BOOLEAN {
     ::windows_targets::link!("sensorsutilsv2.dll" "system" fn IsGUIDPresentInList(guidarray : *const ::windows_core::GUID, arraylength : u32, guidelem : *const ::windows_core::GUID) -> super::super::Foundation:: BOOLEAN);
-    IsGUIDPresentInList(::core::mem::transmute(guidarray.as_ptr()), guidarray.len() as _, guidelem)
+    IsGUIDPresentInList(::core::mem::transmute(guidarray.as_ptr()), guidarray.len().try_into().unwrap(), guidelem)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -385,7 +385,7 @@ impl ISensor {
         (::windows_core::Interface::vtable(self).GetEventInterest)(::windows_core::Interface::as_raw(self), ppvalues, pcount).ok()
     }
     pub unsafe fn SetEventInterest(&self, pvalues: ::core::option::Option<&[::windows_core::GUID]>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetEventInterest)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pvalues.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvalues.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+        (::windows_core::Interface::vtable(self).SetEventInterest)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pvalues.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvalues.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
     }
     pub unsafe fn SetEventSink<P0>(&self, pevents: P0) -> ::windows_core::Result<()>
     where

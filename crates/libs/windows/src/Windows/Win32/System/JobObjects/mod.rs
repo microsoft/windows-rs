@@ -36,7 +36,7 @@ where
 #[inline]
 pub unsafe fn CreateJobSet(userjobset: &[JOB_SET_ARRAY], flags: u32) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("kernel32.dll" "system" fn CreateJobSet(numjob : u32, userjobset : *const JOB_SET_ARRAY, flags : u32) -> super::super::Foundation:: BOOL);
-    CreateJobSet(userjobset.len() as _, ::core::mem::transmute(userjobset.as_ptr()), flags)
+    CreateJobSet(userjobset.len().try_into().unwrap(), ::core::mem::transmute(userjobset.as_ptr()), flags)
 }
 #[inline]
 pub unsafe fn FreeMemoryJobObject(buffer: *const ::core::ffi::c_void) {

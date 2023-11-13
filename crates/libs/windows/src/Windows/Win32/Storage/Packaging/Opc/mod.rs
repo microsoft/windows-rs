@@ -290,7 +290,7 @@ impl IOpcDigitalSignatureManager {
         P0: ::windows_core::IntoParam<IOpcPartUri>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ReplaceSignatureXml)(::windows_core::Interface::as_raw(self), signaturepartname.into_param().abi(), ::core::mem::transmute(newsignaturexml.as_ptr()), newsignaturexml.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ReplaceSignatureXml)(::windows_core::Interface::as_raw(self), signaturepartname.into_param().abi(), ::core::mem::transmute(newsignaturexml.as_ptr()), newsignaturexml.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcDigitalSignatureManager, ::windows_core::IUnknown);
@@ -1221,7 +1221,7 @@ pub struct IOpcSignatureCustomObjectSet(::windows_core::IUnknown);
 impl IOpcSignatureCustomObjectSet {
     pub unsafe fn Create(&self, xmlmarkup: &[u8]) -> ::windows_core::Result<IOpcSignatureCustomObject> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(xmlmarkup.as_ptr()), xmlmarkup.len() as _, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(xmlmarkup.as_ptr()), xmlmarkup.len().try_into().unwrap(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete<P0>(&self, customobject: P0) -> ::windows_core::Result<()>
     where

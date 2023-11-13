@@ -842,7 +842,7 @@ where
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportAdd(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, dwtransportid : u32, lpwstransportname : ::windows_core::PCWSTR, pinterfaceinfo : *const u8, dwinterfaceinfosize : u32, phrouteriftransport : *mut super::super::Foundation:: HANDLE) -> u32);
-    MprConfigInterfaceTransportAdd(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), dwtransportid, lpwstransportname.into_param().abi(), ::core::mem::transmute(pinterfaceinfo.as_ptr()), pinterfaceinfo.len() as _, phrouteriftransport)
+    MprConfigInterfaceTransportAdd(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), dwtransportid, lpwstransportname.into_param().abi(), ::core::mem::transmute(pinterfaceinfo.as_ptr()), pinterfaceinfo.len().try_into().unwrap(), phrouteriftransport)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -900,7 +900,7 @@ where
     P2: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportSetInfo(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, hrouteriftransport : super::super::Foundation:: HANDLE, pinterfaceinfo : *const u8, dwinterfaceinfosize : u32) -> u32);
-    MprConfigInterfaceTransportSetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), hrouteriftransport.into_param().abi(), ::core::mem::transmute(pinterfaceinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pinterfaceinfo.as_deref().map_or(0, |slice| slice.len() as _))
+    MprConfigInterfaceTransportSetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), hrouteriftransport.into_param().abi(), ::core::mem::transmute(pinterfaceinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pinterfaceinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1004,7 +1004,7 @@ where
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigTransportCreate(hmprconfig : super::super::Foundation:: HANDLE, dwtransportid : u32, lpwstransportname : ::windows_core::PCWSTR, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : ::windows_core::PCWSTR, phroutertransport : *mut super::super::Foundation:: HANDLE) -> u32);
-    MprConfigTransportCreate(hmprconfig.into_param().abi(), dwtransportid, lpwstransportname.into_param().abi(), ::core::mem::transmute(pglobalinfo.as_ptr()), pglobalinfo.len() as _, ::core::mem::transmute(pclientinterfaceinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pclientinterfaceinfo.as_deref().map_or(0, |slice| slice.len() as _), lpwsdllpath.into_param().abi(), phroutertransport)
+    MprConfigTransportCreate(hmprconfig.into_param().abi(), dwtransportid, lpwstransportname.into_param().abi(), ::core::mem::transmute(pglobalinfo.as_ptr()), pglobalinfo.len().try_into().unwrap(), ::core::mem::transmute(pclientinterfaceinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pclientinterfaceinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpwsdllpath.into_param().abi(), phroutertransport)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1058,7 +1058,7 @@ where
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigTransportSetInfo(hmprconfig : super::super::Foundation:: HANDLE, hroutertransport : super::super::Foundation:: HANDLE, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : ::windows_core::PCWSTR) -> u32);
-    MprConfigTransportSetInfo(hmprconfig.into_param().abi(), hroutertransport.into_param().abi(), ::core::mem::transmute(pglobalinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pglobalinfo.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pclientinterfaceinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pclientinterfaceinfo.as_deref().map_or(0, |slice| slice.len() as _), lpwsdllpath.into_param().abi())
+    MprConfigTransportSetInfo(hmprconfig.into_param().abi(), hroutertransport.into_param().abi(), ::core::mem::transmute(pglobalinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pglobalinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pclientinterfaceinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pclientinterfaceinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpwsdllpath.into_param().abi())
 }
 #[inline]
 pub unsafe fn MprInfoBlockAdd(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32 {
@@ -1560,12 +1560,12 @@ where
 #[inline]
 pub unsafe fn RasGetErrorStringA(resourceid: u32, lpszstring: &mut [u8]) -> u32 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasGetErrorStringA(resourceid : u32, lpszstring : ::windows_core::PSTR, inbufsize : u32) -> u32);
-    RasGetErrorStringA(resourceid, ::core::mem::transmute(lpszstring.as_ptr()), lpszstring.len() as _)
+    RasGetErrorStringA(resourceid, ::core::mem::transmute(lpszstring.as_ptr()), lpszstring.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn RasGetErrorStringW(resourceid: u32, lpszstring: &mut [u16]) -> u32 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasGetErrorStringW(resourceid : u32, lpszstring : ::windows_core::PWSTR, inbufsize : u32) -> u32);
-    RasGetErrorStringW(resourceid, ::core::mem::transmute(lpszstring.as_ptr()), lpszstring.len() as _)
+    RasGetErrorStringW(resourceid, ::core::mem::transmute(lpszstring.as_ptr()), lpszstring.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn RasGetLinkStatistics<P0>(hrasconn: P0, dwsubentry: u32, lpstatistics: *mut RAS_STATS) -> u32
@@ -1786,7 +1786,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasSetCustomAuthDataA(pszphonebook : ::windows_core::PCSTR, pszentry : ::windows_core::PCSTR, pbcustomauthdata : *const u8, dwsizeofcustomauthdata : u32) -> u32);
-    RasSetCustomAuthDataA(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata.as_ptr()), pbcustomauthdata.len() as _)
+    RasSetCustomAuthDataA(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata.as_ptr()), pbcustomauthdata.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn RasSetCustomAuthDataW<P0, P1>(pszphonebook: P0, pszentry: P1, pbcustomauthdata: &[u8]) -> u32
@@ -1795,7 +1795,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasSetCustomAuthDataW(pszphonebook : ::windows_core::PCWSTR, pszentry : ::windows_core::PCWSTR, pbcustomauthdata : *const u8, dwsizeofcustomauthdata : u32) -> u32);
-    RasSetCustomAuthDataW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata.as_ptr()), pbcustomauthdata.len() as _)
+    RasSetCustomAuthDataW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata.as_ptr()), pbcustomauthdata.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

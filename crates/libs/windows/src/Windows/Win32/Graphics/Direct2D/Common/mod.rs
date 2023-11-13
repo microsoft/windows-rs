@@ -12,10 +12,10 @@ impl ID2D1SimplifiedGeometrySink {
         (::windows_core::Interface::vtable(self).BeginFigure)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(startpoint), figurebegin)
     }
     pub unsafe fn AddLines(&self, points: &[D2D_POINT_2F]) {
-        (::windows_core::Interface::vtable(self).AddLines)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(points.as_ptr()), points.len() as _)
+        (::windows_core::Interface::vtable(self).AddLines)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(points.as_ptr()), points.len().try_into().unwrap())
     }
     pub unsafe fn AddBeziers(&self, beziers: &[D2D1_BEZIER_SEGMENT]) {
-        (::windows_core::Interface::vtable(self).AddBeziers)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(beziers.as_ptr()), beziers.len() as _)
+        (::windows_core::Interface::vtable(self).AddBeziers)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(beziers.as_ptr()), beziers.len().try_into().unwrap())
     }
     pub unsafe fn EndFigure(&self, figureend: D2D1_FIGURE_END) {
         (::windows_core::Interface::vtable(self).EndFigure)(::windows_core::Interface::as_raw(self), figureend)

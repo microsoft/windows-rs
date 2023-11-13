@@ -90,6 +90,12 @@ impl std::convert::From<std::string::FromUtf8Error> for Error {
     }
 }
 
+impl std::convert::From<std::num::TryFromIntError> for Error {
+    fn from(_: std::num::TryFromIntError) -> Self {
+        Self { code: HRESULT(crate::imp::E_INVALIDARG), info: None }
+    }
+}
+
 // Unfortunately this is needed to make types line up. The Rust type system does
 // not know the `Infallible` can never be constructed. This code needs to be here
 // to satesify the type checker but it will never be run. Once `!` is stabilizied

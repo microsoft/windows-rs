@@ -208,7 +208,7 @@ impl IWPCWebSettings {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).RequestURLOverride)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), pcszurl.into_param().abi(), ppcszsuburls.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppcszsuburls.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).RequestURLOverride)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), pcszurl.into_param().abi(), ppcszsuburls.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(ppcszsuburls.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWPCWebSettings, ::windows_core::IUnknown, IWPCSettings);

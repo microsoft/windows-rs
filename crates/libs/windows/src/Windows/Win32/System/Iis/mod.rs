@@ -254,7 +254,7 @@ pub struct AsyncIFtpRoleProvider_Vtbl {
 pub struct AsyncIMSAdminBaseSinkW(::windows_core::IUnknown);
 impl AsyncIMSAdminBaseSinkW {
     pub unsafe fn Begin_SinkNotify(&self, pcochangelist: &[MD_CHANGE_OBJECT_W]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Begin_SinkNotify)(::windows_core::Interface::as_raw(self), pcochangelist.len() as _, ::core::mem::transmute(pcochangelist.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).Begin_SinkNotify)(::windows_core::Interface::as_raw(self), pcochangelist.len().try_into().unwrap(), ::core::mem::transmute(pcochangelist.as_ptr())).ok()
     }
     pub unsafe fn Finish_SinkNotify(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Finish_SinkNotify)(::windows_core::Interface::as_raw(self)).ok()
@@ -628,7 +628,7 @@ impl IMSAdminBase2W {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.GetDataPaths)(::windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.into_param().abi(), dwmdidentifier, dwmddatatype, pszbuffer.len() as _, ::core::mem::transmute(pszbuffer.as_ptr()), pdwmdrequiredbuffersize).ok()
+        (::windows_core::Interface::vtable(self).base__.GetDataPaths)(::windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.into_param().abi(), dwmdidentifier, dwmddatatype, pszbuffer.len().try_into().unwrap(), ::core::mem::transmute(pszbuffer.as_ptr()), pdwmdrequiredbuffersize).ok()
     }
     pub unsafe fn OpenKey<P0>(&self, hmdhandle: u32, pszmdpath: P0, dwmdaccessrequested: u32, dwmdtimeout: u32) -> ::windows_core::Result<u32>
     where
@@ -875,7 +875,7 @@ impl IMSAdminBase3W {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.GetDataPaths)(::windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.into_param().abi(), dwmdidentifier, dwmddatatype, pszbuffer.len() as _, ::core::mem::transmute(pszbuffer.as_ptr()), pdwmdrequiredbuffersize).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.GetDataPaths)(::windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.into_param().abi(), dwmdidentifier, dwmddatatype, pszbuffer.len().try_into().unwrap(), ::core::mem::transmute(pszbuffer.as_ptr()), pdwmdrequiredbuffersize).ok()
     }
     pub unsafe fn OpenKey<P0>(&self, hmdhandle: u32, pszmdpath: P0, dwmdaccessrequested: u32, dwmdtimeout: u32) -> ::windows_core::Result<u32>
     where
@@ -1008,7 +1008,7 @@ impl IMSAdminBase3W {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).GetChildPaths)(::windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.into_param().abi(), pszbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcchmdrequiredbuffersize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows_core::Interface::vtable(self).GetChildPaths)(::windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.into_param().abi(), pszbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcchmdrequiredbuffersize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMSAdminBase3W, ::windows_core::IUnknown, IMSAdminBaseW, IMSAdminBase2W);
@@ -1029,7 +1029,7 @@ pub struct IMSAdminBase3W_Vtbl {
 pub struct IMSAdminBaseSinkW(::windows_core::IUnknown);
 impl IMSAdminBaseSinkW {
     pub unsafe fn SinkNotify(&self, pcochangelist: &[MD_CHANGE_OBJECT_W]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SinkNotify)(::windows_core::Interface::as_raw(self), pcochangelist.len() as _, ::core::mem::transmute(pcochangelist.as_ptr())).ok()
+        (::windows_core::Interface::vtable(self).SinkNotify)(::windows_core::Interface::as_raw(self), pcochangelist.len().try_into().unwrap(), ::core::mem::transmute(pcochangelist.as_ptr())).ok()
     }
     pub unsafe fn ShutdownNotify(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ShutdownNotify)(::windows_core::Interface::as_raw(self)).ok()
@@ -1145,7 +1145,7 @@ impl IMSAdminBaseW {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).GetDataPaths)(::windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.into_param().abi(), dwmdidentifier, dwmddatatype, pszbuffer.len() as _, ::core::mem::transmute(pszbuffer.as_ptr()), pdwmdrequiredbuffersize).ok()
+        (::windows_core::Interface::vtable(self).GetDataPaths)(::windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.into_param().abi(), dwmdidentifier, dwmddatatype, pszbuffer.len().try_into().unwrap(), ::core::mem::transmute(pszbuffer.as_ptr()), pdwmdrequiredbuffersize).ok()
     }
     pub unsafe fn OpenKey<P0>(&self, hmdhandle: u32, pszmdpath: P0, dwmdaccessrequested: u32, dwmdtimeout: u32) -> ::windows_core::Result<u32>
     where
@@ -1300,7 +1300,7 @@ impl IMSImpExpHelpW {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).EnumeratePathsInFile)(::windows_core::Interface::as_raw(self), pszfilename.into_param().abi(), pszkeytype.into_param().abi(), pszbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdwmdrequiredbuffersize).ok()
+        (::windows_core::Interface::vtable(self).EnumeratePathsInFile)(::windows_core::Interface::as_raw(self), pszfilename.into_param().abi(), pszkeytype.into_param().abi(), pszbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdwmdrequiredbuffersize).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMSImpExpHelpW, ::windows_core::IUnknown);

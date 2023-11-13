@@ -52,7 +52,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("dxva2.dll" "system" fn CapabilitiesRequestAndCapabilitiesReply(hmonitor : super::super::Foundation:: HANDLE, pszasciicapabilitiesstring : ::windows_core::PSTR, dwcapabilitiesstringlengthincharacters : u32) -> i32);
-    CapabilitiesRequestAndCapabilitiesReply(hmonitor.into_param().abi(), ::core::mem::transmute(pszasciicapabilitiesstring.as_ptr()), pszasciicapabilitiesstring.len() as _)
+    CapabilitiesRequestAndCapabilitiesReply(hmonitor.into_param().abi(), ::core::mem::transmute(pszasciicapabilitiesstring.as_ptr()), pszasciicapabilitiesstring.len().try_into().unwrap())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -79,7 +79,7 @@ where
 #[inline]
 pub unsafe fn DestroyPhysicalMonitors(pphysicalmonitorarray: &[PHYSICAL_MONITOR]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("dxva2.dll" "system" fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *const PHYSICAL_MONITOR) -> super::super::Foundation:: BOOL);
-    DestroyPhysicalMonitors(pphysicalmonitorarray.len() as _, ::core::mem::transmute(pphysicalmonitorarray.as_ptr())).ok()
+    DestroyPhysicalMonitors(pphysicalmonitorarray.len().try_into().unwrap(), ::core::mem::transmute(pphysicalmonitorarray.as_ptr())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -335,12 +335,12 @@ where
 #[inline]
 pub unsafe fn EngMultiByteToUnicodeN(unicodestring: ::windows_core::PWSTR, maxbytesinunicodestring: u32, bytesinunicodestring: ::core::option::Option<*mut u32>, multibytestring: &[u8]) {
     ::windows_targets::link!("gdi32.dll" "system" fn EngMultiByteToUnicodeN(unicodestring : ::windows_core::PWSTR, maxbytesinunicodestring : u32, bytesinunicodestring : *mut u32, multibytestring : ::windows_core::PCSTR, bytesinmultibytestring : u32) -> ());
-    EngMultiByteToUnicodeN(::core::mem::transmute(unicodestring), maxbytesinunicodestring, ::core::mem::transmute(bytesinunicodestring.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len() as _)
+    EngMultiByteToUnicodeN(::core::mem::transmute(unicodestring), maxbytesinunicodestring, ::core::mem::transmute(bytesinunicodestring.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn EngMultiByteToWideChar(codepage: u32, widecharstring: ::windows_core::PWSTR, bytesinwidecharstring: i32, multibytestring: ::core::option::Option<&[u8]>) -> i32 {
     ::windows_targets::link!("gdi32.dll" "system" fn EngMultiByteToWideChar(codepage : u32, widecharstring : ::windows_core::PWSTR, bytesinwidecharstring : i32, multibytestring : ::windows_core::PCSTR, bytesinmultibytestring : i32) -> i32);
-    EngMultiByteToWideChar(codepage, ::core::mem::transmute(widecharstring), bytesinwidecharstring, ::core::mem::transmute(multibytestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len() as _))
+    EngMultiByteToWideChar(codepage, ::core::mem::transmute(widecharstring), bytesinwidecharstring, ::core::mem::transmute(multibytestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -429,7 +429,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn EngUnicodeToMultiByteN(multibytestring : ::windows_core::PSTR, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : ::windows_core::PCWSTR, bytesinunicodestring : u32) -> ());
-    EngUnicodeToMultiByteN(::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len() as _, ::core::mem::transmute(bytesinmultibytestring.unwrap_or(::std::ptr::null_mut())), unicodestring.into_param().abi(), bytesinunicodestring)
+    EngUnicodeToMultiByteN(::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len().try_into().unwrap(), ::core::mem::transmute(bytesinmultibytestring.unwrap_or(::std::ptr::null_mut())), unicodestring.into_param().abi(), bytesinunicodestring)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -444,7 +444,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn EngWideCharToMultiByte(codepage : u32, widecharstring : ::windows_core::PCWSTR, bytesinwidecharstring : i32, multibytestring : ::windows_core::PSTR, bytesinmultibytestring : i32) -> i32);
-    EngWideCharToMultiByte(codepage, widecharstring.into_param().abi(), bytesinwidecharstring, ::core::mem::transmute(multibytestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len() as _))
+    EngWideCharToMultiByte(codepage, widecharstring.into_param().abi(), bytesinwidecharstring, ::core::mem::transmute(multibytestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -652,7 +652,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HMONITOR>,
 {
     ::windows_targets::link!("dxva2.dll" "system" fn GetPhysicalMonitorsFromHMONITOR(hmonitor : super::super::Graphics::Gdi:: HMONITOR, dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *mut PHYSICAL_MONITOR) -> super::super::Foundation:: BOOL);
-    GetPhysicalMonitorsFromHMONITOR(hmonitor.into_param().abi(), pphysicalmonitorarray.len() as _, ::core::mem::transmute(pphysicalmonitorarray.as_ptr())).ok()
+    GetPhysicalMonitorsFromHMONITOR(hmonitor.into_param().abi(), pphysicalmonitorarray.len().try_into().unwrap(), ::core::mem::transmute(pphysicalmonitorarray.as_ptr())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
@@ -662,7 +662,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Graphics::Direct3D9::IDirect3DDevice9>,
 {
     ::windows_targets::link!("dxva2.dll" "system" fn GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9 : * mut::core::ffi::c_void, dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *mut PHYSICAL_MONITOR) -> ::windows_core::HRESULT);
-    GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into_param().abi(), pphysicalmonitorarray.len() as _, ::core::mem::transmute(pphysicalmonitorarray.as_ptr())).ok()
+    GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into_param().abi(), pphysicalmonitorarray.len().try_into().unwrap(), ::core::mem::transmute(pphysicalmonitorarray.as_ptr())).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -826,7 +826,7 @@ pub unsafe fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERE
 #[inline]
 pub unsafe fn SetDisplayConfig(patharray: ::core::option::Option<&[DISPLAYCONFIG_PATH_INFO]>, modeinfoarray: ::core::option::Option<&[DISPLAYCONFIG_MODE_INFO]>, flags: SET_DISPLAY_CONFIG_FLAGS) -> i32 {
     ::windows_targets::link!("user32.dll" "system" fn SetDisplayConfig(numpatharrayelements : u32, patharray : *const DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements : u32, modeinfoarray : *const DISPLAYCONFIG_MODE_INFO, flags : SET_DISPLAY_CONFIG_FLAGS) -> i32);
-    SetDisplayConfig(patharray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(patharray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), modeinfoarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(modeinfoarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), flags)
+    SetDisplayConfig(patharray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(patharray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), modeinfoarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(modeinfoarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), flags)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

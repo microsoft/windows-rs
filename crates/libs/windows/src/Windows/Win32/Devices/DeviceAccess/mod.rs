@@ -49,7 +49,7 @@ pub struct ICreateDeviceAccessAsync_Vtbl {
 pub struct IDeviceIoControl(::windows_core::IUnknown);
 impl IDeviceIoControl {
     pub unsafe fn DeviceIoControlSync(&self, iocontrolcode: u32, inputbuffer: ::core::option::Option<&[u8]>, outputbuffer: ::core::option::Option<&mut [u8]>, bytesreturned: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).DeviceIoControlSync)(::windows_core::Interface::as_raw(self), iocontrolcode, ::core::mem::transmute(inputbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), inputbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(outputbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), outputbuffer.as_deref().map_or(0, |slice| slice.len() as _), bytesreturned).ok()
+        (::windows_core::Interface::vtable(self).DeviceIoControlSync)(::windows_core::Interface::as_raw(self), iocontrolcode, ::core::mem::transmute(inputbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), inputbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(outputbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), outputbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), bytesreturned).ok()
     }
     pub unsafe fn DeviceIoControlAsync<P0>(&self, iocontrolcode: u32, inputbuffer: ::core::option::Option<&[u8]>, outputbuffer: ::core::option::Option<&mut [u8]>, requestcompletioncallback: P0, cancelcontext: ::core::option::Option<*mut usize>) -> ::windows_core::Result<()>
     where
@@ -59,9 +59,9 @@ impl IDeviceIoControl {
             ::windows_core::Interface::as_raw(self),
             iocontrolcode,
             ::core::mem::transmute(inputbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-            inputbuffer.as_deref().map_or(0, |slice| slice.len() as _),
+            inputbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
             ::core::mem::transmute(outputbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-            outputbuffer.as_deref().map_or(0, |slice| slice.len() as _),
+            outputbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
             requestcompletioncallback.into_param().abi(),
             ::core::mem::transmute(cancelcontext.unwrap_or(::std::ptr::null_mut())),
         )

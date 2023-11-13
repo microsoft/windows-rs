@@ -345,7 +345,7 @@ where
     P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
 {
     ::windows_targets::link!("imm32.dll" "system" fn ImmGetDescriptionA(param0 : super::super::TextServices:: HKL, lpszdescription : ::windows_core::PSTR, ubuflen : u32) -> u32);
-    ImmGetDescriptionA(param0.into_param().abi(), ::core::mem::transmute(lpszdescription.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszdescription.as_deref().map_or(0, |slice| slice.len() as _))
+    ImmGetDescriptionA(param0.into_param().abi(), ::core::mem::transmute(lpszdescription.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[doc = "Required features: `\"Win32_UI_TextServices\"`"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -355,7 +355,7 @@ where
     P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
 {
     ::windows_targets::link!("imm32.dll" "system" fn ImmGetDescriptionW(param0 : super::super::TextServices:: HKL, lpszdescription : ::windows_core::PWSTR, ubuflen : u32) -> u32);
-    ImmGetDescriptionW(param0.into_param().abi(), ::core::mem::transmute(lpszdescription.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszdescription.as_deref().map_or(0, |slice| slice.len() as _))
+    ImmGetDescriptionW(param0.into_param().abi(), ::core::mem::transmute(lpszdescription.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[doc = "Required features: `\"Win32_Globalization\"`"]
 #[cfg(feature = "Win32_Globalization")]
@@ -365,7 +365,7 @@ where
     P0: ::windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
     ::windows_targets::link!("imm32.dll" "system" fn ImmGetGuideLineA(param0 : super::super::super::Globalization:: HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : ::windows_core::PSTR, dwbuflen : u32) -> u32);
-    ImmGetGuideLineA(param0.into_param().abi(), dwindex, ::core::mem::transmute(lpbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuf.as_deref().map_or(0, |slice| slice.len() as _))
+    ImmGetGuideLineA(param0.into_param().abi(), dwindex, ::core::mem::transmute(lpbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[doc = "Required features: `\"Win32_Globalization\"`"]
 #[cfg(feature = "Win32_Globalization")]
@@ -422,7 +422,7 @@ where
     P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
 {
     ::windows_targets::link!("imm32.dll" "system" fn ImmGetIMEFileNameA(param0 : super::super::TextServices:: HKL, lpszfilename : ::windows_core::PSTR, ubuflen : u32) -> u32);
-    ImmGetIMEFileNameA(param0.into_param().abi(), ::core::mem::transmute(lpszfilename.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszfilename.as_deref().map_or(0, |slice| slice.len() as _))
+    ImmGetIMEFileNameA(param0.into_param().abi(), ::core::mem::transmute(lpszfilename.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszfilename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[doc = "Required features: `\"Win32_UI_TextServices\"`"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -432,7 +432,7 @@ where
     P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
 {
     ::windows_targets::link!("imm32.dll" "system" fn ImmGetIMEFileNameW(param0 : super::super::TextServices:: HKL, lpszfilename : ::windows_core::PWSTR, ubuflen : u32) -> u32);
-    ImmGetIMEFileNameW(param0.into_param().abi(), ::core::mem::transmute(lpszfilename.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszfilename.as_deref().map_or(0, |slice| slice.len() as _))
+    ImmGetIMEFileNameW(param0.into_param().abi(), ::core::mem::transmute(lpszfilename.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszfilename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[doc = "Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -482,7 +482,7 @@ where
     P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
 {
     ::windows_targets::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleA(param0 : super::super::TextServices:: HKL, nitem : u32, lpstylebuf : *mut STYLEBUFA) -> u32);
-    ImmGetRegisterWordStyleA(param0.into_param().abi(), lpstylebuf.len() as _, ::core::mem::transmute(lpstylebuf.as_ptr()))
+    ImmGetRegisterWordStyleA(param0.into_param().abi(), lpstylebuf.len().try_into().unwrap(), ::core::mem::transmute(lpstylebuf.as_ptr()))
 }
 #[doc = "Required features: `\"Win32_UI_TextServices\"`"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -492,7 +492,7 @@ where
     P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
 {
     ::windows_targets::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleW(param0 : super::super::TextServices:: HKL, nitem : u32, lpstylebuf : *mut STYLEBUFW) -> u32);
-    ImmGetRegisterWordStyleW(param0.into_param().abi(), lpstylebuf.len() as _, ::core::mem::transmute(lpstylebuf.as_ptr()))
+    ImmGetRegisterWordStyleW(param0.into_param().abi(), lpstylebuf.len().try_into().unwrap(), ::core::mem::transmute(lpstylebuf.as_ptr()))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -3308,7 +3308,7 @@ pub struct IFEClassFactory_Vtbl {
 pub struct IFECommon(::windows_core::IUnknown);
 impl IFECommon {
     pub unsafe fn IsDefaultIME(&self, szname: &[u8]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).IsDefaultIME)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(szname.as_ptr()), szname.len() as _).ok()
+        (::windows_core::Interface::vtable(self).IsDefaultIME)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(szname.as_ptr()), szname.len().try_into().unwrap()).ok()
     }
     pub unsafe fn SetDefaultIME(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDefaultIME)(::windows_core::Interface::as_raw(self)).ok()

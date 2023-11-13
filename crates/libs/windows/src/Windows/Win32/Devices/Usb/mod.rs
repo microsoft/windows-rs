@@ -16,7 +16,7 @@ where
     P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_ControlTransfer(interfacehandle : WINUSB_INTERFACE_HANDLE, setuppacket : WINUSB_SETUP_PACKET, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_ControlTransfer(interfacehandle.into_param().abi(), ::core::mem::transmute(setuppacket), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lengthtransferred.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
+    WinUsb_ControlTransfer(interfacehandle.into_param().abi(), ::core::mem::transmute(setuppacket), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(lengthtransferred.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -93,7 +93,7 @@ where
     P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_GetDescriptor(interfacehandle : WINUSB_INTERFACE_HANDLE, descriptortype : u8, index : u8, languageid : u16, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32) -> super::super::Foundation:: BOOL);
-    WinUsb_GetDescriptor(interfacehandle.into_param().abi(), descriptortype, index, languageid, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), lengthtransferred).ok()
+    WinUsb_GetDescriptor(interfacehandle.into_param().abi(), descriptortype, index, languageid, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lengthtransferred).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -191,7 +191,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_ReadIsochPipe(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, framenumber: *mut u32, isopacketdescriptors: &mut [USBD_ISO_PACKET_DESCRIPTOR], overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_ReadIsochPipe(bufferhandle : *const ::core::ffi::c_void, offset : u32, length : u32, framenumber : *mut u32, numberofpackets : u32, isopacketdescriptors : *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_ReadIsochPipe(bufferhandle, offset, length, framenumber, isopacketdescriptors.len() as _, ::core::mem::transmute(isopacketdescriptors.as_ptr()), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
+    WinUsb_ReadIsochPipe(bufferhandle, offset, length, framenumber, isopacketdescriptors.len().try_into().unwrap(), ::core::mem::transmute(isopacketdescriptors.as_ptr()), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -201,7 +201,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_ReadIsochPipeAsap(bufferhandle : *const ::core::ffi::c_void, offset : u32, length : u32, continuestream : super::super::Foundation:: BOOL, numberofpackets : u32, isopacketdescriptors : *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_ReadIsochPipeAsap(bufferhandle, offset, length, continuestream.into_param().abi(), isopacketdescriptors.len() as _, ::core::mem::transmute(isopacketdescriptors.as_ptr()), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
+    WinUsb_ReadIsochPipeAsap(bufferhandle, offset, length, continuestream.into_param().abi(), isopacketdescriptors.len().try_into().unwrap(), ::core::mem::transmute(isopacketdescriptors.as_ptr()), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -211,7 +211,7 @@ where
     P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_ReadPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_ReadPipe(interfacehandle.into_param().abi(), pipeid, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lengthtransferred.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
+    WinUsb_ReadPipe(interfacehandle.into_param().abi(), pipeid, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(lengthtransferred.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -221,7 +221,7 @@ where
     P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_RegisterIsochBuffer(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *mut u8, bufferlength : u32, isochbufferhandle : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    WinUsb_RegisterIsochBuffer(interfacehandle.into_param().abi(), pipeid, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, isochbufferhandle).ok()
+    WinUsb_RegisterIsochBuffer(interfacehandle.into_param().abi(), pipeid, ::core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), isochbufferhandle).ok()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -315,7 +315,7 @@ where
     P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_WritePipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *const u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_WritePipe(interfacehandle.into_param().abi(), pipeid, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ::core::mem::transmute(lengthtransferred.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
+    WinUsb_WritePipe(interfacehandle.into_param().abi(), pipeid, ::core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), ::core::mem::transmute(lengthtransferred.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
 }
 pub const ALLOW_PARTIAL_READS: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(5u32);
 pub const ALL_PIPE: PIPE_TYPE = PIPE_TYPE(3i32);
