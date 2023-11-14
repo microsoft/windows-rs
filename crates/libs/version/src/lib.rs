@@ -4,7 +4,7 @@ mod bindings;
 use bindings::*;
 
 /// Operating system version information.
-#[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub struct Version {
     /// The major version number of the operating system.
     pub major: u32,
