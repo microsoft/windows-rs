@@ -4,7 +4,7 @@ mod bindings;
 use bindings::*;
 
 /// Operating system version information.
-#[derive(Debug, Copy, Clone, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Version {
     /// The major version number of the operating system.
     pub major: u32,
@@ -50,19 +50,6 @@ impl Version {
         }
     }
 
-    /// Determines if the currently running operating system version is greater than or equal to the version of `self`.
-    pub fn ge(&self) -> bool {
-        let current = Self::current();
-
-        current
-            .major
-            .cmp(&self.major)
-            .then_with(|| current.minor.cmp(&self.minor))
-            .then_with(|| current.pack.cmp(&self.pack))
-            .then_with(|| current.build.cmp(&self.build))
-            .is_ge()
-    }
-
     /// Hook used for testing `ge`.
     #[cfg(test)]
     fn current() -> Self {
@@ -106,24 +93,24 @@ mod test {
         assert_eq!(Version::current(), Version::new(1, 2, 3, 4));
 
         set_current(Version::new(10, 0, 0, 0));
-        assert!(Version::new(9, 0, 0, 0).ge());
-        assert!(Version::new(10, 0, 0, 0).ge());
-        assert!(!Version::new(11, 0, 0, 0).ge());
+        assert!(Version::current() >= Version::new(9, 0, 0, 0));
+        assert!(Version::current() >= Version::new(10, 0, 0, 0));
+        assert!(!(Version::current() >= Version::new(11, 0, 0, 0)));
 
         set_current(Version::new(10, 100, 0, 0));
-        assert!(Version::new(10, 99, 0, 0).ge());
-        assert!(Version::new(10, 100, 0, 0).ge());
-        assert!(!Version::new(10, 101, 0, 0).ge());
+        assert!(Version::current() >= Version::new(10, 99, 0, 0));
+        assert!(Version::current() >= Version::new(10, 100, 0, 0));
+        assert!(!(Version::current() >= Version::new(10, 101, 0, 0)));
 
         set_current(Version::new(10, 100, 1000, 0));
-        assert!(Version::new(10, 100, 999, 0).ge());
-        assert!(Version::new(10, 100, 1000, 0).ge());
-        assert!(!Version::new(10, 100, 1001, 0).ge());
+        assert!(Version::current() >= Version::new(10, 100, 999, 0));
+        assert!(Version::current() >= Version::new(10, 100, 1000, 0));
+        assert!(!(Version::current() >= Version::new(10, 100, 1001, 0)));
 
         set_current(Version::new(10, 100, 1_000, 10_000));
-        assert!(Version::new(10, 100, 1_000, 9_999).ge());
-        assert!(Version::new(10, 100, 1_000, 10_000).ge());
-        assert!(!Version::new(10, 100, 1_000, 10_001).ge());
+        assert!(Version::current() >= Version::new(10, 100, 1_000, 9_999));
+        assert!(Version::current() >= Version::new(10, 100, 1_000, 10_000));
+        assert!(!(Version::current() >= Version::new(10, 100, 1_000, 10_001)));
     }
 
     #[test]
