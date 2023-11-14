@@ -13,7 +13,7 @@ Start by adding the following to your Cargo.toml file:
 version = "0.1"
 ```
 
-Make use of any Windows APIs as needed:
+Make use of Windows version information as needed:
 
 ```rust,no_run
 use windows_version::*;
