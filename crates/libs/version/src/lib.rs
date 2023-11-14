@@ -52,26 +52,15 @@ impl Version {
 
     /// Determines if the currently running operating system version is greater than or equal to the version of `self`.
     pub fn ge(&self) -> bool {
-        use core::cmp::Ordering::*;
         let current = Self::current();
 
-        match current.major.cmp(&self.major) {
-            Greater => true,
-            Less => false,
-            Equal => match current.minor.cmp(&self.minor) {
-                Greater => true,
-                Less => false,
-                Equal => match current.pack.cmp(&self.pack) {
-                    Greater => true,
-                    Less => false,
-                    Equal => match current.build.cmp(&self.build) {
-                        Greater => true,
-                        Less => false,
-                        Equal => true,
-                    },
-                },
-            },
-        }
+        current
+            .major
+            .cmp(&self.major)
+            .then_with(|| current.minor.cmp(&self.minor))
+            .then_with(|| current.pack.cmp(&self.pack))
+            .then_with(|| current.build.cmp(&self.build))
+            .is_ge()
     }
 
     /// Hook used for testing `ge`.
