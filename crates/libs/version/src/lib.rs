@@ -3,15 +3,24 @@
 mod bindings;
 use bindings::*;
 
+/// Operating system version information.
 #[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Version {
+    /// The major version number of the operating system.
     pub major: u32,
+
+    /// The minor version number of the operating system.
     pub minor: u32,
+
+    /// The major version number of the latest service pack installed on the system.
     pub pack: u32,
+
+    /// The build number of the operating system.
     pub build: u32,
 }
 
 impl Version {
+    /// Creates a new `Version` with the given values.
     pub const fn new(major: u32, minor: u32, pack: u32, build: u32) -> Self {
         Self {
             major,
@@ -21,16 +30,7 @@ impl Version {
         }
     }
 
-    #[cfg(test)]
-    const fn zeroed() -> Self {
-        Self::new(0, 0, 0, 0)
-    }
-
-    #[cfg(test)]
-    pub fn current() -> Self {
-        test::test_current()
-    }
-
+    /// Gets the version information of the currently running operating system.
     #[cfg(not(test))]
     pub fn current() -> Self {
         unsafe {
@@ -50,6 +50,7 @@ impl Version {
         }
     }
 
+    /// Determines if the currently running operating system version is greater than or equal to the version of `self`.
     pub fn ge(&self) -> bool {
         use core::cmp::Ordering::*;
         let current = Self::current();
@@ -72,8 +73,15 @@ impl Version {
             },
         }
     }
+
+    /// Hook used for testing `ge`.
+    #[cfg(test)]
+    fn current() -> Self {
+        test::test_current()
+    }
 }
 
+/// Determines if the currently running operating system is a Windows Server release.
 pub fn is_server() -> bool {
     unsafe {
         let mut info = OSVERSIONINFOEXW {
@@ -91,7 +99,7 @@ mod test {
     use super::Version;
     use std::sync::RwLock;
 
-    static TEST_CURRENT: RwLock<Version> = RwLock::new(Version::zeroed());
+    static TEST_CURRENT: RwLock<Version> = RwLock::new(Version::new(0, 0, 0, 0));
 
     pub fn test_current() -> Version {
         *TEST_CURRENT.read().unwrap()
@@ -103,7 +111,7 @@ mod test {
 
     #[test]
     fn test() {
-        assert_eq!(Version::current(), Version::zeroed());
+        assert_eq!(Version::current(), Version::new(0, 0, 0, 0));
 
         set_current(Version::new(1, 2, 3, 4));
         assert_eq!(Version::current(), Version::new(1, 2, 3, 4));
