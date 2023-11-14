@@ -25,7 +25,7 @@ fn main() {
         println!("Running on a Windows Server release.");
     }
 
-    if Version::new(10, 0, 0, 12345).ge() {
+    if Version::current() >= Version::new(10, 0, 0, 12345) {
         println!("Can use a feature available on this version or later.")
     }
 }
