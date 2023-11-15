@@ -5,7 +5,7 @@ use bindings::*;
 
 /// Operating system version information.
 #[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord)]
-pub struct Version {
+pub struct OsVersion {
     /// The major version number of the operating system.
     pub major: u32,
 
@@ -19,8 +19,8 @@ pub struct Version {
     pub build: u32,
 }
 
-impl Version {
-    /// Creates a new `Version` with the given values.
+impl OsVersion {
+    /// Creates a new `OsVersion` with the given values.
     pub const fn new(major: u32, minor: u32, pack: u32, build: u32) -> Self {
         Self {
             major,
@@ -41,7 +41,7 @@ impl Version {
 
             RtlGetVersion(&mut info as *mut _ as *mut _);
 
-            Version {
+            OsVersion {
                 major: info.dwMajorVersion,
                 minor: info.dwMinorVersion,
                 pack: info.wServicePackMajor as u32,
@@ -72,45 +72,45 @@ pub fn is_server() -> bool {
 
 #[cfg(test)]
 mod test {
-    use super::Version;
+    use super::OsVersion;
     use std::sync::RwLock;
 
-    static TEST_CURRENT: RwLock<Version> = RwLock::new(Version::new(0, 0, 0, 0));
+    static TEST_CURRENT: RwLock<OsVersion> = RwLock::new(OsVersion::new(0, 0, 0, 0));
 
-    pub fn test_current() -> Version {
+    pub fn test_current() -> OsVersion {
         *TEST_CURRENT.read().unwrap()
     }
 
-    fn set_current(version: Version) {
+    fn set_current(version: OsVersion) {
         *TEST_CURRENT.write().unwrap() = version;
     }
 
     #[test]
     fn test() {
-        assert_eq!(Version::current(), Version::new(0, 0, 0, 0));
+        assert_eq!(OsVersion::current(), OsVersion::new(0, 0, 0, 0));
 
-        set_current(Version::new(1, 2, 3, 4));
-        assert_eq!(Version::current(), Version::new(1, 2, 3, 4));
+        set_current(OsVersion::new(1, 2, 3, 4));
+        assert_eq!(OsVersion::current(), OsVersion::new(1, 2, 3, 4));
 
-        set_current(Version::new(10, 0, 0, 0));
-        assert!(Version::current() >= Version::new(9, 0, 0, 0));
-        assert!(Version::current() >= Version::new(10, 0, 0, 0));
-        assert!(!(Version::current() >= Version::new(11, 0, 0, 0)));
+        set_current(OsVersion::new(10, 0, 0, 0));
+        assert!(OsVersion::current() >= OsVersion::new(9, 0, 0, 0));
+        assert!(OsVersion::current() >= OsVersion::new(10, 0, 0, 0));
+        assert!(!(OsVersion::current() >= OsVersion::new(11, 0, 0, 0)));
 
-        set_current(Version::new(10, 100, 0, 0));
-        assert!(Version::current() >= Version::new(10, 99, 0, 0));
-        assert!(Version::current() >= Version::new(10, 100, 0, 0));
-        assert!(!(Version::current() >= Version::new(10, 101, 0, 0)));
+        set_current(OsVersion::new(10, 100, 0, 0));
+        assert!(OsVersion::current() >= OsVersion::new(10, 99, 0, 0));
+        assert!(OsVersion::current() >= OsVersion::new(10, 100, 0, 0));
+        assert!(!(OsVersion::current() >= OsVersion::new(10, 101, 0, 0)));
 
-        set_current(Version::new(10, 100, 1000, 0));
-        assert!(Version::current() >= Version::new(10, 100, 999, 0));
-        assert!(Version::current() >= Version::new(10, 100, 1000, 0));
-        assert!(!(Version::current() >= Version::new(10, 100, 1001, 0)));
+        set_current(OsVersion::new(10, 100, 1000, 0));
+        assert!(OsVersion::current() >= OsVersion::new(10, 100, 999, 0));
+        assert!(OsVersion::current() >= OsVersion::new(10, 100, 1000, 0));
+        assert!(!(OsVersion::current() >= OsVersion::new(10, 100, 1001, 0)));
 
-        set_current(Version::new(10, 100, 1_000, 10_000));
-        assert!(Version::current() >= Version::new(10, 100, 1_000, 9_999));
-        assert!(Version::current() >= Version::new(10, 100, 1_000, 10_000));
-        assert!(!(Version::current() >= Version::new(10, 100, 1_000, 10_001)));
+        set_current(OsVersion::new(10, 100, 1_000, 10_000));
+        assert!(OsVersion::current() >= OsVersion::new(10, 100, 1_000, 9_999));
+        assert!(OsVersion::current() >= OsVersion::new(10, 100, 1_000, 10_000));
+        assert!(!(OsVersion::current() >= OsVersion::new(10, 100, 1_000, 10_001)));
     }
 
     #[test]

@@ -19,13 +19,13 @@ Make use of Windows version information as needed:
 use windows_version::*;
 
 fn main() {
-    println!("Current version: {:?}", Version::current());
+    println!("Current version: {:?}", OsVersion::current());
 
     if is_server() {
         println!("Running on a Windows Server release.");
     }
 
-    if Version::current() >= Version::new(10, 0, 0, 12345) {
+    if OsVersion::current() >= OsVersion::new(10, 0, 0, 12345) {
         println!("Can use a feature available on this version or later.")
     }
 }
