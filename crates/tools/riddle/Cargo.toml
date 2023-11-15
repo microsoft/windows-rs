@@ -1,12 +1,13 @@
 [package]
 name = "riddle"
-version = "0.0.1"
+version = "0.1.0"
 authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.56"
 license = "MIT OR Apache-2.0"
 description = "Windows metadata compiler"
 repository = "https://github.com/microsoft/windows-rs"
+readme = "readme.md"
 
 [dependencies.windows-bindgen]
 path = "../../libs/bindgen"
