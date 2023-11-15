@@ -22,3 +22,9 @@ features = [
     "Win32_System_Threading",
     "Win32_UI_WindowsAndMessaging",
 ]
+
+[dependencies.windows-targets]
+path = "../../libs/targets"
+
+[dependencies.windows-metadata]
+path = "../../libs/metadata"
