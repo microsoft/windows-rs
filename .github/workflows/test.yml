@@ -99,8 +99,8 @@ jobs:
           cargo test -p test_enums &&
           cargo test -p test_error &&
           cargo test -p test_event &&
-          cargo clean &&
           cargo test -p test_extensions &&
+          cargo clean &&
           cargo test -p test_handles &&
           cargo test -p test_helpers &&
           cargo test -p test_implement &&
@@ -152,6 +152,7 @@ jobs:
           cargo test -p windows-metadata &&
           cargo test -p windows-sys &&
           cargo test -p windows-targets &&
+          cargo test -p windows-version &&
           cargo test -p windows_aarch64_gnullvm &&
           cargo test -p windows_aarch64_msvc &&
           cargo test -p windows_i686_gnu &&
