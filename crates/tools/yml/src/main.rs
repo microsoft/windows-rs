@@ -1,6 +1,4 @@
-use regex::Regex;
 use std::fmt::Write;
-use std::path::Path;
 
 fn main() {
     test_yml();
@@ -53,16 +51,16 @@ jobs:
         run: >"
         .to_string();
 
-    let crates = crates(true);
+    let crates = lib::crates("crates");
     let (first, last) = crates.split_at(crates.len() / 2);
 
-    for name in first {
+    for (name, _) in first {
         write!(&mut yml, "\n          cargo test -p {name} &&").unwrap();
     }
 
     write!(&mut yml, "\n          cargo clean &&").unwrap();
 
-    for name in last {
+    for (name, _) in last {
         write!(&mut yml, "\n          cargo test -p {name} &&").unwrap();
     }
 
@@ -109,43 +107,10 @@ jobs:
         run: |"#
         .to_string();
 
-    for name in crates(false) {
+    for (name, _) in lib::crates("crates") {
         write!(&mut yml, "\n          cargo clippy -p {name} &&").unwrap();
     }
 
     yml.truncate(yml.len() - 3);
     std::fs::write(".github/workflows/clippy.yml", yml.as_bytes()).unwrap();
-}
-
-fn crates(filter: bool) -> Vec<String> {
-    let regex = Regex::new(r#"name = "([^"]+)""#).expect("regex");
-    let mut names = find("crates", &regex, filter);
-    names.sort();
-    names
-}
-
-fn find<P: AsRef<Path>>(path: P, regex: &Regex, filter: bool) -> Vec<String> {
-    let mut names = vec![];
-
-    if let Ok(files) = std::fs::read_dir(path) {
-        for file in files.filter_map(|file| file.ok()) {
-            if let Ok(file_type) = file.file_type() {
-                if file_type.is_dir() {
-                    names.append(&mut find(file.path(), regex, filter));
-                } else if file.file_name() == "Cargo.toml" {
-                    let text = std::fs::read_to_string(file.path()).expect("Cargo.toml");
-                    let name = regex
-                        .captures(&text)
-                        .expect("captures")
-                        .get(1)
-                        .expect("name");
-                    if !filter || !name.as_str().ends_with("_x") {
-                        names.push(name.as_str().to_string());
-                    }
-                }
-            }
-        }
-    }
-
-    names
 }
