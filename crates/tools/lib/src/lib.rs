@@ -1,5 +1,5 @@
-use std::collections::BTreeMap;
 use regex::Regex;
+use std::collections::BTreeMap;
 use std::path::Path;
 
 pub enum CallingConvention {
@@ -102,16 +102,10 @@ fn find<P: AsRef<Path>>(path: P, regex: &Regex) -> Vec<(String, String)> {
                     names.append(&mut find(file.path(), regex));
                 } else if file.file_name() == "Cargo.toml" {
                     let text = std::fs::read_to_string(file.path()).expect("Cargo.toml");
-                    let captures = regex
-                    .captures(&text)
-                    .expect("captures");
-                    let name = captures
-                        .get(1)
-                        .expect("name");
-                        let version = captures
-                        .get(2)
-                        .expect("version");
-                        names.push((name.as_str().to_string(), version.as_str().to_string()));
+                    let captures = regex.captures(&text).expect("captures");
+                    let name = captures.get(1).expect("name");
+                    let version = captures.get(2).expect("version");
+                    names.push((name.as_str().to_string(), version.as_str().to_string()));
                 }
             }
         }
