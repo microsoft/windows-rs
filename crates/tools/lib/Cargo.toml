@@ -5,4 +5,5 @@ edition = "2021"
 publish = false
 
 [dependencies]
+regex = "1.7"
 metadata = { package = "windows-metadata", path = "../../libs/metadata" }
