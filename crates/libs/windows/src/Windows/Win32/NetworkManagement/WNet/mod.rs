@@ -527,7 +527,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetSetLastErrorA(err : u32, lperror : ::windows_core::PCSTR, lpproviders : ::windows_core::PCSTR) -> ());
+    ::windows_targets::link!("mpr.dll" "system" fn WNetSetLastErrorA(err : u32, lperror : ::windows_core::PCSTR, lpproviders : ::windows_core::PCSTR));
     WNetSetLastErrorA(err, lperror.into_param().abi(), lpproviders.into_param().abi())
 }
 #[inline]
@@ -536,7 +536,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetSetLastErrorW(err : u32, lperror : ::windows_core::PCWSTR, lpproviders : ::windows_core::PCWSTR) -> ());
+    ::windows_targets::link!("mpr.dll" "system" fn WNetSetLastErrorW(err : u32, lperror : ::windows_core::PCWSTR, lpproviders : ::windows_core::PCWSTR));
     WNetSetLastErrorW(err, lperror.into_param().abi(), lpproviders.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]

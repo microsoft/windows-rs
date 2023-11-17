@@ -28,12 +28,12 @@ pub unsafe fn D3DPERF_SetMarker<P0>(col: u32, wszname: P0)
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_SetMarker(col : u32, wszname : ::windows_core::PCWSTR) -> ());
+    ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_SetMarker(col : u32, wszname : ::windows_core::PCWSTR));
     D3DPERF_SetMarker(col, wszname.into_param().abi())
 }
 #[inline]
 pub unsafe fn D3DPERF_SetOptions(dwoptions: u32) {
-    ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_SetOptions(dwoptions : u32) -> ());
+    ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_SetOptions(dwoptions : u32));
     D3DPERF_SetOptions(dwoptions)
 }
 #[inline]
@@ -41,7 +41,7 @@ pub unsafe fn D3DPERF_SetRegion<P0>(col: u32, wszname: P0)
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_SetRegion(col : u32, wszname : ::windows_core::PCWSTR) -> ());
+    ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_SetRegion(col : u32, wszname : ::windows_core::PCWSTR));
     D3DPERF_SetRegion(col, wszname.into_param().abi())
 }
 #[inline]

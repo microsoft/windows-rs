@@ -3,7 +3,7 @@ pub unsafe fn WebSocketAbortHandle<P0>(hwebsocket: P0)
 where
     P0: ::windows_core::IntoParam<WEB_SOCKET_HANDLE>,
 {
-    ::windows_targets::link!("websocket.dll" "system" fn WebSocketAbortHandle(hwebsocket : WEB_SOCKET_HANDLE) -> ());
+    ::windows_targets::link!("websocket.dll" "system" fn WebSocketAbortHandle(hwebsocket : WEB_SOCKET_HANDLE));
     WebSocketAbortHandle(hwebsocket.into_param().abi())
 }
 #[inline]
@@ -39,7 +39,7 @@ pub unsafe fn WebSocketCompleteAction<P0>(hwebsocket: P0, pvactioncontext: *cons
 where
     P0: ::windows_core::IntoParam<WEB_SOCKET_HANDLE>,
 {
-    ::windows_targets::link!("websocket.dll" "system" fn WebSocketCompleteAction(hwebsocket : WEB_SOCKET_HANDLE, pvactioncontext : *const ::core::ffi::c_void, ulbytestransferred : u32) -> ());
+    ::windows_targets::link!("websocket.dll" "system" fn WebSocketCompleteAction(hwebsocket : WEB_SOCKET_HANDLE, pvactioncontext : *const ::core::ffi::c_void, ulbytestransferred : u32));
     WebSocketCompleteAction(hwebsocket.into_param().abi(), pvactioncontext, ulbytestransferred)
 }
 #[inline]
@@ -59,7 +59,7 @@ pub unsafe fn WebSocketDeleteHandle<P0>(hwebsocket: P0)
 where
     P0: ::windows_core::IntoParam<WEB_SOCKET_HANDLE>,
 {
-    ::windows_targets::link!("websocket.dll" "system" fn WebSocketDeleteHandle(hwebsocket : WEB_SOCKET_HANDLE) -> ());
+    ::windows_targets::link!("websocket.dll" "system" fn WebSocketDeleteHandle(hwebsocket : WEB_SOCKET_HANDLE));
     WebSocketDeleteHandle(hwebsocket.into_param().abi())
 }
 #[inline]

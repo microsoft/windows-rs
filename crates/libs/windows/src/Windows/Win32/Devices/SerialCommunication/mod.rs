@@ -684,4 +684,4 @@ impl ::core::default::Default for SERIAL_XOFF_COUNTER {
     }
 }
 pub type PSERENUM_READPORT = ::core::option::Option<unsafe extern "system" fn(serportaddress: *const ::core::ffi::c_void) -> u8>;
-pub type PSERENUM_WRITEPORT = ::core::option::Option<unsafe extern "system" fn(serportaddress: *const ::core::ffi::c_void, value: u8) -> ()>;
+pub type PSERENUM_WRITEPORT = ::core::option::Option<unsafe extern "system" fn(serportaddress: *const ::core::ffi::c_void, value: u8)>;

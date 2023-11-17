@@ -142,10 +142,10 @@
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DestroyCursor(hcursor : HCURSOR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DestroyIcon(hicon : HICON) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mrmsupport.dll" "system" fn DestroyIndexedResults(resourceuri : ::windows_sys::core::PCWSTR, qualifiercount : u32, qualifiers : *const IndexedResourceQualifier) -> ());
+::windows_targets::link!("mrmsupport.dll" "system" fn DestroyIndexedResults(resourceuri : ::windows_sys::core::PCWSTR, qualifiercount : u32, qualifiers : *const IndexedResourceQualifier));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DestroyMenu(hmenu : HMENU) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mrmsupport.dll" "system" fn DestroyResourceIndexer(resourceindexer : *const ::core::ffi::c_void) -> ());
+::windows_targets::link!("mrmsupport.dll" "system" fn DestroyResourceIndexer(resourceindexer : *const ::core::ffi::c_void));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DestroyWindow(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -156,7 +156,7 @@
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DialogBoxParamA(hinstance : super::super::Foundation:: HINSTANCE, lptemplatename : ::windows_sys::core::PCSTR, hwndparent : super::super::Foundation:: HWND, lpdialogfunc : DLGPROC, dwinitparam : super::super::Foundation:: LPARAM) -> isize);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DialogBoxParamW(hinstance : super::super::Foundation:: HINSTANCE, lptemplatename : ::windows_sys::core::PCWSTR, hwndparent : super::super::Foundation:: HWND, lpdialogfunc : DLGPROC, dwinitparam : super::super::Foundation:: LPARAM) -> isize);
-::windows_targets::link!("user32.dll" "system" fn DisableProcessWindowsGhosting() -> ());
+::windows_targets::link!("user32.dll" "system" fn DisableProcessWindowsGhosting());
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DispatchMessageA(lpmsg : *const MSG) -> super::super::Foundation:: LRESULT);
 #[cfg(feature = "Win32_Foundation")]
@@ -537,7 +537,7 @@
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PostMessageA(hwnd : super::super::Foundation:: HWND, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PostMessageW(hwnd : super::super::Foundation:: HWND, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn PostQuitMessage(nexitcode : i32) -> ());
+::windows_targets::link!("user32.dll" "system" fn PostQuitMessage(nexitcode : i32));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PostThreadMessageA(idthread : u32, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -625,7 +625,7 @@
 ::windows_targets::link!("user32.dll" "system" fn SetCursor(hcursor : HCURSOR) -> HCURSOR);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetCursorPos(x : i32, y : i32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn SetDebugErrorLevel(dwlevel : u32) -> ());
+::windows_targets::link!("user32.dll" "system" fn SetDebugErrorLevel(dwlevel : u32));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetDlgItemInt(hdlg : super::super::Foundation:: HWND, niddlgitem : i32, uvalue : u32, bsigned : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -711,7 +711,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SoundSentry() -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SwitchToThisWindow(hwnd : super::super::Foundation:: HWND, funknown : super::super::Foundation:: BOOL) -> ());
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SwitchToThisWindow(hwnd : super::super::Foundation:: HWND, funknown : super::super::Foundation:: BOOL));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SystemParametersInfoA(uiaction : SYSTEM_PARAMETERS_INFO_ACTION, uiparam : u32, pvparam : *mut ::core::ffi::c_void, fwinini : SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -4776,7 +4776,7 @@ pub type DLGPROC = ::core::option::Option<unsafe extern "system" fn(param0: supe
 pub type HOOKPROC = ::core::option::Option<unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-pub type MSGBOXCALLBACK = ::core::option::Option<unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO) -> ()>;
+pub type MSGBOXCALLBACK = ::core::option::Option<unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type NAMEENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
@@ -4800,10 +4800,10 @@ pub type PROPENUMPROCEXW = ::core::option::Option<unsafe extern "system" fn(para
 pub type PROPENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: ::windows_sys::core::PCWSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type SENDASYNCPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT) -> ()>;
+pub type SENDASYNCPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type TIMERPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32) -> ()>;
+pub type TIMERPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WNDENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;

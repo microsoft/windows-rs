@@ -1,4 +1,4 @@
-::windows_targets::link!("drt.dll" "system" fn DrtClose(hdrt : *const ::core::ffi::c_void) -> ());
+::windows_targets::link!("drt.dll" "system" fn DrtClose(hdrt : *const ::core::ffi::c_void));
 ::windows_targets::link!("drt.dll" "system" fn DrtContinueSearch(hsearchcontext : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 ::windows_targets::link!("drtprov.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"] fn DrtCreateDerivedKey(plocalcert : *const super::super::Security::Cryptography:: CERT_CONTEXT, pkey : *mut DRT_DATA) -> ::windows_sys::core::HRESULT);
@@ -9,11 +9,11 @@
 ::windows_targets::link!("drtprov.dll" "system" fn DrtCreateNullSecurityProvider(ppsecurityprovider : *mut *mut DRT_SECURITY_PROVIDER) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("drtprov.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DrtCreatePnrpBootstrapResolver(fpublish : super::super::Foundation:: BOOL, pwzpeername : ::windows_sys::core::PCWSTR, pwzcloudname : ::windows_sys::core::PCWSTR, pwzpublishingidentity : ::windows_sys::core::PCWSTR, ppresolver : *mut *mut DRT_BOOTSTRAP_PROVIDER) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("drtprov.dll" "system" fn DrtDeleteDerivedKeySecurityProvider(psecurityprovider : *const DRT_SECURITY_PROVIDER) -> ());
-::windows_targets::link!("drtprov.dll" "system" fn DrtDeleteDnsBootstrapResolver(presolver : *const DRT_BOOTSTRAP_PROVIDER) -> ());
+::windows_targets::link!("drtprov.dll" "system" fn DrtDeleteDerivedKeySecurityProvider(psecurityprovider : *const DRT_SECURITY_PROVIDER));
+::windows_targets::link!("drtprov.dll" "system" fn DrtDeleteDnsBootstrapResolver(presolver : *const DRT_BOOTSTRAP_PROVIDER));
 ::windows_targets::link!("drttransport.dll" "system" fn DrtDeleteIpv6UdpTransport(htransport : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("drtprov.dll" "system" fn DrtDeleteNullSecurityProvider(psecurityprovider : *const DRT_SECURITY_PROVIDER) -> ());
-::windows_targets::link!("drtprov.dll" "system" fn DrtDeletePnrpBootstrapResolver(presolver : *const DRT_BOOTSTRAP_PROVIDER) -> ());
+::windows_targets::link!("drtprov.dll" "system" fn DrtDeleteNullSecurityProvider(psecurityprovider : *const DRT_SECURITY_PROVIDER));
+::windows_targets::link!("drtprov.dll" "system" fn DrtDeletePnrpBootstrapResolver(presolver : *const DRT_BOOTSTRAP_PROVIDER));
 ::windows_targets::link!("drt.dll" "system" fn DrtEndSearch(hsearchcontext : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Networking_WinSock")]
 ::windows_targets::link!("drt.dll" "system" #[doc = "Required features: `\"Win32_Networking_WinSock\"`"] fn DrtGetEventData(hdrt : *const ::core::ffi::c_void, uleventdatalen : u32, peventdata : *mut DRT_EVENT_DATA) -> ::windows_sys::core::HRESULT);
@@ -30,7 +30,7 @@
 ::windows_targets::link!("drt.dll" "system" fn DrtRegisterKey(hdrt : *const ::core::ffi::c_void, pregistration : *const DRT_REGISTRATION, pvkeycontext : *const ::core::ffi::c_void, phkeyregistration : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("drt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DrtStartSearch(hdrt : *const ::core::ffi::c_void, pkey : *const DRT_DATA, pinfo : *const DRT_SEARCH_INFO, timeout : u32, hevent : super::super::Foundation:: HANDLE, pvcontext : *const ::core::ffi::c_void, hsearchcontext : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("drt.dll" "system" fn DrtUnregisterKey(hkeyregistration : *const ::core::ffi::c_void) -> ());
+::windows_targets::link!("drt.dll" "system" fn DrtUnregisterKey(hkeyregistration : *const ::core::ffi::c_void));
 ::windows_targets::link!("drt.dll" "system" fn DrtUpdateKey(hkeyregistration : *const ::core::ffi::c_void, pappdata : *const DRT_DATA) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("p2p.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PeerCollabAddContact(pwzcontactdata : ::windows_sys::core::PCWSTR, ppcontact : *mut *mut PEER_CONTACT) -> ::windows_sys::core::HRESULT);
@@ -148,7 +148,7 @@
 ::windows_targets::link!("p2p.dll" "system" fn PeerEndEnumeration(hpeerenum : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("p2p.dll" "system" fn PeerEnumGroups(pwzidentity : ::windows_sys::core::PCWSTR, phpeerenum : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("p2p.dll" "system" fn PeerEnumIdentities(phpeerenum : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("p2p.dll" "system" fn PeerFreeData(pvdata : *const ::core::ffi::c_void) -> ());
+::windows_targets::link!("p2p.dll" "system" fn PeerFreeData(pvdata : *const ::core::ffi::c_void));
 ::windows_targets::link!("p2p.dll" "system" fn PeerGetItemCount(hpeerenum : *const ::core::ffi::c_void, pcount : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("p2p.dll" "system" fn PeerGetNextItem(hpeerenum : *const ::core::ffi::c_void, pcount : *mut u32, pppvitems : *mut *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
@@ -167,7 +167,7 @@
 ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphEnumNodes(hgraph : *const ::core::ffi::c_void, pwzpeerid : ::windows_sys::core::PCWSTR, phpeerenum : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphEnumRecords(hgraph : *const ::core::ffi::c_void, precordtype : *const ::windows_sys::core::GUID, pwzpeerid : ::windows_sys::core::PCWSTR, phpeerenum : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphExportDatabase(hgraph : *const ::core::ffi::c_void, pwzfilepath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphFreeData(pvdata : *const ::core::ffi::c_void) -> ());
+::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphFreeData(pvdata : *const ::core::ffi::c_void));
 ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphGetEventData(hpeerevent : *const ::core::ffi::c_void, ppeventdata : *mut *mut PEER_GRAPH_EVENT_DATA) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphGetItemCount(hpeerenum : *const ::core::ffi::c_void, pcount : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphGetNextItem(hpeerenum : *const ::core::ffi::c_void, pcount : *mut u32, pppvitems : *mut *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
@@ -1705,7 +1705,7 @@ impl ::core::clone::Clone for PNRP_CLOUD_ID {
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hr: ::windows_sys::core::HRESULT, pvcontext: *mut ::core::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: super::super::Foundation::BOOL) -> ()>;
+pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hr: ::windows_sys::core::HRESULT, pvcontext: *mut ::core::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: super::super::Foundation::BOOL)>;
 pub type PFNPEER_FREE_SECURITY_DATA = ::core::option::Option<unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, psecuritydata: *const PEER_DATA) -> ::windows_sys::core::HRESULT>;
 pub type PFNPEER_ON_PASSWORD_AUTH_FAILED = ::core::option::Option<unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]

@@ -47,22 +47,22 @@ pub unsafe fn EapHostPeerEndSession(sessionhandle: u32, ppeaperror: *mut *mut EA
 }
 #[inline]
 pub unsafe fn EapHostPeerFreeEapError(peaperror: *mut EAP_ERROR) {
-    ::windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerFreeEapError(peaperror : *mut EAP_ERROR) -> ());
+    ::windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerFreeEapError(peaperror : *mut EAP_ERROR));
     EapHostPeerFreeEapError(peaperror)
 }
 #[inline]
 pub unsafe fn EapHostPeerFreeErrorMemory(peaperror: *mut EAP_ERROR) {
-    ::windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerFreeErrorMemory(peaperror : *mut EAP_ERROR) -> ());
+    ::windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerFreeErrorMemory(peaperror : *mut EAP_ERROR));
     EapHostPeerFreeErrorMemory(peaperror)
 }
 #[inline]
 pub unsafe fn EapHostPeerFreeMemory(pdata: *mut u8) {
-    ::windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerFreeMemory(pdata : *mut u8) -> ());
+    ::windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerFreeMemory(pdata : *mut u8));
     EapHostPeerFreeMemory(pdata)
 }
 #[inline]
 pub unsafe fn EapHostPeerFreeRuntimeMemory(pdata: *mut u8) {
-    ::windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerFreeRuntimeMemory(pdata : *mut u8) -> ());
+    ::windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerFreeRuntimeMemory(pdata : *mut u8));
     EapHostPeerFreeRuntimeMemory(pdata)
 }
 #[inline]
@@ -214,7 +214,7 @@ pub unsafe fn EapHostPeerSetUIContext(sessionhandle: u32, dwsizeofuicontextdata:
 }
 #[inline]
 pub unsafe fn EapHostPeerUninitialize() {
-    ::windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerUninitialize() -> ());
+    ::windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerUninitialize());
     EapHostPeerUninitialize()
 }
 #[repr(transparent)]
@@ -3126,6 +3126,6 @@ impl ::core::default::Default for RAS_AUTH_ATTRIBUTE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type NotificationHandler = ::core::option::Option<unsafe extern "system" fn(connectionid: ::windows_core::GUID, pcontextdata: *mut ::core::ffi::c_void) -> ()>;
+pub type NotificationHandler = ::core::option::Option<unsafe extern "system" fn(connectionid: ::windows_core::GUID, pcontextdata: *mut ::core::ffi::c_void)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

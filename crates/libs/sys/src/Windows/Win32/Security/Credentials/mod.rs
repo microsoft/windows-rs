@@ -10,7 +10,7 @@
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredFindBestCredentialA(targetname : ::windows_sys::core::PCSTR, r#type : u32, flags : u32, credential : *mut *mut CREDENTIALA) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredFindBestCredentialW(targetname : ::windows_sys::core::PCWSTR, r#type : u32, flags : u32, credential : *mut *mut CREDENTIALW) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn CredFree(buffer : *const ::core::ffi::c_void) -> ());
+::windows_targets::link!("advapi32.dll" "system" fn CredFree(buffer : *const ::core::ffi::c_void));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredGetSessionTypes(maximumpersistcount : u32, maximumpersist : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -94,7 +94,7 @@
 ::windows_targets::link!("scarddlg.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetOpenCardNameA(param0 : *mut OPENCARDNAMEA) -> i32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("scarddlg.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetOpenCardNameW(param0 : *mut OPENCARDNAMEW) -> i32);
-::windows_targets::link!("keycredmgr.dll" "system" fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo : *const KeyCredentialManagerInfo) -> ());
+::windows_targets::link!("keycredmgr.dll" "system" fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo : *const KeyCredentialManagerInfo));
 ::windows_targets::link!("keycredmgr.dll" "system" fn KeyCredentialManagerGetInformation(keycredentialmanagerinfo : *mut *mut KeyCredentialManagerInfo) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("keycredmgr.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn KeyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype : KeyCredentialManagerOperationType, isready : *mut super::super::Foundation:: BOOL, keycredentialmanageroperationerrorstates : *mut KeyCredentialManagerOperationErrorStates) -> ::windows_sys::core::HRESULT);
@@ -160,7 +160,7 @@
 ::windows_targets::link!("winscard.dll" "system" fn SCardReadCacheW(hcontext : usize, cardidentifier : *const ::windows_sys::core::GUID, freshnesscounter : u32, lookupname : ::windows_sys::core::PCWSTR, data : *mut u8, datalen : *mut u32) -> i32);
 ::windows_targets::link!("winscard.dll" "system" fn SCardReconnect(hcard : usize, dwsharemode : u32, dwpreferredprotocols : u32, dwinitialization : u32, pdwactiveprotocol : *mut u32) -> i32);
 ::windows_targets::link!("winscard.dll" "system" fn SCardReleaseContext(hcontext : usize) -> i32);
-::windows_targets::link!("winscard.dll" "system" fn SCardReleaseStartedEvent() -> ());
+::windows_targets::link!("winscard.dll" "system" fn SCardReleaseStartedEvent());
 ::windows_targets::link!("winscard.dll" "system" fn SCardRemoveReaderFromGroupA(hcontext : usize, szreadername : ::windows_sys::core::PCSTR, szgroupname : ::windows_sys::core::PCSTR) -> i32);
 ::windows_targets::link!("winscard.dll" "system" fn SCardRemoveReaderFromGroupW(hcontext : usize, szreadername : ::windows_sys::core::PCWSTR, szgroupname : ::windows_sys::core::PCWSTR) -> i32);
 ::windows_targets::link!("winscard.dll" "system" fn SCardSetAttrib(hcard : usize, dwattrid : u32, pbattr : *const u8, cbattrlen : u32) -> i32);
@@ -1078,4 +1078,4 @@ impl ::core::clone::Clone for USERNAME_TARGET_CREDENTIAL_INFO {
 pub type LPOCNCHKPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type LPOCNCONNPROCA = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: ::windows_sys::core::PCSTR, param2: ::windows_sys::core::PCSTR, param3: *const ::core::ffi::c_void) -> usize>;
 pub type LPOCNCONNPROCW = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: ::windows_sys::core::PCWSTR, param2: ::windows_sys::core::PCWSTR, param3: *const ::core::ffi::c_void) -> usize>;
-pub type LPOCNDSCPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void) -> ()>;
+pub type LPOCNDSCPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void)>;

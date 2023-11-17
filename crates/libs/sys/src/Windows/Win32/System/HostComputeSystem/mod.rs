@@ -2,9 +2,9 @@
 ::windows_targets::link!("computecore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn HcsAddResourceToOperation(operation : HCS_OPERATION, r#type : HCS_RESOURCE_TYPE, uri : ::windows_sys::core::PCWSTR, handle : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computestorage.dll" "system" fn HcsAttachLayerStorageFilter(layerpath : ::windows_sys::core::PCWSTR, layerdata : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computecore.dll" "system" fn HcsCancelOperation(operation : HCS_OPERATION) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("computecore.dll" "system" fn HcsCloseComputeSystem(computesystem : HCS_SYSTEM) -> ());
-::windows_targets::link!("computecore.dll" "system" fn HcsCloseOperation(operation : HCS_OPERATION) -> ());
-::windows_targets::link!("computecore.dll" "system" fn HcsCloseProcess(process : HCS_PROCESS) -> ());
+::windows_targets::link!("computecore.dll" "system" fn HcsCloseComputeSystem(computesystem : HCS_SYSTEM));
+::windows_targets::link!("computecore.dll" "system" fn HcsCloseOperation(operation : HCS_OPERATION));
+::windows_targets::link!("computecore.dll" "system" fn HcsCloseProcess(process : HCS_PROCESS));
 ::windows_targets::link!("computecore.dll" "system" fn HcsCrashComputeSystem(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_targets::link!("computecore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn HcsCreateComputeSystem(id : ::windows_sys::core::PCWSTR, configuration : ::windows_sys::core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, computesystem : *mut HCS_SYSTEM) -> ::windows_sys::core::HRESULT);
@@ -195,6 +195,6 @@ impl ::core::clone::Clone for HCS_PROCESS_INFORMATION {
     }
 }
 pub type HCS_SYSTEM = isize;
-pub type HCS_EVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const ::core::ffi::c_void) -> ()>;
-pub type HCS_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows_sys::core::HRESULT, notificationdata: ::windows_sys::core::PCWSTR) -> ()>;
-pub type HCS_OPERATION_COMPLETION = ::core::option::Option<unsafe extern "system" fn(operation: HCS_OPERATION, context: *const ::core::ffi::c_void) -> ()>;
+pub type HCS_EVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const ::core::ffi::c_void)>;
+pub type HCS_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows_sys::core::HRESULT, notificationdata: ::windows_sys::core::PCWSTR)>;
+pub type HCS_OPERATION_COMPLETION = ::core::option::Option<unsafe extern "system" fn(operation: HCS_OPERATION, context: *const ::core::ffi::c_void)>;

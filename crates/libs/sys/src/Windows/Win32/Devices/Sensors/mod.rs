@@ -74,7 +74,7 @@
 ::windows_targets::link!("sensorsutilsv2.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"] fn SensorCollectionGetAt(index : u32, psensorslist : *const SENSOR_COLLECTION_LIST, pkey : *mut super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY, pvalue : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> super::super::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("sensorsutilsv2.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SerializationBufferAllocate(sizeinbytes : u32, pbuffer : *mut *mut u8) -> super::super::Foundation:: NTSTATUS);
-::windows_targets::link!("sensorsutilsv2.dll" "system" fn SerializationBufferFree(buffer : *const u8) -> ());
+::windows_targets::link!("sensorsutilsv2.dll" "system" fn SerializationBufferFree(buffer : *const u8));
 pub type ILocationPermissions = *mut ::core::ffi::c_void;
 pub type ISensor = *mut ::core::ffi::c_void;
 pub type ISensorCollection = *mut ::core::ffi::c_void;

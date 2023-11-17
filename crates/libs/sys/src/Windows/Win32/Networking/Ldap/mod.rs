@@ -5,11 +5,11 @@
 ::windows_targets::link!("wldap32.dll" "cdecl" fn LdapUnicodeToUTF8(lpsrcstr : ::windows_sys::core::PCWSTR, cchsrc : i32, lpdeststr : ::windows_sys::core::PSTR, cchdest : i32) -> i32);
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_alloc_t(options : i32) -> *mut BerElement);
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_bvdup(pberval : *mut LDAP_BERVAL) -> *mut LDAP_BERVAL);
-::windows_targets::link!("wldap32.dll" "cdecl" fn ber_bvecfree(pberval : *mut *mut LDAP_BERVAL) -> ());
-::windows_targets::link!("wldap32.dll" "cdecl" fn ber_bvfree(bv : *mut LDAP_BERVAL) -> ());
+::windows_targets::link!("wldap32.dll" "cdecl" fn ber_bvecfree(pberval : *mut *mut LDAP_BERVAL));
+::windows_targets::link!("wldap32.dll" "cdecl" fn ber_bvfree(bv : *mut LDAP_BERVAL));
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_first_element(pberelement : *mut BerElement, plen : *mut u32, ppopaque : *mut *mut u8) -> u32);
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_flatten(pberelement : *mut BerElement, pberval : *mut *mut LDAP_BERVAL) -> i32);
-::windows_targets::link!("wldap32.dll" "cdecl" fn ber_free(pberelement : *mut BerElement, fbuf : i32) -> ());
+::windows_targets::link!("wldap32.dll" "cdecl" fn ber_free(pberelement : *mut BerElement, fbuf : i32));
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_init(pberval : *mut LDAP_BERVAL) -> *mut BerElement);
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_next_element(pberelement : *mut BerElement, plen : *mut u32, opaque : ::windows_sys::core::PCSTR) -> u32);
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_peek_tag(pberelement : *mut BerElement, plen : *mut u32) -> u32);
@@ -194,9 +194,9 @@
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_init(hostname : ::windows_sys::core::PCSTR, portnumber : u32) -> *mut LDAP);
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_initA(hostname : ::windows_sys::core::PCSTR, portnumber : u32) -> *mut LDAP);
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_initW(hostname : ::windows_sys::core::PCWSTR, portnumber : u32) -> *mut LDAP);
-::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_memfree(block : ::windows_sys::core::PCSTR) -> ());
-::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_memfreeA(block : ::windows_sys::core::PCSTR) -> ());
-::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_memfreeW(block : ::windows_sys::core::PCWSTR) -> ());
+::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_memfree(block : ::windows_sys::core::PCSTR));
+::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_memfreeA(block : ::windows_sys::core::PCSTR));
+::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_memfreeW(block : ::windows_sys::core::PCWSTR));
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_modify(ld : *mut LDAP, dn : ::windows_sys::core::PCSTR, mods : *mut *mut LDAPModA) -> u32);
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_modifyA(ld : *mut LDAP, dn : ::windows_sys::core::PCSTR, mods : *mut *mut LDAPModA) -> u32);
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_modifyW(ld : *mut LDAP, dn : ::windows_sys::core::PCWSTR, mods : *mut *mut LDAPModW) -> u32);
@@ -274,7 +274,7 @@
 ::windows_targets::link!("wldap32.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ldap_parse_vlv_controlA(externalhandle : *mut LDAP, control : *mut *mut LDAPControlA, targetpos : *mut u32, listcount : *mut u32, context : *mut *mut LDAP_BERVAL, errcode : *mut i32) -> i32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("wldap32.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ldap_parse_vlv_controlW(externalhandle : *mut LDAP, control : *mut *mut LDAPControlW, targetpos : *mut u32, listcount : *mut u32, context : *mut *mut LDAP_BERVAL, errcode : *mut i32) -> i32);
-::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_perror(ld : *mut LDAP, msg : ::windows_sys::core::PCSTR) -> ());
+::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_perror(ld : *mut LDAP, msg : ::windows_sys::core::PCSTR));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("wldap32.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ldap_rename_ext(ld : *mut LDAP, dn : ::windows_sys::core::PCSTR, newrdn : ::windows_sys::core::PCSTR, newparent : ::windows_sys::core::PCSTR, deleteoldrdn : i32, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, messagenumber : *mut u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
@@ -334,7 +334,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("wldap32.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ldap_search_stW(ld : *mut LDAP, base : ::windows_sys::core::PCWSTR, scope : u32, filter : ::windows_sys::core::PCWSTR, attrs : *const *const u16, attrsonly : u32, timeout : *mut LDAP_TIMEVAL, res : *mut *mut LDAPMessage) -> u32);
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_set_dbg_flags(newflags : u32) -> u32);
-::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_set_dbg_routine(debugprintroutine : DBGPRINT) -> ());
+::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_set_dbg_routine(debugprintroutine : DBGPRINT));
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_set_option(ld : *mut LDAP, option : i32, invalue : *const ::core::ffi::c_void) -> u32);
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_set_optionW(ld : *mut LDAP, option : i32, invalue : *const ::core::ffi::c_void) -> u32);
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_simple_bind(ld : *mut LDAP, dn : ::windows_sys::core::PCSTR, passwd : ::windows_sys::core::PCSTR) -> u32);

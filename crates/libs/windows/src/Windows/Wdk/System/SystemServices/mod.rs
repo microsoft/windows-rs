@@ -108,7 +108,7 @@ pub unsafe fn ClfsEarlierLsn(plsn: *const super::super::super::Win32::Storage::F
 }
 #[inline]
 pub unsafe fn ClfsFinalize() {
-    ::windows_targets::link!("clfs.sys" "system" fn ClfsFinalize() -> ());
+    ::windows_targets::link!("clfs.sys" "system" fn ClfsFinalize());
     ClfsFinalize()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -453,7 +453,7 @@ pub unsafe fn CmCallbackGetKeyObjectIDEx(cookie: *const i64, object: *const ::co
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CmCallbackReleaseKeyObjectIDEx(objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn CmCallbackReleaseKeyObjectIDEx(objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn CmCallbackReleaseKeyObjectIDEx(objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING));
     CmCallbackReleaseKeyObjectIDEx(objectname)
 }
 #[inline]
@@ -463,7 +463,7 @@ pub unsafe fn CmGetBoundTransaction(cookie: *const i64, object: *const ::core::f
 }
 #[inline]
 pub unsafe fn CmGetCallbackVersion(major: ::core::option::Option<*mut u32>, minor: ::core::option::Option<*mut u32>) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn CmGetCallbackVersion(major : *mut u32, minor : *mut u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn CmGetCallbackVersion(major : *mut u32, minor : *mut u32));
     CmGetCallbackVersion(::core::mem::transmute(major.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(minor.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -496,7 +496,7 @@ pub unsafe fn CmUnRegisterCallback(cookie: i64) -> super::super::super::Win32::F
 }
 #[inline]
 pub unsafe fn DbgBreakPointWithStatus(status: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn DbgBreakPointWithStatus(status : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn DbgBreakPointWithStatus(status : u32));
     DbgBreakPointWithStatus(status)
 }
 #[inline]
@@ -635,24 +635,24 @@ pub unsafe fn EtwWriteTransfer(reghandle: u64, eventdescriptor: *const super::su
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ExAcquireFastMutex(fastmutex: *mut super::super::Foundation::FAST_MUTEX) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExAcquireFastMutex(fastmutex : *mut super::super::Foundation:: FAST_MUTEX) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExAcquireFastMutex(fastmutex : *mut super::super::Foundation:: FAST_MUTEX));
     ExAcquireFastMutex(fastmutex)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ExAcquireFastMutexUnsafe(fastmutex: *mut super::super::Foundation::FAST_MUTEX) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExAcquireFastMutexUnsafe(fastmutex : *mut super::super::Foundation:: FAST_MUTEX) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExAcquireFastMutexUnsafe(fastmutex : *mut super::super::Foundation:: FAST_MUTEX));
     ExAcquireFastMutexUnsafe(fastmutex)
 }
 #[inline]
 pub unsafe fn ExAcquirePushLockExclusiveEx(pushlock: *mut usize, flags: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExAcquirePushLockExclusiveEx(pushlock : *mut usize, flags : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExAcquirePushLockExclusiveEx(pushlock : *mut usize, flags : u32));
     ExAcquirePushLockExclusiveEx(pushlock, flags)
 }
 #[inline]
 pub unsafe fn ExAcquirePushLockSharedEx(pushlock: *mut usize, flags: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExAcquirePushLockSharedEx(pushlock : *mut usize, flags : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExAcquirePushLockSharedEx(pushlock : *mut usize, flags : u32));
     ExAcquirePushLockSharedEx(pushlock, flags)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -736,7 +736,7 @@ pub unsafe fn ExAcquireSpinLockExclusive(spinlock: *mut i32) -> u8 {
 }
 #[inline]
 pub unsafe fn ExAcquireSpinLockExclusiveAtDpcLevel(spinlock: *mut i32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExAcquireSpinLockExclusiveAtDpcLevel(spinlock : *mut i32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExAcquireSpinLockExclusiveAtDpcLevel(spinlock : *mut i32));
     ExAcquireSpinLockExclusiveAtDpcLevel(spinlock)
 }
 #[inline]
@@ -746,7 +746,7 @@ pub unsafe fn ExAcquireSpinLockShared(spinlock: *mut i32) -> u8 {
 }
 #[inline]
 pub unsafe fn ExAcquireSpinLockSharedAtDpcLevel(spinlock: *mut i32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExAcquireSpinLockSharedAtDpcLevel(spinlock : *mut i32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExAcquireSpinLockSharedAtDpcLevel(spinlock : *mut i32));
     ExAcquireSpinLockSharedAtDpcLevel(spinlock)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -827,14 +827,14 @@ pub unsafe fn ExCleanupRundownProtectionCacheAware<P0>(runrefcacheaware: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PEX_RUNDOWN_REF_CACHE_AWARE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExCleanupRundownProtectionCacheAware(runrefcacheaware : super::super::Foundation:: PEX_RUNDOWN_REF_CACHE_AWARE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExCleanupRundownProtectionCacheAware(runrefcacheaware : super::super::Foundation:: PEX_RUNDOWN_REF_CACHE_AWARE));
     ExCleanupRundownProtectionCacheAware(runrefcacheaware.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ExConvertExclusiveToSharedLite(resource: *mut super::super::Foundation::ERESOURCE) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExConvertExclusiveToSharedLite(resource : *mut super::super::Foundation:: ERESOURCE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExConvertExclusiveToSharedLite(resource : *mut super::super::Foundation:: ERESOURCE));
     ExConvertExclusiveToSharedLite(resource)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
@@ -881,7 +881,7 @@ pub unsafe fn ExDestroyPool<P0>(poolhandle: P0)
 where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExDestroyPool(poolhandle : super::super::super::Win32::Foundation:: HANDLE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExDestroyPool(poolhandle : super::super::super::Win32::Foundation:: HANDLE));
     ExDestroyPool(poolhandle.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -926,24 +926,24 @@ pub unsafe fn ExFreeCacheAwareRundownProtection<P0>(runrefcacheaware: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PEX_RUNDOWN_REF_CACHE_AWARE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExFreeCacheAwareRundownProtection(runrefcacheaware : super::super::Foundation:: PEX_RUNDOWN_REF_CACHE_AWARE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExFreeCacheAwareRundownProtection(runrefcacheaware : super::super::Foundation:: PEX_RUNDOWN_REF_CACHE_AWARE));
     ExFreeCacheAwareRundownProtection(runrefcacheaware.into_param().abi())
 }
 #[inline]
 pub unsafe fn ExFreePool(p: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExFreePool(p : *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExFreePool(p : *mut ::core::ffi::c_void));
     ExFreePool(p)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExFreePool2(p: *mut ::core::ffi::c_void, tag: u32, extendedparameters: ::core::option::Option<&[POOL_EXTENDED_PARAMETER]>) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExFreePool2(p : *mut ::core::ffi::c_void, tag : u32, extendedparameters : *const POOL_EXTENDED_PARAMETER, extendedparameterscount : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExFreePool2(p : *mut ::core::ffi::c_void, tag : u32, extendedparameters : *const POOL_EXTENDED_PARAMETER, extendedparameterscount : u32));
     ExFreePool2(p, tag, ::core::mem::transmute(extendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn ExFreePoolWithTag(p: *mut ::core::ffi::c_void, tag: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExFreePoolWithTag(p : *mut ::core::ffi::c_void, tag : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExFreePoolWithTag(p : *mut ::core::ffi::c_void, tag : u32));
     ExFreePoolWithTag(p, tag)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -988,7 +988,7 @@ pub unsafe fn ExGetSystemFirmwareTable(firmwaretableprovidersignature: u32, firm
 }
 #[inline]
 pub unsafe fn ExInitializePushLock() -> usize {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExInitializePushLock(pushlock : *mut usize) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExInitializePushLock(pushlock : *mut usize));
     let mut result__ = ::std::mem::zeroed();
     ExInitializePushLock(&mut result__);
     ::std::mem::transmute(result__)
@@ -1002,7 +1002,7 @@ pub unsafe fn ExInitializeResourceLite(resource: *mut super::super::Foundation::
 }
 #[inline]
 pub unsafe fn ExInitializeRundownProtection() -> EX_RUNDOWN_REF {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExInitializeRundownProtection(runref : *mut EX_RUNDOWN_REF) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExInitializeRundownProtection(runref : *mut EX_RUNDOWN_REF));
     let mut result__ = ::std::mem::zeroed();
     ExInitializeRundownProtection(&mut result__);
     ::std::mem::transmute(result__)
@@ -1014,7 +1014,7 @@ pub unsafe fn ExInitializeRundownProtectionCacheAware<P0>(runrefcacheaware: P0, 
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PEX_RUNDOWN_REF_CACHE_AWARE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExInitializeRundownProtectionCacheAware(runrefcacheaware : super::super::Foundation:: PEX_RUNDOWN_REF_CACHE_AWARE, runrefsize : usize) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExInitializeRundownProtectionCacheAware(runrefcacheaware : super::super::Foundation:: PEX_RUNDOWN_REF_CACHE_AWARE, runrefsize : usize));
     ExInitializeRundownProtectionCacheAware(runrefcacheaware.into_param().abi(), runrefsize)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -1024,7 +1024,7 @@ pub unsafe fn ExInitializeRundownProtectionCacheAwareEx<P0>(runrefcacheaware: P0
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PEX_RUNDOWN_REF_CACHE_AWARE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExInitializeRundownProtectionCacheAwareEx(runrefcacheaware : super::super::Foundation:: PEX_RUNDOWN_REF_CACHE_AWARE, flags : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExInitializeRundownProtectionCacheAwareEx(runrefcacheaware : super::super::Foundation:: PEX_RUNDOWN_REF_CACHE_AWARE, flags : u32));
     ExInitializeRundownProtectionCacheAwareEx(runrefcacheaware.into_param().abi(), flags)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -1083,36 +1083,36 @@ pub unsafe fn ExIsSoftBoot() -> super::super::super::Win32::Foundation::BOOLEAN 
 }
 #[inline]
 pub unsafe fn ExLocalTimeToSystemTime(localtime: *const i64) -> i64 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExLocalTimeToSystemTime(localtime : *const i64, systemtime : *mut i64) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExLocalTimeToSystemTime(localtime : *const i64, systemtime : *mut i64));
     let mut result__ = ::std::mem::zeroed();
     ExLocalTimeToSystemTime(localtime, &mut result__);
     ::std::mem::transmute(result__)
 }
 #[inline]
 pub unsafe fn ExNotifyCallback(callbackobject: *const ::core::ffi::c_void, argument1: ::core::option::Option<*const ::core::ffi::c_void>, argument2: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExNotifyCallback(callbackobject : *const ::core::ffi::c_void, argument1 : *const ::core::ffi::c_void, argument2 : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExNotifyCallback(callbackobject : *const ::core::ffi::c_void, argument1 : *const ::core::ffi::c_void, argument2 : *const ::core::ffi::c_void));
     ExNotifyCallback(callbackobject, ::core::mem::transmute(argument1.unwrap_or(::std::ptr::null())), ::core::mem::transmute(argument2.unwrap_or(::std::ptr::null())))
 }
 #[inline]
 pub unsafe fn ExQueryTimerResolution(maximumtime: *mut u32, minimumtime: *mut u32, currenttime: *mut u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExQueryTimerResolution(maximumtime : *mut u32, minimumtime : *mut u32, currenttime : *mut u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExQueryTimerResolution(maximumtime : *mut u32, minimumtime : *mut u32, currenttime : *mut u32));
     ExQueryTimerResolution(maximumtime, minimumtime, currenttime)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ExQueueWorkItem(workitem: *mut super::super::Foundation::WORK_QUEUE_ITEM, queuetype: WORK_QUEUE_TYPE) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExQueueWorkItem(workitem : *mut super::super::Foundation:: WORK_QUEUE_ITEM, queuetype : WORK_QUEUE_TYPE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExQueueWorkItem(workitem : *mut super::super::Foundation:: WORK_QUEUE_ITEM, queuetype : WORK_QUEUE_TYPE));
     ExQueueWorkItem(workitem, queuetype)
 }
 #[inline]
 pub unsafe fn ExRaiseAccessViolation() {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExRaiseAccessViolation() -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExRaiseAccessViolation());
     ExRaiseAccessViolation()
 }
 #[inline]
 pub unsafe fn ExRaiseDatatypeMisalignment() {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExRaiseDatatypeMisalignment() -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExRaiseDatatypeMisalignment());
     ExRaiseDatatypeMisalignment()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1122,12 +1122,12 @@ pub unsafe fn ExRaiseStatus<P0>(status: P0)
 where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::NTSTATUS>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExRaiseStatus(status : super::super::super::Win32::Foundation:: NTSTATUS) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExRaiseStatus(status : super::super::super::Win32::Foundation:: NTSTATUS));
     ExRaiseStatus(status.into_param().abi())
 }
 #[inline]
 pub unsafe fn ExReInitializeRundownProtection(runref: *mut EX_RUNDOWN_REF) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReInitializeRundownProtection(runref : *mut EX_RUNDOWN_REF) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReInitializeRundownProtection(runref : *mut EX_RUNDOWN_REF));
     ExReInitializeRundownProtection(runref)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -1137,7 +1137,7 @@ pub unsafe fn ExReInitializeRundownProtectionCacheAware<P0>(runrefcacheaware: P0
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PEX_RUNDOWN_REF_CACHE_AWARE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReInitializeRundownProtectionCacheAware(runrefcacheaware : super::super::Foundation:: PEX_RUNDOWN_REF_CACHE_AWARE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReInitializeRundownProtectionCacheAware(runrefcacheaware : super::super::Foundation:: PEX_RUNDOWN_REF_CACHE_AWARE));
     ExReInitializeRundownProtectionCacheAware(runrefcacheaware.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -1161,50 +1161,50 @@ pub unsafe fn ExReinitializeResourceLite(resource: *mut super::super::Foundation
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ExReleaseFastMutex(fastmutex: *mut super::super::Foundation::FAST_MUTEX) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseFastMutex(fastmutex : *mut super::super::Foundation:: FAST_MUTEX) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseFastMutex(fastmutex : *mut super::super::Foundation:: FAST_MUTEX));
     ExReleaseFastMutex(fastmutex)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ExReleaseFastMutexUnsafe(fastmutex: *mut super::super::Foundation::FAST_MUTEX) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseFastMutexUnsafe(fastmutex : *mut super::super::Foundation:: FAST_MUTEX) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseFastMutexUnsafe(fastmutex : *mut super::super::Foundation:: FAST_MUTEX));
     ExReleaseFastMutexUnsafe(fastmutex)
 }
 #[inline]
 pub unsafe fn ExReleasePushLockExclusiveEx(pushlock: *mut usize, flags: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleasePushLockExclusiveEx(pushlock : *mut usize, flags : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleasePushLockExclusiveEx(pushlock : *mut usize, flags : u32));
     ExReleasePushLockExclusiveEx(pushlock, flags)
 }
 #[inline]
 pub unsafe fn ExReleasePushLockSharedEx(pushlock: *mut usize, flags: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleasePushLockSharedEx(pushlock : *mut usize, flags : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleasePushLockSharedEx(pushlock : *mut usize, flags : u32));
     ExReleasePushLockSharedEx(pushlock, flags)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ExReleaseResourceAndLeaveCriticalRegion(resource: *mut super::super::Foundation::ERESOURCE) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseResourceAndLeaveCriticalRegion(resource : *mut super::super::Foundation:: ERESOURCE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseResourceAndLeaveCriticalRegion(resource : *mut super::super::Foundation:: ERESOURCE));
     ExReleaseResourceAndLeaveCriticalRegion(resource)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ExReleaseResourceForThreadLite(resource: *mut super::super::Foundation::ERESOURCE, resourcethreadid: usize) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseResourceForThreadLite(resource : *mut super::super::Foundation:: ERESOURCE, resourcethreadid : usize) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseResourceForThreadLite(resource : *mut super::super::Foundation:: ERESOURCE, resourcethreadid : usize));
     ExReleaseResourceForThreadLite(resource, resourcethreadid)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ExReleaseResourceLite(resource: *mut super::super::Foundation::ERESOURCE) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseResourceLite(resource : *mut super::super::Foundation:: ERESOURCE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseResourceLite(resource : *mut super::super::Foundation:: ERESOURCE));
     ExReleaseResourceLite(resource)
 }
 #[inline]
 pub unsafe fn ExReleaseRundownProtection(runref: *mut EX_RUNDOWN_REF) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseRundownProtection(runref : *mut EX_RUNDOWN_REF) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseRundownProtection(runref : *mut EX_RUNDOWN_REF));
     ExReleaseRundownProtection(runref)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -1214,7 +1214,7 @@ pub unsafe fn ExReleaseRundownProtectionCacheAware<P0>(runrefcacheaware: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PEX_RUNDOWN_REF_CACHE_AWARE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseRundownProtectionCacheAware(runrefcacheaware : super::super::Foundation:: PEX_RUNDOWN_REF_CACHE_AWARE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseRundownProtectionCacheAware(runrefcacheaware : super::super::Foundation:: PEX_RUNDOWN_REF_CACHE_AWARE));
     ExReleaseRundownProtectionCacheAware(runrefcacheaware.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -1224,37 +1224,37 @@ pub unsafe fn ExReleaseRundownProtectionCacheAwareEx<P0>(runref: P0, count: u32)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PEX_RUNDOWN_REF_CACHE_AWARE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseRundownProtectionCacheAwareEx(runref : super::super::Foundation:: PEX_RUNDOWN_REF_CACHE_AWARE, count : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseRundownProtectionCacheAwareEx(runref : super::super::Foundation:: PEX_RUNDOWN_REF_CACHE_AWARE, count : u32));
     ExReleaseRundownProtectionCacheAwareEx(runref.into_param().abi(), count)
 }
 #[inline]
 pub unsafe fn ExReleaseRundownProtectionEx(runref: *mut EX_RUNDOWN_REF, count: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseRundownProtectionEx(runref : *mut EX_RUNDOWN_REF, count : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseRundownProtectionEx(runref : *mut EX_RUNDOWN_REF, count : u32));
     ExReleaseRundownProtectionEx(runref, count)
 }
 #[inline]
 pub unsafe fn ExReleaseSpinLockExclusive(spinlock: *mut i32, oldirql: u8) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseSpinLockExclusive(spinlock : *mut i32, oldirql : u8) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseSpinLockExclusive(spinlock : *mut i32, oldirql : u8));
     ExReleaseSpinLockExclusive(spinlock, oldirql)
 }
 #[inline]
 pub unsafe fn ExReleaseSpinLockExclusiveFromDpcLevel(spinlock: *mut i32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseSpinLockExclusiveFromDpcLevel(spinlock : *mut i32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseSpinLockExclusiveFromDpcLevel(spinlock : *mut i32));
     ExReleaseSpinLockExclusiveFromDpcLevel(spinlock)
 }
 #[inline]
 pub unsafe fn ExReleaseSpinLockShared(spinlock: *mut i32, oldirql: u8) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseSpinLockShared(spinlock : *mut i32, oldirql : u8) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseSpinLockShared(spinlock : *mut i32, oldirql : u8));
     ExReleaseSpinLockShared(spinlock, oldirql)
 }
 #[inline]
 pub unsafe fn ExReleaseSpinLockSharedFromDpcLevel(spinlock: *mut i32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseSpinLockSharedFromDpcLevel(spinlock : *mut i32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExReleaseSpinLockSharedFromDpcLevel(spinlock : *mut i32));
     ExReleaseSpinLockSharedFromDpcLevel(spinlock)
 }
 #[inline]
 pub unsafe fn ExRundownCompleted() -> EX_RUNDOWN_REF {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExRundownCompleted(runref : *mut EX_RUNDOWN_REF) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExRundownCompleted(runref : *mut EX_RUNDOWN_REF));
     let mut result__ = ::std::mem::zeroed();
     ExRundownCompleted(&mut result__);
     ::std::mem::transmute(result__)
@@ -1266,7 +1266,7 @@ pub unsafe fn ExRundownCompletedCacheAware<P0>(runrefcacheaware: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PEX_RUNDOWN_REF_CACHE_AWARE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExRundownCompletedCacheAware(runrefcacheaware : super::super::Foundation:: PEX_RUNDOWN_REF_CACHE_AWARE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExRundownCompletedCacheAware(runrefcacheaware : super::super::Foundation:: PEX_RUNDOWN_REF_CACHE_AWARE));
     ExRundownCompletedCacheAware(runrefcacheaware.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1300,14 +1300,14 @@ pub unsafe fn ExSetFirmwareEnvironmentVariable(variablename: *const super::super
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ExSetResourceOwnerPointer(resource: *mut super::super::Foundation::ERESOURCE, ownerpointer: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExSetResourceOwnerPointer(resource : *mut super::super::Foundation:: ERESOURCE, ownerpointer : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExSetResourceOwnerPointer(resource : *mut super::super::Foundation:: ERESOURCE, ownerpointer : *const ::core::ffi::c_void));
     ExSetResourceOwnerPointer(resource, ownerpointer)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ExSetResourceOwnerPointerEx(resource: *mut super::super::Foundation::ERESOURCE, ownerpointer: *const ::core::ffi::c_void, flags: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExSetResourceOwnerPointerEx(resource : *mut super::super::Foundation:: ERESOURCE, ownerpointer : *const ::core::ffi::c_void, flags : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExSetResourceOwnerPointerEx(resource : *mut super::super::Foundation:: ERESOURCE, ownerpointer : *const ::core::ffi::c_void, flags : u32));
     ExSetResourceOwnerPointerEx(resource, ownerpointer, flags)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
@@ -1337,7 +1337,7 @@ pub unsafe fn ExSizeOfRundownProtectionCacheAware() -> usize {
 }
 #[inline]
 pub unsafe fn ExSystemTimeToLocalTime(systemtime: *const i64) -> i64 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExSystemTimeToLocalTime(systemtime : *const i64, localtime : *mut i64) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExSystemTimeToLocalTime(systemtime : *const i64, localtime : *mut i64));
     let mut result__ = ::std::mem::zeroed();
     ExSystemTimeToLocalTime(systemtime, &mut result__);
     ::std::mem::transmute(result__)
@@ -1366,7 +1366,7 @@ pub unsafe fn ExTryToAcquireFastMutex(fastmutex: *mut super::super::Foundation::
 }
 #[inline]
 pub unsafe fn ExUnregisterCallback(callbackregistration: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExUnregisterCallback(callbackregistration : *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExUnregisterCallback(callbackregistration : *mut ::core::ffi::c_void));
     ExUnregisterCallback(callbackregistration)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1385,7 +1385,7 @@ pub unsafe fn ExVerifySuite(suitetype: super::super::super::Win32::System::Kerne
 }
 #[inline]
 pub unsafe fn ExWaitForRundownProtectionRelease(runref: *mut EX_RUNDOWN_REF) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExWaitForRundownProtectionRelease(runref : *mut EX_RUNDOWN_REF) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExWaitForRundownProtectionRelease(runref : *mut EX_RUNDOWN_REF));
     ExWaitForRundownProtectionRelease(runref)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -1395,7 +1395,7 @@ pub unsafe fn ExWaitForRundownProtectionReleaseCacheAware<P0>(runref: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PEX_RUNDOWN_REF_CACHE_AWARE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExWaitForRundownProtectionReleaseCacheAware(runref : super::super::Foundation:: PEX_RUNDOWN_REF_CACHE_AWARE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ExWaitForRundownProtectionReleaseCacheAware(runref : super::super::Foundation:: PEX_RUNDOWN_REF_CACHE_AWARE));
     ExWaitForRundownProtectionReleaseCacheAware(runref.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1412,7 +1412,7 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HalAcquireDisplayOwnership(resetdisplayparameters: PHAL_RESET_DISPLAY_PARAMETERS) {
-    ::windows_targets::link!("hal.dll" "system" fn HalAcquireDisplayOwnership(resetdisplayparameters : PHAL_RESET_DISPLAY_PARAMETERS) -> ());
+    ::windows_targets::link!("hal.dll" "system" fn HalAcquireDisplayOwnership(resetdisplayparameters : PHAL_RESET_DISPLAY_PARAMETERS));
     HalAcquireDisplayOwnership(resetdisplayparameters)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IscsiDisc\"`, `\"Win32_System_Kernel\"`"]
@@ -1457,7 +1457,7 @@ pub unsafe fn HalAssignSlotResources(registrypath: *const super::super::super::W
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[inline]
 pub unsafe fn HalBugCheckSystem(errorsource: *const super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR, errorrecord: *const WHEA_ERROR_RECORD) {
-    ::windows_targets::link!("hal.dll" "system" fn HalBugCheckSystem(errorsource : *const super::super::super::Win32::System::Diagnostics::Debug:: WHEA_ERROR_SOURCE_DESCRIPTOR, errorrecord : *const WHEA_ERROR_RECORD) -> ());
+    ::windows_targets::link!("hal.dll" "system" fn HalBugCheckSystem(errorsource : *const super::super::super::Win32::System::Diagnostics::Debug:: WHEA_ERROR_SOURCE_DESCRIPTOR, errorrecord : *const WHEA_ERROR_RECORD));
     HalBugCheckSystem(errorsource, errorrecord)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IscsiDisc\"`"]
@@ -1478,7 +1478,7 @@ pub unsafe fn HalDmaFreeCrashDumpRegistersEx(adapter: *const super::super::super
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn HalExamineMBR(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, sectorsize: u32, mbrtypeidentifier: u32, buffer: *mut *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn HalExamineMBR(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, sectorsize : u32, mbrtypeidentifier : u32, buffer : *mut *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn HalExamineMBR(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, sectorsize : u32, mbrtypeidentifier : u32, buffer : *mut *mut ::core::ffi::c_void));
     HalExamineMBR(deviceobject, sectorsize, mbrtypeidentifier, buffer)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IscsiDisc\"`"]
@@ -1488,7 +1488,7 @@ pub unsafe fn HalFreeCommonBuffer<P0>(adapterobject: *const super::super::super:
 where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link!("hal.dll" "system" fn HalFreeCommonBuffer(adapterobject : *const super::super::super::Win32::Storage::IscsiDisc:: _ADAPTER_OBJECT, length : u32, logicaladdress : i64, virtualaddress : *const ::core::ffi::c_void, cacheenabled : super::super::super::Win32::Foundation:: BOOLEAN) -> ());
+    ::windows_targets::link!("hal.dll" "system" fn HalFreeCommonBuffer(adapterobject : *const super::super::super::Win32::Storage::IscsiDisc:: _ADAPTER_OBJECT, length : u32, logicaladdress : i64, virtualaddress : *const ::core::ffi::c_void, cacheenabled : super::super::super::Win32::Foundation:: BOOLEAN));
     HalFreeCommonBuffer(adapterobject, length, logicaladdress, virtualaddress, cacheenabled.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1570,7 +1570,7 @@ pub unsafe fn HvlUnregisterWheaErrorNotification(callback: PHVL_WHEA_ERROR_NOTIF
 }
 #[inline]
 pub unsafe fn IoAcquireCancelSpinLock() -> u8 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoAcquireCancelSpinLock(irql : *mut u8) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoAcquireCancelSpinLock(irql : *mut u8));
     let mut result__ = ::std::mem::zeroed();
     IoAcquireCancelSpinLock(&mut result__);
     ::std::mem::transmute(result__)
@@ -1610,7 +1610,7 @@ pub unsafe fn IoAllocateAdapterChannel(adapterobject: *const super::super::super
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoAllocateController(controllerobject: *const CONTROLLER_OBJECT, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, executionroutine: PDRIVER_CONTROL, context: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoAllocateController(controllerobject : *const CONTROLLER_OBJECT, deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, executionroutine : PDRIVER_CONTROL, context : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoAllocateController(controllerobject : *const CONTROLLER_OBJECT, deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, executionroutine : PDRIVER_CONTROL, context : *const ::core::ffi::c_void));
     IoAllocateController(controllerobject, deviceobject, executionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -1726,7 +1726,7 @@ where
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn IoBuildPartialMdl(sourcemdl: *const super::super::Foundation::MDL, targetmdl: *mut super::super::Foundation::MDL, virtualaddress: *mut ::core::ffi::c_void, length: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoBuildPartialMdl(sourcemdl : *const super::super::Foundation:: MDL, targetmdl : *mut super::super::Foundation:: MDL, virtualaddress : *mut ::core::ffi::c_void, length : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoBuildPartialMdl(sourcemdl : *const super::super::Foundation:: MDL, targetmdl : *mut super::super::Foundation:: MDL, virtualaddress : *mut ::core::ffi::c_void, length : u32));
     IoBuildPartialMdl(sourcemdl, targetmdl, virtualaddress, length)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -1740,7 +1740,7 @@ pub unsafe fn IoBuildSynchronousFsdRequest(majorfunction: u32, deviceobject: *co
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoCancelFileOpen(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, fileobject: *const super::super::Foundation::FILE_OBJECT) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoCancelFileOpen(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, fileobject : *const super::super::Foundation:: FILE_OBJECT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoCancelFileOpen(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, fileobject : *const super::super::Foundation:: FILE_OBJECT));
     IoCancelFileOpen(deviceobject, fileobject)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -1781,19 +1781,19 @@ where
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoCleanupIrp(irp: *mut super::super::Foundation::IRP) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoCleanupIrp(irp : *mut super::super::Foundation:: IRP) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoCleanupIrp(irp : *mut super::super::Foundation:: IRP));
     IoCleanupIrp(irp)
 }
 #[inline]
 pub unsafe fn IoClearActivityIdThread(originalid: *const ::windows_core::GUID) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoClearActivityIdThread(originalid : *const ::windows_core::GUID) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoClearActivityIdThread(originalid : *const ::windows_core::GUID));
     IoClearActivityIdThread(originalid)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoClearIrpExtraCreateParameter(irp: *mut super::super::Foundation::IRP) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoClearIrpExtraCreateParameter(irp : *mut super::super::Foundation:: IRP) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoClearIrpExtraCreateParameter(irp : *mut super::super::Foundation:: IRP));
     IoClearIrpExtraCreateParameter(irp)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
@@ -1915,7 +1915,7 @@ pub unsafe fn IoCsqInitializeEx(csq: *mut IO_CSQ, csqinsertirp: PIO_CSQ_INSERT_I
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoCsqInsertIrp(csq: *mut IO_CSQ, irp: *mut super::super::Foundation::IRP, context: ::core::option::Option<*mut IO_CSQ_IRP_CONTEXT>) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoCsqInsertIrp(csq : *mut IO_CSQ, irp : *mut super::super::Foundation:: IRP, context : *mut IO_CSQ_IRP_CONTEXT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoCsqInsertIrp(csq : *mut IO_CSQ, irp : *mut super::super::Foundation:: IRP, context : *mut IO_CSQ_IRP_CONTEXT));
     IoCsqInsertIrp(csq, irp, ::core::mem::transmute(context.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -1953,14 +1953,14 @@ where
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn IoDeleteController(controllerobject: *const CONTROLLER_OBJECT) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoDeleteController(controllerobject : *const CONTROLLER_OBJECT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoDeleteController(controllerobject : *const CONTROLLER_OBJECT));
     IoDeleteController(controllerobject)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoDeleteDevice(deviceobject: *const super::super::Foundation::DEVICE_OBJECT) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoDeleteDevice(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoDeleteDevice(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT));
     IoDeleteDevice(deviceobject)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1974,7 +1974,7 @@ pub unsafe fn IoDeleteSymbolicLink(symboliclinkname: *const super::super::super:
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoDetachDevice(targetdevice: *mut super::super::Foundation::DEVICE_OBJECT) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoDetachDevice(targetdevice : *mut super::super::Foundation:: DEVICE_OBJECT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoDetachDevice(targetdevice : *mut super::super::Foundation:: DEVICE_OBJECT));
     IoDetachDevice(targetdevice)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -1984,14 +1984,14 @@ pub unsafe fn IoDisconnectInterrupt<P0>(interruptobject: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PKINTERRUPT>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoDisconnectInterrupt(interruptobject : super::super::Foundation:: PKINTERRUPT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoDisconnectInterrupt(interruptobject : super::super::Foundation:: PKINTERRUPT));
     IoDisconnectInterrupt(interruptobject.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn IoDisconnectInterruptEx(parameters: *const IO_DISCONNECT_INTERRUPT_PARAMETERS) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoDisconnectInterruptEx(parameters : *const IO_DISCONNECT_INTERRUPT_PARAMETERS) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoDisconnectInterruptEx(parameters : *const IO_DISCONNECT_INTERRUPT_PARAMETERS));
     IoDisconnectInterruptEx(parameters)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -2022,26 +2022,26 @@ pub unsafe fn IoForwardIrpSynchronously(deviceobject: *const super::super::Found
 #[cfg(feature = "Win32_Storage_IscsiDisc")]
 #[inline]
 pub unsafe fn IoFreeAdapterChannel(adapterobject: *const super::super::super::Win32::Storage::IscsiDisc::_ADAPTER_OBJECT) {
-    ::windows_targets::link!("hal.dll" "system" fn IoFreeAdapterChannel(adapterobject : *const super::super::super::Win32::Storage::IscsiDisc:: _ADAPTER_OBJECT) -> ());
+    ::windows_targets::link!("hal.dll" "system" fn IoFreeAdapterChannel(adapterobject : *const super::super::super::Win32::Storage::IscsiDisc:: _ADAPTER_OBJECT));
     IoFreeAdapterChannel(adapterobject)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn IoFreeController(controllerobject: *const CONTROLLER_OBJECT) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoFreeController(controllerobject : *const CONTROLLER_OBJECT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoFreeController(controllerobject : *const CONTROLLER_OBJECT));
     IoFreeController(controllerobject)
 }
 #[inline]
 pub unsafe fn IoFreeErrorLogEntry(elentry: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoFreeErrorLogEntry(elentry : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoFreeErrorLogEntry(elentry : *const ::core::ffi::c_void));
     IoFreeErrorLogEntry(elentry)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoFreeIrp(irp: *const super::super::Foundation::IRP) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoFreeIrp(irp : *const super::super::Foundation:: IRP) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoFreeIrp(irp : *const super::super::Foundation:: IRP));
     IoFreeIrp(irp)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -2055,14 +2055,14 @@ pub unsafe fn IoFreeKsrPersistentMemory(datahandle: *const ::core::ffi::c_void) 
 #[cfg(feature = "Win32_Storage_IscsiDisc")]
 #[inline]
 pub unsafe fn IoFreeMapRegisters(adapterobject: *const super::super::super::Win32::Storage::IscsiDisc::_ADAPTER_OBJECT, mapregisterbase: *const ::core::ffi::c_void, numberofmapregisters: u32) {
-    ::windows_targets::link!("hal.dll" "system" fn IoFreeMapRegisters(adapterobject : *const super::super::super::Win32::Storage::IscsiDisc:: _ADAPTER_OBJECT, mapregisterbase : *const ::core::ffi::c_void, numberofmapregisters : u32) -> ());
+    ::windows_targets::link!("hal.dll" "system" fn IoFreeMapRegisters(adapterobject : *const super::super::super::Win32::Storage::IscsiDisc:: _ADAPTER_OBJECT, mapregisterbase : *const ::core::ffi::c_void, numberofmapregisters : u32));
     IoFreeMapRegisters(adapterobject, mapregisterbase, numberofmapregisters)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn IoFreeMdl(mdl: *mut super::super::Foundation::MDL) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoFreeMdl(mdl : *mut super::super::Foundation:: MDL) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoFreeMdl(mdl : *mut super::super::Foundation:: MDL));
     IoFreeMdl(mdl)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -2079,7 +2079,7 @@ pub unsafe fn IoFreeWorkItem<P0>(ioworkitem: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PIO_WORKITEM>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoFreeWorkItem(ioworkitem : super::super::Foundation:: PIO_WORKITEM) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoFreeWorkItem(ioworkitem : super::super::Foundation:: PIO_WORKITEM));
     IoFreeWorkItem(ioworkitem.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -2321,7 +2321,7 @@ pub unsafe fn IoGetSiloParameters(fileobject: *const super::super::Foundation::F
 }
 #[inline]
 pub unsafe fn IoGetStackLimits(lowlimit: *mut usize, highlimit: *mut usize) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoGetStackLimits(lowlimit : *mut usize, highlimit : *mut usize) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoGetStackLimits(lowlimit : *mut usize, highlimit : *mut usize));
     IoGetStackLimits(lowlimit, highlimit)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -2352,21 +2352,21 @@ where
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoInitializeIrp(irp: *mut super::super::Foundation::IRP, packetsize: u16, stacksize: i8) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoInitializeIrp(irp : *mut super::super::Foundation:: IRP, packetsize : u16, stacksize : i8) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoInitializeIrp(irp : *mut super::super::Foundation:: IRP, packetsize : u16, stacksize : i8));
     IoInitializeIrp(irp, packetsize, stacksize)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoInitializeIrpEx(irp: *mut super::super::Foundation::IRP, deviceobject: ::core::option::Option<*const super::super::Foundation::DEVICE_OBJECT>, packetsize: u16, stacksize: i8) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoInitializeIrpEx(irp : *mut super::super::Foundation:: IRP, deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, packetsize : u16, stacksize : i8) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoInitializeIrpEx(irp : *mut super::super::Foundation:: IRP, deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, packetsize : u16, stacksize : i8));
     IoInitializeIrpEx(irp, ::core::mem::transmute(deviceobject.unwrap_or(::std::ptr::null())), packetsize, stacksize)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn IoInitializeRemoveLockEx(lock: *mut IO_REMOVE_LOCK, allocatetag: u32, maxlockedminutes: u32, highwatermark: u32, remlocksize: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoInitializeRemoveLockEx(lock : *mut IO_REMOVE_LOCK, allocatetag : u32, maxlockedminutes : u32, highwatermark : u32, remlocksize : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoInitializeRemoveLockEx(lock : *mut IO_REMOVE_LOCK, allocatetag : u32, maxlockedminutes : u32, highwatermark : u32, remlocksize : u32));
     IoInitializeRemoveLockEx(lock, allocatetag, maxlockedminutes, highwatermark, remlocksize)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -2383,21 +2383,21 @@ pub unsafe fn IoInitializeWorkItem<P0>(ioobject: *const ::core::ffi::c_void, iow
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PIO_WORKITEM>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoInitializeWorkItem(ioobject : *const ::core::ffi::c_void, ioworkitem : super::super::Foundation:: PIO_WORKITEM) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoInitializeWorkItem(ioobject : *const ::core::ffi::c_void, ioworkitem : super::super::Foundation:: PIO_WORKITEM));
     IoInitializeWorkItem(ioobject, ioworkitem.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoInvalidateDeviceRelations(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, r#type: DEVICE_RELATION_TYPE) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoInvalidateDeviceRelations(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, r#type : DEVICE_RELATION_TYPE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoInvalidateDeviceRelations(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, r#type : DEVICE_RELATION_TYPE));
     IoInvalidateDeviceRelations(deviceobject, r#type)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoInvalidateDeviceState(physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoInvalidateDeviceState(physicaldeviceobject : *const super::super::Foundation:: DEVICE_OBJECT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoInvalidateDeviceState(physicaldeviceobject : *const super::super::Foundation:: DEVICE_OBJECT));
     IoInvalidateDeviceState(physicaldeviceobject)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -2548,7 +2548,7 @@ pub unsafe fn IoQueueWorkItem<P0>(ioworkitem: P0, workerroutine: PIO_WORKITEM_RO
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PIO_WORKITEM>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoQueueWorkItem(ioworkitem : super::super::Foundation:: PIO_WORKITEM, workerroutine : PIO_WORKITEM_ROUTINE, queuetype : WORK_QUEUE_TYPE, context : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoQueueWorkItem(ioworkitem : super::super::Foundation:: PIO_WORKITEM, workerroutine : PIO_WORKITEM_ROUTINE, queuetype : WORK_QUEUE_TYPE, context : *const ::core::ffi::c_void));
     IoQueueWorkItem(ioworkitem.into_param().abi(), workerroutine, queuetype, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -2558,14 +2558,14 @@ pub unsafe fn IoQueueWorkItemEx<P0>(ioworkitem: P0, workerroutine: PIO_WORKITEM_
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PIO_WORKITEM>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoQueueWorkItemEx(ioworkitem : super::super::Foundation:: PIO_WORKITEM, workerroutine : PIO_WORKITEM_ROUTINE_EX, queuetype : WORK_QUEUE_TYPE, context : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoQueueWorkItemEx(ioworkitem : super::super::Foundation:: PIO_WORKITEM, workerroutine : PIO_WORKITEM_ROUTINE_EX, queuetype : WORK_QUEUE_TYPE, context : *const ::core::ffi::c_void));
     IoQueueWorkItemEx(ioworkitem.into_param().abi(), workerroutine, queuetype, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoRaiseHardError(irp: *const super::super::Foundation::IRP, vpb: ::core::option::Option<*const super::super::Foundation::VPB>, realdeviceobject: *const super::super::Foundation::DEVICE_OBJECT) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoRaiseHardError(irp : *const super::super::Foundation:: IRP, vpb : *const super::super::Foundation:: VPB, realdeviceobject : *const super::super::Foundation:: DEVICE_OBJECT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoRaiseHardError(irp : *const super::super::Foundation:: IRP, vpb : *const super::super::Foundation:: VPB, realdeviceobject : *const super::super::Foundation:: DEVICE_OBJECT));
     IoRaiseHardError(irp, ::core::mem::transmute(vpb.unwrap_or(::std::ptr::null())), realdeviceobject)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
@@ -2619,7 +2619,7 @@ pub unsafe fn IoRegisterBootDriverCallback(callbackfunction: PBOOT_DRIVER_CALLBA
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoRegisterBootDriverReinitialization(driverobject: *const super::super::Foundation::DRIVER_OBJECT, driverreinitializationroutine: PDRIVER_REINITIALIZE, context: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoRegisterBootDriverReinitialization(driverobject : *const super::super::Foundation:: DRIVER_OBJECT, driverreinitializationroutine : PDRIVER_REINITIALIZE, context : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoRegisterBootDriverReinitialization(driverobject : *const super::super::Foundation:: DRIVER_OBJECT, driverreinitializationroutine : PDRIVER_REINITIALIZE, context : *const ::core::ffi::c_void));
     IoRegisterBootDriverReinitialization(driverobject, driverreinitializationroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -2640,7 +2640,7 @@ pub unsafe fn IoRegisterDeviceInterface(physicaldeviceobject: *const super::supe
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoRegisterDriverReinitialization(driverobject: *const super::super::Foundation::DRIVER_OBJECT, driverreinitializationroutine: PDRIVER_REINITIALIZE, context: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoRegisterDriverReinitialization(driverobject : *const super::super::Foundation:: DRIVER_OBJECT, driverreinitializationroutine : PDRIVER_REINITIALIZE, context : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoRegisterDriverReinitialization(driverobject : *const super::super::Foundation:: DRIVER_OBJECT, driverreinitializationroutine : PDRIVER_REINITIALIZE, context : *const ::core::ffi::c_void));
     IoRegisterDriverReinitialization(driverobject, driverreinitializationroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -2666,42 +2666,42 @@ pub unsafe fn IoRegisterShutdownNotification(deviceobject: *const super::super::
 }
 #[inline]
 pub unsafe fn IoReleaseCancelSpinLock(irql: u8) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoReleaseCancelSpinLock(irql : u8) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoReleaseCancelSpinLock(irql : u8));
     IoReleaseCancelSpinLock(irql)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn IoReleaseRemoveLockAndWaitEx(removelock: *mut IO_REMOVE_LOCK, tag: ::core::option::Option<*const ::core::ffi::c_void>, remlocksize: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoReleaseRemoveLockAndWaitEx(removelock : *mut IO_REMOVE_LOCK, tag : *const ::core::ffi::c_void, remlocksize : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoReleaseRemoveLockAndWaitEx(removelock : *mut IO_REMOVE_LOCK, tag : *const ::core::ffi::c_void, remlocksize : u32));
     IoReleaseRemoveLockAndWaitEx(removelock, ::core::mem::transmute(tag.unwrap_or(::std::ptr::null())), remlocksize)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn IoReleaseRemoveLockEx(removelock: *mut IO_REMOVE_LOCK, tag: ::core::option::Option<*const ::core::ffi::c_void>, remlocksize: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoReleaseRemoveLockEx(removelock : *mut IO_REMOVE_LOCK, tag : *const ::core::ffi::c_void, remlocksize : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoReleaseRemoveLockEx(removelock : *mut IO_REMOVE_LOCK, tag : *const ::core::ffi::c_void, remlocksize : u32));
     IoReleaseRemoveLockEx(removelock, ::core::mem::transmute(tag.unwrap_or(::std::ptr::null())), remlocksize)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoRemoveLinkShareAccess(fileobject: *const super::super::Foundation::FILE_OBJECT, shareaccess: *mut SHARE_ACCESS, linkshareaccess: ::core::option::Option<*mut LINK_SHARE_ACCESS>) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoRemoveLinkShareAccess(fileobject : *const super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS, linkshareaccess : *mut LINK_SHARE_ACCESS) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoRemoveLinkShareAccess(fileobject : *const super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS, linkshareaccess : *mut LINK_SHARE_ACCESS));
     IoRemoveLinkShareAccess(fileobject, shareaccess, ::core::mem::transmute(linkshareaccess.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoRemoveLinkShareAccessEx(fileobject: *const super::super::Foundation::FILE_OBJECT, shareaccess: *mut SHARE_ACCESS, linkshareaccess: ::core::option::Option<*mut LINK_SHARE_ACCESS>, ioshareaccessflags: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoRemoveLinkShareAccessEx(fileobject : *const super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS, linkshareaccess : *mut LINK_SHARE_ACCESS, ioshareaccessflags : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoRemoveLinkShareAccessEx(fileobject : *const super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS, linkshareaccess : *mut LINK_SHARE_ACCESS, ioshareaccessflags : u32));
     IoRemoveLinkShareAccessEx(fileobject, shareaccess, ::core::mem::transmute(linkshareaccess.unwrap_or(::std::ptr::null_mut())), ioshareaccessflags)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoRemoveShareAccess(fileobject: *const super::super::Foundation::FILE_OBJECT, shareaccess: *mut SHARE_ACCESS) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoRemoveShareAccess(fileobject : *const super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoRemoveShareAccess(fileobject : *const super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS));
     IoRemoveShareAccess(fileobject, shareaccess)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -2725,14 +2725,14 @@ where
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn IoReportInterruptActive(parameters: *const IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoReportInterruptActive(parameters : *const IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoReportInterruptActive(parameters : *const IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS));
     IoReportInterruptActive(parameters)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn IoReportInterruptInactive(parameters: *const IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoReportInterruptInactive(parameters : *const IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoReportInterruptInactive(parameters : *const IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS));
     IoReportInterruptInactive(parameters)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -2777,7 +2777,7 @@ pub unsafe fn IoReportTargetDeviceChangeAsynchronous(physicaldeviceobject: *cons
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoRequestDeviceEject(physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoRequestDeviceEject(physicaldeviceobject : *const super::super::Foundation:: DEVICE_OBJECT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoRequestDeviceEject(physicaldeviceobject : *const super::super::Foundation:: DEVICE_OBJECT));
     IoRequestDeviceEject(physicaldeviceobject)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -2808,7 +2808,7 @@ pub unsafe fn IoReuseIrp<P0>(irp: *mut super::super::Foundation::IRP, iostatus: 
 where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::NTSTATUS>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoReuseIrp(irp : *mut super::super::Foundation:: IRP, iostatus : super::super::super::Win32::Foundation:: NTSTATUS) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoReuseIrp(irp : *mut super::super::Foundation:: IRP, iostatus : super::super::super::Win32::Foundation:: NTSTATUS));
     IoReuseIrp(irp, iostatus.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -2894,7 +2894,7 @@ pub unsafe fn IoSetFsZeroingOffsetRequired(irp: *mut super::super::Foundation::I
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoSetHardErrorOrVerifyDevice(irp: *const super::super::Foundation::IRP, deviceobject: *const super::super::Foundation::DEVICE_OBJECT) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoSetHardErrorOrVerifyDevice(irp : *const super::super::Foundation:: IRP, deviceobject : *const super::super::Foundation:: DEVICE_OBJECT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoSetHardErrorOrVerifyDevice(irp : *const super::super::Foundation:: IRP, deviceobject : *const super::super::Foundation:: DEVICE_OBJECT));
     IoSetHardErrorOrVerifyDevice(irp, deviceobject)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -2922,7 +2922,7 @@ pub unsafe fn IoSetIrpExtraCreateParameter(irp: *mut super::super::Foundation::I
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoSetLinkShareAccess(desiredaccess: u32, desiredshareaccess: u32, fileobject: *mut super::super::Foundation::FILE_OBJECT, shareaccess: *mut SHARE_ACCESS, linkshareaccess: ::core::option::Option<*mut LINK_SHARE_ACCESS>, ioshareaccessflags: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoSetLinkShareAccess(desiredaccess : u32, desiredshareaccess : u32, fileobject : *mut super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS, linkshareaccess : *mut LINK_SHARE_ACCESS, ioshareaccessflags : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoSetLinkShareAccess(desiredaccess : u32, desiredshareaccess : u32, fileobject : *mut super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS, linkshareaccess : *mut LINK_SHARE_ACCESS, ioshareaccessflags : u32));
     IoSetLinkShareAccess(desiredaccess, desiredshareaccess, fileobject, shareaccess, ::core::mem::transmute(linkshareaccess.unwrap_or(::std::ptr::null_mut())), ioshareaccessflags)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -2932,7 +2932,7 @@ pub unsafe fn IoSetMasterIrpStatus<P0>(masterirp: *mut super::super::Foundation:
 where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::NTSTATUS>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoSetMasterIrpStatus(masterirp : *mut super::super::Foundation:: IRP, status : super::super::super::Win32::Foundation:: NTSTATUS) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoSetMasterIrpStatus(masterirp : *mut super::super::Foundation:: IRP, status : super::super::super::Win32::Foundation:: NTSTATUS));
     IoSetMasterIrpStatus(masterirp, status.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -2953,14 +2953,14 @@ pub unsafe fn IoSetPartitionInformationEx(deviceobject: *const super::super::Fou
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoSetShareAccess(desiredaccess: u32, desiredshareaccess: u32, fileobject: *mut super::super::Foundation::FILE_OBJECT, shareaccess: *mut SHARE_ACCESS) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoSetShareAccess(desiredaccess : u32, desiredshareaccess : u32, fileobject : *mut super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoSetShareAccess(desiredaccess : u32, desiredshareaccess : u32, fileobject : *mut super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS));
     IoSetShareAccess(desiredaccess, desiredshareaccess, fileobject, shareaccess)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoSetShareAccessEx(desiredaccess: u32, desiredshareaccess: u32, fileobject: *mut super::super::Foundation::FILE_OBJECT, shareaccess: *mut SHARE_ACCESS, writepermission: ::core::option::Option<*const super::super::super::Win32::Foundation::BOOLEAN>) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoSetShareAccessEx(desiredaccess : u32, desiredshareaccess : u32, fileobject : *mut super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS, writepermission : *const super::super::super::Win32::Foundation:: BOOLEAN) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoSetShareAccessEx(desiredaccess : u32, desiredshareaccess : u32, fileobject : *mut super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS, writepermission : *const super::super::super::Win32::Foundation:: BOOLEAN));
     IoSetShareAccessEx(desiredaccess, desiredshareaccess, fileobject, shareaccess, ::core::mem::transmute(writepermission.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -2971,7 +2971,7 @@ where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
     P1: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoSetStartIoAttributes(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, deferredstartio : super::super::super::Win32::Foundation:: BOOLEAN, noncancelable : super::super::super::Win32::Foundation:: BOOLEAN) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoSetStartIoAttributes(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, deferredstartio : super::super::super::Win32::Foundation:: BOOLEAN, noncancelable : super::super::super::Win32::Foundation:: BOOLEAN));
     IoSetStartIoAttributes(deviceobject, deferredstartio.into_param().abi(), noncancelable.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -2995,7 +2995,7 @@ where
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoSetTopLevelIrp(irp: ::core::option::Option<*const super::super::Foundation::IRP>) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoSetTopLevelIrp(irp : *const super::super::Foundation:: IRP) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoSetTopLevelIrp(irp : *const super::super::Foundation:: IRP));
     IoSetTopLevelIrp(::core::mem::transmute(irp.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -3017,7 +3017,7 @@ pub unsafe fn IoStartNextPacket<P0>(deviceobject: *const super::super::Foundatio
 where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoStartNextPacket(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, cancelable : super::super::super::Win32::Foundation:: BOOLEAN) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoStartNextPacket(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, cancelable : super::super::super::Win32::Foundation:: BOOLEAN));
     IoStartNextPacket(deviceobject, cancelable.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -3027,28 +3027,28 @@ pub unsafe fn IoStartNextPacketByKey<P0>(deviceobject: *const super::super::Foun
 where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoStartNextPacketByKey(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, cancelable : super::super::super::Win32::Foundation:: BOOLEAN, key : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoStartNextPacketByKey(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, cancelable : super::super::super::Win32::Foundation:: BOOLEAN, key : u32));
     IoStartNextPacketByKey(deviceobject, cancelable.into_param().abi(), key)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoStartPacket(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *const super::super::Foundation::IRP, key: ::core::option::Option<*const u32>, cancelfunction: super::super::Foundation::PDRIVER_CANCEL) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoStartPacket(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, irp : *const super::super::Foundation:: IRP, key : *const u32, cancelfunction : super::super::Foundation:: PDRIVER_CANCEL) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoStartPacket(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, irp : *const super::super::Foundation:: IRP, key : *const u32, cancelfunction : super::super::Foundation:: PDRIVER_CANCEL));
     IoStartPacket(deviceobject, irp, ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), cancelfunction)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoStartTimer(deviceobject: *const super::super::Foundation::DEVICE_OBJECT) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoStartTimer(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoStartTimer(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT));
     IoStartTimer(deviceobject)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoStopTimer(deviceobject: *const super::super::Foundation::DEVICE_OBJECT) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoStopTimer(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoStopTimer(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT));
     IoStopTimer(deviceobject)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -3060,7 +3060,7 @@ pub unsafe fn IoSynchronousCallDriver(deviceobject: *const super::super::Foundat
 }
 #[inline]
 pub unsafe fn IoTransferActivityId(activityid: *const ::windows_core::GUID, relatedactivityid: *const ::windows_core::GUID) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoTransferActivityId(activityid : *const ::windows_core::GUID, relatedactivityid : *const ::windows_core::GUID) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoTransferActivityId(activityid : *const ::windows_core::GUID, relatedactivityid : *const ::windows_core::GUID));
     IoTransferActivityId(activityid, relatedactivityid)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -3087,17 +3087,17 @@ pub unsafe fn IoUninitializeWorkItem<P0>(ioworkitem: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PIO_WORKITEM>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoUninitializeWorkItem(ioworkitem : super::super::Foundation:: PIO_WORKITEM) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoUninitializeWorkItem(ioworkitem : super::super::Foundation:: PIO_WORKITEM));
     IoUninitializeWorkItem(ioworkitem.into_param().abi())
 }
 #[inline]
 pub unsafe fn IoUnregisterBootDriverCallback(callbackhandle: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoUnregisterBootDriverCallback(callbackhandle : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoUnregisterBootDriverCallback(callbackhandle : *const ::core::ffi::c_void));
     IoUnregisterBootDriverCallback(callbackhandle)
 }
 #[inline]
 pub unsafe fn IoUnregisterContainerNotification(callbackregistration: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoUnregisterContainerNotification(callbackregistration : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoUnregisterContainerNotification(callbackregistration : *const ::core::ffi::c_void));
     IoUnregisterContainerNotification(callbackregistration)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -3118,28 +3118,28 @@ pub unsafe fn IoUnregisterPlugPlayNotificationEx(notificationentry: *const ::cor
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoUnregisterShutdownNotification(deviceobject: *const super::super::Foundation::DEVICE_OBJECT) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoUnregisterShutdownNotification(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoUnregisterShutdownNotification(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT));
     IoUnregisterShutdownNotification(deviceobject)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoUpdateLinkShareAccess(fileobject: *const super::super::Foundation::FILE_OBJECT, shareaccess: *mut SHARE_ACCESS, linkshareaccess: ::core::option::Option<*mut LINK_SHARE_ACCESS>) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoUpdateLinkShareAccess(fileobject : *const super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS, linkshareaccess : *mut LINK_SHARE_ACCESS) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoUpdateLinkShareAccess(fileobject : *const super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS, linkshareaccess : *mut LINK_SHARE_ACCESS));
     IoUpdateLinkShareAccess(fileobject, shareaccess, ::core::mem::transmute(linkshareaccess.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoUpdateLinkShareAccessEx(fileobject: *const super::super::Foundation::FILE_OBJECT, shareaccess: *mut SHARE_ACCESS, linkshareaccess: ::core::option::Option<*mut LINK_SHARE_ACCESS>, ioshareaccessflags: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoUpdateLinkShareAccessEx(fileobject : *const super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS, linkshareaccess : *mut LINK_SHARE_ACCESS, ioshareaccessflags : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoUpdateLinkShareAccessEx(fileobject : *const super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS, linkshareaccess : *mut LINK_SHARE_ACCESS, ioshareaccessflags : u32));
     IoUpdateLinkShareAccessEx(fileobject, shareaccess, ::core::mem::transmute(linkshareaccess.unwrap_or(::std::ptr::null_mut())), ioshareaccessflags)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IoUpdateShareAccess(fileobject: *const super::super::Foundation::FILE_OBJECT, shareaccess: *mut SHARE_ACCESS) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoUpdateShareAccess(fileobject : *const super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoUpdateShareAccess(fileobject : *const super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS));
     IoUpdateShareAccess(fileobject, shareaccess)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -3312,7 +3312,7 @@ pub unsafe fn IoWithinStackLimits(regionstart: usize, regionsize: usize) -> u32 
 }
 #[inline]
 pub unsafe fn IoWriteErrorLogEntry(elentry: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoWriteErrorLogEntry(elentry : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IoWriteErrorLogEntry(elentry : *const ::core::ffi::c_void));
     IoWriteErrorLogEntry(elentry)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -3347,7 +3347,7 @@ pub unsafe fn IofCallDriver(deviceobject: *const super::super::Foundation::DEVIC
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IofCompleteRequest(irp: *const super::super::Foundation::IRP, priorityboost: i8) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn IofCompleteRequest(irp : *const super::super::Foundation:: IRP, priorityboost : i8) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn IofCompleteRequest(irp : *const super::super::Foundation:: IRP, priorityboost : i8));
     IofCompleteRequest(irp, priorityboost)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -3382,29 +3382,29 @@ pub unsafe fn KdRefreshDebuggerNotPresent() -> super::super::super::Win32::Found
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn KeAcquireGuardedMutex(mutex: *mut super::super::Foundation::FAST_MUTEX) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeAcquireGuardedMutex(mutex : *mut super::super::Foundation:: FAST_MUTEX) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeAcquireGuardedMutex(mutex : *mut super::super::Foundation:: FAST_MUTEX));
     KeAcquireGuardedMutex(mutex)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn KeAcquireGuardedMutexUnsafe(fastmutex: *mut super::super::Foundation::FAST_MUTEX) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeAcquireGuardedMutexUnsafe(fastmutex : *mut super::super::Foundation:: FAST_MUTEX) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeAcquireGuardedMutexUnsafe(fastmutex : *mut super::super::Foundation:: FAST_MUTEX));
     KeAcquireGuardedMutexUnsafe(fastmutex)
 }
 #[inline]
 pub unsafe fn KeAcquireInStackQueuedSpinLock(spinlock: *mut usize, lockhandle: *mut KLOCK_QUEUE_HANDLE) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeAcquireInStackQueuedSpinLock(spinlock : *mut usize, lockhandle : *mut KLOCK_QUEUE_HANDLE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeAcquireInStackQueuedSpinLock(spinlock : *mut usize, lockhandle : *mut KLOCK_QUEUE_HANDLE));
     KeAcquireInStackQueuedSpinLock(spinlock, lockhandle)
 }
 #[inline]
 pub unsafe fn KeAcquireInStackQueuedSpinLockAtDpcLevel(spinlock: *mut usize, lockhandle: *mut KLOCK_QUEUE_HANDLE) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeAcquireInStackQueuedSpinLockAtDpcLevel(spinlock : *mut usize, lockhandle : *mut KLOCK_QUEUE_HANDLE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeAcquireInStackQueuedSpinLockAtDpcLevel(spinlock : *mut usize, lockhandle : *mut KLOCK_QUEUE_HANDLE));
     KeAcquireInStackQueuedSpinLockAtDpcLevel(spinlock, lockhandle)
 }
 #[inline]
 pub unsafe fn KeAcquireInStackQueuedSpinLockForDpc(spinlock: *mut usize, lockhandle: *mut KLOCK_QUEUE_HANDLE) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeAcquireInStackQueuedSpinLockForDpc(spinlock : *mut usize, lockhandle : *mut KLOCK_QUEUE_HANDLE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeAcquireInStackQueuedSpinLockForDpc(spinlock : *mut usize, lockhandle : *mut KLOCK_QUEUE_HANDLE));
     KeAcquireInStackQueuedSpinLockForDpc(spinlock, lockhandle)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -3445,12 +3445,12 @@ pub unsafe fn KeAreApcsDisabled() -> super::super::super::Win32::Foundation::BOO
 }
 #[inline]
 pub unsafe fn KeBugCheck(bugcheckcode: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeBugCheck(bugcheckcode : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeBugCheck(bugcheckcode : u32));
     KeBugCheck(bugcheckcode)
 }
 #[inline]
 pub unsafe fn KeBugCheckEx(bugcheckcode: u32, bugcheckparameter1: usize, bugcheckparameter2: usize, bugcheckparameter3: usize, bugcheckparameter4: usize) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeBugCheckEx(bugcheckcode : u32, bugcheckparameter1 : usize, bugcheckparameter2 : usize, bugcheckparameter3 : usize, bugcheckparameter4 : usize) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeBugCheckEx(bugcheckcode : u32, bugcheckparameter1 : usize, bugcheckparameter2 : usize, bugcheckparameter3 : usize, bugcheckparameter4 : usize));
     KeBugCheckEx(bugcheckcode, bugcheckparameter1, bugcheckparameter2, bugcheckparameter3, bugcheckparameter4)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -3464,7 +3464,7 @@ pub unsafe fn KeCancelTimer(param0: *mut KTIMER) -> super::super::super::Win32::
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn KeClearEvent(event: *mut super::super::Foundation::KEVENT) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeClearEvent(event : *mut super::super::Foundation:: KEVENT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeClearEvent(event : *mut super::super::Foundation:: KEVENT));
     KeClearEvent(event)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -3521,17 +3521,17 @@ pub unsafe fn KeDeregisterNmiCallback(handle: *const ::core::ffi::c_void) -> sup
 }
 #[inline]
 pub unsafe fn KeDeregisterProcessorChangeCallback(callbackhandle: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeDeregisterProcessorChangeCallback(callbackhandle : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeDeregisterProcessorChangeCallback(callbackhandle : *const ::core::ffi::c_void));
     KeDeregisterProcessorChangeCallback(callbackhandle)
 }
 #[inline]
 pub unsafe fn KeEnterCriticalRegion() {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeEnterCriticalRegion() -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeEnterCriticalRegion());
     KeEnterCriticalRegion()
 }
 #[inline]
 pub unsafe fn KeEnterGuardedRegion() {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeEnterGuardedRegion() -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeEnterGuardedRegion());
     KeEnterGuardedRegion()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -3559,17 +3559,17 @@ where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
     P1: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeFlushIoBuffers(mdl : *const super::super::Foundation:: MDL, readoperation : super::super::super::Win32::Foundation:: BOOLEAN, dmaoperation : super::super::super::Win32::Foundation:: BOOLEAN) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeFlushIoBuffers(mdl : *const super::super::Foundation:: MDL, readoperation : super::super::super::Win32::Foundation:: BOOLEAN, dmaoperation : super::super::super::Win32::Foundation:: BOOLEAN));
     KeFlushIoBuffers(mdl, readoperation.into_param().abi(), dmaoperation.into_param().abi())
 }
 #[inline]
 pub unsafe fn KeFlushQueuedDpcs() {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeFlushQueuedDpcs() -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeFlushQueuedDpcs());
     KeFlushQueuedDpcs()
 }
 #[inline]
 pub unsafe fn KeFlushWriteBuffer() {
-    ::windows_targets::link!("hal.dll" "system" fn KeFlushWriteBuffer() -> ());
+    ::windows_targets::link!("hal.dll" "system" fn KeFlushWriteBuffer());
     KeFlushWriteBuffer()
 }
 #[inline]
@@ -3619,14 +3619,14 @@ pub unsafe fn KeInitializeCrashDumpHeader(dumptype: u32, flags: u32, buffer: *mu
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn KeInitializeDeviceQueue(devicequeue: *mut super::super::Foundation::KDEVICE_QUEUE) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeDeviceQueue(devicequeue : *mut super::super::Foundation:: KDEVICE_QUEUE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeDeviceQueue(devicequeue : *mut super::super::Foundation:: KDEVICE_QUEUE));
     KeInitializeDeviceQueue(devicequeue)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn KeInitializeDpc(dpc: *mut super::super::Foundation::KDPC, deferredroutine: super::super::Foundation::PKDEFERRED_ROUTINE, deferredcontext: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeDpc(dpc : *mut super::super::Foundation:: KDPC, deferredroutine : super::super::Foundation:: PKDEFERRED_ROUTINE, deferredcontext : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeDpc(dpc : *mut super::super::Foundation:: KDPC, deferredroutine : super::super::Foundation:: PKDEFERRED_ROUTINE, deferredcontext : *const ::core::ffi::c_void));
     KeInitializeDpc(dpc, deferredroutine, ::core::mem::transmute(deferredcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -3636,33 +3636,33 @@ pub unsafe fn KeInitializeEvent<P0>(event: *mut super::super::Foundation::KEVENT
 where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeEvent(event : *mut super::super::Foundation:: KEVENT, r#type : super::super::super::Win32::System::Kernel:: EVENT_TYPE, state : super::super::super::Win32::Foundation:: BOOLEAN) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeEvent(event : *mut super::super::Foundation:: KEVENT, r#type : super::super::super::Win32::System::Kernel:: EVENT_TYPE, state : super::super::super::Win32::Foundation:: BOOLEAN));
     KeInitializeEvent(event, r#type, state.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn KeInitializeGuardedMutex(mutex: *mut super::super::Foundation::FAST_MUTEX) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeGuardedMutex(mutex : *mut super::super::Foundation:: FAST_MUTEX) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeGuardedMutex(mutex : *mut super::super::Foundation:: FAST_MUTEX));
     KeInitializeGuardedMutex(mutex)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn KeInitializeMutex(mutex: *mut super::super::Foundation::KMUTANT, level: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeMutex(mutex : *mut super::super::Foundation:: KMUTANT, level : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeMutex(mutex : *mut super::super::Foundation:: KMUTANT, level : u32));
     KeInitializeMutex(mutex, level)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn KeInitializeSemaphore(semaphore: *mut KSEMAPHORE, count: i32, limit: i32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeSemaphore(semaphore : *mut KSEMAPHORE, count : i32, limit : i32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeSemaphore(semaphore : *mut KSEMAPHORE, count : i32, limit : i32));
     KeInitializeSemaphore(semaphore, count, limit)
 }
 #[inline]
 pub unsafe fn KeInitializeSpinLock() -> usize {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeSpinLock(spinlock : *mut usize) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeSpinLock(spinlock : *mut usize));
     let mut result__ = ::std::mem::zeroed();
     KeInitializeSpinLock(&mut result__);
     ::std::mem::transmute(result__)
@@ -3671,21 +3671,21 @@ pub unsafe fn KeInitializeSpinLock() -> usize {
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn KeInitializeThreadedDpc(dpc: *mut super::super::Foundation::KDPC, deferredroutine: super::super::Foundation::PKDEFERRED_ROUTINE, deferredcontext: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeThreadedDpc(dpc : *mut super::super::Foundation:: KDPC, deferredroutine : super::super::Foundation:: PKDEFERRED_ROUTINE, deferredcontext : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeThreadedDpc(dpc : *mut super::super::Foundation:: KDPC, deferredroutine : super::super::Foundation:: PKDEFERRED_ROUTINE, deferredcontext : *const ::core::ffi::c_void));
     KeInitializeThreadedDpc(dpc, deferredroutine, ::core::mem::transmute(deferredcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn KeInitializeTimer(timer: *mut KTIMER) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeTimer(timer : *mut KTIMER) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeTimer(timer : *mut KTIMER));
     KeInitializeTimer(timer)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn KeInitializeTimerEx(timer: *mut KTIMER, r#type: super::super::super::Win32::System::Kernel::TIMER_TYPE) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeTimerEx(timer : *mut KTIMER, r#type : super::super::super::Win32::System::Kernel:: TIMER_TYPE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeTimerEx(timer : *mut KTIMER, r#type : super::super::super::Win32::System::Kernel:: TIMER_TYPE));
     KeInitializeTimerEx(timer, r#type)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -3725,7 +3725,7 @@ pub unsafe fn KeInvalidateAllCaches() -> super::super::super::Win32::Foundation:
 }
 #[inline]
 pub unsafe fn KeInvalidateRangeAllCaches(baseaddress: *const ::core::ffi::c_void, length: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInvalidateRangeAllCaches(baseaddress : *const ::core::ffi::c_void, length : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInvalidateRangeAllCaches(baseaddress : *const ::core::ffi::c_void, length : u32));
     KeInvalidateRangeAllCaches(baseaddress, length)
 }
 #[inline]
@@ -3740,12 +3740,12 @@ pub unsafe fn KeIsExecutingDpc() -> u32 {
 }
 #[inline]
 pub unsafe fn KeLeaveCriticalRegion() {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeLeaveCriticalRegion() -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeLeaveCriticalRegion());
     KeLeaveCriticalRegion()
 }
 #[inline]
 pub unsafe fn KeLeaveGuardedRegion() {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeLeaveGuardedRegion() -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeLeaveGuardedRegion());
     KeLeaveGuardedRegion()
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -3840,7 +3840,7 @@ pub unsafe fn KeQueryMaximumProcessorCountEx(groupnumber: u16) -> u32 {
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn KeQueryNodeActiveAffinity(nodenumber: u16, affinity: ::core::option::Option<*mut super::super::super::Win32::System::SystemInformation::GROUP_AFFINITY>, count: ::core::option::Option<*mut u16>) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeQueryNodeActiveAffinity(nodenumber : u16, affinity : *mut super::super::super::Win32::System::SystemInformation:: GROUP_AFFINITY, count : *mut u16) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeQueryNodeActiveAffinity(nodenumber : u16, affinity : *mut super::super::super::Win32::System::SystemInformation:: GROUP_AFFINITY, count : *mut u16));
     KeQueryNodeActiveAffinity(nodenumber, ::core::mem::transmute(affinity.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`"]
@@ -3887,7 +3887,7 @@ where
 }
 #[inline]
 pub unsafe fn KeQuerySystemTimePrecise() -> i64 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeQuerySystemTimePrecise(currenttime : *mut i64) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeQuerySystemTimePrecise(currenttime : *mut i64));
     let mut result__ = ::std::mem::zeroed();
     KeQuerySystemTimePrecise(&mut result__);
     ::std::mem::transmute(result__)
@@ -3980,29 +3980,29 @@ pub unsafe fn KeRegisterProcessorChangeCallback(callbackfunction: PPROCESSOR_CAL
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn KeReleaseGuardedMutex(mutex: *mut super::super::Foundation::FAST_MUTEX) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeReleaseGuardedMutex(mutex : *mut super::super::Foundation:: FAST_MUTEX) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeReleaseGuardedMutex(mutex : *mut super::super::Foundation:: FAST_MUTEX));
     KeReleaseGuardedMutex(mutex)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn KeReleaseGuardedMutexUnsafe(fastmutex: *mut super::super::Foundation::FAST_MUTEX) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeReleaseGuardedMutexUnsafe(fastmutex : *mut super::super::Foundation:: FAST_MUTEX) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeReleaseGuardedMutexUnsafe(fastmutex : *mut super::super::Foundation:: FAST_MUTEX));
     KeReleaseGuardedMutexUnsafe(fastmutex)
 }
 #[inline]
 pub unsafe fn KeReleaseInStackQueuedSpinLock(lockhandle: *const KLOCK_QUEUE_HANDLE) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeReleaseInStackQueuedSpinLock(lockhandle : *const KLOCK_QUEUE_HANDLE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeReleaseInStackQueuedSpinLock(lockhandle : *const KLOCK_QUEUE_HANDLE));
     KeReleaseInStackQueuedSpinLock(lockhandle)
 }
 #[inline]
 pub unsafe fn KeReleaseInStackQueuedSpinLockForDpc(lockhandle: *const KLOCK_QUEUE_HANDLE) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeReleaseInStackQueuedSpinLockForDpc(lockhandle : *const KLOCK_QUEUE_HANDLE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeReleaseInStackQueuedSpinLockForDpc(lockhandle : *const KLOCK_QUEUE_HANDLE));
     KeReleaseInStackQueuedSpinLockForDpc(lockhandle)
 }
 #[inline]
 pub unsafe fn KeReleaseInStackQueuedSpinLockFromDpcLevel(lockhandle: *const KLOCK_QUEUE_HANDLE) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeReleaseInStackQueuedSpinLockFromDpcLevel(lockhandle : *const KLOCK_QUEUE_HANDLE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeReleaseInStackQueuedSpinLockFromDpcLevel(lockhandle : *const KLOCK_QUEUE_HANDLE));
     KeReleaseInStackQueuedSpinLockFromDpcLevel(lockhandle)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -4012,7 +4012,7 @@ pub unsafe fn KeReleaseInterruptSpinLock<P0>(interrupt: P0, oldirql: u8)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PKINTERRUPT>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeReleaseInterruptSpinLock(interrupt : super::super::Foundation:: PKINTERRUPT, oldirql : u8) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeReleaseInterruptSpinLock(interrupt : super::super::Foundation:: PKINTERRUPT, oldirql : u8));
     KeReleaseInterruptSpinLock(interrupt.into_param().abi(), oldirql)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -4037,7 +4037,7 @@ where
 }
 #[inline]
 pub unsafe fn KeReleaseSpinLockForDpc(spinlock: *mut usize, oldirql: u8) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeReleaseSpinLockForDpc(spinlock : *mut usize, oldirql : u8) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeReleaseSpinLockForDpc(spinlock : *mut usize, oldirql : u8));
     KeReleaseSpinLockForDpc(spinlock, oldirql)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -4096,24 +4096,24 @@ pub unsafe fn KeResetEvent(event: *mut super::super::Foundation::KEVENT) -> i32 
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
 pub unsafe fn KeRestoreExtendedProcessorState(xstatesave: *const XSTATE_SAVE) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeRestoreExtendedProcessorState(xstatesave : *const XSTATE_SAVE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeRestoreExtendedProcessorState(xstatesave : *const XSTATE_SAVE));
     KeRestoreExtendedProcessorState(xstatesave)
 }
 #[inline]
 pub unsafe fn KeRevertToUserAffinityThread() {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeRevertToUserAffinityThread() -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeRevertToUserAffinityThread());
     KeRevertToUserAffinityThread()
 }
 #[inline]
 pub unsafe fn KeRevertToUserAffinityThreadEx(affinity: usize) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeRevertToUserAffinityThreadEx(affinity : usize) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeRevertToUserAffinityThreadEx(affinity : usize));
     KeRevertToUserAffinityThreadEx(affinity)
 }
 #[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn KeRevertToUserGroupAffinityThread(previousaffinity: *const super::super::super::Win32::System::SystemInformation::GROUP_AFFINITY) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeRevertToUserGroupAffinityThread(previousaffinity : *const super::super::super::Win32::System::SystemInformation:: GROUP_AFFINITY) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeRevertToUserGroupAffinityThread(previousaffinity : *const super::super::super::Win32::System::SystemInformation:: GROUP_AFFINITY));
     KeRevertToUserGroupAffinityThread(previousaffinity)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`"]
@@ -4161,7 +4161,7 @@ pub unsafe fn KeSetHardwareCounterConfiguration(counterarray: &[HARDWARE_COUNTER
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn KeSetImportanceDpc(dpc: *mut super::super::Foundation::KDPC, importance: KDPC_IMPORTANCE) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeSetImportanceDpc(dpc : *mut super::super::Foundation:: KDPC, importance : KDPC_IMPORTANCE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeSetImportanceDpc(dpc : *mut super::super::Foundation:: KDPC, importance : KDPC_IMPORTANCE));
     KeSetImportanceDpc(dpc, importance)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -4176,7 +4176,7 @@ where
 }
 #[inline]
 pub unsafe fn KeSetSystemAffinityThread(affinity: usize) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeSetSystemAffinityThread(affinity : usize) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeSetSystemAffinityThread(affinity : usize));
     KeSetSystemAffinityThread(affinity)
 }
 #[inline]
@@ -4188,14 +4188,14 @@ pub unsafe fn KeSetSystemAffinityThreadEx(affinity: usize) -> usize {
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn KeSetSystemGroupAffinityThread(affinity: *const super::super::super::Win32::System::SystemInformation::GROUP_AFFINITY, previousaffinity: ::core::option::Option<*mut super::super::super::Win32::System::SystemInformation::GROUP_AFFINITY>) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeSetSystemGroupAffinityThread(affinity : *const super::super::super::Win32::System::SystemInformation:: GROUP_AFFINITY, previousaffinity : *mut super::super::super::Win32::System::SystemInformation:: GROUP_AFFINITY) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeSetSystemGroupAffinityThread(affinity : *const super::super::super::Win32::System::SystemInformation:: GROUP_AFFINITY, previousaffinity : *mut super::super::super::Win32::System::SystemInformation:: GROUP_AFFINITY));
     KeSetSystemGroupAffinityThread(affinity, ::core::mem::transmute(previousaffinity.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn KeSetTargetProcessorDpc(dpc: *mut super::super::Foundation::KDPC, number: i8) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeSetTargetProcessorDpc(dpc : *mut super::super::Foundation:: KDPC, number : i8) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn KeSetTargetProcessorDpc(dpc : *mut super::super::Foundation:: KDPC, number : i8));
     KeSetTargetProcessorDpc(dpc, number)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -4226,7 +4226,7 @@ pub unsafe fn KeShouldYieldProcessor() -> u32 {
 }
 #[inline]
 pub unsafe fn KeStallExecutionProcessor(microseconds: u32) {
-    ::windows_targets::link!("hal.dll" "system" fn KeStallExecutionProcessor(microseconds : u32) -> ());
+    ::windows_targets::link!("hal.dll" "system" fn KeStallExecutionProcessor(microseconds : u32));
     KeStallExecutionProcessor(microseconds)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
@@ -4401,7 +4401,7 @@ pub unsafe fn MmAreMdlPagesCached(memorydescriptorlist: *const super::super::Fou
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn MmBuildMdlForNonPagedPool(memorydescriptorlist: *mut super::super::Foundation::MDL) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmBuildMdlForNonPagedPool(memorydescriptorlist : *mut super::super::Foundation:: MDL) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmBuildMdlForNonPagedPool(memorydescriptorlist : *mut super::super::Foundation:: MDL));
     MmBuildMdlForNonPagedPool(memorydescriptorlist)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -4427,36 +4427,36 @@ pub unsafe fn MmCreateMirror() -> super::super::super::Win32::Foundation::NTSTAT
 }
 #[inline]
 pub unsafe fn MmFreeContiguousMemory(baseaddress: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmFreeContiguousMemory(baseaddress : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmFreeContiguousMemory(baseaddress : *const ::core::ffi::c_void));
     MmFreeContiguousMemory(baseaddress)
 }
 #[inline]
 pub unsafe fn MmFreeContiguousMemorySpecifyCache(baseaddress: *const ::core::ffi::c_void, numberofbytes: usize, cachetype: MEMORY_CACHING_TYPE) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmFreeContiguousMemorySpecifyCache(baseaddress : *const ::core::ffi::c_void, numberofbytes : usize, cachetype : MEMORY_CACHING_TYPE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmFreeContiguousMemorySpecifyCache(baseaddress : *const ::core::ffi::c_void, numberofbytes : usize, cachetype : MEMORY_CACHING_TYPE));
     MmFreeContiguousMemorySpecifyCache(baseaddress, numberofbytes, cachetype)
 }
 #[inline]
 pub unsafe fn MmFreeMappingAddress(baseaddress: *const ::core::ffi::c_void, pooltag: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmFreeMappingAddress(baseaddress : *const ::core::ffi::c_void, pooltag : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmFreeMappingAddress(baseaddress : *const ::core::ffi::c_void, pooltag : u32));
     MmFreeMappingAddress(baseaddress, pooltag)
 }
 #[inline]
 pub unsafe fn MmFreeNonCachedMemory(baseaddress: *const ::core::ffi::c_void, numberofbytes: usize) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmFreeNonCachedMemory(baseaddress : *const ::core::ffi::c_void, numberofbytes : usize) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmFreeNonCachedMemory(baseaddress : *const ::core::ffi::c_void, numberofbytes : usize));
     MmFreeNonCachedMemory(baseaddress, numberofbytes)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn MmFreePagesFromMdl(memorydescriptorlist: *mut super::super::Foundation::MDL) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmFreePagesFromMdl(memorydescriptorlist : *mut super::super::Foundation:: MDL) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmFreePagesFromMdl(memorydescriptorlist : *mut super::super::Foundation:: MDL));
     MmFreePagesFromMdl(memorydescriptorlist)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn MmFreePagesFromMdlEx(memorydescriptorlist: *mut super::super::Foundation::MDL, flags: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmFreePagesFromMdlEx(memorydescriptorlist : *mut super::super::Foundation:: MDL, flags : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmFreePagesFromMdlEx(memorydescriptorlist : *mut super::super::Foundation:: MDL, flags : u32));
     MmFreePagesFromMdlEx(memorydescriptorlist, flags)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -4564,7 +4564,7 @@ pub unsafe fn MmLockPagableDataSection(addresswithinsection: *const ::core::ffi:
 }
 #[inline]
 pub unsafe fn MmLockPagableSectionByHandle(imagesectionhandle: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmLockPagableSectionByHandle(imagesectionhandle : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmLockPagableSectionByHandle(imagesectionhandle : *const ::core::ffi::c_void));
     MmLockPagableSectionByHandle(imagesectionhandle)
 }
 #[inline]
@@ -4668,7 +4668,7 @@ pub unsafe fn MmPageEntireDriver(addresswithinsection: *const ::core::ffi::c_voi
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn MmProbeAndLockPages(memorydescriptorlist: *mut super::super::Foundation::MDL, accessmode: i8, operation: LOCK_OPERATION) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmProbeAndLockPages(memorydescriptorlist : *mut super::super::Foundation:: MDL, accessmode : i8, operation : LOCK_OPERATION) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmProbeAndLockPages(memorydescriptorlist : *mut super::super::Foundation:: MDL, accessmode : i8, operation : LOCK_OPERATION));
     MmProbeAndLockPages(memorydescriptorlist, accessmode, operation)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -4678,14 +4678,14 @@ pub unsafe fn MmProbeAndLockProcessPages<P0>(memorydescriptorlist: *mut super::s
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PEPROCESS>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmProbeAndLockProcessPages(memorydescriptorlist : *mut super::super::Foundation:: MDL, process : super::super::Foundation:: PEPROCESS, accessmode : i8, operation : LOCK_OPERATION) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmProbeAndLockProcessPages(memorydescriptorlist : *mut super::super::Foundation:: MDL, process : super::super::Foundation:: PEPROCESS, accessmode : i8, operation : LOCK_OPERATION));
     MmProbeAndLockProcessPages(memorydescriptorlist, process.into_param().abi(), accessmode, operation)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Storage_FileSystem\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Storage_FileSystem"))]
 #[inline]
 pub unsafe fn MmProbeAndLockSelectedPages(memorydescriptorlist: *mut super::super::Foundation::MDL, segmentarray: *const super::super::super::Win32::Storage::FileSystem::FILE_SEGMENT_ELEMENT, accessmode: i8, operation: LOCK_OPERATION) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmProbeAndLockSelectedPages(memorydescriptorlist : *mut super::super::Foundation:: MDL, segmentarray : *const super::super::super::Win32::Storage::FileSystem:: FILE_SEGMENT_ELEMENT, accessmode : i8, operation : LOCK_OPERATION) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmProbeAndLockSelectedPages(memorydescriptorlist : *mut super::super::Foundation:: MDL, segmentarray : *const super::super::super::Win32::Storage::FileSystem:: FILE_SEGMENT_ELEMENT, accessmode : i8, operation : LOCK_OPERATION));
     MmProbeAndLockSelectedPages(memorydescriptorlist, segmentarray, accessmode, operation)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -4716,7 +4716,7 @@ pub unsafe fn MmRemovePhysicalMemory(startaddress: *const i64, numberofbytes: *m
 }
 #[inline]
 pub unsafe fn MmResetDriverPaging(addresswithinsection: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmResetDriverPaging(addresswithinsection : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmResetDriverPaging(addresswithinsection : *const ::core::ffi::c_void));
     MmResetDriverPaging(addresswithinsection)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
@@ -4754,38 +4754,38 @@ pub unsafe fn MmSizeOfMdl(base: ::core::option::Option<*const ::core::ffi::c_voi
 }
 #[inline]
 pub unsafe fn MmUnlockPagableImageSection(imagesectionhandle: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmUnlockPagableImageSection(imagesectionhandle : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmUnlockPagableImageSection(imagesectionhandle : *const ::core::ffi::c_void));
     MmUnlockPagableImageSection(imagesectionhandle)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn MmUnlockPages(memorydescriptorlist: *mut super::super::Foundation::MDL) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmUnlockPages(memorydescriptorlist : *mut super::super::Foundation:: MDL) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmUnlockPages(memorydescriptorlist : *mut super::super::Foundation:: MDL));
     MmUnlockPages(memorydescriptorlist)
 }
 #[inline]
 pub unsafe fn MmUnmapIoSpace(baseaddress: *const ::core::ffi::c_void, numberofbytes: usize) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmUnmapIoSpace(baseaddress : *const ::core::ffi::c_void, numberofbytes : usize) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmUnmapIoSpace(baseaddress : *const ::core::ffi::c_void, numberofbytes : usize));
     MmUnmapIoSpace(baseaddress, numberofbytes)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn MmUnmapLockedPages(baseaddress: *const ::core::ffi::c_void, memorydescriptorlist: *mut super::super::Foundation::MDL) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmUnmapLockedPages(baseaddress : *const ::core::ffi::c_void, memorydescriptorlist : *mut super::super::Foundation:: MDL) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmUnmapLockedPages(baseaddress : *const ::core::ffi::c_void, memorydescriptorlist : *mut super::super::Foundation:: MDL));
     MmUnmapLockedPages(baseaddress, memorydescriptorlist)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn MmUnmapReservedMapping(baseaddress: *const ::core::ffi::c_void, pooltag: u32, memorydescriptorlist: *mut super::super::Foundation::MDL) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmUnmapReservedMapping(baseaddress : *const ::core::ffi::c_void, pooltag : u32, memorydescriptorlist : *mut super::super::Foundation:: MDL) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmUnmapReservedMapping(baseaddress : *const ::core::ffi::c_void, pooltag : u32, memorydescriptorlist : *mut super::super::Foundation:: MDL));
     MmUnmapReservedMapping(baseaddress, pooltag, memorydescriptorlist)
 }
 #[inline]
 pub unsafe fn MmUnmapVideoDisplay(baseaddress: *const ::core::ffi::c_void, numberofbytes: usize) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmUnmapVideoDisplay(baseaddress : *const ::core::ffi::c_void, numberofbytes : usize) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmUnmapVideoDisplay(baseaddress : *const ::core::ffi::c_void, numberofbytes : usize));
     MmUnmapVideoDisplay(baseaddress, numberofbytes)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -4809,7 +4809,7 @@ pub unsafe fn MmUnsecureVirtualMemory<P0>(securehandle: P0)
 where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmUnsecureVirtualMemory(securehandle : super::super::super::Win32::Foundation:: HANDLE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn MmUnsecureVirtualMemory(securehandle : super::super::super::Win32::Foundation:: HANDLE));
     MmUnsecureVirtualMemory(securehandle.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -5241,12 +5241,12 @@ where
 }
 #[inline]
 pub unsafe fn ObDereferenceObjectDeferDelete(object: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ObDereferenceObjectDeferDelete(object : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ObDereferenceObjectDeferDelete(object : *const ::core::ffi::c_void));
     ObDereferenceObjectDeferDelete(object)
 }
 #[inline]
 pub unsafe fn ObDereferenceObjectDeferDeleteWithTag(object: *const ::core::ffi::c_void, tag: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ObDereferenceObjectDeferDeleteWithTag(object : *const ::core::ffi::c_void, tag : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ObDereferenceObjectDeferDeleteWithTag(object : *const ::core::ffi::c_void, tag : u32));
     ObDereferenceObjectDeferDeleteWithTag(object, tag)
 }
 #[inline]
@@ -5332,12 +5332,12 @@ where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
     P1: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ObReleaseObjectSecurity(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, memoryallocated : super::super::super::Win32::Foundation:: BOOLEAN) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ObReleaseObjectSecurity(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, memoryallocated : super::super::super::Win32::Foundation:: BOOLEAN));
     ObReleaseObjectSecurity(securitydescriptor.into_param().abi(), memoryallocated.into_param().abi())
 }
 #[inline]
 pub unsafe fn ObUnRegisterCallbacks(registrationhandle: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ObUnRegisterCallbacks(registrationhandle : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ObUnRegisterCallbacks(registrationhandle : *const ::core::ffi::c_void));
     ObUnRegisterCallbacks(registrationhandle)
 }
 #[inline]
@@ -5377,7 +5377,7 @@ pub unsafe fn PcwCloseInstance<P0>(instance: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PPCW_INSTANCE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PcwCloseInstance(instance : super::super::Foundation:: PPCW_INSTANCE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PcwCloseInstance(instance : super::super::Foundation:: PPCW_INSTANCE));
     PcwCloseInstance(instance.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
@@ -5404,7 +5404,7 @@ pub unsafe fn PcwUnregister<P0>(registration: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PPCW_REGISTRATION>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PcwUnregister(registration : super::super::Foundation:: PPCW_REGISTRATION) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PcwUnregister(registration : super::super::Foundation:: PPCW_REGISTRATION));
     PcwUnregister(registration.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -5437,17 +5437,17 @@ pub unsafe fn PoCreateThermalRequest(thermalrequest: *mut *mut ::core::ffi::c_vo
 }
 #[inline]
 pub unsafe fn PoDeletePowerRequest(powerrequest: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoDeletePowerRequest(powerrequest : *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoDeletePowerRequest(powerrequest : *mut ::core::ffi::c_void));
     PoDeletePowerRequest(powerrequest)
 }
 #[inline]
 pub unsafe fn PoDeleteThermalRequest(thermalrequest: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoDeleteThermalRequest(thermalrequest : *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoDeleteThermalRequest(thermalrequest : *mut ::core::ffi::c_void));
     PoDeleteThermalRequest(thermalrequest)
 }
 #[inline]
 pub unsafe fn PoEndDeviceBusy(idlepointer: *mut u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoEndDeviceBusy(idlepointer : *mut u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoEndDeviceBusy(idlepointer : *mut u32));
     PoEndDeviceBusy(idlepointer)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -5457,7 +5457,7 @@ pub unsafe fn PoFxActivateComponent<P0>(handle: P0, component: u32, flags: u32)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::POHANDLE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxActivateComponent(handle : super::super::Foundation:: POHANDLE, component : u32, flags : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxActivateComponent(handle : super::super::Foundation:: POHANDLE, component : u32, flags : u32));
     PoFxActivateComponent(handle.into_param().abi(), component, flags)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -5467,7 +5467,7 @@ pub unsafe fn PoFxCompleteDevicePowerNotRequired<P0>(handle: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::POHANDLE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxCompleteDevicePowerNotRequired(handle : super::super::Foundation:: POHANDLE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxCompleteDevicePowerNotRequired(handle : super::super::Foundation:: POHANDLE));
     PoFxCompleteDevicePowerNotRequired(handle.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -5477,7 +5477,7 @@ pub unsafe fn PoFxCompleteDirectedPowerDown<P0>(handle: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::POHANDLE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxCompleteDirectedPowerDown(handle : super::super::Foundation:: POHANDLE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxCompleteDirectedPowerDown(handle : super::super::Foundation:: POHANDLE));
     PoFxCompleteDirectedPowerDown(handle.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -5487,7 +5487,7 @@ pub unsafe fn PoFxCompleteIdleCondition<P0>(handle: P0, component: u32)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::POHANDLE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxCompleteIdleCondition(handle : super::super::Foundation:: POHANDLE, component : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxCompleteIdleCondition(handle : super::super::Foundation:: POHANDLE, component : u32));
     PoFxCompleteIdleCondition(handle.into_param().abi(), component)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -5497,7 +5497,7 @@ pub unsafe fn PoFxCompleteIdleState<P0>(handle: P0, component: u32)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::POHANDLE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxCompleteIdleState(handle : super::super::Foundation:: POHANDLE, component : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxCompleteIdleState(handle : super::super::Foundation:: POHANDLE, component : u32));
     PoFxCompleteIdleState(handle.into_param().abi(), component)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -5507,7 +5507,7 @@ pub unsafe fn PoFxIdleComponent<P0>(handle: P0, component: u32, flags: u32)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::POHANDLE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxIdleComponent(handle : super::super::Foundation:: POHANDLE, component : u32, flags : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxIdleComponent(handle : super::super::Foundation:: POHANDLE, component : u32, flags : u32));
     PoFxIdleComponent(handle.into_param().abi(), component, flags)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -5517,7 +5517,7 @@ pub unsafe fn PoFxIssueComponentPerfStateChange<P0>(handle: P0, flags: u32, comp
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::POHANDLE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxIssueComponentPerfStateChange(handle : super::super::Foundation:: POHANDLE, flags : u32, component : u32, perfchange : *const PO_FX_PERF_STATE_CHANGE, context : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxIssueComponentPerfStateChange(handle : super::super::Foundation:: POHANDLE, flags : u32, component : u32, perfchange : *const PO_FX_PERF_STATE_CHANGE, context : *const ::core::ffi::c_void));
     PoFxIssueComponentPerfStateChange(handle.into_param().abi(), flags, component, perfchange, context)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -5527,14 +5527,14 @@ pub unsafe fn PoFxIssueComponentPerfStateChangeMultiple<P0>(handle: P0, flags: u
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::POHANDLE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxIssueComponentPerfStateChangeMultiple(handle : super::super::Foundation:: POHANDLE, flags : u32, component : u32, perfchangescount : u32, perfchanges : *const PO_FX_PERF_STATE_CHANGE, context : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxIssueComponentPerfStateChangeMultiple(handle : super::super::Foundation:: POHANDLE, flags : u32, component : u32, perfchangescount : u32, perfchanges : *const PO_FX_PERF_STATE_CHANGE, context : *const ::core::ffi::c_void));
     PoFxIssueComponentPerfStateChangeMultiple(handle.into_param().abi(), flags, component, perfchangescount, perfchanges, context)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn PoFxNotifySurprisePowerOn(pdo: *const super::super::Foundation::DEVICE_OBJECT) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxNotifySurprisePowerOn(pdo : *const super::super::Foundation:: DEVICE_OBJECT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxNotifySurprisePowerOn(pdo : *const super::super::Foundation:: DEVICE_OBJECT));
     PoFxNotifySurprisePowerOn(pdo)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
@@ -5602,7 +5602,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::POHANDLE>,
     P1: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxRegisterDripsWatchdogCallback(handle : super::super::Foundation:: POHANDLE, callback : PPO_FX_DRIPS_WATCHDOG_CALLBACK, includechilddevices : super::super::super::Win32::Foundation:: BOOLEAN, matchingdriverobject : *const super::super::Foundation:: DRIVER_OBJECT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxRegisterDripsWatchdogCallback(handle : super::super::Foundation:: POHANDLE, callback : PPO_FX_DRIPS_WATCHDOG_CALLBACK, includechilddevices : super::super::super::Win32::Foundation:: BOOLEAN, matchingdriverobject : *const super::super::Foundation:: DRIVER_OBJECT));
     PoFxRegisterDripsWatchdogCallback(handle.into_param().abi(), callback, includechilddevices.into_param().abi(), ::core::mem::transmute(matchingdriverobject.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -5612,7 +5612,7 @@ pub unsafe fn PoFxReportDevicePoweredOn<P0>(handle: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::POHANDLE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxReportDevicePoweredOn(handle : super::super::Foundation:: POHANDLE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxReportDevicePoweredOn(handle : super::super::Foundation:: POHANDLE));
     PoFxReportDevicePoweredOn(handle.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -5622,7 +5622,7 @@ pub unsafe fn PoFxSetComponentLatency<P0>(handle: P0, component: u32, latency: u
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::POHANDLE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxSetComponentLatency(handle : super::super::Foundation:: POHANDLE, component : u32, latency : u64) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxSetComponentLatency(handle : super::super::Foundation:: POHANDLE, component : u32, latency : u64));
     PoFxSetComponentLatency(handle.into_param().abi(), component, latency)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -5632,7 +5632,7 @@ pub unsafe fn PoFxSetComponentResidency<P0>(handle: P0, component: u32, residenc
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::POHANDLE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxSetComponentResidency(handle : super::super::Foundation:: POHANDLE, component : u32, residency : u64) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxSetComponentResidency(handle : super::super::Foundation:: POHANDLE, component : u32, residency : u64));
     PoFxSetComponentResidency(handle.into_param().abi(), component, residency)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
@@ -5643,7 +5643,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::POHANDLE>,
     P1: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxSetComponentWake(handle : super::super::Foundation:: POHANDLE, component : u32, wakehint : super::super::super::Win32::Foundation:: BOOLEAN) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxSetComponentWake(handle : super::super::Foundation:: POHANDLE, component : u32, wakehint : super::super::super::Win32::Foundation:: BOOLEAN));
     PoFxSetComponentWake(handle.into_param().abi(), component, wakehint.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -5653,7 +5653,7 @@ pub unsafe fn PoFxSetDeviceIdleTimeout<P0>(handle: P0, idletimeout: u64)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::POHANDLE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxSetDeviceIdleTimeout(handle : super::super::Foundation:: POHANDLE, idletimeout : u64) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxSetDeviceIdleTimeout(handle : super::super::Foundation:: POHANDLE, idletimeout : u64));
     PoFxSetDeviceIdleTimeout(handle.into_param().abi(), idletimeout)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`"]
@@ -5673,7 +5673,7 @@ pub unsafe fn PoFxStartDevicePowerManagement<P0>(handle: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::POHANDLE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxStartDevicePowerManagement(handle : super::super::Foundation:: POHANDLE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxStartDevicePowerManagement(handle : super::super::Foundation:: POHANDLE));
     PoFxStartDevicePowerManagement(handle.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -5683,7 +5683,7 @@ pub unsafe fn PoFxUnregisterDevice<P0>(handle: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::POHANDLE>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxUnregisterDevice(handle : super::super::Foundation:: POHANDLE) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoFxUnregisterDevice(handle : super::super::Foundation:: POHANDLE));
     PoFxUnregisterDevice(handle.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
@@ -5735,12 +5735,12 @@ pub unsafe fn PoRequestPowerIrp(deviceobject: *const super::super::Foundation::D
 }
 #[inline]
 pub unsafe fn PoSetDeviceBusyEx(idlepointer: *mut u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoSetDeviceBusyEx(idlepointer : *mut u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoSetDeviceBusyEx(idlepointer : *mut u32));
     PoSetDeviceBusyEx(idlepointer)
 }
 #[inline]
 pub unsafe fn PoSetHiberRange(memorymap: ::core::option::Option<*const ::core::ffi::c_void>, flags: u32, address: *const ::core::ffi::c_void, length: usize, tag: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoSetHiberRange(memorymap : *const ::core::ffi::c_void, flags : u32, address : *const ::core::ffi::c_void, length : usize, tag : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoSetHiberRange(memorymap : *const ::core::ffi::c_void, flags : u32, address : *const ::core::ffi::c_void, length : usize, tag : u32));
     PoSetHiberRange(::core::mem::transmute(memorymap.unwrap_or(::std::ptr::null())), flags, address, length, tag)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Power\"`"]
@@ -5759,21 +5759,21 @@ pub unsafe fn PoSetPowerState(deviceobject: *const super::super::Foundation::DEV
 }
 #[inline]
 pub unsafe fn PoSetSystemState(flags: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoSetSystemState(flags : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoSetSystemState(flags : u32));
     PoSetSystemState(flags)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn PoSetSystemWake(irp: *mut super::super::Foundation::IRP) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoSetSystemWake(irp : *mut super::super::Foundation:: IRP) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoSetSystemWake(irp : *mut super::super::Foundation:: IRP));
     PoSetSystemWake(irp)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn PoSetSystemWakeDevice(deviceobject: *const super::super::Foundation::DEVICE_OBJECT) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoSetSystemWakeDevice(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoSetSystemWakeDevice(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT));
     PoSetSystemWakeDevice(deviceobject)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -5795,14 +5795,14 @@ pub unsafe fn PoSetThermalPassiveCooling(thermalrequest: *mut ::core::ffi::c_voi
 }
 #[inline]
 pub unsafe fn PoStartDeviceBusy(idlepointer: *mut u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoStartDeviceBusy(idlepointer : *mut u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoStartDeviceBusy(idlepointer : *mut u32));
     PoStartDeviceBusy(idlepointer)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn PoStartNextPowerIrp(irp: *mut super::super::Foundation::IRP) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoStartNextPowerIrp(irp : *mut super::super::Foundation:: IRP) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoStartNextPowerIrp(irp : *mut super::super::Foundation:: IRP));
     PoStartNextPowerIrp(irp)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -5814,17 +5814,17 @@ pub unsafe fn PoUnregisterPowerSettingCallback(handle: *mut ::core::ffi::c_void)
 }
 #[inline]
 pub unsafe fn PoUnregisterSystemState(statehandle: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoUnregisterSystemState(statehandle : *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PoUnregisterSystemState(statehandle : *mut ::core::ffi::c_void));
     PoUnregisterSystemState(statehandle)
 }
 #[inline]
 pub unsafe fn ProbeForRead(address: *const ::core::ffi::c_void, length: usize, alignment: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ProbeForRead(address : *const ::core::ffi::c_void, length : usize, alignment : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ProbeForRead(address : *const ::core::ffi::c_void, length : usize, alignment : u32));
     ProbeForRead(address, length, alignment)
 }
 #[inline]
 pub unsafe fn ProbeForWrite(address: *mut ::core::ffi::c_void, length: usize, alignment: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn ProbeForWrite(address : *mut ::core::ffi::c_void, length : usize, alignment : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn ProbeForWrite(address : *mut ::core::ffi::c_void, length : usize, alignment : u32));
     ProbeForWrite(address, length, alignment)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
@@ -5883,7 +5883,7 @@ where
 }
 #[inline]
 pub unsafe fn PsDereferenceSiloContext(silocontext: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PsDereferenceSiloContext(silocontext : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PsDereferenceSiloContext(silocontext : *const ::core::ffi::c_void));
     PsDereferenceSiloContext(silocontext)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -5893,7 +5893,7 @@ pub unsafe fn PsDetachSiloFromCurrentThread<P0>(previoussilo: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PESILO>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PsDetachSiloFromCurrentThread(previoussilo : super::super::Foundation:: PESILO) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PsDetachSiloFromCurrentThread(previoussilo : super::super::Foundation:: PESILO));
     PsDetachSiloFromCurrentThread(previoussilo.into_param().abi())
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
@@ -5903,7 +5903,7 @@ pub unsafe fn PsFreeAffinityToken<P0>(affinitytoken: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PAFFINITY_TOKEN>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PsFreeAffinityToken(affinitytoken : super::super::Foundation:: PAFFINITY_TOKEN) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PsFreeAffinityToken(affinitytoken : super::super::Foundation:: PAFFINITY_TOKEN));
     PsFreeAffinityToken(affinitytoken.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -6223,7 +6223,7 @@ where
 }
 #[inline]
 pub unsafe fn PsReferenceSiloContext(silocontext: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PsReferenceSiloContext(silocontext : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PsReferenceSiloContext(silocontext : *const ::core::ffi::c_void));
     PsReferenceSiloContext(silocontext)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
@@ -6240,7 +6240,7 @@ pub unsafe fn PsReleaseSiloHardReference<P0>(silo: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PESILO>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PsReleaseSiloHardReference(silo : super::super::Foundation:: PESILO) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PsReleaseSiloHardReference(silo : super::super::Foundation:: PESILO));
     PsReleaseSiloHardReference(silo.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -6284,7 +6284,7 @@ pub unsafe fn PsRevertToUserMultipleGroupAffinityThread<P0>(affinitytoken: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PAFFINITY_TOKEN>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PsRevertToUserMultipleGroupAffinityThread(affinitytoken : super::super::Foundation:: PAFFINITY_TOKEN) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PsRevertToUserMultipleGroupAffinityThread(affinitytoken : super::super::Foundation:: PAFFINITY_TOKEN));
     PsRevertToUserMultipleGroupAffinityThread(affinitytoken.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -6383,7 +6383,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::PESILO>,
     P1: ::windows_core::IntoParam<super::super::super::Win32::Foundation::NTSTATUS>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PsTerminateServerSilo(serversilo : super::super::Foundation:: PESILO, exitstatus : super::super::super::Win32::Foundation:: NTSTATUS) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PsTerminateServerSilo(serversilo : super::super::Foundation:: PESILO, exitstatus : super::super::super::Win32::Foundation:: NTSTATUS));
     PsTerminateServerSilo(serversilo.into_param().abi(), exitstatus.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -6403,7 +6403,7 @@ pub unsafe fn PsUnregisterSiloMonitor<P0>(monitor: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::PSILO_MONITOR>,
 {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn PsUnregisterSiloMonitor(monitor : super::super::Foundation:: PSILO_MONITOR) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn PsUnregisterSiloMonitor(monitor : super::super::Foundation:: PSILO_MONITOR));
     PsUnregisterSiloMonitor(monitor.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -6420,7 +6420,7 @@ pub unsafe fn PshedAllocateMemory(size: u32) -> *mut ::core::ffi::c_void {
 }
 #[inline]
 pub unsafe fn PshedFreeMemory(address: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("pshed.dll" "system" fn PshedFreeMemory(address : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("pshed.dll" "system" fn PshedFreeMemory(address : *const ::core::ffi::c_void));
     PshedFreeMemory(address)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -6446,7 +6446,7 @@ pub unsafe fn PshedSynchronizeExecution(errorsource: *const super::super::super:
 }
 #[inline]
 pub unsafe fn PshedUnregisterPlugin(pluginhandle: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("pshed.dll" "system" fn PshedUnregisterPlugin(pluginhandle : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("pshed.dll" "system" fn PshedUnregisterPlugin(pluginhandle : *const ::core::ffi::c_void));
     PshedUnregisterPlugin(pluginhandle)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -6485,7 +6485,7 @@ pub unsafe fn RtlAssert<P0>(voidfailedassertion: *const ::core::ffi::c_void, voi
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlAssert(voidfailedassertion : *const ::core::ffi::c_void, voidfilename : *const ::core::ffi::c_void, linenumber : u32, mutablemessage : ::windows_core::PCSTR) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlAssert(voidfailedassertion : *const ::core::ffi::c_void, voidfilename : *const ::core::ffi::c_void, linenumber : u32, mutablemessage : ::windows_core::PCSTR));
     RtlAssert(voidfailedassertion, voidfilename, linenumber, mutablemessage.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -6500,17 +6500,17 @@ where
 }
 #[inline]
 pub unsafe fn RtlClearAllBits(bitmapheader: *const RTL_BITMAP) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlClearAllBits(bitmapheader : *const RTL_BITMAP) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlClearAllBits(bitmapheader : *const RTL_BITMAP));
     RtlClearAllBits(bitmapheader)
 }
 #[inline]
 pub unsafe fn RtlClearBit(bitmapheader: *const RTL_BITMAP, bitnumber: u32) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlClearBit(bitmapheader : *const RTL_BITMAP, bitnumber : u32) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlClearBit(bitmapheader : *const RTL_BITMAP, bitnumber : u32));
     RtlClearBit(bitmapheader, bitnumber)
 }
 #[inline]
 pub unsafe fn RtlClearBits(bitmapheader: *const RTL_BITMAP, startingindex: u32, numbertoclear: u32) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlClearBits(bitmapheader : *const RTL_BITMAP, startingindex : u32, numbertoclear : u32) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlClearBits(bitmapheader : *const RTL_BITMAP, startingindex : u32, numbertoclear : u32));
     RtlClearBits(bitmapheader, startingindex, numbertoclear)
 }
 #[inline]
@@ -6564,21 +6564,21 @@ pub unsafe fn RtlContractHashTable(hashtable: *const RTL_DYNAMIC_HASH_TABLE) -> 
 }
 #[inline]
 pub unsafe fn RtlCopyBitMap(source: *const RTL_BITMAP, destination: *const RTL_BITMAP, targetbit: u32) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlCopyBitMap(source : *const RTL_BITMAP, destination : *const RTL_BITMAP, targetbit : u32) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlCopyBitMap(source : *const RTL_BITMAP, destination : *const RTL_BITMAP, targetbit : u32));
     RtlCopyBitMap(source, destination, targetbit)
 }
 #[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlCopyString(destinationstring: *mut super::super::super::Win32::System::Kernel::STRING, sourcestring: ::core::option::Option<*const super::super::super::Win32::System::Kernel::STRING>) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlCopyString(destinationstring : *mut super::super::super::Win32::System::Kernel:: STRING, sourcestring : *const super::super::super::Win32::System::Kernel:: STRING) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlCopyString(destinationstring : *mut super::super::super::Win32::System::Kernel:: STRING, sourcestring : *const super::super::super::Win32::System::Kernel:: STRING));
     RtlCopyString(destinationstring, ::core::mem::transmute(sourcestring.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlCopyUnicodeString(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: ::core::option::Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlCopyUnicodeString(destinationstring : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, sourcestring : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlCopyUnicodeString(destinationstring : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, sourcestring : *const super::super::super::Win32::Foundation:: UNICODE_STRING));
     RtlCopyUnicodeString(destinationstring, ::core::mem::transmute(sourcestring.unwrap_or(::std::ptr::null())))
 }
 #[inline]
@@ -6640,19 +6640,19 @@ pub unsafe fn RtlDeleteElementGenericTableAvl(table: *const RTL_AVL_TABLE, buffe
 }
 #[inline]
 pub unsafe fn RtlDeleteElementGenericTableAvlEx(table: *const RTL_AVL_TABLE, nodeorparent: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlDeleteElementGenericTableAvlEx(table : *const RTL_AVL_TABLE, nodeorparent : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlDeleteElementGenericTableAvlEx(table : *const RTL_AVL_TABLE, nodeorparent : *const ::core::ffi::c_void));
     RtlDeleteElementGenericTableAvlEx(table, nodeorparent)
 }
 #[inline]
 pub unsafe fn RtlDeleteHashTable(hashtable: *const RTL_DYNAMIC_HASH_TABLE) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlDeleteHashTable(hashtable : *const RTL_DYNAMIC_HASH_TABLE) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlDeleteHashTable(hashtable : *const RTL_DYNAMIC_HASH_TABLE));
     RtlDeleteHashTable(hashtable)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn RtlDeleteNoSplay(links: *const super::super::Foundation::RTL_SPLAY_LINKS, root: *mut *mut super::super::Foundation::RTL_SPLAY_LINKS) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlDeleteNoSplay(links : *const super::super::Foundation:: RTL_SPLAY_LINKS, root : *mut *mut super::super::Foundation:: RTL_SPLAY_LINKS) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlDeleteNoSplay(links : *const super::super::Foundation:: RTL_SPLAY_LINKS, root : *mut *mut super::super::Foundation:: RTL_SPLAY_LINKS));
     RtlDeleteNoSplay(links, root)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -6675,21 +6675,21 @@ pub unsafe fn RtlDowncaseUnicodeChar(sourcecharacter: u16) -> u16 {
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlEndEnumerationHashTable(hashtable: *const RTL_DYNAMIC_HASH_TABLE, enumerator: *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlEndEnumerationHashTable(hashtable : *const RTL_DYNAMIC_HASH_TABLE, enumerator : *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlEndEnumerationHashTable(hashtable : *const RTL_DYNAMIC_HASH_TABLE, enumerator : *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR));
     RtlEndEnumerationHashTable(hashtable, enumerator)
 }
 #[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlEndStrongEnumerationHashTable(hashtable: *const RTL_DYNAMIC_HASH_TABLE, enumerator: *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlEndStrongEnumerationHashTable(hashtable : *const RTL_DYNAMIC_HASH_TABLE, enumerator : *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlEndStrongEnumerationHashTable(hashtable : *const RTL_DYNAMIC_HASH_TABLE, enumerator : *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR));
     RtlEndStrongEnumerationHashTable(hashtable, enumerator)
 }
 #[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlEndWeakEnumerationHashTable(hashtable: *const RTL_DYNAMIC_HASH_TABLE, enumerator: *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlEndWeakEnumerationHashTable(hashtable : *const RTL_DYNAMIC_HASH_TABLE, enumerator : *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlEndWeakEnumerationHashTable(hashtable : *const RTL_DYNAMIC_HASH_TABLE, enumerator : *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR));
     RtlEndWeakEnumerationHashTable(hashtable, enumerator)
 }
 #[doc = "Required features: `\"Win32_System_Kernel\"`"]
@@ -6767,7 +6767,7 @@ pub unsafe fn RtlExpandHashTable(hashtable: *const RTL_DYNAMIC_HASH_TABLE) -> su
 }
 #[inline]
 pub unsafe fn RtlExtractBitMap(source: *const RTL_BITMAP, destination: *const RTL_BITMAP, targetbit: u32, numberofbits: u32) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlExtractBitMap(source : *const RTL_BITMAP, destination : *const RTL_BITMAP, targetbit : u32, numberofbits : u32) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlExtractBitMap(source : *const RTL_BITMAP, destination : *const RTL_BITMAP, targetbit : u32, numberofbits : u32));
     RtlExtractBitMap(source, destination, targetbit, numberofbits)
 }
 #[inline]
@@ -6841,7 +6841,7 @@ pub unsafe fn RtlFindSetBitsAndClear(bitmapheader: *const RTL_BITMAP, numbertofi
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlFreeUTF8String(utf8string: ::core::option::Option<*mut super::super::super::Win32::System::Kernel::STRING>) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlFreeUTF8String(utf8string : *mut super::super::super::Win32::System::Kernel:: STRING) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlFreeUTF8String(utf8string : *mut super::super::super::Win32::System::Kernel:: STRING));
     RtlFreeUTF8String(::core::mem::transmute(utf8string.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -6865,7 +6865,7 @@ pub unsafe fn RtlGetActiveConsoleId() -> u32 {
 }
 #[inline]
 pub unsafe fn RtlGetCallersAddress(callersaddress: *mut *mut ::core::ffi::c_void, callerscaller: *mut *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlGetCallersAddress(callersaddress : *mut *mut ::core::ffi::c_void, callerscaller : *mut *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlGetCallersAddress(callersaddress : *mut *mut ::core::ffi::c_void, callerscaller : *mut *mut ::core::ffi::c_void));
     RtlGetCallersAddress(callersaddress, callerscaller)
 }
 #[inline]
@@ -6961,7 +6961,7 @@ pub unsafe fn RtlInitStrongEnumerationHashTable(hashtable: *const RTL_DYNAMIC_HA
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlInitUTF8String(destinationstring: *mut super::super::super::Win32::System::Kernel::STRING, sourcestring: ::core::option::Option<*const i8>) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitUTF8String(destinationstring : *mut super::super::super::Win32::System::Kernel:: STRING, sourcestring : *const i8) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitUTF8String(destinationstring : *mut super::super::super::Win32::System::Kernel:: STRING, sourcestring : *const i8));
     RtlInitUTF8String(destinationstring, ::core::mem::transmute(sourcestring.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -6980,19 +6980,19 @@ pub unsafe fn RtlInitWeakEnumerationHashTable(hashtable: *const RTL_DYNAMIC_HASH
 }
 #[inline]
 pub unsafe fn RtlInitializeBitMap(bitmapheader: *mut RTL_BITMAP, bitmapbuffer: ::core::option::Option<*const u32>, sizeofbitmap: u32) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitializeBitMap(bitmapheader : *mut RTL_BITMAP, bitmapbuffer : *const u32, sizeofbitmap : u32) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitializeBitMap(bitmapheader : *mut RTL_BITMAP, bitmapbuffer : *const u32, sizeofbitmap : u32));
     RtlInitializeBitMap(bitmapheader, ::core::mem::transmute(bitmapbuffer.unwrap_or(::std::ptr::null())), sizeofbitmap)
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn RtlInitializeGenericTable(table: *mut RTL_GENERIC_TABLE, compareroutine: PRTL_GENERIC_COMPARE_ROUTINE, allocateroutine: PRTL_GENERIC_ALLOCATE_ROUTINE, freeroutine: PRTL_GENERIC_FREE_ROUTINE, tablecontext: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitializeGenericTable(table : *mut RTL_GENERIC_TABLE, compareroutine : PRTL_GENERIC_COMPARE_ROUTINE, allocateroutine : PRTL_GENERIC_ALLOCATE_ROUTINE, freeroutine : PRTL_GENERIC_FREE_ROUTINE, tablecontext : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitializeGenericTable(table : *mut RTL_GENERIC_TABLE, compareroutine : PRTL_GENERIC_COMPARE_ROUTINE, allocateroutine : PRTL_GENERIC_ALLOCATE_ROUTINE, freeroutine : PRTL_GENERIC_FREE_ROUTINE, tablecontext : *const ::core::ffi::c_void));
     RtlInitializeGenericTable(table, compareroutine, allocateroutine, freeroutine, ::core::mem::transmute(tablecontext.unwrap_or(::std::ptr::null())))
 }
 #[inline]
 pub unsafe fn RtlInitializeGenericTableAvl(table: *mut RTL_AVL_TABLE, compareroutine: PRTL_AVL_COMPARE_ROUTINE, allocateroutine: PRTL_AVL_ALLOCATE_ROUTINE, freeroutine: PRTL_AVL_FREE_ROUTINE, tablecontext: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitializeGenericTableAvl(table : *mut RTL_AVL_TABLE, compareroutine : PRTL_AVL_COMPARE_ROUTINE, allocateroutine : PRTL_AVL_ALLOCATE_ROUTINE, freeroutine : PRTL_AVL_FREE_ROUTINE, tablecontext : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitializeGenericTableAvl(table : *mut RTL_AVL_TABLE, compareroutine : PRTL_AVL_COMPARE_ROUTINE, allocateroutine : PRTL_AVL_ALLOCATE_ROUTINE, freeroutine : PRTL_AVL_FREE_ROUTINE, tablecontext : *const ::core::ffi::c_void));
     RtlInitializeGenericTableAvl(table, compareroutine, allocateroutine, freeroutine, ::core::mem::transmute(tablecontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -7175,7 +7175,7 @@ pub unsafe fn RtlLookupFirstMatchingElementGenericTableAvl(table: *const RTL_AVL
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn RtlMapGenericMask(accessmask: *mut u32, genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlMapGenericMask(accessmask : *mut u32, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlMapGenericMask(accessmask : *mut u32, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING));
     RtlMapGenericMask(accessmask, genericmapping)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
@@ -7227,7 +7227,7 @@ pub unsafe fn RtlNumberOfSetBitsUlongPtr(target: usize) -> u32 {
 }
 #[inline]
 pub unsafe fn RtlPrefetchMemoryNonTemporal(source: *const ::core::ffi::c_void, length: usize) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn RtlPrefetchMemoryNonTemporal(source : *const ::core::ffi::c_void, length : usize) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn RtlPrefetchMemoryNonTemporal(source : *const ::core::ffi::c_void, length : usize));
     RtlPrefetchMemoryNonTemporal(source, length)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -7314,24 +7314,24 @@ pub unsafe fn RtlRunOnceExecuteOnce(runonce: *mut super::super::super::Win32::Sy
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
 pub unsafe fn RtlRunOnceInitialize() -> super::super::super::Win32::System::Threading::INIT_ONCE {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlRunOnceInitialize(runonce : *mut super::super::super::Win32::System::Threading:: INIT_ONCE) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlRunOnceInitialize(runonce : *mut super::super::super::Win32::System::Threading:: INIT_ONCE));
     let mut result__ = ::std::mem::zeroed();
     RtlRunOnceInitialize(&mut result__);
     ::std::mem::transmute(result__)
 }
 #[inline]
 pub unsafe fn RtlSetAllBits(bitmapheader: *const RTL_BITMAP) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlSetAllBits(bitmapheader : *const RTL_BITMAP) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlSetAllBits(bitmapheader : *const RTL_BITMAP));
     RtlSetAllBits(bitmapheader)
 }
 #[inline]
 pub unsafe fn RtlSetBit(bitmapheader: *const RTL_BITMAP, bitnumber: u32) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlSetBit(bitmapheader : *const RTL_BITMAP, bitnumber : u32) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlSetBit(bitmapheader : *const RTL_BITMAP, bitnumber : u32));
     RtlSetBit(bitmapheader, bitnumber)
 }
 #[inline]
 pub unsafe fn RtlSetBits(bitmapheader: *const RTL_BITMAP, startingindex: u32, numbertoset: u32) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlSetBits(bitmapheader : *const RTL_BITMAP, startingindex : u32, numbertoset : u32) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlSetBits(bitmapheader : *const RTL_BITMAP, startingindex : u32, numbertoset : u32));
     RtlSetBits(bitmapheader, startingindex, numbertoset)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
@@ -7413,7 +7413,7 @@ pub unsafe fn RtlTimeFieldsToTime(timefields: *const TIME_FIELDS, time: *mut i64
 }
 #[inline]
 pub unsafe fn RtlTimeToTimeFields(time: *const i64) -> TIME_FIELDS {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlTimeToTimeFields(time : *const i64, timefields : *mut TIME_FIELDS) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlTimeToTimeFields(time : *const i64, timefields : *mut TIME_FIELDS));
     let mut result__ = ::std::mem::zeroed();
     RtlTimeToTimeFields(time, &mut result__);
     ::std::mem::transmute(result__)
@@ -7490,7 +7490,7 @@ pub unsafe fn RtlUpperChar(character: u8) -> u8 {
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlUpperString(destinationstring: *mut super::super::super::Win32::System::Kernel::STRING, sourcestring: *const super::super::super::Win32::System::Kernel::STRING) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlUpperString(destinationstring : *mut super::super::super::Win32::System::Kernel:: STRING, sourcestring : *const super::super::super::Win32::System::Kernel:: STRING) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlUpperString(destinationstring : *mut super::super::super::Win32::System::Kernel:: STRING, sourcestring : *const super::super::super::Win32::System::Kernel:: STRING));
     RtlUpperString(destinationstring, sourcestring)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
@@ -7603,7 +7603,7 @@ where
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn SeCaptureSubjectContext() -> super::super::Foundation::SECURITY_SUBJECT_CONTEXT {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn SeCaptureSubjectContext(subjectcontext : *mut super::super::Foundation:: SECURITY_SUBJECT_CONTEXT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn SeCaptureSubjectContext(subjectcontext : *mut super::super::Foundation:: SECURITY_SUBJECT_CONTEXT));
     let mut result__ = ::std::mem::zeroed();
     SeCaptureSubjectContext(&mut result__);
     ::std::mem::transmute(result__)
@@ -7637,7 +7637,7 @@ pub unsafe fn SeEtwWriteKMCveEvent(cveid: *const super::super::super::Win32::Fou
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn SeLockSubjectContext(subjectcontext: *const super::super::Foundation::SECURITY_SUBJECT_CONTEXT) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn SeLockSubjectContext(subjectcontext : *const super::super::Foundation:: SECURITY_SUBJECT_CONTEXT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn SeLockSubjectContext(subjectcontext : *const super::super::Foundation:: SECURITY_SUBJECT_CONTEXT));
     SeLockSubjectContext(subjectcontext)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -7651,7 +7651,7 @@ pub unsafe fn SeRegisterImageVerificationCallback(imagetype: SE_IMAGE_TYPE, call
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn SeReleaseSubjectContext(subjectcontext: *mut super::super::Foundation::SECURITY_SUBJECT_CONTEXT) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn SeReleaseSubjectContext(subjectcontext : *mut super::super::Foundation:: SECURITY_SUBJECT_CONTEXT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn SeReleaseSubjectContext(subjectcontext : *mut super::super::Foundation:: SECURITY_SUBJECT_CONTEXT));
     SeReleaseSubjectContext(subjectcontext)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`"]
@@ -7682,12 +7682,12 @@ pub unsafe fn SeSinglePrivilegeCheck(privilegevalue: super::super::super::Win32:
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn SeUnlockSubjectContext(subjectcontext: *const super::super::Foundation::SECURITY_SUBJECT_CONTEXT) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn SeUnlockSubjectContext(subjectcontext : *const super::super::Foundation:: SECURITY_SUBJECT_CONTEXT) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn SeUnlockSubjectContext(subjectcontext : *const super::super::Foundation:: SECURITY_SUBJECT_CONTEXT));
     SeUnlockSubjectContext(subjectcontext)
 }
 #[inline]
 pub unsafe fn SeUnregisterImageVerificationCallback(callbackhandle: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn SeUnregisterImageVerificationCallback(callbackhandle : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn SeUnregisterImageVerificationCallback(callbackhandle : *const ::core::ffi::c_void));
     SeUnregisterImageVerificationCallback(callbackhandle)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
@@ -7749,7 +7749,7 @@ pub unsafe fn TmEnableCallbacks(resourcemanager: *const super::super::Foundation
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn TmGetTransactionId(transaction: *const super::super::Foundation::KTRANSACTION) -> ::windows_core::GUID {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn TmGetTransactionId(transaction : *const super::super::Foundation:: KTRANSACTION, transactionid : *mut ::windows_core::GUID) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn TmGetTransactionId(transaction : *const super::super::Foundation:: KTRANSACTION, transactionid : *mut ::windows_core::GUID));
     let mut result__ = ::std::mem::zeroed();
     TmGetTransactionId(transaction, &mut result__);
     ::std::mem::transmute(result__)
@@ -7978,7 +7978,7 @@ pub unsafe fn WheaHighIrqlLogSelEventHandlerRegister(handler: PFN_WHEA_HIGH_IRQL
 }
 #[inline]
 pub unsafe fn WheaHighIrqlLogSelEventHandlerUnregister() {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn WheaHighIrqlLogSelEventHandlerUnregister() -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn WheaHighIrqlLogSelEventHandlerUnregister());
     WheaHighIrqlLogSelEventHandlerUnregister()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -8025,7 +8025,7 @@ pub unsafe fn WheaIsCriticalState() -> super::super::super::Win32::Foundation::B
 }
 #[inline]
 pub unsafe fn WheaLogInternalEvent(entry: *const WHEA_EVENT_LOG_ENTRY) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn WheaLogInternalEvent(entry : *const WHEA_EVENT_LOG_ENTRY) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn WheaLogInternalEvent(entry : *const WHEA_EVENT_LOG_ENTRY));
     WheaLogInternalEvent(entry)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -8037,7 +8037,7 @@ pub unsafe fn WheaRegisterInUsePageOfflineNotification(callback: PFN_IN_USE_PAGE
 }
 #[inline]
 pub unsafe fn WheaRemoveErrorSource(errorsourceid: u32) {
-    ::windows_targets::link!("ntoskrnl.exe" "system" fn WheaRemoveErrorSource(errorsourceid : u32) -> ());
+    ::windows_targets::link!("ntoskrnl.exe" "system" fn WheaRemoveErrorSource(errorsourceid : u32));
     WheaRemoveErrorSource(errorsourceid)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -45595,39 +45595,39 @@ impl ::core::default::Default for _EXT_SET_PARAMETERS_V0 {
 pub type ALLOCATE_FUNCTION = ::core::option::Option<unsafe extern "system" fn(pooltype: super::super::Foundation::POOL_TYPE, numberofbytes: usize, tag: u32) -> *mut ::core::ffi::c_void>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type BOOT_DRIVER_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(callbackcontext: *const ::core::ffi::c_void, classification: BDCB_CALLBACK_TYPE, imageinformation: *mut BDCB_IMAGE_INFORMATION) -> ()>;
+pub type BOOT_DRIVER_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(callbackcontext: *const ::core::ffi::c_void, classification: BDCB_CALLBACK_TYPE, imageinformation: *mut BDCB_IMAGE_INFORMATION)>;
 pub type BOUND_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> BOUND_CALLBACK_STATUS>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type D3COLD_REQUEST_AUX_POWER = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, auxpowerinmilliwatts: u32, retryinseconds: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type D3COLD_REQUEST_CORE_POWER_RAIL = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, corepowerrailneeded: super::super::super::Win32::Foundation::BOOLEAN) -> ()>;
+pub type D3COLD_REQUEST_CORE_POWER_RAIL = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, corepowerrailneeded: super::super::super::Win32::Foundation::BOOLEAN)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type D3COLD_REQUEST_PERST_DELAY = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, delayinmicroseconds: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DEVICE_BUS_SPECIFIC_RESET_HANDLER = ::core::option::Option<unsafe extern "system" fn(interfacecontext: *const ::core::ffi::c_void, bustype: *const ::windows_core::GUID, resettypeselected: DEVICE_BUS_SPECIFIC_RESET_TYPE, flags: *const BUS_SPECIFIC_RESET_FLAGS, resetparameters: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type DEVICE_CHANGE_COMPLETE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void) -> ()>;
+pub type DEVICE_CHANGE_COMPLETE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = ::core::option::Option<unsafe extern "system" fn(interfacecontext: *const ::core::ffi::c_void, resetinfocount: *mut u32, resetinfosupported: *mut DEVICE_BUS_SPECIFIC_RESET_INFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type DEVICE_RESET_COMPLETION = ::core::option::Option<unsafe extern "system" fn(status: super::super::super::Win32::Foundation::NTSTATUS, context: *mut ::core::ffi::c_void) -> ()>;
+pub type DEVICE_RESET_COMPLETION = ::core::option::Option<unsafe extern "system" fn(status: super::super::super::Win32::Foundation::NTSTATUS, context: *mut ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DEVICE_RESET_HANDLER = ::core::option::Option<unsafe extern "system" fn(interfacecontext: *const ::core::ffi::c_void, resettype: DEVICE_RESET_TYPE, flags: u32, resetparameters: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type DMA_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, completioncontext: *const ::core::ffi::c_void, status: DMA_COMPLETION_STATUS) -> ()>;
+pub type DMA_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, completioncontext: *const ::core::ffi::c_void, status: DMA_COMPLETION_STATUS)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type DRIVER_ADD_DEVICE = ::core::option::Option<unsafe extern "system" fn(driverobject: *const super::super::Foundation::DRIVER_OBJECT, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type DRIVER_CANCEL = ::core::option::Option<unsafe extern "system" fn(deviceobject: *mut super::super::Foundation::DEVICE_OBJECT, irp: *mut super::super::Foundation::IRP) -> ()>;
+pub type DRIVER_CANCEL = ::core::option::Option<unsafe extern "system" fn(deviceobject: *mut super::super::Foundation::DEVICE_OBJECT, irp: *mut super::super::Foundation::IRP)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type DRIVER_CONTROL = ::core::option::Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *mut super::super::Foundation::IRP, mapregisterbase: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void) -> IO_ALLOCATION_ACTION>;
@@ -45645,36 +45645,36 @@ pub type DRIVER_DISPATCH_RAISED = ::core::option::Option<unsafe extern "system" 
 pub type DRIVER_INITIALIZE = ::core::option::Option<unsafe extern "system" fn(driverobject: *const super::super::Foundation::DRIVER_OBJECT, registrypath: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type DRIVER_LIST_CONTROL = ::core::option::Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *const super::super::Foundation::IRP, scattergather: *const SCATTER_GATHER_LIST, context: *const ::core::ffi::c_void) -> ()>;
+pub type DRIVER_LIST_CONTROL = ::core::option::Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *const super::super::Foundation::IRP, scattergather: *const SCATTER_GATHER_LIST, context: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DRIVER_NOTIFICATION_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn(notificationstructure: *const ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type DRIVER_REINITIALIZE = ::core::option::Option<unsafe extern "system" fn(driverobject: *const super::super::Foundation::DRIVER_OBJECT, context: *const ::core::ffi::c_void, count: u32) -> ()>;
+pub type DRIVER_REINITIALIZE = ::core::option::Option<unsafe extern "system" fn(driverobject: *const super::super::Foundation::DRIVER_OBJECT, context: *const ::core::ffi::c_void, count: u32)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type DRIVER_STARTIO = ::core::option::Option<unsafe extern "system" fn(deviceobject: *mut super::super::Foundation::DEVICE_OBJECT, irp: *mut super::super::Foundation::IRP) -> ()>;
+pub type DRIVER_STARTIO = ::core::option::Option<unsafe extern "system" fn(deviceobject: *mut super::super::Foundation::DEVICE_OBJECT, irp: *mut super::super::Foundation::IRP)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type DRIVER_UNLOAD = ::core::option::Option<unsafe extern "system" fn(driverobject: *const super::super::Foundation::DRIVER_OBJECT) -> ()>;
+pub type DRIVER_UNLOAD = ::core::option::Option<unsafe extern "system" fn(driverobject: *const super::super::Foundation::DRIVER_OBJECT)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ENABLE_VIRTUALIZATION = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, numvfs: u16, enablevfmigration: super::super::super::Win32::Foundation::BOOLEAN, enablemigrationinterrupt: super::super::super::Win32::Foundation::BOOLEAN, enablevirtualization: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Win32_System_Diagnostics_Etw\"`"]
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
-pub type ETWENABLECALLBACK = ::core::option::Option<unsafe extern "system" fn(sourceid: *const ::windows_core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut ::core::ffi::c_void) -> ()>;
-pub type EXPAND_STACK_CALLOUT = ::core::option::Option<unsafe extern "system" fn(parameter: *const ::core::ffi::c_void) -> ()>;
+pub type ETWENABLECALLBACK = ::core::option::Option<unsafe extern "system" fn(sourceid: *const ::windows_core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut ::core::ffi::c_void)>;
+pub type EXPAND_STACK_CALLOUT = ::core::option::Option<unsafe extern "system" fn(parameter: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
-pub type EXT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(timer: super::super::Foundation::PEX_TIMER, context: *const ::core::ffi::c_void) -> ()>;
-pub type EXT_DELETE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> ()>;
+pub type EXT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(timer: super::super::Foundation::PEX_TIMER, context: *const ::core::ffi::c_void)>;
+pub type EXT_DELETE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type EX_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(callbackcontext: *const ::core::ffi::c_void, argument1: *const ::core::ffi::c_void, argument2: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type FAST_IO_ACQUIRE_FILE = ::core::option::Option<unsafe extern "system" fn(fileobject: *const super::super::Foundation::FILE_OBJECT) -> ()>;
+pub type FAST_IO_ACQUIRE_FILE = ::core::option::Option<unsafe extern "system" fn(fileobject: *const super::super::Foundation::FILE_OBJECT)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type FAST_IO_ACQUIRE_FOR_CCFLUSH = ::core::option::Option<unsafe extern "system" fn(fileobject: *const super::super::Foundation::FILE_OBJECT, deviceobject: *const super::super::Foundation::DEVICE_OBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -45686,7 +45686,7 @@ pub type FAST_IO_ACQUIRE_FOR_MOD_WRITE = ::core::option::Option<unsafe extern "s
 pub type FAST_IO_CHECK_IF_POSSIBLE = ::core::option::Option<unsafe extern "system" fn(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, wait: super::super::super::Win32::Foundation::BOOLEAN, lockkey: u32, checkforreadoperation: super::super::super::Win32::Foundation::BOOLEAN, iostatus: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, deviceobject: *const super::super::Foundation::DEVICE_OBJECT) -> super::super::super::Win32::Foundation::BOOLEAN>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type FAST_IO_DETACH_DEVICE = ::core::option::Option<unsafe extern "system" fn(sourcedevice: *const super::super::Foundation::DEVICE_OBJECT, targetdevice: *const super::super::Foundation::DEVICE_OBJECT) -> ()>;
+pub type FAST_IO_DETACH_DEVICE = ::core::option::Option<unsafe extern "system" fn(sourcedevice: *const super::super::Foundation::DEVICE_OBJECT, targetdevice: *const super::super::Foundation::DEVICE_OBJECT)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type FAST_IO_DEVICE_CONTROL = ::core::option::Option<unsafe extern "system" fn(fileobject: *const super::super::Foundation::FILE_OBJECT, wait: super::super::super::Win32::Foundation::BOOLEAN, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32, iocontrolcode: u32, iostatus: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, deviceobject: *const super::super::Foundation::DEVICE_OBJECT) -> super::super::super::Win32::Foundation::BOOLEAN>;
@@ -45731,7 +45731,7 @@ pub type FAST_IO_READ = ::core::option::Option<unsafe extern "system" fn(fileobj
 pub type FAST_IO_READ_COMPRESSED = ::core::option::Option<unsafe extern "system" fn(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, lockkey: u32, buffer: *mut ::core::ffi::c_void, mdlchain: *mut *mut super::super::Foundation::MDL, iostatus: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, compresseddatainfo: *mut super::super::Storage::FileSystem::COMPRESSED_DATA_INFO, compresseddatainfolength: u32, deviceobject: *const super::super::Foundation::DEVICE_OBJECT) -> super::super::super::Win32::Foundation::BOOLEAN>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type FAST_IO_RELEASE_FILE = ::core::option::Option<unsafe extern "system" fn(fileobject: *const super::super::Foundation::FILE_OBJECT) -> ()>;
+pub type FAST_IO_RELEASE_FILE = ::core::option::Option<unsafe extern "system" fn(fileobject: *const super::super::Foundation::FILE_OBJECT)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type FAST_IO_RELEASE_FOR_CCFLUSH = ::core::option::Option<unsafe extern "system" fn(fileobject: *const super::super::Foundation::FILE_OBJECT, deviceobject: *const super::super::Foundation::DEVICE_OBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -45753,7 +45753,7 @@ pub type FAST_IO_WRITE = ::core::option::Option<unsafe extern "system" fn(fileob
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type FAST_IO_WRITE_COMPRESSED = ::core::option::Option<unsafe extern "system" fn(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, lockkey: u32, buffer: *const ::core::ffi::c_void, mdlchain: *mut *mut super::super::Foundation::MDL, iostatus: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, compresseddatainfo: *const super::super::Storage::FileSystem::COMPRESSED_DATA_INFO, compresseddatainfolength: u32, deviceobject: *const super::super::Foundation::DEVICE_OBJECT) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type FPGA_BUS_SCAN = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> ()>;
+pub type FPGA_BUS_SCAN = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FPGA_CONTROL_CONFIG_SPACE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, enable: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -45763,12 +45763,12 @@ pub type FPGA_CONTROL_ERROR_REPORTING = ::core::option::Option<unsafe extern "sy
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FPGA_CONTROL_LINK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, enable: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type FREE_FUNCTION = ::core::option::Option<unsafe extern "system" fn(buffer: *const ::core::ffi::c_void) -> ()>;
-pub type FWMI_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(wnode: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> ()>;
+pub type FREE_FUNCTION = ::core::option::Option<unsafe extern "system" fn(buffer: *const ::core::ffi::c_void)>;
+pub type FWMI_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(wnode: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GET_D3COLD_CAPABILITY = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, d3coldsupported: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type GET_D3COLD_LAST_TRANSITION_STATUS = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, lasttransitionstatus: *mut D3COLD_LAST_TRANSITION_STATUS) -> ()>;
+pub type GET_D3COLD_LAST_TRANSITION_STATUS = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, lasttransitionstatus: *mut D3COLD_LAST_TRANSITION_STATUS)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GET_DEVICE_RESET_STATUS = ::core::option::Option<unsafe extern "system" fn(interfacecontext: *const ::core::ffi::c_void, isresetting: *mut super::super::super::Win32::Foundation::BOOLEAN, resettypeselected: *mut DEVICE_BUS_SPECIFIC_RESET_TYPE, flags: *mut DEVICE_RESET_STATUS_FLAGS) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -45787,7 +45787,7 @@ pub type GET_VIRTUAL_DEVICE_DATA = ::core::option::Option<unsafe extern "system"
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GET_VIRTUAL_DEVICE_LOCATION = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, virtualfunction: u16, segmentnumber: *mut u16, busnumber: *mut u8, functionnumber: *mut u8) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type GET_VIRTUAL_DEVICE_RESOURCES = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, capturedbusnumbers: *mut u8) -> ()>;
+pub type GET_VIRTUAL_DEVICE_RESOURCES = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, capturedbusnumbers: *mut u8)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GET_VIRTUAL_FUNCTION_PROBED_BARS = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, baseregistervalues: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -45802,10 +45802,10 @@ pub type IOMMU_DEVICE_CREATE = ::core::option::Option<unsafe extern "system" fn(
 pub type IOMMU_DEVICE_DELETE = ::core::option::Option<unsafe extern "system" fn(dmadevice: *const super::super::Foundation::IOMMU_DMA_DEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type IOMMU_DEVICE_FAULT_HANDLER = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, faultinformation: *mut FAULT_INFORMATION) -> ()>;
+pub type IOMMU_DEVICE_FAULT_HANDLER = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, faultinformation: *mut FAULT_INFORMATION)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_DEVICE_QUERY_DOMAIN_TYPES = ::core::option::Option<unsafe extern "system" fn(dmadevice: *const super::super::Foundation::IOMMU_DMA_DEVICE, availabledomains: *mut u32) -> ()>;
+pub type IOMMU_DEVICE_QUERY_DOMAIN_TYPES = ::core::option::Option<unsafe extern "system" fn(dmadevice: *const super::super::Foundation::IOMMU_DMA_DEVICE, availabledomains: *mut u32)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type IOMMU_DOMAIN_ATTACH_DEVICE = ::core::option::Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, inputmappingidbase: u32, mappingcount: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -45839,7 +45839,7 @@ pub type IOMMU_FLUSH_DOMAIN_VA_LIST = ::core::option::Option<unsafe extern "syst
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = ::core::option::Option<unsafe extern "system" fn(logicaladdresstoken: *const IOMMU_DMA_LOGICAL_ADDRESS_TOKEN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type IOMMU_INTERFACE_STATE_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(statechange: *const IOMMU_INTERFACE_STATE_CHANGE, context: *const ::core::ffi::c_void) -> ()>;
+pub type IOMMU_INTERFACE_STATE_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(statechange: *const IOMMU_INTERFACE_STATE_CHANGE, context: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
 pub type IOMMU_MAP_IDENTITY_RANGE = ::core::option::Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, permissions: u32, mdl: *const super::super::Foundation::MDL) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -45890,13 +45890,13 @@ pub type IOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = ::core::option::Opti
 pub type IO_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *const super::super::Foundation::IRP, context: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type IO_CSQ_ACQUIRE_LOCK = ::core::option::Option<unsafe extern "system" fn(csq: *const IO_CSQ, irql: *mut u8) -> ()>;
+pub type IO_CSQ_ACQUIRE_LOCK = ::core::option::Option<unsafe extern "system" fn(csq: *const IO_CSQ, irql: *mut u8)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type IO_CSQ_COMPLETE_CANCELED_IRP = ::core::option::Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const super::super::Foundation::IRP) -> ()>;
+pub type IO_CSQ_COMPLETE_CANCELED_IRP = ::core::option::Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const super::super::Foundation::IRP)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type IO_CSQ_INSERT_IRP = ::core::option::Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const super::super::Foundation::IRP) -> ()>;
+pub type IO_CSQ_INSERT_IRP = ::core::option::Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const super::super::Foundation::IRP)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type IO_CSQ_INSERT_IRP_EX = ::core::option::Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const super::super::Foundation::IRP, insertcontext: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -45905,13 +45905,13 @@ pub type IO_CSQ_INSERT_IRP_EX = ::core::option::Option<unsafe extern "system" fn
 pub type IO_CSQ_PEEK_NEXT_IRP = ::core::option::Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const super::super::Foundation::IRP, peekcontext: *const ::core::ffi::c_void) -> *mut super::super::Foundation::IRP>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type IO_CSQ_RELEASE_LOCK = ::core::option::Option<unsafe extern "system" fn(csq: *const IO_CSQ, irql: u8) -> ()>;
+pub type IO_CSQ_RELEASE_LOCK = ::core::option::Option<unsafe extern "system" fn(csq: *const IO_CSQ, irql: u8)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type IO_CSQ_REMOVE_IRP = ::core::option::Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const super::super::Foundation::IRP) -> ()>;
+pub type IO_CSQ_REMOVE_IRP = ::core::option::Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const super::super::Foundation::IRP)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type IO_DPC_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dpc: *const super::super::Foundation::KDPC, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *mut super::super::Foundation::IRP, context: *const ::core::ffi::c_void) -> ()>;
+pub type IO_DPC_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dpc: *const super::super::Foundation::KDPC, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *mut super::super::Foundation::IRP, context: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type IO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(driverobject: *const super::super::Foundation::DRIVER_OBJECT, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, physicaldeviceid: *const super::super::super::Win32::Foundation::UNICODE_STRING, datatag: *const u16, dataversion: *const u32, context: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -45920,20 +45920,20 @@ pub type IO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = ::core::option::Option<unsaf
 pub type IO_SESSION_NOTIFICATION_FUNCTION = ::core::option::Option<unsafe extern "system" fn(sessionobject: *const ::core::ffi::c_void, ioobject: *const ::core::ffi::c_void, event: u32, context: *const ::core::ffi::c_void, notificationpayload: *const ::core::ffi::c_void, payloadlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type IO_TIMER_ROUTINE = ::core::option::Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, context: *const ::core::ffi::c_void) -> ()>;
+pub type IO_TIMER_ROUTINE = ::core::option::Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, context: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type IO_WORKITEM_ROUTINE = ::core::option::Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, context: *const ::core::ffi::c_void) -> ()>;
+pub type IO_WORKITEM_ROUTINE = ::core::option::Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, context: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
-pub type IO_WORKITEM_ROUTINE_EX = ::core::option::Option<unsafe extern "system" fn(ioobject: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, ioworkitem: super::super::Foundation::PIO_WORKITEM) -> ()>;
-pub type KBUGCHECK_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn(buffer: *mut ::core::ffi::c_void, length: u32) -> ()>;
+pub type IO_WORKITEM_ROUTINE_EX = ::core::option::Option<unsafe extern "system" fn(ioobject: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, ioworkitem: super::super::Foundation::PIO_WORKITEM)>;
+pub type KBUGCHECK_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn(buffer: *mut ::core::ffi::c_void, length: u32)>;
 #[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
-pub type KBUGCHECK_REASON_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn(reason: KBUGCHECK_CALLBACK_REASON, record: *const KBUGCHECK_REASON_CALLBACK_RECORD, reasonspecificdata: *mut ::core::ffi::c_void, reasonspecificdatalength: u32) -> ()>;
+pub type KBUGCHECK_REASON_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn(reason: KBUGCHECK_CALLBACK_REASON, record: *const KBUGCHECK_REASON_CALLBACK_RECORD, reasonspecificdata: *mut ::core::ffi::c_void, reasonspecificdatalength: u32)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-pub type KDEFERRED_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dpc: *const super::super::Foundation::KDPC, deferredcontext: *const ::core::ffi::c_void, systemargument1: *const ::core::ffi::c_void, systemargument2: *const ::core::ffi::c_void) -> ()>;
+pub type KDEFERRED_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dpc: *const super::super::Foundation::KDPC, deferredcontext: *const ::core::ffi::c_void, systemargument1: *const ::core::ffi::c_void, systemargument2: *const ::core::ffi::c_void)>;
 pub type KIPI_BROADCAST_WORKER = ::core::option::Option<unsafe extern "system" fn(argument: usize) -> usize>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -45941,11 +45941,11 @@ pub type KMESSAGE_SERVICE_ROUTINE = ::core::option::Option<unsafe extern "system
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type KSERVICE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(interrupt: *const isize, servicecontext: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type KSTART_ROUTINE = ::core::option::Option<unsafe extern "system" fn(startcontext: *const ::core::ffi::c_void) -> ()>;
+pub type KSTART_ROUTINE = ::core::option::Option<unsafe extern "system" fn(startcontext: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type KSYNCHRONIZE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(synchronizecontext: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type MM_MDL_ROUTINE = ::core::option::Option<unsafe extern "system" fn(drivercontext: *const ::core::ffi::c_void, mappedva: *const ::core::ffi::c_void) -> ()>;
+pub type MM_MDL_ROUTINE = ::core::option::Option<unsafe extern "system" fn(drivercontext: *const ::core::ffi::c_void, mappedva: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type NMI_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, handled: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::BOOLEAN>;
@@ -45961,7 +45961,7 @@ pub type NPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = ::core::option::Option<unsaf
 pub type NPEM_CONTROL_SET_STANDARD_CONTROL = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, standardcontrol: NPEM_CONTROL_STANDARD_CONTROL_BIT, set: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
-pub type NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = ::core::option::Option<unsafe extern "system" fn(vcb: *const ::core::ffi::c_void, securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR) -> ()>;
+pub type NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = ::core::option::Option<unsafe extern "system" fn(vcb: *const ::core::ffi::c_void, securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type PALLOCATE_ADAPTER_CHANNEL = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, numberofmapregisters: u32, executionroutine: PDRIVER_CONTROL, context: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -45988,7 +45988,7 @@ pub type PALLOCATE_FUNCTION_EX = ::core::option::Option<unsafe extern "system" f
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type PARBITER_HANDLER = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, action: ARBITER_ACTION, parameters: *mut ARBITER_PARAMETERS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PBOOT_DRIVER_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PBOOT_DRIVER_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn()>;
 pub type PBOUND_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> BOUND_CALLBACK_STATUS>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
@@ -46002,14 +46002,14 @@ pub type PBUILD_SCATTER_GATHER_LIST_EX = ::core::option::Option<unsafe extern "s
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type PCALCULATE_SCATTER_GATHER_LIST_SIZE = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, currentva: *const ::core::ffi::c_void, length: u32, scattergatherlistsize: *mut u32, pnumberofmapregisters: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PCALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PCALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type PCANCEL_ADAPTER_CHANNEL = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, dmatransfercontext: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type PCANCEL_MAPPED_TRANSFER = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, dmatransfercontext: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PCI_ERROR_HANDLER_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PCI_ERROR_HANDLER_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46018,14 +46018,14 @@ pub type PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = ::core::option::Option<unsafe e
 pub type PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PCI_EXPRESS_WAKE_CONTROL = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, enablewake: super::super::super::Win32::Foundation::BOOLEAN) -> ()>;
+pub type PCI_EXPRESS_WAKE_CONTROL = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, enablewake: super::super::super::Win32::Foundation::BOOLEAN)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCI_IS_DEVICE_PRESENT = ::core::option::Option<unsafe extern "system" fn(vendorid: u16, deviceid: u16, revisionid: u8, subvendorid: u16, subsystemid: u16, flags: u32) -> super::super::super::Win32::Foundation::BOOLEAN>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCI_IS_DEVICE_PRESENT_EX = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, parameters: *const PCI_DEVICE_PRESENCE_PARAMETERS) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PCI_LINE_TO_PIN = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, pcinewdata: *const PCI_COMMON_CONFIG, pciolddata: *const PCI_COMMON_CONFIG) -> ()>;
+pub type PCI_LINE_TO_PIN = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, pcinewdata: *const PCI_COMMON_CONFIG, pciolddata: *const PCI_COMMON_CONFIG)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCI_MSIX_GET_ENTRY = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, tableentry: u32, messagenumber: *mut u32, masked: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46038,12 +46038,12 @@ pub type PCI_MSIX_MASKUNMASK_ENTRY = ::core::option::Option<unsafe extern "syste
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCI_MSIX_SET_ENTRY = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, tableentry: u32, messagenumber: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PCI_PIN_TO_LINE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, pcidata: *const PCI_COMMON_CONFIG) -> ()>;
-pub type PCI_PREPARE_MULTISTAGE_RESUME = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> ()>;
+pub type PCI_PIN_TO_LINE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, pcidata: *const PCI_COMMON_CONFIG)>;
+pub type PCI_PREPARE_MULTISTAGE_RESUME = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 pub type PCI_READ_WRITE_CONFIG = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, busoffset: u32, slot: u32, buffer: *const ::core::ffi::c_void, offset: u32, length: u32) -> u32>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PCI_ROOT_BUS_CAPABILITY = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, hardwarecapability: *mut PCI_ROOT_BUS_HARDWARE_CAPABILITY) -> ()>;
+pub type PCI_ROOT_BUS_CAPABILITY = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, hardwarecapability: *mut PCI_ROOT_BUS_HARDWARE_CAPABILITY)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCI_SET_ACS = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, enablesourcevalidation: PCI_ACS_BIT, enabletranslationblocking: PCI_ACS_BIT, enablep2prequestredirect: PCI_ACS_BIT, enablecompletionredirect: PCI_ACS_BIT, enableupstreamforwarding: PCI_ACS_BIT, enableegresscontrol: PCI_ACS_BIT, enabledirecttranslatedp2p: PCI_ACS_BIT) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46058,13 +46058,13 @@ pub type PCI_SET_ATS = ::core::option::Option<unsafe extern "system" fn(context:
 pub type PCLFS_CLIENT_ADVANCE_TAIL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(logfile: *const super::super::Foundation::FILE_OBJECT, targetlsn: *const super::super::super::Win32::Storage::FileSystem::CLS_LSN, clientdata: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type PCLFS_CLIENT_LFF_HANDLER_COMPLETE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(logfile: *const super::super::Foundation::FILE_OBJECT, operationstatus: super::super::super::Win32::Foundation::NTSTATUS, logispinned: super::super::super::Win32::Foundation::BOOLEAN, clientdata: *const ::core::ffi::c_void) -> ()>;
+pub type PCLFS_CLIENT_LFF_HANDLER_COMPLETE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(logfile: *const super::super::Foundation::FILE_OBJECT, operationstatus: super::super::super::Win32::Foundation::NTSTATUS, logispinned: super::super::super::Win32::Foundation::BOOLEAN, clientdata: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type PCLFS_CLIENT_LOG_UNPINNED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(logfile: *const super::super::Foundation::FILE_OBJECT, clientdata: *const ::core::ffi::c_void) -> ()>;
+pub type PCLFS_CLIENT_LOG_UNPINNED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(logfile: *const super::super::Foundation::FILE_OBJECT, clientdata: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(logfile: *const super::super::Foundation::FILE_OBJECT, operationstatus: super::super::super::Win32::Foundation::NTSTATUS, clientdata: *const ::core::ffi::c_void) -> ()>;
+pub type PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(logfile: *const super::super::Foundation::FILE_OBJECT, operationstatus: super::super::super::Win32::Foundation::NTSTATUS, clientdata: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type PCONFIGURE_ADAPTER_CHANNEL = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, functionnumber: u32, context: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46076,20 +46076,20 @@ pub type PCRASHDUMP_POWER_ON = ::core::option::Option<unsafe extern "system" fn(
 pub type PCREATE_COMMON_BUFFER_FROM_MDL = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, extendedconfigs: *const DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION, extendedconfigscount: u32, logicaladdress: *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PCREATE_PROCESS_NOTIFY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(parentid: super::super::super::Win32::Foundation::HANDLE, processid: super::super::super::Win32::Foundation::HANDLE, create: super::super::super::Win32::Foundation::BOOLEAN) -> ()>;
+pub type PCREATE_PROCESS_NOTIFY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(parentid: super::super::super::Win32::Foundation::HANDLE, processid: super::super::super::Win32::Foundation::HANDLE, create: super::super::super::Win32::Foundation::BOOLEAN)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type PCREATE_PROCESS_NOTIFY_ROUTINE_EX = ::core::option::Option<unsafe extern "system" fn(process: super::super::Foundation::PEPROCESS, processid: super::super::super::Win32::Foundation::HANDLE, createinfo: *mut PS_CREATE_NOTIFY_INFO) -> ()>;
+pub type PCREATE_PROCESS_NOTIFY_ROUTINE_EX = ::core::option::Option<unsafe extern "system" fn(process: super::super::Foundation::PEPROCESS, processid: super::super::super::Win32::Foundation::HANDLE, createinfo: *mut PS_CREATE_NOTIFY_INFO)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PCREATE_THREAD_NOTIFY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(processid: super::super::super::Win32::Foundation::HANDLE, threadid: super::super::super::Win32::Foundation::HANDLE, create: super::super::super::Win32::Foundation::BOOLEAN) -> ()>;
+pub type PCREATE_THREAD_NOTIFY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(processid: super::super::super::Win32::Foundation::HANDLE, threadid: super::super::super::Win32::Foundation::HANDLE, create: super::super::super::Win32::Foundation::BOOLEAN)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PCW_CALLBACK = ::core::option::Option<unsafe extern "system" fn(r#type: PCW_CALLBACK_TYPE, info: *const PCW_CALLBACK_INFORMATION, context: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PD3COLD_REQUEST_AUX_POWER = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PD3COLD_REQUEST_CORE_POWER_RAIL = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PD3COLD_REQUEST_CORE_POWER_RAIL = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PD3COLD_REQUEST_PERST_DELAY = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46098,42 +46098,42 @@ pub type PD3COLD_REQUEST_PERST_DELAY = ::core::option::Option<unsafe extern "sys
 pub type PDEBUG_DEVICE_FOUND_FUNCTION = ::core::option::Option<unsafe extern "system" fn(device: *mut DEBUG_DEVICE_DESCRIPTOR) -> KD_CALLBACK_ACTION>;
 #[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
-pub type PDEBUG_PRINT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(output: *const super::super::super::Win32::System::Kernel::STRING, componentid: u32, level: u32) -> ()>;
+pub type PDEBUG_PRINT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(output: *const super::super::super::Win32::System::Kernel::STRING, componentid: u32, level: u32)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDEVICE_BUS_SPECIFIC_RESET_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PDEVICE_CHANGE_COMPLETE_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PDEVICE_NOTIFY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: u32) -> ()>;
-pub type PDEVICE_NOTIFY_CALLBACK2 = ::core::option::Option<unsafe extern "system" fn(notificationcontext: *mut ::core::ffi::c_void, notifycode: u32) -> ()>;
+pub type PDEVICE_CHANGE_COMPLETE_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PDEVICE_NOTIFY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: u32)>;
+pub type PDEVICE_NOTIFY_CALLBACK2 = ::core::option::Option<unsafe extern "system" fn(notificationcontext: *mut ::core::ffi::c_void, notifycode: u32)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PDEVICE_RESET_COMPLETION = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PDEVICE_RESET_COMPLETION = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDEVICE_RESET_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PDMA_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PDRIVER_CMC_EXCEPTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, cmclog: *const MCA_EXCEPTION) -> ()>;
+pub type PDMA_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PDRIVER_CMC_EXCEPTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, cmclog: *const MCA_EXCEPTION)>;
 pub type PDRIVER_CONTROL = ::core::option::Option<unsafe extern "system" fn() -> IO_ALLOCATION_ACTION>;
-pub type PDRIVER_CPE_EXCEPTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, cmclog: *const MCA_EXCEPTION) -> ()>;
+pub type PDRIVER_CPE_EXCEPTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, cmclog: *const MCA_EXCEPTION)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDRIVER_DISPATCH_PAGED = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PDRIVER_EXCPTN_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, banklog: *const MCA_EXCEPTION) -> ()>;
-pub type PDRIVER_LIST_CONTROL = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PDRIVER_MCA_EXCEPTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PDRIVER_EXCPTN_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, banklog: *const MCA_EXCEPTION)>;
+pub type PDRIVER_LIST_CONTROL = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PDRIVER_MCA_EXCEPTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDRIVER_NOTIFICATION_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PDRIVER_REINITIALIZE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PDRIVER_REINITIALIZE = ::core::option::Option<unsafe extern "system" fn()>;
 pub type PDRIVER_VERIFIER_THUNK_ROUTINE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> usize>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PENABLE_VIRTUALIZATION = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PETWENABLECALLBACK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PEXPAND_STACK_CALLOUT = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PEXT_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PEXT_DELETE_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PETWENABLECALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PEXPAND_STACK_CALLOUT = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PEXT_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PEXT_DELETE_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PEX_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46179,7 +46179,7 @@ pub type PFN_RTL_IS_SERVICE_PACK_VERSION_INSTALLED = ::core::option::Option<unsa
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub type PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLER = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, osselrecord: *const super::super::super::Win32::System::Diagnostics::Debug::IPMI_OS_SEL_RECORD) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFPGA_BUS_SCAN = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PFPGA_BUS_SCAN = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFPGA_CONTROL_CONFIG_SPACE = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46191,30 +46191,30 @@ pub type PFPGA_CONTROL_ERROR_REPORTING = ::core::option::Option<unsafe extern "s
 pub type PFPGA_CONTROL_LINK = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type PFREE_ADAPTER_CHANNEL = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER) -> ()>;
+pub type PFREE_ADAPTER_CHANNEL = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type PFREE_ADAPTER_OBJECT = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, allocationaction: IO_ALLOCATION_ACTION) -> ()>;
+pub type PFREE_ADAPTER_OBJECT = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, allocationaction: IO_ALLOCATION_ACTION)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type PFREE_COMMON_BUFFER = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, length: u32, logicaladdress: i64, virtualaddress: *const ::core::ffi::c_void, cacheenabled: super::super::super::Win32::Foundation::BOOLEAN) -> ()>;
+pub type PFREE_COMMON_BUFFER = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, length: u32, logicaladdress: i64, virtualaddress: *const ::core::ffi::c_void, cacheenabled: super::super::super::Win32::Foundation::BOOLEAN)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type PFREE_COMMON_BUFFER_FROM_VECTOR = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, vector: *const super::super::Foundation::DMA_COMMON_BUFFER_VECTOR, index: u32) -> ()>;
+pub type PFREE_COMMON_BUFFER_FROM_VECTOR = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, vector: *const super::super::Foundation::DMA_COMMON_BUFFER_VECTOR, index: u32)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type PFREE_COMMON_BUFFER_VECTOR = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, vector: *const super::super::Foundation::DMA_COMMON_BUFFER_VECTOR) -> ()>;
-pub type PFREE_FUNCTION_EX = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PFREE_COMMON_BUFFER_VECTOR = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, vector: *const super::super::Foundation::DMA_COMMON_BUFFER_VECTOR)>;
+pub type PFREE_FUNCTION_EX = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type PFREE_MAP_REGISTERS = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mapregisterbase: *mut ::core::ffi::c_void, numberofmapregisters: u32) -> ()>;
+pub type PFREE_MAP_REGISTERS = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mapregisterbase: *mut ::core::ffi::c_void, numberofmapregisters: u32)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type PGET_COMMON_BUFFER_FROM_VECTOR_BY_INDEX = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, vector: *const super::super::Foundation::DMA_COMMON_BUFFER_VECTOR, index: u32, virtualaddressout: *mut *mut ::core::ffi::c_void, logicaladdressout: *mut i64) -> ()>;
+pub type PGET_COMMON_BUFFER_FROM_VECTOR_BY_INDEX = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, vector: *const super::super::Foundation::DMA_COMMON_BUFFER_VECTOR, index: u32, virtualaddressout: *mut *mut ::core::ffi::c_void, logicaladdressout: *mut i64)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_D3COLD_CAPABILITY = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PGET_D3COLD_LAST_TRANSITION_STATUS = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PGET_D3COLD_LAST_TRANSITION_STATUS = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_DEVICE_RESET_STATUS = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46254,7 +46254,7 @@ pub type PGET_VIRTUAL_DEVICE_DATA = ::core::option::Option<unsafe extern "system
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_VIRTUAL_DEVICE_LOCATION = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PGET_VIRTUAL_DEVICE_RESOURCES = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PGET_VIRTUAL_DEVICE_RESOURCES = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_VIRTUAL_FUNCTION_PROBED_BARS = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46297,11 +46297,11 @@ pub type PGPE_SERVICE_ROUTINE2 = ::core::option::Option<unsafe extern "system" f
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PHALIOREADWRITEHANDLER = ::core::option::Option<unsafe extern "system" fn(fread: super::super::super::Win32::Foundation::BOOLEAN, dwaddr: u32, dwsize: u32, pdwdata: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PHALMCAINTERFACELOCK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PHALMCAINTERFACELOCK = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PHALMCAINTERFACEREADREGISTER = ::core::option::Option<unsafe extern "system" fn(banknumber: u8, exception: *mut ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PHALMCAINTERFACEUNLOCK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PHALMCAINTERFACEUNLOCK = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PHAL_RESET_DISPLAY_PARAMETERS = ::core::option::Option<unsafe extern "system" fn(columns: u32, rows: u32) -> super::super::super::Win32::Foundation::BOOLEAN>;
@@ -46311,16 +46311,16 @@ pub type PHVL_WHEA_ERROR_NOTIFICATION = ::core::option::Option<unsafe extern "sy
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type PINITIALIZE_DMA_TRANSFER_CONTEXT = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, dmatransfercontext: *mut ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PINTERFACE_DEREFERENCE = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void) -> ()>;
-pub type PINTERFACE_REFERENCE = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void) -> ()>;
+pub type PINTERFACE_DEREFERENCE = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void)>;
+pub type PINTERFACE_REFERENCE = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PIOMMU_DEVICE_CREATE = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PIOMMU_DEVICE_DELETE = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_DEVICE_FAULT_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PIOMMU_DEVICE_QUERY_DOMAIN_TYPES = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PIOMMU_DEVICE_FAULT_HANDLER = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PIOMMU_DEVICE_QUERY_DOMAIN_TYPES = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PIOMMU_DOMAIN_ATTACH_DEVICE = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46354,7 +46354,7 @@ pub type PIOMMU_FLUSH_DOMAIN_VA_LIST = ::core::option::Option<unsafe extern "sys
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PIOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PIOMMU_MAP_IDENTITY_RANGE = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46403,21 +46403,21 @@ pub type PIOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = ::core::option::Opt
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PIO_CONTAINER_NOTIFICATION_FUNCTION = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIO_CSQ_ACQUIRE_LOCK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PIO_CSQ_COMPLETE_CANCELED_IRP = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PIO_CSQ_INSERT_IRP = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PIO_CSQ_ACQUIRE_LOCK = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PIO_CSQ_COMPLETE_CANCELED_IRP = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PIO_CSQ_INSERT_IRP = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PIO_CSQ_INSERT_IRP_EX = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type PIO_CSQ_PEEK_NEXT_IRP = ::core::option::Option<unsafe extern "system" fn() -> *mut super::super::Foundation::IRP>;
-pub type PIO_CSQ_RELEASE_LOCK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PIO_CSQ_REMOVE_IRP = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PIO_CSQ_RELEASE_LOCK = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PIO_CSQ_REMOVE_IRP = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PIO_DEVICE_EJECT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(status: super::super::super::Win32::Foundation::NTSTATUS, context: *mut ::core::ffi::c_void) -> ()>;
-pub type PIO_DPC_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PIO_DEVICE_EJECT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(status: super::super::super::Win32::Foundation::NTSTATUS, context: *mut ::core::ffi::c_void)>;
+pub type PIO_DPC_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46427,14 +46427,14 @@ pub type PIO_QUERY_DEVICE_ROUTINE = ::core::option::Option<unsafe extern "system
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PIO_SESSION_NOTIFICATION_FUNCTION = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIO_TIMER_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PIO_WORKITEM_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PIO_WORKITEM_ROUTINE_EX = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PIO_TIMER_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PIO_WORKITEM_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PIO_WORKITEM_ROUTINE_EX = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type PJOIN_DMA_DOMAIN = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, domainhandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PKBUGCHECK_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PKBUGCHECK_REASON_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PKBUGCHECK_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PKBUGCHECK_REASON_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
 pub type PKIPI_BROADCAST_WORKER = ::core::option::Option<unsafe extern "system" fn() -> usize>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -46442,7 +46442,7 @@ pub type PKMESSAGE_SERVICE_ROUTINE = ::core::option::Option<unsafe extern "syste
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PKSERVICE_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PKSTART_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PKSTART_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PKSYNCHRONIZE_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
@@ -46451,7 +46451,7 @@ pub type PKSYNCHRONIZE_ROUTINE = ::core::option::Option<unsafe extern "system" f
 pub type PLEAVE_DMA_DOMAIN = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PLOAD_IMAGE_NOTIFY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(fullimagename: *const super::super::super::Win32::Foundation::UNICODE_STRING, processid: super::super::super::Win32::Foundation::HANDLE, imageinfo: *const IMAGE_INFO) -> ()>;
+pub type PLOAD_IMAGE_NOTIFY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(fullimagename: *const super::super::super::Win32::Foundation::UNICODE_STRING, processid: super::super::super::Win32::Foundation::HANDLE, imageinfo: *const IMAGE_INFO)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type PMAP_TRANSFER = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, mapregisterbase: *const ::core::ffi::c_void, currentva: *const ::core::ffi::c_void, length: *mut u32, writetodevice: super::super::super::Win32::Foundation::BOOLEAN) -> i64>;
@@ -46467,7 +46467,7 @@ pub type PMM_DLL_UNLOAD = ::core::option::Option<unsafe extern "system" fn() -> 
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMM_GET_SYSTEM_ROUTINE_ADDRESS_EX = ::core::option::Option<unsafe extern "system" fn(modulename: *const super::super::super::Win32::Foundation::UNICODE_STRING, functionname: ::windows_core::PCSTR) -> *mut ::core::ffi::c_void>;
-pub type PMM_MDL_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PMM_MDL_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
 pub type PMM_ROTATE_COPY_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(destinationmdl: *const super::super::Foundation::MDL, sourcemdl: *const super::super::Foundation::MDL, context: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46484,32 +46484,32 @@ pub type PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = ::core::option::Option<unsa
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PNPEM_CONTROL_SET_STANDARD_CONTROL = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PNTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PNTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
-pub type POB_POST_OPERATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(registrationcontext: *const ::core::ffi::c_void, operationinformation: *const OB_POST_OPERATION_INFORMATION) -> ()>;
+pub type POB_POST_OPERATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(registrationcontext: *const ::core::ffi::c_void, operationinformation: *const OB_POST_OPERATION_INFORMATION)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 pub type POB_PRE_OPERATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(registrationcontext: *const ::core::ffi::c_void, operationinformation: *mut OB_PRE_OPERATION_INFORMATION) -> OB_PREOP_CALLBACK_STATUS>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type POWER_SETTING_CALLBACK = ::core::option::Option<unsafe extern "system" fn(settingguid: *const ::windows_core::GUID, value: *const ::core::ffi::c_void, valuelength: u32, context: *mut ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, component: u32) -> ()>;
+pub type PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, component: u32)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, component: u32, active: super::super::super::Win32::Foundation::BOOLEAN) -> ()>;
-pub type PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, component: u32) -> ()>;
-pub type PO_FX_COMPONENT_IDLE_STATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, component: u32, state: u32) -> ()>;
+pub type PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, component: u32, active: super::super::super::Win32::Foundation::BOOLEAN)>;
+pub type PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, component: u32)>;
+pub type PO_FX_COMPONENT_IDLE_STATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, component: u32, state: u32)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PO_FX_COMPONENT_PERF_STATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, component: u32, succeeded: super::super::super::Win32::Foundation::BOOLEAN, requestcontext: *const ::core::ffi::c_void) -> ()>;
-pub type PO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> ()>;
-pub type PO_FX_DEVICE_POWER_REQUIRED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> ()>;
-pub type PO_FX_DIRECTED_POWER_DOWN_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, flags: u32) -> ()>;
-pub type PO_FX_DIRECTED_POWER_UP_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, flags: u32) -> ()>;
+pub type PO_FX_COMPONENT_PERF_STATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, component: u32, succeeded: super::super::super::Win32::Foundation::BOOLEAN, requestcontext: *const ::core::ffi::c_void)>;
+pub type PO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
+pub type PO_FX_DEVICE_POWER_REQUIRED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
+pub type PO_FX_DIRECTED_POWER_DOWN_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, flags: u32)>;
+pub type PO_FX_DIRECTED_POWER_UP_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, flags: u32)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type PO_FX_DRIPS_WATCHDOG_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, uniqueid: u32) -> ()>;
+pub type PO_FX_DRIPS_WATCHDOG_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, uniqueid: u32)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PO_FX_POWER_CONTROL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, powercontrolcode: *const ::windows_core::GUID, inbuffer: *const ::core::ffi::c_void, inbuffersize: usize, outbuffer: *mut ::core::ffi::c_void, outbuffersize: usize, bytesreturned: *mut usize) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46521,14 +46521,14 @@ pub type PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = ::core::option::Option<unsafe 
 pub type PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PPCI_EXPRESS_ROOT_PORT_READ_CONFIG_SPACE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, offset: u32, length: u32) -> u32>;
 pub type PPCI_EXPRESS_ROOT_PORT_WRITE_CONFIG_SPACE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, buffer: *const ::core::ffi::c_void, offset: u32, length: u32) -> u32>;
-pub type PPCI_EXPRESS_WAKE_CONTROL = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PPCI_EXPRESS_WAKE_CONTROL = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PPCI_IS_DEVICE_PRESENT = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PPCI_IS_DEVICE_PRESENT_EX = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PPCI_LINE_TO_PIN = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PPCI_LINE_TO_PIN = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PPCI_MSIX_GET_ENTRY = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46541,10 +46541,10 @@ pub type PPCI_MSIX_MASKUNMASK_ENTRY = ::core::option::Option<unsafe extern "syst
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PPCI_MSIX_SET_ENTRY = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPCI_PIN_TO_LINE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PPCI_PREPARE_MULTISTAGE_RESUME = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PPCI_PIN_TO_LINE = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PPCI_PREPARE_MULTISTAGE_RESUME = ::core::option::Option<unsafe extern "system" fn()>;
 pub type PPCI_READ_WRITE_CONFIG = ::core::option::Option<unsafe extern "system" fn() -> u32>;
-pub type PPCI_ROOT_BUS_CAPABILITY = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PPCI_ROOT_BUS_CAPABILITY = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PPCI_SET_ACS = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46559,27 +46559,27 @@ pub type PPCI_SET_ATS = ::core::option::Option<unsafe extern "system" fn() -> su
 pub type PPCW_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER = ::core::option::Option<unsafe extern "system" fn(eventbuffer: *const ::core::ffi::c_void, entrysize: usize, numberofentries: usize, owninghandle: super::super::super::Win32::Foundation::HANDLE) -> ()>;
+pub type PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER = ::core::option::Option<unsafe extern "system" fn(eventbuffer: *const ::core::ffi::c_void, entrysize: usize, numberofentries: usize, owninghandle: super::super::super::Win32::Foundation::HANDLE)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PPHYSICAL_COUNTER_OVERFLOW_HANDLER = ::core::option::Option<unsafe extern "system" fn(overflowbits: u64, owninghandle: super::super::super::Win32::Foundation::HANDLE) -> ()>;
+pub type PPHYSICAL_COUNTER_OVERFLOW_HANDLER = ::core::option::Option<unsafe extern "system" fn(overflowbits: u64, owninghandle: super::super::super::Win32::Foundation::HANDLE)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PPOWER_SETTING_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PPO_FX_COMPONENT_IDLE_STATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PPO_FX_COMPONENT_PERF_STATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PPO_FX_DEVICE_POWER_REQUIRED_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PPO_FX_DIRECTED_POWER_DOWN_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PPO_FX_DIRECTED_POWER_UP_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PPO_FX_DRIPS_WATCHDOG_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PPO_FX_COMPONENT_IDLE_STATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PPO_FX_COMPONENT_PERF_STATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PPO_FX_DEVICE_POWER_REQUIRED_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PPO_FX_DIRECTED_POWER_DOWN_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PPO_FX_DIRECTED_POWER_UP_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PPO_FX_DRIPS_WATCHDOG_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PPO_FX_POWER_CONTROL_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPROCESSOR_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PPROCESSOR_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PPROCESSOR_HALT_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46597,15 +46597,15 @@ pub type PPTM_DEVICE_QUERY_GRANULARITY = ::core::option::Option<unsafe extern "s
 pub type PPTM_DEVICE_QUERY_TIME_SOURCE = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type PPUT_DMA_ADAPTER = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *mut DMA_ADAPTER) -> ()>;
+pub type PPUT_DMA_ADAPTER = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *mut DMA_ADAPTER)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type PPUT_SCATTER_GATHER_LIST = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, scattergather: *const SCATTER_GATHER_LIST, writetodevice: super::super::super::Win32::Foundation::BOOLEAN) -> ()>;
-pub type PQUERYEXTENDEDADDRESS = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, extendedaddress: *mut u64) -> ()>;
+pub type PPUT_SCATTER_GATHER_LIST = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, scattergather: *const SCATTER_GATHER_LIST, writetodevice: super::super::super::Win32::Foundation::BOOLEAN)>;
+pub type PQUERYEXTENDEDADDRESS = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, extendedaddress: *mut u64)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type PREAD_DMA_COUNTER = ::core::option::Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER) -> u32>;
-pub type PREENUMERATE_SELF = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> ()>;
+pub type PREENUMERATE_SELF = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type PREGISTER_FOR_DEVICE_NOTIFICATIONS = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Foundation::DEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK, param2: *mut ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46645,34 +46645,34 @@ pub type PREPLACE_SET_PROCESSOR_ID = ::core::option::Option<unsafe extern "syste
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PREPLACE_SWAP = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PREPLACE_UNLOAD = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type PREQUEST_POWER_COMPLETE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PREPLACE_UNLOAD = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PREQUEST_POWER_COMPLETE = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PROCESSOR_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(callbackcontext: *const ::core::ffi::c_void, changecontext: *const KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT, operationstatus: *mut i32) -> ()>;
+pub type PROCESSOR_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(callbackcontext: *const ::core::ffi::c_void, changecontext: *const KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT, operationstatus: *mut i32)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PROCESSOR_HALT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PRTL_AVL_ALLOCATE_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> *mut ::core::ffi::c_void>;
 pub type PRTL_AVL_COMPARE_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> RTL_GENERIC_COMPARE_RESULTS>;
-pub type PRTL_AVL_FREE_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PRTL_AVL_FREE_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRTL_AVL_MATCH_FUNCTION = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PRTL_GENERIC_ALLOCATE_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> *mut ::core::ffi::c_void>;
 pub type PRTL_GENERIC_COMPARE_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> RTL_GENERIC_COMPARE_RESULTS>;
-pub type PRTL_GENERIC_FREE_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PRTL_GENERIC_FREE_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRTL_QUERY_REGISTRY_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PRTL_RUN_ONCE_INIT_FN = ::core::option::Option<unsafe extern "system" fn() -> u32>;
-pub type PSECURE_DRIVER_PROCESS_DEREFERENCE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PSECURE_DRIVER_PROCESS_DEREFERENCE = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 pub type PSECURE_DRIVER_PROCESS_REFERENCE = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::PEPROCESS>;
-pub type PSET_D3COLD_SUPPORT = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PSET_D3COLD_SUPPORT = ::core::option::Option<unsafe extern "system" fn()>;
 pub type PSET_VIRTUAL_DEVICE_DATA = ::core::option::Option<unsafe extern "system" fn() -> u32>;
-pub type PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSHED_PI_ATTEMPT_ERROR_RECOVERY = ::core::option::Option<unsafe extern "system" fn(plugincontext: *mut ::core::ffi::c_void, bufferlength: u32, errorrecord: *const WHEA_ERROR_RECORD) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46715,7 +46715,7 @@ pub type PSHED_PI_SET_ERROR_SOURCE_INFO = ::core::option::Option<unsafe extern "
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSHED_PI_WRITE_ERROR_RECORD = ::core::option::Option<unsafe extern "system" fn(plugincontext: *mut ::core::ffi::c_void, flags: u32, recordlength: u32, errorrecord: *const WHEA_ERROR_RECORD) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PTIMER_APC_ROUTINE = ::core::option::Option<unsafe extern "system" fn(timercontext: *const ::core::ffi::c_void, timerlowvalue: u32, timerhighvalue: i32) -> ()>;
+pub type PTIMER_APC_ROUTINE = ::core::option::Option<unsafe extern "system" fn(timercontext: *const ::core::ffi::c_void, timerlowvalue: u32, timerhighvalue: i32)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PTM_DEVICE_DISABLE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46745,17 +46745,17 @@ pub type PTRANSLATE_RESOURCE_HANDLER = ::core::option::Option<unsafe extern "sys
 pub type PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLER = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, source: *const IO_RESOURCE_DESCRIPTOR, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, targetcount: *mut u32, target: *mut *mut IO_RESOURCE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Foundation::DEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK) -> ()>;
-pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void) -> ()>;
-pub type PciLine2Pin = ::core::option::Option<unsafe extern "system" fn(bushandler: *const isize, roothandler: *const isize, slotnumber: PCI_SLOT_NUMBER, pcinewdata: *const PCI_COMMON_CONFIG, pciolddata: *const PCI_COMMON_CONFIG) -> ()>;
-pub type PciPin2Line = ::core::option::Option<unsafe extern "system" fn(bushandler: *const isize, roothandler: *const isize, slotnumber: PCI_SLOT_NUMBER, pcidata: *const PCI_COMMON_CONFIG) -> ()>;
-pub type PciReadWriteConfig = ::core::option::Option<unsafe extern "system" fn(bushandler: *const isize, slot: PCI_SLOT_NUMBER, buffer: *const ::core::ffi::c_void, offset: u32, length: u32) -> ()>;
+pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Foundation::DEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK)>;
+pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void)>;
+pub type PciLine2Pin = ::core::option::Option<unsafe extern "system" fn(bushandler: *const isize, roothandler: *const isize, slotnumber: PCI_SLOT_NUMBER, pcinewdata: *const PCI_COMMON_CONFIG, pciolddata: *const PCI_COMMON_CONFIG)>;
+pub type PciPin2Line = ::core::option::Option<unsafe extern "system" fn(bushandler: *const isize, roothandler: *const isize, slotnumber: PCI_SLOT_NUMBER, pcidata: *const PCI_COMMON_CONFIG)>;
+pub type PciReadWriteConfig = ::core::option::Option<unsafe extern "system" fn(bushandler: *const isize, slot: PCI_SLOT_NUMBER, buffer: *const ::core::ffi::c_void, offset: u32, length: u32)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type REQUEST_POWER_COMPLETE = ::core::option::Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, minorfunction: u8, powerstate: POWER_STATE, context: *const ::core::ffi::c_void, iostatus: *const super::super::super::Win32::System::IO::IO_STATUS_BLOCK) -> ()>;
+pub type REQUEST_POWER_COMPLETE = ::core::option::Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, minorfunction: u8, powerstate: POWER_STATE, context: *const ::core::ffi::c_void, iostatus: *const super::super::super::Win32::System::IO::IO_STATUS_BLOCK)>;
 pub type RTL_AVL_ALLOCATE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, bytesize: u32) -> *mut ::core::ffi::c_void>;
 pub type RTL_AVL_COMPARE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, firststruct: *const ::core::ffi::c_void, secondstruct: *const ::core::ffi::c_void) -> RTL_GENERIC_COMPARE_RESULTS>;
-pub type RTL_AVL_FREE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, buffer: *const ::core::ffi::c_void) -> ()>;
+pub type RTL_AVL_FREE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, buffer: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type RTL_AVL_MATCH_FUNCTION = ::core::option::Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, userdata: *const ::core::ffi::c_void, matchdata: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46767,7 +46767,7 @@ pub type RTL_GENERIC_ALLOCATE_ROUTINE = ::core::option::Option<unsafe extern "sy
 pub type RTL_GENERIC_COMPARE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(table: *const RTL_GENERIC_TABLE, firststruct: *const ::core::ffi::c_void, secondstruct: *const ::core::ffi::c_void) -> RTL_GENERIC_COMPARE_RESULTS>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-pub type RTL_GENERIC_FREE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(table: *const RTL_GENERIC_TABLE, buffer: *const ::core::ffi::c_void) -> ()>;
+pub type RTL_GENERIC_FREE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(table: *const RTL_GENERIC_TABLE, buffer: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type RTL_QUERY_REGISTRY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(valuename: ::windows_core::PCWSTR, valuetype: u32, valuedata: *const ::core::ffi::c_void, valuelength: u32, context: *const ::core::ffi::c_void, entrycontext: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46776,24 +46776,24 @@ pub type RTL_QUERY_REGISTRY_ROUTINE = ::core::option::Option<unsafe extern "syst
 pub type RTL_RUN_ONCE_INIT_FN = ::core::option::Option<unsafe extern "system" fn(runonce: *mut super::super::super::Win32::System::Threading::INIT_ONCE, parameter: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> u32>;
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
-pub type SECURE_DRIVER_PROCESS_DEREFERENCE = ::core::option::Option<unsafe extern "system" fn(interfacecontext: *const ::core::ffi::c_void, process: super::super::Foundation::PEPROCESS) -> ()>;
+pub type SECURE_DRIVER_PROCESS_DEREFERENCE = ::core::option::Option<unsafe extern "system" fn(interfacecontext: *const ::core::ffi::c_void, process: super::super::Foundation::PEPROCESS)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 pub type SECURE_DRIVER_PROCESS_REFERENCE = ::core::option::Option<unsafe extern "system" fn(interfacecontext: *const ::core::ffi::c_void) -> super::super::Foundation::PEPROCESS>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type SET_D3COLD_SUPPORT = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, d3coldsupport: super::super::super::Win32::Foundation::BOOLEAN) -> ()>;
+pub type SET_D3COLD_SUPPORT = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, d3coldsupport: super::super::super::Win32::Foundation::BOOLEAN)>;
 pub type SET_VIRTUAL_DEVICE_DATA = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, virtualfunction: u16, buffer: *const ::core::ffi::c_void, offset: u32, length: u32) -> u32>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(callbackcontext: *const ::core::ffi::c_void, imagetype: SE_IMAGE_TYPE, imageinformation: *mut BDCB_IMAGE_INFORMATION) -> ()>;
-pub type SILO_CONTEXT_CLEANUP_CALLBACK = ::core::option::Option<unsafe extern "system" fn(silocontext: *const ::core::ffi::c_void) -> ()>;
+pub type SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(callbackcontext: *const ::core::ffi::c_void, imagetype: SE_IMAGE_TYPE, imageinformation: *mut BDCB_IMAGE_INFORMATION)>;
+pub type SILO_CONTEXT_CLEANUP_CALLBACK = ::core::option::Option<unsafe extern "system" fn(silocontext: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
 pub type SILO_MONITOR_CREATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(silo: super::super::Foundation::PESILO) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
-pub type SILO_MONITOR_TERMINATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(silo: super::super::Foundation::PESILO) -> ()>;
+pub type SILO_MONITOR_TERMINATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(silo: super::super::Foundation::PESILO)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TRANSLATE_BUS_ADDRESS = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, busaddress: i64, length: u32, addressspace: *mut u32, translatedaddress: *mut i64) -> super::super::super::Win32::Foundation::BOOLEAN>;
@@ -46809,12 +46809,12 @@ pub type WHEA_ERROR_SOURCE_INITIALIZE = ::core::option::Option<unsafe extern "sy
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WHEA_ERROR_SOURCE_RECOVER = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type WHEA_ERROR_SOURCE_UNINITIALIZE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type WHEA_ERROR_SOURCE_UNINITIALIZE = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type WMI_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-pub type WORKER_THREAD_ROUTINE = ::core::option::Option<unsafe extern "system" fn(parameter: *const ::core::ffi::c_void) -> ()>;
+pub type WMI_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
+pub type WORKER_THREAD_ROUTINE = ::core::option::Option<unsafe extern "system" fn(parameter: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub type _WHEA_ERROR_SOURCE_CORRECT = ::core::option::Option<unsafe extern "system" fn(errorsource: *mut super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR, maximumsectionlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46827,7 +46827,7 @@ pub type _WHEA_ERROR_SOURCE_INITIALIZE = ::core::option::Option<unsafe extern "s
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type _WHEA_ERROR_SOURCE_RECOVER = ::core::option::Option<unsafe extern "system" fn(recoverycontext: *mut ::core::ffi::c_void, severity: *mut WHEA_ERROR_SEVERITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type _WHEA_ERROR_SOURCE_UNINITIALIZE = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void) -> ()>;
+pub type _WHEA_ERROR_SOURCE_UNINITIALIZE = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type _WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: usize) -> super::super::super::Win32::Foundation::BOOLEAN>;
@@ -46837,10 +46837,10 @@ pub type pHalAssignSlotResources = ::core::option::Option<unsafe extern "system"
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type pHalEndMirroring = ::core::option::Option<unsafe extern "system" fn(passnumber: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type pHalEndOfBoot = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type pHalEndOfBoot = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type pHalExamineMBR = ::core::option::Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, sectorsize: u32, mbrtypeidentifier: u32, buffer: *mut *mut ::core::ffi::c_void) -> ()>;
+pub type pHalExamineMBR = ::core::option::Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, sectorsize: u32, mbrtypeidentifier: u32, buffer: *mut *mut ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type pHalFindBusAddressTranslation = ::core::option::Option<unsafe extern "system" fn(busaddress: i64, addressspace: *mut u32, translatedaddress: *mut i64, context: *mut usize, nextbus: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::BOOLEAN>;
@@ -46853,8 +46853,8 @@ pub type pHalGetDmaAdapter = ::core::option::Option<unsafe extern "system" fn(ph
 pub type pHalGetInterruptTranslator = ::core::option::Option<unsafe extern "system" fn(parentinterfacetype: INTERFACE_TYPE, parentbusnumber: u32, bridgeinterfacetype: INTERFACE_TYPE, size: u16, version: u16, translator: *mut TRANSLATOR_INTERFACE, bridgebusnumber: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
-pub type pHalGetPrmCache = ::core::option::Option<unsafe extern "system" fn(firmwarelist: *mut *mut super::super::super::Win32::System::Kernel::LIST_ENTRY, updatelist: *mut *mut super::super::super::Win32::System::Kernel::LIST_ENTRY) -> ()>;
-pub type pHalHaltSystem = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type pHalGetPrmCache = ::core::option::Option<unsafe extern "system" fn(firmwarelist: *mut *mut super::super::super::Win32::System::Kernel::LIST_ENTRY, updatelist: *mut *mut super::super::super::Win32::System::Kernel::LIST_ENTRY)>;
+pub type pHalHaltSystem = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 pub type pHalHandlerForBus = ::core::option::Option<unsafe extern "system" fn(interfacetype: INTERFACE_TYPE, busnumber: u32) -> super::super::Foundation::PBUS_HANDLER>;
@@ -46887,11 +46887,11 @@ pub type pHalQueryBusSlots = ::core::option::Option<unsafe extern "system" fn(bu
 pub type pHalQuerySystemInformation = ::core::option::Option<unsafe extern "system" fn(informationclass: HAL_QUERY_INFORMATION_CLASS, buffersize: u32, buffer: *mut ::core::ffi::c_void, returnedlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
-pub type pHalReferenceBusHandler = ::core::option::Option<unsafe extern "system" fn(bushandler: super::super::Foundation::PBUS_HANDLER) -> ()>;
+pub type pHalReferenceBusHandler = ::core::option::Option<unsafe extern "system" fn(bushandler: super::super::Foundation::PBUS_HANDLER)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type pHalResetDisplay = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type pHalSetPciErrorHandlerCallback = ::core::option::Option<unsafe extern "system" fn(callback: PCI_ERROR_HANDLER_CALLBACK) -> ()>;
+pub type pHalSetPciErrorHandlerCallback = ::core::option::Option<unsafe extern "system" fn(callback: PCI_ERROR_HANDLER_CALLBACK)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type pHalSetSystemInformation = ::core::option::Option<unsafe extern "system" fn(informationclass: HAL_SET_INFORMATION_CLASS, buffersize: u32, buffer: *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46902,7 +46902,7 @@ pub type pHalStartMirroring = ::core::option::Option<unsafe extern "system" fn()
 #[cfg(feature = "Win32_Foundation")]
 pub type pHalTranslateBusAddress = ::core::option::Option<unsafe extern "system" fn(interfacetype: INTERFACE_TYPE, busnumber: u32, busaddress: i64, addressspace: *mut u32, translatedaddress: *mut i64) -> super::super::super::Win32::Foundation::BOOLEAN>;
 pub type pHalVectorToIDTEntry = ::core::option::Option<unsafe extern "system" fn(vector: u32) -> u8>;
-pub type pKdCheckPowerButton = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type pKdCheckPowerButton = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type pKdEnumerateDebuggingDevices = ::core::option::Option<unsafe extern "system" fn(loaderblock: *const ::core::ffi::c_void, device: *mut DEBUG_DEVICE_DESCRIPTOR, callback: PDEBUG_DEVICE_FOUND_FUNCTION) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -46926,4 +46926,4 @@ pub type pKdSetupIntegratedDeviceForDebugging = ::core::option::Option<unsafe ex
 pub type pKdSetupPciDeviceForDebugging = ::core::option::Option<unsafe extern "system" fn(loaderblock: *const ::core::ffi::c_void, pcidevice: *mut DEBUG_DEVICE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type pKdUnmapVirtualAddress = ::core::option::Option<unsafe extern "system" fn(virtualaddress: *const ::core::ffi::c_void, numberpages: u32, flushcurrenttlb: super::super::super::Win32::Foundation::BOOLEAN) -> ()>;
+pub type pKdUnmapVirtualAddress = ::core::option::Option<unsafe extern "system" fn(virtualaddress: *const ::core::ffi::c_void, numberpages: u32, flushcurrenttlb: super::super::super::Win32::Foundation::BOOLEAN)>;

@@ -61,7 +61,7 @@ where
 }
 #[inline]
 pub unsafe fn HidD_GetHidGuid() -> ::windows_core::GUID {
-    ::windows_targets::link!("hid.dll" "system" fn HidD_GetHidGuid(hidguid : *mut ::windows_core::GUID) -> ());
+    ::windows_targets::link!("hid.dll" "system" fn HidD_GetHidGuid(hidguid : *mut ::windows_core::GUID));
     let mut result__ = ::std::mem::zeroed();
     HidD_GetHidGuid(&mut result__);
     ::std::mem::transmute(result__)
@@ -9284,7 +9284,7 @@ pub type LPDIENUMEFFECTSINFILECALLBACK = ::core::option::Option<unsafe extern "s
 pub type LPDIJOYTYPECALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNSHOWJOYCPL = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND) -> ()>;
+pub type LPFNSHOWJOYCPL = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HidP_GetVersionInternal = ::core::option::Option<unsafe extern "system" fn(version: *mut u32) -> super::super::Foundation::NTSTATUS>;

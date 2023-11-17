@@ -114,7 +114,7 @@ where
 }
 #[inline]
 pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
-    ::windows_targets::link!("oleacc.dll" "system" fn GetOleaccVersionInfo(pver : *mut u32, pbuild : *mut u32) -> ());
+    ::windows_targets::link!("oleacc.dll" "system" fn GetOleaccVersionInfo(pver : *mut u32, pbuild : *mut u32));
     GetOleaccVersionInfo(pver, pbuild)
 }
 #[inline]
@@ -241,7 +241,7 @@ pub unsafe fn NotifyWinEvent<P0>(event: u32, hwnd: P0, idobject: i32, idchild: i
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn NotifyWinEvent(event : u32, hwnd : super::super::Foundation:: HWND, idobject : i32, idchild : i32) -> ());
+    ::windows_targets::link!("user32.dll" "system" fn NotifyWinEvent(event : u32, hwnd : super::super::Foundation:: HWND, idobject : i32, idchild : i32));
     NotifyWinEvent(event, hwnd.into_param().abi(), idobject, idchild)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -951,7 +951,7 @@ where
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn UiaRegisterProviderCallback(pcallback: *mut UiaProviderCallback) {
-    ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRegisterProviderCallback(pcallback : *mut UiaProviderCallback) -> ());
+    ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRegisterProviderCallback(pcallback : *mut UiaProviderCallback));
     UiaRegisterProviderCallback(pcallback)
 }
 #[inline]
@@ -19253,12 +19253,12 @@ pub type LPFNLRESULTFROMOBJECT = ::core::option::Option<unsafe extern "system" f
 pub type LPFNOBJECTFROMLRESULT = ::core::option::Option<unsafe extern "system" fn(lresult: super::super::Foundation::LRESULT, riid: *const ::windows_core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 #[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-pub type UiaEventCallback = ::core::option::Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: ::windows_core::BSTR) -> ()>;
+pub type UiaEventCallback = ::core::option::Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: ::windows_core::BSTR)>;
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type UiaProviderCallback = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WINEVENTPROC = ::core::option::Option<unsafe extern "system" fn(hwineventhook: HWINEVENTHOOK, event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32) -> ()>;
+pub type WINEVENTPROC = ::core::option::Option<unsafe extern "system" fn(hwineventhook: HWINEVENTHOOK, event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

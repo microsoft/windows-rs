@@ -26,7 +26,7 @@ pub unsafe fn CoLeaveServiceDomain<P0>(punkstatus: P0)
 where
     P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
 {
-    ::windows_targets::link!("comsvcs.dll" "system" fn CoLeaveServiceDomain(punkstatus : * mut::core::ffi::c_void) -> ());
+    ::windows_targets::link!("comsvcs.dll" "system" fn CoLeaveServiceDomain(punkstatus : * mut::core::ffi::c_void));
     CoLeaveServiceDomain(punkstatus.into_param().abi())
 }
 #[inline]

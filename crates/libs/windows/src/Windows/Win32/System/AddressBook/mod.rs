@@ -13,7 +13,7 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeIdleRoutine(ftg: *mut ::core::ffi::c_void, lpfnidle: PFNIDLE, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16, ircidle: u16) {
-    ::windows_targets::link!("mapi32.dll" "system" fn ChangeIdleRoutine(ftg : *mut ::core::ffi::c_void, lpfnidle : PFNIDLE, lpvidleparam : *mut ::core::ffi::c_void, priidle : i16, csecidle : u32, iroidle : u16, ircidle : u16) -> ());
+    ::windows_targets::link!("mapi32.dll" "system" fn ChangeIdleRoutine(ftg : *mut ::core::ffi::c_void, lpfnidle : PFNIDLE, lpvidleparam : *mut ::core::ffi::c_void, priidle : i16, csecidle : u32, iroidle : u16, ircidle : u16));
     ChangeIdleRoutine(ftg, lpfnidle, lpvidleparam, priidle, csecidle, iroidle, ircidle)
 }
 #[inline]
@@ -28,12 +28,12 @@ pub unsafe fn CreateTable(lpinterface: *mut ::windows_core::GUID, lpallocatebuff
 }
 #[inline]
 pub unsafe fn DeinitMapiUtil() {
-    ::windows_targets::link!("mapi32.dll" "system" fn DeinitMapiUtil() -> ());
+    ::windows_targets::link!("mapi32.dll" "system" fn DeinitMapiUtil());
     DeinitMapiUtil()
 }
 #[inline]
 pub unsafe fn DeregisterIdleRoutine(ftg: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("mapi32.dll" "system" fn DeregisterIdleRoutine(ftg : *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("mapi32.dll" "system" fn DeregisterIdleRoutine(ftg : *mut ::core::ffi::c_void));
     DeregisterIdleRoutine(ftg)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -43,7 +43,7 @@ pub unsafe fn EnableIdleRoutine<P0>(ftg: *mut ::core::ffi::c_void, fenable: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("mapi32.dll" "system" fn EnableIdleRoutine(ftg : *mut ::core::ffi::c_void, fenable : super::super::Foundation:: BOOL) -> ());
+    ::windows_targets::link!("mapi32.dll" "system" fn EnableIdleRoutine(ftg : *mut ::core::ffi::c_void, fenable : super::super::Foundation:: BOOL));
     EnableIdleRoutine(ftg, fenable.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -81,14 +81,14 @@ where
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn FreePadrlist(lpadrlist: *mut ADRLIST) {
-    ::windows_targets::link!("mapi32.dll" "system" fn FreePadrlist(lpadrlist : *mut ADRLIST) -> ());
+    ::windows_targets::link!("mapi32.dll" "system" fn FreePadrlist(lpadrlist : *mut ADRLIST));
     FreePadrlist(lpadrlist)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn FreeProws(lprows: *mut SRowSet) {
-    ::windows_targets::link!("mapi32.dll" "system" fn FreeProws(lprows : *mut SRowSet) -> ());
+    ::windows_targets::link!("mapi32.dll" "system" fn FreeProws(lprows : *mut SRowSet));
     FreeProws(lprows)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -226,7 +226,7 @@ pub unsafe fn LpValFindProp(ulproptag: u32, cvalues: u32, lpproparray: *mut SPro
 }
 #[inline]
 pub unsafe fn MAPIDeinitIdle() {
-    ::windows_targets::link!("mapi32.dll" "system" fn MAPIDeinitIdle() -> ());
+    ::windows_targets::link!("mapi32.dll" "system" fn MAPIDeinitIdle());
     MAPIDeinitIdle()
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -4939,7 +4939,7 @@ impl ::core::default::Default for __UPV {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type CALLERRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lptbldata: ::core::option::Option<ITableData>, lpvue: ::core::option::Option<IMAPITable>) -> ()>;
+pub type CALLERRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lptbldata: ::core::option::Option<ITableData>, lpvue: ::core::option::Option<IMAPITable>)>;
 pub type LPALLOCATEBUFFER = ::core::option::Option<unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
 pub type LPALLOCATEMORE = ::core::option::Option<unsafe extern "system" fn(cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
 pub type LPCREATECONVERSATIONINDEX = ::core::option::Option<unsafe extern "system" fn(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32>;
@@ -4948,7 +4948,7 @@ pub type LPDISPATCHNOTIFICATIONS = ::core::option::Option<unsafe extern "system"
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNABSDI = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpvmsg: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type LPFNBUTTON = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::core::ffi::c_void, cbentryid: u32, lpselection: *mut ENTRYID, ulflags: u32) -> i32>;
-pub type LPFNDISMISS = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::core::ffi::c_void) -> ()>;
+pub type LPFNDISMISS = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::core::ffi::c_void)>;
 pub type LPFREEBUFFER = ::core::option::Option<unsafe extern "system" fn(lpbuffer: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]

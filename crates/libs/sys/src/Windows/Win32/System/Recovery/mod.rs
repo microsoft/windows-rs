@@ -1,5 +1,5 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ApplicationRecoveryFinished(bsuccess : super::super::Foundation:: BOOL) -> ());
+::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ApplicationRecoveryFinished(bsuccess : super::super::Foundation:: BOOL));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ApplicationRecoveryInProgress(pbcancelled : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]

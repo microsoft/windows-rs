@@ -83,12 +83,12 @@ where
 }
 #[inline]
 pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetLastError(dwerrcode : WIN32_ERROR) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn SetLastError(dwerrcode : WIN32_ERROR));
     SetLastError(dwerrcode)
 }
 #[inline]
 pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
-    ::windows_targets::link!("user32.dll" "system" fn SetLastErrorEx(dwerrcode : WIN32_ERROR, dwtype : u32) -> ());
+    ::windows_targets::link!("user32.dll" "system" fn SetLastErrorEx(dwerrcode : WIN32_ERROR, dwtype : u32));
     SetLastErrorEx(dwerrcode, dwtype)
 }
 #[inline]
@@ -122,7 +122,7 @@ pub unsafe fn SysFreeString<P0>(bstrstring: P0)
 where
     P0: ::windows_core::IntoParam<::windows_core::BSTR>,
 {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ());
+    ::windows_targets::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : ::std::mem::MaybeUninit <::windows_core::BSTR >));
     SysFreeString(bstrstring.into_param().abi())
 }
 #[inline]
@@ -146,7 +146,7 @@ pub unsafe fn SysReleaseString<P0>(bstrstring: P0)
 where
     P0: ::windows_core::IntoParam<::windows_core::BSTR>,
 {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SysReleaseString(bstrstring : ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ());
+    ::windows_targets::link!("oleaut32.dll" "system" fn SysReleaseString(bstrstring : ::std::mem::MaybeUninit <::windows_core::BSTR >));
     SysReleaseString(bstrstring.into_param().abi())
 }
 #[inline]
@@ -11559,7 +11559,7 @@ impl ::windows_core::TypeKind for WPARAM {
 }
 pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 pub type NEARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
-pub type PAPCFUNC = ::core::option::Option<unsafe extern "system" fn(parameter: usize) -> ()>;
+pub type PAPCFUNC = ::core::option::Option<unsafe extern "system" fn(parameter: usize)>;
 pub type PROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 impl BOOL {
     #[inline]

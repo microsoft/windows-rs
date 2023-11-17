@@ -880,7 +880,7 @@ impl Writer {
     pub fn return_sig(&self, signature: &Signature) -> TokenStream {
         match &signature.return_type {
             Type::Void if signature.def.has_attribute("DoesNotReturnAttribute") => " -> !".into(),
-            Type::Void => " -> ()".into(),
+            Type::Void => TokenStream::new(),
             _ => {
                 let tokens = self.type_default_name(&signature.return_type);
                 format!(" -> {}", tokens.as_str()).into()

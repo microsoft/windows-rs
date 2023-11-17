@@ -85,7 +85,7 @@ where
 }
 #[inline]
 pub unsafe fn PrjFreeAlignedBuffer(buffer: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjFreeAlignedBuffer(buffer : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjFreeAlignedBuffer(buffer : *const ::core::ffi::c_void));
     PrjFreeAlignedBuffer(buffer)
 }
 #[inline]
@@ -130,7 +130,7 @@ pub unsafe fn PrjStopVirtualizing<P0>(namespacevirtualizationcontext: P0)
 where
     P0: ::windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
 {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjStopVirtualizing(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ());
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjStopVirtualizing(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT));
     PrjStopVirtualizing(namespacevirtualizationcontext.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1384,7 +1384,7 @@ impl ::core::default::Default for PRJ_VIRTUALIZATION_INSTANCE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type PRJ_CANCEL_COMMAND_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ()>;
+pub type PRJ_CANCEL_COMMAND_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA)>;
 pub type PRJ_END_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows_core::GUID) -> ::windows_core::HRESULT>;
 pub type PRJ_GET_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows_core::GUID, searchexpression: ::windows_core::PCWSTR, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows_core::HRESULT>;
 pub type PRJ_GET_FILE_DATA_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, byteoffset: u64, length: u32) -> ::windows_core::HRESULT>;

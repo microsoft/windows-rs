@@ -92,7 +92,7 @@ pub unsafe fn DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: u32
 }
 #[inline]
 pub unsafe fn DavUnregisterAuthCallback(hcallback: u32) {
-    ::windows_targets::link!("davclnt.dll" "system" fn DavUnregisterAuthCallback(hcallback : u32) -> ());
+    ::windows_targets::link!("davclnt.dll" "system" fn DavUnregisterAuthCallback(hcallback : u32));
     DavUnregisterAuthCallback(hcallback)
 }
 pub const CancelRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(2i32);

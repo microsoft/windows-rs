@@ -41,7 +41,7 @@ pub unsafe fn WerFreeString<P0>(pwszstr: P0)
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wer.dll" "system" fn WerFreeString(pwszstr : ::windows_core::PCWSTR) -> ());
+    ::windows_targets::link!("wer.dll" "system" fn WerFreeString(pwszstr : ::windows_core::PCWSTR));
     WerFreeString(pwszstr.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -202,7 +202,7 @@ pub unsafe fn WerStoreClose<P0>(hreportstore: P0)
 where
     P0: ::windows_core::IntoParam<HREPORTSTORE>,
 {
-    ::windows_targets::link!("wer.dll" "system" fn WerStoreClose(hreportstore : HREPORTSTORE) -> ());
+    ::windows_targets::link!("wer.dll" "system" fn WerStoreClose(hreportstore : HREPORTSTORE));
     WerStoreClose(hreportstore.into_param().abi())
 }
 #[inline]

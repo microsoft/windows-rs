@@ -3978,4 +3978,4 @@ impl ::core::clone::Clone for _URB_SET_FRAME_LENGTH {
         *self
     }
 }
-pub type USB_IDLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> ()>;
+pub type USB_IDLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;

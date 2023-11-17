@@ -12,7 +12,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("srpapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SrpGetEnterprisePolicy(tokenhandle : super::super::Foundation:: HANDLE, policyflags : *mut ENTERPRISE_DATA_POLICIES) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("srpapi.dll" "system" fn SrpHostingInitialize(version : SRPHOSTING_VERSION, r#type : SRPHOSTING_TYPE, pvdata : *const ::core::ffi::c_void, cbdata : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("srpapi.dll" "system" fn SrpHostingTerminate(r#type : SRPHOSTING_TYPE) -> ());
+::windows_targets::link!("srpapi.dll" "system" fn SrpHostingTerminate(r#type : SRPHOSTING_TYPE));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("srpapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SrpIsTokenService(tokenhandle : super::super::Foundation:: HANDLE, istokenservice : *mut u8) -> super::super::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]

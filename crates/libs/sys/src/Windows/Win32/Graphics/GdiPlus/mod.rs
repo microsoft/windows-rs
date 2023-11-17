@@ -265,7 +265,7 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipFindNextImageItem(image : *mut GpImage, item : *mut ImageItemData) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipFlattenPath(path : *mut GpPath, matrix : *mut Matrix, flatness : f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipFlush(graphics : *mut GpGraphics, intention : FlushIntention) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipFree(ptr : *mut ::core::ffi::c_void) -> ());
+::windows_targets::link!("gdiplus.dll" "system" fn GdipFree(ptr : *mut ::core::ffi::c_void));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipGetAdjustableArrowCapFillState(cap : *mut GpAdjustableArrowCap, fillstate : *mut super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetAdjustableArrowCapHeight(cap : *mut GpAdjustableArrowCap, height : *mut f32) -> Status);
@@ -717,8 +717,8 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipWidenPath(nativepath : *mut GpPath, pen : *mut GpPen, matrix : *mut Matrix, flatness : f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipWindingModeOutline(path : *mut GpPath, matrix : *mut Matrix, flatness : f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdiplusNotificationHook(token : *mut usize) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdiplusNotificationUnhook(token : usize) -> ());
-::windows_targets::link!("gdiplus.dll" "system" fn GdiplusShutdown(token : usize) -> ());
+::windows_targets::link!("gdiplus.dll" "system" fn GdiplusNotificationUnhook(token : usize));
+::windows_targets::link!("gdiplus.dll" "system" fn GdiplusShutdown(token : usize));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdiplusStartup(token : *mut usize, input : *const GdiplusStartupInput, output : *mut GdiplusStartupOutput) -> Status);
 pub type GdiplusAbort = *mut ::core::ffi::c_void;
@@ -2622,7 +2622,7 @@ impl ::core::clone::Clone for WmfPlaceableFileHeader {
         *self
     }
 }
-pub type DebugEventProc = ::core::option::Option<unsafe extern "system" fn(level: DebugEventLevel, message: ::windows_sys::core::PCSTR) -> ()>;
+pub type DebugEventProc = ::core::option::Option<unsafe extern "system" fn(level: DebugEventLevel, message: ::windows_sys::core::PCSTR)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DrawImageAbort = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
@@ -2636,4 +2636,4 @@ pub type GetThumbnailImageAbort = ::core::option::Option<unsafe extern "system" 
 #[cfg(feature = "Win32_Foundation")]
 pub type ImageAbort = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type NotificationHookProc = ::core::option::Option<unsafe extern "system" fn(token: *mut usize) -> Status>;
-pub type NotificationUnhookProc = ::core::option::Option<unsafe extern "system" fn(token: usize) -> ()>;
+pub type NotificationUnhookProc = ::core::option::Option<unsafe extern "system" fn(token: usize)>;

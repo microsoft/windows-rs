@@ -200,8 +200,8 @@ pub mod PrintTicket;
 ::windows_targets::link!("winspool.drv" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FindNextPrinterChangeNotification(hchange : super::super::Foundation:: HANDLE, pdwchange : *mut u32, pvreserved : *const ::core::ffi::c_void, ppprinternotifyinfo : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("winspool.drv" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FlushPrinter(hprinter : super::super::Foundation:: HANDLE, pbuf : *const ::core::ffi::c_void, cbbuf : u32, pcwritten : *mut u32, csleep : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("winspool.drv" "system" fn FreePrintNamedPropertyArray(cproperties : u32, ppproperties : *mut *mut PrintNamedProperty) -> ());
-::windows_targets::link!("winspool.drv" "system" fn FreePrintPropertyValue(pvalue : *mut PrintPropertyValue) -> ());
+::windows_targets::link!("winspool.drv" "system" fn FreePrintNamedPropertyArray(cproperties : u32, ppproperties : *mut *mut PrintNamedProperty));
+::windows_targets::link!("winspool.drv" "system" fn FreePrintPropertyValue(pvalue : *mut PrintPropertyValue));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("winspool.drv" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FreePrinterNotifyInfo(pprinternotifyinfo : *const PRINTER_NOTIFY_INFO) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -341,7 +341,7 @@ pub mod PrintTicket;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("spoolss.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterAllocBidiResponseContainer(count : u32) -> *mut BIDI_RESPONSE_CONTAINER);
 ::windows_targets::link!("spoolss.dll" "system" fn RouterAllocPrinterNotifyInfo(cprinternotifyinfodata : u32) -> *mut PRINTER_NOTIFY_INFO);
-::windows_targets::link!("spoolss.dll" "system" fn RouterFreeBidiMem(pmempointer : *const ::core::ffi::c_void) -> ());
+::windows_targets::link!("spoolss.dll" "system" fn RouterFreeBidiMem(pmempointer : *const ::core::ffi::c_void));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("winspool.drv" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterFreeBidiResponseContainer(pdata : *const BIDI_RESPONSE_CONTAINER) -> u32);
 #[cfg(feature = "Win32_Foundation")]
@@ -392,7 +392,7 @@ pub mod PrintTicket;
 ::windows_targets::link!("spoolss.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SpoolerFindFirstPrinterChangeNotification(hprinter : super::super::Foundation:: HANDLE, fdwfilterflags : u32, fdwoptions : u32, pprinternotifyoptions : *const ::core::ffi::c_void, pvreserved : *const ::core::ffi::c_void, pnotificationconfig : *const ::core::ffi::c_void, phnotify : *mut super::super::Foundation:: HANDLE, phevent : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("spoolss.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SpoolerFindNextPrinterChangeNotification(hprinter : super::super::Foundation:: HANDLE, pfdwchange : *mut u32, pprinternotifyoptions : *const ::core::ffi::c_void, ppprinternotifyinfo : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("spoolss.dll" "system" fn SpoolerFreePrinterNotifyInfo(pinfo : *const PRINTER_NOTIFY_INFO) -> ());
+::windows_targets::link!("spoolss.dll" "system" fn SpoolerFreePrinterNotifyInfo(pinfo : *const PRINTER_NOTIFY_INFO));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("spoolss.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SpoolerRefreshPrinterChangeNotification(hprinter : super::super::Foundation:: HANDLE, dwcolor : u32, poptions : *const PRINTER_NOTIFY_OPTIONS, ppinfo : *mut *mut PRINTER_NOTIFY_INFO) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -5748,7 +5748,7 @@ pub type PFN_PRINTING_SETPORTTIMEOUTS = ::core::option::Option<unsafe extern "sy
 pub type PFN_PRINTING_SETPORTTIMEOUTS2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *const super::super::Devices::Communication::COMMTIMEOUTS, param2: u32) -> super::super::Foundation::BOOL>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_PRINTING_SHUTDOWN2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> ()>;
+pub type PFN_PRINTING_SHUTDOWN2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_PRINTING_STARTDOCPORT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: u32, param3: u32, param4: *const u8) -> super::super::Foundation::BOOL>;

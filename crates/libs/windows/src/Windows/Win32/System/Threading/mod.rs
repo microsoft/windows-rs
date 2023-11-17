@@ -1,11 +1,11 @@
 #[inline]
 pub unsafe fn AcquireSRWLockExclusive(srwlock: *mut SRWLOCK) {
-    ::windows_targets::link!("kernel32.dll" "system" fn AcquireSRWLockExclusive(srwlock : *mut SRWLOCK) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn AcquireSRWLockExclusive(srwlock : *mut SRWLOCK));
     AcquireSRWLockExclusive(srwlock)
 }
 #[inline]
 pub unsafe fn AcquireSRWLockShared(srwlock: *mut SRWLOCK) {
-    ::windows_targets::link!("kernel32.dll" "system" fn AcquireSRWLockShared(srwlock : *mut SRWLOCK) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn AcquireSRWLockShared(srwlock : *mut SRWLOCK));
     AcquireSRWLockShared(srwlock)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -196,7 +196,7 @@ pub unsafe fn CancelThreadpoolIo<P0>(pio: P0)
 where
     P0: ::windows_core::IntoParam<PTP_IO>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CancelThreadpoolIo(pio : PTP_IO) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn CancelThreadpoolIo(pio : PTP_IO));
     CancelThreadpoolIo(pio.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -246,7 +246,7 @@ pub unsafe fn CloseThreadpool<P0>(ptpp: P0)
 where
     P0: ::windows_core::IntoParam<PTP_POOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpool(ptpp : PTP_POOL) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpool(ptpp : PTP_POOL));
     CloseThreadpool(ptpp.into_param().abi())
 }
 #[inline]
@@ -254,7 +254,7 @@ pub unsafe fn CloseThreadpoolCleanupGroup<P0>(ptpcg: P0)
 where
     P0: ::windows_core::IntoParam<PTP_CLEANUP_GROUP>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolCleanupGroup(ptpcg : PTP_CLEANUP_GROUP) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolCleanupGroup(ptpcg : PTP_CLEANUP_GROUP));
     CloseThreadpoolCleanupGroup(ptpcg.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -265,7 +265,7 @@ where
     P0: ::windows_core::IntoParam<PTP_CLEANUP_GROUP>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolCleanupGroupMembers(ptpcg : PTP_CLEANUP_GROUP, fcancelpendingcallbacks : super::super::Foundation:: BOOL, pvcleanupcontext : *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolCleanupGroupMembers(ptpcg : PTP_CLEANUP_GROUP, fcancelpendingcallbacks : super::super::Foundation:: BOOL, pvcleanupcontext : *mut ::core::ffi::c_void));
     CloseThreadpoolCleanupGroupMembers(ptpcg.into_param().abi(), fcancelpendingcallbacks.into_param().abi(), ::core::mem::transmute(pvcleanupcontext.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]
@@ -273,7 +273,7 @@ pub unsafe fn CloseThreadpoolIo<P0>(pio: P0)
 where
     P0: ::windows_core::IntoParam<PTP_IO>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolIo(pio : PTP_IO) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolIo(pio : PTP_IO));
     CloseThreadpoolIo(pio.into_param().abi())
 }
 #[inline]
@@ -281,7 +281,7 @@ pub unsafe fn CloseThreadpoolTimer<P0>(pti: P0)
 where
     P0: ::windows_core::IntoParam<PTP_TIMER>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolTimer(pti : PTP_TIMER) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolTimer(pti : PTP_TIMER));
     CloseThreadpoolTimer(pti.into_param().abi())
 }
 #[inline]
@@ -289,7 +289,7 @@ pub unsafe fn CloseThreadpoolWait<P0>(pwa: P0)
 where
     P0: ::windows_core::IntoParam<PTP_WAIT>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolWait(pwa : PTP_WAIT) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolWait(pwa : PTP_WAIT));
     CloseThreadpoolWait(pwa.into_param().abi())
 }
 #[inline]
@@ -297,7 +297,7 @@ pub unsafe fn CloseThreadpoolWork<P0>(pwk: P0)
 where
     P0: ::windows_core::IntoParam<PTP_WORK>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolWork(pwk : PTP_WORK) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolWork(pwk : PTP_WORK));
     CloseThreadpoolWork(pwk.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -736,24 +736,24 @@ pub unsafe fn DeleteBoundaryDescriptor<P0>(boundarydescriptor: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn DeleteBoundaryDescriptor(boundarydescriptor : super::super::Foundation:: HANDLE) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn DeleteBoundaryDescriptor(boundarydescriptor : super::super::Foundation:: HANDLE));
     DeleteBoundaryDescriptor(boundarydescriptor.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn DeleteCriticalSection(lpcriticalsection: *mut CRITICAL_SECTION) {
-    ::windows_targets::link!("kernel32.dll" "system" fn DeleteCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn DeleteCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION));
     DeleteCriticalSection(lpcriticalsection)
 }
 #[inline]
 pub unsafe fn DeleteFiber(lpfiber: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("kernel32.dll" "system" fn DeleteFiber(lpfiber : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn DeleteFiber(lpfiber : *const ::core::ffi::c_void));
     DeleteFiber(lpfiber)
 }
 #[inline]
 pub unsafe fn DeleteProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST) {
-    ::windows_targets::link!("kernel32.dll" "system" fn DeleteProcThreadAttributeList(lpattributelist : LPPROC_THREAD_ATTRIBUTE_LIST) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn DeleteProcThreadAttributeList(lpattributelist : LPPROC_THREAD_ATTRIBUTE_LIST));
     DeleteProcThreadAttributeList(lpattributelist)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -822,14 +822,14 @@ pub unsafe fn DisassociateCurrentThreadFromCallback<P0>(pci: P0)
 where
     P0: ::windows_core::IntoParam<PTP_CALLBACK_INSTANCE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn DisassociateCurrentThreadFromCallback(pci : PTP_CALLBACK_INSTANCE) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn DisassociateCurrentThreadFromCallback(pci : PTP_CALLBACK_INSTANCE));
     DisassociateCurrentThreadFromCallback(pci.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn EnterCriticalSection(lpcriticalsection: *mut CRITICAL_SECTION) {
-    ::windows_targets::link!("kernel32.dll" "system" fn EnterCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn EnterCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION));
     EnterCriticalSection(lpcriticalsection)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -889,7 +889,7 @@ pub unsafe fn FlsSetValue(dwflsindex: u32, lpflsdata: ::core::option::Option<*co
 }
 #[inline]
 pub unsafe fn FlushProcessWriteBuffers() {
-    ::windows_targets::link!("kernel32.dll" "system" fn FlushProcessWriteBuffers() -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn FlushProcessWriteBuffers());
     FlushProcessWriteBuffers()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -900,7 +900,7 @@ where
     P0: ::windows_core::IntoParam<PTP_CALLBACK_INSTANCE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn FreeLibraryWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, r#mod : super::super::Foundation:: HMODULE) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn FreeLibraryWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, r#mod : super::super::Foundation:: HMODULE));
     FreeLibraryWhenCallbackReturns(pci.into_param().abi(), r#mod.into_param().abi())
 }
 #[inline]
@@ -934,7 +934,7 @@ pub unsafe fn GetCurrentProcessorNumber() -> u32 {
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn GetCurrentProcessorNumberEx() -> super::Kernel::PROCESSOR_NUMBER {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentProcessorNumberEx(procnumber : *mut super::Kernel:: PROCESSOR_NUMBER) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentProcessorNumberEx(procnumber : *mut super::Kernel:: PROCESSOR_NUMBER));
     let mut result__ = ::std::mem::zeroed();
     GetCurrentProcessorNumberEx(&mut result__);
     ::std::mem::transmute(result__)
@@ -953,7 +953,7 @@ pub unsafe fn GetCurrentThreadId() -> u32 {
 }
 #[inline]
 pub unsafe fn GetCurrentThreadStackLimits(lowlimit: *mut usize, highlimit: *mut usize) {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentThreadStackLimits(lowlimit : *mut usize, highlimit : *mut usize) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentThreadStackLimits(lowlimit : *mut usize, highlimit : *mut usize));
     GetCurrentThreadStackLimits(lowlimit, highlimit)
 }
 #[inline]
@@ -1258,14 +1258,14 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStartupInfoA(lpstartupinfo: *mut STARTUPINFOA) {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetStartupInfoA(lpstartupinfo : *mut STARTUPINFOA) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn GetStartupInfoA(lpstartupinfo : *mut STARTUPINFOA));
     GetStartupInfoA(lpstartupinfo)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStartupInfoW(lpstartupinfo: *mut STARTUPINFOW) {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetStartupInfoW(lpstartupinfo : *mut STARTUPINFOW) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn GetStartupInfoW(lpstartupinfo : *mut STARTUPINFOW));
     GetStartupInfoW(lpstartupinfo)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1426,14 +1426,14 @@ pub unsafe fn InitOnceExecuteOnce(initonce: *mut INIT_ONCE, initfn: PINIT_ONCE_F
 }
 #[inline]
 pub unsafe fn InitOnceInitialize() -> INIT_ONCE {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitOnceInitialize(initonce : *mut INIT_ONCE) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn InitOnceInitialize(initonce : *mut INIT_ONCE));
     let mut result__ = ::std::mem::zeroed();
     InitOnceInitialize(&mut result__);
     ::std::mem::transmute(result__)
 }
 #[inline]
 pub unsafe fn InitializeConditionVariable() -> CONDITION_VARIABLE {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeConditionVariable(conditionvariable : *mut CONDITION_VARIABLE) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn InitializeConditionVariable(conditionvariable : *mut CONDITION_VARIABLE));
     let mut result__ = ::std::mem::zeroed();
     InitializeConditionVariable(&mut result__);
     ::std::mem::transmute(result__)
@@ -1442,7 +1442,7 @@ pub unsafe fn InitializeConditionVariable() -> CONDITION_VARIABLE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn InitializeCriticalSection(lpcriticalsection: *mut CRITICAL_SECTION) {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn InitializeCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION));
     InitializeCriticalSection(lpcriticalsection)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -1470,14 +1470,14 @@ pub unsafe fn InitializeProcThreadAttributeList(lpattributelist: LPPROC_THREAD_A
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InitializeSListHead() -> super::Kernel::SLIST_HEADER {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeSListHead(listhead : *mut super::Kernel:: SLIST_HEADER) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn InitializeSListHead(listhead : *mut super::Kernel:: SLIST_HEADER));
     let mut result__ = ::std::mem::zeroed();
     InitializeSListHead(&mut result__);
     ::std::mem::transmute(result__)
 }
 #[inline]
 pub unsafe fn InitializeSRWLock() -> SRWLOCK {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeSRWLock(srwlock : *mut SRWLOCK) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn InitializeSRWLock(srwlock : *mut SRWLOCK));
     let mut result__ = ::std::mem::zeroed();
     InitializeSRWLock(&mut result__);
     ::std::mem::transmute(result__)
@@ -1585,7 +1585,7 @@ where
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn LeaveCriticalSection(lpcriticalsection: *mut CRITICAL_SECTION) {
-    ::windows_targets::link!("kernel32.dll" "system" fn LeaveCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn LeaveCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION));
     LeaveCriticalSection(lpcriticalsection)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -1595,7 +1595,7 @@ pub unsafe fn LeaveCriticalSectionWhenCallbackReturns<P0>(pci: P0, pcs: *mut CRI
 where
     P0: ::windows_core::IntoParam<PTP_CALLBACK_INSTANCE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn LeaveCriticalSectionWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, pcs : *mut CRITICAL_SECTION) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn LeaveCriticalSectionWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, pcs : *mut CRITICAL_SECTION));
     LeaveCriticalSectionWhenCallbackReturns(pci.into_param().abi(), pcs)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1858,17 +1858,17 @@ where
     P0: ::windows_core::IntoParam<PTP_CALLBACK_INSTANCE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseMutexWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, r#mut : super::super::Foundation:: HANDLE) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseMutexWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, r#mut : super::super::Foundation:: HANDLE));
     ReleaseMutexWhenCallbackReturns(pci.into_param().abi(), r#mut.into_param().abi())
 }
 #[inline]
 pub unsafe fn ReleaseSRWLockExclusive(srwlock: *mut SRWLOCK) {
-    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseSRWLockExclusive(srwlock : *mut SRWLOCK) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseSRWLockExclusive(srwlock : *mut SRWLOCK));
     ReleaseSRWLockExclusive(srwlock)
 }
 #[inline]
 pub unsafe fn ReleaseSRWLockShared(srwlock: *mut SRWLOCK) {
-    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseSRWLockShared(srwlock : *mut SRWLOCK) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseSRWLockShared(srwlock : *mut SRWLOCK));
     ReleaseSRWLockShared(srwlock)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1889,7 +1889,7 @@ where
     P0: ::windows_core::IntoParam<PTP_CALLBACK_INSTANCE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseSemaphoreWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, sem : super::super::Foundation:: HANDLE, crel : u32) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseSemaphoreWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, sem : super::super::Foundation:: HANDLE, crel : u32));
     ReleaseSemaphoreWhenCallbackReturns(pci.into_param().abi(), sem.into_param().abi(), crel)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -2182,7 +2182,7 @@ where
     P0: ::windows_core::IntoParam<PTP_CALLBACK_INSTANCE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetEventWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, evt : super::super::Foundation:: HANDLE) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn SetEventWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, evt : super::super::Foundation:: HANDLE));
     SetEventWhenCallbackReturns(pci.into_param().abi(), evt.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -2458,7 +2458,7 @@ pub unsafe fn SetThreadpoolThreadMaximum<P0>(ptpp: P0, cthrdmost: u32)
 where
     P0: ::windows_core::IntoParam<PTP_POOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolThreadMaximum(ptpp : PTP_POOL, cthrdmost : u32) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolThreadMaximum(ptpp : PTP_POOL, cthrdmost : u32));
     SetThreadpoolThreadMaximum(ptpp.into_param().abi(), cthrdmost)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -2478,7 +2478,7 @@ pub unsafe fn SetThreadpoolTimer<P0>(pti: P0, pftduetime: ::core::option::Option
 where
     P0: ::windows_core::IntoParam<PTP_TIMER>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolTimer(pti : PTP_TIMER, pftduetime : *const super::super::Foundation:: FILETIME, msperiod : u32, mswindowlength : u32) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolTimer(pti : PTP_TIMER, pftduetime : *const super::super::Foundation:: FILETIME, msperiod : u32, mswindowlength : u32));
     SetThreadpoolTimer(pti.into_param().abi(), ::core::mem::transmute(pftduetime.unwrap_or(::std::ptr::null())), msperiod, mswindowlength)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -2499,7 +2499,7 @@ where
     P0: ::windows_core::IntoParam<PTP_WAIT>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolWait(pwa : PTP_WAIT, h : super::super::Foundation:: HANDLE, pfttimeout : *const super::super::Foundation:: FILETIME) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolWait(pwa : PTP_WAIT, h : super::super::Foundation:: HANDLE, pfttimeout : *const super::super::Foundation:: FILETIME));
     SetThreadpoolWait(pwa.into_param().abi(), h.into_param().abi(), ::core::mem::transmute(pfttimeout.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -2566,7 +2566,7 @@ where
 }
 #[inline]
 pub unsafe fn Sleep(dwmilliseconds: u32) {
-    ::windows_targets::link!("kernel32.dll" "system" fn Sleep(dwmilliseconds : u32) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn Sleep(dwmilliseconds : u32));
     Sleep(dwmilliseconds)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -2598,7 +2598,7 @@ pub unsafe fn StartThreadpoolIo<P0>(pio: P0)
 where
     P0: ::windows_core::IntoParam<PTP_IO>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn StartThreadpoolIo(pio : PTP_IO) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn StartThreadpoolIo(pio : PTP_IO));
     StartThreadpoolIo(pio.into_param().abi())
 }
 #[inline]
@@ -2606,7 +2606,7 @@ pub unsafe fn SubmitThreadpoolWork<P0>(pwk: P0)
 where
     P0: ::windows_core::IntoParam<PTP_WORK>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SubmitThreadpoolWork(pwk : PTP_WORK) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn SubmitThreadpoolWork(pwk : PTP_WORK));
     SubmitThreadpoolWork(pwk.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -2621,7 +2621,7 @@ where
 }
 #[inline]
 pub unsafe fn SwitchToFiber(lpfiber: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("kernel32.dll" "system" fn SwitchToFiber(lpfiber : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn SwitchToFiber(lpfiber : *const ::core::ffi::c_void));
     SwitchToFiber(lpfiber)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -2798,7 +2798,7 @@ where
     P0: ::windows_core::IntoParam<PTP_IO>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WaitForThreadpoolIoCallbacks(pio : PTP_IO, fcancelpendingcallbacks : super::super::Foundation:: BOOL) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn WaitForThreadpoolIoCallbacks(pio : PTP_IO, fcancelpendingcallbacks : super::super::Foundation:: BOOL));
     WaitForThreadpoolIoCallbacks(pio.into_param().abi(), fcancelpendingcallbacks.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -2809,7 +2809,7 @@ where
     P0: ::windows_core::IntoParam<PTP_TIMER>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WaitForThreadpoolTimerCallbacks(pti : PTP_TIMER, fcancelpendingcallbacks : super::super::Foundation:: BOOL) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn WaitForThreadpoolTimerCallbacks(pti : PTP_TIMER, fcancelpendingcallbacks : super::super::Foundation:: BOOL));
     WaitForThreadpoolTimerCallbacks(pti.into_param().abi(), fcancelpendingcallbacks.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -2820,7 +2820,7 @@ where
     P0: ::windows_core::IntoParam<PTP_WAIT>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WaitForThreadpoolWaitCallbacks(pwa : PTP_WAIT, fcancelpendingcallbacks : super::super::Foundation:: BOOL) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn WaitForThreadpoolWaitCallbacks(pwa : PTP_WAIT, fcancelpendingcallbacks : super::super::Foundation:: BOOL));
     WaitForThreadpoolWaitCallbacks(pwa.into_param().abi(), fcancelpendingcallbacks.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -2831,7 +2831,7 @@ where
     P0: ::windows_core::IntoParam<PTP_WORK>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WaitForThreadpoolWorkCallbacks(pwk : PTP_WORK, fcancelpendingcallbacks : super::super::Foundation:: BOOL) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn WaitForThreadpoolWorkCallbacks(pwk : PTP_WORK, fcancelpendingcallbacks : super::super::Foundation:: BOOL));
     WaitForThreadpoolWorkCallbacks(pwk.into_param().abi(), fcancelpendingcallbacks.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -2843,22 +2843,22 @@ pub unsafe fn WaitOnAddress(address: *const ::core::ffi::c_void, compareaddress:
 }
 #[inline]
 pub unsafe fn WakeAllConditionVariable(conditionvariable: *mut CONDITION_VARIABLE) {
-    ::windows_targets::link!("kernel32.dll" "system" fn WakeAllConditionVariable(conditionvariable : *mut CONDITION_VARIABLE) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn WakeAllConditionVariable(conditionvariable : *mut CONDITION_VARIABLE));
     WakeAllConditionVariable(conditionvariable)
 }
 #[inline]
 pub unsafe fn WakeByAddressAll(address: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WakeByAddressAll(address : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WakeByAddressAll(address : *const ::core::ffi::c_void));
     WakeByAddressAll(address)
 }
 #[inline]
 pub unsafe fn WakeByAddressSingle(address: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WakeByAddressSingle(address : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WakeByAddressSingle(address : *const ::core::ffi::c_void));
     WakeByAddressSingle(address)
 }
 #[inline]
 pub unsafe fn WakeConditionVariable(conditionvariable: *mut CONDITION_VARIABLE) {
-    ::windows_targets::link!("kernel32.dll" "system" fn WakeConditionVariable(conditionvariable : *mut CONDITION_VARIABLE) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn WakeConditionVariable(conditionvariable : *mut CONDITION_VARIABLE));
     WakeConditionVariable(conditionvariable)
 }
 #[inline]
@@ -5932,28 +5932,28 @@ impl ::core::default::Default for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type APC_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ()>;
-pub type LPFIBER_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpfiberparameter: *mut ::core::ffi::c_void) -> ()>;
+pub type APC_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void)>;
+pub type LPFIBER_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpfiberparameter: *mut ::core::ffi::c_void)>;
 pub type LPTHREAD_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpthreadparameter: *mut ::core::ffi::c_void) -> u32>;
-pub type PFLS_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(lpflsdata: *const ::core::ffi::c_void) -> ()>;
+pub type PFLS_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(lpflsdata: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PINIT_ONCE_FN = ::core::option::Option<unsafe extern "system" fn(initonce: *mut INIT_ONCE, parameter: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PPS_POST_PROCESS_INIT_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PPS_POST_PROCESS_INIT_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_System_SystemServices\"`"]
 #[cfg(feature = "Win32_System_SystemServices")]
-pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = ::core::option::Option<unsafe extern "system" fn(reason: super::SystemServices::RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::core::ffi::c_void) -> ()>;
-pub type PTIMERAPCROUTINE = ::core::option::Option<unsafe extern "system" fn(lpargtocompletionroutine: *const ::core::ffi::c_void, dwtimerlowvalue: u32, dwtimerhighvalue: u32) -> ()>;
-pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(objectcontext: *mut ::core::ffi::c_void, cleanupcontext: *mut ::core::ffi::c_void) -> ()>;
-pub type PTP_SIMPLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void) -> ()>;
-pub type PTP_TIMER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, timer: PTP_TIMER) -> ()>;
-pub type PTP_WAIT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, wait: PTP_WAIT, waitresult: u32) -> ()>;
-pub type PTP_WIN32_IO_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, overlapped: *mut ::core::ffi::c_void, ioresult: u32, numberofbytestransferred: usize, io: PTP_IO) -> ()>;
-pub type PTP_WORK_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, work: PTP_WORK) -> ()>;
-pub type RTWQPERIODICCALLBACK = ::core::option::Option<unsafe extern "system" fn(context: ::core::option::Option<::windows_core::IUnknown>) -> ()>;
+pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = ::core::option::Option<unsafe extern "system" fn(reason: super::SystemServices::RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::core::ffi::c_void)>;
+pub type PTIMERAPCROUTINE = ::core::option::Option<unsafe extern "system" fn(lpargtocompletionroutine: *const ::core::ffi::c_void, dwtimerlowvalue: u32, dwtimerhighvalue: u32)>;
+pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(objectcontext: *mut ::core::ffi::c_void, cleanupcontext: *mut ::core::ffi::c_void)>;
+pub type PTP_SIMPLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void)>;
+pub type PTP_TIMER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, timer: PTP_TIMER)>;
+pub type PTP_WAIT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, wait: PTP_WAIT, waitresult: u32)>;
+pub type PTP_WIN32_IO_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, overlapped: *mut ::core::ffi::c_void, ioresult: u32, numberofbytestransferred: usize, io: PTP_IO)>;
+pub type PTP_WORK_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, work: PTP_WORK)>;
+pub type RTWQPERIODICCALLBACK = ::core::option::Option<unsafe extern "system" fn(context: ::core::option::Option<::windows_core::IUnknown>)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WAITORTIMERCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::BOOLEAN) -> ()>;
-pub type WORKERCALLBACKFUNC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> ()>;
+pub type WAITORTIMERCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::BOOLEAN)>;
+pub type WORKERCALLBACKFUNC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

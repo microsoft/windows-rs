@@ -32,12 +32,12 @@ pub unsafe fn ber_bvdup(pberval: *mut LDAP_BERVAL) -> *mut LDAP_BERVAL {
 }
 #[inline]
 pub unsafe fn ber_bvecfree(pberval: *mut *mut LDAP_BERVAL) {
-    ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_bvecfree(pberval : *mut *mut LDAP_BERVAL) -> ());
+    ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_bvecfree(pberval : *mut *mut LDAP_BERVAL));
     ber_bvecfree(pberval)
 }
 #[inline]
 pub unsafe fn ber_bvfree(bv: *mut LDAP_BERVAL) {
-    ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_bvfree(bv : *mut LDAP_BERVAL) -> ());
+    ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_bvfree(bv : *mut LDAP_BERVAL));
     ber_bvfree(bv)
 }
 #[inline]
@@ -52,7 +52,7 @@ pub unsafe fn ber_flatten(pberelement: *mut BerElement, pberval: *mut *mut LDAP_
 }
 #[inline]
 pub unsafe fn ber_free(pberelement: *mut BerElement, fbuf: i32) {
-    ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_free(pberelement : *mut BerElement, fbuf : i32) -> ());
+    ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_free(pberelement : *mut BerElement, fbuf : i32));
     ber_free(pberelement, fbuf)
 }
 #[inline]
@@ -1052,7 +1052,7 @@ pub unsafe fn ldap_memfree<P0>(block: P0)
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_memfree(block : ::windows_core::PCSTR) -> ());
+    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_memfree(block : ::windows_core::PCSTR));
     ldap_memfree(block.into_param().abi())
 }
 #[inline]
@@ -1060,7 +1060,7 @@ pub unsafe fn ldap_memfreeA<P0>(block: P0)
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_memfreeA(block : ::windows_core::PCSTR) -> ());
+    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_memfreeA(block : ::windows_core::PCSTR));
     ldap_memfreeA(block.into_param().abi())
 }
 #[inline]
@@ -1068,7 +1068,7 @@ pub unsafe fn ldap_memfreeW<P0>(block: P0)
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_memfreeW(block : ::windows_core::PCWSTR) -> ());
+    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_memfreeW(block : ::windows_core::PCWSTR));
     ldap_memfreeW(block.into_param().abi())
 }
 #[inline]
@@ -1485,7 +1485,7 @@ pub unsafe fn ldap_perror<P0>(ld: *mut LDAP, msg: P0)
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_perror(ld : *mut LDAP, msg : ::windows_core::PCSTR) -> ());
+    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_perror(ld : *mut LDAP, msg : ::windows_core::PCSTR));
     ldap_perror(ld, msg.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1825,7 +1825,7 @@ pub unsafe fn ldap_set_dbg_flags(newflags: u32) -> u32 {
 }
 #[inline]
 pub unsafe fn ldap_set_dbg_routine(debugprintroutine: DBGPRINT) {
-    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_set_dbg_routine(debugprintroutine : DBGPRINT) -> ());
+    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_set_dbg_routine(debugprintroutine : DBGPRINT));
     ldap_set_dbg_routine(debugprintroutine)
 }
 #[inline]

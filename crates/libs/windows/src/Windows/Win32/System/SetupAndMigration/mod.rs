@@ -19,4 +19,4 @@ pub unsafe fn UnregisterWaitUntilOOBECompleted(waithandle: *const ::core::ffi::c
     ::windows_targets::link!("kernel32.dll" "system" fn UnregisterWaitUntilOOBECompleted(waithandle : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     UnregisterWaitUntilOOBECompleted(waithandle).ok()
 }
-pub type OOBE_COMPLETED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackcontext: *const ::core::ffi::c_void) -> ()>;
+pub type OOBE_COMPLETED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackcontext: *const ::core::ffi::c_void)>;

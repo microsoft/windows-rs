@@ -9934,25 +9934,25 @@ impl ::core::default::Default for FunctionIDOrClientID {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type EventPipeProviderCallback = ::core::option::Option<unsafe extern "system" fn(source_id: *const u8, is_enabled: u32, level: u8, match_any_keywords: u64, match_all_keywords: u64, filter_data: *mut COR_PRF_FILTER_DATA, callback_data: *mut ::core::ffi::c_void) -> ()>;
-pub type FunctionEnter = ::core::option::Option<unsafe extern "system" fn(funcid: usize) -> ()>;
-pub type FunctionEnter2 = ::core::option::Option<unsafe extern "system" fn(funcid: usize, clientdata: usize, func: usize, argumentinfo: *mut COR_PRF_FUNCTION_ARGUMENT_INFO) -> ()>;
-pub type FunctionEnter3 = ::core::option::Option<unsafe extern "system" fn(functionidorclientid: FunctionIDOrClientID) -> ()>;
-pub type FunctionEnter3WithInfo = ::core::option::Option<unsafe extern "system" fn(functionidorclientid: FunctionIDOrClientID, eltinfo: usize) -> ()>;
+pub type EventPipeProviderCallback = ::core::option::Option<unsafe extern "system" fn(source_id: *const u8, is_enabled: u32, level: u8, match_any_keywords: u64, match_all_keywords: u64, filter_data: *mut COR_PRF_FILTER_DATA, callback_data: *mut ::core::ffi::c_void)>;
+pub type FunctionEnter = ::core::option::Option<unsafe extern "system" fn(funcid: usize)>;
+pub type FunctionEnter2 = ::core::option::Option<unsafe extern "system" fn(funcid: usize, clientdata: usize, func: usize, argumentinfo: *mut COR_PRF_FUNCTION_ARGUMENT_INFO)>;
+pub type FunctionEnter3 = ::core::option::Option<unsafe extern "system" fn(functionidorclientid: FunctionIDOrClientID)>;
+pub type FunctionEnter3WithInfo = ::core::option::Option<unsafe extern "system" fn(functionidorclientid: FunctionIDOrClientID, eltinfo: usize)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FunctionIDMapper = ::core::option::Option<unsafe extern "system" fn(funcid: usize, pbhookfunction: *mut super::super::super::Foundation::BOOL) -> usize>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FunctionIDMapper2 = ::core::option::Option<unsafe extern "system" fn(funcid: usize, clientdata: *mut ::core::ffi::c_void, pbhookfunction: *mut super::super::super::Foundation::BOOL) -> usize>;
-pub type FunctionLeave = ::core::option::Option<unsafe extern "system" fn(funcid: usize) -> ()>;
-pub type FunctionLeave2 = ::core::option::Option<unsafe extern "system" fn(funcid: usize, clientdata: usize, func: usize, retvalrange: *mut COR_PRF_FUNCTION_ARGUMENT_RANGE) -> ()>;
-pub type FunctionLeave3 = ::core::option::Option<unsafe extern "system" fn(functionidorclientid: FunctionIDOrClientID) -> ()>;
-pub type FunctionLeave3WithInfo = ::core::option::Option<unsafe extern "system" fn(functionidorclientid: FunctionIDOrClientID, eltinfo: usize) -> ()>;
-pub type FunctionTailcall = ::core::option::Option<unsafe extern "system" fn(funcid: usize) -> ()>;
-pub type FunctionTailcall2 = ::core::option::Option<unsafe extern "system" fn(funcid: usize, clientdata: usize, func: usize) -> ()>;
-pub type FunctionTailcall3 = ::core::option::Option<unsafe extern "system" fn(functionidorclientid: FunctionIDOrClientID) -> ()>;
-pub type FunctionTailcall3WithInfo = ::core::option::Option<unsafe extern "system" fn(functionidorclientid: FunctionIDOrClientID, eltinfo: usize) -> ()>;
+pub type FunctionLeave = ::core::option::Option<unsafe extern "system" fn(funcid: usize)>;
+pub type FunctionLeave2 = ::core::option::Option<unsafe extern "system" fn(funcid: usize, clientdata: usize, func: usize, retvalrange: *mut COR_PRF_FUNCTION_ARGUMENT_RANGE)>;
+pub type FunctionLeave3 = ::core::option::Option<unsafe extern "system" fn(functionidorclientid: FunctionIDOrClientID)>;
+pub type FunctionLeave3WithInfo = ::core::option::Option<unsafe extern "system" fn(functionidorclientid: FunctionIDOrClientID, eltinfo: usize)>;
+pub type FunctionTailcall = ::core::option::Option<unsafe extern "system" fn(funcid: usize)>;
+pub type FunctionTailcall2 = ::core::option::Option<unsafe extern "system" fn(funcid: usize, clientdata: usize, func: usize)>;
+pub type FunctionTailcall3 = ::core::option::Option<unsafe extern "system" fn(functionidorclientid: FunctionIDOrClientID)>;
+pub type FunctionTailcall3WithInfo = ::core::option::Option<unsafe extern "system" fn(functionidorclientid: FunctionIDOrClientID, eltinfo: usize)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ObjectReferenceCallback = ::core::option::Option<unsafe extern "system" fn(root: usize, reference: *mut usize, clientdata: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;

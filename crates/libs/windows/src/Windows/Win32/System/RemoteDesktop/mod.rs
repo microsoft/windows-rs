@@ -12,7 +12,7 @@ pub unsafe fn WTSCloseServer<P0>(hserver: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("wtsapi32.dll" "system" fn WTSCloseServer(hserver : super::super::Foundation:: HANDLE) -> ());
+    ::windows_targets::link!("wtsapi32.dll" "system" fn WTSCloseServer(hserver : super::super::Foundation:: HANDLE));
     WTSCloseServer(hserver.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -202,7 +202,7 @@ where
 }
 #[inline]
 pub unsafe fn WTSFreeMemory(pmemory: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("wtsapi32.dll" "system" fn WTSFreeMemory(pmemory : *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("wtsapi32.dll" "system" fn WTSFreeMemory(pmemory : *mut ::core::ffi::c_void));
     WTSFreeMemory(pmemory)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -11275,8 +11275,8 @@ impl ::core::default::Default for pluginResource2FileAssociation {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type PCHANNEL_INIT_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32) -> ()>;
-pub type PCHANNEL_OPEN_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(openhandle: u32, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32, totallength: u32, dataflags: u32) -> ()>;
+pub type PCHANNEL_INIT_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32)>;
+pub type PCHANNEL_OPEN_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(openhandle: u32, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32, totallength: u32, dataflags: u32)>;
 pub type PVIRTUALCHANNELCLOSE = ::core::option::Option<unsafe extern "system" fn(openhandle: u32) -> u32>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

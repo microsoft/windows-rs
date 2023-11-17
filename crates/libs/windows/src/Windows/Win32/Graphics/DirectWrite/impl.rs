@@ -1121,7 +1121,7 @@ impl IDWriteFont_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDWriteFont1_Impl: Sized + IDWriteFont_Impl {
     fn GetMetrics2(&self, fontmetrics: *mut DWRITE_FONT_METRICS1);
-    fn GetPanose(&self, panose: *mut DWRITE_PANOSE) -> ();
+    fn GetPanose(&self, panose: *mut DWRITE_PANOSE);
     fn GetUnicodeRanges(&self, maxrangecount: u32, unicoderanges: *mut DWRITE_UNICODE_RANGE, actualrangecount: *mut u32) -> ::windows_core::Result<()>;
     fn IsMonospacedFont(&self) -> super::super::Foundation::BOOL;
 }
@@ -1669,7 +1669,7 @@ impl IDWriteFontFace_Vtbl {
 pub trait IDWriteFontFace1_Impl: Sized + IDWriteFontFace_Impl {
     fn GetMetrics2(&self, fontmetrics: *mut DWRITE_FONT_METRICS1);
     fn GetGdiCompatibleMetrics2(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, fontmetrics: *mut DWRITE_FONT_METRICS1) -> ::windows_core::Result<()>;
-    fn GetCaretMetrics(&self, caretmetrics: *mut DWRITE_CARET_METRICS) -> ();
+    fn GetCaretMetrics(&self, caretmetrics: *mut DWRITE_CARET_METRICS);
     fn GetUnicodeRanges(&self, maxrangecount: u32, unicoderanges: *mut DWRITE_UNICODE_RANGE, actualrangecount: *mut u32) -> ::windows_core::Result<()>;
     fn IsMonospacedFont(&self) -> super::super::Foundation::BOOL;
     fn GetDesignGlyphAdvances(&self, glyphcount: u32, glyphindices: *const u16, glyphadvances: *mut i32, issideways: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -1827,7 +1827,7 @@ impl IDWriteFontFace2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait IDWriteFontFace3_Impl: Sized + IDWriteFontFace2_Impl {
     fn GetFontFaceReference(&self) -> ::windows_core::Result<IDWriteFontFaceReference>;
-    fn GetPanose(&self, panose: *mut DWRITE_PANOSE) -> ();
+    fn GetPanose(&self, panose: *mut DWRITE_PANOSE);
     fn GetWeight(&self) -> DWRITE_FONT_WEIGHT;
     fn GetStretch(&self) -> DWRITE_FONT_STRETCH;
     fn GetStyle(&self) -> DWRITE_FONT_STYLE;

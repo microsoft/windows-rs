@@ -901,7 +901,7 @@ impl ::core::default::Default for GAMING_DEVICE_MODEL_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type GameUICompletionRoutine = ::core::option::Option<unsafe extern "system" fn(returncode: ::windows_core::HRESULT, context: *const ::core::ffi::c_void) -> ()>;
-pub type PlayerPickerUICompletionRoutine = ::core::option::Option<unsafe extern "system" fn(returncode: ::windows_core::HRESULT, context: *const ::core::ffi::c_void, selectedxuids: *const ::windows_core::HSTRING, selectedxuidscount: usize) -> ()>;
+pub type GameUICompletionRoutine = ::core::option::Option<unsafe extern "system" fn(returncode: ::windows_core::HRESULT, context: *const ::core::ffi::c_void)>;
+pub type PlayerPickerUICompletionRoutine = ::core::option::Option<unsafe extern "system" fn(returncode: ::windows_core::HRESULT, context: *const ::core::ffi::c_void, selectedxuids: *const ::windows_core::HSTRING, selectedxuidscount: usize)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

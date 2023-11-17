@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn BstrFromVector(psa : *const super::Com:: SAFEARRAY, pbstr : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"] fn ClearCustData(pcustdata : *mut super::Com:: CUSTDATA) -> ());
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"] fn ClearCustData(pcustdata : *mut super::Com:: CUSTDATA));
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"] fn CreateDispTypeInfo(pidata : *mut INTERFACEDATA, lcid : u32, pptinfo : *mut super::Com:: ITypeInfo) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" fn CreateErrorInfo(pperrinfo : *mut ICreateErrorInfo) -> ::windows_sys::core::HRESULT);
@@ -28,9 +28,9 @@
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn GetRecordInfoFromTypeInfo(ptypeinfo : super::Com:: ITypeInfo, pprecinfo : *mut IRecordInfo) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn HRGN_UserFree(param0 : *const u32, param1 : *const super::super::Graphics::Gdi:: HRGN) -> ());
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn HRGN_UserFree(param0 : *const u32, param1 : *const super::super::Graphics::Gdi:: HRGN));
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("api-ms-win-core-marshal-l1-1-0.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn HRGN_UserFree64(param0 : *const u32, param1 : *const super::super::Graphics::Gdi:: HRGN) -> ());
+::windows_targets::link!("api-ms-win-core-marshal-l1-1-0.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn HRGN_UserFree64(param0 : *const u32, param1 : *const super::super::Graphics::Gdi:: HRGN));
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn HRGN_UserMarshal(param0 : *const u32, param1 : *mut u8, param2 : *const super::super::Graphics::Gdi:: HRGN) -> *mut u8);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -56,7 +56,7 @@
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn LoadTypeLibEx(szfile : ::windows_sys::core::PCWSTR, regkind : REGKIND, pptlib : *mut super::Com:: ITypeLib) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" fn OaBuildVersion() -> u32);
-::windows_targets::link!("oleaut32.dll" "system" fn OaEnablePerUserTLibRegistration() -> ());
+::windows_targets::link!("oleaut32.dll" "system" fn OaEnablePerUserTLibRegistration());
 ::windows_targets::link!("ole32.dll" "system" fn OleBuildVersion() -> u32);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 ::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"] fn OleCreate(rclsid : *const ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, renderopt : u32, pformatetc : *const super::Com:: FORMATETC, pclientsite : IOleClientSite, pstg : super::Com::StructuredStorage:: IStorage, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
@@ -213,7 +213,7 @@
 ::windows_targets::link!("oledlg.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn OleUIUpdateLinksA(lpoleuilinkcntr : IOleUILinkContainerA, hwndparent : super::super::Foundation:: HWND, lpsztitle : ::windows_sys::core::PCSTR, clinks : i32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("oledlg.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn OleUIUpdateLinksW(lpoleuilinkcntr : IOleUILinkContainerW, hwndparent : super::super::Foundation:: HWND, lpsztitle : ::windows_sys::core::PCWSTR, clinks : i32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("ole32.dll" "system" fn OleUninitialize() -> ());
+::windows_targets::link!("ole32.dll" "system" fn OleUninitialize());
 ::windows_targets::link!("oleaut32.dll" "system" fn QueryPathOfRegTypeLib(guid : *const ::windows_sys::core::GUID, wmaj : u16, wmin : u16, lcid : u32, lpbstrpathname : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" fn RegisterActiveObject(punk : ::windows_sys::core::IUnknown, rclsid : *const ::windows_sys::core::GUID, dwflags : ACTIVEOBJECT_FLAGS, pdwregister : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
@@ -223,7 +223,7 @@
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn RegisterTypeLibForUser(ptlib : super::Com:: ITypeLib, szfullpath : ::windows_sys::core::PCWSTR, szhelpdir : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn ReleaseStgMedium(param0 : *mut super::Com:: STGMEDIUM) -> ());
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn ReleaseStgMedium(param0 : *mut super::Com:: STGMEDIUM));
 ::windows_targets::link!("oleaut32.dll" "system" fn RevokeActiveObject(dwregister : u32, pvreserved : *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RevokeDragDrop(hwnd : super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
@@ -279,9 +279,9 @@
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn SafeArrayPutElement(psa : *const super::Com:: SAFEARRAY, rgindices : *const i32, pv : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn SafeArrayRedim(psa : *mut super::Com:: SAFEARRAY, psaboundnew : *const super::Com:: SAFEARRAYBOUND) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayReleaseData(pdata : *const ::core::ffi::c_void) -> ());
+::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayReleaseData(pdata : *const ::core::ffi::c_void));
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn SafeArrayReleaseDescriptor(psa : *const super::Com:: SAFEARRAY) -> ());
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn SafeArrayReleaseDescriptor(psa : *const super::Com:: SAFEARRAY));
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn SafeArraySetIID(psa : *const super::Com:: SAFEARRAY, guid : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]

@@ -399,4 +399,4 @@ impl ::core::default::Default for RM_UNIQUE_PROCESS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type RM_WRITE_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(npercentcomplete: u32) -> ()>;
+pub type RM_WRITE_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(npercentcomplete: u32)>;

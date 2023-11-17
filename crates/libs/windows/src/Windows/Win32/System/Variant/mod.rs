@@ -2,7 +2,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn ClearVariantArray(pvars: &mut [VARIANT]) {
-    ::windows_targets::link!("propsys.dll" "system" fn ClearVariantArray(pvars : *mut VARIANT, cvars : u32) -> ());
+    ::windows_targets::link!("propsys.dll" "system" fn ClearVariantArray(pvars : *mut VARIANT, cvars : u32));
     ClearVariantArray(::core::mem::transmute(pvars.as_ptr()), pvars.len().try_into().unwrap())
 }
 #[inline]
@@ -144,14 +144,14 @@ pub unsafe fn SystemTimeToVariantTime(lpsystemtime: *const super::super::Foundat
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserFree(param0: *const u32, param1: *const VARIANT) {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VARIANT_UserFree(param0 : *const u32, param1 : *const VARIANT) -> ());
+    ::windows_targets::link!("oleaut32.dll" "system" fn VARIANT_UserFree(param0 : *const u32, param1 : *const VARIANT));
     VARIANT_UserFree(param0, param1)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserFree64(param0: *const u32, param1: *const VARIANT) {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VARIANT_UserFree64(param0 : *const u32, param1 : *const VARIANT) -> ());
+    ::windows_targets::link!("oleaut32.dll" "system" fn VARIANT_UserFree64(param0 : *const u32, param1 : *const VARIANT));
     VARIANT_UserFree64(param0, param1)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
@@ -321,7 +321,7 @@ pub unsafe fn VariantGetUInt64Elem(var: *const VARIANT, ielem: u32) -> ::windows
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantInit() -> VARIANT {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VariantInit(pvarg : *mut VARIANT) -> ());
+    ::windows_targets::link!("oleaut32.dll" "system" fn VariantInit(pvarg : *mut VARIANT));
     let mut result__ = ::std::mem::zeroed();
     VariantInit(&mut result__);
     ::std::mem::transmute(result__)

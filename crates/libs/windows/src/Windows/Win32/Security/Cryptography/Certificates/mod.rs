@@ -10,7 +10,7 @@ pub unsafe fn CertSrvBackupEnd(hbc: *mut ::core::ffi::c_void) -> ::windows_core:
 }
 #[inline]
 pub unsafe fn CertSrvBackupFree(pv: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupFree(pv : *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupFree(pv : *mut ::core::ffi::c_void));
     CertSrvBackupFree(pv)
 }
 #[inline]
@@ -23134,7 +23134,7 @@ impl ::core::default::Default for CSEDB_RSTMAPW {
 }
 pub type FNCERTSRVBACKUPCLOSE = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 pub type FNCERTSRVBACKUPEND = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-pub type FNCERTSRVBACKUPFREE = ::core::option::Option<unsafe extern "system" fn(pv: *mut ::core::ffi::c_void) -> ()>;
+pub type FNCERTSRVBACKUPFREE = ::core::option::Option<unsafe extern "system" fn(pv: *mut ::core::ffi::c_void)>;
 pub type FNCERTSRVBACKUPGETBACKUPLOGSW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, ppwszzbackuplogfiles: *mut *mut u16, pcbsize: *mut u32) -> ::windows_core::HRESULT>;
 pub type FNCERTSRVBACKUPGETDATABASENAMESW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, ppwszzattachmentinformation: *mut *mut u16, pcbsize: *mut u32) -> ::windows_core::HRESULT>;
 pub type FNCERTSRVBACKUPGETDYNAMICFILELISTW = ::core::option::Option<unsafe extern "system" fn(hbc: *const ::core::ffi::c_void, ppwszzfilelist: *mut *mut u16, pcbsize: *mut u32) -> ::windows_core::HRESULT>;
@@ -23156,6 +23156,6 @@ pub type FNCERTSRVSERVERCONTROLW = ::core::option::Option<unsafe extern "system"
 pub type FNIMPORTPFXTOPROVIDER = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::super::Foundation::HWND, pbpfx: *const u8, cbpfx: u32, importflags: ImportPFXFlags, pwszpassword: ::windows_core::PCWSTR, pwszprovidername: ::windows_core::PCWSTR, pwszreadername: ::windows_core::PCWSTR, pwszcontainernameprefix: ::windows_core::PCWSTR, pwszpin: ::windows_core::PCWSTR, pwszfriendlyname: ::windows_core::PCWSTR, pccertout: *mut u32, prgpcertout: *mut *mut *mut super::CERT_CONTEXT) -> ::windows_core::HRESULT>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type FNIMPORTPFXTOPROVIDERFREEDATA = ::core::option::Option<unsafe extern "system" fn(ccert: u32, rgpcert: *const *const super::CERT_CONTEXT) -> ()>;
+pub type FNIMPORTPFXTOPROVIDERFREEDATA = ::core::option::Option<unsafe extern "system" fn(ccert: u32, rgpcert: *const *const super::CERT_CONTEXT)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

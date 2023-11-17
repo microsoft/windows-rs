@@ -3,7 +3,7 @@ pub unsafe fn CloseIMsgSession<P0>(lpmsgsess: P0)
 where
     P0: ::windows_core::IntoParam<LPMSGSESS>,
 {
-    ::windows_targets::link!("mapi32.dll" "system" fn CloseIMsgSession(lpmsgsess : LPMSGSESS) -> ());
+    ::windows_targets::link!("mapi32.dll" "system" fn CloseIMsgSession(lpmsgsess : LPMSGSESS));
     CloseIMsgSession(lpmsgsess.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_System_AddressBook\"`"]
@@ -7151,6 +7151,6 @@ impl ::core::default::Default for tagIMMPID_GUIDLIST_ITEM {
 }
 #[doc = "Required features: `\"Win32_System_AddressBook\"`"]
 #[cfg(feature = "Win32_System_AddressBook")]
-pub type MSGCALLRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lpmessage: ::core::option::Option<super::super::System::AddressBook::IMessage>) -> ()>;
+pub type MSGCALLRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lpmessage: ::core::option::Option<super::super::System::AddressBook::IMessage>)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,4 +1,4 @@
-::windows_targets::link!("dhcpcsvc.dll" "system" fn McastApiCleanup() -> ());
+::windows_targets::link!("dhcpcsvc.dll" "system" fn McastApiCleanup());
 ::windows_targets::link!("dhcpcsvc.dll" "system" fn McastApiStartup(version : *mut u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("dhcpcsvc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn McastEnumerateScopes(addrfamily : u16, requery : super::super::Foundation:: BOOL, pscopelist : *mut MCAST_SCOPE_ENTRY, pscopelen : *mut u32, pscopecount : *mut u32) -> u32);

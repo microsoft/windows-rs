@@ -74,7 +74,7 @@ pub unsafe fn SrpHostingInitialize(version: SRPHOSTING_VERSION, r#type: SRPHOSTI
 }
 #[inline]
 pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
-    ::windows_targets::link!("srpapi.dll" "system" fn SrpHostingTerminate(r#type : SRPHOSTING_TYPE) -> ());
+    ::windows_targets::link!("srpapi.dll" "system" fn SrpHostingTerminate(r#type : SRPHOSTING_TYPE));
     SrpHostingTerminate(r#type)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]

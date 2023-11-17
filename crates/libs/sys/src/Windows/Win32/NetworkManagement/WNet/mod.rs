@@ -103,8 +103,8 @@
 ::windows_targets::link!("mpr.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WNetOpenEnumA(dwscope : NET_RESOURCE_SCOPE, dwtype : NET_RESOURCE_TYPE, dwusage : WNET_OPEN_ENUM_USAGE, lpnetresource : *const NETRESOURCEA, lphenum : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("mpr.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WNetOpenEnumW(dwscope : NET_RESOURCE_SCOPE, dwtype : NET_RESOURCE_TYPE, dwusage : WNET_OPEN_ENUM_USAGE, lpnetresource : *const NETRESOURCEW, lphenum : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("mpr.dll" "system" fn WNetSetLastErrorA(err : u32, lperror : ::windows_sys::core::PCSTR, lpproviders : ::windows_sys::core::PCSTR) -> ());
-::windows_targets::link!("mpr.dll" "system" fn WNetSetLastErrorW(err : u32, lperror : ::windows_sys::core::PCWSTR, lpproviders : ::windows_sys::core::PCWSTR) -> ());
+::windows_targets::link!("mpr.dll" "system" fn WNetSetLastErrorA(err : u32, lperror : ::windows_sys::core::PCSTR, lpproviders : ::windows_sys::core::PCSTR));
+::windows_targets::link!("mpr.dll" "system" fn WNetSetLastErrorW(err : u32, lperror : ::windows_sys::core::PCWSTR, lpproviders : ::windows_sys::core::PCWSTR));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("mpr.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WNetUseConnection4A(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEA, pauthbuffer : *const ::core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32, lpaccessname : ::windows_sys::core::PSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]

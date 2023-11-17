@@ -1,4 +1,4 @@
-::windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevCloseObjectQuery(hdevquery : HDEVQUERY) -> ());
+::windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevCloseObjectQuery(hdevquery : HDEVQUERY));
 #[cfg(feature = "Win32_Devices_Properties")]
 ::windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" #[doc = "Required features: `\"Win32_Devices_Properties\"`"] fn DevCreateObjectQuery(objecttype : DEV_OBJECT_TYPE, queryflags : u32, crequestedproperties : u32, prequestedproperties : *const super::Properties:: DEVPROPCOMPKEY, cfilterexpressioncount : u32, pfilter : *const DEVPROP_FILTER_EXPRESSION, pcallback : PDEV_QUERY_RESULT_CALLBACK, pcontext : *const ::core::ffi::c_void, phdevquery : *mut HDEVQUERY) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -14,9 +14,9 @@
 #[cfg(feature = "Win32_Devices_Properties")]
 ::windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" #[doc = "Required features: `\"Win32_Devices_Properties\"`"] fn DevFindProperty(pkey : *const super::Properties:: DEVPROPKEY, store : super::Properties:: DEVPROPSTORE, pszlocalename : ::windows_sys::core::PCWSTR, cproperties : u32, pproperties : *const super::Properties:: DEVPROPERTY) -> *mut super::Properties:: DEVPROPERTY);
 #[cfg(feature = "Win32_Devices_Properties")]
-::windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" #[doc = "Required features: `\"Win32_Devices_Properties\"`"] fn DevFreeObjectProperties(cpropertycount : u32, pproperties : *const super::Properties:: DEVPROPERTY) -> ());
+::windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" #[doc = "Required features: `\"Win32_Devices_Properties\"`"] fn DevFreeObjectProperties(cpropertycount : u32, pproperties : *const super::Properties:: DEVPROPERTY));
 #[cfg(feature = "Win32_Devices_Properties")]
-::windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" #[doc = "Required features: `\"Win32_Devices_Properties\"`"] fn DevFreeObjects(cobjectcount : u32, pobjects : *const DEV_OBJECT) -> ());
+::windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" #[doc = "Required features: `\"Win32_Devices_Properties\"`"] fn DevFreeObjects(cobjectcount : u32, pobjects : *const DEV_OBJECT));
 #[cfg(feature = "Win32_Devices_Properties")]
 ::windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" #[doc = "Required features: `\"Win32_Devices_Properties\"`"] fn DevGetObjectProperties(objecttype : DEV_OBJECT_TYPE, pszobjectid : ::windows_sys::core::PCWSTR, queryflags : u32, crequestedproperties : u32, prequestedproperties : *const super::Properties:: DEVPROPCOMPKEY, pcpropertycount : *mut u32, ppproperties : *mut *mut super::Properties:: DEVPROPERTY) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -179,4 +179,4 @@ impl ::core::clone::Clone for DEV_QUERY_RESULT_ACTION_DATA_0 {
 pub type HDEVQUERY = isize;
 #[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
-pub type PDEV_QUERY_RESULT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hdevquery: HDEVQUERY, pcontext: *const ::core::ffi::c_void, pactiondata: *const DEV_QUERY_RESULT_ACTION_DATA) -> ()>;
+pub type PDEV_QUERY_RESULT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hdevquery: HDEVQUERY, pcontext: *const ::core::ffi::c_void, pactiondata: *const DEV_QUERY_RESULT_ACTION_DATA)>;

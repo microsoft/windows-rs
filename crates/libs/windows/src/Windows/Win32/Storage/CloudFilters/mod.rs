@@ -5,7 +5,7 @@ pub unsafe fn CfCloseHandle<P0>(filehandle: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("cldapi.dll" "system" fn CfCloseHandle(filehandle : super::super::Foundation:: HANDLE) -> ());
+    ::windows_targets::link!("cldapi.dll" "system" fn CfCloseHandle(filehandle : super::super::Foundation:: HANDLE));
     CfCloseHandle(filehandle.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_System_CorrelationVector\"`"]
@@ -221,7 +221,7 @@ pub unsafe fn CfReleaseProtectedHandle<P0>(protectedhandle: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("cldapi.dll" "system" fn CfReleaseProtectedHandle(protectedhandle : super::super::Foundation:: HANDLE) -> ());
+    ::windows_targets::link!("cldapi.dll" "system" fn CfReleaseProtectedHandle(protectedhandle : super::super::Foundation:: HANDLE));
     CfReleaseProtectedHandle(protectedhandle.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -231,7 +231,7 @@ pub unsafe fn CfReleaseTransferKey<P0>(filehandle: P0, transferkey: *const i64)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("cldapi.dll" "system" fn CfReleaseTransferKey(filehandle : super::super::Foundation:: HANDLE, transferkey : *const i64) -> ());
+    ::windows_targets::link!("cldapi.dll" "system" fn CfReleaseTransferKey(filehandle : super::super::Foundation:: HANDLE, transferkey : *const i64));
     CfReleaseTransferKey(filehandle.into_param().abi(), transferkey)
 }
 #[inline]
@@ -4417,4 +4417,4 @@ impl ::core::default::Default for CF_SYNC_STATUS {
 }
 #[doc = "Required features: `\"Win32_System_CorrelationVector\"`"]
 #[cfg(feature = "Win32_System_CorrelationVector")]
-pub type CF_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackinfo: *const CF_CALLBACK_INFO, callbackparameters: *const CF_CALLBACK_PARAMETERS) -> ()>;
+pub type CF_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackinfo: *const CF_CALLBACK_INFO, callbackparameters: *const CF_CALLBACK_PARAMETERS)>;

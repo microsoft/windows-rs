@@ -64,7 +64,7 @@ pub mod UI;
 ::windows_targets::link!("bcrypt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn BCryptFinalizeKeyPair(hkey : BCRYPT_KEY_HANDLE, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("bcrypt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn BCryptFinishHash(hhash : BCRYPT_HASH_HANDLE, pboutput : *mut u8, cboutput : u32, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
-::windows_targets::link!("bcrypt.dll" "system" fn BCryptFreeBuffer(pvbuffer : *const ::core::ffi::c_void) -> ());
+::windows_targets::link!("bcrypt.dll" "system" fn BCryptFreeBuffer(pvbuffer : *const ::core::ffi::c_void));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("bcrypt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn BCryptGenRandom(halgorithm : BCRYPT_ALG_HANDLE, pbbuffer : *mut u8, cbbuffer : u32, dwflags : BCRYPTGENRANDOM_FLAGS) -> super::super::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
@@ -139,14 +139,14 @@ pub mod UI;
 ::windows_targets::link!("crypt32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CertAddEncodedCertificateToSystemStoreW(szcertstorename : ::windows_sys::core::PCWSTR, pbcertencoded : *const u8, cbcertencoded : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("crypt32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CertAddEnhancedKeyUsageIdentifier(pcertcontext : *const CERT_CONTEXT, pszusageidentifier : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("crypt32.dll" "system" fn CertAddRefServerOcspResponse(hserverocspresponse : *const ::core::ffi::c_void) -> ());
-::windows_targets::link!("crypt32.dll" "system" fn CertAddRefServerOcspResponseContext(pserverocspresponsecontext : *const CERT_SERVER_OCSP_RESPONSE_CONTEXT) -> ());
+::windows_targets::link!("crypt32.dll" "system" fn CertAddRefServerOcspResponse(hserverocspresponse : *const ::core::ffi::c_void));
+::windows_targets::link!("crypt32.dll" "system" fn CertAddRefServerOcspResponseContext(pserverocspresponsecontext : *const CERT_SERVER_OCSP_RESPONSE_CONTEXT));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("crypt32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CertAddSerializedElementToStore(hcertstore : HCERTSTORE, pbelement : *const u8, cbelement : u32, dwadddisposition : u32, dwflags : u32, dwcontexttypeflags : u32, pdwcontexttype : *mut u32, ppvcontext : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("crypt32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CertAddStoreToCollection(hcollectionstore : HCERTSTORE, hsiblingstore : HCERTSTORE, dwupdateflags : u32, dwpriority : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("crypt32.dll" "system" fn CertAlgIdToOID(dwalgid : u32) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("crypt32.dll" "system" fn CertCloseServerOcspResponse(hserverocspresponse : *const ::core::ffi::c_void, dwflags : u32) -> ());
+::windows_targets::link!("crypt32.dll" "system" fn CertCloseServerOcspResponse(hserverocspresponse : *const ::core::ffi::c_void, dwflags : u32));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("crypt32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CertCloseStore(hcertstore : HCERTSTORE, dwflags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -231,13 +231,13 @@ pub mod UI;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("crypt32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CertFreeCTLContext(pctlcontext : *const CTL_CONTEXT) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("crypt32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CertFreeCertificateChain(pchaincontext : *const CERT_CHAIN_CONTEXT) -> ());
-::windows_targets::link!("crypt32.dll" "system" fn CertFreeCertificateChainEngine(hchainengine : HCERTCHAINENGINE) -> ());
+::windows_targets::link!("crypt32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CertFreeCertificateChain(pchaincontext : *const CERT_CHAIN_CONTEXT));
+::windows_targets::link!("crypt32.dll" "system" fn CertFreeCertificateChainEngine(hchainengine : HCERTCHAINENGINE));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("crypt32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CertFreeCertificateChainList(prgpselection : *const *const CERT_CHAIN_CONTEXT) -> ());
+::windows_targets::link!("crypt32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CertFreeCertificateChainList(prgpselection : *const *const CERT_CHAIN_CONTEXT));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("crypt32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CertFreeCertificateContext(pcertcontext : *const CERT_CONTEXT) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("crypt32.dll" "system" fn CertFreeServerOcspResponseContext(pserverocspresponsecontext : *const CERT_SERVER_OCSP_RESPONSE_CONTEXT) -> ());
+::windows_targets::link!("crypt32.dll" "system" fn CertFreeServerOcspResponseContext(pserverocspresponsecontext : *const CERT_SERVER_OCSP_RESPONSE_CONTEXT));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("crypt32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CertGetCRLContextProperty(pcrlcontext : *const CRL_CONTEXT, dwpropid : u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -290,7 +290,7 @@ pub mod UI;
 ::windows_targets::link!("crypt32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CertRegisterSystemStore(pvsystemstore : *const ::core::ffi::c_void, dwflags : u32, pstoreinfo : *const CERT_SYSTEM_STORE_INFO, pvreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("crypt32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CertRemoveEnhancedKeyUsageIdentifier(pcertcontext : *const CERT_CONTEXT, pszusageidentifier : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("crypt32.dll" "system" fn CertRemoveStoreFromCollection(hcollectionstore : HCERTSTORE, hsiblingstore : HCERTSTORE) -> ());
+::windows_targets::link!("crypt32.dll" "system" fn CertRemoveStoreFromCollection(hcollectionstore : HCERTSTORE, hsiblingstore : HCERTSTORE));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("crypt32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CertResyncCertificateChainEngine(hchainengine : HCERTCHAINENGINE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -488,7 +488,7 @@ pub mod UI;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("crypt32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CryptInstallOIDFunctionAddress(hmodule : super::super::Foundation:: HMODULE, dwencodingtype : u32, pszfuncname : ::windows_sys::core::PCSTR, cfuncentry : u32, rgfuncentry : *const CRYPT_OID_FUNC_ENTRY, dwflags : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("crypt32.dll" "system" fn CryptMemAlloc(cbsize : u32) -> *mut ::core::ffi::c_void);
-::windows_targets::link!("crypt32.dll" "system" fn CryptMemFree(pv : *const ::core::ffi::c_void) -> ());
+::windows_targets::link!("crypt32.dll" "system" fn CryptMemFree(pv : *const ::core::ffi::c_void));
 ::windows_targets::link!("crypt32.dll" "system" fn CryptMemRealloc(pv : *const ::core::ffi::c_void, cbsize : u32) -> *mut ::core::ffi::c_void);
 ::windows_targets::link!("crypt32.dll" "system" fn CryptMsgCalculateEncodedLength(dwmsgencodingtype : u32, dwflags : u32, dwmsgtype : u32, pvmsgencodeinfo : *const ::core::ffi::c_void, pszinnercontentobjid : ::windows_sys::core::PCSTR, cbdata : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
@@ -10320,8 +10320,8 @@ pub type PFN_CERT_ENUM_SYSTEM_STORE_LOCATION = ::core::option::Option<unsafe ext
 pub type PFN_CERT_IS_WEAK_HASH = ::core::option::Option<unsafe extern "system" fn(dwhashusetype: u32, pwszcnghashalgid: ::windows_sys::core::PCWSTR, dwchainflags: u32, psignerchaincontext: *const CERT_CHAIN_CONTEXT, ptimestamp: *const super::super::Foundation::FILETIME, pwszfilename: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_CERT_SERVER_OCSP_RESPONSE_UPDATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pchaincontext: *const CERT_CHAIN_CONTEXT, pserverocspresponsecontext: *const CERT_SERVER_OCSP_RESPONSE_CONTEXT, pnewcrlcontext: *const CRL_CONTEXT, pprevcrlcontext: *const CRL_CONTEXT, pvarg: *mut ::core::ffi::c_void, dwwriteocspfileerror: u32) -> ()>;
-pub type PFN_CERT_STORE_PROV_CLOSE = ::core::option::Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, dwflags: u32) -> ()>;
+pub type PFN_CERT_SERVER_OCSP_RESPONSE_UPDATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pchaincontext: *const CERT_CHAIN_CONTEXT, pserverocspresponsecontext: *const CERT_SERVER_OCSP_RESPONSE_CONTEXT, pnewcrlcontext: *const CRL_CONTEXT, pprevcrlcontext: *const CRL_CONTEXT, pvarg: *mut ::core::ffi::c_void, dwwriteocspfileerror: u32)>;
+pub type PFN_CERT_STORE_PROV_CLOSE = ::core::option::Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, dwflags: u32)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_CERT_STORE_PROV_CONTROL = ::core::option::Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, dwflags: u32, dwctrltype: u32, pvctrlpara: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
@@ -10410,7 +10410,7 @@ pub type PFN_CMSG_EXPORT_KEY_TRANS = ::core::option::Option<unsafe extern "syste
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_CMSG_EXPORT_MAIL_LIST = ::core::option::Option<unsafe extern "system" fn(pcontentencryptinfo: *const CMSG_CONTENT_ENCRYPT_INFO, pmaillistencodeinfo: *const CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO, pmaillistencryptinfo: *mut CMSG_MAIL_LIST_ENCRYPT_INFO, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PFN_CMSG_FREE = ::core::option::Option<unsafe extern "system" fn(pv: *mut ::core::ffi::c_void) -> ()>;
+pub type PFN_CMSG_FREE = ::core::option::Option<unsafe extern "system" fn(pv: *mut ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_CMSG_GEN_CONTENT_ENCRYPT_KEY = ::core::option::Option<unsafe extern "system" fn(pcontentencryptinfo: *mut CMSG_CONTENT_ENCRYPT_INFO, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
@@ -10433,8 +10433,8 @@ pub type PFN_CMSG_IMPORT_MAIL_LIST = ::core::option::Option<unsafe extern "syste
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_CMSG_STREAM_OUTPUT = ::core::option::Option<unsafe extern "system" fn(pvarg: *const ::core::ffi::c_void, pbdata: *const u8, cbdata: u32, ffinal: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
 pub type PFN_CRYPT_ALLOC = ::core::option::Option<unsafe extern "system" fn(cbsize: usize) -> *mut ::core::ffi::c_void>;
-pub type PFN_CRYPT_ASYNC_PARAM_FREE_FUNC = ::core::option::Option<unsafe extern "system" fn(pszparamoid: ::windows_sys::core::PCSTR, pvparam: *const ::core::ffi::c_void) -> ()>;
-pub type PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC = ::core::option::Option<unsafe extern "system" fn(pvcompletion: *mut ::core::ffi::c_void, dwcompletioncode: u32, pszurl: ::windows_sys::core::PCSTR, pszobjectoid: ::windows_sys::core::PCSTR, pvobject: *const ::core::ffi::c_void) -> ()>;
+pub type PFN_CRYPT_ASYNC_PARAM_FREE_FUNC = ::core::option::Option<unsafe extern "system" fn(pszparamoid: ::windows_sys::core::PCSTR, pvparam: *const ::core::ffi::c_void)>;
+pub type PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC = ::core::option::Option<unsafe extern "system" fn(pvcompletion: *mut ::core::ffi::c_void, dwcompletioncode: u32, pszurl: ::windows_sys::core::PCSTR, pszobjectoid: ::windows_sys::core::PCSTR, pvobject: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_CRYPT_CANCEL_RETRIEVAL = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, pvarg: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
@@ -10456,23 +10456,23 @@ pub type PFN_CRYPT_EXPORT_PUBLIC_KEY_INFO_FROM_BCRYPT_HANDLE_FUNC = ::core::opti
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_CRYPT_EXTRACT_ENCODED_SIGNATURE_PARAMETERS_FUNC = ::core::option::Option<unsafe extern "system" fn(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, psignaturealgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, ppvdecodedsignpara: *mut *mut ::core::ffi::c_void, ppwszcnghashalgid: *mut ::windows_sys::core::PWSTR) -> super::super::Foundation::BOOL>;
-pub type PFN_CRYPT_FREE = ::core::option::Option<unsafe extern "system" fn(pv: *const ::core::ffi::c_void) -> ()>;
+pub type PFN_CRYPT_FREE = ::core::option::Option<unsafe extern "system" fn(pv: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_CRYPT_GET_SIGNER_CERTIFICATE = ::core::option::Option<unsafe extern "system" fn(pvgetarg: *mut ::core::ffi::c_void, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, psignerid: *const CERT_INFO, hmsgcertstore: HCERTSTORE) -> *mut CERT_CONTEXT>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FLUSH = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, rgidentifierornamelist: *const *const CRYPT_INTEGER_BLOB, dwidentifierornamelistcount: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE = ::core::option::Option<unsafe extern "system" fn(pplugincontext: *const ::core::ffi::c_void, pbdata: *const u8) -> ()>;
-pub type PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_IDENTIFIER = ::core::option::Option<unsafe extern "system" fn(pplugincontext: *const ::core::ffi::c_void, pidentifier: *const CRYPT_INTEGER_BLOB) -> ()>;
-pub type PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_PASSWORD = ::core::option::Option<unsafe extern "system" fn(pplugincontext: *const ::core::ffi::c_void, pwszpassword: ::windows_sys::core::PCWSTR) -> ()>;
+pub type PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE = ::core::option::Option<unsafe extern "system" fn(pplugincontext: *const ::core::ffi::c_void, pbdata: *const u8)>;
+pub type PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_IDENTIFIER = ::core::option::Option<unsafe extern "system" fn(pplugincontext: *const ::core::ffi::c_void, pidentifier: *const CRYPT_INTEGER_BLOB)>;
+pub type PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_PASSWORD = ::core::option::Option<unsafe extern "system" fn(pplugincontext: *const ::core::ffi::c_void, pwszpassword: ::windows_sys::core::PCWSTR)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET = ::core::option::Option<unsafe extern "system" fn(pplugincontext: *const ::core::ffi::c_void, pidentifier: *const CRYPT_INTEGER_BLOB, dwnametype: u32, pnameblob: *const CRYPT_INTEGER_BLOB, ppbcontent: *mut *mut u8, pcbcontent: *mut u32, ppwszpassword: *mut ::windows_sys::core::PCWSTR, ppidentifier: *mut *mut CRYPT_INTEGER_BLOB) -> super::super::Foundation::BOOL>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_INITIALIZE = ::core::option::Option<unsafe extern "system" fn(pfnflush: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FLUSH, pcontext: *const ::core::ffi::c_void, pdwexpectedobjectcount: *mut u32, ppfunctable: *mut *mut CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE, ppplugincontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_RELEASE = ::core::option::Option<unsafe extern "system" fn(dwreason: CRYPT_OBJECT_LOCATOR_RELEASE_REASON, pplugincontext: *const ::core::ffi::c_void) -> ()>;
+pub type PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_RELEASE = ::core::option::Option<unsafe extern "system" fn(dwreason: CRYPT_OBJECT_LOCATOR_RELEASE_REASON, pplugincontext: *const ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_CRYPT_SIGN_AND_ENCODE_HASH_FUNC = ::core::option::Option<unsafe extern "system" fn(hkey: NCRYPT_KEY_HANDLE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, psignaturealgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, pvdecodedsignpara: *const ::core::ffi::c_void, pwszcngpubkeyalgid: ::windows_sys::core::PCWSTR, pwszcnghashalgid: ::windows_sys::core::PCWSTR, pbcomputedhash: *const u8, cbcomputedhash: u32, pbsignature: *mut u8, pcbsignature: *mut u32) -> super::super::Foundation::BOOL>;
@@ -10489,7 +10489,7 @@ pub type PFN_CRYPT_XML_WRITE_CALLBACK = ::core::option::Option<unsafe extern "sy
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EXPORT_PRIV_KEY_FUNC = ::core::option::Option<unsafe extern "system" fn(hcryptprov: usize, dwkeyspec: u32, pszprivatekeyobjid: ::windows_sys::core::PCSTR, dwflags: u32, pvauxinfo: *const ::core::ffi::c_void, pprivatekeyinfo: *mut CRYPT_PRIVATE_KEY_INFO, pcbprivatekeyinfo: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_FREE_ENCODED_OBJECT_FUNC = ::core::option::Option<unsafe extern "system" fn(pszobjectoid: ::windows_sys::core::PCSTR, pobject: *mut CRYPT_BLOB_ARRAY, pvfreecontext: *mut ::core::ffi::c_void) -> ()>;
+pub type PFN_FREE_ENCODED_OBJECT_FUNC = ::core::option::Option<unsafe extern "system" fn(pszobjectoid: ::windows_sys::core::PCSTR, pobject: *mut CRYPT_BLOB_ARRAY, pvfreecontext: *mut ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_IMPORT_PRIV_KEY_FUNC = ::core::option::Option<unsafe extern "system" fn(hcryptprov: usize, pprivatekeyinfo: *const CRYPT_PRIVATE_KEY_INFO, dwflags: u32, pvauxinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
@@ -10497,4 +10497,4 @@ pub type PFN_IMPORT_PRIV_KEY_FUNC = ::core::option::Option<unsafe extern "system
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_IMPORT_PUBLIC_KEY_INFO_EX2_FUNC = ::core::option::Option<unsafe extern "system" fn(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: *const CERT_PUBLIC_KEY_INFO, dwflags: u32, pvauxinfo: *const ::core::ffi::c_void, phkey: *mut BCRYPT_KEY_HANDLE) -> super::super::Foundation::BOOL>;
 pub type PFN_NCRYPT_ALLOC = ::core::option::Option<unsafe extern "system" fn(cbsize: usize) -> *mut ::core::ffi::c_void>;
-pub type PFN_NCRYPT_FREE = ::core::option::Option<unsafe extern "system" fn(pv: *const ::core::ffi::c_void) -> ()>;
+pub type PFN_NCRYPT_FREE = ::core::option::Option<unsafe extern "system" fn(pv: *const ::core::ffi::c_void)>;

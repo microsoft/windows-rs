@@ -8,7 +8,7 @@
 ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpAddSubnetElementV6(serveripaddress : ::windows_sys::core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, addelementinfo : *mut DHCP_SUBNET_ELEMENT_DATA_V6) -> u32);
 ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpAuditLogGetParams(serveripaddress : ::windows_sys::core::PCWSTR, flags : u32, auditlogdir : *mut ::windows_sys::core::PWSTR, diskcheckinterval : *mut u32, maxlogfilessize : *mut u32, minspaceondisk : *mut u32) -> u32);
 ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpAuditLogSetParams(serveripaddress : ::windows_sys::core::PCWSTR, flags : u32, auditlogdir : ::windows_sys::core::PCWSTR, diskcheckinterval : u32, maxlogfilessize : u32, minspaceondisk : u32) -> u32);
-::windows_targets::link!("dhcpcsvc.dll" "system" fn DhcpCApiCleanup() -> ());
+::windows_targets::link!("dhcpcsvc.dll" "system" fn DhcpCApiCleanup());
 ::windows_targets::link!("dhcpcsvc.dll" "system" fn DhcpCApiInitialize(version : *mut u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("dhcpsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DhcpCreateClass(serveripaddress : ::windows_sys::core::PCWSTR, reservedmustbezero : u32, classinfo : *mut DHCP_CLASS_INFO) -> u32);
@@ -35,7 +35,7 @@
 ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDeleteSubnet(serveripaddress : ::windows_sys::core::PCWSTR, subnetaddress : u32, forceflag : DHCP_FORCE_FLAG) -> u32);
 ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDeleteSubnetV6(serveripaddress : ::windows_sys::core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, forceflag : DHCP_FORCE_FLAG) -> u32);
 ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDeleteSuperScopeV4(serveripaddress : ::windows_sys::core::PCWSTR, superscopename : ::windows_sys::core::PCWSTR) -> u32);
-::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDsCleanup() -> ());
+::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDsCleanup());
 ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDsInit() -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("dhcpsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DhcpEnumClasses(serveripaddress : ::windows_sys::core::PCWSTR, reservedmustbezero : u32, resumehandle : *mut u32, preferredmaximum : u32, classinfoarray : *mut *mut DHCP_CLASS_INFO_ARRAY, nread : *mut u32, ntotal : *mut u32) -> u32);
@@ -113,16 +113,16 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("dhcpsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DhcpHlprCreateV4PolicyEx(policyname : ::windows_sys::core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnet : u32, processingorder : u32, rootoperator : DHCP_POL_LOGIC_OPER, description : ::windows_sys::core::PCWSTR, enabled : super::super::Foundation:: BOOL, policy : *mut *mut DHCP_POLICY_EX) -> u32);
 ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFindV4DhcpProperty(propertyarray : *const DHCP_PROPERTY_ARRAY, id : DHCP_PROPERTY_ID, r#type : DHCP_PROPERTY_TYPE) -> *mut DHCP_PROPERTY);
-::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4DhcpProperty(property : *mut DHCP_PROPERTY) -> ());
-::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray : *mut DHCP_PROPERTY_ARRAY) -> ());
+::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4DhcpProperty(property : *mut DHCP_PROPERTY));
+::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray : *mut DHCP_PROPERTY_ARRAY));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dhcpsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DhcpHlprFreeV4Policy(policy : *mut DHCP_POLICY) -> ());
+::windows_targets::link!("dhcpsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DhcpHlprFreeV4Policy(policy : *mut DHCP_POLICY));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dhcpsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DhcpHlprFreeV4PolicyArray(policyarray : *mut DHCP_POLICY_ARRAY) -> ());
+::windows_targets::link!("dhcpsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DhcpHlprFreeV4PolicyArray(policyarray : *mut DHCP_POLICY_ARRAY));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dhcpsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DhcpHlprFreeV4PolicyEx(policyex : *mut DHCP_POLICY_EX) -> ());
+::windows_targets::link!("dhcpsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DhcpHlprFreeV4PolicyEx(policyex : *mut DHCP_POLICY_EX));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dhcpsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DhcpHlprFreeV4PolicyExArray(policyexarray : *mut DHCP_POLICY_EX_ARRAY) -> ());
+::windows_targets::link!("dhcpsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DhcpHlprFreeV4PolicyExArray(policyexarray : *mut DHCP_POLICY_EX_ARRAY));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("dhcpsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DhcpHlprIsV4PolicySingleUC(policy : *const DHCP_POLICY) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -152,10 +152,10 @@
 ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpRemoveSubnetElementV6(serveripaddress : ::windows_sys::core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, removeelementinfo : *mut DHCP_SUBNET_ELEMENT_DATA_V6, forceflag : DHCP_FORCE_FLAG) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("dhcpcsvc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DhcpRequestParams(flags : u32, reserved : *mut ::core::ffi::c_void, adaptername : ::windows_sys::core::PCWSTR, classid : *mut DHCPCAPI_CLASSID, sendparams : DHCPCAPI_PARAMS_ARRAY, recdparams : DHCPCAPI_PARAMS_ARRAY, buffer : *mut u8, psize : *mut u32, requestidstr : ::windows_sys::core::PCWSTR) -> u32);
-::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpRpcFreeMemory(bufferpointer : *mut ::core::ffi::c_void) -> ());
+::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpRpcFreeMemory(bufferpointer : *mut ::core::ffi::c_void));
 ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpScanDatabase(serveripaddress : ::windows_sys::core::PCWSTR, subnetaddress : u32, fixflag : u32, scanlist : *mut *mut DHCP_SCAN_LIST) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dhcpsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DhcpServerAuditlogParamsFree(configinfo : *mut DHCP_SERVER_CONFIG_INFO_VQ) -> ());
+::windows_targets::link!("dhcpsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DhcpServerAuditlogParamsFree(configinfo : *mut DHCP_SERVER_CONFIG_INFO_VQ));
 ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerBackupDatabase(serveripaddress : ::windows_sys::core::PCWSTR, path : ::windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerGetConfig(serveripaddress : ::windows_sys::core::PCWSTR, configinfo : *mut *mut DHCP_SERVER_CONFIG_INFO) -> u32);
 #[cfg(feature = "Win32_Foundation")]
@@ -272,8 +272,8 @@
 ::windows_targets::link!("dhcpsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DhcpV6GetStatelessStoreParams(serveripaddress : ::windows_sys::core::PCWSTR, fserverlevel : super::super::Foundation:: BOOL, subnetaddress : DHCP_IPV6_ADDRESS, params : *mut *mut DHCPV6_STATELESS_PARAMS) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("dhcpsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DhcpV6SetStatelessStoreParams(serveripaddress : ::windows_sys::core::PCWSTR, fserverlevel : super::super::Foundation:: BOOL, subnetaddress : DHCP_IPV6_ADDRESS, fieldmodified : u32, params : *const DHCPV6_STATELESS_PARAMS) -> u32);
-::windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6CApiCleanup() -> ());
-::windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6CApiInitialize(version : *mut u32) -> ());
+::windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6CApiCleanup());
+::windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6CApiInitialize(version : *mut u32));
 ::windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6ReleasePrefix(adaptername : ::windows_sys::core::PCWSTR, classid : *mut DHCPV6CAPI_CLASSID, leaseinfo : *mut DHCPV6PrefixLeaseInformation) -> u32);
 ::windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6RenewPrefix(adaptername : ::windows_sys::core::PCWSTR, pclassid : *mut DHCPV6CAPI_CLASSID, prefixleaseinfo : *mut DHCPV6PrefixLeaseInformation, pdwtimetowait : *mut u32, bvalidateprefix : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]

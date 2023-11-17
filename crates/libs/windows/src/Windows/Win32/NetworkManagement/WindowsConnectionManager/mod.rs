@@ -2,7 +2,7 @@
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERFACE_CONTEXT_TABLE) {
-    ::windows_targets::link!("ondemandconnroutehelper.dll" "system" fn FreeInterfaceContextTable(interfacecontexttable : *const NET_INTERFACE_CONTEXT_TABLE) -> ());
+    ::windows_targets::link!("ondemandconnroutehelper.dll" "system" fn FreeInterfaceContextTable(interfacecontexttable : *const NET_INTERFACE_CONTEXT_TABLE));
     FreeInterfaceContextTable(interfacecontexttable)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -46,7 +46,7 @@ where
 }
 #[inline]
 pub unsafe fn WcmFreeMemory(pmemory: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("wcmapi.dll" "system" fn WcmFreeMemory(pmemory : *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("wcmapi.dll" "system" fn WcmFreeMemory(pmemory : *mut ::core::ffi::c_void));
     WcmFreeMemory(pmemory)
 }
 #[inline]
@@ -557,4 +557,4 @@ impl ::core::default::Default for WCM_USAGE_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type ONDEMAND_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *const ::core::ffi::c_void) -> ()>;
+pub type ONDEMAND_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *const ::core::ffi::c_void)>;

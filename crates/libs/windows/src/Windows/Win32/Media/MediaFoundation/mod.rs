@@ -1423,7 +1423,7 @@ where
 }
 #[inline]
 pub unsafe fn MFHeapFree(pv: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("mfplat.dll" "system" fn MFHeapFree(pv : *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("mfplat.dll" "system" fn MFHeapFree(pv : *mut ::core::ffi::c_void));
     MFHeapFree(pv)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -50694,7 +50694,7 @@ impl ::core::default::Default for VIDEOINFOHEADER2_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type MFPERIODICCALLBACK = ::core::option::Option<unsafe extern "system" fn(pcontext: ::core::option::Option<::windows_core::IUnknown>) -> ()>;
+pub type MFPERIODICCALLBACK = ::core::option::Option<unsafe extern "system" fn(pcontext: ::core::option::Option<::windows_core::IUnknown>)>;
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_CreateDevice = ::core::option::Option<unsafe extern "system" fn(pd3ddevice: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>, phdevice: *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT>;

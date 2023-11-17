@@ -1360,7 +1360,7 @@ pub unsafe fn GdipFlush(graphics: *mut GpGraphics, intention: FlushIntention) ->
 }
 #[inline]
 pub unsafe fn GdipFree(ptr: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFree(ptr : *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFree(ptr : *mut ::core::ffi::c_void));
     GdipFree(ptr)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -3553,12 +3553,12 @@ pub unsafe fn GdiplusNotificationHook(token: *mut usize) -> Status {
 }
 #[inline]
 pub unsafe fn GdiplusNotificationUnhook(token: usize) {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdiplusNotificationUnhook(token : usize) -> ());
+    ::windows_targets::link!("gdiplus.dll" "system" fn GdiplusNotificationUnhook(token : usize));
     GdiplusNotificationUnhook(token)
 }
 #[inline]
 pub unsafe fn GdiplusShutdown(token: usize) {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdiplusShutdown(token : usize) -> ());
+    ::windows_targets::link!("gdiplus.dll" "system" fn GdiplusShutdown(token : usize));
     GdiplusShutdown(token)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -8612,7 +8612,7 @@ impl ::core::default::Default for WmfPlaceableFileHeader {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type DebugEventProc = ::core::option::Option<unsafe extern "system" fn(level: DebugEventLevel, message: ::windows_core::PCSTR) -> ()>;
+pub type DebugEventProc = ::core::option::Option<unsafe extern "system" fn(level: DebugEventLevel, message: ::windows_core::PCSTR)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DrawImageAbort = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
@@ -8626,6 +8626,6 @@ pub type GetThumbnailImageAbort = ::core::option::Option<unsafe extern "system" 
 #[cfg(feature = "Win32_Foundation")]
 pub type ImageAbort = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type NotificationHookProc = ::core::option::Option<unsafe extern "system" fn(token: *mut usize) -> Status>;
-pub type NotificationUnhookProc = ::core::option::Option<unsafe extern "system" fn(token: usize) -> ()>;
+pub type NotificationUnhookProc = ::core::option::Option<unsafe extern "system" fn(token: usize)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

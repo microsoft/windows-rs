@@ -32,7 +32,7 @@ pub unsafe fn HcsCloseComputeSystem<P0>(computesystem: P0)
 where
     P0: ::windows_core::IntoParam<HCS_SYSTEM>,
 {
-    ::windows_targets::link!("computecore.dll" "system" fn HcsCloseComputeSystem(computesystem : HCS_SYSTEM) -> ());
+    ::windows_targets::link!("computecore.dll" "system" fn HcsCloseComputeSystem(computesystem : HCS_SYSTEM));
     HcsCloseComputeSystem(computesystem.into_param().abi())
 }
 #[inline]
@@ -40,7 +40,7 @@ pub unsafe fn HcsCloseOperation<P0>(operation: P0)
 where
     P0: ::windows_core::IntoParam<HCS_OPERATION>,
 {
-    ::windows_targets::link!("computecore.dll" "system" fn HcsCloseOperation(operation : HCS_OPERATION) -> ());
+    ::windows_targets::link!("computecore.dll" "system" fn HcsCloseOperation(operation : HCS_OPERATION));
     HcsCloseOperation(operation.into_param().abi())
 }
 #[inline]
@@ -48,7 +48,7 @@ pub unsafe fn HcsCloseProcess<P0>(process: P0)
 where
     P0: ::windows_core::IntoParam<HCS_PROCESS>,
 {
-    ::windows_targets::link!("computecore.dll" "system" fn HcsCloseProcess(process : HCS_PROCESS) -> ());
+    ::windows_targets::link!("computecore.dll" "system" fn HcsCloseProcess(process : HCS_PROCESS));
     HcsCloseProcess(process.into_param().abi())
 }
 #[inline]
@@ -1100,6 +1100,6 @@ impl ::core::fmt::Debug for HCS_SYSTEM {
 impl ::windows_core::TypeKind for HCS_SYSTEM {
     type TypeKind = ::windows_core::CopyType;
 }
-pub type HCS_EVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const ::core::ffi::c_void) -> ()>;
-pub type HCS_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows_core::HRESULT, notificationdata: ::windows_core::PCWSTR) -> ()>;
-pub type HCS_OPERATION_COMPLETION = ::core::option::Option<unsafe extern "system" fn(operation: HCS_OPERATION, context: *const ::core::ffi::c_void) -> ()>;
+pub type HCS_EVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const ::core::ffi::c_void)>;
+pub type HCS_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows_core::HRESULT, notificationdata: ::windows_core::PCWSTR)>;
+pub type HCS_OPERATION_COMPLETION = ::core::option::Option<unsafe extern "system" fn(operation: HCS_OPERATION, context: *const ::core::ffi::c_void)>;

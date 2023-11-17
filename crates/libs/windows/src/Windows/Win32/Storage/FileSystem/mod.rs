@@ -191,7 +191,7 @@ where
 }
 #[inline]
 pub unsafe fn CloseEncryptedFileRaw(pvcontext: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("advapi32.dll" "system" fn CloseEncryptedFileRaw(pvcontext : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("advapi32.dll" "system" fn CloseEncryptedFileRaw(pvcontext : *const ::core::ffi::c_void));
     CloseEncryptedFileRaw(pvcontext)
 }
 #[inline]
@@ -1263,14 +1263,14 @@ pub unsafe fn FlushLogToLsn(pvmarshalcontext: *mut ::core::ffi::c_void, plsnflus
 }
 #[inline]
 pub unsafe fn FreeEncryptedFileMetadata(pbmetadata: *const u8) {
-    ::windows_targets::link!("advapi32.dll" "system" fn FreeEncryptedFileMetadata(pbmetadata : *const u8) -> ());
+    ::windows_targets::link!("advapi32.dll" "system" fn FreeEncryptedFileMetadata(pbmetadata : *const u8));
     FreeEncryptedFileMetadata(pbmetadata)
 }
 #[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn FreeEncryptionCertificateHashList(pusers: *const ENCRYPTION_CERTIFICATE_HASH_LIST) {
-    ::windows_targets::link!("advapi32.dll" "system" fn FreeEncryptionCertificateHashList(pusers : *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> ());
+    ::windows_targets::link!("advapi32.dll" "system" fn FreeEncryptionCertificateHashList(pusers : *const ENCRYPTION_CERTIFICATE_HASH_LIST));
     FreeEncryptionCertificateHashList(pusers)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -2124,7 +2124,7 @@ where
 }
 #[inline]
 pub unsafe fn LZClose(hfile: i32) {
-    ::windows_targets::link!("kernel32.dll" "system" fn LZClose(hfile : i32) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn LZClose(hfile : i32));
     LZClose(hfile)
 }
 #[inline]
@@ -2134,7 +2134,7 @@ pub unsafe fn LZCopy(hfsource: i32, hfdest: i32) -> i32 {
 }
 #[inline]
 pub unsafe fn LZDone() {
-    ::windows_targets::link!("kernel32.dll" "system" fn LZDone() -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn LZDone());
     LZDone()
 }
 #[inline]
@@ -3196,12 +3196,12 @@ where
 }
 #[inline]
 pub unsafe fn SetFileApisToANSI() {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetFileApisToANSI() -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn SetFileApisToANSI());
     SetFileApisToANSI()
 }
 #[inline]
 pub unsafe fn SetFileApisToOEM() {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetFileApisToOEM() -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn SetFileApisToOEM());
     SetFileApisToOEM()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -3549,7 +3549,7 @@ pub unsafe fn TruncateLog(pvmarshal: *const ::core::ffi::c_void, plsnend: *const
 }
 #[inline]
 pub unsafe fn TxfGetThreadMiniVersionForCreate() -> u16 {
-    ::windows_targets::link!("txfw32.dll" "system" fn TxfGetThreadMiniVersionForCreate(miniversion : *mut u16) -> ());
+    ::windows_targets::link!("txfw32.dll" "system" fn TxfGetThreadMiniVersionForCreate(miniversion : *mut u16));
     let mut result__ = ::std::mem::zeroed();
     TxfGetThreadMiniVersionForCreate(&mut result__);
     ::std::mem::transmute(result__)
@@ -3614,7 +3614,7 @@ where
 }
 #[inline]
 pub unsafe fn TxfSetThreadMiniVersionForCreate(miniversion: u16) {
-    ::windows_targets::link!("txfw32.dll" "system" fn TxfSetThreadMiniVersionForCreate(miniversion : u16) -> ());
+    ::windows_targets::link!("txfw32.dll" "system" fn TxfSetThreadMiniVersionForCreate(miniversion : u16));
     TxfSetThreadMiniVersionForCreate(miniversion)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -16818,7 +16818,7 @@ impl ::core::default::Default for WOF_FILE_COMPRESSION_INFO_V1 {
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type CACHE_ACCESS_CHECK = ::core::option::Option<unsafe extern "system" fn(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, hclienttoken: super::super::Foundation::HANDLE, dwdesiredaccess: u32, genericmapping: *mut super::super::Security::GENERIC_MAPPING, privilegeset: *mut super::super::Security::PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
-pub type CACHE_DESTROY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(cb: u32, lpb: *mut u8) -> ()>;
+pub type CACHE_DESTROY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(cb: u32, lpb: *mut u8)>;
 pub type CACHE_KEY_COMPARE = ::core::option::Option<unsafe extern "system" fn(cbkey1: u32, lpbkey1: *mut u8, cbkey2: u32, lpbkey2: *mut u8) -> i32>;
 pub type CACHE_KEY_HASH = ::core::option::Option<unsafe extern "system" fn(lpbkey: *mut u8, cbkey: u32) -> u32>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -16827,7 +16827,7 @@ pub type CACHE_READ_CALLBACK = ::core::option::Option<unsafe extern "system" fn(
 pub type CLAIMMEDIALABEL = ::core::option::Option<unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo) -> u32>;
 pub type CLAIMMEDIALABELEX = ::core::option::Option<unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo, labelguid: *mut ::windows_core::GUID) -> u32>;
 pub type CLFS_BLOCK_ALLOCATION = ::core::option::Option<unsafe extern "system" fn(cbbufferlength: u32, pvusercontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
-pub type CLFS_BLOCK_DEALLOCATION = ::core::option::Option<unsafe extern "system" fn(pvbuffer: *mut ::core::ffi::c_void, pvusercontext: *mut ::core::ffi::c_void) -> ()>;
+pub type CLFS_BLOCK_DEALLOCATION = ::core::option::Option<unsafe extern "system" fn(pvbuffer: *mut ::core::ffi::c_void, pvusercontext: *mut ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FCACHE_CREATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lpstrname: ::windows_core::PCSTR, lpvdata: *mut ::core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32) -> super::super::Foundation::HANDLE>;
@@ -16838,7 +16838,7 @@ pub type FCACHE_RICHCREATE_CALLBACK = ::core::option::Option<unsafe extern "syst
 #[cfg(feature = "Win32_Foundation")]
 pub type LPPROGRESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(totalfilesize: i64, totalbytestransferred: i64, streamsize: i64, streambytestransferred: i64, dwstreamnumber: u32, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: super::super::Foundation::HANDLE, hdestinationfile: super::super::Foundation::HANDLE, lpdata: *const ::core::ffi::c_void) -> u32>;
 pub type MAXMEDIALABEL = ::core::option::Option<unsafe extern "system" fn(pmaxsize: *mut u32) -> u32>;
-pub type PCLFS_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pvoverlapped: *mut ::core::ffi::c_void, ulreserved: u32) -> ()>;
+pub type PCLFS_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pvoverlapped: *mut ::core::ffi::c_void, ulreserved: u32)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCOPYFILE2_PROGRESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pmessage: *const COPYFILE2_MESSAGE, pvcallbackcontext: *const ::core::ffi::c_void) -> COPYFILE2_MESSAGE_ACTION>;
@@ -16846,16 +16846,16 @@ pub type PFE_EXPORT_FUNC = ::core::option::Option<unsafe extern "system" fn(pbda
 pub type PFE_IMPORT_FUNC = ::core::option::Option<unsafe extern "system" fn(pbdata: *mut u8, pvcallbackcontext: *const ::core::ffi::c_void, ullength: *mut u32) -> u32>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_IO_COMPLETION = ::core::option::Option<unsafe extern "system" fn(pcontext: *mut FIO_CONTEXT, lpo: *mut FH_OVERLAPPED, cb: u32, dwcompletionstatus: u32) -> ()>;
+pub type PFN_IO_COMPLETION = ::core::option::Option<unsafe extern "system" fn(pcontext: *mut FIO_CONTEXT, lpo: *mut FH_OVERLAPPED, cb: u32, dwcompletionstatus: u32)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PLOG_FULL_HANDLER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, dwerror: u32, flogispinned: super::super::Foundation::BOOL, pvclientcontext: *mut ::core::ffi::c_void) -> ()>;
+pub type PLOG_FULL_HANDLER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, dwerror: u32, flogispinned: super::super::Foundation::BOOL, pvclientcontext: *mut ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PLOG_TAIL_ADVANCE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, lsntarget: CLS_LSN, pvclientcontext: *mut ::core::ffi::c_void) -> ()>;
+pub type PLOG_TAIL_ADVANCE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, lsntarget: CLS_LSN, pvclientcontext: *mut ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PLOG_UNPINNED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, pvclientcontext: *mut ::core::ffi::c_void) -> ()>;
+pub type PLOG_UNPINNED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, pvclientcontext: *mut ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WofEnumEntryProc = ::core::option::Option<unsafe extern "system" fn(entryinfo: *const ::core::ffi::c_void, userdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;

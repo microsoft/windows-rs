@@ -15,7 +15,7 @@ pub unsafe fn AddRefActCtx<P0>(hactctx: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn AddRefActCtx(hactctx : super::super::Foundation:: HANDLE) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn AddRefActCtx(hactctx : super::super::Foundation:: HANDLE));
     AddRefActCtx(hactctx.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -2913,7 +2913,7 @@ pub unsafe fn ReleaseActCtx<P0>(hactctx: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseActCtx(hactctx : super::super::Foundation:: HANDLE) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseActCtx(hactctx : super::super::Foundation:: HANDLE));
     ReleaseActCtx(hactctx.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]

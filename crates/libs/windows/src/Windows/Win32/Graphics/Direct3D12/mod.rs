@@ -30051,7 +30051,7 @@ impl ::core::default::Default for D3D12_WRITEBUFFERIMMEDIATE_PARAMETER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type D3D12MessageFunc = ::core::option::Option<unsafe extern "system" fn(category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: ::windows_core::PCSTR, pcontext: *mut ::core::ffi::c_void) -> ()>;
+pub type D3D12MessageFunc = ::core::option::Option<unsafe extern "system" fn(category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: ::windows_core::PCSTR, pcontext: *mut ::core::ffi::c_void)>;
 #[doc = "Required features: `\"Win32_Graphics_Direct3D\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub type PFN_D3D12_CREATE_DEVICE = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<::windows_core::IUnknown>, param1: super::Direct3D::D3D_FEATURE_LEVEL, param2: *const ::windows_core::GUID, param3: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;

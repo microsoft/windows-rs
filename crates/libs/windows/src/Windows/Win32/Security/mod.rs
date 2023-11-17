@@ -1155,7 +1155,7 @@ where
 }
 #[inline]
 pub unsafe fn MapGenericMask(accessmask: *mut u32, genericmapping: *const GENERIC_MAPPING) {
-    ::windows_targets::link!("advapi32.dll" "system" fn MapGenericMask(accessmask : *mut u32, genericmapping : *const GENERIC_MAPPING) -> ());
+    ::windows_targets::link!("advapi32.dll" "system" fn MapGenericMask(accessmask : *mut u32, genericmapping : *const GENERIC_MAPPING));
     MapGenericMask(accessmask, genericmapping)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1296,7 +1296,7 @@ where
 }
 #[inline]
 pub unsafe fn QuerySecurityAccessMask(securityinformation: OBJECT_SECURITY_INFORMATION) -> u32 {
-    ::windows_targets::link!("advapi32.dll" "system" fn QuerySecurityAccessMask(securityinformation : OBJECT_SECURITY_INFORMATION, desiredaccess : *mut u32) -> ());
+    ::windows_targets::link!("advapi32.dll" "system" fn QuerySecurityAccessMask(securityinformation : OBJECT_SECURITY_INFORMATION, desiredaccess : *mut u32));
     let mut result__ = ::std::mem::zeroed();
     QuerySecurityAccessMask(securityinformation, &mut result__);
     ::std::mem::transmute(result__)
@@ -1403,7 +1403,7 @@ where
 }
 #[inline]
 pub unsafe fn SetSecurityAccessMask(securityinformation: OBJECT_SECURITY_INFORMATION) -> u32 {
-    ::windows_targets::link!("advapi32.dll" "system" fn SetSecurityAccessMask(securityinformation : OBJECT_SECURITY_INFORMATION, desiredaccess : *mut u32) -> ());
+    ::windows_targets::link!("advapi32.dll" "system" fn SetSecurityAccessMask(securityinformation : OBJECT_SECURITY_INFORMATION, desiredaccess : *mut u32));
     let mut result__ = ::std::mem::zeroed();
     SetSecurityAccessMask(securityinformation, &mut result__);
     ::std::mem::transmute(result__)

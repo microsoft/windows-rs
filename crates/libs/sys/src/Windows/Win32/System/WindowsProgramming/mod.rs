@@ -13,16 +13,16 @@
 ::windows_targets::link!("api-ms-win-core-realtime-l1-1-2.dll" "system" fn ConvertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue : u64, lpauxiliarycountervalue : *mut u64, lpconversionerror : *mut u64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("dciman32.dll" "system" fn DCIBeginAccess(pdci : *mut DCISURFACEINFO, x : i32, y : i32, dx : i32, dy : i32) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("dciman32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn DCICloseProvider(hdc : super::super::Graphics::Gdi:: HDC) -> ());
+::windows_targets::link!("dciman32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn DCICloseProvider(hdc : super::super::Graphics::Gdi:: HDC));
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("dciman32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn DCICreateOffscreen(hdc : super::super::Graphics::Gdi:: HDC, dwcompression : u32, dwredmask : u32, dwgreenmask : u32, dwbluemask : u32, dwwidth : u32, dwheight : u32, dwdcicaps : u32, dwbitcount : u32, lplpsurface : *mut *mut DCIOFFSCREEN) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("dciman32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn DCICreateOverlay(hdc : super::super::Graphics::Gdi:: HDC, lpoffscreensurf : *mut ::core::ffi::c_void, lplpsurface : *mut *mut DCIOVERLAY) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("dciman32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn DCICreatePrimary(hdc : super::super::Graphics::Gdi:: HDC, lplpsurface : *mut *mut DCISURFACEINFO) -> i32);
-::windows_targets::link!("dciman32.dll" "system" fn DCIDestroy(pdci : *mut DCISURFACEINFO) -> ());
+::windows_targets::link!("dciman32.dll" "system" fn DCIDestroy(pdci : *mut DCISURFACEINFO));
 ::windows_targets::link!("dciman32.dll" "system" fn DCIDraw(pdci : *mut DCIOFFSCREEN) -> i32);
-::windows_targets::link!("dciman32.dll" "system" fn DCIEndAccess(pdci : *mut DCISURFACEINFO) -> ());
+::windows_targets::link!("dciman32.dll" "system" fn DCIEndAccess(pdci : *mut DCISURFACEINFO));
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_targets::link!("dciman32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn DCIEnum(hdc : super::super::Graphics::Gdi:: HDC, lprdst : *mut super::super::Foundation:: RECT, lprsrc : *mut super::super::Foundation:: RECT, lpfncallback : *mut ::core::ffi::c_void, lpcontext : *mut ::core::ffi::c_void) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -118,11 +118,11 @@
 ::windows_targets::link!("dciman32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn GetWindowRegionData(hwnd : super::super::Foundation:: HWND, size : u32, prd : *mut super::super::Graphics::Gdi:: RGNDATA) -> u32);
 ::windows_targets::link!("kernel32.dll" "system" fn GlobalCompact(dwminfree : u32) -> usize);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GlobalFix(hmem : super::super::Foundation:: HGLOBAL) -> ());
+::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GlobalFix(hmem : super::super::Foundation:: HGLOBAL));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GlobalUnWire(hmem : super::super::Foundation:: HGLOBAL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GlobalUnfix(hmem : super::super::Foundation:: HGLOBAL) -> ());
+::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GlobalUnfix(hmem : super::super::Foundation:: HGLOBAL));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GlobalWire(hmem : super::super::Foundation:: HGLOBAL) -> *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
@@ -171,22 +171,22 @@
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn QueryIdleProcessorCycleTime(bufferlength : *mut u32, processoridlecycletime : *mut u64) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn QueryIdleProcessorCycleTimeEx(group : u16, bufferlength : *mut u32, processoridlecycletime : *mut u64) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryInterruptTime(lpinterrupttime : *mut u64) -> ());
-::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryInterruptTimePrecise(lpinterrupttimeprecise : *mut u64) -> ());
+::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryInterruptTime(lpinterrupttime : *mut u64));
+::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryInterruptTimePrecise(lpinterrupttimeprecise : *mut u64));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn QueryProcessCycleTime(processhandle : super::super::Foundation:: HANDLE, cycletime : *mut u64) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn QueryThreadCycleTime(threadhandle : super::super::Foundation:: HANDLE, cycletime : *mut u64) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn QueryUnbiasedInterruptTime(unbiasedtime : *mut u64) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise : *mut u64) -> ());
+::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise : *mut u64));
 ::windows_targets::link!("api-ms-win-core-backgroundtask-l1-1-0.dll" "system" fn RaiseCustomSystemEventTrigger(customsystemeventtriggerconfig : *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advpack.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RebootCheckOnInstallA(hwnd : super::super::Foundation:: HWND, pszinf : ::windows_sys::core::PCSTR, pszsec : ::windows_sys::core::PCSTR, dwreserved : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advpack.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RebootCheckOnInstallW(hwnd : super::super::Foundation:: HWND, pszinf : ::windows_sys::core::PCWSTR, pszsec : ::windows_sys::core::PCWSTR, dwreserved : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn RecordFeatureError(featureid : u32, error : *const FEATURE_ERROR) -> ());
-::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn RecordFeatureUsage(featureid : u32, kind : u32, addend : u32, originname : ::windows_sys::core::PCSTR) -> ());
+::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn RecordFeatureError(featureid : u32, error : *const FEATURE_ERROR));
+::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn RecordFeatureUsage(featureid : u32, kind : u32, addend : u32, originname : ::windows_sys::core::PCSTR));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advpack.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RegInstallA(hmod : super::super::Foundation:: HMODULE, pszsection : ::windows_sys::core::PCSTR, psttable : *const STRTABLEA) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
@@ -212,22 +212,22 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RtlCharToInteger(string : *mut i8, base : u32, value : *mut u32) -> super::super::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_System_Kernel")]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_System_Kernel\"`"] fn RtlFreeAnsiString(ansistring : *mut super::Kernel:: STRING) -> ());
+::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_System_Kernel\"`"] fn RtlFreeAnsiString(ansistring : *mut super::Kernel:: STRING));
 #[cfg(feature = "Win32_System_Kernel")]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_System_Kernel\"`"] fn RtlFreeOemString(oemstring : *mut super::Kernel:: STRING) -> ());
+::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_System_Kernel\"`"] fn RtlFreeOemString(oemstring : *mut super::Kernel:: STRING));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RtlFreeUnicodeString(unicodestring : *mut super::super::Foundation:: UNICODE_STRING) -> ());
+::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RtlFreeUnicodeString(unicodestring : *mut super::super::Foundation:: UNICODE_STRING));
 ::windows_targets::link!("ntdll.dll" "system" fn RtlGetReturnAddressHijackTarget() -> usize);
 #[cfg(feature = "Win32_System_Kernel")]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_System_Kernel\"`"] fn RtlInitAnsiString(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut i8) -> ());
+::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_System_Kernel\"`"] fn RtlInitAnsiString(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut i8));
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 ::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"] fn RtlInitAnsiStringEx(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut i8) -> super::super::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_System_Kernel")]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_System_Kernel\"`"] fn RtlInitString(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut i8) -> ());
+::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_System_Kernel\"`"] fn RtlInitString(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut i8));
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 ::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"] fn RtlInitStringEx(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut i8) -> super::super::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RtlInitUnicodeString(destinationstring : *mut super::super::Foundation:: UNICODE_STRING, sourcestring : ::windows_sys::core::PCWSTR) -> ());
+::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RtlInitUnicodeString(destinationstring : *mut super::super::Foundation:: UNICODE_STRING, sourcestring : ::windows_sys::core::PCWSTR));
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 ::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"] fn RtlIsNameLegalDOS8Dot3(name : *mut super::super::Foundation:: UNICODE_STRING, oemname : *mut super::Kernel:: STRING, namecontainsspaces : *mut super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: BOOLEAN);
 #[cfg(feature = "Win32_Foundation")]
@@ -267,12 +267,12 @@
 ::windows_targets::link!("advpack.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetPerUserSecValuesA(pperuser : *mut PERUSERSECTIONA) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advpack.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetPerUserSecValuesW(pperuser : *mut PERUSERSECTIONW) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn SubscribeFeatureStateChangeNotification(subscription : *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback : PFEATURE_STATE_CHANGE_CALLBACK, context : *const ::core::ffi::c_void) -> ());
+::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn SubscribeFeatureStateChangeNotification(subscription : *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback : PFEATURE_STATE_CHANGE_CALLBACK, context : *const ::core::ffi::c_void));
 ::windows_targets::link!("advpack.dll" "system" fn TranslateInfStringA(pszinffilename : ::windows_sys::core::PCSTR, pszinstallsection : ::windows_sys::core::PCSTR, psztranslatesection : ::windows_sys::core::PCSTR, psztranslatekey : ::windows_sys::core::PCSTR, pszbuffer : ::windows_sys::core::PSTR, cchbuffer : u32, pdwrequiredsize : *mut u32, pvreserved : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("advpack.dll" "system" fn TranslateInfStringExA(hinf : *mut ::core::ffi::c_void, pszinffilename : ::windows_sys::core::PCSTR, psztranslatesection : ::windows_sys::core::PCSTR, psztranslatekey : ::windows_sys::core::PCSTR, pszbuffer : ::windows_sys::core::PSTR, dwbuffersize : u32, pdwrequiredsize : *mut u32, pvreserved : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("advpack.dll" "system" fn TranslateInfStringExW(hinf : *mut ::core::ffi::c_void, pszinffilename : ::windows_sys::core::PCWSTR, psztranslatesection : ::windows_sys::core::PCWSTR, psztranslatekey : ::windows_sys::core::PCWSTR, pszbuffer : ::windows_sys::core::PWSTR, dwbuffersize : u32, pdwrequiredsize : *mut u32, pvreserved : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("advpack.dll" "system" fn TranslateInfStringW(pszinffilename : ::windows_sys::core::PCWSTR, pszinstallsection : ::windows_sys::core::PCWSTR, psztranslatesection : ::windows_sys::core::PCWSTR, psztranslatekey : ::windows_sys::core::PCWSTR, pszbuffer : ::windows_sys::core::PWSTR, cchbuffer : u32, pdwrequiredsize : *mut u32, pvreserved : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn UnsubscribeFeatureStateChangeNotification(subscription : FEATURE_STATE_CHANGE_SUBSCRIPTION) -> ());
+::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn UnsubscribeFeatureStateChangeNotification(subscription : FEATURE_STATE_CHANGE_SUBSCRIPTION));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advpack.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UserInstStubWrapperA(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, pszparms : ::windows_sys::core::PCSTR, nshow : i32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
@@ -287,7 +287,7 @@
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WINNLSGetEnableStatus(param0 : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WINNLSGetIMEHotkey(param0 : super::super::Foundation:: HWND) -> u32);
-::windows_targets::link!("dciman32.dll" "system" fn WinWatchClose(hww : HWINWATCH) -> ());
+::windows_targets::link!("dciman32.dll" "system" fn WinWatchClose(hww : HWINWATCH));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("dciman32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WinWatchDidStatusChange(hww : HWINWATCH) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2178,9 +2178,9 @@ impl ::core::clone::Clone for WLDP_HOST_INFORMATION {
     }
 }
 pub type APPLICATION_RECOVERY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparameter: *mut ::core::ffi::c_void) -> u32>;
-pub type ENUM_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lpsurfaceinfo: *mut DCISURFACEINFO, lpcontext: *mut ::core::ffi::c_void) -> ()>;
+pub type ENUM_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lpsurfaceinfo: *mut DCISURFACEINFO, lpcontext: *mut ::core::ffi::c_void)>;
 pub type PDELAYLOAD_FAILURE_DLL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationreason: u32, delayloadinfo: *const DELAYLOAD_INFO) -> *mut ::core::ffi::c_void>;
-pub type PFEATURE_STATE_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> ()>;
+pub type PFEATURE_STATE_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 pub type PFIBER_CALLOUT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpparameter: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2228,4 +2228,4 @@ pub type PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_API = ::core::option::Option<unsafe
 pub type REGINSTALLA = ::core::option::Option<unsafe extern "system" fn(hm: super::super::Foundation::HMODULE, pszsection: ::windows_sys::core::PCSTR, psttable: *const STRTABLEA) -> ::windows_sys::core::HRESULT>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WINWATCHNOTIFYPROC = ::core::option::Option<unsafe extern "system" fn(hww: HWINWATCH, hwnd: super::super::Foundation::HWND, code: u32, lparam: super::super::Foundation::LPARAM) -> ()>;
+pub type WINWATCHNOTIFYPROC = ::core::option::Option<unsafe extern "system" fn(hww: HWINWATCH, hwnd: super::super::Foundation::HWND, code: u32, lparam: super::super::Foundation::LPARAM)>;

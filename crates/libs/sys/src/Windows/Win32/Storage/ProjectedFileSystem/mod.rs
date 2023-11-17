@@ -11,13 +11,13 @@
 ::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PrjFillDirEntryBuffer(filename : ::windows_sys::core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PrjFillDirEntryBuffer2(direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE, filename : ::windows_sys::core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, extendedinfo : *const PRJ_EXTENDED_INFO) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("projectedfslib.dll" "system" fn PrjFreeAlignedBuffer(buffer : *const ::core::ffi::c_void) -> ());
+::windows_targets::link!("projectedfslib.dll" "system" fn PrjFreeAlignedBuffer(buffer : *const ::core::ffi::c_void));
 ::windows_targets::link!("projectedfslib.dll" "system" fn PrjGetOnDiskFileState(destinationfilename : ::windows_sys::core::PCWSTR, filestate : *mut PRJ_FILE_STATE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("projectedfslib.dll" "system" fn PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, virtualizationinstanceinfo : *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("projectedfslib.dll" "system" fn PrjMarkDirectoryAsPlaceholder(rootpathname : ::windows_sys::core::PCWSTR, targetpathname : ::windows_sys::core::PCWSTR, versioninfo : *const PRJ_PLACEHOLDER_VERSION_INFO, virtualizationinstanceid : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PrjStartVirtualizing(virtualizationrootpath : ::windows_sys::core::PCWSTR, callbacks : *const PRJ_CALLBACKS, instancecontext : *const ::core::ffi::c_void, options : *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext : *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("projectedfslib.dll" "system" fn PrjStopVirtualizing(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ());
+::windows_targets::link!("projectedfslib.dll" "system" fn PrjStopVirtualizing(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PrjUpdateFileIfNeeded(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : ::windows_sys::core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32, updateflags : PRJ_UPDATE_TYPES, failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("projectedfslib.dll" "system" fn PrjWriteFileData(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, datastreamid : *const ::windows_sys::core::GUID, buffer : *const ::core::ffi::c_void, byteoffset : u64, length : u32) -> ::windows_sys::core::HRESULT);
@@ -394,7 +394,7 @@ impl ::core::clone::Clone for PRJ_VIRTUALIZATION_INSTANCE_INFO {
         *self
     }
 }
-pub type PRJ_CANCEL_COMMAND_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ()>;
+pub type PRJ_CANCEL_COMMAND_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA)>;
 pub type PRJ_END_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT>;
 pub type PRJ_GET_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows_sys::core::GUID, searchexpression: ::windows_sys::core::PCWSTR, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows_sys::core::HRESULT>;
 pub type PRJ_GET_FILE_DATA_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, byteoffset: u64, length: u32) -> ::windows_sys::core::HRESULT>;

@@ -1,6 +1,6 @@
 ::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupClose(hbc : *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupEnd(hbc : *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupFree(pv : *mut ::core::ffi::c_void) -> ());
+::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupFree(pv : *mut ::core::ffi::c_void));
 ::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupGetBackupLogsW(hbc : *const ::core::ffi::c_void, ppwszzbackuplogfiles : *mut ::windows_sys::core::PWSTR, pcbsize : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupGetDatabaseNamesW(hbc : *const ::core::ffi::c_void, ppwszzattachmentinformation : *mut ::windows_sys::core::PWSTR, pcbsize : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupGetDynamicFileListW(hbc : *const ::core::ffi::c_void, ppwszzfilelist : *mut ::windows_sys::core::PWSTR, pcbsize : *mut u32) -> ::windows_sys::core::HRESULT);
@@ -2469,7 +2469,7 @@ impl ::core::clone::Clone for CSEDB_RSTMAPW {
 }
 pub type FNCERTSRVBACKUPCLOSE = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 pub type FNCERTSRVBACKUPEND = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type FNCERTSRVBACKUPFREE = ::core::option::Option<unsafe extern "system" fn(pv: *mut ::core::ffi::c_void) -> ()>;
+pub type FNCERTSRVBACKUPFREE = ::core::option::Option<unsafe extern "system" fn(pv: *mut ::core::ffi::c_void)>;
 pub type FNCERTSRVBACKUPGETBACKUPLOGSW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, ppwszzbackuplogfiles: *mut *mut u16, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT>;
 pub type FNCERTSRVBACKUPGETDATABASENAMESW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, ppwszzattachmentinformation: *mut *mut u16, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT>;
 pub type FNCERTSRVBACKUPGETDYNAMICFILELISTW = ::core::option::Option<unsafe extern "system" fn(hbc: *const ::core::ffi::c_void, ppwszzfilelist: *mut *mut u16, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT>;
@@ -2491,4 +2491,4 @@ pub type FNCERTSRVSERVERCONTROLW = ::core::option::Option<unsafe extern "system"
 pub type FNIMPORTPFXTOPROVIDER = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::super::Foundation::HWND, pbpfx: *const u8, cbpfx: u32, importflags: ImportPFXFlags, pwszpassword: ::windows_sys::core::PCWSTR, pwszprovidername: ::windows_sys::core::PCWSTR, pwszreadername: ::windows_sys::core::PCWSTR, pwszcontainernameprefix: ::windows_sys::core::PCWSTR, pwszpin: ::windows_sys::core::PCWSTR, pwszfriendlyname: ::windows_sys::core::PCWSTR, pccertout: *mut u32, prgpcertout: *mut *mut *mut super::CERT_CONTEXT) -> ::windows_sys::core::HRESULT>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type FNIMPORTPFXTOPROVIDERFREEDATA = ::core::option::Option<unsafe extern "system" fn(ccert: u32, rgpcert: *const *const super::CERT_CONTEXT) -> ()>;
+pub type FNIMPORTPFXTOPROVIDERFREEDATA = ::core::option::Option<unsafe extern "system" fn(ccert: u32, rgpcert: *const *const super::CERT_CONTEXT)>;

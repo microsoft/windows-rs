@@ -1,5 +1,5 @@
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDAllocateLinkedMemory(pparent : *mut ::core::ffi::c_void, cbsize : usize) -> *mut ::core::ffi::c_void);
-::windows_targets::link!("wsdapi.dll" "system" fn WSDAttachLinkedMemory(pparent : *mut ::core::ffi::c_void, pchild : *mut ::core::ffi::c_void) -> ());
+::windows_targets::link!("wsdapi.dll" "system" fn WSDAttachLinkedMemory(pparent : *mut ::core::ffi::c_void, pchild : *mut ::core::ffi::c_void));
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceHost(pszlocalid : ::windows_sys::core::PCWSTR, pcontext : IWSDXMLContext, ppdevicehost : *mut IWSDDeviceHost) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceHost2(pszlocalid : ::windows_sys::core::PCWSTR, pcontext : IWSDXMLContext, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppdevicehost : *mut IWSDDeviceHost) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceHostAdvanced(pszlocalid : ::windows_sys::core::PCWSTR, pcontext : IWSDXMLContext, pphostaddresses : *const IWSDAddress, dwhostaddresscount : u32, ppdevicehost : *mut IWSDDeviceHost) -> ::windows_sys::core::HRESULT);
@@ -15,8 +15,8 @@
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateOutboundAttachment(ppattachment : *mut IWSDOutboundAttachment) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateUdpAddress(ppaddress : *mut IWSDUdpAddress) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateUdpMessageParameters(pptxparams : *mut IWSDUdpMessageParameters) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("wsdapi.dll" "system" fn WSDDetachLinkedMemory(pvoid : *mut ::core::ffi::c_void) -> ());
-::windows_targets::link!("wsdapi.dll" "system" fn WSDFreeLinkedMemory(pvoid : *mut ::core::ffi::c_void) -> ());
+::windows_targets::link!("wsdapi.dll" "system" fn WSDDetachLinkedMemory(pvoid : *mut ::core::ffi::c_void));
+::windows_targets::link!("wsdapi.dll" "system" fn WSDFreeLinkedMemory(pvoid : *mut ::core::ffi::c_void));
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDGenerateFault(pszcode : ::windows_sys::core::PCWSTR, pszsubcode : ::windows_sys::core::PCWSTR, pszreason : ::windows_sys::core::PCWSTR, pszdetail : ::windows_sys::core::PCWSTR, pcontext : IWSDXMLContext, ppfault : *mut *mut WSD_SOAP_FAULT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDGenerateFaultEx(pcode : *const WSDXML_NAME, psubcode : *const WSDXML_NAME, preasons : *const WSD_LOCALIZED_STRING_LIST, pszdetail : ::windows_sys::core::PCWSTR, ppfault : *mut *mut WSD_SOAP_FAULT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDGetConfigurationOption(dwoption : u32, pvoid : *mut ::core::ffi::c_void, cboutbuffer : u32) -> ::windows_sys::core::HRESULT);

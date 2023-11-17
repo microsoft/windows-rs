@@ -1107,11 +1107,11 @@ impl ICatRegister_Vtbl {
     }
 }
 pub trait IChannelHook_Impl: Sized {
-    fn ClientGetSize(&self, uextent: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, pdatasize: *mut u32) -> ();
+    fn ClientGetSize(&self, uextent: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, pdatasize: *mut u32);
     fn ClientFillBuffer(&self, uextent: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, pdatasize: *mut u32, pdatabuffer: *const ::core::ffi::c_void);
     fn ClientNotify(&self, uextent: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, cbdatasize: u32, pdatabuffer: *const ::core::ffi::c_void, ldatarep: u32, hrfault: ::windows_core::HRESULT);
     fn ServerNotify(&self, uextent: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, cbdatasize: u32, pdatabuffer: *const ::core::ffi::c_void, ldatarep: u32);
-    fn ServerGetSize(&self, uextent: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, hrfault: ::windows_core::HRESULT, pdatasize: *mut u32) -> ();
+    fn ServerGetSize(&self, uextent: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, hrfault: ::windows_core::HRESULT, pdatasize: *mut u32);
     fn ServerFillBuffer(&self, uextent: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, pdatasize: *mut u32, pdatabuffer: *const ::core::ffi::c_void, hrfault: ::windows_core::HRESULT);
 }
 impl ::windows_core::RuntimeName for IChannelHook {}

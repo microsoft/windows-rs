@@ -189,7 +189,7 @@ pub unsafe fn CoFileTimeToDosDateTime(lpfiletime: *const super::super::Foundatio
 }
 #[inline]
 pub unsafe fn CoFreeAllLibraries() {
-    ::windows_targets::link!("ole32.dll" "system" fn CoFreeAllLibraries() -> ());
+    ::windows_targets::link!("ole32.dll" "system" fn CoFreeAllLibraries());
     CoFreeAllLibraries()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -199,17 +199,17 @@ pub unsafe fn CoFreeLibrary<P0>(hinst: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
 {
-    ::windows_targets::link!("ole32.dll" "system" fn CoFreeLibrary(hinst : super::super::Foundation:: HINSTANCE) -> ());
+    ::windows_targets::link!("ole32.dll" "system" fn CoFreeLibrary(hinst : super::super::Foundation:: HINSTANCE));
     CoFreeLibrary(hinst.into_param().abi())
 }
 #[inline]
 pub unsafe fn CoFreeUnusedLibraries() {
-    ::windows_targets::link!("ole32.dll" "system" fn CoFreeUnusedLibraries() -> ());
+    ::windows_targets::link!("ole32.dll" "system" fn CoFreeUnusedLibraries());
     CoFreeUnusedLibraries()
 }
 #[inline]
 pub unsafe fn CoFreeUnusedLibrariesEx(dwunloaddelay: u32, dwreserved: u32) {
-    ::windows_targets::link!("ole32.dll" "system" fn CoFreeUnusedLibrariesEx(dwunloaddelay : u32, dwreserved : u32) -> ());
+    ::windows_targets::link!("ole32.dll" "system" fn CoFreeUnusedLibrariesEx(dwunloaddelay : u32, dwreserved : u32));
     CoFreeUnusedLibrariesEx(dwunloaddelay, dwreserved)
 }
 #[inline]
@@ -576,7 +576,7 @@ pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void {
 }
 #[inline]
 pub unsafe fn CoTaskMemFree(pv: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows_targets::link!("ole32.dll" "system" fn CoTaskMemFree(pv : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ole32.dll" "system" fn CoTaskMemFree(pv : *const ::core::ffi::c_void));
     CoTaskMemFree(::core::mem::transmute(pv.unwrap_or(::std::ptr::null())))
 }
 #[inline]
@@ -596,7 +596,7 @@ pub unsafe fn CoTreatAsClass(clsidold: *const ::windows_core::GUID, clsidnew: *c
 }
 #[inline]
 pub unsafe fn CoUninitialize() {
-    ::windows_targets::link!("ole32.dll" "system" fn CoUninitialize() -> ());
+    ::windows_targets::link!("ole32.dll" "system" fn CoUninitialize());
     CoUninitialize()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]

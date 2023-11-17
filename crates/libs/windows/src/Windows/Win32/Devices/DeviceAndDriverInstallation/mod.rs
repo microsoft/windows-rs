@@ -1549,7 +1549,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn InstallHinfSectionA(window : super::super::Foundation:: HWND, modulehandle : super::super::Foundation:: HINSTANCE, commandline : ::windows_core::PCSTR, showcommand : i32) -> ());
+    ::windows_targets::link!("setupapi.dll" "system" fn InstallHinfSectionA(window : super::super::Foundation:: HWND, modulehandle : super::super::Foundation:: HINSTANCE, commandline : ::windows_core::PCSTR, showcommand : i32));
     InstallHinfSectionA(window.into_param().abi(), modulehandle.into_param().abi(), commandline.into_param().abi(), showcommand)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1561,7 +1561,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn InstallHinfSectionW(window : super::super::Foundation:: HWND, modulehandle : super::super::Foundation:: HINSTANCE, commandline : ::windows_core::PCWSTR, showcommand : i32) -> ());
+    ::windows_targets::link!("setupapi.dll" "system" fn InstallHinfSectionW(window : super::super::Foundation:: HWND, modulehandle : super::super::Foundation:: HINSTANCE, commandline : ::windows_core::PCWSTR, showcommand : i32));
     InstallHinfSectionW(window.into_param().abi(), modulehandle.into_param().abi(), commandline.into_param().abi(), showcommand)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1706,12 +1706,12 @@ pub unsafe fn SetupCloseFileQueue(queuehandle: *const ::core::ffi::c_void) -> su
 }
 #[inline]
 pub unsafe fn SetupCloseInfFile(infhandle: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupCloseInfFile(infhandle : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupCloseInfFile(infhandle : *const ::core::ffi::c_void));
     SetupCloseInfFile(infhandle)
 }
 #[inline]
 pub unsafe fn SetupCloseLog() {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupCloseLog() -> ());
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupCloseLog());
     SetupCloseLog()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -4716,12 +4716,12 @@ pub unsafe fn SetupSetSourceListW(flags: u32, sourcelist: &[::windows_core::PCWS
 }
 #[inline]
 pub unsafe fn SetupSetThreadLogToken(logtoken: u64) {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupSetThreadLogToken(logtoken : u64) -> ());
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupSetThreadLogToken(logtoken : u64));
     SetupSetThreadLogToken(logtoken)
 }
 #[inline]
 pub unsafe fn SetupTermDefaultQueueCallback(context: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupTermDefaultQueueCallback(context : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupTermDefaultQueueCallback(context : *const ::core::ffi::c_void));
     SetupTermDefaultQueueCallback(context)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -4783,7 +4783,7 @@ pub unsafe fn SetupWriteTextLog<P0>(logtoken: u64, category: u32, flags: u32, me
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("setupapi.dll" "cdecl" fn SetupWriteTextLog(logtoken : u64, category : u32, flags : u32, messagestr : ::windows_core::PCSTR) -> ());
+    ::windows_targets::link!("setupapi.dll" "cdecl" fn SetupWriteTextLog(logtoken : u64, category : u32, flags : u32, messagestr : ::windows_core::PCSTR));
     SetupWriteTextLog(logtoken, category, flags, messagestr.into_param().abi())
 }
 #[inline]
@@ -4791,12 +4791,12 @@ pub unsafe fn SetupWriteTextLogError<P0>(logtoken: u64, category: u32, logflags:
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("setupapi.dll" "cdecl" fn SetupWriteTextLogError(logtoken : u64, category : u32, logflags : u32, error : u32, messagestr : ::windows_core::PCSTR) -> ());
+    ::windows_targets::link!("setupapi.dll" "cdecl" fn SetupWriteTextLogError(logtoken : u64, category : u32, logflags : u32, error : u32, messagestr : ::windows_core::PCSTR));
     SetupWriteTextLogError(logtoken, category, logflags, error, messagestr.into_param().abi())
 }
 #[inline]
 pub unsafe fn SetupWriteTextLogInfLine(logtoken: u64, flags: u32, infhandle: *const ::core::ffi::c_void, context: *const INFCONTEXT) {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupWriteTextLogInfLine(logtoken : u64, flags : u32, infhandle : *const ::core::ffi::c_void, context : *const INFCONTEXT) -> ());
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupWriteTextLogInfLine(logtoken : u64, flags : u32, infhandle : *const ::core::ffi::c_void, context : *const INFCONTEXT));
     SetupWriteTextLogInfLine(logtoken, flags, infhandle, context)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]

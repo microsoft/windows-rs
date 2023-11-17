@@ -73,7 +73,7 @@ where
 }
 #[inline]
 pub unsafe fn DhcpCApiCleanup() {
-    ::windows_targets::link!("dhcpcsvc.dll" "system" fn DhcpCApiCleanup() -> ());
+    ::windows_targets::link!("dhcpcsvc.dll" "system" fn DhcpCApiCleanup());
     DhcpCApiCleanup()
 }
 #[inline]
@@ -260,7 +260,7 @@ where
 }
 #[inline]
 pub unsafe fn DhcpDsCleanup() {
-    ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDsCleanup() -> ());
+    ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDsCleanup());
     DhcpDsCleanup()
 }
 #[inline]
@@ -783,40 +783,40 @@ pub unsafe fn DhcpHlprFindV4DhcpProperty(propertyarray: *const DHCP_PROPERTY_ARR
 }
 #[inline]
 pub unsafe fn DhcpHlprFreeV4DhcpProperty(property: *mut DHCP_PROPERTY) {
-    ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4DhcpProperty(property : *mut DHCP_PROPERTY) -> ());
+    ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4DhcpProperty(property : *mut DHCP_PROPERTY));
     DhcpHlprFreeV4DhcpProperty(property)
 }
 #[inline]
 pub unsafe fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray: *mut DHCP_PROPERTY_ARRAY) {
-    ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray : *mut DHCP_PROPERTY_ARRAY) -> ());
+    ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray : *mut DHCP_PROPERTY_ARRAY));
     DhcpHlprFreeV4DhcpPropertyArray(propertyarray)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DhcpHlprFreeV4Policy(policy: *mut DHCP_POLICY) {
-    ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4Policy(policy : *mut DHCP_POLICY) -> ());
+    ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4Policy(policy : *mut DHCP_POLICY));
     DhcpHlprFreeV4Policy(policy)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DhcpHlprFreeV4PolicyArray(policyarray: *mut DHCP_POLICY_ARRAY) {
-    ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4PolicyArray(policyarray : *mut DHCP_POLICY_ARRAY) -> ());
+    ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4PolicyArray(policyarray : *mut DHCP_POLICY_ARRAY));
     DhcpHlprFreeV4PolicyArray(policyarray)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DhcpHlprFreeV4PolicyEx(policyex: *mut DHCP_POLICY_EX) {
-    ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4PolicyEx(policyex : *mut DHCP_POLICY_EX) -> ());
+    ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4PolicyEx(policyex : *mut DHCP_POLICY_EX));
     DhcpHlprFreeV4PolicyEx(policyex)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DhcpHlprFreeV4PolicyExArray(policyexarray: *mut DHCP_POLICY_EX_ARRAY) {
-    ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4PolicyExArray(policyexarray : *mut DHCP_POLICY_EX_ARRAY) -> ());
+    ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4PolicyExArray(policyexarray : *mut DHCP_POLICY_EX_ARRAY));
     DhcpHlprFreeV4PolicyExArray(policyexarray)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -990,7 +990,7 @@ where
 }
 #[inline]
 pub unsafe fn DhcpRpcFreeMemory(bufferpointer: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpRpcFreeMemory(bufferpointer : *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpRpcFreeMemory(bufferpointer : *mut ::core::ffi::c_void));
     DhcpRpcFreeMemory(bufferpointer)
 }
 #[inline]
@@ -1005,7 +1005,7 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DhcpServerAuditlogParamsFree(configinfo: *mut DHCP_SERVER_CONFIG_INFO_VQ) {
-    ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerAuditlogParamsFree(configinfo : *mut DHCP_SERVER_CONFIG_INFO_VQ) -> ());
+    ::windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerAuditlogParamsFree(configinfo : *mut DHCP_SERVER_CONFIG_INFO_VQ));
     DhcpServerAuditlogParamsFree(configinfo)
 }
 #[inline]
@@ -1782,12 +1782,12 @@ where
 }
 #[inline]
 pub unsafe fn Dhcpv6CApiCleanup() {
-    ::windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6CApiCleanup() -> ());
+    ::windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6CApiCleanup());
     Dhcpv6CApiCleanup()
 }
 #[inline]
 pub unsafe fn Dhcpv6CApiInitialize(version: *mut u32) {
-    ::windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6CApiInitialize(version : *mut u32) -> ());
+    ::windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6CApiInitialize(version : *mut u32));
     Dhcpv6CApiInitialize(version)
 }
 #[inline]

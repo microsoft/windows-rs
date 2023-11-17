@@ -1,9 +1,9 @@
 ::windows_targets::link!("mstask.dll" "system" fn GetNetScheduleAccountInformation(pwszservername : ::windows_sys::core::PCWSTR, ccaccount : u32, wszaccount : ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("netapi32.dll" "system" fn I_NetLogonControl2(servername : ::windows_sys::core::PCWSTR, functioncode : u32, querylevel : u32, data : *const u8, buffer : *mut *mut u8) -> u32);
-::windows_targets::link!("rtutils.dll" "system" fn LogErrorA(dwmessageid : u32, cnumberofsubstrings : u32, plpwssubstrings : *const ::windows_sys::core::PCSTR, dwerrorcode : u32) -> ());
-::windows_targets::link!("rtutils.dll" "system" fn LogErrorW(dwmessageid : u32, cnumberofsubstrings : u32, plpwssubstrings : *const ::windows_sys::core::PCWSTR, dwerrorcode : u32) -> ());
-::windows_targets::link!("rtutils.dll" "system" fn LogEventA(weventtype : u32, dwmessageid : u32, cnumberofsubstrings : u32, plpwssubstrings : *const ::windows_sys::core::PCSTR) -> ());
-::windows_targets::link!("rtutils.dll" "system" fn LogEventW(weventtype : u32, dwmessageid : u32, cnumberofsubstrings : u32, plpwssubstrings : *const ::windows_sys::core::PCWSTR) -> ());
+::windows_targets::link!("rtutils.dll" "system" fn LogErrorA(dwmessageid : u32, cnumberofsubstrings : u32, plpwssubstrings : *const ::windows_sys::core::PCSTR, dwerrorcode : u32));
+::windows_targets::link!("rtutils.dll" "system" fn LogErrorW(dwmessageid : u32, cnumberofsubstrings : u32, plpwssubstrings : *const ::windows_sys::core::PCWSTR, dwerrorcode : u32));
+::windows_targets::link!("rtutils.dll" "system" fn LogEventA(weventtype : u32, dwmessageid : u32, cnumberofsubstrings : u32, plpwssubstrings : *const ::windows_sys::core::PCSTR));
+::windows_targets::link!("rtutils.dll" "system" fn LogEventW(weventtype : u32, dwmessageid : u32, cnumberofsubstrings : u32, plpwssubstrings : *const ::windows_sys::core::PCWSTR));
 ::windows_targets::link!("rtutils.dll" "system" fn MprSetupProtocolEnum(dwtransportid : u32, lplpbuffer : *mut *mut u8, lpdwentriesread : *mut u32) -> u32);
 ::windows_targets::link!("rtutils.dll" "system" fn MprSetupProtocolFree(lpbuffer : *mut ::core::ffi::c_void) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" fn NetAccessAdd(servername : ::windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
@@ -35,7 +35,7 @@
 ::windows_targets::link!("netapi32.dll" "system" fn NetErrorLogRead(uncservername : ::windows_sys::core::PCWSTR, reserved1 : ::windows_sys::core::PCWSTR, errorloghandle : *const HLOG, offset : u32, reserved2 : *const u32, reserved3 : u32, offsetflag : u32, bufptr : *mut *mut u8, prefmaxsize : u32, bytesread : *mut u32, totalavailable : *mut u32) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" fn NetErrorLogWrite(reserved1 : *const u8, code : u32, component : ::windows_sys::core::PCWSTR, buffer : *const u8, numbytes : u32, msgbuf : *const u8, strcount : u32, reserved2 : *const u8) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"] fn NetFreeAadJoinInformation(pjoininfo : *const DSREG_JOIN_INFO) -> ());
+::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"] fn NetFreeAadJoinInformation(pjoininfo : *const DSREG_JOIN_INFO));
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 ::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"] fn NetGetAadJoinInformation(pcsztenantid : ::windows_sys::core::PCWSTR, ppjoininfo : *mut *mut DSREG_JOIN_INFO) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("netapi32.dll" "system" fn NetGetAnyDCName(servername : ::windows_sys::core::PCWSTR, domainname : ::windows_sys::core::PCWSTR, buffer : *mut *mut u8) -> u32);
@@ -146,33 +146,33 @@
 ::windows_targets::link!("netapi32.dll" "system" fn NetWkstaUserEnum(servername : ::windows_sys::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" fn NetWkstaUserGetInfo(reserved : ::windows_sys::core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" fn NetWkstaUserSetInfo(reserved : ::windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
-::windows_targets::link!("rtutils.dll" "system" fn RouterAssert(pszfailedassertion : ::windows_sys::core::PCSTR, pszfilename : ::windows_sys::core::PCSTR, dwlinenumber : u32, pszmessage : ::windows_sys::core::PCSTR) -> ());
+::windows_targets::link!("rtutils.dll" "system" fn RouterAssert(pszfailedassertion : ::windows_sys::core::PCSTR, pszfilename : ::windows_sys::core::PCSTR, dwlinenumber : u32, pszmessage : ::windows_sys::core::PCSTR));
 ::windows_targets::link!("rtutils.dll" "system" fn RouterGetErrorStringA(dwerrorcode : u32, lplpszerrorstring : *mut ::windows_sys::core::PSTR) -> u32);
 ::windows_targets::link!("rtutils.dll" "system" fn RouterGetErrorStringW(dwerrorcode : u32, lplpwszerrorstring : *mut ::windows_sys::core::PWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogDeregisterA(hloghandle : super::super::Foundation:: HANDLE) -> ());
+::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogDeregisterA(hloghandle : super::super::Foundation:: HANDLE));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogDeregisterW(hloghandle : super::super::Foundation:: HANDLE) -> ());
+::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogDeregisterW(hloghandle : super::super::Foundation:: HANDLE));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_sys::core::PCSTR, dwerrorcode : u32) -> ());
+::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_sys::core::PCSTR, dwerrorcode : u32));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventDataA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_sys::core::PCSTR, dwdatabytes : u32, lpdatabytes : *mut u8) -> ());
+::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventDataA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_sys::core::PCSTR, dwdatabytes : u32, lpdatabytes : *mut u8));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventDataW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_sys::core::PCWSTR, dwdatabytes : u32, lpdatabytes : *mut u8) -> ());
+::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventDataW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_sys::core::PCWSTR, dwdatabytes : u32, lpdatabytes : *mut u8));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rtutils.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventExA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows_sys::core::PCSTR, ...) -> ());
+::windows_targets::link!("rtutils.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventExA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows_sys::core::PCSTR, ...));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rtutils.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventExW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows_sys::core::PCWSTR, ...) -> ());
+::windows_targets::link!("rtutils.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventExW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows_sys::core::PCWSTR, ...));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventStringA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_sys::core::PCSTR, dwerrorcode : u32, dwerrorindex : u32) -> ());
+::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventStringA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_sys::core::PCSTR, dwerrorcode : u32, dwerrorindex : u32));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventStringW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_sys::core::PCWSTR, dwerrorcode : u32, dwerrorindex : u32) -> ());
+::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventStringW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_sys::core::PCWSTR, dwerrorcode : u32, dwerrorindex : u32));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventValistExA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows_sys::core::PCSTR, arglist : *mut i8) -> ());
+::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventValistExA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows_sys::core::PCSTR, arglist : *mut i8));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventValistExW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows_sys::core::PCWSTR, arglist : *mut i8) -> ());
+::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventValistExW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows_sys::core::PCWSTR, arglist : *mut i8));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_sys::core::PCWSTR, dwerrorcode : u32) -> ());
+::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogEventW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_sys::core::PCWSTR, dwerrorcode : u32));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("rtutils.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RouterLogRegisterA(lpszsource : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Foundation")]
@@ -6561,4 +6561,4 @@ impl ::core::clone::Clone for WKSTA_USER_INFO_1101 {
         *self
     }
 }
-pub type WORKERFUNCTION = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> ()>;
+pub type WORKERFUNCTION = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
