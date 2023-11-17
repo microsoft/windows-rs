@@ -1,13 +1,13 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn BuildDisplayTable(lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpmalloc : super::Com:: IMalloc, hinstance : super::super::Foundation:: HINSTANCE, cpages : u32, lppage : *mut DTPAGE, ulflags : u32, lpptable : *mut IMAPITable, lpptbldata : *mut ITableData) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ChangeIdleRoutine(ftg : *mut ::core::ffi::c_void, lpfnidle : PFNIDLE, lpvidleparam : *mut ::core::ffi::c_void, priidle : i16, csecidle : u32, iroidle : u16, ircidle : u16) -> ());
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ChangeIdleRoutine(ftg : *mut ::core::ffi::c_void, lpfnidle : PFNIDLE, lpvidleparam : *mut ::core::ffi::c_void, priidle : i16, csecidle : u32, iroidle : u16, ircidle : u16));
 ::windows_targets::link!("mapi32.dll" "system" fn CreateIProp(lpinterface : *mut ::windows_sys::core::GUID, lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpvreserved : *mut ::core::ffi::c_void, lpppropdata : *mut IPropData) -> i32);
 ::windows_targets::link!("rtm.dll" "system" fn CreateTable(lpinterface : *mut ::windows_sys::core::GUID, lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpvreserved : *mut ::core::ffi::c_void, ultabletype : u32, ulproptagindexcolumn : u32, lpsproptagarraycolumns : *mut SPropTagArray, lpptabledata : *mut ITableData) -> i32);
-::windows_targets::link!("mapi32.dll" "system" fn DeinitMapiUtil() -> ());
-::windows_targets::link!("mapi32.dll" "system" fn DeregisterIdleRoutine(ftg : *mut ::core::ffi::c_void) -> ());
+::windows_targets::link!("mapi32.dll" "system" fn DeinitMapiUtil());
+::windows_targets::link!("mapi32.dll" "system" fn DeregisterIdleRoutine(ftg : *mut ::core::ffi::c_void));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EnableIdleRoutine(ftg : *mut ::core::ffi::c_void, fenable : super::super::Foundation:: BOOL) -> ());
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EnableIdleRoutine(ftg : *mut ::core::ffi::c_void, fenable : super::super::Foundation:: BOOL));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FEqualNames(lpname1 : *mut MAPINAMEID, lpname2 : *mut MAPINAMEID) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -17,9 +17,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FPropExists(lpmapiprop : IMAPIProp, ulproptag : u32) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn FreePadrlist(lpadrlist : *mut ADRLIST) -> ());
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn FreePadrlist(lpadrlist : *mut ADRLIST));
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn FreeProws(lprows : *mut SRowSet) -> ());
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn FreeProws(lprows : *mut SRowSet));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FtAddFt(ftaddend1 : super::super::Foundation:: FILETIME, ftaddend2 : super::super::Foundation:: FILETIME) -> super::super::Foundation:: FILETIME);
 #[cfg(feature = "Win32_Foundation")]
@@ -50,7 +50,7 @@
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn LPropCompareProp(lpspropvaluea : *mut SPropValue, lpspropvalueb : *mut SPropValue) -> i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn LpValFindProp(ulproptag : u32, cvalues : u32, lpproparray : *mut SPropValue) -> *mut SPropValue);
-::windows_targets::link!("mapi32.dll" "system" fn MAPIDeinitIdle() -> ());
+::windows_targets::link!("mapi32.dll" "system" fn MAPIDeinitIdle());
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn MAPIGetDefaultMalloc() -> super::Com:: IMalloc);
 ::windows_targets::link!("mapi32.dll" "system" fn MAPIInitIdle(lpvreserved : *mut ::core::ffi::c_void) -> i32);
@@ -1414,7 +1414,7 @@ impl ::core::clone::Clone for __UPV {
         *self
     }
 }
-pub type CALLERRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lptbldata: ITableData, lpvue: IMAPITable) -> ()>;
+pub type CALLERRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lptbldata: ITableData, lpvue: IMAPITable)>;
 pub type LPALLOCATEBUFFER = ::core::option::Option<unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
 pub type LPALLOCATEMORE = ::core::option::Option<unsafe extern "system" fn(cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
 pub type LPCREATECONVERSATIONINDEX = ::core::option::Option<unsafe extern "system" fn(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32>;
@@ -1423,7 +1423,7 @@ pub type LPDISPATCHNOTIFICATIONS = ::core::option::Option<unsafe extern "system"
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNABSDI = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpvmsg: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type LPFNBUTTON = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::core::ffi::c_void, cbentryid: u32, lpselection: *mut ENTRYID, ulflags: u32) -> i32>;
-pub type LPFNDISMISS = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::core::ffi::c_void) -> ()>;
+pub type LPFNDISMISS = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::core::ffi::c_void)>;
 pub type LPFREEBUFFER = ::core::option::Option<unsafe extern "system" fn(lpbuffer: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]

@@ -10,7 +10,7 @@ pub unsafe fn BstrFromVector(psa: *const super::Com::SAFEARRAY) -> ::windows_cor
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn ClearCustData(pcustdata: *mut super::Com::CUSTDATA) {
-    ::windows_targets::link!("oleaut32.dll" "system" fn ClearCustData(pcustdata : *mut super::Com:: CUSTDATA) -> ());
+    ::windows_targets::link!("oleaut32.dll" "system" fn ClearCustData(pcustdata : *mut super::Com:: CUSTDATA));
     ClearCustData(pcustdata)
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
@@ -143,14 +143,14 @@ where
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HRGN_UserFree(param0: *const u32, param1: *const super::super::Graphics::Gdi::HRGN) {
-    ::windows_targets::link!("ole32.dll" "system" fn HRGN_UserFree(param0 : *const u32, param1 : *const super::super::Graphics::Gdi:: HRGN) -> ());
+    ::windows_targets::link!("ole32.dll" "system" fn HRGN_UserFree(param0 : *const u32, param1 : *const super::super::Graphics::Gdi:: HRGN));
     HRGN_UserFree(param0, param1)
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HRGN_UserFree64(param0: *const u32, param1: *const super::super::Graphics::Gdi::HRGN) {
-    ::windows_targets::link!("api-ms-win-core-marshal-l1-1-0.dll" "system" fn HRGN_UserFree64(param0 : *const u32, param1 : *const super::super::Graphics::Gdi:: HRGN) -> ());
+    ::windows_targets::link!("api-ms-win-core-marshal-l1-1-0.dll" "system" fn HRGN_UserFree64(param0 : *const u32, param1 : *const super::super::Graphics::Gdi:: HRGN));
     HRGN_UserFree64(param0, param1)
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -262,7 +262,7 @@ pub unsafe fn OaBuildVersion() -> u32 {
 }
 #[inline]
 pub unsafe fn OaEnablePerUserTLibRegistration() {
-    ::windows_targets::link!("oleaut32.dll" "system" fn OaEnablePerUserTLibRegistration() -> ());
+    ::windows_targets::link!("oleaut32.dll" "system" fn OaEnablePerUserTLibRegistration());
     OaEnablePerUserTLibRegistration()
 }
 #[inline]
@@ -1063,7 +1063,7 @@ where
 }
 #[inline]
 pub unsafe fn OleUninitialize() {
-    ::windows_targets::link!("ole32.dll" "system" fn OleUninitialize() -> ());
+    ::windows_targets::link!("ole32.dll" "system" fn OleUninitialize());
     OleUninitialize()
 }
 #[inline]
@@ -1119,7 +1119,7 @@ where
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn ReleaseStgMedium(param0: *mut super::Com::STGMEDIUM) {
-    ::windows_targets::link!("ole32.dll" "system" fn ReleaseStgMedium(param0 : *mut super::Com:: STGMEDIUM) -> ());
+    ::windows_targets::link!("ole32.dll" "system" fn ReleaseStgMedium(param0 : *mut super::Com:: STGMEDIUM));
     ReleaseStgMedium(param0)
 }
 #[inline]
@@ -1329,14 +1329,14 @@ pub unsafe fn SafeArrayRedim(psa: *mut super::Com::SAFEARRAY, psaboundnew: *cons
 }
 #[inline]
 pub unsafe fn SafeArrayReleaseData(pdata: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayReleaseData(pdata : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayReleaseData(pdata : *const ::core::ffi::c_void));
     SafeArrayReleaseData(pdata)
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayReleaseDescriptor(psa: *const super::Com::SAFEARRAY) {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayReleaseDescriptor(psa : *const super::Com:: SAFEARRAY) -> ());
+    ::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayReleaseDescriptor(psa : *const super::Com:: SAFEARRAY));
     SafeArrayReleaseDescriptor(psa)
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]

@@ -130,4 +130,4 @@ impl ::core::clone::Clone for RM_UNIQUE_PROCESS {
         *self
     }
 }
-pub type RM_WRITE_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(npercentcomplete: u32) -> ()>;
+pub type RM_WRITE_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(npercentcomplete: u32)>;

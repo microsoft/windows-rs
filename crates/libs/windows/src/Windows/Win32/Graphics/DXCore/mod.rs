@@ -439,6 +439,6 @@ impl ::core::default::Default for DXCoreHardwareIDParts {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type PFN_DXCORE_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: ::core::option::Option<::windows_core::IUnknown>, context: *const ::core::ffi::c_void) -> ()>;
+pub type PFN_DXCORE_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: ::core::option::Option<::windows_core::IUnknown>, context: *const ::core::ffi::c_void)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

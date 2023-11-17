@@ -44,7 +44,7 @@ pub unsafe fn GetIntegratedDisplaySize() -> ::windows_core::Result<f64> {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLocalTime() -> super::super::Foundation::SYSTEMTIME {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetLocalTime(lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn GetLocalTime(lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME));
     let mut result__ = ::std::mem::zeroed();
     GetLocalTime(&mut result__);
     ::std::mem::transmute(result__)
@@ -65,7 +65,7 @@ pub unsafe fn GetLogicalProcessorInformationEx(relationshiptype: LOGICAL_PROCESS
 }
 #[inline]
 pub unsafe fn GetNativeSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetNativeSystemInfo(lpsysteminfo : *mut SYSTEM_INFO) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn GetNativeSystemInfo(lpsysteminfo : *mut SYSTEM_INFO));
     GetNativeSystemInfo(lpsysteminfo)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -135,7 +135,7 @@ pub unsafe fn GetSystemFirmwareTable(firmwaretableprovidersignature: FIRMWARE_TA
 }
 #[inline]
 pub unsafe fn GetSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetSystemInfo(lpsysteminfo : *mut SYSTEM_INFO) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn GetSystemInfo(lpsysteminfo : *mut SYSTEM_INFO));
     GetSystemInfo(lpsysteminfo)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -149,7 +149,7 @@ pub unsafe fn GetSystemLeapSecondInformation(enabled: *mut super::super::Foundat
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemTime() -> super::super::Foundation::SYSTEMTIME {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetSystemTime(lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn GetSystemTime(lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME));
     let mut result__ = ::std::mem::zeroed();
     GetSystemTime(&mut result__);
     ::std::mem::transmute(result__)
@@ -172,7 +172,7 @@ pub unsafe fn GetSystemTimeAdjustmentPrecise(lptimeadjustment: *mut u64, lptimei
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemTimeAsFileTime() -> super::super::Foundation::FILETIME {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime : *mut super::super::Foundation:: FILETIME) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime : *mut super::super::Foundation:: FILETIME));
     let mut result__ = ::std::mem::zeroed();
     GetSystemTimeAsFileTime(&mut result__);
     ::std::mem::transmute(result__)
@@ -181,7 +181,7 @@ pub unsafe fn GetSystemTimeAsFileTime() -> super::super::Foundation::FILETIME {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemTimePreciseAsFileTime() -> super::super::Foundation::FILETIME {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime : *mut super::super::Foundation:: FILETIME) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime : *mut super::super::Foundation:: FILETIME));
     let mut result__ = ::std::mem::zeroed();
     GetSystemTimePreciseAsFileTime(&mut result__);
     ::std::mem::transmute(result__)
@@ -257,7 +257,7 @@ pub unsafe fn GetWindowsDirectoryW(lpbuffer: ::core::option::Option<&mut [u16]>)
 }
 #[inline]
 pub unsafe fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS) {
-    ::windows_targets::link!("kernel32.dll" "system" fn GlobalMemoryStatus(lpbuffer : *mut MEMORYSTATUS) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn GlobalMemoryStatus(lpbuffer : *mut MEMORYSTATUS));
     GlobalMemoryStatus(lpbuffer)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -289,7 +289,7 @@ pub unsafe fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut
 }
 #[inline]
 pub unsafe fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: ::core::option::Option<*mut u64>, puldevicefamily: ::core::option::Option<*mut DEVICEFAMILYINFOENUM>, puldeviceform: ::core::option::Option<*mut DEVICEFAMILYDEVICEFORM>) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlGetDeviceFamilyInfoEnum(pulluapinfo : *mut u64, puldevicefamily : *mut DEVICEFAMILYINFOENUM, puldeviceform : *mut DEVICEFAMILYDEVICEFORM) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlGetDeviceFamilyInfoEnum(pulluapinfo : *mut u64, puldevicefamily : *mut DEVICEFAMILYINFOENUM, puldeviceform : *mut DEVICEFAMILYDEVICEFORM));
     RtlGetDeviceFamilyInfoEnum(::core::mem::transmute(pulluapinfo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(puldevicefamily.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(puldeviceform.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]

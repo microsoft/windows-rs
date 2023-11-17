@@ -140,7 +140,7 @@ pub unsafe fn GetLocalManagedApplicationData<P0>(productcode: P0, displayname: *
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn GetLocalManagedApplicationData(productcode : ::windows_core::PCWSTR, displayname : *mut ::windows_core::PWSTR, supporturl : *mut ::windows_core::PWSTR) -> ());
+    ::windows_targets::link!("advapi32.dll" "system" fn GetLocalManagedApplicationData(productcode : ::windows_core::PCWSTR, displayname : *mut ::windows_core::PWSTR, supporturl : *mut ::windows_core::PWSTR));
     GetLocalManagedApplicationData(productcode.into_param().abi(), displayname, supporturl)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]

@@ -18,7 +18,7 @@
 ::windows_targets::link!("computenetwork.dll" "system" fn HcnEnumerateLoadBalancers(query : ::windows_sys::core::PCWSTR, loadbalancer : *mut ::windows_sys::core::PWSTR, errorrecord : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computenetwork.dll" "system" fn HcnEnumerateNamespaces(query : ::windows_sys::core::PCWSTR, namespaces : *mut ::windows_sys::core::PWSTR, errorrecord : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computenetwork.dll" "system" fn HcnEnumerateNetworks(query : ::windows_sys::core::PCWSTR, networks : *mut ::windows_sys::core::PWSTR, errorrecord : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("computenetwork.dll" "system" fn HcnFreeGuestNetworkPortReservations(portentries : *mut HCN_PORT_RANGE_ENTRY) -> ());
+::windows_targets::link!("computenetwork.dll" "system" fn HcnFreeGuestNetworkPortReservations(portentries : *mut HCN_PORT_RANGE_ENTRY));
 ::windows_targets::link!("computenetwork.dll" "system" fn HcnModifyEndpoint(endpoint : *const ::core::ffi::c_void, settings : ::windows_sys::core::PCWSTR, errorrecord : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computenetwork.dll" "system" fn HcnModifyGuestNetworkService(guestnetworkservice : *const ::core::ffi::c_void, settings : ::windows_sys::core::PCWSTR, errorrecord : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computenetwork.dll" "system" fn HcnModifyLoadBalancer(loadbalancer : *const ::core::ffi::c_void, settings : ::windows_sys::core::PCWSTR, errorrecord : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
@@ -96,4 +96,4 @@ impl ::core::clone::Clone for HCN_PORT_RANGE_RESERVATION {
         *self
     }
 }
-pub type HCN_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows_sys::core::HRESULT, notificationdata: ::windows_sys::core::PCWSTR) -> ()>;
+pub type HCN_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows_sys::core::HRESULT, notificationdata: ::windows_sys::core::PCWSTR)>;

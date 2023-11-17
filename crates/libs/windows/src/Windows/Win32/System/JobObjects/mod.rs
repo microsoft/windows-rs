@@ -40,7 +40,7 @@ pub unsafe fn CreateJobSet(userjobset: &[JOB_SET_ARRAY], flags: u32) -> super::s
 }
 #[inline]
 pub unsafe fn FreeMemoryJobObject(buffer: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("kernel32.dll" "system" fn FreeMemoryJobObject(buffer : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn FreeMemoryJobObject(buffer : *const ::core::ffi::c_void));
     FreeMemoryJobObject(buffer)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]

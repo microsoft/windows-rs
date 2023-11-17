@@ -464,7 +464,7 @@ pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows_core::
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO) {
-    ::windows_targets::link!("urlmon.dll" "system" fn ReleaseBindInfo(pbindinfo : *mut super:: BINDINFO) -> ());
+    ::windows_targets::link!("urlmon.dll" "system" fn ReleaseBindInfo(pbindinfo : *mut super:: BINDINFO));
     ReleaseBindInfo(pbindinfo)
 }
 #[inline]

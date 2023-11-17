@@ -7,10 +7,10 @@
 ::windows_targets::link!("mscoree.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn CorBindToRuntimeByCfg(pcfgstream : super::Com:: IStream, reserved : u32, startupflags : u32, rclsid : *const ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeEx(pwszversion : ::windows_sys::core::PCWSTR, pwszbuildflavor : ::windows_sys::core::PCWSTR, startupflags : u32, rclsid : *const ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeHost(pwszversion : ::windows_sys::core::PCWSTR, pwszbuildflavor : ::windows_sys::core::PCWSTR, pwszhostconfigfile : ::windows_sys::core::PCWSTR, preserved : *mut ::core::ffi::c_void, startupflags : u32, rclsid : *const ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn CorExitProcess(exitcode : i32) -> ());
+::windows_targets::link!("mscoree.dll" "system" fn CorExitProcess(exitcode : i32));
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 ::windows_targets::link!("mscoree.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`"] fn CorLaunchApplication(dwclickoncehost : HOST_TYPE, pwzappfullname : ::windows_sys::core::PCWSTR, dwmanifestpaths : u32, ppwzmanifestpaths : *const ::windows_sys::core::PCWSTR, dwactivationdata : u32, ppwzactivationdata : *const ::windows_sys::core::PCWSTR, lpprocessinformation : *mut super::Threading:: PROCESS_INFORMATION) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn CorMarkThreadInThreadPool() -> ());
+::windows_targets::link!("mscoree.dll" "system" fn CorMarkThreadInThreadPool());
 ::windows_targets::link!("mscoree.dll" "system" fn CreateDebuggingInterfaceFromVersion(idebuggerversion : i32, szdebuggeeversion : ::windows_sys::core::PCWSTR, ppcordb : *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn GetCLRIdentityManager(riid : *const ::windows_sys::core::GUID, ppmanager : *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn GetCORRequiredVersion(pbuffer : ::windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_sys::core::HRESULT);
@@ -446,5 +446,5 @@ pub type CallbackThreadUnsetFnPtr = ::core::option::Option<unsafe extern "system
 pub type CreateInterfaceFnPtr = ::core::option::Option<unsafe extern "system" fn(clsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 pub type FExecuteInAppDomainCallback = ::core::option::Option<unsafe extern "system" fn(cookie: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 pub type FLockClrVersionCallback = ::core::option::Option<unsafe extern "system" fn() -> ::windows_sys::core::HRESULT>;
-pub type PTLS_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(__midl____midl_itf_mscoree_0000_00040005: *mut ::core::ffi::c_void) -> ()>;
-pub type RuntimeLoadedCallbackFnPtr = ::core::option::Option<unsafe extern "system" fn(pruntimeinfo: ICLRRuntimeInfo, pfncallbackthreadset: CallbackThreadSetFnPtr, pfncallbackthreadunset: CallbackThreadUnsetFnPtr) -> ()>;
+pub type PTLS_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(__midl____midl_itf_mscoree_0000_00040005: *mut ::core::ffi::c_void)>;
+pub type RuntimeLoadedCallbackFnPtr = ::core::option::Option<unsafe extern "system" fn(pruntimeinfo: ICLRRuntimeInfo, pfncallbackthreadset: CallbackThreadSetFnPtr, pfncallbackthreadunset: CallbackThreadUnsetFnPtr)>;

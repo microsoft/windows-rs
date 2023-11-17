@@ -9,7 +9,7 @@ where
 }
 #[inline]
 pub unsafe fn AppCacheCloseHandle(happcache: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("wininet.dll" "system" fn AppCacheCloseHandle(happcache : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("wininet.dll" "system" fn AppCacheCloseHandle(happcache : *const ::core::ffi::c_void));
     AppCacheCloseHandle(happcache)
 }
 #[inline]
@@ -49,14 +49,14 @@ pub unsafe fn AppCacheFinalize(happcache: *const ::core::ffi::c_void, pbmanifest
 }
 #[inline]
 pub unsafe fn AppCacheFreeDownloadList(pdownloadlist: *mut APP_CACHE_DOWNLOAD_LIST) {
-    ::windows_targets::link!("wininet.dll" "system" fn AppCacheFreeDownloadList(pdownloadlist : *mut APP_CACHE_DOWNLOAD_LIST) -> ());
+    ::windows_targets::link!("wininet.dll" "system" fn AppCacheFreeDownloadList(pdownloadlist : *mut APP_CACHE_DOWNLOAD_LIST));
     AppCacheFreeDownloadList(pdownloadlist)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppCacheFreeGroupList(pappcachegrouplist: *mut APP_CACHE_GROUP_LIST) {
-    ::windows_targets::link!("wininet.dll" "system" fn AppCacheFreeGroupList(pappcachegrouplist : *mut APP_CACHE_GROUP_LIST) -> ());
+    ::windows_targets::link!("wininet.dll" "system" fn AppCacheFreeGroupList(pappcachegrouplist : *mut APP_CACHE_GROUP_LIST));
     AppCacheFreeGroupList(pappcachegrouplist)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1008,7 +1008,7 @@ where
 }
 #[inline]
 pub unsafe fn HttpCloseDependencyHandle(hdependencyhandle: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("wininet.dll" "system" fn HttpCloseDependencyHandle(hdependencyhandle : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("wininet.dll" "system" fn HttpCloseDependencyHandle(hdependencyhandle : *const ::core::ffi::c_void));
     HttpCloseDependencyHandle(hdependencyhandle)
 }
 #[inline]
@@ -1090,7 +1090,7 @@ pub unsafe fn HttpPushClose<P0>(hwait: P0)
 where
     P0: ::windows_core::IntoParam<HTTP_PUSH_WAIT_HANDLE>,
 {
-    ::windows_targets::link!("wininet.dll" "system" fn HttpPushClose(hwait : HTTP_PUSH_WAIT_HANDLE) -> ());
+    ::windows_targets::link!("wininet.dll" "system" fn HttpPushClose(hwait : HTTP_PUSH_WAIT_HANDLE));
     HttpPushClose(hwait.into_param().abi())
 }
 #[inline]
@@ -1520,14 +1520,14 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InternetFreeCookies(pcookies: ::core::option::Option<*mut INTERNET_COOKIE2>, dwcookiecount: u32) {
-    ::windows_targets::link!("wininet.dll" "system" fn InternetFreeCookies(pcookies : *mut INTERNET_COOKIE2, dwcookiecount : u32) -> ());
+    ::windows_targets::link!("wininet.dll" "system" fn InternetFreeCookies(pcookies : *mut INTERNET_COOKIE2, dwcookiecount : u32));
     InternetFreeCookies(::core::mem::transmute(pcookies.unwrap_or(::std::ptr::null_mut())), dwcookiecount)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InternetFreeProxyInfoList(pproxyinfolist: *mut WININET_PROXY_INFO_LIST) {
-    ::windows_targets::link!("wininet.dll" "system" fn InternetFreeProxyInfoList(pproxyinfolist : *mut WININET_PROXY_INFO_LIST) -> ());
+    ::windows_targets::link!("wininet.dll" "system" fn InternetFreeProxyInfoList(pproxyinfolist : *mut WININET_PROXY_INFO_LIST));
     InternetFreeProxyInfoList(pproxyinfolist)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -2473,7 +2473,7 @@ pub unsafe fn UrlCacheCheckEntriesExist(rgpwszurls: *const ::windows_core::PCWST
 }
 #[inline]
 pub unsafe fn UrlCacheCloseEntryHandle(hentryfile: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("wininet.dll" "system" fn UrlCacheCloseEntryHandle(hentryfile : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("wininet.dll" "system" fn UrlCacheCloseEntryHandle(hentryfile : *const ::core::ffi::c_void));
     UrlCacheCloseEntryHandle(hentryfile)
 }
 #[inline]
@@ -2518,7 +2518,7 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlCacheFreeEntryInfo(pcacheentryinfo: *mut URLCACHE_ENTRY_INFO) {
-    ::windows_targets::link!("wininet.dll" "system" fn UrlCacheFreeEntryInfo(pcacheentryinfo : *mut URLCACHE_ENTRY_INFO) -> ());
+    ::windows_targets::link!("wininet.dll" "system" fn UrlCacheFreeEntryInfo(pcacheentryinfo : *mut URLCACHE_ENTRY_INFO));
     UrlCacheFreeEntryInfo(pcacheentryinfo)
 }
 #[inline]
@@ -7606,7 +7606,7 @@ pub type CACHE_OPERATOR = ::core::option::Option<unsafe extern "system" fn(pcei:
 pub type GOPHER_ATTRIBUTE_ENUMERATOR = ::core::option::Option<unsafe extern "system" fn(lpattributeinfo: *const GOPHER_ATTRIBUTE_TYPE, dwerror: u32) -> super::super::Foundation::BOOL>;
 pub type HTTP_POLICY_EXTENSION_INIT = ::core::option::Option<unsafe extern "system" fn(version: HTTP_POLICY_EXTENSION_VERSION, r#type: HTTP_POLICY_EXTENSION_TYPE, pvdata: *const ::core::ffi::c_void, cbdata: u32) -> u32>;
 pub type HTTP_POLICY_EXTENSION_SHUTDOWN = ::core::option::Option<unsafe extern "system" fn(r#type: HTTP_POLICY_EXTENSION_TYPE) -> u32>;
-pub type LPINTERNET_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hinternet: *const ::core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *const ::core::ffi::c_void, dwstatusinformationlength: u32) -> ()>;
+pub type LPINTERNET_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hinternet: *const ::core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *const ::core::ffi::c_void, dwstatusinformationlength: u32)>;
 pub type PFN_AUTH_NOTIFY = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

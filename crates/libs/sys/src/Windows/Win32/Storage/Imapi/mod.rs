@@ -1,4 +1,4 @@
-::windows_targets::link!("mapi32.dll" "system" fn CloseIMsgSession(lpmsgsess : LPMSGSESS) -> ());
+::windows_targets::link!("mapi32.dll" "system" fn CloseIMsgSession(lpmsgsess : LPMSGSESS));
 #[cfg(feature = "Win32_System_AddressBook")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_AddressBook\"`"] fn GetAttribIMsgOnIStg(lpobject : *mut ::core::ffi::c_void, lpproptagarray : *mut super::super::System::AddressBook:: SPropTagArray, lpppropattrarray : *mut *mut SPropAttrArray) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mapi32.dll" "system" fn MapStorageSCode(stgscode : i32) -> i32);
@@ -770,4 +770,4 @@ impl ::core::clone::Clone for tagIMMPID_GUIDLIST_ITEM {
 }
 #[doc = "Required features: `\"Win32_System_AddressBook\"`"]
 #[cfg(feature = "Win32_System_AddressBook")]
-pub type MSGCALLRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lpmessage: super::super::System::AddressBook::IMessage) -> ()>;
+pub type MSGCALLRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lpmessage: super::super::System::AddressBook::IMessage)>;

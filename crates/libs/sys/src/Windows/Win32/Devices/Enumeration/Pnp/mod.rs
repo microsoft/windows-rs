@@ -1,4 +1,4 @@
-::windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceClose(hswdevice : HSWDEVICE) -> ());
+::windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceClose(hswdevice : HSWDEVICE));
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_targets::link!("cfgmgr32.dll" "system" #[doc = "Required features: `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn SwDeviceCreate(pszenumeratorname : ::windows_sys::core::PCWSTR, pszparentdeviceinstance : ::windows_sys::core::PCWSTR, pcreateinfo : *const SW_DEVICE_CREATE_INFO, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY, pcallback : SW_DEVICE_CREATE_CALLBACK, pcontext : *const ::core::ffi::c_void, phswdevice : *mut HSWDEVICE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceGetLifetime(hswdevice : HSWDEVICE, plifetime : *mut SW_DEVICE_LIFETIME) -> ::windows_sys::core::HRESULT);
@@ -11,7 +11,7 @@
 #[cfg(feature = "Win32_Devices_Properties")]
 ::windows_targets::link!("cfgmgr32.dll" "system" #[doc = "Required features: `\"Win32_Devices_Properties\"`"] fn SwDevicePropertySet(hswdevice : HSWDEVICE, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceSetLifetime(hswdevice : HSWDEVICE, lifetime : SW_DEVICE_LIFETIME) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("cfgmgr32.dll" "system" fn SwMemFree(pmem : *const ::core::ffi::c_void) -> ());
+::windows_targets::link!("cfgmgr32.dll" "system" fn SwMemFree(pmem : *const ::core::ffi::c_void));
 pub type IUPnPAddressFamilyControl = *mut ::core::ffi::c_void;
 pub type IUPnPAsyncResult = *mut ::core::ffi::c_void;
 pub type IUPnPDescriptionDocument = *mut ::core::ffi::c_void;
@@ -128,4 +128,4 @@ impl ::core::clone::Clone for SW_DEVICE_CREATE_INFO {
         *self
     }
 }
-pub type SW_DEVICE_CREATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: ::windows_sys::core::HRESULT, pcontext: *const ::core::ffi::c_void, pszdeviceinstanceid: ::windows_sys::core::PCWSTR) -> ()>;
+pub type SW_DEVICE_CREATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: ::windows_sys::core::HRESULT, pcontext: *const ::core::ffi::c_void, pszdeviceinstanceid: ::windows_sys::core::PCWSTR)>;

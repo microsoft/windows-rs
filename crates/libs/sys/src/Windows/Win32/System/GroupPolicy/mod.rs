@@ -22,7 +22,7 @@
 ::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetGPOListA(htoken : super::super::Foundation:: HANDLE, lpname : ::windows_sys::core::PCSTR, lphostname : ::windows_sys::core::PCSTR, lpcomputername : ::windows_sys::core::PCSTR, dwflags : u32, pgpolist : *mut *mut GROUP_POLICY_OBJECTA) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetGPOListW(htoken : super::super::Foundation:: HANDLE, lpname : ::windows_sys::core::PCWSTR, lphostname : ::windows_sys::core::PCWSTR, lpcomputername : ::windows_sys::core::PCWSTR, dwflags : u32, pgpolist : *mut *mut GROUP_POLICY_OBJECTW) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn GetLocalManagedApplicationData(productcode : ::windows_sys::core::PCWSTR, displayname : *mut ::windows_sys::core::PWSTR, supporturl : *mut ::windows_sys::core::PWSTR) -> ());
+::windows_targets::link!("advapi32.dll" "system" fn GetLocalManagedApplicationData(productcode : ::windows_sys::core::PCWSTR, displayname : *mut ::windows_sys::core::PWSTR, supporturl : *mut ::windows_sys::core::PWSTR));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetLocalManagedApplications(buserapps : super::super::Foundation:: BOOL, pdwapps : *mut u32, prglocalapps : *mut *mut LOCALMANAGEDAPPLICATION) -> u32);
 #[cfg(feature = "Win32_UI_Shell")]

@@ -14,13 +14,13 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("winhttp.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WinHttpDetectAutoProxyConfigUrl(dwautodetectflags : u32, ppwstrautoconfigurl : *mut ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winhttp.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WinHttpFreeProxyResult(pproxyresult : *mut WINHTTP_PROXY_RESULT) -> ());
+::windows_targets::link!("winhttp.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WinHttpFreeProxyResult(pproxyresult : *mut WINHTTP_PROXY_RESULT));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winhttp.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WinHttpFreeProxyResultEx(pproxyresultex : *mut WINHTTP_PROXY_RESULT_EX) -> ());
+::windows_targets::link!("winhttp.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WinHttpFreeProxyResultEx(pproxyresultex : *mut WINHTTP_PROXY_RESULT_EX));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winhttp.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WinHttpFreeProxySettings(pwinhttpproxysettings : *const WINHTTP_PROXY_SETTINGS) -> ());
+::windows_targets::link!("winhttp.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WinHttpFreeProxySettings(pwinhttpproxysettings : *const WINHTTP_PROXY_SETTINGS));
 ::windows_targets::link!("winhttp.dll" "system" fn WinHttpFreeProxySettingsEx(proxysettingstype : WINHTTP_PROXY_SETTINGS_TYPE, pproxysettingsex : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("winhttp.dll" "system" fn WinHttpFreeQueryConnectionGroupResult(presult : *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT) -> ());
+::windows_targets::link!("winhttp.dll" "system" fn WinHttpFreeQueryConnectionGroupResult(presult : *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("winhttp.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WinHttpGetDefaultProxyConfiguration(pproxyinfo : *mut WINHTTP_PROXY_INFO) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -1397,5 +1397,5 @@ impl ::core::clone::Clone for WINHTTP_WEB_SOCKET_STATUS {
         *self
     }
 }
-pub type WINHTTP_PROXY_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(ullflags: u64, pvcontext: *const ::core::ffi::c_void) -> ()>;
-pub type WINHTTP_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hinternet: *mut ::core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *mut ::core::ffi::c_void, dwstatusinformationlength: u32) -> ()>;
+pub type WINHTTP_PROXY_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(ullflags: u64, pvcontext: *const ::core::ffi::c_void)>;
+pub type WINHTTP_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hinternet: *mut ::core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *mut ::core::ffi::c_void, dwstatusinformationlength: u32)>;

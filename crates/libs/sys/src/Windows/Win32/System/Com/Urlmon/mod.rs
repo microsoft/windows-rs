@@ -60,7 +60,7 @@
 ::windows_targets::link!("urlmon.dll" "system" fn RegisterMediaTypeClass(pbc : super:: IBindCtx, ctypes : u32, rgsztypes : *const ::windows_sys::core::PCSTR, rgclsid : *const ::windows_sys::core::GUID, reserved : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn RegisterMediaTypes(ctypes : u32, rgsztypes : *const ::windows_sys::core::PCSTR, rgcftypes : *mut u16) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_targets::link!("urlmon.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn ReleaseBindInfo(pbindinfo : *mut super:: BINDINFO) -> ());
+::windows_targets::link!("urlmon.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn ReleaseBindInfo(pbindinfo : *mut super:: BINDINFO));
 ::windows_targets::link!("urlmon.dll" "system" fn RevokeBindStatusCallback(pbc : super:: IBindCtx, pbscb : super:: IBindStatusCallback) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn RevokeFormatEnumerator(pbc : super:: IBindCtx, pefetc : super:: IEnumFORMATETC) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]

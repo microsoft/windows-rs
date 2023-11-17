@@ -21,7 +21,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ClosePackageInfo(packageinforeference : *const _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("kernel32.dll" "system" fn CreatePackageVirtualizationContext(packagefamilyname : ::windows_sys::core::PCWSTR, context : *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("kernel32.dll" "system" fn DeactivatePackageVirtualizationContext(cookie : usize) -> ());
+::windows_targets::link!("kernel32.dll" "system" fn DeactivatePackageVirtualizationContext(cookie : usize));
 ::windows_targets::link!("kernelbase.dll" "system" fn DeletePackageDependency(packagedependencyid : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("kernel32.dll" "system" fn DuplicatePackageVirtualizationContext(sourcecontext : PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE, destcontext : *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
@@ -100,7 +100,7 @@
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PackageNameAndPublisherIdFromFamilyName(packagefamilyname : ::windows_sys::core::PCWSTR, packagenamelength : *mut u32, packagename : ::windows_sys::core::PWSTR, packagepublisheridlength : *mut u32, packagepublisherid : ::windows_sys::core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ParseApplicationUserModelId(applicationusermodelid : ::windows_sys::core::PCWSTR, packagefamilynamelength : *mut u32, packagefamilyname : ::windows_sys::core::PWSTR, packagerelativeapplicationidlength : *mut u32, packagerelativeapplicationid : ::windows_sys::core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("kernel32.dll" "system" fn ReleasePackageVirtualizationContext(context : PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE) -> ());
+::windows_targets::link!("kernel32.dll" "system" fn ReleasePackageVirtualizationContext(context : PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE));
 ::windows_targets::link!("kernelbase.dll" "system" fn RemovePackageDependency(packagedependencycontext : PACKAGEDEPENDENCY_CONTEXT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernelbase.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TryCreatePackageDependency(user : super::super::super::Foundation:: PSID, packagefamilyname : ::windows_sys::core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : ::windows_sys::core::PCWSTR, options : CreatePackageDependencyOptions, packagedependencyid : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);

@@ -5,7 +5,7 @@ pub unsafe fn WSDAllocateLinkedMemory(pparent: *mut ::core::ffi::c_void, cbsize:
 }
 #[inline]
 pub unsafe fn WSDAttachLinkedMemory(pparent: *mut ::core::ffi::c_void, pchild: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("wsdapi.dll" "system" fn WSDAttachLinkedMemory(pparent : *mut ::core::ffi::c_void, pchild : *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("wsdapi.dll" "system" fn WSDAttachLinkedMemory(pparent : *mut ::core::ffi::c_void, pchild : *mut ::core::ffi::c_void));
     WSDAttachLinkedMemory(pparent, pchild)
 }
 #[inline]
@@ -140,12 +140,12 @@ pub unsafe fn WSDCreateUdpMessageParameters() -> ::windows_core::Result<IWSDUdpM
 }
 #[inline]
 pub unsafe fn WSDDetachLinkedMemory(pvoid: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("wsdapi.dll" "system" fn WSDDetachLinkedMemory(pvoid : *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("wsdapi.dll" "system" fn WSDDetachLinkedMemory(pvoid : *mut ::core::ffi::c_void));
     WSDDetachLinkedMemory(pvoid)
 }
 #[inline]
 pub unsafe fn WSDFreeLinkedMemory(pvoid: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("wsdapi.dll" "system" fn WSDFreeLinkedMemory(pvoid : *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("wsdapi.dll" "system" fn WSDFreeLinkedMemory(pvoid : *mut ::core::ffi::c_void));
     WSDFreeLinkedMemory(pvoid)
 }
 #[inline]

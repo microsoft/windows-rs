@@ -1,5 +1,5 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CfCloseHandle(filehandle : super::super::Foundation:: HANDLE) -> ());
+::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CfCloseHandle(filehandle : super::super::Foundation:: HANDLE));
 #[cfg(feature = "Win32_System_CorrelationVector")]
 ::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_System_CorrelationVector\"`"] fn CfConnectSyncRoot(syncrootpath : ::windows_sys::core::PCWSTR, callbacktable : *const CF_CALLBACK_REGISTRATION, callbackcontext : *const ::core::ffi::c_void, connectflags : CF_CONNECT_FLAGS, connectionkey : *mut CF_CONNECTION_KEY) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -40,9 +40,9 @@
 ::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CfReferenceProtectedHandle(protectedhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("cldapi.dll" "system" fn CfRegisterSyncRoot(syncrootpath : ::windows_sys::core::PCWSTR, registration : *const CF_SYNC_REGISTRATION, policies : *const CF_SYNC_POLICIES, registerflags : CF_REGISTER_FLAGS) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CfReleaseProtectedHandle(protectedhandle : super::super::Foundation:: HANDLE) -> ());
+::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CfReleaseProtectedHandle(protectedhandle : super::super::Foundation:: HANDLE));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CfReleaseTransferKey(filehandle : super::super::Foundation:: HANDLE, transferkey : *const i64) -> ());
+::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CfReleaseTransferKey(filehandle : super::super::Foundation:: HANDLE, transferkey : *const i64));
 ::windows_targets::link!("cldapi.dll" "system" fn CfReportProviderProgress(connectionkey : CF_CONNECTION_KEY, transferkey : i64, providerprogresstotal : i64, providerprogresscompleted : i64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("cldapi.dll" "system" fn CfReportProviderProgress2(connectionkey : CF_CONNECTION_KEY, transferkey : i64, requestkey : i64, providerprogresstotal : i64, providerprogresscompleted : i64, targetsessionid : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("cldapi.dll" "system" fn CfReportSyncStatus(syncrootpath : ::windows_sys::core::PCWSTR, syncstatus : *const CF_SYNC_STATUS) -> ::windows_sys::core::HRESULT);
@@ -940,4 +940,4 @@ impl ::core::clone::Clone for CF_SYNC_STATUS {
 }
 #[doc = "Required features: `\"Win32_System_CorrelationVector\"`"]
 #[cfg(feature = "Win32_System_CorrelationVector")]
-pub type CF_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackinfo: *const CF_CALLBACK_INFO, callbackparameters: *const CF_CALLBACK_PARAMETERS) -> ()>;
+pub type CF_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackinfo: *const CF_CALLBACK_INFO, callbackparameters: *const CF_CALLBACK_PARAMETERS)>;

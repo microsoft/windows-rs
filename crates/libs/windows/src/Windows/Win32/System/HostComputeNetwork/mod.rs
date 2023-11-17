@@ -127,7 +127,7 @@ where
 }
 #[inline]
 pub unsafe fn HcnFreeGuestNetworkPortReservations(portentries: ::core::option::Option<*mut HCN_PORT_RANGE_ENTRY>) {
-    ::windows_targets::link!("computenetwork.dll" "system" fn HcnFreeGuestNetworkPortReservations(portentries : *mut HCN_PORT_RANGE_ENTRY) -> ());
+    ::windows_targets::link!("computenetwork.dll" "system" fn HcnFreeGuestNetworkPortReservations(portentries : *mut HCN_PORT_RANGE_ENTRY));
     HcnFreeGuestNetworkPortReservations(::core::mem::transmute(portentries.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]
@@ -436,4 +436,4 @@ impl ::core::default::Default for HCN_PORT_RANGE_RESERVATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type HCN_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows_core::HRESULT, notificationdata: ::windows_core::PCWSTR) -> ()>;
+pub type HCN_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows_core::HRESULT, notificationdata: ::windows_core::PCWSTR)>;

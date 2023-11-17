@@ -33,11 +33,11 @@ pub mod Urlmon;
 ::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CoFileTimeNow(lpfiletime : *mut super::super::Foundation:: FILETIME) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CoFileTimeToDosDateTime(lpfiletime : *const super::super::Foundation:: FILETIME, lpdosdate : *mut u16, lpdostime : *mut u16) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("ole32.dll" "system" fn CoFreeAllLibraries() -> ());
+::windows_targets::link!("ole32.dll" "system" fn CoFreeAllLibraries());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CoFreeLibrary(hinst : super::super::Foundation:: HINSTANCE) -> ());
-::windows_targets::link!("ole32.dll" "system" fn CoFreeUnusedLibraries() -> ());
-::windows_targets::link!("ole32.dll" "system" fn CoFreeUnusedLibrariesEx(dwunloaddelay : u32, dwreserved : u32) -> ());
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CoFreeLibrary(hinst : super::super::Foundation:: HINSTANCE));
+::windows_targets::link!("ole32.dll" "system" fn CoFreeUnusedLibraries());
+::windows_targets::link!("ole32.dll" "system" fn CoFreeUnusedLibrariesEx(dwunloaddelay : u32, dwreserved : u32));
 ::windows_targets::link!("ole32.dll" "system" fn CoGetApartmentType(papttype : *mut APTTYPE, paptqualifier : *mut APTTYPEQUALIFIER) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoGetCallContext(riid : *const ::windows_sys::core::GUID, ppinterface : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoGetCallerTID(lpdwtid : *mut u32) -> ::windows_sys::core::HRESULT);
@@ -92,11 +92,11 @@ pub mod Urlmon;
 ::windows_targets::link!("ole32.dll" "system" fn CoSuspendClassObjects() -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoSwitchCallContext(pnewobject : ::windows_sys::core::IUnknown, ppoldobject : *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut ::core::ffi::c_void);
-::windows_targets::link!("ole32.dll" "system" fn CoTaskMemFree(pv : *const ::core::ffi::c_void) -> ());
+::windows_targets::link!("ole32.dll" "system" fn CoTaskMemFree(pv : *const ::core::ffi::c_void));
 ::windows_targets::link!("ole32.dll" "system" fn CoTaskMemRealloc(pv : *const ::core::ffi::c_void, cb : usize) -> *mut ::core::ffi::c_void);
 ::windows_targets::link!("ole32.dll" "system" fn CoTestCancel() -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoTreatAsClass(clsidold : *const ::windows_sys::core::GUID, clsidnew : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CoUninitialize() -> ());
+::windows_targets::link!("ole32.dll" "system" fn CoUninitialize());
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CoWaitForMultipleHandles(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::super::Foundation:: HANDLE, lpdwindex : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]

@@ -277,7 +277,7 @@ pub unsafe fn SerializationBufferAllocate(sizeinbytes: u32, pbuffer: *mut *mut u
 }
 #[inline]
 pub unsafe fn SerializationBufferFree(buffer: ::core::option::Option<*const u8>) {
-    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn SerializationBufferFree(buffer : *const u8) -> ());
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn SerializationBufferFree(buffer : *const u8));
     SerializationBufferFree(::core::mem::transmute(buffer.unwrap_or(::std::ptr::null())))
 }
 #[repr(transparent)]

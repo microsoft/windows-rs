@@ -1,6 +1,6 @@
 #[inline]
 pub unsafe fn McastApiCleanup() {
-    ::windows_targets::link!("dhcpcsvc.dll" "system" fn McastApiCleanup() -> ());
+    ::windows_targets::link!("dhcpcsvc.dll" "system" fn McastApiCleanup());
     McastApiCleanup()
 }
 #[inline]

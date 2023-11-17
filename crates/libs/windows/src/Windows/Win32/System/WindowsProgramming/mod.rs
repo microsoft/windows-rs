@@ -93,7 +93,7 @@ pub unsafe fn DCICloseProvider<P0>(hdc: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("dciman32.dll" "system" fn DCICloseProvider(hdc : super::super::Graphics::Gdi:: HDC) -> ());
+    ::windows_targets::link!("dciman32.dll" "system" fn DCICloseProvider(hdc : super::super::Graphics::Gdi:: HDC));
     DCICloseProvider(hdc.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -128,7 +128,7 @@ where
 }
 #[inline]
 pub unsafe fn DCIDestroy(pdci: *mut DCISURFACEINFO) {
-    ::windows_targets::link!("dciman32.dll" "system" fn DCIDestroy(pdci : *mut DCISURFACEINFO) -> ());
+    ::windows_targets::link!("dciman32.dll" "system" fn DCIDestroy(pdci : *mut DCISURFACEINFO));
     DCIDestroy(pdci)
 }
 #[inline]
@@ -138,7 +138,7 @@ pub unsafe fn DCIDraw(pdci: *mut DCIOFFSCREEN) -> i32 {
 }
 #[inline]
 pub unsafe fn DCIEndAccess(pdci: *mut DCISURFACEINFO) {
-    ::windows_targets::link!("dciman32.dll" "system" fn DCIEndAccess(pdci : *mut DCISURFACEINFO) -> ());
+    ::windows_targets::link!("dciman32.dll" "system" fn DCIEndAccess(pdci : *mut DCISURFACEINFO));
     DCIEndAccess(pdci)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
@@ -689,7 +689,7 @@ pub unsafe fn GlobalFix<P0>(hmem: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HGLOBAL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GlobalFix(hmem : super::super::Foundation:: HGLOBAL) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn GlobalFix(hmem : super::super::Foundation:: HGLOBAL));
     GlobalFix(hmem.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -709,7 +709,7 @@ pub unsafe fn GlobalUnfix<P0>(hmem: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HGLOBAL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GlobalUnfix(hmem : super::super::Foundation:: HGLOBAL) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn GlobalUnfix(hmem : super::super::Foundation:: HGLOBAL));
     GlobalUnfix(hmem.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -941,14 +941,14 @@ pub unsafe fn QueryIdleProcessorCycleTimeEx(group: u16, bufferlength: *mut u32, 
 }
 #[inline]
 pub unsafe fn QueryInterruptTime() -> u64 {
-    ::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryInterruptTime(lpinterrupttime : *mut u64) -> ());
+    ::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryInterruptTime(lpinterrupttime : *mut u64));
     let mut result__ = ::std::mem::zeroed();
     QueryInterruptTime(&mut result__);
     ::std::mem::transmute(result__)
 }
 #[inline]
 pub unsafe fn QueryInterruptTimePrecise() -> u64 {
-    ::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryInterruptTimePrecise(lpinterrupttimeprecise : *mut u64) -> ());
+    ::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryInterruptTimePrecise(lpinterrupttimeprecise : *mut u64));
     let mut result__ = ::std::mem::zeroed();
     QueryInterruptTimePrecise(&mut result__);
     ::std::mem::transmute(result__)
@@ -982,7 +982,7 @@ pub unsafe fn QueryUnbiasedInterruptTime(unbiasedtime: *mut u64) -> super::super
 }
 #[inline]
 pub unsafe fn QueryUnbiasedInterruptTimePrecise() -> u64 {
-    ::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise : *mut u64) -> ());
+    ::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise : *mut u64));
     let mut result__ = ::std::mem::zeroed();
     QueryUnbiasedInterruptTimePrecise(&mut result__);
     ::std::mem::transmute(result__)
@@ -1018,7 +1018,7 @@ where
 }
 #[inline]
 pub unsafe fn RecordFeatureError(featureid: u32, error: *const FEATURE_ERROR) {
-    ::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn RecordFeatureError(featureid : u32, error : *const FEATURE_ERROR) -> ());
+    ::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn RecordFeatureError(featureid : u32, error : *const FEATURE_ERROR));
     RecordFeatureError(featureid, error)
 }
 #[inline]
@@ -1026,7 +1026,7 @@ pub unsafe fn RecordFeatureUsage<P0>(featureid: u32, kind: u32, addend: u32, ori
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn RecordFeatureUsage(featureid : u32, kind : u32, addend : u32, originname : ::windows_core::PCSTR) -> ());
+    ::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn RecordFeatureUsage(featureid : u32, kind : u32, addend : u32, originname : ::windows_core::PCSTR));
     RecordFeatureUsage(featureid, kind, addend, originname.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1177,21 +1177,21 @@ pub unsafe fn RtlCharToInteger(string: *mut i8, base: u32, value: *mut u32) -> s
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlFreeAnsiString(ansistring: *mut super::Kernel::STRING) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlFreeAnsiString(ansistring : *mut super::Kernel:: STRING) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlFreeAnsiString(ansistring : *mut super::Kernel:: STRING));
     RtlFreeAnsiString(ansistring)
 }
 #[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlFreeOemString(oemstring: *mut super::Kernel::STRING) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlFreeOemString(oemstring : *mut super::Kernel:: STRING) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlFreeOemString(oemstring : *mut super::Kernel:: STRING));
     RtlFreeOemString(oemstring)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlFreeUnicodeString(unicodestring: *mut super::super::Foundation::UNICODE_STRING) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlFreeUnicodeString(unicodestring : *mut super::super::Foundation:: UNICODE_STRING) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlFreeUnicodeString(unicodestring : *mut super::super::Foundation:: UNICODE_STRING));
     RtlFreeUnicodeString(unicodestring)
 }
 #[inline]
@@ -1203,7 +1203,7 @@ pub unsafe fn RtlGetReturnAddressHijackTarget() -> usize {
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlInitAnsiString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitAnsiString(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut i8) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitAnsiString(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut i8));
     RtlInitAnsiString(destinationstring, sourcestring)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -1217,7 +1217,7 @@ pub unsafe fn RtlInitAnsiStringEx(destinationstring: *mut super::Kernel::STRING,
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlInitString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8) {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitString(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut i8) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitString(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut i8));
     RtlInitString(destinationstring, sourcestring)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -1234,7 +1234,7 @@ pub unsafe fn RtlInitUnicodeString<P0>(destinationstring: *mut super::super::Fou
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitUnicodeString(destinationstring : *mut super::super::Foundation:: UNICODE_STRING, sourcestring : ::windows_core::PCWSTR) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitUnicodeString(destinationstring : *mut super::super::Foundation:: UNICODE_STRING, sourcestring : ::windows_core::PCWSTR));
     RtlInitUnicodeString(destinationstring, sourcestring.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`"]
@@ -1433,7 +1433,7 @@ pub unsafe fn SetPerUserSecValuesW(pperuser: *mut PERUSERSECTIONW) -> ::windows_
 }
 #[inline]
 pub unsafe fn SubscribeFeatureStateChangeNotification(subscription: *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: PFEATURE_STATE_CHANGE_CALLBACK, context: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn SubscribeFeatureStateChangeNotification(subscription : *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback : PFEATURE_STATE_CHANGE_CALLBACK, context : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn SubscribeFeatureStateChangeNotification(subscription : *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback : PFEATURE_STATE_CHANGE_CALLBACK, context : *const ::core::ffi::c_void));
     SubscribeFeatureStateChangeNotification(subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())))
 }
 #[inline]
@@ -1483,7 +1483,7 @@ pub unsafe fn UnsubscribeFeatureStateChangeNotification<P0>(subscription: P0)
 where
     P0: ::windows_core::IntoParam<FEATURE_STATE_CHANGE_SUBSCRIPTION>,
 {
-    ::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn UnsubscribeFeatureStateChangeNotification(subscription : FEATURE_STATE_CHANGE_SUBSCRIPTION) -> ());
+    ::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn UnsubscribeFeatureStateChangeNotification(subscription : FEATURE_STATE_CHANGE_SUBSCRIPTION));
     UnsubscribeFeatureStateChangeNotification(subscription.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1570,7 +1570,7 @@ pub unsafe fn WinWatchClose<P0>(hww: P0)
 where
     P0: ::windows_core::IntoParam<HWINWATCH>,
 {
-    ::windows_targets::link!("dciman32.dll" "system" fn WinWatchClose(hww : HWINWATCH) -> ());
+    ::windows_targets::link!("dciman32.dll" "system" fn WinWatchClose(hww : HWINWATCH));
     WinWatchClose(hww.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -6002,9 +6002,9 @@ impl ::core::default::Default for WLDP_HOST_INFORMATION {
     }
 }
 pub type APPLICATION_RECOVERY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparameter: *mut ::core::ffi::c_void) -> u32>;
-pub type ENUM_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lpsurfaceinfo: *mut DCISURFACEINFO, lpcontext: *mut ::core::ffi::c_void) -> ()>;
+pub type ENUM_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lpsurfaceinfo: *mut DCISURFACEINFO, lpcontext: *mut ::core::ffi::c_void)>;
 pub type PDELAYLOAD_FAILURE_DLL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationreason: u32, delayloadinfo: *const DELAYLOAD_INFO) -> *mut ::core::ffi::c_void>;
-pub type PFEATURE_STATE_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> ()>;
+pub type PFEATURE_STATE_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 pub type PFIBER_CALLOUT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpparameter: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6052,6 +6052,6 @@ pub type PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_API = ::core::option::Option<unsafe
 pub type REGINSTALLA = ::core::option::Option<unsafe extern "system" fn(hm: super::super::Foundation::HMODULE, pszsection: ::windows_core::PCSTR, psttable: *const STRTABLEA) -> ::windows_core::HRESULT>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WINWATCHNOTIFYPROC = ::core::option::Option<unsafe extern "system" fn(hww: HWINWATCH, hwnd: super::super::Foundation::HWND, code: u32, lparam: super::super::Foundation::LPARAM) -> ()>;
+pub type WINWATCHNOTIFYPROC = ::core::option::Option<unsafe extern "system" fn(hww: HWINWATCH, hwnd: super::super::Foundation::HWND, code: u32, lparam: super::super::Foundation::LPARAM)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

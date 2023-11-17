@@ -159,14 +159,14 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("activeds.dll" "system" fn ADsSetLastError(dwerr : u32, pszerror : ::windows_core::PCWSTR, pszprovider : ::windows_core::PCWSTR) -> ());
+    ::windows_targets::link!("activeds.dll" "system" fn ADsSetLastError(dwerr : u32, pszerror : ::windows_core::PCWSTR, pszprovider : ::windows_core::PCWSTR));
     ADsSetLastError(dwerr, pszerror.into_param().abi(), pszprovider.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AdsFreeAdsValues(padsvalues: *mut ADSVALUE, dwnumvalues: u32) {
-    ::windows_targets::link!("activeds.dll" "system" fn AdsFreeAdsValues(padsvalues : *mut ADSVALUE, dwnumvalues : u32) -> ());
+    ::windows_targets::link!("activeds.dll" "system" fn AdsFreeAdsValues(padsvalues : *mut ADSVALUE, dwnumvalues : u32));
     AdsFreeAdsValues(padsvalues, dwnumvalues)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -570,47 +570,47 @@ where
 }
 #[inline]
 pub unsafe fn DsFreeDomainControllerInfoA(infolevel: u32, pinfo: &[u8]) {
-    ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoA(infolevel : u32, cinfo : u32, pinfo : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoA(infolevel : u32, cinfo : u32, pinfo : *const ::core::ffi::c_void));
     DsFreeDomainControllerInfoA(infolevel, pinfo.len().try_into().unwrap(), ::core::mem::transmute(pinfo.as_ptr()))
 }
 #[inline]
 pub unsafe fn DsFreeDomainControllerInfoW(infolevel: u32, pinfo: &[u8]) {
-    ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoW(infolevel : u32, cinfo : u32, pinfo : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoW(infolevel : u32, cinfo : u32, pinfo : *const ::core::ffi::c_void));
     DsFreeDomainControllerInfoW(infolevel, pinfo.len().try_into().unwrap(), ::core::mem::transmute(pinfo.as_ptr()))
 }
 #[inline]
 pub unsafe fn DsFreeNameResultA(presult: *const DS_NAME_RESULTA) {
-    ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeNameResultA(presult : *const DS_NAME_RESULTA) -> ());
+    ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeNameResultA(presult : *const DS_NAME_RESULTA));
     DsFreeNameResultA(presult)
 }
 #[inline]
 pub unsafe fn DsFreeNameResultW(presult: *const DS_NAME_RESULTW) {
-    ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeNameResultW(presult : *const DS_NAME_RESULTW) -> ());
+    ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeNameResultW(presult : *const DS_NAME_RESULTW));
     DsFreeNameResultW(presult)
 }
 #[inline]
 pub unsafe fn DsFreePasswordCredentials(authidentity: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreePasswordCredentials(authidentity : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreePasswordCredentials(authidentity : *const ::core::ffi::c_void));
     DsFreePasswordCredentials(authidentity)
 }
 #[inline]
 pub unsafe fn DsFreeSchemaGuidMapA(pguidmap: *const DS_SCHEMA_GUID_MAPA) {
-    ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeSchemaGuidMapA(pguidmap : *const DS_SCHEMA_GUID_MAPA) -> ());
+    ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeSchemaGuidMapA(pguidmap : *const DS_SCHEMA_GUID_MAPA));
     DsFreeSchemaGuidMapA(pguidmap)
 }
 #[inline]
 pub unsafe fn DsFreeSchemaGuidMapW(pguidmap: *const DS_SCHEMA_GUID_MAPW) {
-    ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeSchemaGuidMapW(pguidmap : *const DS_SCHEMA_GUID_MAPW) -> ());
+    ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeSchemaGuidMapW(pguidmap : *const DS_SCHEMA_GUID_MAPW));
     DsFreeSchemaGuidMapW(pguidmap)
 }
 #[inline]
 pub unsafe fn DsFreeSpnArrayA(rpszspn: &mut [::windows_core::PSTR]) {
-    ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayA(cspn : u32, rpszspn : *mut ::windows_core::PSTR) -> ());
+    ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayA(cspn : u32, rpszspn : *mut ::windows_core::PSTR));
     DsFreeSpnArrayA(rpszspn.len().try_into().unwrap(), ::core::mem::transmute(rpszspn.as_ptr()))
 }
 #[inline]
 pub unsafe fn DsFreeSpnArrayW(rpszspn: &mut [::windows_core::PWSTR]) {
-    ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayW(cspn : u32, rpszspn : *mut ::windows_core::PWSTR) -> ());
+    ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayW(cspn : u32, rpszspn : *mut ::windows_core::PWSTR));
     DsFreeSpnArrayW(rpszspn.len().try_into().unwrap(), ::core::mem::transmute(rpszspn.as_ptr()))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -620,7 +620,7 @@ pub unsafe fn DsGetDcCloseW<P0>(getdccontexthandle: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn DsGetDcCloseW(getdccontexthandle : super::super::Foundation:: HANDLE) -> ());
+    ::windows_targets::link!("netapi32.dll" "system" fn DsGetDcCloseW(getdccontexthandle : super::super::Foundation:: HANDLE));
     DsGetDcCloseW(getdccontexthandle.into_param().abi())
 }
 #[inline]
@@ -1077,7 +1077,7 @@ where
 }
 #[inline]
 pub unsafe fn DsQuerySitesFree(rgsiteinfo: *const DS_SITE_COST_INFO) {
-    ::windows_targets::link!("ntdsapi.dll" "system" fn DsQuerySitesFree(rgsiteinfo : *const DS_SITE_COST_INFO) -> ());
+    ::windows_targets::link!("ntdsapi.dll" "system" fn DsQuerySitesFree(rgsiteinfo : *const DS_SITE_COST_INFO));
     DsQuerySitesFree(rgsiteinfo)
 }
 #[inline]
@@ -1202,7 +1202,7 @@ where
 }
 #[inline]
 pub unsafe fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaFreeInfo(infotype : DS_REPL_INFO_TYPE, pinfo : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaFreeInfo(infotype : DS_REPL_INFO_TYPE, pinfo : *const ::core::ffi::c_void));
     DsReplicaFreeInfo(infotype, pinfo)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1347,7 +1347,7 @@ where
 }
 #[inline]
 pub unsafe fn DsRoleFreeMemory(buffer: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("netapi32.dll" "system" fn DsRoleFreeMemory(buffer : *mut ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("netapi32.dll" "system" fn DsRoleFreeMemory(buffer : *mut ::core::ffi::c_void));
     DsRoleFreeMemory(buffer)
 }
 #[inline]

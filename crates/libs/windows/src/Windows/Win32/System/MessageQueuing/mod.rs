@@ -57,7 +57,7 @@ where
 }
 #[inline]
 pub unsafe fn MQFreeMemory(pvmemory: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQFreeMemory(pvmemory : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("mqrt.dll" "system" fn MQFreeMemory(pvmemory : *const ::core::ffi::c_void));
     MQFreeMemory(pvmemory)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -67,7 +67,7 @@ pub unsafe fn MQFreeSecurityContext<P0>(hsecuritycontext: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQFreeSecurityContext(hsecuritycontext : super::super::Foundation:: HANDLE) -> ());
+    ::windows_targets::link!("mqrt.dll" "system" fn MQFreeSecurityContext(hsecuritycontext : super::super::Foundation:: HANDLE));
     MQFreeSecurityContext(hsecuritycontext.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -7813,6 +7813,6 @@ impl ::core::default::Default for SEQUENCE_INFO {
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_IO\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_IO", feature = "Win32_System_Variant"))]
-pub type PMQRECEIVECALLBACK = ::core::option::Option<unsafe extern "system" fn(hrstatus: ::windows_core::HRESULT, hsource: isize, dwtimeout: u32, dwaction: u32, pmessageprops: *mut MQMSGPROPS, lpoverlapped: *mut super::IO::OVERLAPPED, hcursor: super::super::Foundation::HANDLE) -> ()>;
+pub type PMQRECEIVECALLBACK = ::core::option::Option<unsafe extern "system" fn(hrstatus: ::windows_core::HRESULT, hsource: isize, dwtimeout: u32, dwaction: u32, pmessageprops: *mut MQMSGPROPS, lpoverlapped: *mut super::IO::OVERLAPPED, hcursor: super::super::Foundation::HANDLE)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -3,7 +3,7 @@ pub unsafe fn SwDeviceClose<P0>(hswdevice: P0)
 where
     P0: ::windows_core::IntoParam<HSWDEVICE>,
 {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceClose(hswdevice : HSWDEVICE) -> ());
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceClose(hswdevice : HSWDEVICE));
     SwDeviceClose(hswdevice.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
@@ -83,7 +83,7 @@ where
 }
 #[inline]
 pub unsafe fn SwMemFree(pmem: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn SwMemFree(pmem : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn SwMemFree(pmem : *const ::core::ffi::c_void));
     SwMemFree(pmem)
 }
 #[repr(transparent)]
@@ -1422,6 +1422,6 @@ impl ::core::default::Default for SW_DEVICE_CREATE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type SW_DEVICE_CREATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: ::windows_core::HRESULT, pcontext: *const ::core::ffi::c_void, pszdeviceinstanceid: ::windows_core::PCWSTR) -> ()>;
+pub type SW_DEVICE_CREATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: ::windows_core::HRESULT, pcontext: *const ::core::ffi::c_void, pszdeviceinstanceid: ::windows_core::PCWSTR)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

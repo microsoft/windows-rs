@@ -116,7 +116,7 @@ impl ID3D10Buffer_Vtbl {
     }
 }
 pub trait ID3D10Counter_Impl: Sized + ID3D10Asynchronous_Impl {
-    fn GetDesc(&self, pdesc: *mut D3D10_COUNTER_DESC) -> ();
+    fn GetDesc(&self, pdesc: *mut D3D10_COUNTER_DESC);
 }
 impl ::windows_core::RuntimeName for ID3D10Counter {}
 impl ID3D10Counter_Vtbl {
@@ -287,16 +287,16 @@ pub trait ID3D10Device_Impl: Sized {
     fn ResolveSubresource(&self, pdstresource: ::core::option::Option<&ID3D10Resource>, dstsubresource: u32, psrcresource: ::core::option::Option<&ID3D10Resource>, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT);
     fn VSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D10Buffer>);
     fn PSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D10ShaderResourceView>);
-    fn PSGetShader(&self, pppixelshader: *mut ::core::option::Option<ID3D10PixelShader>) -> ();
+    fn PSGetShader(&self, pppixelshader: *mut ::core::option::Option<ID3D10PixelShader>);
     fn PSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D10SamplerState>);
-    fn VSGetShader(&self, ppvertexshader: *mut ::core::option::Option<ID3D10VertexShader>) -> ();
+    fn VSGetShader(&self, ppvertexshader: *mut ::core::option::Option<ID3D10VertexShader>);
     fn PSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D10Buffer>);
-    fn IAGetInputLayout(&self, ppinputlayout: *mut ::core::option::Option<ID3D10InputLayout>) -> ();
+    fn IAGetInputLayout(&self, ppinputlayout: *mut ::core::option::Option<ID3D10InputLayout>);
     fn IAGetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *mut ::core::option::Option<ID3D10Buffer>, pstrides: *mut u32, poffsets: *mut u32);
     fn IAGetIndexBuffer(&self, pindexbuffer: *mut ::core::option::Option<ID3D10Buffer>, format: *mut super::Dxgi::Common::DXGI_FORMAT, offset: *mut u32);
     fn GSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D10Buffer>);
-    fn GSGetShader(&self, ppgeometryshader: *mut ::core::option::Option<ID3D10GeometryShader>) -> ();
-    fn IAGetPrimitiveTopology(&self, ptopology: *mut super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) -> ();
+    fn GSGetShader(&self, ppgeometryshader: *mut ::core::option::Option<ID3D10GeometryShader>);
+    fn IAGetPrimitiveTopology(&self, ptopology: *mut super::Direct3D::D3D_PRIMITIVE_TOPOLOGY);
     fn VSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D10ShaderResourceView>);
     fn VSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D10SamplerState>);
     fn GetPredication(&self, pppredicate: *mut ::core::option::Option<ID3D10Predicate>, ppredicatevalue: *mut super::super::Foundation::BOOL);
@@ -306,7 +306,7 @@ pub trait ID3D10Device_Impl: Sized {
     fn OMGetBlendState(&self, ppblendstate: *mut ::core::option::Option<ID3D10BlendState>, blendfactor: *mut f32, psamplemask: *mut u32);
     fn OMGetDepthStencilState(&self, ppdepthstencilstate: *mut ::core::option::Option<ID3D10DepthStencilState>, pstencilref: *mut u32);
     fn SOGetTargets(&self, numbuffers: u32, ppsotargets: *mut ::core::option::Option<ID3D10Buffer>, poffsets: *mut u32);
-    fn RSGetState(&self, pprasterizerstate: *mut ::core::option::Option<ID3D10RasterizerState>) -> ();
+    fn RSGetState(&self, pprasterizerstate: *mut ::core::option::Option<ID3D10RasterizerState>);
     fn RSGetViewports(&self, numviewports: *mut u32, pviewports: *mut D3D10_VIEWPORT);
     fn RSGetScissorRects(&self, numrects: *mut u32, prects: *mut super::super::Foundation::RECT);
     fn GetDeviceRemovedReason(&self) -> ::windows_core::Result<()>;
@@ -338,7 +338,7 @@ pub trait ID3D10Device_Impl: Sized {
     fn CreateCounter(&self, pcounterdesc: *const D3D10_COUNTER_DESC, ppcounter: *mut ::core::option::Option<ID3D10Counter>) -> ::windows_core::Result<()>;
     fn CheckFormatSupport(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows_core::Result<u32>;
     fn CheckMultisampleQualityLevels(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32) -> ::windows_core::Result<u32>;
-    fn CheckCounterInfo(&self, pcounterinfo: *mut D3D10_COUNTER_INFO) -> ();
+    fn CheckCounterInfo(&self, pcounterinfo: *mut D3D10_COUNTER_INFO);
     fn CheckCounter(&self, pdesc: *const D3D10_COUNTER_DESC, ptype: *mut D3D10_COUNTER_TYPE, pactivecounters: *mut u32, szname: ::windows_core::PSTR, pnamelength: *mut u32, szunits: ::windows_core::PSTR, punitslength: *mut u32, szdescription: ::windows_core::PSTR, pdescriptionlength: *mut u32) -> ::windows_core::Result<()>;
     fn GetCreationFlags(&self) -> u32;
     fn OpenSharedResource(&self, hresource: super::super::Foundation::HANDLE, returnedinterface: *const ::windows_core::GUID, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -997,7 +997,7 @@ impl ID3D10Device1_Vtbl {
     }
 }
 pub trait ID3D10DeviceChild_Impl: Sized {
-    fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D10Device>) -> ();
+    fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D10Device>);
     fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn SetPrivateDataInterface(&self, guid: *const ::windows_core::GUID, pdata: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -2831,7 +2831,7 @@ impl ID3D10Predicate_Vtbl {
     }
 }
 pub trait ID3D10Query_Impl: Sized + ID3D10Asynchronous_Impl {
-    fn GetDesc(&self, pdesc: *mut D3D10_QUERY_DESC) -> ();
+    fn GetDesc(&self, pdesc: *mut D3D10_QUERY_DESC);
 }
 impl ::windows_core::RuntimeName for ID3D10Query {}
 impl ID3D10Query_Vtbl {
@@ -2890,7 +2890,7 @@ impl ID3D10RenderTargetView_Vtbl {
     }
 }
 pub trait ID3D10Resource_Impl: Sized + ID3D10DeviceChild_Impl {
-    fn GetType(&self, rtype: *mut D3D10_RESOURCE_DIMENSION) -> ();
+    fn GetType(&self, rtype: *mut D3D10_RESOURCE_DIMENSION);
     fn SetEvictionPriority(&self, evictionpriority: u32);
     fn GetEvictionPriority(&self) -> u32;
 }
@@ -3548,7 +3548,7 @@ impl ID3D10VertexShader_Vtbl {
     }
 }
 pub trait ID3D10View_Impl: Sized + ID3D10DeviceChild_Impl {
-    fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D10Resource>) -> ();
+    fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D10Resource>);
 }
 impl ::windows_core::RuntimeName for ID3D10View {}
 impl ID3D10View_Vtbl {

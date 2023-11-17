@@ -116,12 +116,12 @@ pub unsafe fn GetRestrictedErrorInfo() -> ::windows_core::Result<IRestrictedErro
 }
 #[inline]
 pub unsafe fn HSTRING_UserFree(param0: *const u32, param1: *const ::windows_core::HSTRING) {
-    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserFree(param0 : *const u32, param1 : *const ::std::mem::MaybeUninit <::windows_core::HSTRING >) -> ());
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserFree(param0 : *const u32, param1 : *const ::std::mem::MaybeUninit <::windows_core::HSTRING >));
     HSTRING_UserFree(param0, ::core::mem::transmute(param1))
 }
 #[inline]
 pub unsafe fn HSTRING_UserFree64(param0: *const u32, param1: *const ::windows_core::HSTRING) {
-    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserFree64(param0 : *const u32, param1 : *const ::std::mem::MaybeUninit <::windows_core::HSTRING >) -> ());
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserFree64(param0 : *const u32, param1 : *const ::std::mem::MaybeUninit <::windows_core::HSTRING >));
     HSTRING_UserFree64(param0, ::core::mem::transmute(param1))
 }
 #[inline]
@@ -174,12 +174,12 @@ pub unsafe fn RoCaptureErrorContext(hr: ::windows_core::HRESULT) -> ::windows_co
 }
 #[inline]
 pub unsafe fn RoClearError() {
-    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoClearError() -> ());
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoClearError());
     RoClearError()
 }
 #[inline]
 pub unsafe fn RoFailFastWithErrorContext(hrerror: ::windows_core::HRESULT) {
-    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoFailFastWithErrorContext(hrerror : ::windows_core::HRESULT) -> ());
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoFailFastWithErrorContext(hrerror : ::windows_core::HRESULT));
     RoFailFastWithErrorContext(hrerror)
 }
 #[inline]
@@ -316,7 +316,7 @@ pub unsafe fn RoRevokeActivationFactories<P0>(cookie: P0)
 where
     P0: ::windows_core::IntoParam<RO_REGISTRATION_COOKIE>,
 {
-    ::windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRevokeActivationFactories(cookie : RO_REGISTRATION_COOKIE) -> ());
+    ::windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRevokeActivationFactories(cookie : RO_REGISTRATION_COOKIE));
     RoRevokeActivationFactories(cookie.into_param().abi())
 }
 #[inline]
@@ -340,7 +340,7 @@ pub unsafe fn RoTransformErrorW(olderror: ::windows_core::HRESULT, newerror: ::w
 }
 #[inline]
 pub unsafe fn RoUninitialize() {
-    ::windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoUninitialize() -> ());
+    ::windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoUninitialize());
     RoUninitialize()
 }
 #[inline]

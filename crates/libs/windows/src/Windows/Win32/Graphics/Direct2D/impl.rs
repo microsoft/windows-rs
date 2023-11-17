@@ -84,7 +84,7 @@ impl ID2D1Bitmap_Vtbl {
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID2D1Bitmap1_Impl: Sized + ID2D1Bitmap_Impl {
-    fn GetColorContext(&self, colorcontext: *mut ::core::option::Option<ID2D1ColorContext>) -> ();
+    fn GetColorContext(&self, colorcontext: *mut ::core::option::Option<ID2D1ColorContext>);
     fn GetOptions(&self) -> D2D1_BITMAP_OPTIONS;
     fn GetSurface(&self) -> ::windows_core::Result<super::Dxgi::IDXGISurface>;
     fn Map(&self, options: D2D1_MAP_OPTIONS) -> ::windows_core::Result<D2D1_MAPPED_RECT>;
@@ -155,7 +155,7 @@ pub trait ID2D1BitmapBrush_Impl: Sized + ID2D1Brush_Impl {
     fn GetExtendModeX(&self) -> D2D1_EXTEND_MODE;
     fn GetExtendModeY(&self) -> D2D1_EXTEND_MODE;
     fn GetInterpolationMode(&self) -> D2D1_BITMAP_INTERPOLATION_MODE;
-    fn GetBitmap(&self, bitmap: *mut ::core::option::Option<ID2D1Bitmap>) -> ();
+    fn GetBitmap(&self, bitmap: *mut ::core::option::Option<ID2D1Bitmap>);
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::windows_core::RuntimeName for ID2D1BitmapBrush {}
@@ -356,7 +356,7 @@ impl ID2D1BorderTransform_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1BoundsAdjustmentTransform_Impl: Sized + ID2D1TransformNode_Impl {
     fn SetOutputBounds(&self, outputbounds: *const super::super::Foundation::RECT);
-    fn GetOutputBounds(&self, outputbounds: *mut super::super::Foundation::RECT) -> ();
+    fn GetOutputBounds(&self, outputbounds: *mut super::super::Foundation::RECT);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID2D1BoundsAdjustmentTransform {}
@@ -1260,11 +1260,11 @@ pub trait ID2D1DeviceContext_Impl: Sized + ID2D1RenderTarget_Impl {
     fn GetImageLocalBounds(&self, image: ::core::option::Option<&ID2D1Image>) -> ::windows_core::Result<Common::D2D_RECT_F>;
     fn GetImageWorldBounds(&self, image: ::core::option::Option<&ID2D1Image>) -> ::windows_core::Result<Common::D2D_RECT_F>;
     fn GetGlyphRunWorldBounds(&self, baselineorigin: &Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> ::windows_core::Result<Common::D2D_RECT_F>;
-    fn GetDevice(&self, device: *mut ::core::option::Option<ID2D1Device>) -> ();
+    fn GetDevice(&self, device: *mut ::core::option::Option<ID2D1Device>);
     fn SetTarget(&self, image: ::core::option::Option<&ID2D1Image>);
-    fn GetTarget(&self, image: *mut ::core::option::Option<ID2D1Image>) -> ();
+    fn GetTarget(&self, image: *mut ::core::option::Option<ID2D1Image>);
     fn SetRenderingControls(&self, renderingcontrols: *const D2D1_RENDERING_CONTROLS);
-    fn GetRenderingControls(&self, renderingcontrols: *mut D2D1_RENDERING_CONTROLS) -> ();
+    fn GetRenderingControls(&self, renderingcontrols: *mut D2D1_RENDERING_CONTROLS);
     fn SetPrimitiveBlend(&self, primitiveblend: D2D1_PRIMITIVE_BLEND);
     fn GetPrimitiveBlend(&self) -> D2D1_PRIMITIVE_BLEND;
     fn SetUnitMode(&self, unitmode: D2D1_UNIT_MODE);
@@ -2071,7 +2071,7 @@ pub trait ID2D1DrawingStateBlock_Impl: Sized + ID2D1Resource_Impl {
     fn GetDescription(&self, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION);
     fn SetDescription(&self, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION);
     fn SetTextRenderingParams(&self, textrenderingparams: ::core::option::Option<&super::DirectWrite::IDWriteRenderingParams>);
-    fn GetTextRenderingParams(&self, textrenderingparams: *mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>) -> ();
+    fn GetTextRenderingParams(&self, textrenderingparams: *mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
 impl ::windows_core::RuntimeName for ID2D1DrawingStateBlock {}
@@ -2146,9 +2146,9 @@ impl ID2D1DrawingStateBlock1_Vtbl {
 pub trait ID2D1Effect_Impl: Sized + ID2D1Properties_Impl {
     fn SetInput(&self, index: u32, input: ::core::option::Option<&ID2D1Image>, invalidate: super::super::Foundation::BOOL);
     fn SetInputCount(&self, inputcount: u32) -> ::windows_core::Result<()>;
-    fn GetInput(&self, index: u32, input: *mut ::core::option::Option<ID2D1Image>) -> ();
+    fn GetInput(&self, index: u32, input: *mut ::core::option::Option<ID2D1Image>);
     fn GetInputCount(&self) -> u32;
-    fn GetOutput(&self, outputimage: *mut ::core::option::Option<ID2D1Image>) -> ();
+    fn GetOutput(&self, outputimage: *mut ::core::option::Option<ID2D1Image>);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID2D1Effect {}
@@ -2548,7 +2548,7 @@ impl ID2D1EffectImpl_Vtbl {
 #[doc = "Required features: `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait ID2D1EllipseGeometry_Impl: Sized + ID2D1Geometry_Impl {
-    fn GetEllipse(&self, ellipse: *mut D2D1_ELLIPSE) -> ();
+    fn GetEllipse(&self, ellipse: *mut D2D1_ELLIPSE);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::windows_core::RuntimeName for ID2D1EllipseGeometry {}
@@ -3617,11 +3617,11 @@ pub trait ID2D1ImageBrush_Impl: Sized + ID2D1Brush_Impl {
     fn SetExtendModeY(&self, extendmodey: D2D1_EXTEND_MODE);
     fn SetInterpolationMode(&self, interpolationmode: D2D1_INTERPOLATION_MODE);
     fn SetSourceRectangle(&self, sourcerectangle: *const Common::D2D_RECT_F);
-    fn GetImage(&self, image: *mut ::core::option::Option<ID2D1Image>) -> ();
+    fn GetImage(&self, image: *mut ::core::option::Option<ID2D1Image>);
     fn GetExtendModeX(&self) -> D2D1_EXTEND_MODE;
     fn GetExtendModeY(&self) -> D2D1_EXTEND_MODE;
     fn GetInterpolationMode(&self) -> D2D1_INTERPOLATION_MODE;
-    fn GetSourceRectangle(&self, sourcerectangle: *mut Common::D2D_RECT_F) -> ();
+    fn GetSourceRectangle(&self, sourcerectangle: *mut Common::D2D_RECT_F);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::windows_core::RuntimeName for ID2D1ImageBrush {}
@@ -3738,7 +3738,7 @@ impl ID2D1ImageSource_Vtbl {
 pub trait ID2D1ImageSourceFromWic_Impl: Sized + ID2D1ImageSource_Impl {
     fn EnsureCached(&self, rectangletofill: *const Common::D2D_RECT_U) -> ::windows_core::Result<()>;
     fn TrimCache(&self, rectangletopreserve: *const Common::D2D_RECT_U) -> ::windows_core::Result<()>;
-    fn GetSource(&self, wicbitmapsource: *mut ::core::option::Option<super::Imaging::IWICBitmapSource>) -> ();
+    fn GetSource(&self, wicbitmapsource: *mut ::core::option::Option<super::Imaging::IWICBitmapSource>);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging"))]
 impl ::windows_core::RuntimeName for ID2D1ImageSourceFromWic {}
@@ -3937,7 +3937,7 @@ pub trait ID2D1LinearGradientBrush_Impl: Sized + ID2D1Brush_Impl {
     fn SetEndPoint(&self, endpoint: &Common::D2D_POINT_2F);
     fn GetStartPoint(&self) -> Common::D2D_POINT_2F;
     fn GetEndPoint(&self) -> Common::D2D_POINT_2F;
-    fn GetGradientStopCollection(&self, gradientstopcollection: *mut ::core::option::Option<ID2D1GradientStopCollection>) -> ();
+    fn GetGradientStopCollection(&self, gradientstopcollection: *mut ::core::option::Option<ID2D1GradientStopCollection>);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::windows_core::RuntimeName for ID2D1LinearGradientBrush {}
@@ -4309,7 +4309,7 @@ pub trait ID2D1RadialGradientBrush_Impl: Sized + ID2D1Brush_Impl {
     fn GetGradientOriginOffset(&self) -> Common::D2D_POINT_2F;
     fn GetRadiusX(&self) -> f32;
     fn GetRadiusY(&self) -> f32;
-    fn GetGradientStopCollection(&self, gradientstopcollection: *mut ::core::option::Option<ID2D1GradientStopCollection>) -> ();
+    fn GetGradientStopCollection(&self, gradientstopcollection: *mut ::core::option::Option<ID2D1GradientStopCollection>);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::windows_core::RuntimeName for ID2D1RadialGradientBrush {}
@@ -4381,7 +4381,7 @@ impl ID2D1RadialGradientBrush_Vtbl {
 #[doc = "Required features: `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait ID2D1RectangleGeometry_Impl: Sized + ID2D1Geometry_Impl {
-    fn GetRect(&self, rect: *mut Common::D2D_RECT_F) -> ();
+    fn GetRect(&self, rect: *mut Common::D2D_RECT_F);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::windows_core::RuntimeName for ID2D1RectangleGeometry {}
@@ -4480,7 +4480,7 @@ pub trait ID2D1RenderTarget_Impl: Sized + ID2D1Resource_Impl {
     fn SetTextAntialiasMode(&self, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE);
     fn GetTextAntialiasMode(&self) -> D2D1_TEXT_ANTIALIAS_MODE;
     fn SetTextRenderingParams(&self, textrenderingparams: ::core::option::Option<&super::DirectWrite::IDWriteRenderingParams>);
-    fn GetTextRenderingParams(&self, textrenderingparams: *mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>) -> ();
+    fn GetTextRenderingParams(&self, textrenderingparams: *mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>);
     fn SetTags(&self, tag1: u64, tag2: u64);
     fn GetTags(&self, tag1: *mut u64, tag2: *mut u64);
     fn PushLayer(&self, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: ::core::option::Option<&ID2D1Layer>);
@@ -4893,7 +4893,7 @@ impl ID2D1RenderTarget_Vtbl {
     }
 }
 pub trait ID2D1Resource_Impl: Sized {
-    fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) -> ();
+    fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>);
 }
 impl ::windows_core::RuntimeName for ID2D1Resource {}
 impl ID2D1Resource_Vtbl {
@@ -5156,7 +5156,7 @@ impl ID2D1StrokeStyle1_Vtbl {
     }
 }
 pub trait ID2D1SvgAttribute_Impl: Sized + ID2D1Resource_Impl {
-    fn GetElement(&self, element: *mut ::core::option::Option<ID2D1SvgElement>) -> ();
+    fn GetElement(&self, element: *mut ::core::option::Option<ID2D1SvgElement>);
     fn Clone(&self) -> ::windows_core::Result<ID2D1SvgAttribute>;
 }
 impl ::windows_core::RuntimeName for ID2D1SvgAttribute {}
@@ -5194,7 +5194,7 @@ pub trait ID2D1SvgDocument_Impl: Sized + ID2D1Resource_Impl {
     fn SetViewportSize(&self, viewportsize: &Common::D2D_SIZE_F) -> ::windows_core::Result<()>;
     fn GetViewportSize(&self) -> Common::D2D_SIZE_F;
     fn SetRoot(&self, root: ::core::option::Option<&ID2D1SvgElement>) -> ::windows_core::Result<()>;
-    fn GetRoot(&self, root: *mut ::core::option::Option<ID2D1SvgElement>) -> ();
+    fn GetRoot(&self, root: *mut ::core::option::Option<ID2D1SvgElement>);
     fn FindElementById(&self, id: &::windows_core::PCWSTR) -> ::windows_core::Result<ID2D1SvgElement>;
     fn Serialize(&self, outputxmlstream: ::core::option::Option<&super::super::System::Com::IStream>, subtree: ::core::option::Option<&ID2D1SvgElement>) -> ::windows_core::Result<()>;
     fn Deserialize(&self, inputxmlstream: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows_core::Result<ID2D1SvgElement>;
@@ -5321,14 +5321,14 @@ impl ID2D1SvgDocument_Vtbl {
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1SvgElement_Impl: Sized + ID2D1Resource_Impl {
-    fn GetDocument(&self, document: *mut ::core::option::Option<ID2D1SvgDocument>) -> ();
+    fn GetDocument(&self, document: *mut ::core::option::Option<ID2D1SvgDocument>);
     fn GetTagName(&self, name: ::windows_core::PWSTR, namecount: u32) -> ::windows_core::Result<()>;
     fn GetTagNameLength(&self) -> u32;
     fn IsTextContent(&self) -> super::super::Foundation::BOOL;
-    fn GetParent(&self, parent: *mut ::core::option::Option<ID2D1SvgElement>) -> ();
+    fn GetParent(&self, parent: *mut ::core::option::Option<ID2D1SvgElement>);
     fn HasChildren(&self) -> super::super::Foundation::BOOL;
-    fn GetFirstChild(&self, child: *mut ::core::option::Option<ID2D1SvgElement>) -> ();
-    fn GetLastChild(&self, child: *mut ::core::option::Option<ID2D1SvgElement>) -> ();
+    fn GetFirstChild(&self, child: *mut ::core::option::Option<ID2D1SvgElement>);
+    fn GetLastChild(&self, child: *mut ::core::option::Option<ID2D1SvgElement>);
     fn GetPreviousChild(&self, referencechild: ::core::option::Option<&ID2D1SvgElement>) -> ::windows_core::Result<ID2D1SvgElement>;
     fn GetNextChild(&self, referencechild: ::core::option::Option<&ID2D1SvgElement>) -> ::windows_core::Result<ID2D1SvgElement>;
     fn InsertChildBefore(&self, newchild: ::core::option::Option<&ID2D1SvgElement>, referencechild: ::core::option::Option<&ID2D1SvgElement>) -> ::windows_core::Result<()>;
@@ -5571,7 +5571,7 @@ impl ID2D1SvgElement_Vtbl {
 }
 pub trait ID2D1SvgGlyphStyle_Impl: Sized + ID2D1Resource_Impl {
     fn SetFill(&self, brush: ::core::option::Option<&ID2D1Brush>) -> ::windows_core::Result<()>;
-    fn GetFill(&self, brush: *mut ::core::option::Option<ID2D1Brush>) -> ();
+    fn GetFill(&self, brush: *mut ::core::option::Option<ID2D1Brush>);
     fn SetStroke(&self, brush: ::core::option::Option<&ID2D1Brush>, strokewidth: f32, dashes: *const f32, dashescount: u32, dashoffset: f32) -> ::windows_core::Result<()>;
     fn GetStrokeDashesCount(&self) -> u32;
     fn GetStroke(&self, brush: *mut ::core::option::Option<ID2D1Brush>, strokewidth: *mut f32, dashes: *mut f32, dashescount: u32, dashoffset: *mut f32);
@@ -5623,7 +5623,7 @@ pub trait ID2D1SvgPaint_Impl: Sized + ID2D1SvgAttribute_Impl {
     fn SetPaintType(&self, painttype: D2D1_SVG_PAINT_TYPE) -> ::windows_core::Result<()>;
     fn GetPaintType(&self) -> D2D1_SVG_PAINT_TYPE;
     fn SetColor(&self, color: *const Common::D2D1_COLOR_F) -> ::windows_core::Result<()>;
-    fn GetColor(&self, color: *mut Common::D2D1_COLOR_F) -> ();
+    fn GetColor(&self, color: *mut Common::D2D1_COLOR_F);
     fn SetId(&self, id: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn GetId(&self, id: ::windows_core::PWSTR, idcount: u32) -> ::windows_core::Result<()>;
     fn GetIdLength(&self) -> u32;
@@ -6040,7 +6040,7 @@ impl ID2D1TransformNode_Vtbl {
 #[doc = "Required features: `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait ID2D1TransformedGeometry_Impl: Sized + ID2D1Geometry_Impl {
-    fn GetSourceGeometry(&self, sourcegeometry: *mut ::core::option::Option<ID2D1Geometry>) -> ();
+    fn GetSourceGeometry(&self, sourcegeometry: *mut ::core::option::Option<ID2D1Geometry>);
     fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -6069,7 +6069,7 @@ impl ID2D1TransformedGeometry_Vtbl {
     }
 }
 pub trait ID2D1TransformedImageSource_Impl: Sized + ID2D1Image_Impl {
-    fn GetSource(&self, imagesource: *mut ::core::option::Option<ID2D1ImageSource>) -> ();
+    fn GetSource(&self, imagesource: *mut ::core::option::Option<ID2D1ImageSource>);
     fn GetProperties(&self, properties: *mut D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES);
 }
 impl ::windows_core::RuntimeName for ID2D1TransformedImageSource {}

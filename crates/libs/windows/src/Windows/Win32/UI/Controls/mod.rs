@@ -243,7 +243,7 @@ pub unsafe fn DPA_DestroyCallback<P0>(hdpa: P0, pfncb: PFNDAENUMCALLBACK, pdata:
 where
     P0: ::windows_core::IntoParam<HDPA>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn DPA_DestroyCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("comctl32.dll" "system" fn DPA_DestroyCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const ::core::ffi::c_void));
     DPA_DestroyCallback(hdpa.into_param().abi(), pfncb, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())))
 }
 #[inline]
@@ -251,7 +251,7 @@ pub unsafe fn DPA_EnumCallback<P0>(hdpa: P0, pfncb: PFNDAENUMCALLBACK, pdata: ::
 where
     P0: ::windows_core::IntoParam<HDPA>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn DPA_EnumCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("comctl32.dll" "system" fn DPA_EnumCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const ::core::ffi::c_void));
     DPA_EnumCallback(hdpa.into_param().abi(), pfncb, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())))
 }
 #[inline]
@@ -409,7 +409,7 @@ pub unsafe fn DSA_DestroyCallback<P0>(hdsa: P0, pfncb: PFNDAENUMCALLBACK, pdata:
 where
     P0: ::windows_core::IntoParam<HDSA>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn DSA_DestroyCallback(hdsa : HDSA, pfncb : PFNDAENUMCALLBACK, pdata : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("comctl32.dll" "system" fn DSA_DestroyCallback(hdsa : HDSA, pfncb : PFNDAENUMCALLBACK, pdata : *const ::core::ffi::c_void));
     DSA_DestroyCallback(hdsa.into_param().abi(), pfncb, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())))
 }
 #[inline]
@@ -417,7 +417,7 @@ pub unsafe fn DSA_EnumCallback<P0>(hdsa: P0, pfncb: PFNDAENUMCALLBACK, pdata: ::
 where
     P0: ::windows_core::IntoParam<HDSA>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn DSA_EnumCallback(hdsa : HDSA, pfncb : PFNDAENUMCALLBACK, pdata : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("comctl32.dll" "system" fn DSA_EnumCallback(hdsa : HDSA, pfncb : PFNDAENUMCALLBACK, pdata : *const ::core::ffi::c_void));
     DSA_EnumCallback(hdsa.into_param().abi(), pfncb, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -490,7 +490,7 @@ pub unsafe fn DestroySyntheticPointerDevice<P0>(device: P0)
 where
     P0: ::windows_core::IntoParam<HSYNTHETICPOINTERDEVICE>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn DestroySyntheticPointerDevice(device : HSYNTHETICPOINTERDEVICE) -> ());
+    ::windows_targets::link!("user32.dll" "system" fn DestroySyntheticPointerDevice(device : HSYNTHETICPOINTERDEVICE));
     DestroySyntheticPointerDevice(device.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -581,7 +581,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn DrawInsert(handparent : super::super::Foundation:: HWND, hlb : super::super::Foundation:: HWND, nitem : i32) -> ());
+    ::windows_targets::link!("comctl32.dll" "system" fn DrawInsert(handparent : super::super::Foundation:: HWND, hlb : super::super::Foundation:: HWND, nitem : i32));
     DrawInsert(handparent.into_param().abi(), hlb.into_param().abi(), nitem)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
@@ -604,7 +604,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn DrawStatusTextA(hdc : super::super::Graphics::Gdi:: HDC, lprc : *mut super::super::Foundation:: RECT, psztext : ::windows_core::PCSTR, uflags : u32) -> ());
+    ::windows_targets::link!("comctl32.dll" "system" fn DrawStatusTextA(hdc : super::super::Graphics::Gdi:: HDC, lprc : *mut super::super::Foundation:: RECT, psztext : ::windows_core::PCSTR, uflags : u32));
     DrawStatusTextA(hdc.into_param().abi(), lprc, psztext.into_param().abi(), uflags)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
@@ -615,7 +615,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn DrawStatusTextW(hdc : super::super::Graphics::Gdi:: HDC, lprc : *mut super::super::Foundation:: RECT, psztext : ::windows_core::PCWSTR, uflags : u32) -> ());
+    ::windows_targets::link!("comctl32.dll" "system" fn DrawStatusTextW(hdc : super::super::Graphics::Gdi:: HDC, lprc : *mut super::super::Foundation:: RECT, psztext : ::windows_core::PCWSTR, uflags : u32));
     DrawStatusTextW(hdc.into_param().abi(), lprc, psztext.into_param().abi(), uflags)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
@@ -938,7 +938,7 @@ pub unsafe fn GetEffectiveClientRect<P0>(hwnd: P0, lprc: *mut super::super::Foun
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn GetEffectiveClientRect(hwnd : super::super::Foundation:: HWND, lprc : *mut super::super::Foundation:: RECT, lpinfo : *const i32) -> ());
+    ::windows_targets::link!("comctl32.dll" "system" fn GetEffectiveClientRect(hwnd : super::super::Foundation:: HWND, lprc : *mut super::super::Foundation:: RECT, lpinfo : *const i32));
     GetEffectiveClientRect(hwnd.into_param().abi(), lprc, lpinfo)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1480,7 +1480,7 @@ where
 }
 #[inline]
 pub unsafe fn ImageList_EndDrag() {
-    ::windows_targets::link!("comctl32.dll" "system" fn ImageList_EndDrag() -> ());
+    ::windows_targets::link!("comctl32.dll" "system" fn ImageList_EndDrag());
     ImageList_EndDrag()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1699,7 +1699,7 @@ where
 }
 #[inline]
 pub unsafe fn InitCommonControls() {
-    ::windows_targets::link!("comctl32.dll" "system" fn InitCommonControls() -> ());
+    ::windows_targets::link!("comctl32.dll" "system" fn InitCommonControls());
     InitCommonControls()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1711,7 +1711,7 @@ pub unsafe fn InitCommonControlsEx(picce: *const INITCOMMONCONTROLSEX) -> super:
 }
 #[inline]
 pub unsafe fn InitMUILanguage(uilang: u16) {
-    ::windows_targets::link!("comctl32.dll" "system" fn InitMUILanguage(uilang : u16) -> ());
+    ::windows_targets::link!("comctl32.dll" "system" fn InitMUILanguage(uilang : u16));
     InitMUILanguage(uilang)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1848,7 +1848,7 @@ where
     P3: ::windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
     P4: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn MenuHelp(umsg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, hmainmenu : super::WindowsAndMessaging:: HMENU, hinst : super::super::Foundation:: HINSTANCE, hwndstatus : super::super::Foundation:: HWND, lpwids : *const u32) -> ());
+    ::windows_targets::link!("comctl32.dll" "system" fn MenuHelp(umsg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, hmainmenu : super::WindowsAndMessaging:: HMENU, hinst : super::super::Foundation:: HINSTANCE, hwndstatus : super::super::Foundation:: HWND, lpwids : *const u32));
     MenuHelp(umsg, wparam.into_param().abi(), lparam.into_param().abi(), hmainmenu.into_param().abi(), hinst.into_param().abi(), hwndstatus.into_param().abi(), lpwids)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -1950,7 +1950,7 @@ where
 }
 #[inline]
 pub unsafe fn SetThemeAppProperties(dwflags: SET_THEME_APP_PROPERTIES_FLAGS) {
-    ::windows_targets::link!("uxtheme.dll" "system" fn SetThemeAppProperties(dwflags : SET_THEME_APP_PROPERTIES_FLAGS) -> ());
+    ::windows_targets::link!("uxtheme.dll" "system" fn SetThemeAppProperties(dwflags : SET_THEME_APP_PROPERTIES_FLAGS));
     SetThemeAppProperties(dwflags)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]

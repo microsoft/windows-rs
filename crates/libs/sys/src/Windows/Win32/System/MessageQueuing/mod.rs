@@ -9,9 +9,9 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 ::windows_targets::link!("mqrt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"] fn MQCreateQueue(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pqueueprops : *mut MQQUEUEPROPS, lpwcsformatname : ::windows_sys::core::PWSTR, lpdwformatnamelength : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mqrt.dll" "system" fn MQDeleteQueue(lpwcsformatname : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mqrt.dll" "system" fn MQFreeMemory(pvmemory : *const ::core::ffi::c_void) -> ());
+::windows_targets::link!("mqrt.dll" "system" fn MQFreeMemory(pvmemory : *const ::core::ffi::c_void));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("mqrt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MQFreeSecurityContext(hsecuritycontext : super::super::Foundation:: HANDLE) -> ());
+::windows_targets::link!("mqrt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MQFreeSecurityContext(hsecuritycontext : super::super::Foundation:: HANDLE));
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 ::windows_targets::link!("mqrt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"] fn MQGetMachineProperties(lpwcsmachinename : ::windows_sys::core::PCWSTR, pguidmachineid : *const ::windows_sys::core::GUID, pqmprops : *mut MQQMPROPS) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -838,4 +838,4 @@ impl ::core::clone::Clone for SEQUENCE_INFO {
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_IO\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_IO", feature = "Win32_System_Variant"))]
-pub type PMQRECEIVECALLBACK = ::core::option::Option<unsafe extern "system" fn(hrstatus: ::windows_sys::core::HRESULT, hsource: isize, dwtimeout: u32, dwaction: u32, pmessageprops: *mut MQMSGPROPS, lpoverlapped: *mut super::IO::OVERLAPPED, hcursor: super::super::Foundation::HANDLE) -> ()>;
+pub type PMQRECEIVECALLBACK = ::core::option::Option<unsafe extern "system" fn(hrstatus: ::windows_sys::core::HRESULT, hsource: isize, dwtimeout: u32, dwaction: u32, pmessageprops: *mut MQMSGPROPS, lpoverlapped: *mut super::IO::OVERLAPPED, hcursor: super::super::Foundation::HANDLE)>;

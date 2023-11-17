@@ -124,7 +124,7 @@ where
 }
 #[inline]
 pub unsafe fn DeactivatePackageVirtualizationContext(cookie: usize) {
-    ::windows_targets::link!("kernel32.dll" "system" fn DeactivatePackageVirtualizationContext(cookie : usize) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn DeactivatePackageVirtualizationContext(cookie : usize));
     DeactivatePackageVirtualizationContext(cookie)
 }
 #[inline]
@@ -497,7 +497,7 @@ pub unsafe fn ReleasePackageVirtualizationContext<P0>(context: P0)
 where
     P0: ::windows_core::IntoParam<PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn ReleasePackageVirtualizationContext(context : PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn ReleasePackageVirtualizationContext(context : PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE));
     ReleasePackageVirtualizationContext(context.into_param().abi())
 }
 #[inline]

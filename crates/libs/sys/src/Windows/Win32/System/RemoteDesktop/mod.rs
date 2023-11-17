@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ProcessIdToSessionId(dwprocessid : u32, psessionid : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSCloseServer(hserver : super::super::Foundation:: HANDLE) -> ());
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSCloseServer(hserver : super::super::Foundation:: HANDLE));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSConnectSessionA(logonid : u32, targetlogonid : u32, ppassword : ::windows_sys::core::PCSTR, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -38,7 +38,7 @@
 ::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSEnumerateSessionsExW(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, filter : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFO_1W, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSEnumerateSessionsW(hserver : super::super::Foundation:: HANDLE, reserved : u32, version : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFOW, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSFreeMemory(pmemory : *mut ::core::ffi::c_void) -> ());
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSFreeMemory(pmemory : *mut ::core::ffi::c_void));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSFreeMemoryExA(wtstypeclass : WTS_TYPE_CLASS, pmemory : *const ::core::ffi::c_void, numberofentries : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -2467,8 +2467,8 @@ impl ::core::clone::Clone for pluginResource2FileAssociation {
         *self
     }
 }
-pub type PCHANNEL_INIT_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32) -> ()>;
-pub type PCHANNEL_OPEN_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(openhandle: u32, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32, totallength: u32, dataflags: u32) -> ()>;
+pub type PCHANNEL_INIT_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32)>;
+pub type PCHANNEL_OPEN_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(openhandle: u32, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32, totallength: u32, dataflags: u32)>;
 pub type PVIRTUALCHANNELCLOSE = ::core::option::Option<unsafe extern "system" fn(openhandle: u32) -> u32>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]

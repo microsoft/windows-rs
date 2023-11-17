@@ -284,9 +284,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("newdev.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DiUninstallDriverW(hwndparent : super::super::Foundation:: HWND, infpath : ::windows_sys::core::PCWSTR, flags : DIUNINSTALLDRIVER_FLAGS, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("setupapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn InstallHinfSectionA(window : super::super::Foundation:: HWND, modulehandle : super::super::Foundation:: HINSTANCE, commandline : ::windows_sys::core::PCSTR, showcommand : i32) -> ());
+::windows_targets::link!("setupapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn InstallHinfSectionA(window : super::super::Foundation:: HWND, modulehandle : super::super::Foundation:: HINSTANCE, commandline : ::windows_sys::core::PCSTR, showcommand : i32));
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("setupapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn InstallHinfSectionW(window : super::super::Foundation:: HWND, modulehandle : super::super::Foundation:: HINSTANCE, commandline : ::windows_sys::core::PCWSTR, showcommand : i32) -> ());
+::windows_targets::link!("setupapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn InstallHinfSectionW(window : super::super::Foundation:: HWND, modulehandle : super::super::Foundation:: HINSTANCE, commandline : ::windows_sys::core::PCWSTR, showcommand : i32));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("setupapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetupAddInstallSectionToDiskSpaceListA(diskspace : *const ::core::ffi::c_void, infhandle : *const ::core::ffi::c_void, layoutinfhandle : *const ::core::ffi::c_void, sectionname : ::windows_sys::core::PCSTR, reserved1 : *const ::core::ffi::c_void, reserved2 : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -315,8 +315,8 @@
 ::windows_targets::link!("setupapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetupCancelTemporarySourceList() -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("setupapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetupCloseFileQueue(queuehandle : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("setupapi.dll" "system" fn SetupCloseInfFile(infhandle : *const ::core::ffi::c_void) -> ());
-::windows_targets::link!("setupapi.dll" "system" fn SetupCloseLog() -> ());
+::windows_targets::link!("setupapi.dll" "system" fn SetupCloseInfFile(infhandle : *const ::core::ffi::c_void));
+::windows_targets::link!("setupapi.dll" "system" fn SetupCloseLog());
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("setupapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetupCommitFileQueueA(owner : super::super::Foundation:: HWND, queuehandle : *const ::core::ffi::c_void, msghandler : PSP_FILE_CALLBACK_A, context : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -907,8 +907,8 @@
 ::windows_targets::link!("setupapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetupSetSourceListA(flags : u32, sourcelist : *const ::windows_sys::core::PCSTR, sourcecount : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("setupapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetupSetSourceListW(flags : u32, sourcelist : *const ::windows_sys::core::PCWSTR, sourcecount : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("setupapi.dll" "system" fn SetupSetThreadLogToken(logtoken : u64) -> ());
-::windows_targets::link!("setupapi.dll" "system" fn SetupTermDefaultQueueCallback(context : *const ::core::ffi::c_void) -> ());
+::windows_targets::link!("setupapi.dll" "system" fn SetupSetThreadLogToken(logtoken : u64));
+::windows_targets::link!("setupapi.dll" "system" fn SetupTermDefaultQueueCallback(context : *const ::core::ffi::c_void));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("setupapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetupTerminateFileLog(fileloghandle : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -921,9 +921,9 @@
 ::windows_targets::link!("setupapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`"] fn SetupVerifyInfFileA(infname : ::windows_sys::core::PCSTR, altplatforminfo : *const SP_ALTPLATFORM_INFO_V2, infsignerinfo : *mut SP_INF_SIGNER_INFO_V2_A) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 ::windows_targets::link!("setupapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`"] fn SetupVerifyInfFileW(infname : ::windows_sys::core::PCWSTR, altplatforminfo : *const SP_ALTPLATFORM_INFO_V2, infsignerinfo : *mut SP_INF_SIGNER_INFO_V2_W) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("setupapi.dll" "cdecl" fn SetupWriteTextLog(logtoken : u64, category : u32, flags : u32, messagestr : ::windows_sys::core::PCSTR, ...) -> ());
-::windows_targets::link!("setupapi.dll" "cdecl" fn SetupWriteTextLogError(logtoken : u64, category : u32, logflags : u32, error : u32, messagestr : ::windows_sys::core::PCSTR, ...) -> ());
-::windows_targets::link!("setupapi.dll" "system" fn SetupWriteTextLogInfLine(logtoken : u64, flags : u32, infhandle : *const ::core::ffi::c_void, context : *const INFCONTEXT) -> ());
+::windows_targets::link!("setupapi.dll" "cdecl" fn SetupWriteTextLog(logtoken : u64, category : u32, flags : u32, messagestr : ::windows_sys::core::PCSTR, ...));
+::windows_targets::link!("setupapi.dll" "cdecl" fn SetupWriteTextLogError(logtoken : u64, category : u32, logflags : u32, error : u32, messagestr : ::windows_sys::core::PCSTR, ...));
+::windows_targets::link!("setupapi.dll" "system" fn SetupWriteTextLogInfLine(logtoken : u64, flags : u32, infhandle : *const ::core::ffi::c_void, context : *const INFCONTEXT));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("newdev.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UpdateDriverForPlugAndPlayDevicesA(hwndparent : super::super::Foundation:: HWND, hardwareid : ::windows_sys::core::PCSTR, fullinfpath : ::windows_sys::core::PCSTR, installflags : UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS, brebootrequired : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]

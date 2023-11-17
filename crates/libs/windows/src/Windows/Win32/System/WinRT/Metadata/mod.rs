@@ -24,7 +24,7 @@ pub unsafe fn RoFreeParameterizedTypeExtra<P0>(extra: P0)
 where
     P0: ::windows_core::IntoParam<super::ROPARAMIIDHANDLE>,
 {
-    ::windows_targets::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoFreeParameterizedTypeExtra(extra : super:: ROPARAMIIDHANDLE) -> ());
+    ::windows_targets::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoFreeParameterizedTypeExtra(extra : super:: ROPARAMIIDHANDLE));
     RoFreeParameterizedTypeExtra(extra.into_param().abi())
 }
 #[inline]

@@ -2,7 +2,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn ClearPropVariantArray(rgpropvar: &mut [PROPVARIANT]) {
-    ::windows_targets::link!("propsys.dll" "system" fn ClearPropVariantArray(rgpropvar : *mut PROPVARIANT, cvars : u32) -> ());
+    ::windows_targets::link!("propsys.dll" "system" fn ClearPropVariantArray(rgpropvar : *mut PROPVARIANT, cvars : u32));
     ClearPropVariantArray(::core::mem::transmute(rgpropvar.as_ptr()), rgpropvar.len().try_into().unwrap())
 }
 #[inline]

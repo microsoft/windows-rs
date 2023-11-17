@@ -800,7 +800,7 @@ pub unsafe fn DestroyIndexedResults<P0>(resourceuri: P0, qualifiers: ::core::opt
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mrmsupport.dll" "system" fn DestroyIndexedResults(resourceuri : ::windows_core::PCWSTR, qualifiercount : u32, qualifiers : *const IndexedResourceQualifier) -> ());
+    ::windows_targets::link!("mrmsupport.dll" "system" fn DestroyIndexedResults(resourceuri : ::windows_core::PCWSTR, qualifiercount : u32, qualifiers : *const IndexedResourceQualifier));
     DestroyIndexedResults(resourceuri.into_param().abi(), qualifiers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(qualifiers.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -815,7 +815,7 @@ where
 }
 #[inline]
 pub unsafe fn DestroyResourceIndexer(resourceindexer: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows_targets::link!("mrmsupport.dll" "system" fn DestroyResourceIndexer(resourceindexer : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("mrmsupport.dll" "system" fn DestroyResourceIndexer(resourceindexer : *const ::core::ffi::c_void));
     DestroyResourceIndexer(::core::mem::transmute(resourceindexer.unwrap_or(::std::ptr::null())))
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -880,7 +880,7 @@ where
 }
 #[inline]
 pub unsafe fn DisableProcessWindowsGhosting() {
-    ::windows_targets::link!("user32.dll" "system" fn DisableProcessWindowsGhosting() -> ());
+    ::windows_targets::link!("user32.dll" "system" fn DisableProcessWindowsGhosting());
     DisableProcessWindowsGhosting()
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -2862,7 +2862,7 @@ where
 }
 #[inline]
 pub unsafe fn PostQuitMessage(nexitcode: i32) {
-    ::windows_targets::link!("user32.dll" "system" fn PostQuitMessage(nexitcode : i32) -> ());
+    ::windows_targets::link!("user32.dll" "system" fn PostQuitMessage(nexitcode : i32));
     PostQuitMessage(nexitcode)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -3312,7 +3312,7 @@ pub unsafe fn SetCursorPos(x: i32, y: i32) -> ::windows_core::Result<()> {
 }
 #[inline]
 pub unsafe fn SetDebugErrorLevel(dwlevel: u32) {
-    ::windows_targets::link!("user32.dll" "system" fn SetDebugErrorLevel(dwlevel : u32) -> ());
+    ::windows_targets::link!("user32.dll" "system" fn SetDebugErrorLevel(dwlevel : u32));
     SetDebugErrorLevel(dwlevel)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -3734,7 +3734,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn SwitchToThisWindow(hwnd : super::super::Foundation:: HWND, funknown : super::super::Foundation:: BOOL) -> ());
+    ::windows_targets::link!("user32.dll" "system" fn SwitchToThisWindow(hwnd : super::super::Foundation:: HWND, funknown : super::super::Foundation:: BOOL));
     SwitchToThisWindow(hwnd.into_param().abi(), funknown.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -12859,7 +12859,7 @@ pub type DLGPROC = ::core::option::Option<unsafe extern "system" fn(param0: supe
 pub type HOOKPROC = ::core::option::Option<unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-pub type MSGBOXCALLBACK = ::core::option::Option<unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO) -> ()>;
+pub type MSGBOXCALLBACK = ::core::option::Option<unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type NAMEENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
@@ -12883,10 +12883,10 @@ pub type PROPENUMPROCEXW = ::core::option::Option<unsafe extern "system" fn(para
 pub type PROPENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: ::windows_core::PCWSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type SENDASYNCPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT) -> ()>;
+pub type SENDASYNCPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type TIMERPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32) -> ()>;
+pub type TIMERPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32)>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WNDENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;

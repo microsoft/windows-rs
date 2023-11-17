@@ -15,7 +15,7 @@ pub type LPWSAOVERLAPPED_COMPLETION_ROUTINE = ::core::option::Option<
         cbtransferred: u32,
         lpoverlapped: *mut OVERLAPPED,
         dwflags: u32,
-    ) -> (),
+    ),
 >;
 #[repr(C)]
 pub struct OVERLAPPED {

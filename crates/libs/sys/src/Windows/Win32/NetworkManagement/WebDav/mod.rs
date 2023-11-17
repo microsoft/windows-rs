@@ -14,7 +14,7 @@
 ::windows_targets::link!("davclnt.dll" "system" fn DavInvalidateCache(urlname : ::windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("davclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DavRegisterAuthCallback(callback : PFNDAVAUTHCALLBACK, version : u32) -> u32);
-::windows_targets::link!("davclnt.dll" "system" fn DavUnregisterAuthCallback(hcallback : u32) -> ());
+::windows_targets::link!("davclnt.dll" "system" fn DavUnregisterAuthCallback(hcallback : u32));
 pub const CancelRequest: AUTHNEXTSTEP = 2i32;
 pub const DAV_AUTHN_SCHEME_BASIC: u32 = 1u32;
 pub const DAV_AUTHN_SCHEME_CERT: u32 = 65536u32;

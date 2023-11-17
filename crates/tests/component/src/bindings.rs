@@ -197,9 +197,9 @@ impl Class {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows_core::Interface::vtable(this).Int32Array)(
                 ::windows_core::Interface::as_raw(this),
-                a.len().try_into()?,
+                a.len().try_into().unwrap(),
                 a.as_ptr(),
-                b.len().try_into()?,
+                b.len().try_into().unwrap(),
                 b.as_mut_ptr(),
                 c.set_abi_len(),
                 c as *mut _ as _,
@@ -220,9 +220,9 @@ impl Class {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows_core::Interface::vtable(this).StringArray)(
                 ::windows_core::Interface::as_raw(this),
-                a.len().try_into()?,
+                a.len().try_into().unwrap(),
                 ::core::mem::transmute(a.as_ptr()),
-                b.len().try_into()?,
+                b.len().try_into().unwrap(),
                 ::core::mem::transmute_copy(&b),
                 c.set_abi_len(),
                 c as *mut _ as _,

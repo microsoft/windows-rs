@@ -2326,11 +2326,11 @@ impl ::core::default::Default for RADIUS_VSA_FORMAT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type PRADIUS_EXTENSION_FREE_ATTRIBUTES = ::core::option::Option<unsafe extern "system" fn(pattrs: *mut RADIUS_ATTRIBUTE) -> ()>;
+pub type PRADIUS_EXTENSION_FREE_ATTRIBUTES = ::core::option::Option<unsafe extern "system" fn(pattrs: *mut RADIUS_ATTRIBUTE)>;
 pub type PRADIUS_EXTENSION_INIT = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 pub type PRADIUS_EXTENSION_PROCESS = ::core::option::Option<unsafe extern "system" fn(pattrs: *const RADIUS_ATTRIBUTE, pfaction: *mut RADIUS_ACTION) -> u32>;
 pub type PRADIUS_EXTENSION_PROCESS_2 = ::core::option::Option<unsafe extern "system" fn(pecb: *mut RADIUS_EXTENSION_CONTROL_BLOCK) -> u32>;
 pub type PRADIUS_EXTENSION_PROCESS_EX = ::core::option::Option<unsafe extern "system" fn(pinattrs: *const RADIUS_ATTRIBUTE, poutattrs: *mut *mut RADIUS_ATTRIBUTE, pfaction: *mut RADIUS_ACTION) -> u32>;
-pub type PRADIUS_EXTENSION_TERM = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PRADIUS_EXTENSION_TERM = ::core::option::Option<unsafe extern "system" fn()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

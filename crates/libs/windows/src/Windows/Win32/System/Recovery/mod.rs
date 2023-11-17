@@ -5,7 +5,7 @@ pub unsafe fn ApplicationRecoveryFinished<P0>(bsuccess: P0)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn ApplicationRecoveryFinished(bsuccess : super::super::Foundation:: BOOL) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn ApplicationRecoveryFinished(bsuccess : super::super::Foundation:: BOOL));
     ApplicationRecoveryFinished(bsuccess.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]

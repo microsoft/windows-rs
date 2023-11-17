@@ -67,42 +67,42 @@
 ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpStrToEntity(session : isize, string : ::windows_sys::core::PCSTR) -> isize);
 ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpStrToOid(string : ::windows_sys::core::PCSTR, dstoid : *mut smiOID) -> u32);
 ::windows_targets::link!("snmpapi.dll" "system" fn SnmpSvcGetUptime() -> u32);
-::windows_targets::link!("snmpapi.dll" "system" fn SnmpSvcSetLogLevel(nloglevel : SNMP_LOG) -> ());
-::windows_targets::link!("snmpapi.dll" "system" fn SnmpSvcSetLogType(nlogtype : i32) -> ());
+::windows_targets::link!("snmpapi.dll" "system" fn SnmpSvcSetLogLevel(nloglevel : SNMP_LOG));
+::windows_targets::link!("snmpapi.dll" "system" fn SnmpSvcSetLogType(nlogtype : i32));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("snmpapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SnmpUtilAsnAnyCpy(panydst : *mut AsnAny, panysrc : *mut AsnAny) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("snmpapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SnmpUtilAsnAnyFree(pany : *mut AsnAny) -> ());
-::windows_targets::link!("snmpapi.dll" "cdecl" fn SnmpUtilDbgPrint(nloglevel : SNMP_LOG, szformat : ::windows_sys::core::PCSTR, ...) -> ());
+::windows_targets::link!("snmpapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SnmpUtilAsnAnyFree(pany : *mut AsnAny));
+::windows_targets::link!("snmpapi.dll" "cdecl" fn SnmpUtilDbgPrint(nloglevel : SNMP_LOG, szformat : ::windows_sys::core::PCSTR, ...));
 ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilIdsToA(ids : *mut u32, idlength : u32) -> ::windows_sys::core::PSTR);
 ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilMemAlloc(nbytes : u32) -> *mut ::core::ffi::c_void);
-::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilMemFree(pmem : *mut ::core::ffi::c_void) -> ());
+::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilMemFree(pmem : *mut ::core::ffi::c_void));
 ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilMemReAlloc(pmem : *mut ::core::ffi::c_void, nbytes : u32) -> *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("snmpapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SnmpUtilOctetsCmp(poctets1 : *mut AsnOctetString, poctets2 : *mut AsnOctetString) -> i32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("snmpapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SnmpUtilOctetsCpy(poctetsdst : *mut AsnOctetString, poctetssrc : *mut AsnOctetString) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("snmpapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SnmpUtilOctetsFree(poctets : *mut AsnOctetString) -> ());
+::windows_targets::link!("snmpapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SnmpUtilOctetsFree(poctets : *mut AsnOctetString));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("snmpapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SnmpUtilOctetsNCmp(poctets1 : *mut AsnOctetString, poctets2 : *mut AsnOctetString, nchars : u32) -> i32);
 ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidAppend(poiddst : *mut AsnObjectIdentifier, poidsrc : *mut AsnObjectIdentifier) -> i32);
 ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidCmp(poid1 : *mut AsnObjectIdentifier, poid2 : *mut AsnObjectIdentifier) -> i32);
 ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidCpy(poiddst : *mut AsnObjectIdentifier, poidsrc : *mut AsnObjectIdentifier) -> i32);
-::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidFree(poid : *mut AsnObjectIdentifier) -> ());
+::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidFree(poid : *mut AsnObjectIdentifier));
 ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidNCmp(poid1 : *mut AsnObjectIdentifier, poid2 : *mut AsnObjectIdentifier, nsubids : u32) -> i32);
 ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidToA(oid : *mut AsnObjectIdentifier) -> ::windows_sys::core::PSTR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("snmpapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SnmpUtilPrintAsnAny(pany : *mut AsnAny) -> ());
-::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilPrintOid(oid : *mut AsnObjectIdentifier) -> ());
+::windows_targets::link!("snmpapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SnmpUtilPrintAsnAny(pany : *mut AsnAny));
+::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilPrintOid(oid : *mut AsnObjectIdentifier));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("snmpapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SnmpUtilVarBindCpy(pvbdst : *mut SnmpVarBind, pvbsrc : *mut SnmpVarBind) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("snmpapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SnmpUtilVarBindFree(pvb : *mut SnmpVarBind) -> ());
+::windows_targets::link!("snmpapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SnmpUtilVarBindFree(pvb : *mut SnmpVarBind));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("snmpapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SnmpUtilVarBindListCpy(pvbldst : *mut SnmpVarBindList, pvblsrc : *mut SnmpVarBindList) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("snmpapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SnmpUtilVarBindListFree(pvbl : *mut SnmpVarBindList) -> ());
+::windows_targets::link!("snmpapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SnmpUtilVarBindListFree(pvbl : *mut SnmpVarBindList));
 pub const ASN_APPLICATION: u32 = 64u32;
 pub const ASN_CONSTRUCTOR: u32 = 32u32;
 pub const ASN_CONTEXT: u32 = 128u32;
@@ -506,7 +506,7 @@ impl ::core::clone::Clone for smiVENDORINFO {
     }
 }
 pub type PFNSNMPCLEANUPEX = ::core::option::Option<unsafe extern "system" fn() -> u32>;
-pub type PFNSNMPEXTENSIONCLOSE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
+pub type PFNSNMPEXTENSIONCLOSE = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNSNMPEXTENSIONINIT = ::core::option::Option<unsafe extern "system" fn(dwuptimereference: u32, phsubagenttrapevent: *mut super::super::Foundation::HANDLE, pfirstsupportedregion: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL>;

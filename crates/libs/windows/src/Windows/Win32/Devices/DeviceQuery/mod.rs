@@ -3,7 +3,7 @@ pub unsafe fn DevCloseObjectQuery<P0>(hdevquery: P0)
 where
     P0: ::windows_core::IntoParam<HDEVQUERY>,
 {
-    ::windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevCloseObjectQuery(hdevquery : HDEVQUERY) -> ());
+    ::windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevCloseObjectQuery(hdevquery : HDEVQUERY));
     DevCloseObjectQuery(hdevquery.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Devices_Properties\"`"]
@@ -145,14 +145,14 @@ where
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
 pub unsafe fn DevFreeObjectProperties(pproperties: &[super::Properties::DEVPROPERTY]) {
-    ::windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevFreeObjectProperties(cpropertycount : u32, pproperties : *const super::Properties:: DEVPROPERTY) -> ());
+    ::windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevFreeObjectProperties(cpropertycount : u32, pproperties : *const super::Properties:: DEVPROPERTY));
     DevFreeObjectProperties(pproperties.len().try_into().unwrap(), ::core::mem::transmute(pproperties.as_ptr()))
 }
 #[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
 pub unsafe fn DevFreeObjects(pobjects: &[DEV_OBJECT]) {
-    ::windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevFreeObjects(cobjectcount : u32, pobjects : *const DEV_OBJECT) -> ());
+    ::windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevFreeObjects(cobjectcount : u32, pobjects : *const DEV_OBJECT));
     DevFreeObjects(pobjects.len().try_into().unwrap(), ::core::mem::transmute(pobjects.as_ptr()))
 }
 #[doc = "Required features: `\"Win32_Devices_Properties\"`"]
@@ -606,4 +606,4 @@ impl ::windows_core::TypeKind for HDEVQUERY {
 }
 #[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
-pub type PDEV_QUERY_RESULT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hdevquery: HDEVQUERY, pcontext: *const ::core::ffi::c_void, pactiondata: *const DEV_QUERY_RESULT_ACTION_DATA) -> ()>;
+pub type PDEV_QUERY_RESULT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hdevquery: HDEVQUERY, pcontext: *const ::core::ffi::c_void, pactiondata: *const DEV_QUERY_RESULT_ACTION_DATA)>;

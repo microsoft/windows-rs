@@ -732,7 +732,7 @@ pub trait ISimilarityTraitsMapping_Impl: Sized {
     fn GetFileSize(&self) -> ::windows_core::Result<u64>;
     fn OpenMapping(&self, accessmode: RdcMappingAccessMode, begin: u64, end: u64) -> ::windows_core::Result<u64>;
     fn ResizeMapping(&self, accessmode: RdcMappingAccessMode, begin: u64, end: u64) -> ::windows_core::Result<u64>;
-    fn GetPageSize(&self, pagesize: *mut u32) -> ();
+    fn GetPageSize(&self, pagesize: *mut u32);
     fn CreateView(&self, minimummappedpages: u32, accessmode: RdcMappingAccessMode) -> ::windows_core::Result<ISimilarityTraitsMappedView>;
 }
 impl ::windows_core::RuntimeName for ISimilarityTraitsMapping {}

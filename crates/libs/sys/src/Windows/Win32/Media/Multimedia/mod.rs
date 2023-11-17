@@ -9,11 +9,11 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AVIFileCreateStreamW(pfile : IAVIFile, ppavi : *mut IAVIStream, psi : *const AVISTREAMINFOW) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIFileEndRecord(pfile : IAVIFile) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("avifil32.dll" "system" fn AVIFileExit() -> ());
+::windows_targets::link!("avifil32.dll" "system" fn AVIFileExit());
 ::windows_targets::link!("avifil32.dll" "system" fn AVIFileGetStream(pfile : IAVIFile, ppavi : *mut IAVIStream, fcctype : u32, lparam : i32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIFileInfoA(pfile : IAVIFile, pfi : *mut AVIFILEINFOA, lsize : i32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIFileInfoW(pfile : IAVIFile, pfi : *mut AVIFILEINFOW, lsize : i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("avifil32.dll" "system" fn AVIFileInit() -> ());
+::windows_targets::link!("avifil32.dll" "system" fn AVIFileInit());
 ::windows_targets::link!("avifil32.dll" "system" fn AVIFileOpenA(ppfile : *mut IAVIFile, szfile : ::windows_sys::core::PCSTR, umode : u32, lphandler : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIFileOpenW(ppfile : *mut IAVIFile, szfile : ::windows_sys::core::PCWSTR, umode : u32, lphandler : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIFileReadData(pfile : IAVIFile, ckid : u32, lpdata : *mut ::core::ffi::c_void, lpcbdata : *mut i32) -> ::windows_sys::core::HRESULT);
@@ -125,7 +125,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn ICCompressorChoose(hwnd : super::super::Foundation:: HWND, uiflags : u32, pvin : *const ::core::ffi::c_void, lpdata : *const ::core::ffi::c_void, pc : *mut COMPVARS, lpsztitle : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn ICCompressorFree(pc : *const COMPVARS) -> ());
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn ICCompressorFree(pc : *const COMPVARS));
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("msvfw32.dll" "cdecl" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn ICDecompress(hic : HIC, dwflags : u32, lpbiformat : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpdata : *const ::core::ffi::c_void, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *mut ::core::ffi::c_void) -> u32);
 ::windows_targets::link!("msvfw32.dll" "cdecl" fn ICDraw(hic : HIC, dwflags : u32, lpformat : *const ::core::ffi::c_void, lpdata : *const ::core::ffi::c_void, cbdata : u32, ltime : i32) -> u32);
@@ -155,7 +155,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn ICSeqCompressFrame(pc : *const COMPVARS, uiflags : u32, lpbits : *const ::core::ffi::c_void, pfkey : *mut super::super::Foundation:: BOOL, plsize : *mut i32) -> *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn ICSeqCompressFrameEnd(pc : *const COMPVARS) -> ());
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn ICSeqCompressFrameEnd(pc : *const COMPVARS));
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn ICSeqCompressFrameStart(pc : *const COMPVARS, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -217,12 +217,12 @@
 ::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mciSetYieldProc(mciid : u32, fpyieldproc : YIELDPROC, dwyielddata : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("winmm.dll" "system" fn mmDrvInstall(hdriver : HDRVR, wszdrventry : ::windows_sys::core::PCWSTR, drvmessage : DRIVERMSGPROC, wflags : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mmGetCurrentTask() -> u32);
-::windows_targets::link!("winmm.dll" "system" fn mmTaskBlock(h : u32) -> ());
+::windows_targets::link!("winmm.dll" "system" fn mmTaskBlock(h : u32));
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mmTaskCreate(lpfn : LPTASKCALLBACK, lph : *mut super::super::Foundation:: HANDLE, dwinst : usize) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mmTaskSignal(h : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("winmm.dll" "system" fn mmTaskYield() -> ());
+::windows_targets::link!("winmm.dll" "system" fn mmTaskYield());
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mmioAdvance(hmmio : HMMIO, pmmioinfo : *const MMIOINFO, fuadvance : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mmioAscend(hmmio : HMMIO, pmmcki : *const MMCKINFO, fuascend : u32) -> u32);
@@ -7653,7 +7653,7 @@ pub type LPFNEXTDEVIO = ::core::option::Option<unsafe extern "system" fn(lparam:
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPMMIOPROC = ::core::option::Option<unsafe extern "system" fn(lpmmioinfo: ::windows_sys::core::PCSTR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
-pub type LPTASKCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwinst: usize) -> ()>;
+pub type LPTASKCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwinst: usize)>;
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub type VFWWDMExtensionProc = ::core::option::Option<unsafe extern "system" fn(pfndeviceiocontrol: *mut ::core::ffi::c_void, pfnaddpropertypage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> u32>;

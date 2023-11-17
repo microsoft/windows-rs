@@ -60,7 +60,7 @@ where
 }
 #[inline]
 pub unsafe fn CredFree(buffer: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("advapi32.dll" "system" fn CredFree(buffer : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("advapi32.dll" "system" fn CredFree(buffer : *const ::core::ffi::c_void));
     CredFree(buffer)
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
@@ -453,7 +453,7 @@ pub unsafe fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32 {
 }
 #[inline]
 pub unsafe fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *const KeyCredentialManagerInfo) {
-    ::windows_targets::link!("keycredmgr.dll" "system" fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo : *const KeyCredentialManagerInfo) -> ());
+    ::windows_targets::link!("keycredmgr.dll" "system" fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo : *const KeyCredentialManagerInfo));
     KeyCredentialManagerFreeInformation(keycredentialmanagerinfo)
 }
 #[inline]
@@ -891,7 +891,7 @@ pub unsafe fn SCardReleaseContext(hcontext: usize) -> i32 {
 }
 #[inline]
 pub unsafe fn SCardReleaseStartedEvent() {
-    ::windows_targets::link!("winscard.dll" "system" fn SCardReleaseStartedEvent() -> ());
+    ::windows_targets::link!("winscard.dll" "system" fn SCardReleaseStartedEvent());
     SCardReleaseStartedEvent()
 }
 #[inline]
@@ -3149,4 +3149,4 @@ impl ::core::default::Default for USERNAME_TARGET_CREDENTIAL_INFO {
 pub type LPOCNCHKPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type LPOCNCONNPROCA = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: ::windows_core::PCSTR, param2: ::windows_core::PCSTR, param3: *const ::core::ffi::c_void) -> usize>;
 pub type LPOCNCONNPROCW = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: ::windows_core::PCWSTR, param2: ::windows_core::PCWSTR, param3: *const ::core::ffi::c_void) -> usize>;
-pub type LPOCNDSCPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void) -> ()>;
+pub type LPOCNDSCPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void)>;

@@ -1,6 +1,6 @@
 #[inline]
 pub unsafe fn DrtClose(hdrt: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("drt.dll" "system" fn DrtClose(hdrt : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("drt.dll" "system" fn DrtClose(hdrt : *const ::core::ffi::c_void));
     DrtClose(hdrt)
 }
 #[inline]
@@ -60,12 +60,12 @@ where
 }
 #[inline]
 pub unsafe fn DrtDeleteDerivedKeySecurityProvider(psecurityprovider: *const DRT_SECURITY_PROVIDER) {
-    ::windows_targets::link!("drtprov.dll" "system" fn DrtDeleteDerivedKeySecurityProvider(psecurityprovider : *const DRT_SECURITY_PROVIDER) -> ());
+    ::windows_targets::link!("drtprov.dll" "system" fn DrtDeleteDerivedKeySecurityProvider(psecurityprovider : *const DRT_SECURITY_PROVIDER));
     DrtDeleteDerivedKeySecurityProvider(psecurityprovider)
 }
 #[inline]
 pub unsafe fn DrtDeleteDnsBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PROVIDER) {
-    ::windows_targets::link!("drtprov.dll" "system" fn DrtDeleteDnsBootstrapResolver(presolver : *const DRT_BOOTSTRAP_PROVIDER) -> ());
+    ::windows_targets::link!("drtprov.dll" "system" fn DrtDeleteDnsBootstrapResolver(presolver : *const DRT_BOOTSTRAP_PROVIDER));
     DrtDeleteDnsBootstrapResolver(presolver)
 }
 #[inline]
@@ -75,12 +75,12 @@ pub unsafe fn DrtDeleteIpv6UdpTransport(htransport: *const ::core::ffi::c_void) 
 }
 #[inline]
 pub unsafe fn DrtDeleteNullSecurityProvider(psecurityprovider: *const DRT_SECURITY_PROVIDER) {
-    ::windows_targets::link!("drtprov.dll" "system" fn DrtDeleteNullSecurityProvider(psecurityprovider : *const DRT_SECURITY_PROVIDER) -> ());
+    ::windows_targets::link!("drtprov.dll" "system" fn DrtDeleteNullSecurityProvider(psecurityprovider : *const DRT_SECURITY_PROVIDER));
     DrtDeleteNullSecurityProvider(psecurityprovider)
 }
 #[inline]
 pub unsafe fn DrtDeletePnrpBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PROVIDER) {
-    ::windows_targets::link!("drtprov.dll" "system" fn DrtDeletePnrpBootstrapResolver(presolver : *const DRT_BOOTSTRAP_PROVIDER) -> ());
+    ::windows_targets::link!("drtprov.dll" "system" fn DrtDeletePnrpBootstrapResolver(presolver : *const DRT_BOOTSTRAP_PROVIDER));
     DrtDeletePnrpBootstrapResolver(presolver)
 }
 #[inline]
@@ -163,7 +163,7 @@ where
 }
 #[inline]
 pub unsafe fn DrtUnregisterKey(hkeyregistration: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("drt.dll" "system" fn DrtUnregisterKey(hkeyregistration : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("drt.dll" "system" fn DrtUnregisterKey(hkeyregistration : *const ::core::ffi::c_void));
     DrtUnregisterKey(hkeyregistration)
 }
 #[inline]
@@ -711,7 +711,7 @@ pub unsafe fn PeerEnumIdentities(phpeerenum: *mut *mut ::core::ffi::c_void) -> :
 }
 #[inline]
 pub unsafe fn PeerFreeData(pvdata: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows_targets::link!("p2p.dll" "system" fn PeerFreeData(pvdata : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("p2p.dll" "system" fn PeerFreeData(pvdata : *const ::core::ffi::c_void));
     PeerFreeData(::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null())))
 }
 #[inline]
@@ -820,7 +820,7 @@ where
 }
 #[inline]
 pub unsafe fn PeerGraphFreeData(pvdata: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphFreeData(pvdata : *const ::core::ffi::c_void) -> ());
+    ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphFreeData(pvdata : *const ::core::ffi::c_void));
     PeerGraphFreeData(pvdata)
 }
 #[inline]
@@ -5203,7 +5203,7 @@ impl ::core::default::Default for PNRP_CLOUD_ID {
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hr: ::windows_core::HRESULT, pvcontext: *mut ::core::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: super::super::Foundation::BOOL) -> ()>;
+pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hr: ::windows_core::HRESULT, pvcontext: *mut ::core::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: super::super::Foundation::BOOL)>;
 pub type PFNPEER_FREE_SECURITY_DATA = ::core::option::Option<unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, psecuritydata: *const PEER_DATA) -> ::windows_core::HRESULT>;
 pub type PFNPEER_ON_PASSWORD_AUTH_FAILED = ::core::option::Option<unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 #[doc = "Required features: `\"Win32_Foundation\"`"]

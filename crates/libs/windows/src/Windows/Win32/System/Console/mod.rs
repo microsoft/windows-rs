@@ -41,7 +41,7 @@ pub unsafe fn ClosePseudoConsole<P0>(hpc: P0)
 where
     P0: ::windows_core::IntoParam<HPCON>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn ClosePseudoConsole(hpc : HPCON) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn ClosePseudoConsole(hpc : HPCON));
     ClosePseudoConsole(hpc.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
@@ -69,7 +69,7 @@ pub unsafe fn ExpungeConsoleCommandHistoryA<P0>(exename: P0)
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn ExpungeConsoleCommandHistoryA(exename : ::windows_core::PCSTR) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn ExpungeConsoleCommandHistoryA(exename : ::windows_core::PCSTR));
     ExpungeConsoleCommandHistoryA(exename.into_param().abi())
 }
 #[inline]
@@ -77,7 +77,7 @@ pub unsafe fn ExpungeConsoleCommandHistoryW<P0>(exename: P0)
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn ExpungeConsoleCommandHistoryW(exename : ::windows_core::PCWSTR) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn ExpungeConsoleCommandHistoryW(exename : ::windows_core::PCWSTR));
     ExpungeConsoleCommandHistoryW(exename.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_Foundation\"`"]
