@@ -17,6 +17,15 @@ impl IInspectable {
             Ok(std::mem::transmute(abi))
         }
     }
+
+    /// Gets the trust level of the current object.
+    pub fn GetTrustLevel(&self) -> Result<i32> {
+        unsafe {
+            let mut value = 0;
+            (self.vtable().GetTrustLevel)(std::mem::transmute_copy(self), &mut value).ok()?;
+            Ok(value)
+        }
+    }
 }
 
 #[doc(hidden)]
@@ -60,14 +69,16 @@ impl IInspectable_Vtbl {
             *value = std::mem::transmute(h);
             HRESULT(0)
         }
-        unsafe extern "system" fn GetTrustLevel(_: *mut std::ffi::c_void, value: *mut i32) -> HRESULT {
-            // Note: even if we end up implementing this in future, it still doesn't need a this pointer
-            // since the data to be returned is type- not instance-specific so can be shared for all
-            // interfaces.
-            *value = 0;
-            HRESULT(0)
+        unsafe extern "system" fn GetTrustLevel<T: IUnknownImpl, const OFFSET: isize>(this: *mut std::ffi::c_void, value: *mut i32) -> HRESULT {
+            let this = (this as *mut *mut std::ffi::c_void).offset(OFFSET) as *mut T;
+            (*this).GetTrustLevel(value)
         }
-        Self { base: IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIids, GetRuntimeClassName: GetRuntimeClassName::<Name>, GetTrustLevel }
+        Self {
+            base: IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetIids,
+            GetRuntimeClassName: GetRuntimeClassName::<Name>,
+            GetTrustLevel: GetTrustLevel::<Identity, OFFSET>,
+        }
     }
 }
 
