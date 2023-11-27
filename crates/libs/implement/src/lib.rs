@@ -74,6 +74,8 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         }
     });
 
+    let trust_level = proc_macro2::Literal::usize_unsuffixed(attributes.trust_level);
+
     let conversions = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
         let interface_ident = implement.to_ident();
         let offset = proc_macro2::Literal::usize_unsuffixed(enumerate);
@@ -162,6 +164,13 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 }
                 remaining
             }
+            unsafe fn GetTrustLevel(&self, value: *mut i32) -> ::windows::core::HRESULT {
+                if value.is_null() {
+                    return ::windows::core::HRESULT(-2147467261); // E_POINTER
+                }
+                *value = #trust_level;
+                ::windows::core::HRESULT(0)
+            }
          }
         impl #generics #original_ident::#generics where #constraints {
             /// Try casting as the provided interface
@@ -225,6 +234,7 @@ impl ImplementType {
 #[derive(Default)]
 struct ImplementAttributes {
     pub implement: Vec<ImplementType>,
+    pub trust_level: usize,
 }
 
 impl syn::parse::Parse for ImplementAttributes {
@@ -269,6 +279,7 @@ impl ImplementAttributes {
                     self.walk_implement(tree, namespace)?;
                 }
             }
+            UseTree2::TrustLevel(input) => self.trust_level = *input,
         }
 
         Ok(())
@@ -279,6 +290,7 @@ enum UseTree2 {
     Path(UsePath2),
     Name(UseName2),
     Group(UseGroup2),
+    TrustLevel(usize),
 }
 
 impl UseTree2 {
@@ -308,6 +320,7 @@ impl UseTree2 {
                 Ok(ImplementType { type_name, generics })
             }
             UseTree2::Group(input) => Err(syn::parse::Error::new(input.brace_token.span.join(), "Syntax not supported")),
+            _ => unimplemented!(),
         }
     }
 }
@@ -336,6 +349,18 @@ impl syn::parse::Parse for UseTree2 {
             if input.peek(syn::Token![::]) {
                 input.parse::<syn::Token![::]>()?;
                 Ok(UseTree2::Path(UsePath2 { ident, tree: Box::new(input.parse()?) }))
+            } else if input.peek(syn::Token![=]) {
+                if ident != "TrustLevel" {
+                    return Err(syn::parse::Error::new(ident.span(), "Unrecognized key-value pair"));
+                }
+                input.parse::<syn::Token![=]>()?;
+                let span = input.span();
+                let value = input.call(syn::Ident::parse_any)?;
+                match value.to_string().as_str() {
+                    "Partial" => Ok(UseTree2::TrustLevel(1)),
+                    "Full" => Ok(UseTree2::TrustLevel(2)),
+                    _ => Err(syn::parse::Error::new(span, "`TrustLevel` must be `Partial` or `Full`")),
+                }
             } else {
                 let generics = if input.peek(syn::Token![<]) {
                     input.parse::<syn::Token![<]>()?;

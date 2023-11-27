@@ -72,8 +72,10 @@ pub trait IUnknownImpl {
     /// This function is safe to call as long as the interface pointer is non-null and valid for writes
     /// of an interface pointer.
     unsafe fn QueryInterface(&self, iid: *const GUID, interface: *mut *mut std::ffi::c_void) -> HRESULT;
+
     /// Increments the reference count of the interface
     fn AddRef(&self) -> u32;
+
     /// Decrements the reference count causing the interface's memory to be freed when the count is 0
     ///
     /// # Safety
@@ -81,6 +83,9 @@ pub trait IUnknownImpl {
     /// This function should only be called when the interfacer pointer is no longer used as calling `Release`
     /// on a non-aliased interface pointer and then using that interface pointer may result in use after free.
     unsafe fn Release(&self) -> u32;
+
+    /// Gets the trust level of the current object.
+    unsafe fn GetTrustLevel(&self, value: *mut i32) -> HRESULT;
 }
 
 #[cfg(feature = "implement")]
