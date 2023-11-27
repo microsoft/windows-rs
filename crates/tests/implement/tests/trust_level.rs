@@ -27,7 +27,7 @@ impl IClosable_Impl for PartialTrust {
     }
 }
 
-#[implement( IStringable, TrustLevel = Full)]
+#[implement(IStringable, TrustLevel = Full)]
 struct FullTrust;
 
 impl IStringable_Impl for FullTrust {
