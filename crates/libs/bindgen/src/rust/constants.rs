@@ -43,8 +43,6 @@ pub fn writer(writer: &Writer, def: Field) -> TokenStream {
 
             let value = if underlying_type == constant_type {
                 value
-            } else if writer.std && underlying_type == Type::ISize {
-                quote! { ::core::ptr::invalid_mut(#value as _) }
             } else {
                 quote! { #value as _ }
             };
