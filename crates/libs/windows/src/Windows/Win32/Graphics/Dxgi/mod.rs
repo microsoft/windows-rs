@@ -70,9 +70,8 @@ impl IDXGIAdapter {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetParent)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumOutputs(&self, output: u32) -> ::windows_core::Result<IDXGIOutput> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumOutputs)(::windows_core::Interface::as_raw(self), output, &mut result__).from_abi(result__)
+    pub unsafe fn EnumOutputs(&self, output: u32, ppoutput: *mut ::core::option::Option<IDXGIOutput>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).EnumOutputs)(::windows_core::Interface::as_raw(self), output, ::core::mem::transmute(ppoutput))
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -127,9 +126,8 @@ impl IDXGIAdapter1 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.base__.GetParent)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumOutputs(&self, output: u32) -> ::windows_core::Result<IDXGIOutput> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumOutputs)(::windows_core::Interface::as_raw(self), output, &mut result__).from_abi(result__)
+    pub unsafe fn EnumOutputs(&self, output: u32, ppoutput: *mut ::core::option::Option<IDXGIOutput>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.EnumOutputs)(::windows_core::Interface::as_raw(self), output, ::core::mem::transmute(ppoutput))
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -187,9 +185,8 @@ impl IDXGIAdapter2 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetParent)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumOutputs(&self, output: u32) -> ::windows_core::Result<IDXGIOutput> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.EnumOutputs)(::windows_core::Interface::as_raw(self), output, &mut result__).from_abi(result__)
+    pub unsafe fn EnumOutputs(&self, output: u32, ppoutput: *mut ::core::option::Option<IDXGIOutput>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.base__.EnumOutputs)(::windows_core::Interface::as_raw(self), output, ::core::mem::transmute(ppoutput))
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -252,9 +249,8 @@ impl IDXGIAdapter3 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetParent)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumOutputs(&self, output: u32) -> ::windows_core::Result<IDXGIOutput> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.EnumOutputs)(::windows_core::Interface::as_raw(self), output, &mut result__).from_abi(result__)
+    pub unsafe fn EnumOutputs(&self, output: u32, ppoutput: *mut ::core::option::Option<IDXGIOutput>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.EnumOutputs)(::windows_core::Interface::as_raw(self), output, ::core::mem::transmute(ppoutput))
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -355,9 +351,8 @@ impl IDXGIAdapter4 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetParent)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumOutputs(&self, output: u32) -> ::windows_core::Result<IDXGIOutput> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EnumOutputs)(::windows_core::Interface::as_raw(self), output, &mut result__).from_abi(result__)
+    pub unsafe fn EnumOutputs(&self, output: u32, ppoutput: *mut ::core::option::Option<IDXGIOutput>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EnumOutputs)(::windows_core::Interface::as_raw(self), output, ::core::mem::transmute(ppoutput))
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1200,9 +1195,8 @@ impl IDXGIFactory1 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateSoftwareAdapter)(::windows_core::Interface::as_raw(self), module.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows_core::Result<IDXGIAdapter1> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumAdapters1)(::windows_core::Interface::as_raw(self), adapter, &mut result__).from_abi(result__)
+    pub unsafe fn EnumAdapters1(&self, adapter: u32, ppadapter: *mut ::core::option::Option<IDXGIAdapter1>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).EnumAdapters1)(::windows_core::Interface::as_raw(self), adapter, ::core::mem::transmute(ppadapter))
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1287,9 +1281,8 @@ impl IDXGIFactory2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreateSoftwareAdapter)(::windows_core::Interface::as_raw(self), module.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows_core::Result<IDXGIAdapter1> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumAdapters1)(::windows_core::Interface::as_raw(self), adapter, &mut result__).from_abi(result__)
+    pub unsafe fn EnumAdapters1(&self, adapter: u32, ppadapter: *mut ::core::option::Option<IDXGIAdapter1>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.EnumAdapters1)(::windows_core::Interface::as_raw(self), adapter, ::core::mem::transmute(ppadapter))
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1495,9 +1488,8 @@ impl IDXGIFactory3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CreateSoftwareAdapter)(::windows_core::Interface::as_raw(self), module.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows_core::Result<IDXGIAdapter1> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.EnumAdapters1)(::windows_core::Interface::as_raw(self), adapter, &mut result__).from_abi(result__)
+    pub unsafe fn EnumAdapters1(&self, adapter: u32, ppadapter: *mut ::core::option::Option<IDXGIAdapter1>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.base__.EnumAdapters1)(::windows_core::Interface::as_raw(self), adapter, ::core::mem::transmute(ppadapter))
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1669,9 +1661,8 @@ impl IDXGIFactory4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CreateSoftwareAdapter)(::windows_core::Interface::as_raw(self), module.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows_core::Result<IDXGIAdapter1> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.EnumAdapters1)(::windows_core::Interface::as_raw(self), adapter, &mut result__).from_abi(result__)
+    pub unsafe fn EnumAdapters1(&self, adapter: u32, ppadapter: *mut ::core::option::Option<IDXGIAdapter1>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.EnumAdapters1)(::windows_core::Interface::as_raw(self), adapter, ::core::mem::transmute(ppadapter))
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1863,9 +1854,8 @@ impl IDXGIFactory5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateSoftwareAdapter)(::windows_core::Interface::as_raw(self), module.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows_core::Result<IDXGIAdapter1> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EnumAdapters1)(::windows_core::Interface::as_raw(self), adapter, &mut result__).from_abi(result__)
+    pub unsafe fn EnumAdapters1(&self, adapter: u32, ppadapter: *mut ::core::option::Option<IDXGIAdapter1>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EnumAdapters1)(::windows_core::Interface::as_raw(self), adapter, ::core::mem::transmute(ppadapter))
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2056,9 +2046,8 @@ impl IDXGIFactory6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CreateSoftwareAdapter)(::windows_core::Interface::as_raw(self), module.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows_core::Result<IDXGIAdapter1> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EnumAdapters1)(::windows_core::Interface::as_raw(self), adapter, &mut result__).from_abi(result__)
+    pub unsafe fn EnumAdapters1(&self, adapter: u32, ppadapter: *mut ::core::option::Option<IDXGIAdapter1>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EnumAdapters1)(::windows_core::Interface::as_raw(self), adapter, ::core::mem::transmute(ppadapter))
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2256,9 +2245,8 @@ impl IDXGIFactory7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CreateSoftwareAdapter)(::windows_core::Interface::as_raw(self), module.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows_core::Result<IDXGIAdapter1> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.EnumAdapters1)(::windows_core::Interface::as_raw(self), adapter, &mut result__).from_abi(result__)
+    pub unsafe fn EnumAdapters1(&self, adapter: u32, ppadapter: *mut ::core::option::Option<IDXGIAdapter1>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.EnumAdapters1)(::windows_core::Interface::as_raw(self), adapter, ::core::mem::transmute(ppadapter))
     }
     #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]

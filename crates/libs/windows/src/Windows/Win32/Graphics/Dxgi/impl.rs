@@ -1,7 +1,7 @@
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXGIAdapter_Impl: Sized + IDXGIObject_Impl {
-    fn EnumOutputs(&self, output: u32) -> ::windows_core::Result<IDXGIOutput>;
+    fn EnumOutputs(&self, output: u32, ppoutput: *mut ::core::option::Option<IDXGIOutput>) -> ::windows_core::HRESULT;
     fn GetDesc(&self, pdesc: *mut DXGI_ADAPTER_DESC) -> ::windows_core::Result<()>;
     fn CheckInterfaceSupport(&self, interfacename: *const ::windows_core::GUID) -> ::windows_core::Result<i64>;
 }
@@ -13,13 +13,7 @@ impl IDXGIAdapter_Vtbl {
         unsafe extern "system" fn EnumOutputs<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDXGIAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, output: u32, ppoutput: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumOutputs(::core::mem::transmute_copy(&output)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppoutput, ::core::mem::transmute(ok__));
-                    ::windows_core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.EnumOutputs(::core::mem::transmute_copy(&output), ::core::mem::transmute_copy(&ppoutput))
         }
         unsafe extern "system" fn GetDesc<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDXGIAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_ADAPTER_DESC) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -641,7 +635,7 @@ impl IDXGIFactory_Vtbl {
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIFactory1_Impl: Sized + IDXGIFactory_Impl {
-    fn EnumAdapters1(&self, adapter: u32) -> ::windows_core::Result<IDXGIAdapter1>;
+    fn EnumAdapters1(&self, adapter: u32, ppadapter: *mut ::core::option::Option<IDXGIAdapter1>) -> ::windows_core::HRESULT;
     fn IsCurrent(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -652,13 +646,7 @@ impl IDXGIFactory1_Vtbl {
         unsafe extern "system" fn EnumAdapters1<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDXGIFactory1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adapter: u32, ppadapter: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumAdapters1(::core::mem::transmute_copy(&adapter)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppadapter, ::core::mem::transmute(ok__));
-                    ::windows_core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.EnumAdapters1(::core::mem::transmute_copy(&adapter), ::core::mem::transmute_copy(&ppadapter))
         }
         unsafe extern "system" fn IsCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDXGIFactory1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

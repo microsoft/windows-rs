@@ -760,8 +760,8 @@ impl ID2D1BitmapRenderTarget {
     pub unsafe fn BeginDraw(&self) {
         (::windows_core::Interface::vtable(self).base__.BeginDraw)(::windows_core::Interface::as_raw(self))
     }
-    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2781,8 +2781,8 @@ impl ID2D1DCRenderTarget {
     pub unsafe fn BeginDraw(&self) {
         (::windows_core::Interface::vtable(self).base__.BeginDraw)(::windows_core::Interface::as_raw(self))
     }
-    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3691,8 +3691,8 @@ impl ID2D1DeviceContext {
     pub unsafe fn BeginDraw(&self) {
         (::windows_core::Interface::vtable(self).base__.BeginDraw)(::windows_core::Interface::as_raw(self))
     }
-    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4373,8 +4373,8 @@ impl ID2D1DeviceContext1 {
     pub unsafe fn BeginDraw(&self) {
         (::windows_core::Interface::vtable(self).base__.base__.BeginDraw)(::windows_core::Interface::as_raw(self))
     }
-    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4976,8 +4976,8 @@ impl ID2D1DeviceContext2 {
     pub unsafe fn BeginDraw(&self) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.BeginDraw)(::windows_core::Interface::as_raw(self))
     }
-    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -5678,8 +5678,8 @@ impl ID2D1DeviceContext3 {
     pub unsafe fn BeginDraw(&self) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.BeginDraw)(::windows_core::Interface::as_raw(self))
     }
-    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -6364,8 +6364,8 @@ impl ID2D1DeviceContext4 {
     pub unsafe fn BeginDraw(&self) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.BeginDraw)(::windows_core::Interface::as_raw(self))
     }
-    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -7131,8 +7131,8 @@ impl ID2D1DeviceContext5 {
     pub unsafe fn BeginDraw(&self) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.BeginDraw)(::windows_core::Interface::as_raw(self))
     }
-    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -7913,8 +7913,8 @@ impl ID2D1DeviceContext6 {
     pub unsafe fn BeginDraw(&self) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.BeginDraw)(::windows_core::Interface::as_raw(self))
     }
-    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -11927,8 +11927,8 @@ impl ID2D1HwndRenderTarget {
     pub unsafe fn BeginDraw(&self) {
         (::windows_core::Interface::vtable(self).base__.BeginDraw)(::windows_core::Interface::as_raw(self))
     }
-    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).base__.EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -13598,8 +13598,8 @@ impl ID2D1RenderTarget {
     pub unsafe fn BeginDraw(&self) {
         (::windows_core::Interface::vtable(self).BeginDraw)(::windows_core::Interface::as_raw(self))
     }
-    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn EndDraw(&self, tag1: ::core::option::Option<*mut u64>, tag2: ::core::option::Option<*mut u64>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).EndDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(tag1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(tag2.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]

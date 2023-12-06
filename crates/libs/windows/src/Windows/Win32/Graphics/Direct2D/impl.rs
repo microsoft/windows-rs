@@ -4492,7 +4492,7 @@ pub trait ID2D1RenderTarget_Impl: Sized + ID2D1Resource_Impl {
     fn PopAxisAlignedClip(&self);
     fn Clear(&self, clearcolor: *const Common::D2D1_COLOR_F);
     fn BeginDraw(&self);
-    fn EndDraw(&self, tag1: *mut u64, tag2: *mut u64) -> ::windows_core::Result<()>;
+    fn EndDraw(&self, tag1: *mut u64, tag2: *mut u64) -> ::windows_core::HRESULT;
     fn GetPixelFormat(&self) -> Common::D2D1_PIXEL_FORMAT;
     fn SetDpi(&self, dpix: f32, dpiy: f32);
     fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32);
@@ -4794,7 +4794,7 @@ impl ID2D1RenderTarget_Vtbl {
         unsafe extern "system" fn EndDraw<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag1: *mut u64, tag2: *mut u64) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EndDraw(::core::mem::transmute_copy(&tag1), ::core::mem::transmute_copy(&tag2)).into()
+            this.EndDraw(::core::mem::transmute_copy(&tag1), ::core::mem::transmute_copy(&tag2))
         }
         unsafe extern "system" fn GetPixelFormat<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Common::D2D1_PIXEL_FORMAT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

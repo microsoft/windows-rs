@@ -152,7 +152,7 @@ impl SignatureParam {
 
 impl Signature {
     pub fn kind(&self) -> SignatureKind {
-        if self.def.has_attribute("CanReturnMultipleSuccessValuesAttribute") {
+        if self.def.has_attribute("CanReturnMultipleSuccessValuesAttribute") || self.def.has_attribute("CanReturnErrorsAsSuccessAttribute") {
             return SignatureKind::PreserveSig;
         }
         match &self.return_type {
