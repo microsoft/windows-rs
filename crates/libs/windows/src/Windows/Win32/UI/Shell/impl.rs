@@ -18472,7 +18472,7 @@ impl IShellUIHelper9_Vtbl {
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IShellView_Impl: Sized + super::super::System::Ole::IOleWindow_Impl {
-    fn TranslateAccelerator(&self, pmsg: *const super::WindowsAndMessaging::MSG) -> ::windows_core::Result<()>;
+    fn TranslateAccelerator(&self, pmsg: *const super::WindowsAndMessaging::MSG) -> ::windows_core::HRESULT;
     fn EnableModeless(&self, fenable: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn UIActivate(&self, ustate: u32) -> ::windows_core::Result<()>;
     fn Refresh(&self) -> ::windows_core::Result<()>;
@@ -18492,7 +18492,7 @@ impl IShellView_Vtbl {
         unsafe extern "system" fn TranslateAccelerator<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmsg: *const super::WindowsAndMessaging::MSG) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.TranslateAccelerator(::core::mem::transmute_copy(&pmsg)).into()
+            this.TranslateAccelerator(::core::mem::transmute_copy(&pmsg))
         }
         unsafe extern "system" fn EnableModeless<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

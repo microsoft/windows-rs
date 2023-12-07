@@ -142,23 +142,6 @@ impl ID3D12CommandSignature_Vtbl {
         *iid == <ID3D12CommandSignature as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
-pub trait ID3D12DSRDeviceFactory_Impl: Sized {
-    fn CreateDSRDevice(&self, pd3d12device: ::core::option::Option<&ID3D12Device>, nodemask: u32, riid: *const ::windows_core::GUID, ppvdsrdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
-}
-impl ::windows_core::RuntimeName for ID3D12DSRDeviceFactory {}
-impl ID3D12DSRDeviceFactory_Vtbl {
-    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DSRDeviceFactory_Impl, const OFFSET: isize>() -> ID3D12DSRDeviceFactory_Vtbl {
-        unsafe extern "system" fn CreateDSRDevice<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DSRDeviceFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pd3d12device: *mut ::core::ffi::c_void, nodemask: u32, riid: *const ::windows_core::GUID, ppvdsrdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.CreateDSRDevice(::windows_core::from_raw_borrowed(&pd3d12device), ::core::mem::transmute_copy(&nodemask), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvdsrdevice)).into()
-        }
-        Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateDSRDevice: CreateDSRDevice::<Identity, Impl, OFFSET> }
-    }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12DSRDeviceFactory as ::windows_core::ComInterface>::IID
-    }
-}
 pub trait ID3D12Debug_Impl: Sized {
     fn EnableDebugLayer(&self);
 }
@@ -1087,6 +1070,44 @@ impl ID3D12Device12_Vtbl {
             || *iid == <ID3D12Device9 as ::windows_core::ComInterface>::IID
             || *iid == <ID3D12Device10 as ::windows_core::ComInterface>::IID
             || *iid == <ID3D12Device11 as ::windows_core::ComInterface>::IID
+    }
+}
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+pub trait ID3D12Device13_Impl: Sized + ID3D12Device12_Impl {
+    fn OpenExistingHeapFromAddress1(&self, paddress: *const ::core::ffi::c_void, size: usize, riid: *const ::windows_core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ::windows_core::RuntimeName for ID3D12Device13 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ID3D12Device13_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device13_Impl, const OFFSET: isize>() -> ID3D12Device13_Vtbl {
+        unsafe extern "system" fn OpenExistingHeapFromAddress1<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device13_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress: *const ::core::ffi::c_void, size: usize, riid: *const ::windows_core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.OpenExistingHeapFromAddress1(::core::mem::transmute_copy(&paddress), ::core::mem::transmute_copy(&size), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvheap)).into()
+        }
+        Self {
+            base__: ID3D12Device12_Vtbl::new::<Identity, Impl, OFFSET>(),
+            OpenExistingHeapFromAddress1: OpenExistingHeapFromAddress1::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12Device13 as ::windows_core::ComInterface>::IID
+            || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID
+            || *iid == <ID3D12Device as ::windows_core::ComInterface>::IID
+            || *iid == <ID3D12Device1 as ::windows_core::ComInterface>::IID
+            || *iid == <ID3D12Device2 as ::windows_core::ComInterface>::IID
+            || *iid == <ID3D12Device3 as ::windows_core::ComInterface>::IID
+            || *iid == <ID3D12Device4 as ::windows_core::ComInterface>::IID
+            || *iid == <ID3D12Device5 as ::windows_core::ComInterface>::IID
+            || *iid == <ID3D12Device6 as ::windows_core::ComInterface>::IID
+            || *iid == <ID3D12Device7 as ::windows_core::ComInterface>::IID
+            || *iid == <ID3D12Device8 as ::windows_core::ComInterface>::IID
+            || *iid == <ID3D12Device9 as ::windows_core::ComInterface>::IID
+            || *iid == <ID3D12Device10 as ::windows_core::ComInterface>::IID
+            || *iid == <ID3D12Device11 as ::windows_core::ComInterface>::IID
+            || *iid == <ID3D12Device12 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
@@ -2916,7 +2937,7 @@ impl ID3D12InfoQueue_Vtbl {
 #[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12InfoQueue1_Impl: Sized + ID3D12InfoQueue_Impl {
-    fn RegisterMessageCallback(&self, callbackfunc: D3D12MessageFunc, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *const ::core::ffi::c_void, pcallbackcookie: *mut u32) -> ::windows_core::Result<()>;
+    fn RegisterMessageCallback(&self, callbackfunc: D3D12MessageFunc, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *mut ::core::ffi::c_void, pcallbackcookie: *mut u32) -> ::windows_core::Result<()>;
     fn UnregisterMessageCallback(&self, callbackcookie: u32) -> ::windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2924,7 +2945,7 @@ impl ::windows_core::RuntimeName for ID3D12InfoQueue1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D12InfoQueue1_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12InfoQueue1_Impl, const OFFSET: isize>() -> ID3D12InfoQueue1_Vtbl {
-        unsafe extern "system" fn RegisterMessageCallback<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12InfoQueue1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callbackfunc: D3D12MessageFunc, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *const ::core::ffi::c_void, pcallbackcookie: *mut u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn RegisterMessageCallback<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12InfoQueue1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callbackfunc: D3D12MessageFunc, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *mut ::core::ffi::c_void, pcallbackcookie: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RegisterMessageCallback(::core::mem::transmute_copy(&callbackfunc), ::core::mem::transmute_copy(&callbackfilterflags), ::core::mem::transmute_copy(&pcontext), ::core::mem::transmute_copy(&pcallbackcookie)).into()

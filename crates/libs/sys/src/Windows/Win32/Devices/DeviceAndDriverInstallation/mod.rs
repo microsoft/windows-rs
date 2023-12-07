@@ -112,8 +112,8 @@
 ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_Alias_ExW(pszdeviceinterface : ::windows_sys::core::PCWSTR, aliasinterfaceguid : *const ::windows_sys::core::GUID, pszaliasdeviceinterface : ::windows_sys::core::PWSTR, pullength : *mut u32, ulflags : u32, hmachine : isize) -> CONFIGRET);
 ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_ListA(interfaceclassguid : *const ::windows_sys::core::GUID, pdeviceid : ::windows_sys::core::PCSTR, buffer : ::windows_sys::core::PSTR, bufferlen : u32, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET);
 ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_ListW(interfaceclassguid : *const ::windows_sys::core::GUID, pdeviceid : ::windows_sys::core::PCWSTR, buffer : ::windows_sys::core::PWSTR, bufferlen : u32, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET);
-::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_ExA(interfaceclassguid : *const ::windows_sys::core::GUID, pdeviceid : ::windows_sys::core::PCSTR, buffer : ::windows_sys::core::PSTR, bufferlen : u32, ulflags : u32, hmachine : isize) -> CONFIGRET);
-::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_ExW(interfaceclassguid : *const ::windows_sys::core::GUID, pdeviceid : ::windows_sys::core::PCWSTR, buffer : ::windows_sys::core::PWSTR, bufferlen : u32, ulflags : u32, hmachine : isize) -> CONFIGRET);
+::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_ExA(interfaceclassguid : *const ::windows_sys::core::GUID, pdeviceid : ::windows_sys::core::PCSTR, buffer : ::windows_sys::core::PSTR, bufferlen : u32, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine : isize) -> CONFIGRET);
+::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_ExW(interfaceclassguid : *const ::windows_sys::core::GUID, pdeviceid : ::windows_sys::core::PCWSTR, buffer : ::windows_sys::core::PWSTR, bufferlen : u32, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine : isize) -> CONFIGRET);
 ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_SizeA(pullen : *mut u32, interfaceclassguid : *const ::windows_sys::core::GUID, pdeviceid : ::windows_sys::core::PCSTR, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET);
 ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_SizeW(pullen : *mut u32, interfaceclassguid : *const ::windows_sys::core::GUID, pdeviceid : ::windows_sys::core::PCWSTR, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET);
 ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_Size_ExA(pullen : *mut u32, interfaceclassguid : *const ::windows_sys::core::GUID, pdeviceid : ::windows_sys::core::PCSTR, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine : isize) -> CONFIGRET);
@@ -2485,101 +2485,101 @@ pub const SetupFileLogDiskTagfile: SetupFileLogInfo = 2i32;
 pub const SetupFileLogMax: SetupFileLogInfo = 5i32;
 pub const SetupFileLogOtherInfo: SetupFileLogInfo = 4i32;
 pub const SetupFileLogSourceFilename: SetupFileLogInfo = 0i32;
-pub const fDD_BYTE: u32 = 0u32;
-pub const fDD_BYTE_AND_WORD: u32 = 3u32;
-pub const fDD_BusMaster: u32 = 4u32;
-pub const fDD_DWORD: u32 = 2u32;
-pub const fDD_NoBusMaster: u32 = 0u32;
-pub const fDD_TypeA: u32 = 8u32;
-pub const fDD_TypeB: u32 = 16u32;
-pub const fDD_TypeF: u32 = 24u32;
-pub const fDD_TypeStandard: u32 = 0u32;
-pub const fDD_WORD: u32 = 1u32;
-pub const fIOD_10_BIT_DECODE: u32 = 4u32;
-pub const fIOD_12_BIT_DECODE: u32 = 8u32;
-pub const fIOD_16_BIT_DECODE: u32 = 16u32;
-pub const fIOD_DECODE: u32 = 252u32;
-pub const fIOD_IO: u32 = 1u32;
-pub const fIOD_Memory: u32 = 0u32;
-pub const fIOD_PASSIVE_DECODE: u32 = 64u32;
-pub const fIOD_PORT_BAR: u32 = 256u32;
-pub const fIOD_POSITIVE_DECODE: u32 = 32u32;
-pub const fIOD_PortType: u32 = 1u32;
-pub const fIOD_WINDOW_DECODE: u32 = 128u32;
-pub const fIRQD_Edge: u32 = 2u32;
-pub const fIRQD_Exclusive: u32 = 0u32;
-pub const fIRQD_Level: u32 = 0u32;
-pub const fIRQD_Level_Bit: u32 = 1u32;
-pub const fIRQD_Share: u32 = 1u32;
-pub const fIRQD_Share_Bit: u32 = 0u32;
-pub const fMD_24: u32 = 0u32;
-pub const fMD_32: u32 = 2u32;
-pub const fMD_32_24: u32 = 2u32;
-pub const fMD_Cacheable: u32 = 32u32;
-pub const fMD_CombinedWrite: u32 = 16u32;
-pub const fMD_CombinedWriteAllowed: u32 = 16u32;
-pub const fMD_CombinedWriteDisallowed: u32 = 0u32;
-pub const fMD_MEMORY_BAR: u32 = 128u32;
-pub const fMD_MemoryType: u32 = 1u32;
-pub const fMD_NonCacheable: u32 = 0u32;
-pub const fMD_Pref: u32 = 4u32;
-pub const fMD_PrefetchAllowed: u32 = 4u32;
-pub const fMD_PrefetchDisallowed: u32 = 0u32;
-pub const fMD_Prefetchable: u32 = 4u32;
-pub const fMD_RAM: u32 = 1u32;
-pub const fMD_ROM: u32 = 0u32;
-pub const fMD_ReadAllowed: u32 = 0u32;
-pub const fMD_ReadDisallowed: u32 = 8u32;
-pub const fMD_Readable: u32 = 8u32;
-pub const fMD_WINDOW_DECODE: u32 = 64u32;
-pub const fPCD_ATTRIBUTES_PER_WINDOW: u32 = 32768u32;
-pub const fPCD_IO1_16: u32 = 65536u32;
-pub const fPCD_IO1_SRC_16: u32 = 262144u32;
-pub const fPCD_IO1_WS_16: u32 = 524288u32;
-pub const fPCD_IO1_ZW_8: u32 = 131072u32;
-pub const fPCD_IO2_16: u32 = 1048576u32;
-pub const fPCD_IO2_SRC_16: u32 = 4194304u32;
-pub const fPCD_IO2_WS_16: u32 = 8388608u32;
-pub const fPCD_IO2_ZW_8: u32 = 2097152u32;
-pub const fPCD_IO_16: u32 = 1u32;
-pub const fPCD_IO_8: u32 = 0u32;
-pub const fPCD_IO_SRC_16: u32 = 32u32;
-pub const fPCD_IO_WS_16: u32 = 64u32;
-pub const fPCD_IO_ZW_8: u32 = 16u32;
-pub const fPCD_MEM1_16: u32 = 67108864u32;
-pub const fPCD_MEM1_A: u32 = 4u32;
-pub const fPCD_MEM1_WS_ONE: u32 = 16777216u32;
-pub const fPCD_MEM1_WS_THREE: u32 = 50331648u32;
-pub const fPCD_MEM1_WS_TWO: u32 = 33554432u32;
-pub const fPCD_MEM2_16: u32 = 1073741824u32;
-pub const fPCD_MEM2_A: u32 = 8u32;
-pub const fPCD_MEM2_WS_ONE: u32 = 268435456u32;
-pub const fPCD_MEM2_WS_THREE: u32 = 805306368u32;
-pub const fPCD_MEM2_WS_TWO: u32 = 536870912u32;
-pub const fPCD_MEM_16: u32 = 2u32;
-pub const fPCD_MEM_8: u32 = 0u32;
-pub const fPCD_MEM_A: u32 = 4u32;
-pub const fPCD_MEM_WS_ONE: u32 = 256u32;
-pub const fPCD_MEM_WS_THREE: u32 = 768u32;
-pub const fPCD_MEM_WS_TWO: u32 = 512u32;
-pub const fPMF_AUDIO_ENABLE: u32 = 8u32;
-pub const mDD_BusMaster: u32 = 4u32;
-pub const mDD_Type: u32 = 24u32;
-pub const mDD_Width: u32 = 3u32;
-pub const mIRQD_Edge_Level: u32 = 2u32;
-pub const mIRQD_Share: u32 = 1u32;
-pub const mMD_32_24: u32 = 2u32;
-pub const mMD_Cacheable: u32 = 32u32;
-pub const mMD_CombinedWrite: u32 = 16u32;
-pub const mMD_MemoryType: u32 = 1u32;
-pub const mMD_Prefetchable: u32 = 4u32;
-pub const mMD_Readable: u32 = 8u32;
-pub const mPCD_IO_8_16: u32 = 1u32;
-pub const mPCD_MEM1_WS: u32 = 50331648u32;
-pub const mPCD_MEM2_WS: u32 = 805306368u32;
-pub const mPCD_MEM_8_16: u32 = 2u32;
-pub const mPCD_MEM_A_C: u32 = 12u32;
-pub const mPCD_MEM_WS: u32 = 768u32;
+pub const fDD_BYTE: DD_FLAGS = 0u32;
+pub const fDD_BYTE_AND_WORD: DD_FLAGS = 3u32;
+pub const fDD_BusMaster: DD_FLAGS = 4u32;
+pub const fDD_DWORD: DD_FLAGS = 2u32;
+pub const fDD_NoBusMaster: DD_FLAGS = 0u32;
+pub const fDD_TypeA: DD_FLAGS = 8u32;
+pub const fDD_TypeB: DD_FLAGS = 16u32;
+pub const fDD_TypeF: DD_FLAGS = 24u32;
+pub const fDD_TypeStandard: DD_FLAGS = 0u32;
+pub const fDD_WORD: DD_FLAGS = 1u32;
+pub const fIOD_10_BIT_DECODE: IOD_DESFLAGS = 4u32;
+pub const fIOD_12_BIT_DECODE: IOD_DESFLAGS = 8u32;
+pub const fIOD_16_BIT_DECODE: IOD_DESFLAGS = 16u32;
+pub const fIOD_DECODE: IOD_DESFLAGS = 252u32;
+pub const fIOD_IO: IOD_DESFLAGS = 1u32;
+pub const fIOD_Memory: IOD_DESFLAGS = 0u32;
+pub const fIOD_PASSIVE_DECODE: IOD_DESFLAGS = 64u32;
+pub const fIOD_PORT_BAR: IOD_DESFLAGS = 256u32;
+pub const fIOD_POSITIVE_DECODE: IOD_DESFLAGS = 32u32;
+pub const fIOD_PortType: IOD_DESFLAGS = 1u32;
+pub const fIOD_WINDOW_DECODE: IOD_DESFLAGS = 128u32;
+pub const fIRQD_Edge: IRQD_FLAGS = 2u32;
+pub const fIRQD_Exclusive: IRQD_FLAGS = 0u32;
+pub const fIRQD_Level: IRQD_FLAGS = 0u32;
+pub const fIRQD_Level_Bit: IRQD_FLAGS = 1u32;
+pub const fIRQD_Share: IRQD_FLAGS = 1u32;
+pub const fIRQD_Share_Bit: IRQD_FLAGS = 0u32;
+pub const fMD_24: MD_FLAGS = 0u32;
+pub const fMD_32: MD_FLAGS = 2u32;
+pub const fMD_32_24: MD_FLAGS = 2u32;
+pub const fMD_Cacheable: MD_FLAGS = 32u32;
+pub const fMD_CombinedWrite: MD_FLAGS = 16u32;
+pub const fMD_CombinedWriteAllowed: MD_FLAGS = 16u32;
+pub const fMD_CombinedWriteDisallowed: MD_FLAGS = 0u32;
+pub const fMD_MEMORY_BAR: MD_FLAGS = 128u32;
+pub const fMD_MemoryType: MD_FLAGS = 1u32;
+pub const fMD_NonCacheable: MD_FLAGS = 0u32;
+pub const fMD_Pref: MD_FLAGS = 4u32;
+pub const fMD_PrefetchAllowed: MD_FLAGS = 4u32;
+pub const fMD_PrefetchDisallowed: MD_FLAGS = 0u32;
+pub const fMD_Prefetchable: MD_FLAGS = 4u32;
+pub const fMD_RAM: MD_FLAGS = 1u32;
+pub const fMD_ROM: MD_FLAGS = 0u32;
+pub const fMD_ReadAllowed: MD_FLAGS = 0u32;
+pub const fMD_ReadDisallowed: MD_FLAGS = 8u32;
+pub const fMD_Readable: MD_FLAGS = 8u32;
+pub const fMD_WINDOW_DECODE: MD_FLAGS = 64u32;
+pub const fPCD_ATTRIBUTES_PER_WINDOW: PCD_FLAGS = 32768u32;
+pub const fPCD_IO1_16: PCD_FLAGS = 65536u32;
+pub const fPCD_IO1_SRC_16: PCD_FLAGS = 262144u32;
+pub const fPCD_IO1_WS_16: PCD_FLAGS = 524288u32;
+pub const fPCD_IO1_ZW_8: PCD_FLAGS = 131072u32;
+pub const fPCD_IO2_16: PCD_FLAGS = 1048576u32;
+pub const fPCD_IO2_SRC_16: PCD_FLAGS = 4194304u32;
+pub const fPCD_IO2_WS_16: PCD_FLAGS = 8388608u32;
+pub const fPCD_IO2_ZW_8: PCD_FLAGS = 2097152u32;
+pub const fPCD_IO_16: PCD_FLAGS = 1u32;
+pub const fPCD_IO_8: PCD_FLAGS = 0u32;
+pub const fPCD_IO_SRC_16: PCD_FLAGS = 32u32;
+pub const fPCD_IO_WS_16: PCD_FLAGS = 64u32;
+pub const fPCD_IO_ZW_8: PCD_FLAGS = 16u32;
+pub const fPCD_MEM1_16: PCD_FLAGS = 67108864u32;
+pub const fPCD_MEM1_A: PCD_FLAGS = 4u32;
+pub const fPCD_MEM1_WS_ONE: PCD_FLAGS = 16777216u32;
+pub const fPCD_MEM1_WS_THREE: PCD_FLAGS = 50331648u32;
+pub const fPCD_MEM1_WS_TWO: PCD_FLAGS = 33554432u32;
+pub const fPCD_MEM2_16: PCD_FLAGS = 1073741824u32;
+pub const fPCD_MEM2_A: PCD_FLAGS = 8u32;
+pub const fPCD_MEM2_WS_ONE: PCD_FLAGS = 268435456u32;
+pub const fPCD_MEM2_WS_THREE: PCD_FLAGS = 805306368u32;
+pub const fPCD_MEM2_WS_TWO: PCD_FLAGS = 536870912u32;
+pub const fPCD_MEM_16: PCD_FLAGS = 2u32;
+pub const fPCD_MEM_8: PCD_FLAGS = 0u32;
+pub const fPCD_MEM_A: PCD_FLAGS = 4u32;
+pub const fPCD_MEM_WS_ONE: PCD_FLAGS = 256u32;
+pub const fPCD_MEM_WS_THREE: PCD_FLAGS = 768u32;
+pub const fPCD_MEM_WS_TWO: PCD_FLAGS = 512u32;
+pub const fPMF_AUDIO_ENABLE: PMF_FLAGS = 8u32;
+pub const mDD_BusMaster: DD_FLAGS = 4u32;
+pub const mDD_Type: DD_FLAGS = 24u32;
+pub const mDD_Width: DD_FLAGS = 3u32;
+pub const mIRQD_Edge_Level: IRQD_FLAGS = 2u32;
+pub const mIRQD_Share: IRQD_FLAGS = 1u32;
+pub const mMD_32_24: MD_FLAGS = 2u32;
+pub const mMD_Cacheable: MD_FLAGS = 32u32;
+pub const mMD_CombinedWrite: MD_FLAGS = 16u32;
+pub const mMD_MemoryType: MD_FLAGS = 1u32;
+pub const mMD_Prefetchable: MD_FLAGS = 4u32;
+pub const mMD_Readable: MD_FLAGS = 8u32;
+pub const mPCD_IO_8_16: PCD_FLAGS = 1u32;
+pub const mPCD_MEM1_WS: PCD_FLAGS = 50331648u32;
+pub const mPCD_MEM2_WS: PCD_FLAGS = 805306368u32;
+pub const mPCD_MEM_8_16: PCD_FLAGS = 2u32;
+pub const mPCD_MEM_A_C: PCD_FLAGS = 12u32;
+pub const mPCD_MEM_WS: PCD_FLAGS = 768u32;
 pub const mPMF_AUDIO_ENABLE: u32 = 8u32;
 pub type CM_CDFLAGS = u32;
 pub type CM_CDMASK = u32;
@@ -2597,12 +2597,18 @@ pub type CM_REENUMERATE_FLAGS = u32;
 pub type CM_REMOVAL_POLICY = u32;
 pub type CM_RESTYPE = u32;
 pub type CONFIGRET = u32;
+pub type DD_FLAGS = u32;
 pub type DIINSTALLDEVICE_FLAGS = u32;
 pub type DIINSTALLDRIVER_FLAGS = u32;
 pub type DIROLLBACKDRIVER_FLAGS = u32;
 pub type DIUNINSTALLDRIVER_FLAGS = u32;
 pub type INF_STYLE = u32;
+pub type IOD_DESFLAGS = u32;
+pub type IRQD_FLAGS = u32;
+pub type MD_FLAGS = u32;
 pub type OEM_SOURCE_MEDIA_TYPE = u32;
+pub type PCD_FLAGS = u32;
+pub type PMF_FLAGS = u32;
 pub type PNP_VETO_TYPE = i32;
 pub type SETUPSCANFILEQUEUE_FLAGS = u32;
 pub type SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = u32;
@@ -3012,7 +3018,7 @@ impl ::core::clone::Clone for DEVPRIVATE_RESOURCE {
 pub struct DMA_DES {
     pub DD_Count: u32,
     pub DD_Type: u32,
-    pub DD_Flags: u32,
+    pub DD_Flags: DD_FLAGS,
     pub DD_Alloc_Chan: u32,
 }
 impl ::core::marker::Copy for DMA_DES {}
@@ -3324,7 +3330,7 @@ pub struct IO_DES {
     pub IOD_Type: u32,
     pub IOD_Alloc_Base: u64,
     pub IOD_Alloc_End: u64,
-    pub IOD_DesFlags: u32,
+    pub IOD_DesFlags: IOD_DESFLAGS,
 }
 impl ::core::marker::Copy for IO_DES {}
 impl ::core::clone::Clone for IO_DES {
@@ -3362,7 +3368,7 @@ impl ::core::clone::Clone for IO_RESOURCE {
 pub struct IRQ_DES_32 {
     pub IRQD_Count: u32,
     pub IRQD_Type: u32,
-    pub IRQD_Flags: u32,
+    pub IRQD_Flags: IRQD_FLAGS,
     pub IRQD_Alloc_Num: u32,
     pub IRQD_Affinity: u32,
 }
@@ -3376,7 +3382,7 @@ impl ::core::clone::Clone for IRQ_DES_32 {
 pub struct IRQ_DES_64 {
     pub IRQD_Count: u32,
     pub IRQD_Type: u32,
-    pub IRQD_Flags: u32,
+    pub IRQD_Flags: IRQD_FLAGS,
     pub IRQD_Alloc_Num: u32,
     pub IRQD_Affinity: u64,
 }
@@ -3426,7 +3432,7 @@ pub struct MEM_DES {
     pub MD_Type: u32,
     pub MD_Alloc_Base: u64,
     pub MD_Alloc_End: u64,
-    pub MD_Flags: u32,
+    pub MD_Flags: MD_FLAGS,
     pub MD_Reserved: u32,
 }
 impl ::core::marker::Copy for MEM_DES {}
@@ -3506,7 +3512,7 @@ impl ::core::clone::Clone for MEM_RESOURCE {
 pub struct MFCARD_DES {
     pub PMF_Count: u32,
     pub PMF_Type: u32,
-    pub PMF_Flags: u32,
+    pub PMF_Flags: PMF_FLAGS,
     pub PMF_ConfigOptions: u8,
     pub PMF_IoResourceIndex: u8,
     pub PMF_Reserved: [u8; 2],
@@ -3532,7 +3538,7 @@ impl ::core::clone::Clone for MFCARD_RESOURCE {
 pub struct PCCARD_DES {
     pub PCD_Count: u32,
     pub PCD_Type: u32,
-    pub PCD_Flags: u32,
+    pub PCD_Flags: PCD_FLAGS,
     pub PCD_ConfigIndex: u8,
     pub PCD_Reserved: [u8; 3],
     pub PCD_MemoryCardBase1: u32,
