@@ -223,7 +223,7 @@ impl ICoreApplicationUnhandledError {
 }
 ::windows_core::imp::interface_hierarchy!(ICoreApplicationUnhandledError, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ICoreApplicationUnhandledError {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{f0e24ab0-dd09-42e1-b0bc-e0e131f78d7e}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ICoreApplicationUnhandledError {
     type Vtable = ICoreApplicationUnhandledError_Vtbl;
@@ -497,7 +497,7 @@ impl IFrameworkView {
 }
 ::windows_core::imp::interface_hierarchy!(IFrameworkView, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IFrameworkView {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{faab5cd0-8924-45ac-ad0f-a08fae5d0324}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IFrameworkView {
     type Vtable = IFrameworkView_Vtbl;
@@ -532,7 +532,7 @@ impl IFrameworkViewSource {
 }
 ::windows_core::imp::interface_hierarchy!(IFrameworkViewSource, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IFrameworkViewSource {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{cd770614-65c4-426c-9494-34fc43554862}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IFrameworkViewSource {
     type Vtable = IFrameworkViewSource_Vtbl;
@@ -646,7 +646,7 @@ impl AppListEntry {
     }
 }
 impl ::windows_core::RuntimeType for AppListEntry {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.AppListEntry;{ef00f07f-2108-490a-877a-8a9f17c25fad})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AppListEntry {
     type Vtable = IAppListEntry_Vtbl;
@@ -1029,7 +1029,7 @@ impl CoreApplicationView {
     }
 }
 impl ::windows_core::RuntimeType for CoreApplicationView {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.CoreApplicationView;{638bb2db-451d-4661-b099-414f34ffb9f1})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreApplicationView {
     type Vtable = ICoreApplicationView_Vtbl;
@@ -1122,7 +1122,7 @@ impl CoreApplicationViewTitleBar {
     }
 }
 impl ::windows_core::RuntimeType for CoreApplicationViewTitleBar {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.CoreApplicationViewTitleBar;{006d35e3-e1f1-431b-9508-29b96926ac53})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreApplicationViewTitleBar {
     type Vtable = ICoreApplicationViewTitleBar_Vtbl;
@@ -1149,7 +1149,7 @@ impl HostedViewClosingEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for HostedViewClosingEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.HostedViewClosingEventArgs;{d238943c-b24e-4790-acb5-3e4243c4ff87})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HostedViewClosingEventArgs {
     type Vtable = IHostedViewClosingEventArgs_Vtbl;
@@ -1180,7 +1180,7 @@ impl UnhandledError {
     }
 }
 impl ::windows_core::RuntimeType for UnhandledError {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.UnhandledError;{9459b726-53b5-4686-9eaf-fa8162dc3980})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UnhandledError {
     type Vtable = IUnhandledError_Vtbl;
@@ -1207,7 +1207,7 @@ impl UnhandledErrorDetectedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for UnhandledErrorDetectedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.UnhandledErrorDetectedEventArgs;{679ab78b-b336-4822-ac40-0d750f0b7a2b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UnhandledErrorDetectedEventArgs {
     type Vtable = IUnhandledErrorDetectedEventArgs_Vtbl;

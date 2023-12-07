@@ -603,7 +603,7 @@ impl CameraIntrinsics {
     }
 }
 impl ::windows_core::RuntimeType for CameraIntrinsics {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.CameraIntrinsics;{0aa6ed32-6589-49da-afde-594270ca0aac})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CameraIntrinsics {
     type Vtable = ICameraIntrinsics_Vtbl;
@@ -673,7 +673,7 @@ impl DepthCorrelatedCoordinateMapper {
     }
 }
 impl ::windows_core::RuntimeType for DepthCorrelatedCoordinateMapper {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper;{f95d89fb-8af0-4cb0-926d-696866e5046a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DepthCorrelatedCoordinateMapper {
     type Vtable = IDepthCorrelatedCoordinateMapper_Vtbl;
@@ -737,7 +737,7 @@ impl FrameControlCapabilities {
     }
 }
 impl ::windows_core::RuntimeType for FrameControlCapabilities {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameControlCapabilities;{a8ffae60-4e9e-4377-a789-e24c4ae7e544})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FrameControlCapabilities {
     type Vtable = IFrameControlCapabilities_Vtbl;
@@ -815,7 +815,7 @@ impl FrameController {
     }
 }
 impl ::windows_core::RuntimeType for FrameController {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameController;{c16459d9-baef-4052-9177-48aff2af7522})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FrameController {
     type Vtable = IFrameController_Vtbl;
@@ -869,7 +869,7 @@ impl FrameExposureCapabilities {
     }
 }
 impl ::windows_core::RuntimeType for FrameExposureCapabilities {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureCapabilities;{bdbe9ce3-3985-4e72-97c2-0590d61307a1})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FrameExposureCapabilities {
     type Vtable = IFrameExposureCapabilities_Vtbl;
@@ -915,7 +915,7 @@ impl FrameExposureCompensationCapabilities {
     }
 }
 impl ::windows_core::RuntimeType for FrameExposureCompensationCapabilities {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureCompensationCapabilities;{b988a823-8065-41ee-b04f-722265954500})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FrameExposureCompensationCapabilities {
     type Vtable = IFrameExposureCompensationCapabilities_Vtbl;
@@ -951,7 +951,7 @@ impl FrameExposureCompensationControl {
     }
 }
 impl ::windows_core::RuntimeType for FrameExposureCompensationControl {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureCompensationControl;{e95896c9-f7f9-48ca-8591-a26531cb1578})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FrameExposureCompensationControl {
     type Vtable = IFrameExposureCompensationControl_Vtbl;
@@ -998,7 +998,7 @@ impl FrameExposureControl {
     }
 }
 impl ::windows_core::RuntimeType for FrameExposureControl {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureControl;{b1605a61-ffaf-4752-b621-f5b6f117f432})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FrameExposureControl {
     type Vtable = IFrameExposureControl_Vtbl;
@@ -1037,7 +1037,7 @@ impl FrameFlashCapabilities {
     }
 }
 impl ::windows_core::RuntimeType for FrameFlashCapabilities {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFlashCapabilities;{bb9341a2-5ebe-4f62-8223-0e2b05bfbbd0})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FrameFlashCapabilities {
     type Vtable = IFrameFlashCapabilities_Vtbl;
@@ -1099,7 +1099,7 @@ impl FrameFlashControl {
     }
 }
 impl ::windows_core::RuntimeType for FrameFlashControl {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFlashControl;{75d5f6c7-bd45-4fab-9375-45ac04b332c2})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FrameFlashControl {
     type Vtable = IFrameFlashControl_Vtbl;
@@ -1145,7 +1145,7 @@ impl FrameFocusCapabilities {
     }
 }
 impl ::windows_core::RuntimeType for FrameFocusCapabilities {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFocusCapabilities;{7b25cd58-01c0-4065-9c40-c1a721425c1a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FrameFocusCapabilities {
     type Vtable = IFrameFocusCapabilities_Vtbl;
@@ -1181,7 +1181,7 @@ impl FrameFocusControl {
     }
 }
 impl ::windows_core::RuntimeType for FrameFocusControl {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFocusControl;{272df1d0-d912-4214-a67b-e38a8d48d8c6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FrameFocusControl {
     type Vtable = IFrameFocusControl_Vtbl;
@@ -1227,7 +1227,7 @@ impl FrameIsoSpeedCapabilities {
     }
 }
 impl ::windows_core::RuntimeType for FrameIsoSpeedCapabilities {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameIsoSpeedCapabilities;{16bdff61-6df6-4ac9-b92a-9f6ecd1ad2fa})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FrameIsoSpeedCapabilities {
     type Vtable = IFrameIsoSpeedCapabilities_Vtbl;
@@ -1274,7 +1274,7 @@ impl FrameIsoSpeedControl {
     }
 }
 impl ::windows_core::RuntimeType for FrameIsoSpeedControl {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameIsoSpeedControl;{1a03efed-786a-4c75-a557-7ab9a85f588c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FrameIsoSpeedControl {
     type Vtable = IFrameIsoSpeedControl_Vtbl;
@@ -1354,7 +1354,7 @@ impl VariablePhotoSequenceController {
     }
 }
 impl ::windows_core::RuntimeType for VariablePhotoSequenceController {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.VariablePhotoSequenceController;{7fbff880-ed8c-43fd-a7c3-b35809e4229a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VariablePhotoSequenceController {
     type Vtable = IVariablePhotoSequenceController_Vtbl;

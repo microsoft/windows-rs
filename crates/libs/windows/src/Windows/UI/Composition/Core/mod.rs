@@ -84,7 +84,7 @@ impl CompositorController {
     }
 }
 impl ::windows_core::RuntimeType for CompositorController {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Core.CompositorController;{2d75f35a-70a7-4395-ba2d-cef0b18399f9})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CompositorController {
     type Vtable = ICompositorController_Vtbl;

@@ -64,7 +64,7 @@ impl IAudioEffectDefinition {
 }
 ::windows_core::imp::interface_hierarchy!(IAudioEffectDefinition, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IAudioEffectDefinition {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{e4d7f974-7d80-4f73-9089-e31c9db9c294}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IAudioEffectDefinition {
     type Vtable = IAudioEffectDefinition_Vtbl;
@@ -248,7 +248,7 @@ impl IBasicAudioEffect {
 ::windows_core::imp::interface_hierarchy!(IBasicAudioEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IMediaExtension> for IBasicAudioEffect {}
 impl ::windows_core::RuntimeType for IBasicAudioEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{8c062c53-6bc0-48b8-a99a-4b41550f1359}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IBasicAudioEffect {
     type Vtable = IBasicAudioEffect_Vtbl;
@@ -345,7 +345,7 @@ impl IBasicVideoEffect {
 ::windows_core::imp::interface_hierarchy!(IBasicVideoEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IMediaExtension> for IBasicVideoEffect {}
 impl ::windows_core::RuntimeType for IBasicVideoEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{8262c7ef-b360-40be-949b-2ff42ff35693}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IBasicVideoEffect {
     type Vtable = IBasicVideoEffect_Vtbl;
@@ -497,7 +497,7 @@ impl IVideoCompositor {
 ::windows_core::imp::interface_hierarchy!(IVideoCompositor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IMediaExtension> for IVideoCompositor {}
 impl ::windows_core::RuntimeType for IVideoCompositor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{8510b43e-420c-420f-96c7-7c98bba1fc55}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IVideoCompositor {
     type Vtable = IVideoCompositor_Vtbl;
@@ -541,7 +541,7 @@ impl IVideoCompositorDefinition {
 }
 ::windows_core::imp::interface_hierarchy!(IVideoCompositorDefinition, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IVideoCompositorDefinition {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{7946b8d0-2010-4ae3-9ab2-2cef42edd4d2}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IVideoCompositorDefinition {
     type Vtable = IVideoCompositorDefinition_Vtbl;
@@ -602,7 +602,7 @@ impl IVideoEffectDefinition {
 }
 ::windows_core::imp::interface_hierarchy!(IVideoEffectDefinition, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IVideoEffectDefinition {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{39f38cf0-8d0f-4f3e-84fc-2d46a5297943}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IVideoEffectDefinition {
     type Vtable = IVideoEffectDefinition_Vtbl;
@@ -795,7 +795,7 @@ impl AudioCaptureEffectsManager {
     }
 }
 impl ::windows_core::RuntimeType for AudioCaptureEffectsManager {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioCaptureEffectsManager;{8f85c271-038d-4393-8298-540110608eef})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AudioCaptureEffectsManager {
     type Vtable = IAudioCaptureEffectsManager_Vtbl;
@@ -822,7 +822,7 @@ impl AudioEffect {
     }
 }
 impl ::windows_core::RuntimeType for AudioEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioEffect;{34aafa51-9207-4055-be93-6e5734a86ae4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AudioEffect {
     type Vtable = IAudioEffect_Vtbl;
@@ -880,7 +880,7 @@ impl AudioEffectDefinition {
     }
 }
 impl ::windows_core::RuntimeType for AudioEffectDefinition {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioEffectDefinition;{e4d7f974-7d80-4f73-9089-e31c9db9c294})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AudioEffectDefinition {
     type Vtable = IAudioEffectDefinition_Vtbl;
@@ -995,7 +995,7 @@ impl AudioRenderEffectsManager {
     }
 }
 impl ::windows_core::RuntimeType for AudioRenderEffectsManager {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioRenderEffectsManager;{4dc98966-8751-42b2-bfcb-39ca7864bd47})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AudioRenderEffectsManager {
     type Vtable = IAudioRenderEffectsManager_Vtbl;
@@ -1050,7 +1050,7 @@ impl CompositeVideoFrameContext {
     }
 }
 impl ::windows_core::RuntimeType for CompositeVideoFrameContext {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.CompositeVideoFrameContext;{6c30024b-f514-4278-a5f7-b9188049d110})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CompositeVideoFrameContext {
     type Vtable = ICompositeVideoFrameContext_Vtbl;
@@ -1084,7 +1084,7 @@ impl ProcessAudioFrameContext {
     }
 }
 impl ::windows_core::RuntimeType for ProcessAudioFrameContext {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.ProcessAudioFrameContext;{4cd92946-1222-4a27-a586-fb3e20273255})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ProcessAudioFrameContext {
     type Vtable = IProcessAudioFrameContext_Vtbl;
@@ -1118,7 +1118,7 @@ impl ProcessVideoFrameContext {
     }
 }
 impl ::windows_core::RuntimeType for ProcessVideoFrameContext {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.ProcessVideoFrameContext;{276f0e2b-6461-401e-ba78-0fdad6114eec})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ProcessVideoFrameContext {
     type Vtable = IProcessVideoFrameContext_Vtbl;
@@ -1172,7 +1172,7 @@ impl SlowMotionEffectDefinition {
     }
 }
 impl ::windows_core::RuntimeType for SlowMotionEffectDefinition {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.SlowMotionEffectDefinition;{35053cd0-176c-4763-82c4-1b02dbe31737})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SlowMotionEffectDefinition {
     type Vtable = ISlowMotionEffectDefinition_Vtbl;
@@ -1231,7 +1231,7 @@ impl VideoCompositorDefinition {
     }
 }
 impl ::windows_core::RuntimeType for VideoCompositorDefinition {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoCompositorDefinition;{7946b8d0-2010-4ae3-9ab2-2cef42edd4d2})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VideoCompositorDefinition {
     type Vtable = IVideoCompositorDefinition_Vtbl;
@@ -1290,7 +1290,7 @@ impl VideoEffectDefinition {
     }
 }
 impl ::windows_core::RuntimeType for VideoEffectDefinition {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VideoEffectDefinition {
     type Vtable = IVideoEffectDefinition_Vtbl;
@@ -1431,7 +1431,7 @@ impl VideoTransformEffectDefinition {
     }
 }
 impl ::windows_core::RuntimeType for VideoTransformEffectDefinition {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoTransformEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VideoTransformEffectDefinition {
     type Vtable = IVideoEffectDefinition_Vtbl;
@@ -1519,7 +1519,7 @@ impl VideoTransformSphericalProjection {
     }
 }
 impl ::windows_core::RuntimeType for VideoTransformSphericalProjection {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoTransformSphericalProjection;{cf4401f0-9bf2-4c39-9f41-e022514a8468})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VideoTransformSphericalProjection {
     type Vtable = IVideoTransformSphericalProjection_Vtbl;

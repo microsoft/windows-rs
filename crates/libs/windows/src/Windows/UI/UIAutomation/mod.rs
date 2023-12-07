@@ -95,7 +95,7 @@ impl AutomationConnection {
     }
 }
 impl ::windows_core::RuntimeType for AutomationConnection {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationConnection;{aad262ed-0ef4-5d43-97be-a834e27b65b9})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AutomationConnection {
     type Vtable = IAutomationConnection_Vtbl;
@@ -122,7 +122,7 @@ impl AutomationConnectionBoundObject {
     }
 }
 impl ::windows_core::RuntimeType for AutomationConnectionBoundObject {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationConnectionBoundObject;{5e8558fb-ca52-5b65-9830-dd2905816093})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AutomationConnectionBoundObject {
     type Vtable = IAutomationConnectionBoundObject_Vtbl;
@@ -163,7 +163,7 @@ impl AutomationElement {
     }
 }
 impl ::windows_core::RuntimeType for AutomationElement {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationElement;{a1898370-2c07-56fd-993f-61a72a08058c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AutomationElement {
     type Vtable = IAutomationElement_Vtbl;
@@ -182,7 +182,7 @@ unsafe impl ::core::marker::Sync for AutomationElement {}
 pub struct AutomationTextRange(::windows_core::IUnknown);
 impl AutomationTextRange {}
 impl ::windows_core::RuntimeType for AutomationTextRange {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationTextRange;{7e101b65-40d3-5994-85a9-0a0cb9a4ec98})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AutomationTextRange {
     type Vtable = IAutomationTextRange_Vtbl;

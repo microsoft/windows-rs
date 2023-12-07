@@ -92,7 +92,7 @@ impl InstalledDesktopApp {
     }
 }
 impl ::windows_core::RuntimeType for InstalledDesktopApp {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Inventory.InstalledDesktopApp;{75eab8ed-c0bc-5364-4c28-166e0545167a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for InstalledDesktopApp {
     type Vtable = IInstalledDesktopApp_Vtbl;

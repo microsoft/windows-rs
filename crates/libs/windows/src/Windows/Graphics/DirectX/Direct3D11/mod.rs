@@ -17,7 +17,7 @@ impl IDirect3DDevice {
 #[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for IDirect3DDevice {}
 impl ::windows_core::RuntimeType for IDirect3DDevice {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{a37624ab-8d5f-4650-9d3e-9eae3d9bc670}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IDirect3DDevice {
     type Vtable = IDirect3DDevice_Vtbl;
@@ -53,7 +53,7 @@ impl IDirect3DSurface {
 #[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for IDirect3DSurface {}
 impl ::windows_core::RuntimeType for IDirect3DSurface {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{0bf4a146-13c1-4694-bee3-7abf15eaf586}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IDirect3DSurface {
     type Vtable = IDirect3DSurface_Vtbl;

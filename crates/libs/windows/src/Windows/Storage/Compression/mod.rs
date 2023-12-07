@@ -160,7 +160,7 @@ impl Compressor {
     }
 }
 impl ::windows_core::RuntimeType for Compressor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Compression.Compressor;{0ac3645a-57ac-4ee1-b702-84d39d5424e0})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Compressor {
     type Vtable = ICompressor_Vtbl;
@@ -227,7 +227,7 @@ impl Decompressor {
     }
 }
 impl ::windows_core::RuntimeType for Decompressor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Compression.Decompressor;{b883fe46-d68a-4c8b-ada0-4ee813fc5283})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Decompressor {
     type Vtable = IDecompressor_Vtbl;

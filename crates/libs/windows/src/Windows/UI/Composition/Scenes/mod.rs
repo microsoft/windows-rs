@@ -736,7 +736,7 @@ impl SceneBoundingBox {
     }
 }
 impl ::windows_core::RuntimeType for SceneBoundingBox {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneBoundingBox;{5d8ffc70-c618-4083-8251-9962593114aa})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SceneBoundingBox {
     type Vtable = ISceneBoundingBox_Vtbl;
@@ -878,7 +878,7 @@ impl SceneComponent {
     }
 }
 impl ::windows_core::RuntimeType for SceneComponent {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneComponent;{ae20fc96-226c-44bd-95cb-dd5ed9ebe9a5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SceneComponent {
     type Vtable = ISceneComponent_Vtbl;
@@ -1125,7 +1125,7 @@ impl SceneComponentCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeType for SceneComponentCollection {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneComponentCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Composition.Scenes.SceneComponent;{ae20fc96-226c-44bd-95cb-dd5ed9ebe9a5})))");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for SceneComponentCollection {
@@ -1289,7 +1289,7 @@ impl SceneMaterial {
     }
 }
 impl ::windows_core::RuntimeType for SceneMaterial {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMaterial;{8ca74b7c-30df-4e07-9490-37875af1a123})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SceneMaterial {
     type Vtable = ISceneMaterial_Vtbl;
@@ -1424,7 +1424,7 @@ impl SceneMaterialInput {
     }
 }
 impl ::windows_core::RuntimeType for SceneMaterialInput {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMaterialInput;{422a1642-1ef1-485c-97e9-ae6f95ad812f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SceneMaterialInput {
     type Vtable = ISceneMaterialInput_Vtbl;
@@ -1604,7 +1604,7 @@ impl SceneMesh {
     }
 }
 impl ::windows_core::RuntimeType for SceneMesh {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMesh;{ee9a1530-1155-4c0c-92bd-40020cf78347})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SceneMesh {
     type Vtable = ISceneMesh_Vtbl;
@@ -1805,7 +1805,7 @@ impl SceneMeshMaterialAttributeMap {
     }
 }
 impl ::windows_core::RuntimeType for SceneMeshMaterialAttributeMap {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMeshMaterialAttributeMap;{ce843171-3d43-4855-aa69-31ff988d049d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SceneMeshMaterialAttributeMap {
     type Vtable = ISceneMeshMaterialAttributeMap_Vtbl;
@@ -2016,7 +2016,7 @@ impl SceneMeshRendererComponent {
     }
 }
 impl ::windows_core::RuntimeType for SceneMeshRendererComponent {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMeshRendererComponent;{9929f7e3-6364-477e-98fe-74ed9fd4c2de})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SceneMeshRendererComponent {
     type Vtable = ISceneMeshRendererComponent_Vtbl;
@@ -2344,7 +2344,7 @@ impl SceneMetallicRoughnessMaterial {
     }
 }
 impl ::windows_core::RuntimeType for SceneMetallicRoughnessMaterial {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMetallicRoughnessMaterial;{c1d91446-799c-429e-a4e4-5da645f18e61})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SceneMetallicRoughnessMaterial {
     type Vtable = ISceneMetallicRoughnessMaterial_Vtbl;
@@ -2563,7 +2563,7 @@ impl SceneModelTransform {
     }
 }
 impl ::windows_core::RuntimeType for SceneModelTransform {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneModelTransform;{c05576c2-32b1-4269-980d-b98537100ae4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SceneModelTransform {
     type Vtable = ISceneModelTransform_Vtbl;
@@ -2751,7 +2751,7 @@ impl SceneNode {
     }
 }
 impl ::windows_core::RuntimeType for SceneNode {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneNode;{acf2c247-f307-4581-9c41-af2e29c3b016})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SceneNode {
     type Vtable = ISceneNode_Vtbl;
@@ -2998,7 +2998,7 @@ impl SceneNodeCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeType for SceneNodeCollection {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneNodeCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Composition.Scenes.SceneNode;{acf2c247-f307-4581-9c41-af2e29c3b016})))");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for SceneNodeCollection {
@@ -3162,7 +3162,7 @@ impl SceneObject {
     }
 }
 impl ::windows_core::RuntimeType for SceneObject {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneObject;{1e94249b-0f1b-49eb-a819-877d8450005b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SceneObject {
     type Vtable = ISceneObject_Vtbl;
@@ -3408,7 +3408,7 @@ impl ScenePbrMaterial {
     }
 }
 impl ::windows_core::RuntimeType for ScenePbrMaterial {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.ScenePbrMaterial;{aab6ebbe-d680-46df-8294-b6800a9f95e7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ScenePbrMaterial {
     type Vtable = IScenePbrMaterial_Vtbl;
@@ -3551,7 +3551,7 @@ impl SceneRendererComponent {
     }
 }
 impl ::windows_core::RuntimeType for SceneRendererComponent {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneRendererComponent;{f1acb857-cf4f-4025-9b25-a2d1944cf507})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SceneRendererComponent {
     type Vtable = ISceneRendererComponent_Vtbl;
@@ -3748,7 +3748,7 @@ impl SceneSurfaceMaterialInput {
     }
 }
 impl ::windows_core::RuntimeType for SceneSurfaceMaterialInput {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneSurfaceMaterialInput;{9937da5c-a9ca-4cfc-b3aa-088356518742})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SceneSurfaceMaterialInput {
     type Vtable = ISceneSurfaceMaterialInput_Vtbl;
@@ -4203,7 +4203,7 @@ impl SceneVisual {
     }
 }
 impl ::windows_core::RuntimeType for SceneVisual {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneVisual;{8e672c1e-d734-47b1-be14-3d694ffa4301})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SceneVisual {
     type Vtable = ISceneVisual_Vtbl;

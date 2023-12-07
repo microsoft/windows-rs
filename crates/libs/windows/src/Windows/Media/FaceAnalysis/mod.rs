@@ -162,7 +162,7 @@ impl DetectedFace {
     }
 }
 impl ::windows_core::RuntimeType for DetectedFace {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.FaceAnalysis.DetectedFace;{8200d454-66bc-34df-9410-e89400195414})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DetectedFace {
     type Vtable = IDetectedFace_Vtbl;
@@ -271,7 +271,7 @@ impl FaceDetector {
     }
 }
 impl ::windows_core::RuntimeType for FaceDetector {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.FaceAnalysis.FaceDetector;{16b672dc-fe6f-3117-8d95-c3f04d51630c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FaceDetector {
     type Vtable = IFaceDetector_Vtbl;
@@ -368,7 +368,7 @@ impl FaceTracker {
     }
 }
 impl ::windows_core::RuntimeType for FaceTracker {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.FaceAnalysis.FaceTracker;{6ba67d8c-a841-4420-93e6-2420a1884fcf})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FaceTracker {
     type Vtable = IFaceTracker_Vtbl;

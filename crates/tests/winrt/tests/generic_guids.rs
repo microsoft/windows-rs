@@ -1,7 +1,20 @@
-use windows::{Foundation::Collections::*, Foundation::*};
+use windows::{core::*, Foundation::Collections::*, Foundation::*};
 
 #[test]
-fn generic_guids() -> windows::core::Result<()> {
+fn signatures() {
+    assert_eq!(
+        Uri::SIGNATURE.as_slice(),
+        b"rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})"
+    );
+
+    assert_eq!(
+        IAsyncInfo::SIGNATURE.as_slice(),
+        b"{00000036-0000-0000-c000-000000000046}"
+    );
+}
+
+#[test]
+fn generic_guids() {
     use windows::core::ComInterface;
 
     type A = IIterable<IStringable>;
@@ -204,6 +217,4 @@ fn generic_guids() -> windows::core::Result<()> {
     );
 
     // TODO: structs and enums
-
-    Ok(())
 }

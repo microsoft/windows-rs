@@ -172,7 +172,7 @@ impl WalletItemSystemStore {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeType for WalletItemSystemStore {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.System.WalletItemSystemStore;{522e2bff-96a2-4a17-8d19-fe1d9f837561})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for WalletItemSystemStore {

@@ -114,7 +114,7 @@ impl CoreAppWindowPreview {
     }
 }
 impl ::windows_core::RuntimeType for CoreAppWindowPreview {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.Preview.CoreAppWindowPreview;{a4f6e665-365e-5fde-87a5-9543c3a15aa8})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreAppWindowPreview {
     type Vtable = ICoreAppWindowPreview_Vtbl;
@@ -154,7 +154,7 @@ impl SystemNavigationCloseRequestedPreviewEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for SystemNavigationCloseRequestedPreviewEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.Preview.SystemNavigationCloseRequestedPreviewEventArgs;{83d00de1-cbe5-4f31-8414-361da046518f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SystemNavigationCloseRequestedPreviewEventArgs {
     type Vtable = ISystemNavigationCloseRequestedPreviewEventArgs_Vtbl;
@@ -203,7 +203,7 @@ impl SystemNavigationManagerPreview {
     }
 }
 impl ::windows_core::RuntimeType for SystemNavigationManagerPreview {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.Preview.SystemNavigationManagerPreview;{ec5f0488-6425-4777-a536-cb5634427f0d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SystemNavigationManagerPreview {
     type Vtable = ISystemNavigationManagerPreview_Vtbl;

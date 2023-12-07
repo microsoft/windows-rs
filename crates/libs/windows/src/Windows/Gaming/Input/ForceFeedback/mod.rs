@@ -90,7 +90,7 @@ impl IForceFeedbackEffect {
 }
 ::windows_core::imp::interface_hierarchy!(IForceFeedbackEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IForceFeedbackEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{a17fba0c-2ae4-48c2-8063-eabd0777cb89}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IForceFeedbackEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;
@@ -270,7 +270,7 @@ impl ConditionForceEffect {
     }
 }
 impl ::windows_core::RuntimeType for ConditionForceEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.ConditionForceEffect;{a17fba0c-2ae4-48c2-8063-eabd0777cb89})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ConditionForceEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;
@@ -336,7 +336,7 @@ impl ConstantForceEffect {
     }
 }
 impl ::windows_core::RuntimeType for ConstantForceEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.ConstantForceEffect;{a17fba0c-2ae4-48c2-8063-eabd0777cb89})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ConstantForceEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;
@@ -452,7 +452,7 @@ impl ForceFeedbackMotor {
     }
 }
 impl ::windows_core::RuntimeType for ForceFeedbackMotor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor;{8d3d417c-a5ea-4516-8026-2b00f74ef6e5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ForceFeedbackMotor {
     type Vtable = IForceFeedbackMotor_Vtbl;
@@ -528,7 +528,7 @@ impl PeriodicForceEffect {
     }
 }
 impl ::windows_core::RuntimeType for PeriodicForceEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.PeriodicForceEffect;{a17fba0c-2ae4-48c2-8063-eabd0777cb89})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PeriodicForceEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;
@@ -594,7 +594,7 @@ impl RampForceEffect {
     }
 }
 impl ::windows_core::RuntimeType for RampForceEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.RampForceEffect;{a17fba0c-2ae4-48c2-8063-eabd0777cb89})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for RampForceEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;

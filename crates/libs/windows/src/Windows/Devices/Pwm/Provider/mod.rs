@@ -60,7 +60,7 @@ impl IPwmControllerProvider {
 }
 ::windows_core::imp::interface_hierarchy!(IPwmControllerProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IPwmControllerProvider {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{1300593b-e2e3-40a4-b7d9-48dff0377a52}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IPwmControllerProvider {
     type Vtable = IPwmControllerProvider_Vtbl;
@@ -99,7 +99,7 @@ impl IPwmProvider {
 }
 ::windows_core::imp::interface_hierarchy!(IPwmProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IPwmProvider {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{a3301228-52f1-47b0-9349-66ba43d25902}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IPwmProvider {
     type Vtable = IPwmProvider_Vtbl;

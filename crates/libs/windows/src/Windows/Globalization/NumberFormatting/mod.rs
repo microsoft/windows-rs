@@ -122,7 +122,7 @@ impl INumberFormatter {
 }
 ::windows_core::imp::interface_hierarchy!(INumberFormatter, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for INumberFormatter {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{a5007c49-7676-4db7-8631-1b6ff265caa9}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for INumberFormatter {
     type Vtable = INumberFormatter_Vtbl;
@@ -166,7 +166,7 @@ impl INumberFormatter2 {
 }
 ::windows_core::imp::interface_hierarchy!(INumberFormatter2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for INumberFormatter2 {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{d4a8c1f0-80d0-4b0d-a89e-882c1e8f8310}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for INumberFormatter2 {
     type Vtable = INumberFormatter2_Vtbl;
@@ -274,7 +274,7 @@ impl INumberFormatterOptions {
 }
 ::windows_core::imp::interface_hierarchy!(INumberFormatterOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for INumberFormatterOptions {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{80332d21-aee1-4a39-baa2-07ed8c96daf6}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for INumberFormatterOptions {
     type Vtable = INumberFormatterOptions_Vtbl;
@@ -338,7 +338,7 @@ impl INumberParser {
 }
 ::windows_core::imp::interface_hierarchy!(INumberParser, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for INumberParser {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{e6659412-4a13-4a53-83a1-392fbe4cff9f}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for INumberParser {
     type Vtable = INumberParser_Vtbl;
@@ -412,7 +412,7 @@ impl INumberRounder {
 }
 ::windows_core::imp::interface_hierarchy!(INumberRounder, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for INumberRounder {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{5473c375-38ed-4631-b80c-ef34fc48b7f5}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for INumberRounder {
     type Vtable = INumberRounder_Vtbl;
@@ -452,7 +452,7 @@ impl INumberRounderOption {
 }
 ::windows_core::imp::interface_hierarchy!(INumberRounderOption, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for INumberRounderOption {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{3b088433-646f-4efe-8d48-66eb2e49e736}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for INumberRounderOption {
     type Vtable = INumberRounderOption_Vtbl;
@@ -565,7 +565,7 @@ impl ISignedZeroOption {
 }
 ::windows_core::imp::interface_hierarchy!(ISignedZeroOption, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ISignedZeroOption {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{fd1cdd31-0a3c-49c4-a642-96a1564f4f30}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ISignedZeroOption {
     type Vtable = ISignedZeroOption_Vtbl;
@@ -617,7 +617,7 @@ impl ISignificantDigitsOption {
 }
 ::windows_core::imp::interface_hierarchy!(ISignificantDigitsOption, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ISignificantDigitsOption {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{1d4dfcdd-2d43-4ee8-bbf1-c1b26a711a58}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ISignificantDigitsOption {
     type Vtable = ISignificantDigitsOption_Vtbl;
@@ -878,7 +878,7 @@ impl CurrencyFormatter {
     }
 }
 impl ::windows_core::RuntimeType for CurrencyFormatter {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.CurrencyFormatter;{11730ca5-4b00-41b2-b332-73b12a497d54})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CurrencyFormatter {
     type Vtable = ICurrencyFormatter_Vtbl;
@@ -1118,7 +1118,7 @@ impl DecimalFormatter {
     }
 }
 impl ::windows_core::RuntimeType for DecimalFormatter {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.DecimalFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DecimalFormatter {
     type Vtable = INumberFormatter_Vtbl;
@@ -1216,7 +1216,7 @@ impl IncrementNumberRounder {
     }
 }
 impl ::windows_core::RuntimeType for IncrementNumberRounder {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.IncrementNumberRounder;{5473c375-38ed-4631-b80c-ef34fc48b7f5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for IncrementNumberRounder {
     type Vtable = INumberRounder_Vtbl;
@@ -1294,7 +1294,7 @@ impl NumeralSystemTranslator {
     }
 }
 impl ::windows_core::RuntimeType for NumeralSystemTranslator {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.NumeralSystemTranslator;{28f5bc2c-8c23-4234-ad2e-fa5a3a426e9b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for NumeralSystemTranslator {
     type Vtable = INumeralSystemTranslator_Vtbl;
@@ -1527,7 +1527,7 @@ impl PercentFormatter {
     }
 }
 impl ::windows_core::RuntimeType for PercentFormatter {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.PercentFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PercentFormatter {
     type Vtable = INumberFormatter_Vtbl;
@@ -1767,7 +1767,7 @@ impl PermilleFormatter {
     }
 }
 impl ::windows_core::RuntimeType for PermilleFormatter {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.PermilleFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PermilleFormatter {
     type Vtable = INumberFormatter_Vtbl;
@@ -1865,7 +1865,7 @@ impl SignificantDigitsNumberRounder {
     }
 }
 impl ::windows_core::RuntimeType for SignificantDigitsNumberRounder {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder;{5473c375-38ed-4631-b80c-ef34fc48b7f5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SignificantDigitsNumberRounder {
     type Vtable = INumberRounder_Vtbl;

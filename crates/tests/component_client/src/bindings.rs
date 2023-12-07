@@ -29,7 +29,7 @@ pub mod Nested {
     );
     impl ::windows_core::RuntimeType for IThing {
         const SIGNATURE: ::windows_core::imp::ConstBuffer =
-            ::windows_core::imp::ConstBuffer::from_slice(b"{5448be22-9873-5ae6-9106-f6e8455d2fdd}");
+            ::windows_core::imp::ConstBuffer::for_interface::<Self>();
     }
     unsafe impl ::windows_core::Interface for IThing {
         type Vtable = IThing_Vtbl;
@@ -224,9 +224,7 @@ impl Class {
 }
 impl ::windows_core::RuntimeType for Class {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
-        ::windows_core::imp::ConstBuffer::from_slice(
-            b"rc(test_component.Class;{97540591-1323-59c0-9ae0-f510cae62e54})",
-        );
+        ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Class {
     type Vtable = IClass_Vtbl;
@@ -408,7 +406,7 @@ unsafe impl ::windows_core::ComInterface for Callback {
 }
 impl ::windows_core::RuntimeType for Callback {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
-        ::windows_core::imp::ConstBuffer::from_slice(b"{e39afc7e-93f1-5a1d-92ef-bd5f71c62cb8}");
+        ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 #[doc(hidden)]

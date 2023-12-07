@@ -60,7 +60,7 @@ impl IControlChannelTriggerEventDetails {
 }
 ::windows_core::imp::interface_hierarchy!(IControlChannelTriggerEventDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IControlChannelTriggerEventDetails {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{1b36e047-89bb-4236-96ac-71d012bb4869}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IControlChannelTriggerEventDetails {
     type Vtable = IControlChannelTriggerEventDetails_Vtbl;
@@ -119,7 +119,7 @@ impl IControlChannelTriggerResetEventDetails {
 }
 ::windows_core::imp::interface_hierarchy!(IControlChannelTriggerResetEventDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IControlChannelTriggerResetEventDetails {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{6851038e-8ec4-42fe-9bb2-21e91b7bfcb1}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IControlChannelTriggerResetEventDetails {
     type Vtable = IControlChannelTriggerResetEventDetails_Vtbl;
@@ -1326,7 +1326,7 @@ impl IWebSocket {
 #[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for IWebSocket {}
 impl ::windows_core::RuntimeType for IWebSocket {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{f877396f-99b1-4e18-bc08-850c9adf156e}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IWebSocket {
     type Vtable = IWebSocket_Vtbl;
@@ -1437,7 +1437,7 @@ impl IWebSocketControl {
 }
 ::windows_core::imp::interface_hierarchy!(IWebSocketControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IWebSocketControl {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{2ec4bdc3-d9a5-455a-9811-de24d45337e9}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IWebSocketControl {
     type Vtable = IWebSocketControl_Vtbl;
@@ -1545,7 +1545,7 @@ impl IWebSocketControl2 {
 ::windows_core::imp::interface_hierarchy!(IWebSocketControl2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IWebSocketControl> for IWebSocketControl2 {}
 impl ::windows_core::RuntimeType for IWebSocketControl2 {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{79c3be03-f2ca-461e-af4e-9665bc2d0620}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IWebSocketControl2 {
     type Vtable = IWebSocketControl2_Vtbl;
@@ -1609,7 +1609,7 @@ impl IWebSocketInformation {
 }
 ::windows_core::imp::interface_hierarchy!(IWebSocketInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IWebSocketInformation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{5e01e316-c92a-47a5-b25f-07847639d181}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IWebSocketInformation {
     type Vtable = IWebSocketInformation_Vtbl;
@@ -1688,7 +1688,7 @@ impl IWebSocketInformation2 {
 ::windows_core::imp::interface_hierarchy!(IWebSocketInformation2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IWebSocketInformation> for IWebSocketInformation2 {}
 impl ::windows_core::RuntimeType for IWebSocketInformation2 {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{ce1d39ce-a1b7-4d43-8269-8d5b981bd47a}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IWebSocketInformation2 {
     type Vtable = IWebSocketInformation2_Vtbl;
@@ -1855,7 +1855,7 @@ impl ControlChannelTrigger {
     }
 }
 impl ::windows_core::RuntimeType for ControlChannelTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ControlChannelTrigger;{7d1431a7-ee96-40e8-a199-8703cd969ec3})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ControlChannelTrigger {
     type Vtable = IControlChannelTrigger_Vtbl;
@@ -2083,7 +2083,7 @@ impl DatagramSocket {
     }
 }
 impl ::windows_core::RuntimeType for DatagramSocket {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocket;{7fe25bbb-c3bc-4677-8446-ca28a465a3af})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DatagramSocket {
     type Vtable = IDatagramSocket_Vtbl;
@@ -2160,7 +2160,7 @@ impl DatagramSocketControl {
     }
 }
 impl ::windows_core::RuntimeType for DatagramSocketControl {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketControl;{52ac3f2e-349a-4135-bb58-b79b2647d390})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DatagramSocketControl {
     type Vtable = IDatagramSocketControl_Vtbl;
@@ -2208,7 +2208,7 @@ impl DatagramSocketInformation {
     }
 }
 impl ::windows_core::RuntimeType for DatagramSocketInformation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketInformation;{5f1a569a-55fb-48cd-9706-7a974f7b1585})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DatagramSocketInformation {
     type Vtable = IDatagramSocketInformation_Vtbl;
@@ -2267,7 +2267,7 @@ impl DatagramSocketMessageReceivedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for DatagramSocketMessageReceivedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs;{9e2ddca2-1712-4ce4-b179-8c652c6d107e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DatagramSocketMessageReceivedEventArgs {
     type Vtable = IDatagramSocketMessageReceivedEventArgs_Vtbl;
@@ -2421,7 +2421,7 @@ impl MessageWebSocket {
     }
 }
 impl ::windows_core::RuntimeType for MessageWebSocket {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocket;{33727d08-34d5-4746-ad7b-8dde5bc2ef88})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MessageWebSocket {
     type Vtable = IMessageWebSocket_Vtbl;
@@ -2584,7 +2584,7 @@ impl MessageWebSocketControl {
     }
 }
 impl ::windows_core::RuntimeType for MessageWebSocketControl {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketControl;{8118388a-c629-4f0a-80fb-81fc05538862})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MessageWebSocketControl {
     type Vtable = IMessageWebSocketControl_Vtbl;
@@ -2661,7 +2661,7 @@ impl MessageWebSocketInformation {
     }
 }
 impl ::windows_core::RuntimeType for MessageWebSocketInformation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketInformation;{5e01e316-c92a-47a5-b25f-07847639d181})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MessageWebSocketInformation {
     type Vtable = IWebSocketInformation_Vtbl;
@@ -2715,7 +2715,7 @@ impl MessageWebSocketMessageReceivedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for MessageWebSocketMessageReceivedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketMessageReceivedEventArgs;{478c22ac-4c4b-42ed-9ed7-1ef9f94fa3d5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MessageWebSocketMessageReceivedEventArgs {
     type Vtable = IMessageWebSocketMessageReceivedEventArgs_Vtbl;
@@ -2804,7 +2804,7 @@ impl ServerMessageWebSocket {
     }
 }
 impl ::windows_core::RuntimeType for ServerMessageWebSocket {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocket;{e3ac9240-813b-5efd-7e11-ae2305fc77f1})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ServerMessageWebSocket {
     type Vtable = IServerMessageWebSocket_Vtbl;
@@ -2837,7 +2837,7 @@ impl ServerMessageWebSocketControl {
     }
 }
 impl ::windows_core::RuntimeType for ServerMessageWebSocketControl {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocketControl;{69c2f051-1c1f-587a-4519-2181610192b7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ServerMessageWebSocketControl {
     type Vtable = IServerMessageWebSocketControl_Vtbl;
@@ -2878,7 +2878,7 @@ impl ServerMessageWebSocketInformation {
     }
 }
 impl ::windows_core::RuntimeType for ServerMessageWebSocketInformation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocketInformation;{fc32b45f-4448-5505-6cc9-09afa8915f5d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ServerMessageWebSocketInformation {
     type Vtable = IServerMessageWebSocketInformation_Vtbl;
@@ -2951,7 +2951,7 @@ impl ServerStreamWebSocket {
     }
 }
 impl ::windows_core::RuntimeType for ServerStreamWebSocket {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerStreamWebSocket;{2ced5bbf-74f6-55e4-79df-9132680dfee8})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ServerStreamWebSocket {
     type Vtable = IServerStreamWebSocket_Vtbl;
@@ -2994,7 +2994,7 @@ impl ServerStreamWebSocketInformation {
     }
 }
 impl ::windows_core::RuntimeType for ServerStreamWebSocketInformation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerStreamWebSocketInformation;{fc32b45f-4448-5505-6cc9-09aba8915f5d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ServerStreamWebSocketInformation {
     type Vtable = IServerStreamWebSocketInformation_Vtbl;
@@ -3039,7 +3039,7 @@ impl SocketActivityContext {
     }
 }
 impl ::windows_core::RuntimeType for SocketActivityContext {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityContext;{43b04d64-4c85-4396-a637-1d973f6ebd49})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SocketActivityContext {
     type Vtable = ISocketActivityContext_Vtbl;
@@ -3121,7 +3121,7 @@ impl SocketActivityInformation {
     }
 }
 impl ::windows_core::RuntimeType for SocketActivityInformation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityInformation;{8d8a42e4-a87e-4b74-9968-185b2511defe})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SocketActivityInformation {
     type Vtable = ISocketActivityInformation_Vtbl;
@@ -3155,7 +3155,7 @@ impl SocketActivityTriggerDetails {
     }
 }
 impl ::windows_core::RuntimeType for SocketActivityTriggerDetails {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityTriggerDetails;{45f406a7-fc9f-4f81-acad-355fef51e67b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SocketActivityTriggerDetails {
     type Vtable = ISocketActivityTriggerDetails_Vtbl;
@@ -3374,7 +3374,7 @@ impl StreamSocket {
     }
 }
 impl ::windows_core::RuntimeType for StreamSocket {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocket;{69a22cf3-fc7b-4857-af38-f6e7de6a5b49})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StreamSocket {
     type Vtable = IStreamSocket_Vtbl;
@@ -3500,7 +3500,7 @@ impl StreamSocketControl {
     }
 }
 impl ::windows_core::RuntimeType for StreamSocketControl {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketControl;{fe25adf1-92ab-4af3-9992-0f4c85e36cc4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StreamSocketControl {
     type Vtable = IStreamSocketControl_Vtbl;
@@ -3626,7 +3626,7 @@ impl StreamSocketInformation {
     }
 }
 impl ::windows_core::RuntimeType for StreamSocketInformation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketInformation;{3b80ae30-5e68-4205-88f0-dc85d2e25ded})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StreamSocketInformation {
     type Vtable = IStreamSocketInformation_Vtbl;
@@ -3761,7 +3761,7 @@ impl StreamSocketListener {
     }
 }
 impl ::windows_core::RuntimeType for StreamSocketListener {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListener;{ff513437-df9f-4df0-bf82-0ec5d7b35aae})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StreamSocketListener {
     type Vtable = IStreamSocketListener_Vtbl;
@@ -3790,7 +3790,7 @@ impl StreamSocketListenerConnectionReceivedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for StreamSocketListenerConnectionReceivedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerConnectionReceivedEventArgs;{0c472ea9-373f-447b-85b1-ddd4548803ba})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StreamSocketListenerConnectionReceivedEventArgs {
     type Vtable = IStreamSocketListenerConnectionReceivedEventArgs_Vtbl;
@@ -3865,7 +3865,7 @@ impl StreamSocketListenerControl {
     }
 }
 impl ::windows_core::RuntimeType for StreamSocketListenerControl {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerControl;{20d8c576-8d8a-4dba-9722-a16c4d984980})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StreamSocketListenerControl {
     type Vtable = IStreamSocketListenerControl_Vtbl;
@@ -3892,7 +3892,7 @@ impl StreamSocketListenerInformation {
     }
 }
 impl ::windows_core::RuntimeType for StreamSocketListenerInformation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerInformation;{e62ba82f-a63a-430b-bf62-29e93e5633b4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StreamSocketListenerInformation {
     type Vtable = IStreamSocketListenerInformation_Vtbl;
@@ -4013,7 +4013,7 @@ impl StreamWebSocket {
     }
 }
 impl ::windows_core::RuntimeType for StreamWebSocket {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocket;{bd4a49d8-b289-45bb-97eb-c7525205a843})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StreamWebSocket {
     type Vtable = IStreamWebSocket_Vtbl;
@@ -4154,7 +4154,7 @@ impl StreamWebSocketControl {
     }
 }
 impl ::windows_core::RuntimeType for StreamWebSocketControl {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocketControl;{b4f478b1-a45a-48db-953a-645b7d964c07})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StreamWebSocketControl {
     type Vtable = IStreamWebSocketControl_Vtbl;
@@ -4231,7 +4231,7 @@ impl StreamWebSocketInformation {
     }
 }
 impl ::windows_core::RuntimeType for StreamWebSocketInformation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocketInformation;{5e01e316-c92a-47a5-b25f-07847639d181})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StreamWebSocketInformation {
     type Vtable = IWebSocketInformation_Vtbl;
@@ -4267,7 +4267,7 @@ impl WebSocketClosedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for WebSocketClosedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketClosedEventArgs;{ceb78d07-d0a8-4703-a091-c8c2c0915bc3})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WebSocketClosedEventArgs {
     type Vtable = IWebSocketClosedEventArgs_Vtbl;
@@ -4326,7 +4326,7 @@ impl WebSocketKeepAlive {
 }
 #[cfg(feature = "ApplicationModel_Background")]
 impl ::windows_core::RuntimeType for WebSocketKeepAlive {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketKeepAlive;{7d13d534-fd12-43ce-8c22-ea1ff13c06df})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "ApplicationModel_Background")]
 unsafe impl ::windows_core::Interface for WebSocketKeepAlive {
@@ -4401,7 +4401,7 @@ impl WebSocketServerCustomValidationRequestedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for WebSocketServerCustomValidationRequestedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketServerCustomValidationRequestedEventArgs;{ffeffe48-022a-4ab7-8b36-e10af4640e6b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WebSocketServerCustomValidationRequestedEventArgs {
     type Vtable = IWebSocketServerCustomValidationRequestedEventArgs_Vtbl;

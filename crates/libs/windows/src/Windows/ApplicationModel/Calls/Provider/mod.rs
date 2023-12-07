@@ -267,7 +267,7 @@ impl PhoneCallOrigin {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeType for PhoneCallOrigin {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Provider.PhoneCallOrigin;{20613479-0ef9-4454-871c-afb66a14b6a5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for PhoneCallOrigin {

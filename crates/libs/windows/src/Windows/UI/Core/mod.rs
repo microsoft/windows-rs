@@ -148,7 +148,7 @@ impl ICoreAcceleratorKeys {
 }
 ::windows_core::imp::interface_hierarchy!(ICoreAcceleratorKeys, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ICoreAcceleratorKeys {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{9ffdf7f5-b8c9-4ef0-b7d2-1de626561fc8}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ICoreAcceleratorKeys {
     type Vtable = ICoreAcceleratorKeys_Vtbl;
@@ -413,7 +413,7 @@ impl ICoreInputSourceBase {
 }
 ::windows_core::imp::interface_hierarchy!(ICoreInputSourceBase, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ICoreInputSourceBase {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{9f488807-4580-4be8-be68-92a9311713bb}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ICoreInputSourceBase {
     type Vtable = ICoreInputSourceBase_Vtbl;
@@ -667,7 +667,7 @@ impl ICorePointerInputSource {
 }
 ::windows_core::imp::interface_hierarchy!(ICorePointerInputSource, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ICorePointerInputSource {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{bbf1bb18-e47a-48eb-8807-f8f8d3ea4551}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ICorePointerInputSource {
     type Vtable = ICorePointerInputSource_Vtbl;
@@ -926,7 +926,7 @@ impl ICorePointerInputSource2 {
 ::windows_core::imp::interface_hierarchy!(ICorePointerInputSource2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<ICorePointerInputSource> for ICorePointerInputSource2 {}
 impl ::windows_core::RuntimeType for ICorePointerInputSource2 {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{d703708a-4516-4786-b1e5-2751d563f997}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ICorePointerInputSource2 {
     type Vtable = ICorePointerInputSource2_Vtbl;
@@ -1004,7 +1004,7 @@ impl ICorePointerRedirector {
 }
 ::windows_core::imp::interface_hierarchy!(ICorePointerRedirector, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ICorePointerRedirector {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{8f9d0c94-5688-4b0c-a9f1-f931f7fa3dc3}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ICorePointerRedirector {
     type Vtable = ICorePointerRedirector_Vtbl;
@@ -1495,7 +1495,7 @@ impl ICoreWindow {
 }
 ::windows_core::imp::interface_hierarchy!(ICoreWindow, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ICoreWindow {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{79b9d5f2-879e-4b89-b798-79e47598030c}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ICoreWindow {
     type Vtable = ICoreWindow_Vtbl;
@@ -1860,7 +1860,7 @@ impl ICoreWindowEventArgs {
 }
 ::windows_core::imp::interface_hierarchy!(ICoreWindowEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ICoreWindowEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{272b1ef3-c633-4da5-a26c-c6d0f56b29da}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ICoreWindowEventArgs {
     type Vtable = ICoreWindowEventArgs_Vtbl;
@@ -2081,7 +2081,7 @@ impl IInitializeWithCoreWindow {
 }
 ::windows_core::imp::interface_hierarchy!(IInitializeWithCoreWindow, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IInitializeWithCoreWindow {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{188f20d6-9873-464a-ace5-57e010f465e6}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IInitializeWithCoreWindow {
     type Vtable = IInitializeWithCoreWindow_Vtbl;
@@ -2367,7 +2367,7 @@ impl AcceleratorKeyEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for AcceleratorKeyEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AcceleratorKeyEventArgs;{ff1c4c4a-9287-470b-836e-9086e3126ade})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AcceleratorKeyEventArgs {
     type Vtable = IAcceleratorKeyEventArgs_Vtbl;
@@ -2413,7 +2413,7 @@ impl AutomationProviderRequestedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for AutomationProviderRequestedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AutomationProviderRequestedEventArgs;{961ff258-21bf-4b42-a298-fa479d4c52e2})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AutomationProviderRequestedEventArgs {
     type Vtable = IAutomationProviderRequestedEventArgs_Vtbl;
@@ -2443,7 +2443,7 @@ impl BackRequestedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for BackRequestedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.BackRequestedEventArgs;{d603d28a-e411-4a4e-ba41-6a327a8675bc})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BackRequestedEventArgs {
     type Vtable = IBackRequestedEventArgs_Vtbl;
@@ -2488,7 +2488,7 @@ impl CharacterReceivedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for CharacterReceivedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CharacterReceivedEventArgs;{c584659f-99b2-4bcc-bd33-04e63f42902e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CharacterReceivedEventArgs {
     type Vtable = ICharacterReceivedEventArgs_Vtbl;
@@ -2540,7 +2540,7 @@ impl ClosestInteractiveBoundsRequestedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for ClosestInteractiveBoundsRequestedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.ClosestInteractiveBoundsRequestedEventArgs;{347c11d7-f6f8-40e3-b29f-ae50d3e86486})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ClosestInteractiveBoundsRequestedEventArgs {
     type Vtable = IClosestInteractiveBoundsRequestedEventArgs_Vtbl;
@@ -2576,7 +2576,7 @@ impl CoreAcceleratorKeys {
     }
 }
 impl ::windows_core::RuntimeType for CoreAcceleratorKeys {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreAcceleratorKeys;{9ffdf7f5-b8c9-4ef0-b7d2-1de626561fc8})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreAcceleratorKeys {
     type Vtable = ICoreAcceleratorKeys_Vtbl;
@@ -2955,7 +2955,7 @@ impl CoreComponentInputSource {
     }
 }
 impl ::windows_core::RuntimeType for CoreComponentInputSource {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreComponentInputSource;{9f488807-4580-4be8-be68-92a9311713bb})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreComponentInputSource {
     type Vtable = ICoreInputSourceBase_Vtbl;
@@ -3003,7 +3003,7 @@ impl CoreCursor {
     }
 }
 impl ::windows_core::RuntimeType for CoreCursor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreCursor;{96893acf-111d-442c-8a77-b87992f8e2d6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreCursor {
     type Vtable = ICoreCursor_Vtbl;
@@ -3129,7 +3129,7 @@ impl CoreDispatcher {
     }
 }
 impl ::windows_core::RuntimeType for CoreDispatcher {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreDispatcher;{60db2fa8-b705-4fde-a7d6-ebbb1891d39e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreDispatcher {
     type Vtable = ICoreDispatcher_Vtbl;
@@ -3413,7 +3413,7 @@ impl CoreIndependentInputSource {
     }
 }
 impl ::windows_core::RuntimeType for CoreIndependentInputSource {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreIndependentInputSource;{9f488807-4580-4be8-be68-92a9311713bb})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreIndependentInputSource {
     type Vtable = ICoreInputSourceBase_Vtbl;
@@ -3507,7 +3507,7 @@ impl CoreIndependentInputSourceController {
     }
 }
 impl ::windows_core::RuntimeType for CoreIndependentInputSourceController {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreIndependentInputSourceController;{0963261c-84fe-578a-83ca-6425309ccde4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreIndependentInputSourceController {
     type Vtable = ICoreIndependentInputSourceController_Vtbl;
@@ -4108,7 +4108,7 @@ impl CoreWindow {
     }
 }
 impl ::windows_core::RuntimeType for CoreWindow {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindow;{79b9d5f2-879e-4b89-b798-79e47598030c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreWindow {
     type Vtable = ICoreWindow_Vtbl;
@@ -4262,7 +4262,7 @@ impl CoreWindowDialog {
     }
 }
 impl ::windows_core::RuntimeType for CoreWindowDialog {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowDialog;{e7392ce0-c78d-427e-8b2c-01ff420c69d5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreWindowDialog {
     type Vtable = ICoreWindowDialog_Vtbl;
@@ -4291,7 +4291,7 @@ impl CoreWindowEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for CoreWindowEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowEventArgs;{272b1ef3-c633-4da5-a26c-c6d0f56b29da})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreWindowEventArgs {
     type Vtable = ICoreWindowEventArgs_Vtbl;
@@ -4436,7 +4436,7 @@ impl CoreWindowFlyout {
     }
 }
 impl ::windows_core::RuntimeType for CoreWindowFlyout {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowFlyout;{e89d854d-2050-40bb-b344-f6f355eeb314})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreWindowFlyout {
     type Vtable = ICoreWindowFlyout_Vtbl;
@@ -4460,7 +4460,7 @@ impl CoreWindowPopupShowingEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for CoreWindowPopupShowingEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowPopupShowingEventArgs;{26155fa2-5ba5-4ea4-a3b4-2dc7d63c8e26})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreWindowPopupShowingEventArgs {
     type Vtable = ICoreWindowPopupShowingEventArgs_Vtbl;
@@ -4504,7 +4504,7 @@ impl CoreWindowResizeManager {
     }
 }
 impl ::windows_core::RuntimeType for CoreWindowResizeManager {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowResizeManager;{b8f0b925-b350-48b3-a198-5c1a84700243})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreWindowResizeManager {
     type Vtable = ICoreWindowResizeManager_Vtbl;
@@ -4531,7 +4531,7 @@ impl IdleDispatchedHandlerArgs {
     }
 }
 impl ::windows_core::RuntimeType for IdleDispatchedHandlerArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.IdleDispatchedHandlerArgs;{98bb6a24-dc1c-43cb-b4ed-d1c0eb2391f3})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for IdleDispatchedHandlerArgs {
     type Vtable = IIdleDispatchedHandlerArgs_Vtbl;
@@ -4567,7 +4567,7 @@ impl InputEnabledEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for InputEnabledEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.InputEnabledEventArgs;{80371d4f-2fd8-4c24-aa86-3163a87b4e5a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for InputEnabledEventArgs {
     type Vtable = IInputEnabledEventArgs_Vtbl;
@@ -4620,7 +4620,7 @@ impl KeyEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for KeyEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.KeyEventArgs;{5ff5e930-2544-4a17-bd78-1f2fdebb106b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for KeyEventArgs {
     type Vtable = IKeyEventArgs_Vtbl;
@@ -4677,7 +4677,7 @@ impl PointerEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for PointerEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.PointerEventArgs;{920d9cb1-a5fc-4a21-8c09-49dfe6ffe25f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PointerEventArgs {
     type Vtable = IPointerEventArgs_Vtbl;
@@ -4736,7 +4736,7 @@ impl SystemNavigationManager {
     }
 }
 impl ::windows_core::RuntimeType for SystemNavigationManager {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.SystemNavigationManager;{93023118-cf50-42a6-9706-69107fa122e1})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SystemNavigationManager {
     type Vtable = ISystemNavigationManager_Vtbl;
@@ -4818,7 +4818,7 @@ impl TouchHitTestingEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for TouchHitTestingEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.TouchHitTestingEventArgs;{22f3b823-0b7c-424e-9df7-33d4f962931b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TouchHitTestingEventArgs {
     type Vtable = ITouchHitTestingEventArgs_Vtbl;
@@ -4855,7 +4855,7 @@ impl VisibilityChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for VisibilityChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.VisibilityChangedEventArgs;{bf9918ea-d801-4564-a495-b1e84f8ad085})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VisibilityChangedEventArgs {
     type Vtable = IVisibilityChangedEventArgs_Vtbl;
@@ -4892,7 +4892,7 @@ impl WindowActivatedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for WindowActivatedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.WindowActivatedEventArgs;{179d65e7-4658-4cb6-aa13-41d094ea255e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WindowActivatedEventArgs {
     type Vtable = IWindowActivatedEventArgs_Vtbl;
@@ -4931,7 +4931,7 @@ impl WindowSizeChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for WindowSizeChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.WindowSizeChangedEventArgs;{5a200ec7-0426-47dc-b86c-6f475915e451})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WindowSizeChangedEventArgs {
     type Vtable = IWindowSizeChangedEventArgs_Vtbl;
@@ -5568,7 +5568,7 @@ unsafe impl ::windows_core::ComInterface for DispatchedHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd1f276c4_98d8_4636_bf49_eb79507548e9);
 }
 impl ::windows_core::RuntimeType for DispatchedHandler {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{d1f276c4-98d8-4636-bf49-eb79507548e9}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5640,7 +5640,7 @@ unsafe impl ::windows_core::ComInterface for IdleDispatchedHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa42b0c24_7f21_4abc_99c1_8f01007f0880);
 }
 impl ::windows_core::RuntimeType for IdleDispatchedHandler {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{a42b0c24-7f21-4abc-99c1-8f01007f0880}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 #[doc(hidden)]

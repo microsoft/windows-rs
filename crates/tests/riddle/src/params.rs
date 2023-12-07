@@ -197,7 +197,7 @@ impl IParams {
 );
 impl ::windows_core::RuntimeType for IParams {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
-        ::windows_core::imp::ConstBuffer::from_slice(b"TODO");
+        ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IParams {
     type Vtable = IParams_Vtbl;

@@ -282,7 +282,7 @@ impl CredentialPickerOptions {
     }
 }
 impl ::windows_core::RuntimeType for CredentialPickerOptions {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.UI.CredentialPickerOptions;{965a0b4c-95fa-467f-992b-0b22e5859bf6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CredentialPickerOptions {
     type Vtable = ICredentialPickerOptions_Vtbl;
@@ -351,7 +351,7 @@ impl CredentialPickerResults {
     }
 }
 impl ::windows_core::RuntimeType for CredentialPickerResults {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.UI.CredentialPickerResults;{1948f99a-cc30-410c-9c38-cc0884c5b3d7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CredentialPickerResults {
     type Vtable = ICredentialPickerResults_Vtbl;

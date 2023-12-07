@@ -586,7 +586,7 @@ impl PreviewBuildsManager {
     }
 }
 impl ::windows_core::RuntimeType for PreviewBuildsManager {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.PreviewBuildsManager;{fa07dd61-7e4f-59f7-7c9f-def9051c5f62})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PreviewBuildsManager {
     type Vtable = IPreviewBuildsManager_Vtbl;
@@ -615,7 +615,7 @@ impl PreviewBuildsState {
     }
 }
 impl ::windows_core::RuntimeType for PreviewBuildsState {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.PreviewBuildsState;{a2f2903e-b223-5f63-7546-3e8eac070a2e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PreviewBuildsState {
     type Vtable = IPreviewBuildsState_Vtbl;
@@ -806,7 +806,7 @@ impl WindowsUpdate {
     }
 }
 impl ::windows_core::RuntimeType for WindowsUpdate {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdate;{c3c88dd7-0ef3-52b2-a9ad-66bfc6bd9582})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WindowsUpdate {
     type Vtable = IWindowsUpdate_Vtbl;
@@ -854,7 +854,7 @@ impl WindowsUpdateActionCompletedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for WindowsUpdateActionCompletedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateActionCompletedEventArgs;{2c44b950-a655-5321-aec1-aee762922131})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WindowsUpdateActionCompletedEventArgs {
     type Vtable = IWindowsUpdateActionCompletedEventArgs_Vtbl;
@@ -888,7 +888,7 @@ impl WindowsUpdateActionProgress {
     }
 }
 impl ::windows_core::RuntimeType for WindowsUpdateActionProgress {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateActionProgress;{83b22d8a-4bb0-549f-ba39-59724882d137})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WindowsUpdateActionProgress {
     type Vtable = IWindowsUpdateActionProgress_Vtbl;
@@ -938,7 +938,7 @@ impl WindowsUpdateActionResult {
     }
 }
 impl ::windows_core::RuntimeType for WindowsUpdateActionResult {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateActionResult;{e6692c62-f697-51b7-ab7f-e73e5e688f12})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WindowsUpdateActionResult {
     type Vtable = IWindowsUpdateActionResult_Vtbl;
@@ -1031,7 +1031,7 @@ impl WindowsUpdateAdministrator {
     }
 }
 impl ::windows_core::RuntimeType for WindowsUpdateAdministrator {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateAdministrator;{7a60181c-ba1e-5cf9-aa65-304120b73d72})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WindowsUpdateAdministrator {
     type Vtable = IWindowsUpdateAdministrator_Vtbl;
@@ -1148,7 +1148,7 @@ impl WindowsUpdateApprovalData {
     }
 }
 impl ::windows_core::RuntimeType for WindowsUpdateApprovalData {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateApprovalData;{aadf5bfd-84db-59bc-85e2-ad4fc1f62f7c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WindowsUpdateApprovalData {
     type Vtable = IWindowsUpdateApprovalData_Vtbl;
@@ -1184,7 +1184,7 @@ impl WindowsUpdateAttentionRequiredInfo {
     }
 }
 impl ::windows_core::RuntimeType for WindowsUpdateAttentionRequiredInfo {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateAttentionRequiredInfo;{44df2579-74d3-5ffa-b6ce-09e187e1e0ed})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WindowsUpdateAttentionRequiredInfo {
     type Vtable = IWindowsUpdateAttentionRequiredInfo_Vtbl;
@@ -1218,7 +1218,7 @@ impl WindowsUpdateAttentionRequiredReasonChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateAttentionRequiredReasonChangedEventArgs;{0627abca-dbb8-524a-b1d2-d9df004eeb31})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
     type Vtable = IWindowsUpdateAttentionRequiredReasonChangedEventArgs_Vtbl;
@@ -1252,7 +1252,7 @@ impl WindowsUpdateGetAdministratorResult {
     }
 }
 impl ::windows_core::RuntimeType for WindowsUpdateGetAdministratorResult {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateGetAdministratorResult;{bb39ffc4-2c42-5b1c-8995-343341c92c50})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WindowsUpdateGetAdministratorResult {
     type Vtable = IWindowsUpdateGetAdministratorResult_Vtbl;
@@ -1332,7 +1332,7 @@ impl WindowsUpdateItem {
     }
 }
 impl ::windows_core::RuntimeType for WindowsUpdateItem {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateItem;{b222e44a-49b6-59bf-a033-ef617cd73a98})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WindowsUpdateItem {
     type Vtable = IWindowsUpdateItem_Vtbl;
@@ -1525,7 +1525,7 @@ impl WindowsUpdateManager {
     }
 }
 impl ::windows_core::RuntimeType for WindowsUpdateManager {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateManager;{5dd966c0-a71a-5602-bbd0-09a70e4573fa})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WindowsUpdateManager {
     type Vtable = IWindowsUpdateManager_Vtbl;
@@ -1559,7 +1559,7 @@ impl WindowsUpdateProgressChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for WindowsUpdateProgressChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateProgressChangedEventArgs;{bbfbdeeb-94c8-5aa7-b0fb-66c67c233b0a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WindowsUpdateProgressChangedEventArgs {
     type Vtable = IWindowsUpdateProgressChangedEventArgs_Vtbl;
@@ -1686,7 +1686,7 @@ impl WindowsUpdateRestartRequestOptions {
     }
 }
 impl ::windows_core::RuntimeType for WindowsUpdateRestartRequestOptions {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateRestartRequestOptions;{38cfb7d3-4188-5222-905c-6c4443c951ee})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WindowsUpdateRestartRequestOptions {
     type Vtable = IWindowsUpdateRestartRequestOptions_Vtbl;
@@ -1736,7 +1736,7 @@ impl WindowsUpdateScanCompletedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for WindowsUpdateScanCompletedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateScanCompletedEventArgs;{95b6953e-ba5c-5fe8-b115-12de184a6bb0})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WindowsUpdateScanCompletedEventArgs {
     type Vtable = IWindowsUpdateScanCompletedEventArgs_Vtbl;

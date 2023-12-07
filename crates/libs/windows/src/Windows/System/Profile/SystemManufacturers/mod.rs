@@ -124,7 +124,7 @@ impl OemSupportInfo {
     }
 }
 impl ::windows_core::RuntimeType for OemSupportInfo {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Profile.SystemManufacturers.OemSupportInfo;{8d2eae55-87ef-4266-86d0-c4afbeb29bb9})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for OemSupportInfo {
     type Vtable = IOemSupportInfo_Vtbl;
@@ -210,7 +210,7 @@ impl SystemSupportDeviceInfo {
     }
 }
 impl ::windows_core::RuntimeType for SystemSupportDeviceInfo {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Profile.SystemManufacturers.SystemSupportDeviceInfo;{05880b99-8247-441b-a996-a1784bab79a8})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SystemSupportDeviceInfo {
     type Vtable = ISystemSupportDeviceInfo_Vtbl;

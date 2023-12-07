@@ -91,7 +91,7 @@ impl IIOControlCode {
 }
 ::windows_core::imp::interface_hierarchy!(IIOControlCode, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IIOControlCode {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{0e9559e7-60c8-4375-a761-7f8808066c60}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IIOControlCode {
     type Vtable = IIOControlCode_Vtbl;
@@ -212,7 +212,7 @@ impl CustomDevice {
     }
 }
 impl ::windows_core::RuntimeType for CustomDevice {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Custom.CustomDevice;{dd30251f-c48b-43bd-bcb1-dec88f15143e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CustomDevice {
     type Vtable = ICustomDevice_Vtbl;
@@ -278,7 +278,7 @@ impl IOControlCode {
     }
 }
 impl ::windows_core::RuntimeType for IOControlCode {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Custom.IOControlCode;{0e9559e7-60c8-4375-a761-7f8808066c60})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for IOControlCode {
     type Vtable = IIOControlCode_Vtbl;

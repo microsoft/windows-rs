@@ -750,7 +750,7 @@ impl ::windows_core::CanTryInto<IIterable<IKeyValuePair<::windows_core::HSTRING,
 impl ::windows_core::CanTryInto<IMap<::windows_core::HSTRING, ::windows_core::IInspectable>> for IPropertySet {}
 impl ::windows_core::CanTryInto<IObservableMap<::windows_core::HSTRING, ::windows_core::IInspectable>> for IPropertySet {}
 impl ::windows_core::RuntimeType for IPropertySet {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{8a43ed9f-f4e6-4421-acf9-1dab2986820c}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ::core::iter::IntoIterator for IPropertySet {
     type Item = IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>;
@@ -952,7 +952,7 @@ impl IVectorChangedEventArgs {
 }
 ::windows_core::imp::interface_hierarchy!(IVectorChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IVectorChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{575933df-34fe-4480-af15-07691f3d5d9b}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IVectorChangedEventArgs {
     type Vtable = IVectorChangedEventArgs_Vtbl;
@@ -1149,7 +1149,7 @@ impl PropertySet {
     }
 }
 impl ::windows_core::RuntimeType for PropertySet {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Collections.PropertySet;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PropertySet {
     type Vtable = IPropertySet_Vtbl;
@@ -1258,7 +1258,7 @@ impl StringMap {
     }
 }
 impl ::windows_core::RuntimeType for StringMap {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Collections.StringMap;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;string))");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StringMap {
     type Vtable = IMap_Vtbl<::windows_core::HSTRING, ::windows_core::HSTRING>;
@@ -1369,7 +1369,7 @@ impl ValueSet {
     }
 }
 impl ::windows_core::RuntimeType for ValueSet {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Collections.ValueSet;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ValueSet {
     type Vtable = IPropertySet_Vtbl;

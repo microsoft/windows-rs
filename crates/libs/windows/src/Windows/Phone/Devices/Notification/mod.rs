@@ -61,7 +61,7 @@ impl VibrationDevice {
     }
 }
 impl ::windows_core::RuntimeType for VibrationDevice {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Devices.Notification.VibrationDevice;{1b4a6595-cfcd-4e08-92fb-c1906d04498c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VibrationDevice {
     type Vtable = IVibrationDevice_Vtbl;

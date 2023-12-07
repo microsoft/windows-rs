@@ -328,7 +328,7 @@ impl IBitmapFrame {
 }
 ::windows_core::imp::interface_hierarchy!(IBitmapFrame, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IBitmapFrame {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{72a49a1c-8081-438d-91bc-94ecfc8185c6}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IBitmapFrame {
     type Vtable = IBitmapFrame_Vtbl;
@@ -493,7 +493,7 @@ impl IBitmapFrameWithSoftwareBitmap {
 ::windows_core::imp::interface_hierarchy!(IBitmapFrameWithSoftwareBitmap, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IBitmapFrame> for IBitmapFrameWithSoftwareBitmap {}
 impl ::windows_core::RuntimeType for IBitmapFrameWithSoftwareBitmap {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{fe287c9a-420c-4963-87ad-691436e08383}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IBitmapFrameWithSoftwareBitmap {
     type Vtable = IBitmapFrameWithSoftwareBitmap_Vtbl;
@@ -556,7 +556,7 @@ impl IBitmapPropertiesView {
 }
 ::windows_core::imp::interface_hierarchy!(IBitmapPropertiesView, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IBitmapPropertiesView {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{7e0fe87a-3a70-48f8-9c55-196cf5a545f5}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IBitmapPropertiesView {
     type Vtable = IBitmapPropertiesView_Vtbl;
@@ -776,7 +776,7 @@ impl BitmapBuffer {
     }
 }
 impl ::windows_core::RuntimeType for BitmapBuffer {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapBuffer;{a53e04c4-399c-438c-b28f-a63a6b83d1a1})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BitmapBuffer {
     type Vtable = IBitmapBuffer_Vtbl;
@@ -832,7 +832,7 @@ impl BitmapCodecInformation {
     }
 }
 impl ::windows_core::RuntimeType for BitmapCodecInformation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapCodecInformation;{400caaf2-c4b0-4392-a3b0-6f6f9ba95cb4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BitmapCodecInformation {
     type Vtable = IBitmapCodecInformation_Vtbl;
@@ -1108,7 +1108,7 @@ impl BitmapDecoder {
     }
 }
 impl ::windows_core::RuntimeType for BitmapDecoder {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapDecoder;{acef22ba-1d74-4c91-9dfc-9620745233e6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BitmapDecoder {
     type Vtable = IBitmapDecoder_Vtbl;
@@ -1338,7 +1338,7 @@ impl BitmapEncoder {
     }
 }
 impl ::windows_core::RuntimeType for BitmapEncoder {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapEncoder;{2bc468e3-e1f8-4b54-95e8-32919551ce62})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BitmapEncoder {
     type Vtable = IBitmapEncoder_Vtbl;
@@ -1481,7 +1481,7 @@ impl BitmapFrame {
     }
 }
 impl ::windows_core::RuntimeType for BitmapFrame {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapFrame;{72a49a1c-8081-438d-91bc-94ecfc8185c6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BitmapFrame {
     type Vtable = IBitmapFrame_Vtbl;
@@ -1527,7 +1527,7 @@ impl BitmapProperties {
     }
 }
 impl ::windows_core::RuntimeType for BitmapProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapProperties;{ea9f4f1b-b505-4450-a4d1-e8ca94529d8d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BitmapProperties {
     type Vtable = IBitmapProperties_Vtbl;
@@ -1560,7 +1560,7 @@ impl BitmapPropertiesView {
     }
 }
 impl ::windows_core::RuntimeType for BitmapPropertiesView {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapPropertiesView;{7e0fe87a-3a70-48f8-9c55-196cf5a545f5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BitmapPropertiesView {
     type Vtable = IBitmapPropertiesView_Vtbl;
@@ -1661,7 +1661,7 @@ impl BitmapPropertySet {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeType for BitmapPropertySet {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapPropertySet;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;rc(Windows.Graphics.Imaging.BitmapTypedValue;{cd8044a9-2443-4000-b0cd-79316c56f589})))");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for BitmapPropertySet {
@@ -1780,7 +1780,7 @@ impl BitmapTransform {
     }
 }
 impl ::windows_core::RuntimeType for BitmapTransform {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapTransform;{ae755344-e268-4d35-adcf-e995d31a8d34})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BitmapTransform {
     type Vtable = IBitmapTransform_Vtbl;
@@ -1832,7 +1832,7 @@ impl BitmapTypedValue {
     }
 }
 impl ::windows_core::RuntimeType for BitmapTypedValue {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapTypedValue;{cd8044a9-2443-4000-b0cd-79316c56f589})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BitmapTypedValue {
     type Vtable = IBitmapTypedValue_Vtbl;
@@ -1979,7 +1979,7 @@ impl ImageStream {
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows_core::RuntimeType for ImageStream {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.ImageStream;{cc254827-4b3d-438f-9232-10c76bc7e038})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows_core::Interface for ImageStream {
@@ -2024,7 +2024,7 @@ impl PixelDataProvider {
     }
 }
 impl ::windows_core::RuntimeType for PixelDataProvider {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.PixelDataProvider;{dd831f25-185c-4595-9fb9-ccbe6ec18a6f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PixelDataProvider {
     type Vtable = IPixelDataProvider_Vtbl;
@@ -2239,7 +2239,7 @@ impl SoftwareBitmap {
     }
 }
 impl ::windows_core::RuntimeType for SoftwareBitmap {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.SoftwareBitmap;{689e0708-7eef-483f-963f-da938818e073})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SoftwareBitmap {
     type Vtable = ISoftwareBitmap_Vtbl;

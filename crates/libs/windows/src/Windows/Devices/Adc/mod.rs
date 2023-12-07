@@ -113,7 +113,7 @@ impl AdcChannel {
     }
 }
 impl ::windows_core::RuntimeType for AdcChannel {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Adc.AdcChannel;{040bf414-2588-4a56-abef-73a260acc60a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AdcChannel {
     type Vtable = IAdcChannel_Vtbl;
@@ -217,7 +217,7 @@ impl AdcController {
     }
 }
 impl ::windows_core::RuntimeType for AdcController {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Adc.AdcController;{2a76e4b0-a896-4219-86b6-ea8cdce98f56})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AdcController {
     type Vtable = IAdcController_Vtbl;

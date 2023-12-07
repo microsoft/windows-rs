@@ -206,7 +206,7 @@ impl ThreadPoolTimer {
     }
 }
 impl ::windows_core::RuntimeType for ThreadPoolTimer {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Threading.ThreadPoolTimer;{594ebe78-55ea-4a88-a50d-3402ae1f9cf2})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ThreadPoolTimer {
     type Vtable = IThreadPoolTimer_Vtbl;
@@ -376,7 +376,7 @@ unsafe impl ::windows_core::ComInterface for TimerDestroyedHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x34ed19fa_8384_4eb9_8209_fb5094eeec35);
 }
 impl ::windows_core::RuntimeType for TimerDestroyedHandler {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{34ed19fa-8384-4eb9-8209-fb5094eeec35}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -448,7 +448,7 @@ unsafe impl ::windows_core::ComInterface for TimerElapsedHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfaaea667_fbeb_49cb_adb2_71184c556e43);
 }
 impl ::windows_core::RuntimeType for TimerElapsedHandler {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{faaea667-fbeb-49cb-adb2-71184c556e43}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -530,7 +530,7 @@ unsafe impl ::windows_core::ComInterface for WorkItemHandler {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeType for WorkItemHandler {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{1d1a8b8b-fa66-414f-9cbd-b65fc99d17fa}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[cfg(feature = "Foundation")]
 #[repr(C)]

@@ -116,7 +116,7 @@ impl LanguageFont {
     }
 }
 impl ::windows_core::RuntimeType for LanguageFont {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.Fonts.LanguageFont;{b12e5c3a-b76d-459b-beeb-901151cd77d1})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LanguageFont {
     type Vtable = ILanguageFont_Vtbl;
@@ -224,7 +224,7 @@ impl LanguageFontGroup {
     }
 }
 impl ::windows_core::RuntimeType for LanguageFontGroup {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.Fonts.LanguageFontGroup;{f33a7fc3-3a5c-4aea-b9ff-b39fb242f7f6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LanguageFontGroup {
     type Vtable = ILanguageFontGroup_Vtbl;

@@ -113,7 +113,7 @@ impl IPropertyAnimation {
 }
 ::windows_core::imp::interface_hierarchy!(IPropertyAnimation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IPropertyAnimation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{3a01b4da-4d8c-411e-b615-1ade683a9903}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IPropertyAnimation {
     type Vtable = IPropertyAnimation_Vtbl;
@@ -230,7 +230,7 @@ impl AnimationDescription {
     }
 }
 impl ::windows_core::RuntimeType for AnimationDescription {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.AnimationDescription;{7d11a549-be3d-41de-b081-05c149962f9b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AnimationDescription {
     type Vtable = IAnimationDescription_Vtbl;
@@ -309,7 +309,7 @@ impl OpacityAnimation {
     }
 }
 impl ::windows_core::RuntimeType for OpacityAnimation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.OpacityAnimation;{803aabe5-ee7e-455f-84e9-2506afb8d2b4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for OpacityAnimation {
     type Vtable = IOpacityAnimation_Vtbl;
@@ -373,7 +373,7 @@ impl PropertyAnimation {
     }
 }
 impl ::windows_core::RuntimeType for PropertyAnimation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.PropertyAnimation;{3a01b4da-4d8c-411e-b615-1ade683a9903})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PropertyAnimation {
     type Vtable = IPropertyAnimation_Vtbl;
@@ -478,7 +478,7 @@ impl ScaleAnimation {
     }
 }
 impl ::windows_core::RuntimeType for ScaleAnimation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.ScaleAnimation;{023552c7-71ab-428c-9c9f-d31780964995})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ScaleAnimation {
     type Vtable = IScaleAnimation_Vtbl;
@@ -542,7 +542,7 @@ impl TranslationAnimation {
     }
 }
 impl ::windows_core::RuntimeType for TranslationAnimation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.TranslationAnimation;{3a01b4da-4d8c-411e-b615-1ade683a9903})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TranslationAnimation {
     type Vtable = IPropertyAnimation_Vtbl;

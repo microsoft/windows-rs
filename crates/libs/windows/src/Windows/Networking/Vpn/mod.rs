@@ -285,7 +285,7 @@ impl IVpnChannelStatics {
 }
 ::windows_core::imp::interface_hierarchy!(IVpnChannelStatics, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IVpnChannelStatics {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{88eb062d-e818-4ffd-98a6-363e3736c95d}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IVpnChannelStatics {
     type Vtable = IVpnChannelStatics_Vtbl;
@@ -340,7 +340,7 @@ impl IVpnCredential {
 }
 ::windows_core::imp::interface_hierarchy!(IVpnCredential, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IVpnCredential {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{b7e78af3-a46d-404b-8729-1832522853ac}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IVpnCredential {
     type Vtable = IVpnCredential_Vtbl;
@@ -483,7 +483,7 @@ impl IVpnCustomPrompt {
 }
 ::windows_core::imp::interface_hierarchy!(IVpnCustomPrompt, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IVpnCustomPrompt {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{9b2ebe7b-87d5-433c-b4f6-eee6aa68a244}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IVpnCustomPrompt {
     type Vtable = IVpnCustomPrompt_Vtbl;
@@ -560,7 +560,7 @@ impl IVpnCustomPromptElement {
 }
 ::windows_core::imp::interface_hierarchy!(IVpnCustomPromptElement, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IVpnCustomPromptElement {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{73bd5638-6f04-404d-93dd-50a44924a38b}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IVpnCustomPromptElement {
     type Vtable = IVpnCustomPromptElement_Vtbl;
@@ -746,7 +746,7 @@ impl IVpnDomainNameInfoFactory {
 }
 ::windows_core::imp::interface_hierarchy!(IVpnDomainNameInfoFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IVpnDomainNameInfoFactory {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{2507bb75-028f-4688-8d3a-c4531df37da8}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IVpnDomainNameInfoFactory {
     type Vtable = IVpnDomainNameInfoFactory_Vtbl;
@@ -833,7 +833,7 @@ impl IVpnInterfaceIdFactory {
 }
 ::windows_core::imp::interface_hierarchy!(IVpnInterfaceIdFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IVpnInterfaceIdFactory {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{9e2ddca2-1712-4ce4-b179-8c652c6d1000}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IVpnInterfaceIdFactory {
     type Vtable = IVpnInterfaceIdFactory_Vtbl;
@@ -982,7 +982,7 @@ impl IVpnNamespaceInfoFactory {
 }
 ::windows_core::imp::interface_hierarchy!(IVpnNamespaceInfoFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IVpnNamespaceInfoFactory {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{cb3e951a-b0ce-442b-acbb-5f99b202c31c}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IVpnNamespaceInfoFactory {
     type Vtable = IVpnNamespaceInfoFactory_Vtbl;
@@ -1119,7 +1119,7 @@ impl IVpnPacketBufferFactory {
 }
 ::windows_core::imp::interface_hierarchy!(IVpnPacketBufferFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IVpnPacketBufferFactory {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{9e2ddca2-1712-4ce4-b179-8c652c6d9999}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IVpnPacketBufferFactory {
     type Vtable = IVpnPacketBufferFactory_Vtbl;
@@ -1246,7 +1246,7 @@ impl IVpnPlugIn {
 }
 ::windows_core::imp::interface_hierarchy!(IVpnPlugIn, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IVpnPlugIn {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{ceb78d07-d0a8-4703-a091-c8c2c0915bc4}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IVpnPlugIn {
     type Vtable = IVpnPlugIn_Vtbl;
@@ -1381,7 +1381,7 @@ impl IVpnProfile {
 }
 ::windows_core::imp::interface_hierarchy!(IVpnProfile, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IVpnProfile {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{7875b751-b0d7-43db-8a93-d3fe2479e56a}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IVpnProfile {
     type Vtable = IVpnProfile_Vtbl;
@@ -1501,7 +1501,7 @@ impl IVpnRouteFactory {
 }
 ::windows_core::imp::interface_hierarchy!(IVpnRouteFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IVpnRouteFactory {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{bdeab5ff-45cf-4b99-83fb-db3bc2672b02}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IVpnRouteFactory {
     type Vtable = IVpnRouteFactory_Vtbl;
@@ -1653,7 +1653,7 @@ impl VpnAppId {
     }
 }
 impl ::windows_core::RuntimeType for VpnAppId {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnAppId;{7b06a635-5c58-41d9-94a7-bfbcf1d8ca54})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnAppId {
     type Vtable = IVpnAppId_Vtbl;
@@ -2018,7 +2018,7 @@ impl VpnChannel {
     }
 }
 impl ::windows_core::RuntimeType for VpnChannel {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannel;{4ac78d07-d1a8-4303-a091-c8d2e0915bc3})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnChannel {
     type Vtable = IVpnChannel_Vtbl;
@@ -2045,7 +2045,7 @@ impl VpnChannelActivityEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for VpnChannelActivityEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannelActivityEventArgs;{a36c88f2-afdc-4775-855d-d4ac0a35fc55})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnChannelActivityEventArgs {
     type Vtable = IVpnChannelActivityEventArgs_Vtbl;
@@ -2072,7 +2072,7 @@ impl VpnChannelActivityStateChangedArgs {
     }
 }
 impl ::windows_core::RuntimeType for VpnChannelActivityStateChangedArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannelActivityStateChangedArgs;{3d750565-fdc0-4bbe-a23b-45fffc6d97a1})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnChannelActivityStateChangedArgs {
     type Vtable = IVpnChannelActivityStateChangedArgs_Vtbl;
@@ -2124,7 +2124,7 @@ impl VpnChannelConfiguration {
     }
 }
 impl ::windows_core::RuntimeType for VpnChannelConfiguration {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannelConfiguration;{0e2ddca2-2012-4fe4-b179-8c652c6d107e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnChannelConfiguration {
     type Vtable = IVpnChannelConfiguration_Vtbl;
@@ -2178,7 +2178,7 @@ impl VpnCredential {
     }
 }
 impl ::windows_core::RuntimeType for VpnCredential {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCredential;{b7e78af3-a46d-404b-8729-1832522853ac})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnCredential {
     type Vtable = IVpnCredential_Vtbl;
@@ -2257,7 +2257,7 @@ impl VpnCustomCheckBox {
     }
 }
 impl ::windows_core::RuntimeType for VpnCustomCheckBox {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomCheckBox;{43878753-03c5-4e61-93d7-a957714c4282})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnCustomCheckBox {
     type Vtable = IVpnCustomCheckBox_Vtbl;
@@ -2343,7 +2343,7 @@ impl VpnCustomComboBox {
     }
 }
 impl ::windows_core::RuntimeType for VpnCustomComboBox {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomComboBox;{9a24158e-dba1-4c6f-8270-dcf3c9761c4c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnCustomComboBox {
     type Vtable = IVpnCustomComboBox_Vtbl;
@@ -2433,7 +2433,7 @@ impl VpnCustomEditBox {
     }
 }
 impl ::windows_core::RuntimeType for VpnCustomEditBox {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomEditBox;{3002d9a0-cfbf-4c0b-8f3c-66f503c20b39})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnCustomEditBox {
     type Vtable = IVpnCustomEditBox_Vtbl;
@@ -2494,7 +2494,7 @@ impl VpnCustomErrorBox {
     }
 }
 impl ::windows_core::RuntimeType for VpnCustomErrorBox {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomErrorBox;{9ec4efb2-c942-42af-b223-588b48328721})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnCustomErrorBox {
     type Vtable = IVpnCustomErrorBox_Vtbl;
@@ -2573,7 +2573,7 @@ impl VpnCustomPromptBooleanInput {
     }
 }
 impl ::windows_core::RuntimeType for VpnCustomPromptBooleanInput {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptBooleanInput;{c4c9a69e-ff47-4527-9f27-a49292019979})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnCustomPromptBooleanInput {
     type Vtable = IVpnCustomPromptBooleanInput_Vtbl;
@@ -2650,7 +2650,7 @@ impl VpnCustomPromptOptionSelector {
     }
 }
 impl ::windows_core::RuntimeType for VpnCustomPromptOptionSelector {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptOptionSelector;{3b8f34d9-8ec1-4e95-9a4e-7ba64d38f330})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnCustomPromptOptionSelector {
     type Vtable = IVpnCustomPromptOptionSelector_Vtbl;
@@ -2722,7 +2722,7 @@ impl VpnCustomPromptText {
     }
 }
 impl ::windows_core::RuntimeType for VpnCustomPromptText {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptText;{3bc8bdee-3a42-49a3-abdd-07b2edea752d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnCustomPromptText {
     type Vtable = IVpnCustomPromptText_Vtbl;
@@ -2812,7 +2812,7 @@ impl VpnCustomPromptTextInput {
     }
 }
 impl ::windows_core::RuntimeType for VpnCustomPromptTextInput {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptTextInput;{c9da9c75-913c-47d5-88ba-48fc48930235})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnCustomPromptTextInput {
     type Vtable = IVpnCustomPromptTextInput_Vtbl;
@@ -2884,7 +2884,7 @@ impl VpnCustomTextBox {
     }
 }
 impl ::windows_core::RuntimeType for VpnCustomTextBox {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomTextBox;{daa4c3ca-8f23-4d36-91f1-76d937827942})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnCustomTextBox {
     type Vtable = IVpnCustomTextBox_Vtbl;
@@ -2939,7 +2939,7 @@ impl VpnDomainNameAssignment {
     }
 }
 impl ::windows_core::RuntimeType for VpnDomainNameAssignment {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnDomainNameAssignment;{4135b141-ccdb-49b5-9401-039a8ae767e9})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnDomainNameAssignment {
     type Vtable = IVpnDomainNameAssignment_Vtbl;
@@ -3028,7 +3028,7 @@ impl VpnDomainNameInfo {
     }
 }
 impl ::windows_core::RuntimeType for VpnDomainNameInfo {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnDomainNameInfo;{ad2eb82f-ea8e-4f7a-843e-1a87e32e1b9a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnDomainNameInfo {
     type Vtable = IVpnDomainNameInfo_Vtbl;
@@ -3107,7 +3107,7 @@ impl VpnForegroundActivatedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for VpnForegroundActivatedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnForegroundActivatedEventArgs;{85b465b0-cadb-4d70-ac92-543a24dc9ebc})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnForegroundActivatedEventArgs {
     type Vtable = IVpnForegroundActivatedEventArgs_Vtbl;
@@ -3140,7 +3140,7 @@ impl VpnForegroundActivationOperation {
     }
 }
 impl ::windows_core::RuntimeType for VpnForegroundActivationOperation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnForegroundActivationOperation;{9e010d57-f17a-4bd5-9b6d-f984f1297d3c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnForegroundActivationOperation {
     type Vtable = IVpnForegroundActivationOperation_Vtbl;
@@ -3175,7 +3175,7 @@ impl VpnInterfaceId {
     }
 }
 impl ::windows_core::RuntimeType for VpnInterfaceId {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnInterfaceId;{9e2ddca2-1712-4ce4-b179-8c652c6d1011})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnInterfaceId {
     type Vtable = IVpnInterfaceId_Vtbl;
@@ -3302,7 +3302,7 @@ impl VpnManagementAgent {
     }
 }
 impl ::windows_core::RuntimeType for VpnManagementAgent {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnManagementAgent;{193696cd-a5c4-4abe-852b-785be4cb3e34})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnManagementAgent {
     type Vtable = IVpnManagementAgent_Vtbl;
@@ -3365,7 +3365,7 @@ impl VpnNamespaceAssignment {
     }
 }
 impl ::windows_core::RuntimeType for VpnNamespaceAssignment {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnNamespaceAssignment;{d7f7db18-307d-4c0e-bd62-8fa270bbadd6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnNamespaceAssignment {
     type Vtable = IVpnNamespaceAssignment_Vtbl;
@@ -3449,7 +3449,7 @@ impl VpnNamespaceInfo {
     }
 }
 impl ::windows_core::RuntimeType for VpnNamespaceInfo {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnNamespaceInfo;{30edfb43-444f-44c5-8167-a35a91f1af94})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnNamespaceInfo {
     type Vtable = IVpnNamespaceInfo_Vtbl;
@@ -3627,7 +3627,7 @@ impl VpnNativeProfile {
     }
 }
 impl ::windows_core::RuntimeType for VpnNativeProfile {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnNativeProfile;{a4aee29e-6417-4333-9842-f0a66db69802})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnNativeProfile {
     type Vtable = IVpnNativeProfile_Vtbl;
@@ -3714,7 +3714,7 @@ impl VpnPacketBuffer {
     }
 }
 impl ::windows_core::RuntimeType for VpnPacketBuffer {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPacketBuffer;{c2f891fc-4d5c-4a63-b70d-4e307eacce55})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnPacketBuffer {
     type Vtable = IVpnPacketBuffer_Vtbl;
@@ -3793,7 +3793,7 @@ impl VpnPacketBufferList {
     }
 }
 impl ::windows_core::RuntimeType for VpnPacketBufferList {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPacketBufferList;{c2f891fc-4d5c-4a63-b70d-4e307eacce77})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnPacketBufferList {
     type Vtable = IVpnPacketBufferList_Vtbl;
@@ -3856,7 +3856,7 @@ impl VpnPickedCredential {
     }
 }
 impl ::windows_core::RuntimeType for VpnPickedCredential {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPickedCredential;{9a793ac7-8854-4e52-ad97-24dd9a842bce})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnPickedCredential {
     type Vtable = IVpnPickedCredential_Vtbl;
@@ -4001,7 +4001,7 @@ impl VpnPlugInProfile {
     }
 }
 impl ::windows_core::RuntimeType for VpnPlugInProfile {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPlugInProfile;{0edf0da4-4f00-4589-8d7b-4bf988f6542c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnPlugInProfile {
     type Vtable = IVpnPlugInProfile_Vtbl;
@@ -4061,7 +4061,7 @@ impl VpnRoute {
     }
 }
 impl ::windows_core::RuntimeType for VpnRoute {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnRoute;{b5731b83-0969-4699-938e-7776db29cfb3})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnRoute {
     type Vtable = IVpnRoute_Vtbl;
@@ -4171,7 +4171,7 @@ impl VpnRouteAssignment {
     }
 }
 impl ::windows_core::RuntimeType for VpnRouteAssignment {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnRouteAssignment;{db64de22-ce39-4a76-9550-f61039f80e48})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnRouteAssignment {
     type Vtable = IVpnRouteAssignment_Vtbl;
@@ -4200,7 +4200,7 @@ impl VpnSystemHealth {
     }
 }
 impl ::windows_core::RuntimeType for VpnSystemHealth {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnSystemHealth;{99a8f8af-c0ee-4e75-817a-f231aee5123d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnSystemHealth {
     type Vtable = IVpnSystemHealth_Vtbl;
@@ -4315,7 +4315,7 @@ impl VpnTrafficFilter {
     }
 }
 impl ::windows_core::RuntimeType for VpnTrafficFilter {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnTrafficFilter;{2f691b60-6c9f-47f5-ac36-bb1b042e2c50})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnTrafficFilter {
     type Vtable = IVpnTrafficFilter_Vtbl;
@@ -4373,7 +4373,7 @@ impl VpnTrafficFilterAssignment {
     }
 }
 impl ::windows_core::RuntimeType for VpnTrafficFilterAssignment {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnTrafficFilterAssignment;{56ccd45c-e664-471e-89cd-601603b9e0f3})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VpnTrafficFilterAssignment {
     type Vtable = IVpnTrafficFilterAssignment_Vtbl;

@@ -1265,9 +1265,7 @@ impl Calendar {
 }
 impl ::windows_core::RuntimeType for Calendar {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
-        ::windows_core::imp::ConstBuffer::from_slice(
-            b"rc(Windows.Globalization.Calendar;{ca30221d-86d9-40fb-a26b-d44eb7cf08ea})",
-        );
+        ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Calendar {
     type Vtable = ICalendar_Vtbl;

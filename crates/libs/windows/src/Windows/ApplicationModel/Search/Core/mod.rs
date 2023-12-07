@@ -107,7 +107,7 @@ pub struct ISearchSuggestionsRequestedEventArgs_Vtbl {
 pub struct RequestingFocusOnKeyboardInputEventArgs(::windows_core::IUnknown);
 impl RequestingFocusOnKeyboardInputEventArgs {}
 impl ::windows_core::RuntimeType for RequestingFocusOnKeyboardInputEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.RequestingFocusOnKeyboardInputEventArgs;{a1195f27-b1a7-41a2-879d-6a68687e5985})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for RequestingFocusOnKeyboardInputEventArgs {
     type Vtable = IRequestingFocusOnKeyboardInputEventArgs_Vtbl;
@@ -171,7 +171,7 @@ impl SearchSuggestion {
     }
 }
 impl ::windows_core::RuntimeType for SearchSuggestion {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.SearchSuggestion;{5b5554b0-1527-437b-95c5-8d18d2b8af55})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SearchSuggestion {
     type Vtable = ISearchSuggestion_Vtbl;
@@ -297,7 +297,7 @@ impl SearchSuggestionManager {
     }
 }
 impl ::windows_core::RuntimeType for SearchSuggestionManager {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.SearchSuggestionManager;{3f0c50a1-cb9d-497b-b500-3c04ac959ad2})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SearchSuggestionManager {
     type Vtable = ISearchSuggestionManager_Vtbl;
@@ -343,7 +343,7 @@ impl SearchSuggestionsRequestedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for SearchSuggestionsRequestedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs;{6fd519e5-9e7e-4ab4-8be3-c76b1bd4344a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SearchSuggestionsRequestedEventArgs {
     type Vtable = ISearchSuggestionsRequestedEventArgs_Vtbl;

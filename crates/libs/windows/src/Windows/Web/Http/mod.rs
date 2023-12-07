@@ -259,7 +259,7 @@ impl IHttpContent {
 #[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for IHttpContent {}
 impl ::windows_core::RuntimeType for IHttpContent {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{6b14a441-fba7-4bd2-af0a-839de7c295da}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IHttpContent {
     type Vtable = IHttpContent_Vtbl;
@@ -899,7 +899,7 @@ impl HttpBufferContent {
     }
 }
 impl ::windows_core::RuntimeType for HttpBufferContent {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpBufferContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HttpBufferContent {
     type Vtable = IHttpContent_Vtbl;
@@ -1226,7 +1226,7 @@ impl HttpClient {
     }
 }
 impl ::windows_core::RuntimeType for HttpClient {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpClient;{7fda1151-3574-4880-a8ba-e6b1e0061f3d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HttpClient {
     type Vtable = IHttpClient_Vtbl;
@@ -1342,7 +1342,7 @@ impl HttpCookie {
     }
 }
 impl ::windows_core::RuntimeType for HttpCookie {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpCookie;{1f5488e2-cc2d-4779-86a7-88f10687d249})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HttpCookie {
     type Vtable = IHttpCookie_Vtbl;
@@ -1416,7 +1416,7 @@ impl HttpCookieCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeType for HttpCookieCollection {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpCookieCollection;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Web.Http.HttpCookie;{1f5488e2-cc2d-4779-86a7-88f10687d249})))");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for HttpCookieCollection {
@@ -1501,7 +1501,7 @@ impl HttpCookieManager {
     }
 }
 impl ::windows_core::RuntimeType for HttpCookieManager {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpCookieManager;{7a431780-cd4f-4e57-a84a-5b0a53d6bb96})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HttpCookieManager {
     type Vtable = IHttpCookieManager_Vtbl;
@@ -1616,7 +1616,7 @@ impl HttpFormUrlEncodedContent {
     }
 }
 impl ::windows_core::RuntimeType for HttpFormUrlEncodedContent {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpFormUrlEncodedContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HttpFormUrlEncodedContent {
     type Vtable = IHttpContent_Vtbl;
@@ -1693,7 +1693,7 @@ impl HttpGetBufferResult {
     }
 }
 impl ::windows_core::RuntimeType for HttpGetBufferResult {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpGetBufferResult;{53d08e7c-e209-404e-9a49-742d8236fd3a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HttpGetBufferResult {
     type Vtable = IHttpGetBufferResult_Vtbl;
@@ -1769,7 +1769,7 @@ impl HttpGetInputStreamResult {
     }
 }
 impl ::windows_core::RuntimeType for HttpGetInputStreamResult {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpGetInputStreamResult;{d5d63463-13aa-4ee0-be95-a0c39fe91203})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HttpGetInputStreamResult {
     type Vtable = IHttpGetInputStreamResult_Vtbl;
@@ -1843,7 +1843,7 @@ impl HttpGetStringResult {
     }
 }
 impl ::windows_core::RuntimeType for HttpGetStringResult {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpGetStringResult;{9bac466d-8509-4775-b16d-8953f47a7f5f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HttpGetStringResult {
     type Vtable = IHttpGetStringResult_Vtbl;
@@ -1941,7 +1941,7 @@ impl HttpMethod {
     }
 }
 impl ::windows_core::RuntimeType for HttpMethod {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpMethod;{728d4022-700d-4fe0-afa5-40299c58dbfd})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HttpMethod {
     type Vtable = IHttpMethod_Vtbl;
@@ -2082,7 +2082,7 @@ impl HttpMultipartContent {
     }
 }
 impl ::windows_core::RuntimeType for HttpMultipartContent {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpMultipartContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HttpMultipartContent {
     type Vtable = IHttpContent_Vtbl;
@@ -2252,7 +2252,7 @@ impl HttpMultipartFormDataContent {
     }
 }
 impl ::windows_core::RuntimeType for HttpMultipartFormDataContent {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpMultipartFormDataContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HttpMultipartFormDataContent {
     type Vtable = IHttpContent_Vtbl;
@@ -2416,7 +2416,7 @@ impl HttpRequestMessage {
     }
 }
 impl ::windows_core::RuntimeType for HttpRequestMessage {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpRequestMessage;{f5762b3c-74d4-4811-b5dc-9f8b4e2f9abf})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HttpRequestMessage {
     type Vtable = IHttpRequestMessage_Vtbl;
@@ -2483,7 +2483,7 @@ impl HttpRequestResult {
     }
 }
 impl ::windows_core::RuntimeType for HttpRequestResult {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpRequestResult;{6acf4da8-b5eb-4a35-a902-4217fbe820c5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HttpRequestResult {
     type Vtable = IHttpRequestResult_Vtbl;
@@ -2635,7 +2635,7 @@ impl HttpResponseMessage {
     }
 }
 impl ::windows_core::RuntimeType for HttpResponseMessage {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpResponseMessage;{fee200fb-8664-44e0-95d9-42696199bffc})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HttpResponseMessage {
     type Vtable = IHttpResponseMessage_Vtbl;
@@ -2754,7 +2754,7 @@ impl HttpStreamContent {
     }
 }
 impl ::windows_core::RuntimeType for HttpStreamContent {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpStreamContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HttpStreamContent {
     type Vtable = IHttpContent_Vtbl;
@@ -2885,7 +2885,7 @@ impl HttpStringContent {
     }
 }
 impl ::windows_core::RuntimeType for HttpStringContent {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpStringContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HttpStringContent {
     type Vtable = IHttpContent_Vtbl;
@@ -2955,7 +2955,7 @@ impl HttpTransportInformation {
     }
 }
 impl ::windows_core::RuntimeType for HttpTransportInformation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpTransportInformation;{70127198-c6a7-4ed0-833a-83fd8b8f178d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HttpTransportInformation {
     type Vtable = IHttpTransportInformation_Vtbl;

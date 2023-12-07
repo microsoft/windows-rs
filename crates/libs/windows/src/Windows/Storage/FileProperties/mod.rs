@@ -255,7 +255,7 @@ impl IStorageItemExtraProperties {
 }
 ::windows_core::imp::interface_hierarchy!(IStorageItemExtraProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IStorageItemExtraProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{c54361b2-54cd-432b-bdbc-4b19c4b470d7}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IStorageItemExtraProperties {
     type Vtable = IStorageItemExtraProperties_Vtbl;
@@ -420,7 +420,7 @@ impl BasicProperties {
     }
 }
 impl ::windows_core::RuntimeType for BasicProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.BasicProperties;{d05d55db-785e-4a66-be02-9beec58aea81})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BasicProperties {
     type Vtable = IBasicProperties_Vtbl;
@@ -512,7 +512,7 @@ impl DocumentProperties {
     }
 }
 impl ::windows_core::RuntimeType for DocumentProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.DocumentProperties;{7eab19bc-1821-4923-b4a9-0aea404d0070})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DocumentProperties {
     type Vtable = IDocumentProperties_Vtbl;
@@ -726,7 +726,7 @@ impl ImageProperties {
     }
 }
 impl ::windows_core::RuntimeType for ImageProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.ImageProperties;{523c9424-fcff-4275-afee-ecdb9ab47973})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ImageProperties {
     type Vtable = IImageProperties_Vtbl;
@@ -938,7 +938,7 @@ impl MusicProperties {
     }
 }
 impl ::windows_core::RuntimeType for MusicProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.MusicProperties;{bc8aab62-66ec-419a-bc5d-ca65a4cb46da})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MusicProperties {
     type Vtable = IMusicProperties_Vtbl;
@@ -1026,7 +1026,7 @@ impl StorageItemContentProperties {
     }
 }
 impl ::windows_core::RuntimeType for StorageItemContentProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.StorageItemContentProperties;{05294bad-bc38-48bf-85d7-770e0e2ae0ba})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StorageItemContentProperties {
     type Vtable = IStorageItemContentProperties_Vtbl;
@@ -1200,7 +1200,7 @@ impl StorageItemThumbnail {
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows_core::RuntimeType for StorageItemThumbnail {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.StorageItemThumbnail;{cc254827-4b3d-438f-9232-10c76bc7e038})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows_core::Interface for StorageItemThumbnail {
@@ -1413,7 +1413,7 @@ impl VideoProperties {
     }
 }
 impl ::windows_core::RuntimeType for VideoProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.VideoProperties;{719ae507-68de-4db8-97de-49998c059f2f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VideoProperties {
     type Vtable = IVideoProperties_Vtbl;

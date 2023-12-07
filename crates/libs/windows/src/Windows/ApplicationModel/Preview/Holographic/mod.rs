@@ -148,7 +148,7 @@ impl HolographicKeyboardPlacementOverridePreview {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeType for HolographicKeyboardPlacementOverridePreview {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview;{c8a8ce3a-dfde-5a14-8d5f-182c526dd9c4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for HolographicKeyboardPlacementOverridePreview {

@@ -301,7 +301,7 @@ impl ILampArrayEffect {
 }
 ::windows_core::imp::interface_hierarchy!(ILampArrayEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ILampArrayEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{11d45590-57fb-4546-b1ce-863107f740df}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ILampArrayEffect {
     type Vtable = ILampArrayEffect_Vtbl;
@@ -564,7 +564,7 @@ impl LampArrayBitmapEffect {
     }
 }
 impl ::windows_core::RuntimeType for LampArrayBitmapEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayBitmapEffect;{3238e065-d877-4627-89e5-2a88f7052fa6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LampArrayBitmapEffect {
     type Vtable = ILampArrayBitmapEffect_Vtbl;
@@ -603,7 +603,7 @@ impl LampArrayBitmapRequestedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for LampArrayBitmapRequestedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayBitmapRequestedEventArgs;{c8b4af9e-fe63-4d51-babd-619defb454ba})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LampArrayBitmapRequestedEventArgs {
     type Vtable = ILampArrayBitmapRequestedEventArgs_Vtbl;
@@ -760,7 +760,7 @@ impl LampArrayBlinkEffect {
     }
 }
 impl ::windows_core::RuntimeType for LampArrayBlinkEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayBlinkEffect;{ebbf35f6-2fc5-4bb3-b3c3-6221a7680d13})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LampArrayBlinkEffect {
     type Vtable = ILampArrayBlinkEffect_Vtbl;
@@ -862,7 +862,7 @@ impl LampArrayColorRampEffect {
     }
 }
 impl ::windows_core::RuntimeType for LampArrayColorRampEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayColorRampEffect;{2b004437-40a7-432e-a0b9-0d570c2153ff})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LampArrayColorRampEffect {
     type Vtable = ILampArrayColorRampEffect_Vtbl;
@@ -956,7 +956,7 @@ impl LampArrayCustomEffect {
     }
 }
 impl ::windows_core::RuntimeType for LampArrayCustomEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayCustomEffect;{ec579170-3c34-4876-818b-5765f78b0ee4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LampArrayCustomEffect {
     type Vtable = ILampArrayCustomEffect_Vtbl;
@@ -1117,7 +1117,7 @@ impl LampArrayEffectPlaylist {
     }
 }
 impl ::windows_core::RuntimeType for LampArrayEffectPlaylist {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayEffectPlaylist;{7de58bfe-6f61-4103-98c7-d6632f7b9169})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LampArrayEffectPlaylist {
     type Vtable = ILampArrayEffectPlaylist_Vtbl;
@@ -1238,7 +1238,7 @@ impl LampArraySolidEffect {
     }
 }
 impl ::windows_core::RuntimeType for LampArraySolidEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArraySolidEffect;{441f8213-43cc-4b33-80eb-c6ddde7dc8ed})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LampArraySolidEffect {
     type Vtable = ILampArraySolidEffect_Vtbl;
@@ -1292,7 +1292,7 @@ impl LampArrayUpdateRequestedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for LampArrayUpdateRequestedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayUpdateRequestedEventArgs;{73560d6a-576a-48af-8539-67ffa0ab3516})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LampArrayUpdateRequestedEventArgs {
     type Vtable = ILampArrayUpdateRequestedEventArgs_Vtbl;

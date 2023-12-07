@@ -250,7 +250,7 @@ impl IUserActivityContentInfo {
 }
 ::windows_core::imp::interface_hierarchy!(IUserActivityContentInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IUserActivityContentInfo {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{b399e5ad-137f-409d-822d-e1af27ce08dc}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IUserActivityContentInfo {
     type Vtable = IUserActivityContentInfo_Vtbl;
@@ -670,7 +670,7 @@ impl UserActivity {
     }
 }
 impl ::windows_core::RuntimeType for UserActivity {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivity;{fc103e9e-2cab-4d36-aea2-b4bb556cef0f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UserActivity {
     type Vtable = IUserActivity_Vtbl;
@@ -753,7 +753,7 @@ impl UserActivityAttribution {
     }
 }
 impl ::windows_core::RuntimeType for UserActivityAttribution {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityAttribution;{34a5c8b5-86dd-4aec-a491-6a4faea5d22e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UserActivityAttribution {
     type Vtable = IUserActivityAttribution_Vtbl;
@@ -864,7 +864,7 @@ impl UserActivityChannel {
     }
 }
 impl ::windows_core::RuntimeType for UserActivityChannel {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityChannel;{bac0f8b8-a0e4-483b-b948-9cbabd06070c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UserActivityChannel {
     type Vtable = IUserActivityChannel_Vtbl;
@@ -902,7 +902,7 @@ impl UserActivityContentInfo {
     }
 }
 impl ::windows_core::RuntimeType for UserActivityContentInfo {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityContentInfo;{b399e5ad-137f-409d-822d-e1af27ce08dc})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UserActivityContentInfo {
     type Vtable = IUserActivityContentInfo_Vtbl;
@@ -930,7 +930,7 @@ impl UserActivityRequest {
     }
 }
 impl ::windows_core::RuntimeType for UserActivityRequest {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequest;{a0ef6355-cf35-4ff0-8833-50cb4b72e06d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UserActivityRequest {
     type Vtable = IUserActivityRequest_Vtbl;
@@ -979,7 +979,7 @@ impl UserActivityRequestManager {
     }
 }
 impl ::windows_core::RuntimeType for UserActivityRequestManager {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequestManager;{0c30be4e-903d-48d6-82d4-4043ed57791b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UserActivityRequestManager {
     type Vtable = IUserActivityRequestManager_Vtbl;
@@ -1013,7 +1013,7 @@ impl UserActivityRequestedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for UserActivityRequestedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequestedEventArgs;{a4cc7a4c-8229-4cfd-a3bc-c61d318575a4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UserActivityRequestedEventArgs {
     type Vtable = IUserActivityRequestedEventArgs_Vtbl;
@@ -1046,7 +1046,7 @@ impl UserActivitySession {
     }
 }
 impl ::windows_core::RuntimeType for UserActivitySession {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivitySession;{ae434d78-24fa-44a3-ad48-6eda61aa1924})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UserActivitySession {
     type Vtable = IUserActivitySession_Vtbl;
@@ -1093,7 +1093,7 @@ impl UserActivitySessionHistoryItem {
     }
 }
 impl ::windows_core::RuntimeType for UserActivitySessionHistoryItem {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem;{e8d59bd3-3e5d-49fd-98d7-6da97521e255})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UserActivitySessionHistoryItem {
     type Vtable = IUserActivitySessionHistoryItem_Vtbl;
@@ -1193,7 +1193,7 @@ impl UserActivityVisualElements {
     }
 }
 impl ::windows_core::RuntimeType for UserActivityVisualElements {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityVisualElements;{94757513-262f-49ef-bbbf-9b75d2e85250})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UserActivityVisualElements {
     type Vtable = IUserActivityVisualElements_Vtbl;

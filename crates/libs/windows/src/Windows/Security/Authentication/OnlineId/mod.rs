@@ -258,7 +258,7 @@ impl OnlineIdAuthenticator {
     }
 }
 impl ::windows_core::RuntimeType for OnlineIdAuthenticator {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdAuthenticator;{a003f58a-29ab-4817-b884-d7516dad18b9})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for OnlineIdAuthenticator {
     type Vtable = IOnlineIdAuthenticator_Vtbl;
@@ -299,7 +299,7 @@ impl OnlineIdServiceTicket {
     }
 }
 impl ::windows_core::RuntimeType for OnlineIdServiceTicket {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket;{c95c547f-d781-4a94-acb8-c59874238c26})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for OnlineIdServiceTicket {
     type Vtable = IOnlineIdServiceTicket_Vtbl;
@@ -350,7 +350,7 @@ impl OnlineIdServiceTicketRequest {
     }
 }
 impl ::windows_core::RuntimeType for OnlineIdServiceTicketRequest {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdServiceTicketRequest;{297445d3-fb63-4135-8909-4e354c061466})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for OnlineIdServiceTicketRequest {
     type Vtable = IOnlineIdServiceTicketRequest_Vtbl;
@@ -430,7 +430,7 @@ impl OnlineIdSystemAuthenticatorForUser {
     }
 }
 impl ::windows_core::RuntimeType for OnlineIdSystemAuthenticatorForUser {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticatorForUser;{5798befb-1de4-4186-a2e6-b563f86aaf44})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for OnlineIdSystemAuthenticatorForUser {
     type Vtable = IOnlineIdSystemAuthenticatorForUser_Vtbl;
@@ -464,7 +464,7 @@ impl OnlineIdSystemIdentity {
     }
 }
 impl ::windows_core::RuntimeType for OnlineIdSystemIdentity {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdSystemIdentity;{743cd20d-b6ca-434d-8124-53ea12685307})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for OnlineIdSystemIdentity {
     type Vtable = IOnlineIdSystemIdentity_Vtbl;
@@ -505,7 +505,7 @@ impl OnlineIdSystemTicketResult {
     }
 }
 impl ::windows_core::RuntimeType for OnlineIdSystemTicketResult {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketResult;{db0a5ff8-b098-4acd-9d13-9e640652b5b6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for OnlineIdSystemTicketResult {
     type Vtable = IOnlineIdSystemTicketResult_Vtbl;
@@ -592,7 +592,7 @@ impl SignOutUserOperation {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeType for SignOutUserOperation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.SignOutUserOperation;{5a648006-843a-4da9-865b-9d26e5dfad7b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows_core::Interface for SignOutUserOperation {
@@ -723,7 +723,7 @@ impl UserAuthenticationOperation {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeType for UserAuthenticationOperation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.UserAuthenticationOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};rc(Windows.Security.Authentication.OnlineId.UserIdentity;{2146d9cd-0742-4be3-8a1c-7c7ae679aa88})))");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows_core::Interface for UserAuthenticationOperation {
@@ -842,7 +842,7 @@ impl UserIdentity {
     }
 }
 impl ::windows_core::RuntimeType for UserIdentity {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.UserIdentity;{2146d9cd-0742-4be3-8a1c-7c7ae679aa88})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UserIdentity {
     type Vtable = IUserIdentity_Vtbl;

@@ -73,7 +73,7 @@ impl GeolocationProvider {
     }
 }
 impl ::windows_core::RuntimeType for GeolocationProvider {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Provider.GeolocationProvider;{e4cf071d-3f64-509f-8dc2-0b74a059829d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for GeolocationProvider {
     type Vtable = IGeolocationProvider_Vtbl;

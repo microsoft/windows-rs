@@ -393,7 +393,7 @@ impl PrintSupportExtensionSession {
     }
 }
 impl ::windows_core::RuntimeType for PrintSupportExtensionSession {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionSession;{eea45f1a-f4c6-54b3-a0b8-a559839aa4c3})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PrintSupportExtensionSession {
     type Vtable = IPrintSupportExtensionSession_Vtbl;
@@ -420,7 +420,7 @@ impl PrintSupportExtensionTriggerDetails {
     }
 }
 impl ::windows_core::RuntimeType for PrintSupportExtensionTriggerDetails {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionTriggerDetails;{ae083711-9b09-55d1-a0ae-2a14c5f83d6a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PrintSupportExtensionTriggerDetails {
     type Vtable = IPrintSupportExtensionTriggerDetails_Vtbl;
@@ -508,7 +508,7 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesChangedEventArgs;{15969bf0-9028-5722-8a37-7d7c34b41dd6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     type Vtable = IPrintSupportPrintDeviceCapabilitiesChangedEventArgs_Vtbl;
@@ -547,7 +547,7 @@ impl PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
     }
 }
 impl ::windows_core::RuntimeType for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesUpdatePolicy;{5f5fc025-8c35-5529-8038-8cdc3634bbcd})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
     type Vtable = IPrintSupportPrintDeviceCapabilitiesUpdatePolicy_Vtbl;
@@ -596,7 +596,7 @@ impl PrintSupportPrintTicketElement {
     }
 }
 impl ::windows_core::RuntimeType for PrintSupportPrintTicketElement {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketElement;{4b2a4489-730d-5be7-80e6-8332941abf13})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PrintSupportPrintTicketElement {
     type Vtable = IPrintSupportPrintTicketElement_Vtbl;
@@ -638,7 +638,7 @@ impl PrintSupportPrintTicketValidationRequestedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for PrintSupportPrintTicketValidationRequestedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketValidationRequestedEventArgs;{338e4e69-db55-55c7-8338-ef64680a8f90})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PrintSupportPrintTicketValidationRequestedEventArgs {
     type Vtable = IPrintSupportPrintTicketValidationRequestedEventArgs_Vtbl;
@@ -728,7 +728,7 @@ impl PrintSupportPrinterSelectedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for PrintSupportPrinterSelectedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrinterSelectedEventArgs;{7b1cb7d9-a8a4-5c09-adb2-66165f817977})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PrintSupportPrinterSelectedEventArgs {
     type Vtable = IPrintSupportPrinterSelectedEventArgs_Vtbl;
@@ -766,7 +766,7 @@ impl PrintSupportSessionInfo {
     }
 }
 impl ::windows_core::RuntimeType for PrintSupportSessionInfo {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportSessionInfo;{852149af-777d-53e9-9ee9-45d3f4b5be9c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PrintSupportSessionInfo {
     type Vtable = IPrintSupportSessionInfo_Vtbl;
@@ -838,7 +838,7 @@ impl PrintSupportSettingsActivatedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for PrintSupportSettingsActivatedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsActivatedEventArgs;{1e1b565e-a013-55ea-9b8c-eea39d9fb6c1})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PrintSupportSettingsActivatedEventArgs {
     type Vtable = IPrintSupportSettingsActivatedEventArgs_Vtbl;
@@ -901,7 +901,7 @@ impl PrintSupportSettingsUISession {
     }
 }
 impl ::windows_core::RuntimeType for PrintSupportSettingsUISession {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsUISession;{c6da2251-83c3-55e4-a0f8-5de8b062adbf})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PrintSupportSettingsUISession {
     type Vtable = IPrintSupportSettingsUISession_Vtbl;

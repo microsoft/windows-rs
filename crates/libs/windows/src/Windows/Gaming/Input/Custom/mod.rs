@@ -29,7 +29,7 @@ impl ICustomGameControllerFactory {
 }
 ::windows_core::imp::interface_hierarchy!(ICustomGameControllerFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ICustomGameControllerFactory {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{69a0ae5e-758e-4cbe-ace6-62155fe9126f}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ICustomGameControllerFactory {
     type Vtable = ICustomGameControllerFactory_Vtbl;
@@ -94,7 +94,7 @@ impl IGameControllerInputSink {
 }
 ::windows_core::imp::interface_hierarchy!(IGameControllerInputSink, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IGameControllerInputSink {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{1ff6f922-c640-4c78-a820-9a715c558bcb}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IGameControllerInputSink {
     type Vtable = IGameControllerInputSink_Vtbl;
@@ -151,7 +151,7 @@ impl IGameControllerProvider {
 }
 ::windows_core::imp::interface_hierarchy!(IGameControllerProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IGameControllerProvider {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{e6d73982-2996-4559-b16c-3e57d46e58d6}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IGameControllerProvider {
     type Vtable = IGameControllerProvider_Vtbl;
@@ -211,7 +211,7 @@ impl IGipGameControllerInputSink {
 ::windows_core::imp::interface_hierarchy!(IGipGameControllerInputSink, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IGameControllerInputSink> for IGipGameControllerInputSink {}
 impl ::windows_core::RuntimeType for IGipGameControllerInputSink {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{a2108abf-09f1-43bc-a140-80f899ec36fb}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IGipGameControllerInputSink {
     type Vtable = IGipGameControllerInputSink_Vtbl;
@@ -267,7 +267,7 @@ impl IHidGameControllerInputSink {
 ::windows_core::imp::interface_hierarchy!(IHidGameControllerInputSink, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IGameControllerInputSink> for IHidGameControllerInputSink {}
 impl ::windows_core::RuntimeType for IHidGameControllerInputSink {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{f754c322-182d-40e4-a126-fcee4ffa1e31}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IHidGameControllerInputSink {
     type Vtable = IHidGameControllerInputSink_Vtbl;
@@ -321,7 +321,7 @@ impl IXusbGameControllerInputSink {
 ::windows_core::imp::interface_hierarchy!(IXusbGameControllerInputSink, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IGameControllerInputSink> for IXusbGameControllerInputSink {}
 impl ::windows_core::RuntimeType for IXusbGameControllerInputSink {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{b2ac1d95-6ecb-42b3-8aab-025401ca4712}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IXusbGameControllerInputSink {
     type Vtable = IXusbGameControllerInputSink_Vtbl;
@@ -422,7 +422,7 @@ impl GipFirmwareUpdateResult {
     }
 }
 impl ::windows_core::RuntimeType for GipFirmwareUpdateResult {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.GipFirmwareUpdateResult;{6b794d32-8553-4292-8e03-e16651a2f8bc})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for GipFirmwareUpdateResult {
     type Vtable = IGipFirmwareUpdateResult_Vtbl;
@@ -497,7 +497,7 @@ impl GipGameControllerProvider {
     }
 }
 impl ::windows_core::RuntimeType for GipGameControllerProvider {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.GipGameControllerProvider;{dbcf1e19-1af5-45a8-bf02-a0ee50c823fc})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for GipGameControllerProvider {
     type Vtable = IGipGameControllerProvider_Vtbl;
@@ -579,7 +579,7 @@ impl HidGameControllerProvider {
     }
 }
 impl ::windows_core::RuntimeType for HidGameControllerProvider {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.HidGameControllerProvider;{95ce3af4-abf0-4b68-a081-3b7de73ff0e7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HidGameControllerProvider {
     type Vtable = IHidGameControllerProvider_Vtbl;
@@ -639,7 +639,7 @@ impl XusbGameControllerProvider {
     }
 }
 impl ::windows_core::RuntimeType for XusbGameControllerProvider {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.XusbGameControllerProvider;{6e2971eb-0efb-48b4-808b-837643b2f216})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for XusbGameControllerProvider {
     type Vtable = IXusbGameControllerProvider_Vtbl;

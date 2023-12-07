@@ -188,7 +188,7 @@ pub struct IBackgroundCondition(::windows_core::IUnknown);
 impl IBackgroundCondition {}
 ::windows_core::imp::interface_hierarchy!(IBackgroundCondition, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IBackgroundCondition {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{ae48a1ee-8951-400a-8302-9c9c9a2a3a3b}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IBackgroundCondition {
     type Vtable = IBackgroundCondition_Vtbl;
@@ -282,7 +282,7 @@ impl IBackgroundTask {
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundTask, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IBackgroundTask {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{7d13d534-fd12-43ce-8c22-ea1ff13c06df}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IBackgroundTask {
     type Vtable = IBackgroundTask_Vtbl;
@@ -489,7 +489,7 @@ impl IBackgroundTaskInstance {
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundTaskInstance, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IBackgroundTaskInstance {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{865bda7a-21d8-4573-8f32-928a1b0641f6}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IBackgroundTaskInstance {
     type Vtable = IBackgroundTaskInstance_Vtbl;
@@ -596,7 +596,7 @@ impl IBackgroundTaskInstance2 {
 ::windows_core::imp::interface_hierarchy!(IBackgroundTaskInstance2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IBackgroundTaskInstance> for IBackgroundTaskInstance2 {}
 impl ::windows_core::RuntimeType for IBackgroundTaskInstance2 {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{4f7d0176-0c76-4fb4-896d-5de1864122f6}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IBackgroundTaskInstance2 {
     type Vtable = IBackgroundTaskInstance2_Vtbl;
@@ -691,7 +691,7 @@ impl IBackgroundTaskInstance4 {
 ::windows_core::imp::interface_hierarchy!(IBackgroundTaskInstance4, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IBackgroundTaskInstance> for IBackgroundTaskInstance4 {}
 impl ::windows_core::RuntimeType for IBackgroundTaskInstance4 {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{7f29f23c-aa04-4b08-97b0-06d874cdabf5}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IBackgroundTaskInstance4 {
     type Vtable = IBackgroundTaskInstance4_Vtbl;
@@ -786,7 +786,7 @@ impl IBackgroundTaskRegistration {
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundTaskRegistration, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IBackgroundTaskRegistration {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{10654cc2-a26e-43bf-8c12-1fb40dbfbfa0}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IBackgroundTaskRegistration {
     type Vtable = IBackgroundTaskRegistration_Vtbl;
@@ -887,7 +887,7 @@ impl IBackgroundTaskRegistration2 {
 ::windows_core::imp::interface_hierarchy!(IBackgroundTaskRegistration2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IBackgroundTaskRegistration> for IBackgroundTaskRegistration2 {}
 impl ::windows_core::RuntimeType for IBackgroundTaskRegistration2 {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{6138c703-bb86-4112-afc3-7f939b166e3b}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IBackgroundTaskRegistration2 {
     type Vtable = IBackgroundTaskRegistration2_Vtbl;
@@ -970,7 +970,7 @@ impl IBackgroundTaskRegistration3 {
 ::windows_core::imp::interface_hierarchy!(IBackgroundTaskRegistration3, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IBackgroundTaskRegistration> for IBackgroundTaskRegistration3 {}
 impl ::windows_core::RuntimeType for IBackgroundTaskRegistration3 {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{fe338195-9423-4d8b-830d-b1dd2c7badd5}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IBackgroundTaskRegistration3 {
     type Vtable = IBackgroundTaskRegistration3_Vtbl;
@@ -1075,7 +1075,7 @@ pub struct IBackgroundTrigger(::windows_core::IUnknown);
 impl IBackgroundTrigger {}
 ::windows_core::imp::interface_hierarchy!(IBackgroundTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IBackgroundTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{84b3a058-6027-4b87-9790-bdf3f757dbd7}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IBackgroundTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -2343,7 +2343,7 @@ impl ActivitySensorTrigger {
     }
 }
 impl ::windows_core::RuntimeType for ActivitySensorTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ActivitySensorTrigger;{d0dd4342-e37b-4823-a5fe-6b31dfefdeb0})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ActivitySensorTrigger {
     type Vtable = IActivitySensorTrigger_Vtbl;
@@ -2414,7 +2414,7 @@ impl AppBroadcastTrigger {
     }
 }
 impl ::windows_core::RuntimeType for AppBroadcastTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.AppBroadcastTrigger;{74d4f496-8d37-44ec-9481-2a0b9854eb48})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AppBroadcastTrigger {
     type Vtable = IAppBroadcastTrigger_Vtbl;
@@ -2505,7 +2505,7 @@ impl AppBroadcastTriggerProviderInfo {
     }
 }
 impl ::windows_core::RuntimeType for AppBroadcastTriggerProviderInfo {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo;{f219352d-9de8-4420-9ce2-5eff8f17376b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AppBroadcastTriggerProviderInfo {
     type Vtable = IAppBroadcastTriggerProviderInfo_Vtbl;
@@ -2553,7 +2553,7 @@ impl ApplicationTrigger {
     }
 }
 impl ::windows_core::RuntimeType for ApplicationTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ApplicationTrigger;{0b468630-9574-492c-9e93-1a3ae6335fe9})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ApplicationTrigger {
     type Vtable = IApplicationTrigger_Vtbl;
@@ -2583,7 +2583,7 @@ impl ApplicationTriggerDetails {
     }
 }
 impl ::windows_core::RuntimeType for ApplicationTriggerDetails {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ApplicationTriggerDetails;{97dc6ab2-2219-4a9e-9c5e-41d047f76e82})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ApplicationTriggerDetails {
     type Vtable = IApplicationTriggerDetails_Vtbl;
@@ -2610,7 +2610,7 @@ impl AppointmentStoreNotificationTrigger {
     }
 }
 impl ::windows_core::RuntimeType for AppointmentStoreNotificationTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.AppointmentStoreNotificationTrigger;{64d4040c-c201-42ad-aa2a-e21ba3425b6d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AppointmentStoreNotificationTrigger {
     type Vtable = IAppointmentStoreNotificationTrigger_Vtbl;
@@ -2804,7 +2804,7 @@ impl BackgroundTaskBuilder {
     }
 }
 impl ::windows_core::RuntimeType for BackgroundTaskBuilder {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskBuilder;{0351550e-3e64-4572-a93a-84075a37c917})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BackgroundTaskBuilder {
     type Vtable = IBackgroundTaskBuilder_Vtbl;
@@ -2833,7 +2833,7 @@ impl BackgroundTaskCompletedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for BackgroundTaskCompletedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskCompletedEventArgs;{565d25cf-f209-48f4-9967-2b184f7bfbf0})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BackgroundTaskCompletedEventArgs {
     type Vtable = IBackgroundTaskCompletedEventArgs_Vtbl;
@@ -2857,7 +2857,7 @@ impl BackgroundTaskDeferral {
     }
 }
 impl ::windows_core::RuntimeType for BackgroundTaskDeferral {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskDeferral;{93cc156d-af27-4dd3-846e-24ee40cadd25})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BackgroundTaskDeferral {
     type Vtable = IBackgroundTaskDeferral_Vtbl;
@@ -2891,7 +2891,7 @@ impl BackgroundTaskProgressEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for BackgroundTaskProgressEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskProgressEventArgs;{fb1468ac-8332-4d0a-9532-03eae684da31})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BackgroundTaskProgressEventArgs {
     type Vtable = IBackgroundTaskProgressEventArgs_Vtbl;
@@ -3011,7 +3011,7 @@ impl BackgroundTaskRegistration {
     }
 }
 impl ::windows_core::RuntimeType for BackgroundTaskRegistration {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskRegistration;{10654cc2-a26e-43bf-8c12-1fb40dbfbfa0})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BackgroundTaskRegistration {
     type Vtable = IBackgroundTaskRegistration_Vtbl;
@@ -3092,7 +3092,7 @@ impl BackgroundTaskRegistrationGroup {
     }
 }
 impl ::windows_core::RuntimeType for BackgroundTaskRegistrationGroup {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskRegistrationGroup;{2ab1919a-871b-4167-8a76-055cd67b5b23})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BackgroundTaskRegistrationGroup {
     type Vtable = IBackgroundTaskRegistrationGroup_Vtbl;
@@ -3196,7 +3196,7 @@ impl BluetoothLEAdvertisementPublisherTrigger {
     }
 }
 impl ::windows_core::RuntimeType for BluetoothLEAdvertisementPublisherTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BluetoothLEAdvertisementPublisherTrigger;{ab3e2612-25d3-48ae-8724-d81877ae6129})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BluetoothLEAdvertisementPublisherTrigger {
     type Vtable = IBluetoothLEAdvertisementPublisherTrigger_Vtbl;
@@ -3307,7 +3307,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
     }
 }
 impl ::windows_core::RuntimeType for BluetoothLEAdvertisementWatcherTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BluetoothLEAdvertisementWatcherTrigger;{1aab1819-bce1-48eb-a827-59fb7cee52a6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BluetoothLEAdvertisementWatcherTrigger {
     type Vtable = IBluetoothLEAdvertisementWatcherTrigger_Vtbl;
@@ -3335,7 +3335,7 @@ impl CachedFileUpdaterTrigger {
     }
 }
 impl ::windows_core::RuntimeType for CachedFileUpdaterTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CachedFileUpdaterTrigger;{e21caeeb-32f2-4d31-b553-b9e01bde37e0})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CachedFileUpdaterTrigger {
     type Vtable = ICachedFileUpdaterTrigger_Vtbl;
@@ -3381,7 +3381,7 @@ impl CachedFileUpdaterTriggerDetails {
     }
 }
 impl ::windows_core::RuntimeType for CachedFileUpdaterTriggerDetails {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CachedFileUpdaterTriggerDetails;{71838c13-1314-47b4-9597-dc7e248c17cc})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CachedFileUpdaterTriggerDetails {
     type Vtable = ICachedFileUpdaterTriggerDetails_Vtbl;
@@ -3408,7 +3408,7 @@ impl ChatMessageNotificationTrigger {
     }
 }
 impl ::windows_core::RuntimeType for ChatMessageNotificationTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ChatMessageNotificationTrigger;{513b43bf-1d40-5c5d-78f5-c923fee3739e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ChatMessageNotificationTrigger {
     type Vtable = IChatMessageNotificationTrigger_Vtbl;
@@ -3436,7 +3436,7 @@ impl ChatMessageReceivedNotificationTrigger {
     }
 }
 impl ::windows_core::RuntimeType for ChatMessageReceivedNotificationTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ChatMessageReceivedNotificationTrigger;{3ea3760e-baf5-4077-88e9-060cf6f0c6d5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ChatMessageReceivedNotificationTrigger {
     type Vtable = IChatMessageReceivedNotificationTrigger_Vtbl;
@@ -3464,7 +3464,7 @@ impl CommunicationBlockingAppSetAsActiveTrigger {
     }
 }
 impl ::windows_core::RuntimeType for CommunicationBlockingAppSetAsActiveTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CommunicationBlockingAppSetAsActiveTrigger;{fb91f28a-16a5-486d-974c-7835a8477be2})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CommunicationBlockingAppSetAsActiveTrigger {
     type Vtable = ICommunicationBlockingAppSetAsActiveTrigger_Vtbl;
@@ -3492,7 +3492,7 @@ impl ContactStoreNotificationTrigger {
     }
 }
 impl ::windows_core::RuntimeType for ContactStoreNotificationTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ContactStoreNotificationTrigger;{c833419b-4705-4571-9a16-06b997bf9c96})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ContactStoreNotificationTrigger {
     type Vtable = IContactStoreNotificationTrigger_Vtbl;
@@ -3542,7 +3542,7 @@ impl ContentPrefetchTrigger {
     }
 }
 impl ::windows_core::RuntimeType for ContentPrefetchTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ContentPrefetchTrigger;{710627ee-04fa-440b-80c0-173202199e5d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ContentPrefetchTrigger {
     type Vtable = IContentPrefetchTrigger_Vtbl;
@@ -3568,7 +3568,7 @@ impl ConversationalAgentTrigger {
     }
 }
 impl ::windows_core::RuntimeType for ConversationalAgentTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ConversationalAgentTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ConversationalAgentTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -3612,7 +3612,7 @@ impl CustomSystemEventTrigger {
     }
 }
 impl ::windows_core::RuntimeType for CustomSystemEventTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CustomSystemEventTrigger;{f3596798-cf6b-4ef4-a0ca-29cf4a278c87})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CustomSystemEventTrigger {
     type Vtable = ICustomSystemEventTrigger_Vtbl;
@@ -3669,7 +3669,7 @@ impl DeviceConnectionChangeTrigger {
     }
 }
 impl ::windows_core::RuntimeType for DeviceConnectionChangeTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceConnectionChangeTrigger;{90875e64-3cdd-4efb-ab1c-5b3b6a60ce34})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DeviceConnectionChangeTrigger {
     type Vtable = IDeviceConnectionChangeTrigger_Vtbl;
@@ -3726,7 +3726,7 @@ impl DeviceManufacturerNotificationTrigger {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeType for DeviceManufacturerNotificationTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceManufacturerNotificationTrigger;{81278ab5-41ab-16da-86c2-7f7bf0912f5b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for DeviceManufacturerNotificationTrigger {
@@ -3775,7 +3775,7 @@ impl DeviceServicingTrigger {
     }
 }
 impl ::windows_core::RuntimeType for DeviceServicingTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceServicingTrigger;{1ab217ad-6e34-49d3-9e6f-17f1b6dfa881})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DeviceServicingTrigger {
     type Vtable = IDeviceServicingTrigger_Vtbl;
@@ -3821,7 +3821,7 @@ impl DeviceUseTrigger {
     }
 }
 impl ::windows_core::RuntimeType for DeviceUseTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceUseTrigger;{0da68011-334f-4d57-b6ec-6dca64b412e4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DeviceUseTrigger {
     type Vtable = IDeviceUseTrigger_Vtbl;
@@ -3841,7 +3841,7 @@ unsafe impl ::core::marker::Sync for DeviceUseTrigger {}
 pub struct DeviceWatcherTrigger(::windows_core::IUnknown);
 impl DeviceWatcherTrigger {}
 impl ::windows_core::RuntimeType for DeviceWatcherTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceWatcherTrigger;{a4617fdd-8573-4260-befc-5bec89cb693d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DeviceWatcherTrigger {
     type Vtable = IDeviceWatcherTrigger_Vtbl;
@@ -3867,7 +3867,7 @@ impl EmailStoreNotificationTrigger {
     }
 }
 impl ::windows_core::RuntimeType for EmailStoreNotificationTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.EmailStoreNotificationTrigger;{986d06da-47eb-4268-a4f2-f3f77188388a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for EmailStoreNotificationTrigger {
     type Vtable = IEmailStoreNotificationTrigger_Vtbl;
@@ -3938,7 +3938,7 @@ impl GattCharacteristicNotificationTrigger {
     }
 }
 impl ::windows_core::RuntimeType for GattCharacteristicNotificationTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger;{e25f8fc8-0696-474f-a732-f292b0cebc5d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for GattCharacteristicNotificationTrigger {
     type Vtable = IGattCharacteristicNotificationTrigger_Vtbl;
@@ -4006,7 +4006,7 @@ impl GattServiceProviderTrigger {
     }
 }
 impl ::windows_core::RuntimeType for GattServiceProviderTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GattServiceProviderTrigger;{ddc6a3e9-1557-4bd8-8542-468aa0c696f6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for GattServiceProviderTrigger {
     type Vtable = IGattServiceProviderTrigger_Vtbl;
@@ -4043,7 +4043,7 @@ impl GattServiceProviderTriggerResult {
     }
 }
 impl ::windows_core::RuntimeType for GattServiceProviderTriggerResult {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GattServiceProviderTriggerResult;{3c4691b1-b198-4e84-bad4-cf4ad299ed3a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for GattServiceProviderTriggerResult {
     type Vtable = IGattServiceProviderTriggerResult_Vtbl;
@@ -4085,7 +4085,7 @@ impl GeovisitTrigger {
     }
 }
 impl ::windows_core::RuntimeType for GeovisitTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GeovisitTrigger;{4818edaa-04e1-4127-9a4c-19351b8a80a4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for GeovisitTrigger {
     type Vtable = IGeovisitTrigger_Vtbl;
@@ -4124,7 +4124,7 @@ impl LocationTrigger {
     }
 }
 impl ::windows_core::RuntimeType for LocationTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.LocationTrigger;{47666a1c-6877-481e-8026-ff7e14a811a0})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LocationTrigger {
     type Vtable = ILocationTrigger_Vtbl;
@@ -4170,7 +4170,7 @@ impl MaintenanceTrigger {
     }
 }
 impl ::windows_core::RuntimeType for MaintenanceTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MaintenanceTrigger;{68184c83-fc22-4ce5-841a-7239a9810047})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MaintenanceTrigger {
     type Vtable = IMaintenanceTrigger_Vtbl;
@@ -4217,7 +4217,7 @@ impl MediaProcessingTrigger {
     }
 }
 impl ::windows_core::RuntimeType for MediaProcessingTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MediaProcessingTrigger;{9a95be65-8a52-4b30-9011-cf38040ea8b0})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaProcessingTrigger {
     type Vtable = IMediaProcessingTrigger_Vtbl;
@@ -4243,7 +4243,7 @@ impl MobileBroadbandDeviceServiceNotificationTrigger {
     }
 }
 impl ::windows_core::RuntimeType for MobileBroadbandDeviceServiceNotificationTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandDeviceServiceNotificationTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MobileBroadbandDeviceServiceNotificationTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -4271,7 +4271,7 @@ impl MobileBroadbandPcoDataChangeTrigger {
     }
 }
 impl ::windows_core::RuntimeType for MobileBroadbandPcoDataChangeTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandPcoDataChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MobileBroadbandPcoDataChangeTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -4299,7 +4299,7 @@ impl MobileBroadbandPinLockStateChangeTrigger {
     }
 }
 impl ::windows_core::RuntimeType for MobileBroadbandPinLockStateChangeTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandPinLockStateChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MobileBroadbandPinLockStateChangeTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -4327,7 +4327,7 @@ impl MobileBroadbandRadioStateChangeTrigger {
     }
 }
 impl ::windows_core::RuntimeType for MobileBroadbandRadioStateChangeTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandRadioStateChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MobileBroadbandRadioStateChangeTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -4355,7 +4355,7 @@ impl MobileBroadbandRegistrationStateChangeTrigger {
     }
 }
 impl ::windows_core::RuntimeType for MobileBroadbandRegistrationStateChangeTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandRegistrationStateChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MobileBroadbandRegistrationStateChangeTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -4383,7 +4383,7 @@ impl NetworkOperatorDataUsageTrigger {
     }
 }
 impl ::windows_core::RuntimeType for NetworkOperatorDataUsageTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.NetworkOperatorDataUsageTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for NetworkOperatorDataUsageTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -4411,7 +4411,7 @@ impl NetworkOperatorHotspotAuthenticationTrigger {
     }
 }
 impl ::windows_core::RuntimeType for NetworkOperatorHotspotAuthenticationTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.NetworkOperatorHotspotAuthenticationTrigger;{e756c791-3001-4de5-83c7-de61d88831d0})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for NetworkOperatorHotspotAuthenticationTrigger {
     type Vtable = INetworkOperatorHotspotAuthenticationTrigger_Vtbl;
@@ -4448,7 +4448,7 @@ impl NetworkOperatorNotificationTrigger {
     }
 }
 impl ::windows_core::RuntimeType for NetworkOperatorNotificationTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.NetworkOperatorNotificationTrigger;{90089cc6-63cd-480c-95d1-6e6aef801e4a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for NetworkOperatorNotificationTrigger {
     type Vtable = INetworkOperatorNotificationTrigger_Vtbl;
@@ -4474,7 +4474,7 @@ impl PaymentAppCanMakePaymentTrigger {
     }
 }
 impl ::windows_core::RuntimeType for PaymentAppCanMakePaymentTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.PaymentAppCanMakePaymentTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PaymentAppCanMakePaymentTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -4524,7 +4524,7 @@ impl PhoneTrigger {
     }
 }
 impl ::windows_core::RuntimeType for PhoneTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.PhoneTrigger;{8dcfe99b-d4c5-49f1-b7d3-82e87a0e9dde})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PhoneTrigger {
     type Vtable = IPhoneTrigger_Vtbl;
@@ -4563,7 +4563,7 @@ impl PushNotificationTrigger {
     }
 }
 impl ::windows_core::RuntimeType for PushNotificationTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.PushNotificationTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PushNotificationTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -4591,7 +4591,7 @@ impl RcsEndUserMessageAvailableTrigger {
     }
 }
 impl ::windows_core::RuntimeType for RcsEndUserMessageAvailableTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.RcsEndUserMessageAvailableTrigger;{986d0d6a-b2f6-467f-a978-a44091c11a66})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for RcsEndUserMessageAvailableTrigger {
     type Vtable = IRcsEndUserMessageAvailableTrigger_Vtbl;
@@ -4681,7 +4681,7 @@ impl RfcommConnectionTrigger {
     }
 }
 impl ::windows_core::RuntimeType for RfcommConnectionTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.RfcommConnectionTrigger;{e8c4cae2-0b53-4464-9394-fd875654de64})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for RfcommConnectionTrigger {
     type Vtable = IRfcommConnectionTrigger_Vtbl;
@@ -4713,7 +4713,7 @@ impl SecondaryAuthenticationFactorAuthenticationTrigger {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeType for SecondaryAuthenticationFactorAuthenticationTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger;{f237f327-5181-4f24-96a7-700a4e5fac62})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for SecondaryAuthenticationFactorAuthenticationTrigger {
@@ -4753,7 +4753,7 @@ impl SensorDataThresholdTrigger {
     }
 }
 impl ::windows_core::RuntimeType for SensorDataThresholdTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SensorDataThresholdTrigger;{5bc0f372-d48b-4b7f-abec-15f9bacc12e2})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SensorDataThresholdTrigger {
     type Vtable = ISensorDataThresholdTrigger_Vtbl;
@@ -4796,7 +4796,7 @@ impl SmartCardTrigger {
     }
 }
 impl ::windows_core::RuntimeType for SmartCardTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SmartCardTrigger;{f53bc5ac-84ca-4972-8ce9-e58f97b37a50})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SmartCardTrigger {
     type Vtable = ISmartCardTrigger_Vtbl;
@@ -4831,7 +4831,7 @@ impl SmsMessageReceivedTrigger {
     }
 }
 impl ::windows_core::RuntimeType for SmsMessageReceivedTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SmsMessageReceivedTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SmsMessageReceivedTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -4866,7 +4866,7 @@ impl SocketActivityTrigger {
     }
 }
 impl ::windows_core::RuntimeType for SocketActivityTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SocketActivityTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SocketActivityTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -4903,7 +4903,7 @@ impl StorageLibraryChangeTrackerTrigger {
     }
 }
 impl ::windows_core::RuntimeType for StorageLibraryChangeTrackerTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.StorageLibraryChangeTrackerTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StorageLibraryChangeTrackerTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -4951,7 +4951,7 @@ impl StorageLibraryContentChangedTrigger {
     }
 }
 impl ::windows_core::RuntimeType for StorageLibraryContentChangedTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger;{1637e0a7-829c-45bc-929b-a1e7ea78d89b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StorageLibraryContentChangedTrigger {
     type Vtable = IStorageLibraryContentChangedTrigger_Vtbl;
@@ -4988,7 +4988,7 @@ impl SystemCondition {
     }
 }
 impl ::windows_core::RuntimeType for SystemCondition {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SystemCondition;{c15fb476-89c5-420b-abd3-fb3030472128})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SystemCondition {
     type Vtable = ISystemCondition_Vtbl;
@@ -5032,7 +5032,7 @@ impl SystemTrigger {
     }
 }
 impl ::windows_core::RuntimeType for SystemTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SystemTrigger;{1d80c776-3748-4463-8d7e-276dc139ac1c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SystemTrigger {
     type Vtable = ISystemTrigger_Vtbl;
@@ -5058,7 +5058,7 @@ impl TetheringEntitlementCheckTrigger {
     }
 }
 impl ::windows_core::RuntimeType for TetheringEntitlementCheckTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.TetheringEntitlementCheckTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TetheringEntitlementCheckTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -5104,7 +5104,7 @@ impl TimeTrigger {
     }
 }
 impl ::windows_core::RuntimeType for TimeTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.TimeTrigger;{656e5556-0b2a-4377-ba70-3b45a935547f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TimeTrigger {
     type Vtable = ITimeTrigger_Vtbl;
@@ -5141,7 +5141,7 @@ impl ToastNotificationActionTrigger {
     }
 }
 impl ::windows_core::RuntimeType for ToastNotificationActionTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ToastNotificationActionTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ToastNotificationActionTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -5180,7 +5180,7 @@ impl ToastNotificationHistoryChangedTrigger {
     }
 }
 impl ::windows_core::RuntimeType for ToastNotificationHistoryChangedTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ToastNotificationHistoryChangedTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ToastNotificationHistoryChangedTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -5214,7 +5214,7 @@ impl UserNotificationChangedTrigger {
     }
 }
 impl ::windows_core::RuntimeType for UserNotificationChangedTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.UserNotificationChangedTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UserNotificationChangedTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -5242,7 +5242,7 @@ impl WiFiOnDemandHotspotConnectTrigger {
     }
 }
 impl ::windows_core::RuntimeType for WiFiOnDemandHotspotConnectTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.WiFiOnDemandHotspotConnectTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WiFiOnDemandHotspotConnectTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -5270,7 +5270,7 @@ impl WiFiOnDemandHotspotUpdateMetadataTrigger {
     }
 }
 impl ::windows_core::RuntimeType for WiFiOnDemandHotspotUpdateMetadataTrigger {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.WiFiOnDemandHotspotUpdateMetadataTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WiFiOnDemandHotspotUpdateMetadataTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -5772,7 +5772,7 @@ unsafe impl ::windows_core::ComInterface for BackgroundTaskCanceledEventHandler 
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa6c4bac0_51f8_4c57_ac3f_156dd1680c4f);
 }
 impl ::windows_core::RuntimeType for BackgroundTaskCanceledEventHandler {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{a6c4bac0-51f8-4c57-ac3f-156dd1680c4f}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5845,7 +5845,7 @@ unsafe impl ::windows_core::ComInterface for BackgroundTaskCompletedEventHandler
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b38e929_a086_46a7_a678_439135822bcf);
 }
 impl ::windows_core::RuntimeType for BackgroundTaskCompletedEventHandler {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{5b38e929-a086-46a7-a678-439135822bcf}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5918,7 +5918,7 @@ unsafe impl ::windows_core::ComInterface for BackgroundTaskProgressEventHandler 
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x46e0683c_8a88_4c99_804c_76897f6277a6);
 }
 impl ::windows_core::RuntimeType for BackgroundTaskProgressEventHandler {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{46e0683c-8a88-4c99-804c-76897f6277a6}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 #[doc(hidden)]

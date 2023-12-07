@@ -317,7 +317,7 @@ impl ColorHelper {
     }
 }
 impl ::windows_core::RuntimeType for ColorHelper {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ColorHelper;{193cfbe7-65c7-4540-ad08-6283ba76879a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ColorHelper {
     type Vtable = IColorHelper_Vtbl;
@@ -1188,7 +1188,7 @@ impl Colors {
     }
 }
 impl ::windows_core::RuntimeType for Colors {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Colors;{9b8c9326-4ca6-4ce5-8994-9eff65cabdcc})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Colors {
     type Vtable = IColors_Vtbl;
@@ -1215,7 +1215,7 @@ impl UIContentRoot {
     }
 }
 impl ::windows_core::RuntimeType for UIContentRoot {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIContentRoot;{1dfcbac6-b36b-5cb9-9bc5-2b7a0eddc378})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UIContentRoot {
     type Vtable = IUIContentRoot_Vtbl;
@@ -1234,7 +1234,7 @@ unsafe impl ::core::marker::Sync for UIContentRoot {}
 pub struct UIContext(::windows_core::IUnknown);
 impl UIContext {}
 impl ::windows_core::RuntimeType for UIContext {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIContext;{bb5cfacd-5bd8-59d0-a59e-1c17a4d6d243})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UIContext {
     type Vtable = IUIContext_Vtbl;

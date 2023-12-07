@@ -147,7 +147,7 @@ impl SceneLightingEffect {
     }
 }
 impl ::windows_core::RuntimeType for SceneLightingEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Effects.SceneLightingEffect;{91bb5e52-95d1-4f8b-9a5a-6408b24b8c6a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SceneLightingEffect {
     type Vtable = ISceneLightingEffect_Vtbl;

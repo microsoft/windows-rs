@@ -77,7 +77,7 @@ impl HolographicKeyboard {
     }
 }
 impl ::windows_core::RuntimeType for HolographicKeyboard {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Holographic.HolographicKeyboard;{07dd0893-aa21-5e6f-a91b-11b2b3fd7be3})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HolographicKeyboard {
     type Vtable = IHolographicKeyboard_Vtbl;

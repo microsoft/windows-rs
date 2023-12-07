@@ -375,7 +375,7 @@ pub struct ITimelinePropertiesChangedEventArgs_Vtbl {
 pub struct CurrentSessionChangedEventArgs(::windows_core::IUnknown);
 impl CurrentSessionChangedEventArgs {}
 impl ::windows_core::RuntimeType for CurrentSessionChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.CurrentSessionChangedEventArgs;{6969cb39-0bfa-5fe0-8d73-09cc5e5408e1})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CurrentSessionChangedEventArgs {
     type Vtable = ICurrentSessionChangedEventArgs_Vtbl;
@@ -614,7 +614,7 @@ impl GlobalSystemMediaTransportControlsSession {
     }
 }
 impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSession {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSession;{7148c835-9b14-5ae2-ab85-dc9b1c14e1a8})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for GlobalSystemMediaTransportControlsSession {
     type Vtable = IGlobalSystemMediaTransportControlsSession_Vtbl;
@@ -699,7 +699,7 @@ impl GlobalSystemMediaTransportControlsSessionManager {
     }
 }
 impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionManager {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager;{cace8eac-e86e-504a-ab31-5ff8ff1bce49})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for GlobalSystemMediaTransportControlsSessionManager {
     type Vtable = IGlobalSystemMediaTransportControlsSessionManager_Vtbl;
@@ -795,7 +795,7 @@ impl GlobalSystemMediaTransportControlsSessionMediaProperties {
     }
 }
 impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionMediaProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionMediaProperties;{68856cf6-adb4-54b2-ac16-05837907acb6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for GlobalSystemMediaTransportControlsSessionMediaProperties {
     type Vtable = IGlobalSystemMediaTransportControlsSessionMediaProperties_Vtbl;
@@ -920,7 +920,7 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
     }
 }
 impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionPlaybackControls {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackControls;{6501a3e6-bc7a-503a-bb1b-68f158f3fb03})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for GlobalSystemMediaTransportControlsSessionPlaybackControls {
     type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackControls_Vtbl;
@@ -990,7 +990,7 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackInfo {
     }
 }
 impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackInfo;{94b4b6cf-e8ba-51ad-87a7-c10ade106127})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
     type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Vtbl;
@@ -1064,7 +1064,7 @@ impl GlobalSystemMediaTransportControlsSessionTimelineProperties {
     }
 }
 impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionTimelineProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionTimelineProperties;{ede34136-6f25-588d-8ecf-ea5b6735aaa5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for GlobalSystemMediaTransportControlsSessionTimelineProperties {
     type Vtable = IGlobalSystemMediaTransportControlsSessionTimelineProperties_Vtbl;
@@ -1083,7 +1083,7 @@ unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionTi
 pub struct MediaPropertiesChangedEventArgs(::windows_core::IUnknown);
 impl MediaPropertiesChangedEventArgs {}
 impl ::windows_core::RuntimeType for MediaPropertiesChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.MediaPropertiesChangedEventArgs;{7d3741cb-adf0-5cef-91ba-cfabcdd77678})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaPropertiesChangedEventArgs {
     type Vtable = IMediaPropertiesChangedEventArgs_Vtbl;
@@ -1102,7 +1102,7 @@ unsafe impl ::core::marker::Sync for MediaPropertiesChangedEventArgs {}
 pub struct PlaybackInfoChangedEventArgs(::windows_core::IUnknown);
 impl PlaybackInfoChangedEventArgs {}
 impl ::windows_core::RuntimeType for PlaybackInfoChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.PlaybackInfoChangedEventArgs;{786756c2-bc0d-50a5-8807-054291fef139})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PlaybackInfoChangedEventArgs {
     type Vtable = IPlaybackInfoChangedEventArgs_Vtbl;
@@ -1121,7 +1121,7 @@ unsafe impl ::core::marker::Sync for PlaybackInfoChangedEventArgs {}
 pub struct SessionsChangedEventArgs(::windows_core::IUnknown);
 impl SessionsChangedEventArgs {}
 impl ::windows_core::RuntimeType for SessionsChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.SessionsChangedEventArgs;{bbf0cd32-42c4-5a58-b317-f34bbfbd26e0})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SessionsChangedEventArgs {
     type Vtable = ISessionsChangedEventArgs_Vtbl;
@@ -1140,7 +1140,7 @@ unsafe impl ::core::marker::Sync for SessionsChangedEventArgs {}
 pub struct TimelinePropertiesChangedEventArgs(::windows_core::IUnknown);
 impl TimelinePropertiesChangedEventArgs {}
 impl ::windows_core::RuntimeType for TimelinePropertiesChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.TimelinePropertiesChangedEventArgs;{29033a2f-c923-5a77-bcaf-055ff415ad32})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TimelinePropertiesChangedEventArgs {
     type Vtable = ITimelinePropertiesChangedEventArgs_Vtbl;

@@ -120,7 +120,7 @@ impl PerceptionTimestamp {
     }
 }
 impl ::windows_core::RuntimeType for PerceptionTimestamp {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.PerceptionTimestamp;{87c24804-a22e-4adb-ba26-d78ef639bcf4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PerceptionTimestamp {
     type Vtable = IPerceptionTimestamp_Vtbl;

@@ -213,7 +213,7 @@ impl ICoreDropOperationTarget {
 }
 ::windows_core::imp::interface_hierarchy!(ICoreDropOperationTarget, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ICoreDropOperationTarget {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{d9126196-4c5b-417d-bb37-76381def8db4}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ICoreDropOperationTarget {
     type Vtable = ICoreDropOperationTarget_Vtbl;
@@ -304,7 +304,7 @@ impl CoreDragDropManager {
     }
 }
 impl ::windows_core::RuntimeType for CoreDragDropManager {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragDropManager;{7d56d344-8464-4faf-aa49-37ea6e2d7bd1})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreDragDropManager {
     type Vtable = ICoreDragDropManager_Vtbl;
@@ -354,7 +354,7 @@ impl CoreDragInfo {
     }
 }
 impl ::windows_core::RuntimeType for CoreDragInfo {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragInfo;{48353a8b-cb50-464e-9575-cd4e3a7ab028})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreDragInfo {
     type Vtable = ICoreDragInfo_Vtbl;
@@ -441,7 +441,7 @@ impl CoreDragOperation {
     }
 }
 impl ::windows_core::RuntimeType for CoreDragOperation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragOperation;{cc06de4f-6db0-4e62-ab1b-a74a02dc6d85})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreDragOperation {
     type Vtable = ICoreDragOperation_Vtbl;
@@ -527,7 +527,7 @@ impl CoreDragUIOverride {
     }
 }
 impl ::windows_core::RuntimeType for CoreDragUIOverride {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIOverride;{89a85064-3389-4f4f-8897-7e8a3ffb3c93})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreDragUIOverride {
     type Vtable = ICoreDragUIOverride_Vtbl;
@@ -554,7 +554,7 @@ impl CoreDropOperationTargetRequestedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for CoreDropOperationTargetRequestedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDropOperationTargetRequestedEventArgs;{2aca929a-5e28-4ea6-829e-29134e665d6d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CoreDropOperationTargetRequestedEventArgs {
     type Vtable = ICoreDropOperationTargetRequestedEventArgs_Vtbl;

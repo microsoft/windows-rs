@@ -352,7 +352,7 @@ impl DateTimeFormatter {
     }
 }
 impl ::windows_core::RuntimeType for DateTimeFormatter {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.DateTimeFormatting.DateTimeFormatter;{95eeca10-73e0-4e4b-a183-3d6ad0ba35ec})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DateTimeFormatter {
     type Vtable = IDateTimeFormatter_Vtbl;
