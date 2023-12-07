@@ -23,6 +23,7 @@ impl Error {
         }
     }
 
+    /// Creates a new `Error` from the Win32 error code returned by `GetLastError()`.
     pub fn from_win32() -> Self {
         unsafe { Self { code: HRESULT::from_win32(crate::imp::GetLastError()), info: None } }
     }
