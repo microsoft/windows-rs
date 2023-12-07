@@ -222,7 +222,7 @@ impl IStringable {
 );
 impl ::windows_core::RuntimeType for IStringable {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
-        ::windows_core::imp::ConstBuffer::from_slice(b"{96369f54-8eb6-48f0-abce-c1b211e627c3}");
+        ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IStringable {
     type Vtable = IStringable_Vtbl;
@@ -611,7 +611,7 @@ impl IWwwFormUrlDecoderEntry {
 );
 impl ::windows_core::RuntimeType for IWwwFormUrlDecoderEntry {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
-        ::windows_core::imp::ConstBuffer::from_slice(b"{125e7431-f678-4e8e-b670-20a9b06c512d}");
+        ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IWwwFormUrlDecoderEntry {
     type Vtable = IWwwFormUrlDecoderEntry_Vtbl;
@@ -980,9 +980,7 @@ impl Uri {
 }
 impl ::windows_core::RuntimeType for Uri {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
-        ::windows_core::imp::ConstBuffer::from_slice(
-            b"rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})",
-        );
+        ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Uri {
     type Vtable = IUriRuntimeClass_Vtbl;
@@ -1121,9 +1119,7 @@ impl WwwFormUrlDecoder {
 }
 impl ::windows_core::RuntimeType for WwwFormUrlDecoder {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
-        ::windows_core::imp::ConstBuffer::from_slice(
-            b"rc(Windows.Foundation.WwwFormUrlDecoder;{d45a0451-f225-4542-9296-0e1df5d254df})",
-        );
+        ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WwwFormUrlDecoder {
     type Vtable = IWwwFormUrlDecoderRuntimeClass_Vtbl;
