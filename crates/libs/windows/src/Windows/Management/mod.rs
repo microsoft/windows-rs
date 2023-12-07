@@ -184,7 +184,7 @@ impl MdmAlert {
     }
 }
 impl ::windows_core::RuntimeType for MdmAlert {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.MdmAlert;{b0fbc327-28c1-4b52-a548-c5807caf70b6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MdmAlert {
     type Vtable = IMdmAlert_Vtbl;
@@ -266,7 +266,7 @@ impl MdmSession {
     }
 }
 impl ::windows_core::RuntimeType for MdmSession {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.MdmSession;{fe89314c-8f64-4797-a9d7-9d88f86ae166})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MdmSession {
     type Vtable = IMdmSession_Vtbl;

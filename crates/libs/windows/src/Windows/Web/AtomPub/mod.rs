@@ -402,7 +402,7 @@ impl AtomPubClient {
     }
 }
 impl ::windows_core::RuntimeType for AtomPubClient {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.AtomPubClient;{35392c38-cded-4d4c-9637-05f15c1c9406})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AtomPubClient {
     type Vtable = IAtomPubClient_Vtbl;
@@ -565,7 +565,7 @@ impl ResourceCollection {
     }
 }
 impl ::windows_core::RuntimeType for ResourceCollection {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.ResourceCollection;{7f5fd609-bc88-41d4-88fa-3de6704d428e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ResourceCollection {
     type Vtable = IResourceCollection_Vtbl;
@@ -701,7 +701,7 @@ impl ServiceDocument {
     }
 }
 impl ::windows_core::RuntimeType for ServiceDocument {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.ServiceDocument;{8b7ec771-2ab3-4dbe-8bcc-778f92b75e51})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ServiceDocument {
     type Vtable = IServiceDocument_Vtbl;
@@ -846,7 +846,7 @@ impl Workspace {
     }
 }
 impl ::windows_core::RuntimeType for Workspace {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.Workspace;{b41da63b-a4b8-4036-89c5-83c31266ba49})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Workspace {
     type Vtable = IWorkspace_Vtbl;

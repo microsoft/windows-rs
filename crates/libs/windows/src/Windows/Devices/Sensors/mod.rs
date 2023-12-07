@@ -2672,7 +2672,7 @@ pub struct ISensorDataThreshold(::windows_core::IUnknown);
 impl ISensorDataThreshold {}
 ::windows_core::imp::interface_hierarchy!(ISensorDataThreshold, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ISensorDataThreshold {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{54daec61-fe4b-4e07-b260-3a4cdfbe396e}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ISensorDataThreshold {
     type Vtable = ISensorDataThreshold_Vtbl;
@@ -3026,7 +3026,7 @@ impl Accelerometer {
     }
 }
 impl ::windows_core::RuntimeType for Accelerometer {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Accelerometer;{df184548-2711-4da7-8098-4b82205d3c7d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Accelerometer {
     type Vtable = IAccelerometer_Vtbl;
@@ -3079,7 +3079,7 @@ impl AccelerometerDataThreshold {
     }
 }
 impl ::windows_core::RuntimeType for AccelerometerDataThreshold {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerDataThreshold;{f92c1b68-6320-5577-879e-9942621c3dd9})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AccelerometerDataThreshold {
     type Vtable = IAccelerometerDataThreshold_Vtbl;
@@ -3147,7 +3147,7 @@ impl AccelerometerReading {
     }
 }
 impl ::windows_core::RuntimeType for AccelerometerReading {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerReading;{b9fe7acb-d351-40af-8bb6-7aa9ae641fb7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AccelerometerReading {
     type Vtable = IAccelerometerReading_Vtbl;
@@ -3174,7 +3174,7 @@ impl AccelerometerReadingChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for AccelerometerReadingChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerReadingChangedEventArgs;{0095c65b-b6ac-475a-9f44-8b32d35a3f25})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AccelerometerReadingChangedEventArgs {
     type Vtable = IAccelerometerReadingChangedEventArgs_Vtbl;
@@ -3203,7 +3203,7 @@ impl AccelerometerShakenEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for AccelerometerShakenEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerShakenEventArgs;{95ff01d1-4a28-4f35-98e8-8178aae4084a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AccelerometerShakenEventArgs {
     type Vtable = IAccelerometerShakenEventArgs_Vtbl;
@@ -3332,7 +3332,7 @@ impl ActivitySensor {
     }
 }
 impl ::windows_core::RuntimeType for ActivitySensor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensor;{cd7a630c-fb5f-48eb-b09b-a2708d1c61ef})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ActivitySensor {
     type Vtable = IActivitySensor_Vtbl;
@@ -3375,7 +3375,7 @@ impl ActivitySensorReading {
     }
 }
 impl ::windows_core::RuntimeType for ActivitySensorReading {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorReading;{85125a96-1472-40a2-b2ae-e1ef29226c78})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ActivitySensorReading {
     type Vtable = IActivitySensorReading_Vtbl;
@@ -3402,7 +3402,7 @@ impl ActivitySensorReadingChangeReport {
     }
 }
 impl ::windows_core::RuntimeType for ActivitySensorReadingChangeReport {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorReadingChangeReport;{4f3c2915-d93b-47bd-960a-f20fb2f322b9})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ActivitySensorReadingChangeReport {
     type Vtable = IActivitySensorReadingChangeReport_Vtbl;
@@ -3429,7 +3429,7 @@ impl ActivitySensorReadingChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for ActivitySensorReadingChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorReadingChangedEventArgs;{de386717-aeb6-4ec7-946a-d9cc19b951ec})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ActivitySensorReadingChangedEventArgs {
     type Vtable = IActivitySensorReadingChangedEventArgs_Vtbl;
@@ -3458,7 +3458,7 @@ impl ActivitySensorTriggerDetails {
     }
 }
 impl ::windows_core::RuntimeType for ActivitySensorTriggerDetails {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorTriggerDetails;{2c9e6612-b9ca-4677-b263-243297f79d3a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ActivitySensorTriggerDetails {
     type Vtable = IActivitySensorTriggerDetails_Vtbl;
@@ -3557,7 +3557,7 @@ impl Altimeter {
     }
 }
 impl ::windows_core::RuntimeType for Altimeter {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Altimeter;{72f057fd-8f04-49f1-b4a7-f4e363b701a2})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Altimeter {
     type Vtable = IAltimeter_Vtbl;
@@ -3611,7 +3611,7 @@ impl AltimeterReading {
     }
 }
 impl ::windows_core::RuntimeType for AltimeterReading {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AltimeterReading;{fbe8ef73-7f5e-48c8-aa1a-f1f3befc1144})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AltimeterReading {
     type Vtable = IAltimeterReading_Vtbl;
@@ -3638,7 +3638,7 @@ impl AltimeterReadingChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for AltimeterReadingChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AltimeterReadingChangedEventArgs;{7069d077-446d-47f7-998c-ebc23b45e4a2})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AltimeterReadingChangedEventArgs {
     type Vtable = IAltimeterReadingChangedEventArgs_Vtbl;
@@ -3763,7 +3763,7 @@ impl Barometer {
     }
 }
 impl ::windows_core::RuntimeType for Barometer {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Barometer;{934475a8-78bf-452f-b017-f0209ce6dab4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Barometer {
     type Vtable = IBarometer_Vtbl;
@@ -3794,7 +3794,7 @@ impl BarometerDataThreshold {
     }
 }
 impl ::windows_core::RuntimeType for BarometerDataThreshold {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.BarometerDataThreshold;{076b952c-cb62-5a90-a0d1-f85e4a936394})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BarometerDataThreshold {
     type Vtable = IBarometerDataThreshold_Vtbl;
@@ -3848,7 +3848,7 @@ impl BarometerReading {
     }
 }
 impl ::windows_core::RuntimeType for BarometerReading {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.BarometerReading;{f5b9d2e6-1df6-4a1a-a7ad-321d4f5db247})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BarometerReading {
     type Vtable = IBarometerReading_Vtbl;
@@ -3875,7 +3875,7 @@ impl BarometerReadingChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for BarometerReadingChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.BarometerReadingChangedEventArgs;{3d84945f-037b-404f-9bbb-6232d69543c3})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BarometerReadingChangedEventArgs {
     type Vtable = IBarometerReadingChangedEventArgs_Vtbl;
@@ -4015,7 +4015,7 @@ impl Compass {
     }
 }
 impl ::windows_core::RuntimeType for Compass {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Compass;{292ffa94-1b45-403c-ba06-b106dba69a64})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Compass {
     type Vtable = ICompass_Vtbl;
@@ -4046,7 +4046,7 @@ impl CompassDataThreshold {
     }
 }
 impl ::windows_core::RuntimeType for CompassDataThreshold {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.CompassDataThreshold;{d15b52b3-d39d-5ec8-b2e4-f193e6ab34ed})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CompassDataThreshold {
     type Vtable = ICompassDataThreshold_Vtbl;
@@ -4116,7 +4116,7 @@ impl CompassReading {
     }
 }
 impl ::windows_core::RuntimeType for CompassReading {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.CompassReading;{82911128-513d-4dc9-b781-5eedfbf02d0c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CompassReading {
     type Vtable = ICompassReading_Vtbl;
@@ -4143,7 +4143,7 @@ impl CompassReadingChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for CompassReadingChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.CompassReadingChangedEventArgs;{8f1549b0-e8bc-4c7e-b009-4e41df137072})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CompassReadingChangedEventArgs {
     type Vtable = ICompassReadingChangedEventArgs_Vtbl;
@@ -4283,7 +4283,7 @@ impl Gyrometer {
     }
 }
 impl ::windows_core::RuntimeType for Gyrometer {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Gyrometer;{fdb9a9c4-84b1-4ca2-9763-9b589506c70c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Gyrometer {
     type Vtable = IGyrometer_Vtbl;
@@ -4336,7 +4336,7 @@ impl GyrometerDataThreshold {
     }
 }
 impl ::windows_core::RuntimeType for GyrometerDataThreshold {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.GyrometerDataThreshold;{8648b31e-6e52-5259-bbad-242a69dc38c8})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for GyrometerDataThreshold {
     type Vtable = IGyrometerDataThreshold_Vtbl;
@@ -4404,7 +4404,7 @@ impl GyrometerReading {
     }
 }
 impl ::windows_core::RuntimeType for GyrometerReading {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.GyrometerReading;{b3d6de5c-1ee4-456f-9de7-e2493b5c8e03})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for GyrometerReading {
     type Vtable = IGyrometerReading_Vtbl;
@@ -4431,7 +4431,7 @@ impl GyrometerReadingChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for GyrometerReadingChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.GyrometerReadingChangedEventArgs;{0fdf1895-6f9e-42ce-8d58-388c0ab8356d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for GyrometerReadingChangedEventArgs {
     type Vtable = IGyrometerReadingChangedEventArgs_Vtbl;
@@ -4476,7 +4476,7 @@ impl HingeAngleReading {
     }
 }
 impl ::windows_core::RuntimeType for HingeAngleReading {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HingeAngleReading;{a3cd45b9-1bf1-4f65-a704-e2da04f182c0})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HingeAngleReading {
     type Vtable = IHingeAngleReading_Vtbl;
@@ -4583,7 +4583,7 @@ impl HingeAngleSensor {
     }
 }
 impl ::windows_core::RuntimeType for HingeAngleSensor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HingeAngleSensor;{e9d3be02-bfdf-437f-8c29-88c77393d309})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HingeAngleSensor {
     type Vtable = IHingeAngleSensor_Vtbl;
@@ -4610,7 +4610,7 @@ impl HingeAngleSensorReadingChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for HingeAngleSensorReadingChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HingeAngleSensorReadingChangedEventArgs;{24d9558b-fad0-42b8-a854-78923049a1ba})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HingeAngleSensorReadingChangedEventArgs {
     type Vtable = IHingeAngleSensorReadingChangedEventArgs_Vtbl;
@@ -4667,7 +4667,7 @@ impl HumanPresenceFeatures {
     }
 }
 impl ::windows_core::RuntimeType for HumanPresenceFeatures {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HumanPresenceFeatures;{bdb09fda-3244-557a-bd29-8b004f59f2cc})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HumanPresenceFeatures {
     type Vtable = IHumanPresenceFeatures_Vtbl;
@@ -4764,7 +4764,7 @@ impl HumanPresenceSensor {
     }
 }
 impl ::windows_core::RuntimeType for HumanPresenceSensor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HumanPresenceSensor;{2116788b-e389-5cc3-9a97-cb17be1008bd})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HumanPresenceSensor {
     type Vtable = IHumanPresenceSensor_Vtbl;
@@ -4816,7 +4816,7 @@ impl HumanPresenceSensorReading {
     }
 }
 impl ::windows_core::RuntimeType for HumanPresenceSensorReading {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HumanPresenceSensorReading;{83533bf5-a85a-5d50-8be4-6072d745a3bb})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HumanPresenceSensorReading {
     type Vtable = IHumanPresenceSensorReading_Vtbl;
@@ -4843,7 +4843,7 @@ impl HumanPresenceSensorReadingChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for HumanPresenceSensorReadingChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HumanPresenceSensorReadingChangedEventArgs;{a9dc4583-fd69-5c5e-ab1f-942204eae2db})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HumanPresenceSensorReadingChangedEventArgs {
     type Vtable = IHumanPresenceSensorReadingChangedEventArgs_Vtbl;
@@ -5032,7 +5032,7 @@ impl HumanPresenceSettings {
     }
 }
 impl ::windows_core::RuntimeType for HumanPresenceSettings {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HumanPresenceSettings;{ef4daf5b-07b7-5eb6-86bb-b7ff49ce44fb})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HumanPresenceSettings {
     type Vtable = IHumanPresenceSettings_Vtbl;
@@ -5201,7 +5201,7 @@ impl Inclinometer {
     }
 }
 impl ::windows_core::RuntimeType for Inclinometer {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Inclinometer;{2648ca6f-2286-406f-9161-f0c4bd806ebf})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Inclinometer {
     type Vtable = IInclinometer_Vtbl;
@@ -5254,7 +5254,7 @@ impl InclinometerDataThreshold {
     }
 }
 impl ::windows_core::RuntimeType for InclinometerDataThreshold {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.InclinometerDataThreshold;{f80a4783-7bfe-545e-bb60-a0ebc47bd2fb})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for InclinometerDataThreshold {
     type Vtable = IInclinometerDataThreshold_Vtbl;
@@ -5329,7 +5329,7 @@ impl InclinometerReading {
     }
 }
 impl ::windows_core::RuntimeType for InclinometerReading {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.InclinometerReading;{9f44f055-b6f6-497f-b127-1a775e501458})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for InclinometerReading {
     type Vtable = IInclinometerReading_Vtbl;
@@ -5356,7 +5356,7 @@ impl InclinometerReadingChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for InclinometerReadingChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.InclinometerReadingChangedEventArgs;{4ae91dc1-e7eb-4938-8511-ae0d6b440438})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for InclinometerReadingChangedEventArgs {
     type Vtable = IInclinometerReadingChangedEventArgs_Vtbl;
@@ -5481,7 +5481,7 @@ impl LightSensor {
     }
 }
 impl ::windows_core::RuntimeType for LightSensor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.LightSensor;{f84c0718-0c54-47ae-922e-789f57fb03a0})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LightSensor {
     type Vtable = ILightSensor_Vtbl;
@@ -5523,7 +5523,7 @@ impl LightSensorDataThreshold {
     }
 }
 impl ::windows_core::RuntimeType for LightSensorDataThreshold {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.LightSensorDataThreshold;{b160afd1-878f-5492-9f2c-33dc3ae584a3})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LightSensorDataThreshold {
     type Vtable = ILightSensorDataThreshold_Vtbl;
@@ -5577,7 +5577,7 @@ impl LightSensorReading {
     }
 }
 impl ::windows_core::RuntimeType for LightSensorReading {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.LightSensorReading;{ffdf6300-227c-4d2b-b302-fc0142485c68})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LightSensorReading {
     type Vtable = ILightSensorReading_Vtbl;
@@ -5604,7 +5604,7 @@ impl LightSensorReadingChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for LightSensorReadingChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.LightSensorReadingChangedEventArgs;{a3a2f4cf-258b-420c-b8ab-8edd601ecf50})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LightSensorReadingChangedEventArgs {
     type Vtable = ILightSensorReadingChangedEventArgs_Vtbl;
@@ -5744,7 +5744,7 @@ impl Magnetometer {
     }
 }
 impl ::windows_core::RuntimeType for Magnetometer {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Magnetometer;{484f626e-d3c9-4111-b3f6-2cf1faa418d5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Magnetometer {
     type Vtable = IMagnetometer_Vtbl;
@@ -5797,7 +5797,7 @@ impl MagnetometerDataThreshold {
     }
 }
 impl ::windows_core::RuntimeType for MagnetometerDataThreshold {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.MagnetometerDataThreshold;{d177cb01-9063-5fa5-b596-b445e9dc3401})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MagnetometerDataThreshold {
     type Vtable = IMagnetometerDataThreshold_Vtbl;
@@ -5872,7 +5872,7 @@ impl MagnetometerReading {
     }
 }
 impl ::windows_core::RuntimeType for MagnetometerReading {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.MagnetometerReading;{0c2cc40d-ebfd-4e5c-bb11-afc29b3cae61})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MagnetometerReading {
     type Vtable = IMagnetometerReading_Vtbl;
@@ -5899,7 +5899,7 @@ impl MagnetometerReadingChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for MagnetometerReadingChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.MagnetometerReadingChangedEventArgs;{17eae872-2eb9-4ee7-8ad0-3127537d949b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MagnetometerReadingChangedEventArgs {
     type Vtable = IMagnetometerReadingChangedEventArgs_Vtbl;
@@ -6073,7 +6073,7 @@ impl OrientationSensor {
     }
 }
 impl ::windows_core::RuntimeType for OrientationSensor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.OrientationSensor;{5e354635-cf6b-4c63-abd8-10252b0bf6ec})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for OrientationSensor {
     type Vtable = IOrientationSensor_Vtbl;
@@ -6141,7 +6141,7 @@ impl OrientationSensorReading {
     }
 }
 impl ::windows_core::RuntimeType for OrientationSensorReading {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.OrientationSensorReading;{4756c993-6595-4897-bcc6-d537ee757564})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for OrientationSensorReading {
     type Vtable = IOrientationSensorReading_Vtbl;
@@ -6168,7 +6168,7 @@ impl OrientationSensorReadingChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for OrientationSensorReadingChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.OrientationSensorReadingChangedEventArgs;{012c1186-c3ba-46bc-ae65-7a98996cbfb8})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for OrientationSensorReadingChangedEventArgs {
     type Vtable = IOrientationSensorReadingChangedEventArgs_Vtbl;
@@ -6306,7 +6306,7 @@ impl Pedometer {
     }
 }
 impl ::windows_core::RuntimeType for Pedometer {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Pedometer;{9a1e013d-3d98-45f8-8920-8e4ecaca5f97})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Pedometer {
     type Vtable = IPedometer_Vtbl;
@@ -6340,7 +6340,7 @@ impl PedometerDataThreshold {
     }
 }
 impl ::windows_core::RuntimeType for PedometerDataThreshold {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.PedometerDataThreshold;{54daec61-fe4b-4e07-b260-3a4cdfbe396e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PedometerDataThreshold {
     type Vtable = ISensorDataThreshold_Vtbl;
@@ -6393,7 +6393,7 @@ impl PedometerReading {
     }
 }
 impl ::windows_core::RuntimeType for PedometerReading {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.PedometerReading;{2245dcf4-a8e1-432f-896a-be0dd9b02d24})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PedometerReading {
     type Vtable = IPedometerReading_Vtbl;
@@ -6420,7 +6420,7 @@ impl PedometerReadingChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for PedometerReadingChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.PedometerReadingChangedEventArgs;{f855e47e-abbc-4456-86a8-25cf2b333742})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PedometerReadingChangedEventArgs {
     type Vtable = IPedometerReadingChangedEventArgs_Vtbl;
@@ -6532,7 +6532,7 @@ impl ProximitySensor {
     }
 }
 impl ::windows_core::RuntimeType for ProximitySensor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ProximitySensor;{54c076b8-ecfb-4944-b928-74fc504d47ee})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ProximitySensor {
     type Vtable = IProximitySensor_Vtbl;
@@ -6566,7 +6566,7 @@ impl ProximitySensorDataThreshold {
     }
 }
 impl ::windows_core::RuntimeType for ProximitySensorDataThreshold {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ProximitySensorDataThreshold;{54daec61-fe4b-4e07-b260-3a4cdfbe396e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ProximitySensorDataThreshold {
     type Vtable = ISensorDataThreshold_Vtbl;
@@ -6597,7 +6597,7 @@ impl ProximitySensorDisplayOnOffController {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeType for ProximitySensorDisplayOnOffController {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ProximitySensorDisplayOnOffController;{30d5a829-7fa4-4026-83bb-d75bae4ea99e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows_core::Interface for ProximitySensorDisplayOnOffController {
@@ -6650,7 +6650,7 @@ impl ProximitySensorReading {
     }
 }
 impl ::windows_core::RuntimeType for ProximitySensorReading {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ProximitySensorReading;{71228d59-132d-4d5f-8ff9-2f0db8751ced})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ProximitySensorReading {
     type Vtable = IProximitySensorReading_Vtbl;
@@ -6677,7 +6677,7 @@ impl ProximitySensorReadingChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for ProximitySensorReadingChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ProximitySensorReadingChangedEventArgs;{cfc2f366-c3e8-40fd-8cc3-67e289004938})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ProximitySensorReadingChangedEventArgs {
     type Vtable = IProximitySensorReadingChangedEventArgs_Vtbl;
@@ -6711,7 +6711,7 @@ impl SensorDataThresholdTriggerDetails {
     }
 }
 impl ::windows_core::RuntimeType for SensorDataThresholdTriggerDetails {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.SensorDataThresholdTriggerDetails;{9106f1b7-e88d-48b1-bc90-619c7b349391})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SensorDataThresholdTriggerDetails {
     type Vtable = ISensorDataThresholdTriggerDetails_Vtbl;
@@ -6759,7 +6759,7 @@ impl SensorQuaternion {
     }
 }
 impl ::windows_core::RuntimeType for SensorQuaternion {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.SensorQuaternion;{c9c5c827-c71c-46e7-9da3-36a193b232bc})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SensorQuaternion {
     type Vtable = ISensorQuaternion_Vtbl;
@@ -6842,7 +6842,7 @@ impl SensorRotationMatrix {
     }
 }
 impl ::windows_core::RuntimeType for SensorRotationMatrix {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.SensorRotationMatrix;{0a3d5a67-22f4-4392-9538-65d0bd064aa6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SensorRotationMatrix {
     type Vtable = ISensorRotationMatrix_Vtbl;
@@ -6939,7 +6939,7 @@ impl SimpleOrientationSensor {
     }
 }
 impl ::windows_core::RuntimeType for SimpleOrientationSensor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.SimpleOrientationSensor;{5ff53856-214a-4dee-a3f9-616f1ab06ffd})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SimpleOrientationSensor {
     type Vtable = ISimpleOrientationSensor_Vtbl;
@@ -6975,7 +6975,7 @@ impl SimpleOrientationSensorOrientationChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for SimpleOrientationSensorOrientationChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.SimpleOrientationSensorOrientationChangedEventArgs;{bcd5c660-23d4-4b4c-a22e-ba81ade0c601})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SimpleOrientationSensorOrientationChangedEventArgs {
     type Vtable = ISimpleOrientationSensorOrientationChangedEventArgs_Vtbl;

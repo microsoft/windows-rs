@@ -848,7 +848,7 @@ impl ::windows_core::CanTryInto<Streams::IInputStreamReference> for IStorageFile
 impl ::windows_core::CanTryInto<Streams::IRandomAccessStreamReference> for IStorageFile {}
 impl ::windows_core::CanTryInto<IStorageItem> for IStorageFile {}
 impl ::windows_core::RuntimeType for IStorageFile {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{fa3f6186-4214-428c-a64c-14c9ac7315ea}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IStorageFile {
     type Vtable = IStorageFile_Vtbl;
@@ -928,7 +928,7 @@ impl IStorageFile2 {
 }
 ::windows_core::imp::interface_hierarchy!(IStorageFile2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IStorageFile2 {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{954e4bcf-0a77-42fb-b777-c2ed58a52e44}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IStorageFile2 {
     type Vtable = IStorageFile2_Vtbl;
@@ -963,7 +963,7 @@ impl IStorageFilePropertiesWithAvailability {
 }
 ::windows_core::imp::interface_hierarchy!(IStorageFilePropertiesWithAvailability, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IStorageFilePropertiesWithAvailability {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{afcbbe9b-582b-4133-9648-e44ca46ee491}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IStorageFilePropertiesWithAvailability {
     type Vtable = IStorageFilePropertiesWithAvailability_Vtbl;
@@ -1215,7 +1215,7 @@ impl IStorageFolder {
 ::windows_core::imp::interface_hierarchy!(IStorageFolder, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IStorageItem> for IStorageFolder {}
 impl ::windows_core::RuntimeType for IStorageFolder {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{72d1cb78-b3ef-4f75-a80b-6fd9dae2944b}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IStorageFolder {
     type Vtable = IStorageFolder_Vtbl;
@@ -1284,7 +1284,7 @@ impl IStorageFolder2 {
 }
 ::windows_core::imp::interface_hierarchy!(IStorageFolder2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IStorageFolder2 {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{e827e8b9-08d9-4a8e-a0ac-fe5ed3cbbbd3}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IStorageFolder2 {
     type Vtable = IStorageFolder2_Vtbl;
@@ -1444,7 +1444,7 @@ impl IStorageItem {
 }
 ::windows_core::imp::interface_hierarchy!(IStorageItem, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IStorageItem {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{4207a996-ca2f-42f7-bde8-8b10457a7f30}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IStorageItem {
     type Vtable = IStorageItem_Vtbl;
@@ -1594,7 +1594,7 @@ impl IStorageItem2 {
 ::windows_core::imp::interface_hierarchy!(IStorageItem2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IStorageItem> for IStorageItem2 {}
 impl ::windows_core::RuntimeType for IStorageItem2 {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{53f926d2-083c-4283-b45b-81c007237e44}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IStorageItem2 {
     type Vtable = IStorageItem2_Vtbl;
@@ -1676,7 +1676,7 @@ impl IStorageItemProperties {
 }
 ::windows_core::imp::interface_hierarchy!(IStorageItemProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IStorageItemProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{86664478-8029-46fe-a789-1c2f3e2ffb5c}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IStorageItemProperties {
     type Vtable = IStorageItemProperties_Vtbl;
@@ -1800,7 +1800,7 @@ impl IStorageItemProperties2 {
 ::windows_core::imp::interface_hierarchy!(IStorageItemProperties2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IStorageItemProperties> for IStorageItemProperties2 {}
 impl ::windows_core::RuntimeType for IStorageItemProperties2 {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{8e86a951-04b9-4bd2-929d-fef3f71621d0}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IStorageItemProperties2 {
     type Vtable = IStorageItemProperties2_Vtbl;
@@ -1897,7 +1897,7 @@ impl IStorageItemPropertiesWithProvider {
 ::windows_core::imp::interface_hierarchy!(IStorageItemPropertiesWithProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IStorageItemProperties> for IStorageItemPropertiesWithProvider {}
 impl ::windows_core::RuntimeType for IStorageItemPropertiesWithProvider {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{861bf39b-6368-4dee-b40e-74684a5ce714}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IStorageItemPropertiesWithProvider {
     type Vtable = IStorageItemPropertiesWithProvider_Vtbl;
@@ -2235,7 +2235,7 @@ impl IStreamedFileDataRequest {
 }
 ::windows_core::imp::interface_hierarchy!(IStreamedFileDataRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IStreamedFileDataRequest {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{1673fcce-dabd-4d50-beee-180b8a8191b6}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IStreamedFileDataRequest {
     type Vtable = IStreamedFileDataRequest_Vtbl;
@@ -2603,7 +2603,7 @@ impl AppDataPaths {
     }
 }
 impl ::windows_core::RuntimeType for AppDataPaths {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.AppDataPaths;{7301d60a-79a2-48c9-9ec0-3fda092f79e1})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AppDataPaths {
     type Vtable = IAppDataPaths_Vtbl;
@@ -2787,7 +2787,7 @@ impl ApplicationData {
     }
 }
 impl ::windows_core::RuntimeType for ApplicationData {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationData;{c3da6fb7-b744-4b45-b0b8-223a0938d0dc})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ApplicationData {
     type Vtable = IApplicationData_Vtbl;
@@ -2907,7 +2907,7 @@ impl ApplicationDataCompositeValue {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeType for ApplicationDataCompositeValue {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationDataCompositeValue;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for ApplicationDataCompositeValue {
@@ -3006,7 +3006,7 @@ impl ApplicationDataContainer {
     }
 }
 impl ::windows_core::RuntimeType for ApplicationDataContainer {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationDataContainer;{c5aefd1e-f467-40ba-8566-ab640a441e1d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ApplicationDataContainer {
     type Vtable = IApplicationDataContainer_Vtbl;
@@ -3119,7 +3119,7 @@ impl ApplicationDataContainerSettings {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeType for ApplicationDataContainerSettings {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationDataContainerSettings;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for ApplicationDataContainerSettings {
@@ -3777,7 +3777,7 @@ impl SetVersionDeferral {
     }
 }
 impl ::windows_core::RuntimeType for SetVersionDeferral {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SetVersionDeferral;{033508a2-781a-437a-b078-3f32badcfe47})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SetVersionDeferral {
     type Vtable = ISetVersionDeferral_Vtbl;
@@ -3818,7 +3818,7 @@ impl SetVersionRequest {
     }
 }
 impl ::windows_core::RuntimeType for SetVersionRequest {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SetVersionRequest;{b9c76b9b-1056-4e69-8330-162619956f9b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SetVersionRequest {
     type Vtable = ISetVersionRequest_Vtbl;
@@ -4291,7 +4291,7 @@ impl StorageFile {
     }
 }
 impl ::windows_core::RuntimeType for StorageFile {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageFile;{fa3f6186-4214-428c-a64c-14c9ac7315ea})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StorageFile {
     type Vtable = IStorageFile_Vtbl;
@@ -4813,7 +4813,7 @@ impl StorageFolder {
     }
 }
 impl ::windows_core::RuntimeType for StorageFolder {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageFolder;{72d1cb78-b3ef-4f75-a80b-6fd9dae2944b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StorageFolder {
     type Vtable = IStorageFolder_Vtbl;
@@ -4940,7 +4940,7 @@ impl StorageLibrary {
     }
 }
 impl ::windows_core::RuntimeType for StorageLibrary {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibrary;{1edd7103-0e5e-4d6c-b5e8-9318983d6a03})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StorageLibrary {
     type Vtable = IStorageLibrary_Vtbl;
@@ -4995,7 +4995,7 @@ impl StorageLibraryChange {
     }
 }
 impl ::windows_core::RuntimeType for StorageLibraryChange {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChange;{00980b23-2be2-4909-aa48-159f5203a51e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StorageLibraryChange {
     type Vtable = IStorageLibraryChange_Vtbl;
@@ -5040,7 +5040,7 @@ impl StorageLibraryChangeReader {
     }
 }
 impl ::windows_core::RuntimeType for StorageLibraryChangeReader {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChangeReader;{f205bc83-fca2-41f9-8954-ee2e991eb96f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StorageLibraryChangeReader {
     type Vtable = IStorageLibraryChangeReader_Vtbl;
@@ -5086,7 +5086,7 @@ impl StorageLibraryChangeTracker {
     }
 }
 impl ::windows_core::RuntimeType for StorageLibraryChangeTracker {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChangeTracker;{9e157316-6073-44f6-9681-7492d1286c90})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StorageLibraryChangeTracker {
     type Vtable = IStorageLibraryChangeTracker_Vtbl;
@@ -5124,7 +5124,7 @@ impl StorageLibraryChangeTrackerOptions {
     }
 }
 impl ::windows_core::RuntimeType for StorageLibraryChangeTrackerOptions {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChangeTrackerOptions;{bb52bcd4-1a6d-59c0-ad2a-823a20532483})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StorageLibraryChangeTrackerOptions {
     type Vtable = IStorageLibraryChangeTrackerOptions_Vtbl;
@@ -5155,7 +5155,7 @@ impl StorageLibraryLastChangeId {
     }
 }
 impl ::windows_core::RuntimeType for StorageLibraryLastChangeId {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryLastChangeId;{5281826a-bbe1-53bc-82ca-81cc7f039329})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StorageLibraryLastChangeId {
     type Vtable = IStorageLibraryLastChangeId_Vtbl;
@@ -5198,7 +5198,7 @@ impl StorageProvider {
     }
 }
 impl ::windows_core::RuntimeType for StorageProvider {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageProvider;{e705eed4-d478-47d6-ba46-1a8ebe114a20})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StorageProvider {
     type Vtable = IStorageProvider_Vtbl;
@@ -5240,7 +5240,7 @@ impl StorageStreamTransaction {
     }
 }
 impl ::windows_core::RuntimeType for StorageStreamTransaction {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageStreamTransaction;{f67cf363-a53d-4d94-ae2c-67232d93acdd})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for StorageStreamTransaction {
     type Vtable = IStorageStreamTransaction_Vtbl;
@@ -5295,7 +5295,7 @@ impl StreamedFileDataRequest {
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows_core::RuntimeType for StreamedFileDataRequest {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StreamedFileDataRequest;{905a0fe6-bc53-11df-8c49-001e4fc686da})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows_core::Interface for StreamedFileDataRequest {
@@ -5330,7 +5330,7 @@ impl SystemAudioProperties {
     }
 }
 impl ::windows_core::RuntimeType for SystemAudioProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemAudioProperties;{3f8f38b7-308c-47e1-924d-8645348e5db7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SystemAudioProperties {
     type Vtable = ISystemAudioProperties_Vtbl;
@@ -5473,7 +5473,7 @@ impl SystemDataPaths {
     }
 }
 impl ::windows_core::RuntimeType for SystemDataPaths {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemDataPaths;{e32abf70-d8fa-45ec-a942-d2e26fb60ba5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SystemDataPaths {
     type Vtable = ISystemDataPaths_Vtbl;
@@ -5507,7 +5507,7 @@ impl SystemGPSProperties {
     }
 }
 impl ::windows_core::RuntimeType for SystemGPSProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemGPSProperties;{c0f46eb4-c174-481a-bc25-921986f6a6f3})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SystemGPSProperties {
     type Vtable = ISystemGPSProperties_Vtbl;
@@ -5541,7 +5541,7 @@ impl SystemImageProperties {
     }
 }
 impl ::windows_core::RuntimeType for SystemImageProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemImageProperties;{011b2e30-8b39-4308-bea1-e8aa61e47826})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SystemImageProperties {
     type Vtable = ISystemImageProperties_Vtbl;
@@ -5603,7 +5603,7 @@ impl SystemMediaProperties {
     }
 }
 impl ::windows_core::RuntimeType for SystemMediaProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemMediaProperties;{a42b3316-8415-40dc-8c44-98361d235430})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SystemMediaProperties {
     type Vtable = ISystemMediaProperties_Vtbl;
@@ -5679,7 +5679,7 @@ impl SystemMusicProperties {
     }
 }
 impl ::windows_core::RuntimeType for SystemMusicProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemMusicProperties;{b47988d5-67af-4bc3-8d39-5b89022026a1})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SystemMusicProperties {
     type Vtable = ISystemMusicProperties_Vtbl;
@@ -5734,7 +5734,7 @@ impl SystemPhotoProperties {
     }
 }
 impl ::windows_core::RuntimeType for SystemPhotoProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemPhotoProperties;{4734fc3d-ab21-4424-b735-f4353a56c8fc})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SystemPhotoProperties {
     type Vtable = ISystemPhotoProperties_Vtbl;
@@ -5878,7 +5878,7 @@ impl SystemVideoProperties {
     }
 }
 impl ::windows_core::RuntimeType for SystemVideoProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemVideoProperties;{2040f715-67f8-4322-9b80-4fa9fefb83e8})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SystemVideoProperties {
     type Vtable = ISystemVideoProperties_Vtbl;
@@ -6053,7 +6053,7 @@ impl UserDataPaths {
     }
 }
 impl ::windows_core::RuntimeType for UserDataPaths {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.UserDataPaths;{f9c53912-abc4-46ff-8a2b-dc9d7fa6e52f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UserDataPaths {
     type Vtable = IUserDataPaths_Vtbl;
@@ -6678,7 +6678,7 @@ unsafe impl ::windows_core::ComInterface for ApplicationDataSetVersionHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa05791e6_cc9f_4687_acab_a364fd785463);
 }
 impl ::windows_core::RuntimeType for ApplicationDataSetVersionHandler {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{a05791e6-cc9f-4687-acab-a364fd785463}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6760,7 +6760,7 @@ unsafe impl ::windows_core::ComInterface for StreamedFileDataRequestedHandler {
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows_core::RuntimeType for StreamedFileDataRequestedHandler {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{fef6a824-2fe1-4d07-a35b-b77c50b5f4cc}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(C)]

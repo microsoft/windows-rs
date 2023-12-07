@@ -695,7 +695,7 @@ impl IMediaCue {
 }
 ::windows_core::imp::interface_hierarchy!(IMediaCue, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IMediaCue {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{c7d15e5d-59dc-431f-a0ee-27744323b36d}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IMediaCue {
     type Vtable = IMediaCue_Vtbl;
@@ -748,7 +748,7 @@ pub struct IMediaSource(::windows_core::IUnknown);
 impl IMediaSource {}
 ::windows_core::imp::interface_hierarchy!(IMediaSource, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IMediaSource {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{e7bfb599-a09d-4c21-bcdf-20af4f86b3d9}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IMediaSource {
     type Vtable = IMediaSource_Vtbl;
@@ -1094,7 +1094,7 @@ impl IMediaStreamDescriptor {
 }
 ::windows_core::imp::interface_hierarchy!(IMediaStreamDescriptor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IMediaStreamDescriptor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{80f16e6e-92f7-451e-97d2-afd80742da70}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IMediaStreamDescriptor {
     type Vtable = IMediaStreamDescriptor_Vtbl;
@@ -1160,7 +1160,7 @@ impl IMediaStreamDescriptor2 {
 ::windows_core::imp::interface_hierarchy!(IMediaStreamDescriptor2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IMediaStreamDescriptor> for IMediaStreamDescriptor2 {}
 impl ::windows_core::RuntimeType for IMediaStreamDescriptor2 {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{5073010f-e8b2-4071-b00b-ebf337a76b58}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IMediaStreamDescriptor2 {
     type Vtable = IMediaStreamDescriptor2_Vtbl;
@@ -1745,7 +1745,7 @@ impl IMediaTrack {
 }
 ::windows_core::imp::interface_hierarchy!(IMediaTrack, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IMediaTrack {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{03e1fafc-c931-491a-b46b-c10ee8c256b7}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IMediaTrack {
     type Vtable = IMediaTrack_Vtbl;
@@ -2113,7 +2113,7 @@ impl ISingleSelectMediaTrackList {
 }
 ::windows_core::imp::interface_hierarchy!(ISingleSelectMediaTrackList, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ISingleSelectMediaTrackList {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{77206f1f-c34f-494f-8077-2bad9ff4ecf1}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ISingleSelectMediaTrackList {
     type Vtable = ISingleSelectMediaTrackList_Vtbl;
@@ -2344,7 +2344,7 @@ impl ITimedMetadataTrackProvider {
 }
 ::windows_core::imp::interface_hierarchy!(ITimedMetadataTrackProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ITimedMetadataTrackProvider {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{3b7f2024-f74e-4ade-93c5-219da05b6856}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ITimedMetadataTrackProvider {
     type Vtable = ITimedMetadataTrackProvider_Vtbl;
@@ -3006,7 +3006,7 @@ impl AudioStreamDescriptor {
     }
 }
 impl ::windows_core::RuntimeType for AudioStreamDescriptor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.AudioStreamDescriptor;{1e3692e4-4027-4847-a70b-df1d9a2a7b04})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AudioStreamDescriptor {
     type Vtable = IAudioStreamDescriptor_Vtbl;
@@ -3110,7 +3110,7 @@ impl AudioTrack {
     }
 }
 impl ::windows_core::RuntimeType for AudioTrack {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.AudioTrack;{03e1fafc-c931-491a-b46b-c10ee8c256b7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AudioTrack {
     type Vtable = IMediaTrack_Vtbl;
@@ -3138,7 +3138,7 @@ impl AudioTrackOpenFailedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for AudioTrackOpenFailedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.AudioTrackOpenFailedEventArgs;{eeddb9b9-bb7c-4112-bf76-9384676f824b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AudioTrackOpenFailedEventArgs {
     type Vtable = IAudioTrackOpenFailedEventArgs_Vtbl;
@@ -3186,7 +3186,7 @@ impl AudioTrackSupportInfo {
     }
 }
 impl ::windows_core::RuntimeType for AudioTrackSupportInfo {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.AudioTrackSupportInfo;{178beff7-cc39-44a6-b951-4a5653f073fa})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AudioTrackSupportInfo {
     type Vtable = IAudioTrackSupportInfo_Vtbl;
@@ -3265,7 +3265,7 @@ impl ChapterCue {
     }
 }
 impl ::windows_core::RuntimeType for ChapterCue {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.ChapterCue;{72a98001-d38a-4c0a-8fa6-75cddaf4664c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ChapterCue {
     type Vtable = IChapterCue_Vtbl;
@@ -3323,7 +3323,7 @@ impl CodecInfo {
     }
 }
 impl ::windows_core::RuntimeType for CodecInfo {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.CodecInfo;{51e89f85-ea97-499c-86ac-4ce5e73f3a42})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CodecInfo {
     type Vtable = ICodecInfo_Vtbl;
@@ -3359,7 +3359,7 @@ impl CodecQuery {
     }
 }
 impl ::windows_core::RuntimeType for CodecQuery {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.CodecQuery;{222a953a-af61-4e04-808a-a4634e2f3ac4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CodecQuery {
     type Vtable = ICodecQuery_Vtbl;
@@ -3771,7 +3771,7 @@ impl DataCue {
     }
 }
 impl ::windows_core::RuntimeType for DataCue {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.DataCue;{7c7f676d-1fbc-4e2d-9a87-ee38bd1dc637})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DataCue {
     type Vtable = IDataCue_Vtbl;
@@ -3799,7 +3799,7 @@ impl FaceDetectedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for FaceDetectedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.FaceDetectedEventArgs;{19918426-c65b-46ba-85f8-13880576c90a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FaceDetectedEventArgs {
     type Vtable = IFaceDetectedEventArgs_Vtbl;
@@ -3872,7 +3872,7 @@ impl FaceDetectionEffect {
     }
 }
 impl ::windows_core::RuntimeType for FaceDetectionEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.FaceDetectionEffect;{ae15ebd2-0542-42a9-bc90-f283a29f46c1})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FaceDetectionEffect {
     type Vtable = IFaceDetectionEffect_Vtbl;
@@ -3944,7 +3944,7 @@ impl FaceDetectionEffectDefinition {
 }
 #[cfg(feature = "Media_Effects")]
 impl ::windows_core::RuntimeType for FaceDetectionEffectDefinition {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.FaceDetectionEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "Media_Effects")]
 unsafe impl ::windows_core::Interface for FaceDetectionEffectDefinition {
@@ -4075,7 +4075,7 @@ impl FaceDetectionEffectFrame {
     }
 }
 impl ::windows_core::RuntimeType for FaceDetectionEffectFrame {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.FaceDetectionEffectFrame;{8ab08993-5dc8-447b-a247-5270bd802ece})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FaceDetectionEffectFrame {
     type Vtable = IFaceDetectionEffectFrame_Vtbl;
@@ -4109,7 +4109,7 @@ impl HighDynamicRangeControl {
     }
 }
 impl ::windows_core::RuntimeType for HighDynamicRangeControl {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.HighDynamicRangeControl;{55f1a7ae-d957-4dc9-9d1c-8553a82a7d99})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HighDynamicRangeControl {
     type Vtable = IHighDynamicRangeControl_Vtbl;
@@ -4145,7 +4145,7 @@ impl HighDynamicRangeOutput {
     }
 }
 impl ::windows_core::RuntimeType for HighDynamicRangeOutput {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.HighDynamicRangeOutput;{0f57806b-253b-4119-bb40-3a90e51384f7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HighDynamicRangeOutput {
     type Vtable = IHighDynamicRangeOutput_Vtbl;
@@ -4253,7 +4253,7 @@ impl ImageCue {
     }
 }
 impl ::windows_core::RuntimeType for ImageCue {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.ImageCue;{52828282-367b-440b-9116-3c84570dd270})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ImageCue {
     type Vtable = IImageCue_Vtbl;
@@ -4299,7 +4299,7 @@ impl InitializeMediaStreamSourceRequestedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for InitializeMediaStreamSourceRequestedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.InitializeMediaStreamSourceRequestedEventArgs;{25bc45e1-9b08-4c2e-a855-4542f1a75deb})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for InitializeMediaStreamSourceRequestedEventArgs {
     type Vtable = IInitializeMediaStreamSourceRequestedEventArgs_Vtbl;
@@ -4370,7 +4370,7 @@ impl LowLightFusionResult {
     }
 }
 impl ::windows_core::RuntimeType for LowLightFusionResult {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.LowLightFusionResult;{78edbe35-27a0-42e0-9cd3-738d2089de9c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LowLightFusionResult {
     type Vtable = ILowLightFusionResult_Vtbl;
@@ -4435,7 +4435,7 @@ impl MediaBinder {
     }
 }
 impl ::windows_core::RuntimeType for MediaBinder {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaBinder;{2b7e40aa-de07-424f-83f1-f1de46c4fa2e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaBinder {
     type Vtable = IMediaBinder_Vtbl;
@@ -4543,7 +4543,7 @@ impl MediaBindingEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for MediaBindingEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaBindingEventArgs;{b61cb25a-1b6d-4630-a86d-2f0837f712e5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaBindingEventArgs {
     type Vtable = IMediaBindingEventArgs_Vtbl;
@@ -4570,7 +4570,7 @@ impl MediaCueEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for MediaCueEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaCueEventArgs;{d12f47f7-5fa4-4e68-9fe5-32160dcee57e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaCueEventArgs {
     type Vtable = IMediaCueEventArgs_Vtbl;
@@ -4869,7 +4869,7 @@ impl MediaSource {
     }
 }
 impl ::windows_core::RuntimeType for MediaSource {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaSource;{2eb61048-655f-4c37-b813-b4e45dfa0abe})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaSource {
     type Vtable = IMediaSource2_Vtbl;
@@ -4931,7 +4931,7 @@ impl MediaSourceAppServiceConnection {
     }
 }
 impl ::windows_core::RuntimeType for MediaSourceAppServiceConnection {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaSourceAppServiceConnection;{61e1ea97-1916-4810-b7f4-b642be829596})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaSourceAppServiceConnection {
     type Vtable = IMediaSourceAppServiceConnection_Vtbl;
@@ -4956,7 +4956,7 @@ impl MediaSourceError {
     }
 }
 impl ::windows_core::RuntimeType for MediaSourceError {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaSourceError;{5c0a8965-37c5-4e9d-8d21-1cdee90cecc6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaSourceError {
     type Vtable = IMediaSourceError_Vtbl;
@@ -4983,7 +4983,7 @@ impl MediaSourceOpenOperationCompletedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for MediaSourceOpenOperationCompletedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaSourceOpenOperationCompletedEventArgs;{fc682ceb-e281-477c-a8e0-1acd654114c8})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaSourceOpenOperationCompletedEventArgs {
     type Vtable = IMediaSourceOpenOperationCompletedEventArgs_Vtbl;
@@ -5017,7 +5017,7 @@ impl MediaSourceStateChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for MediaSourceStateChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaSourceStateChangedEventArgs;{0a30af82-9071-4bac-bc39-ca2a93b717a9})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaSourceStateChangedEventArgs {
     type Vtable = IMediaSourceStateChangedEventArgs_Vtbl;
@@ -5193,7 +5193,7 @@ impl MediaStreamSample {
     }
 }
 impl ::windows_core::RuntimeType for MediaStreamSample {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSample;{5c8db627-4b80-4361-9837-6cb7481ad9d6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaStreamSample {
     type Vtable = IMediaStreamSample_Vtbl;
@@ -5286,7 +5286,7 @@ impl MediaStreamSamplePropertySet {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeType for MediaStreamSamplePropertySet {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSamplePropertySet;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};g16;cinterface(IInspectable)))");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for MediaStreamSamplePropertySet {
@@ -5356,7 +5356,7 @@ impl MediaStreamSampleProtectionProperties {
     }
 }
 impl ::windows_core::RuntimeType for MediaStreamSampleProtectionProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSampleProtectionProperties;{4eb88292-ecdf-493e-841d-dd4add7caca2})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaStreamSampleProtectionProperties {
     type Vtable = IMediaStreamSampleProtectionProperties_Vtbl;
@@ -5656,7 +5656,7 @@ impl MediaStreamSource {
     }
 }
 impl ::windows_core::RuntimeType for MediaStreamSource {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSource;{3712d543-45eb-4138-aa62-c01e26f3843f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaStreamSource {
     type Vtable = IMediaStreamSource_Vtbl;
@@ -5684,7 +5684,7 @@ impl MediaStreamSourceClosedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for MediaStreamSourceClosedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceClosedEventArgs;{cd8c7eb2-4816-4e24-88f0-491ef7386406})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaStreamSourceClosedEventArgs {
     type Vtable = IMediaStreamSourceClosedEventArgs_Vtbl;
@@ -5711,7 +5711,7 @@ impl MediaStreamSourceClosedRequest {
     }
 }
 impl ::windows_core::RuntimeType for MediaStreamSourceClosedRequest {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceClosedRequest;{907c00e9-18a3-4951-887a-2c1eebd5c69e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaStreamSourceClosedRequest {
     type Vtable = IMediaStreamSourceClosedRequest_Vtbl;
@@ -5740,7 +5740,7 @@ impl MediaStreamSourceSampleRenderedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for MediaStreamSourceSampleRenderedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceSampleRenderedEventArgs;{9d697b05-d4f2-4c7a-9dfe-8d6cd0b3ee84})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaStreamSourceSampleRenderedEventArgs {
     type Vtable = IMediaStreamSourceSampleRenderedEventArgs_Vtbl;
@@ -5792,7 +5792,7 @@ impl MediaStreamSourceSampleRequest {
     }
 }
 impl ::windows_core::RuntimeType for MediaStreamSourceSampleRequest {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceSampleRequest;{4db341a9-3501-4d9b-83f9-8f235c822532})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaStreamSourceSampleRequest {
     type Vtable = IMediaStreamSourceSampleRequest_Vtbl;
@@ -5816,7 +5816,7 @@ impl MediaStreamSourceSampleRequestDeferral {
     }
 }
 impl ::windows_core::RuntimeType for MediaStreamSourceSampleRequestDeferral {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceSampleRequestDeferral;{7895cc02-f982-43c8-9d16-c62d999319be})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaStreamSourceSampleRequestDeferral {
     type Vtable = IMediaStreamSourceSampleRequestDeferral_Vtbl;
@@ -5843,7 +5843,7 @@ impl MediaStreamSourceSampleRequestedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for MediaStreamSourceSampleRequestedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceSampleRequestedEventArgs;{10f9bb9e-71c5-492f-847f-0da1f35e81f8})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaStreamSourceSampleRequestedEventArgs {
     type Vtable = IMediaStreamSourceSampleRequestedEventArgs_Vtbl;
@@ -5870,7 +5870,7 @@ impl MediaStreamSourceStartingEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for MediaStreamSourceStartingEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceStartingEventArgs;{f41468f2-c274-4940-a5bb-28a572452fa7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaStreamSourceStartingEventArgs {
     type Vtable = IMediaStreamSourceStartingEventArgs_Vtbl;
@@ -5912,7 +5912,7 @@ impl MediaStreamSourceStartingRequest {
     }
 }
 impl ::windows_core::RuntimeType for MediaStreamSourceStartingRequest {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceStartingRequest;{2a9093e4-35c4-4b1b-a791-0d99db56dd1d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaStreamSourceStartingRequest {
     type Vtable = IMediaStreamSourceStartingRequest_Vtbl;
@@ -5936,7 +5936,7 @@ impl MediaStreamSourceStartingRequestDeferral {
     }
 }
 impl ::windows_core::RuntimeType for MediaStreamSourceStartingRequestDeferral {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceStartingRequestDeferral;{3f1356a5-6340-4dc4-9910-068ed9f598f8})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaStreamSourceStartingRequestDeferral {
     type Vtable = IMediaStreamSourceStartingRequestDeferral_Vtbl;
@@ -5977,7 +5977,7 @@ impl MediaStreamSourceSwitchStreamsRequest {
     }
 }
 impl ::windows_core::RuntimeType for MediaStreamSourceSwitchStreamsRequest {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceSwitchStreamsRequest;{41b8808e-38a9-4ec3-9ba0-b69b85501e90})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaStreamSourceSwitchStreamsRequest {
     type Vtable = IMediaStreamSourceSwitchStreamsRequest_Vtbl;
@@ -6001,7 +6001,7 @@ impl MediaStreamSourceSwitchStreamsRequestDeferral {
     }
 }
 impl ::windows_core::RuntimeType for MediaStreamSourceSwitchStreamsRequestDeferral {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceSwitchStreamsRequestDeferral;{bee3d835-a505-4f9a-b943-2b8cb1b4bbd9})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaStreamSourceSwitchStreamsRequestDeferral {
     type Vtable = IMediaStreamSourceSwitchStreamsRequestDeferral_Vtbl;
@@ -6028,7 +6028,7 @@ impl MediaStreamSourceSwitchStreamsRequestedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for MediaStreamSourceSwitchStreamsRequestedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceSwitchStreamsRequestedEventArgs;{42202b72-6ea1-4677-981e-350a0da412aa})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaStreamSourceSwitchStreamsRequestedEventArgs {
     type Vtable = IMediaStreamSourceSwitchStreamsRequestedEventArgs_Vtbl;
@@ -6253,7 +6253,7 @@ impl MseSourceBuffer {
     }
 }
 impl ::windows_core::RuntimeType for MseSourceBuffer {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MseSourceBuffer;{0c1aa3e3-df8d-4079-a3fe-6849184b4e2f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MseSourceBuffer {
     type Vtable = IMseSourceBuffer_Vtbl;
@@ -6318,7 +6318,7 @@ impl MseSourceBufferList {
     }
 }
 impl ::windows_core::RuntimeType for MseSourceBufferList {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MseSourceBufferList;{95fae8e7-a8e7-4ebf-8927-145e940ba511})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MseSourceBufferList {
     type Vtable = IMseSourceBufferList_Vtbl;
@@ -6485,7 +6485,7 @@ impl MseStreamSource {
     }
 }
 impl ::windows_core::RuntimeType for MseStreamSource {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MseStreamSource;{b0b4198d-02f4-4923-88dd-81bc3f360ffa})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MseStreamSource {
     type Vtable = IMseStreamSource_Vtbl;
@@ -6555,7 +6555,7 @@ impl SceneAnalysisEffect {
     }
 }
 impl ::windows_core::RuntimeType for SceneAnalysisEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.SceneAnalysisEffect;{c04ba319-ca41-4813-bffd-7b08b0ed2557})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SceneAnalysisEffect {
     type Vtable = ISceneAnalysisEffect_Vtbl;
@@ -6605,7 +6605,7 @@ impl SceneAnalysisEffectDefinition {
 }
 #[cfg(feature = "Media_Effects")]
 impl ::windows_core::RuntimeType for SceneAnalysisEffectDefinition {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.SceneAnalysisEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "Media_Effects")]
 unsafe impl ::windows_core::Interface for SceneAnalysisEffectDefinition {
@@ -6750,7 +6750,7 @@ impl SceneAnalysisEffectFrame {
     }
 }
 impl ::windows_core::RuntimeType for SceneAnalysisEffectFrame {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.SceneAnalysisEffectFrame;{d8b10e4c-7fd9-42e1-85eb-6572c297c987})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SceneAnalysisEffectFrame {
     type Vtable = ISceneAnalysisEffectFrame_Vtbl;
@@ -6780,7 +6780,7 @@ impl SceneAnalyzedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for SceneAnalyzedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.SceneAnalyzedEventArgs;{146b9588-2851-45e4-ad55-44cf8df8db4d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SceneAnalyzedEventArgs {
     type Vtable = ISceneAnalyzedEventArgs_Vtbl;
@@ -6895,7 +6895,7 @@ impl SpeechCue {
     }
 }
 impl ::windows_core::RuntimeType for SpeechCue {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.SpeechCue;{aee254dc-1725-4bad-8043-a98499b017a2})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SpeechCue {
     type Vtable = ISpeechCue_Vtbl;
@@ -6988,7 +6988,7 @@ impl TimedMetadataStreamDescriptor {
     }
 }
 impl ::windows_core::RuntimeType for TimedMetadataStreamDescriptor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedMetadataStreamDescriptor;{80f16e6e-92f7-451e-97d2-afd80742da70})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TimedMetadataStreamDescriptor {
     type Vtable = IMediaStreamDescriptor_Vtbl;
@@ -7169,7 +7169,7 @@ impl TimedMetadataTrack {
     }
 }
 impl ::windows_core::RuntimeType for TimedMetadataTrack {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedMetadataTrack;{9e6aed9e-f67a-49a9-b330-cf03b0e9cf07})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TimedMetadataTrack {
     type Vtable = ITimedMetadataTrack_Vtbl;
@@ -7204,7 +7204,7 @@ impl TimedMetadataTrackError {
     }
 }
 impl ::windows_core::RuntimeType for TimedMetadataTrackError {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedMetadataTrackError;{b3767915-4114-4819-b9d9-dd76089e72f8})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TimedMetadataTrackError {
     type Vtable = ITimedMetadataTrackError_Vtbl;
@@ -7231,7 +7231,7 @@ impl TimedMetadataTrackFailedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for TimedMetadataTrackFailedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedMetadataTrackFailedEventArgs;{a57fc9d1-6789-4d4d-b07f-84b4f31acb70})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TimedMetadataTrackFailedEventArgs {
     type Vtable = ITimedMetadataTrackFailedEventArgs_Vtbl;
@@ -7288,7 +7288,7 @@ impl TimedTextBouten {
     }
 }
 impl ::windows_core::RuntimeType for TimedTextBouten {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextBouten;{d9062783-5597-5092-820c-8f738e0f774a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TimedTextBouten {
     type Vtable = ITimedTextBouten_Vtbl;
@@ -7393,7 +7393,7 @@ impl TimedTextCue {
     }
 }
 impl ::windows_core::RuntimeType for TimedTextCue {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextCue;{51c79e51-3b86-494d-b359-bb2ea7aca9a9})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TimedTextCue {
     type Vtable = ITimedTextCue_Vtbl;
@@ -7441,7 +7441,7 @@ impl TimedTextLine {
     }
 }
 impl ::windows_core::RuntimeType for TimedTextLine {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextLine;{978d7ce2-7308-4c66-be50-65777289f5df})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TimedTextLine {
     type Vtable = ITimedTextLine_Vtbl;
@@ -7604,7 +7604,7 @@ impl TimedTextRegion {
     }
 }
 impl ::windows_core::RuntimeType for TimedTextRegion {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextRegion;{1ed0881f-8a06-4222-9f59-b21bf40124b4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TimedTextRegion {
     type Vtable = ITimedTextRegion_Vtbl;
@@ -7668,7 +7668,7 @@ impl TimedTextRuby {
     }
 }
 impl ::windows_core::RuntimeType for TimedTextRuby {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextRuby;{10335c29-5b3c-5693-9959-d05a0bd24628})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TimedTextRuby {
     type Vtable = ITimedTextRuby_Vtbl;
@@ -7808,7 +7808,7 @@ impl TimedTextSource {
     }
 }
 impl ::windows_core::RuntimeType for TimedTextSource {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextSource;{c4ed9ba6-101f-404d-a949-82f33fcd93b7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TimedTextSource {
     type Vtable = ITimedTextSource_Vtbl;
@@ -7844,7 +7844,7 @@ impl TimedTextSourceResolveResultEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for TimedTextSourceResolveResultEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextSourceResolveResultEventArgs;{48907c9c-dcd8-4c33-9ad3-6cdce7b1c566})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TimedTextSourceResolveResultEventArgs {
     type Vtable = ITimedTextSourceResolveResultEventArgs_Vtbl;
@@ -8095,7 +8095,7 @@ impl TimedTextStyle {
     }
 }
 impl ::windows_core::RuntimeType for TimedTextStyle {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextStyle;{1bb2384d-a825-40c2-a7f5-281eaedf3b55})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TimedTextStyle {
     type Vtable = ITimedTextStyle_Vtbl;
@@ -8158,7 +8158,7 @@ impl TimedTextSubformat {
     }
 }
 impl ::windows_core::RuntimeType for TimedTextSubformat {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextSubformat;{d713502f-3261-4722-a0c2-b937b2390f14})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TimedTextSubformat {
     type Vtable = ITimedTextSubformat_Vtbl;
@@ -8229,7 +8229,7 @@ impl VideoStabilizationEffect {
     }
 }
 impl ::windows_core::RuntimeType for VideoStabilizationEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.VideoStabilizationEffect;{0808a650-9698-4e57-877b-bd7cb2ee0f8a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VideoStabilizationEffect {
     type Vtable = IVideoStabilizationEffect_Vtbl;
@@ -8279,7 +8279,7 @@ impl VideoStabilizationEffectDefinition {
 }
 #[cfg(feature = "Media_Effects")]
 impl ::windows_core::RuntimeType for VideoStabilizationEffectDefinition {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.VideoStabilizationEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "Media_Effects")]
 unsafe impl ::windows_core::Interface for VideoStabilizationEffectDefinition {
@@ -8314,7 +8314,7 @@ impl VideoStabilizationEffectEnabledChangedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for VideoStabilizationEffectEnabledChangedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.VideoStabilizationEffectEnabledChangedEventArgs;{187eff28-67bb-4713-b900-4168da164529})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VideoStabilizationEffectEnabledChangedEventArgs {
     type Vtable = IVideoStabilizationEffectEnabledChangedEventArgs_Vtbl;
@@ -8406,7 +8406,7 @@ impl VideoStreamDescriptor {
     }
 }
 impl ::windows_core::RuntimeType for VideoStreamDescriptor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.VideoStreamDescriptor;{12ee0d55-9c2b-4440-8057-2c7a90f0cbec})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VideoStreamDescriptor {
     type Vtable = IVideoStreamDescriptor_Vtbl;
@@ -8510,7 +8510,7 @@ impl VideoTrack {
     }
 }
 impl ::windows_core::RuntimeType for VideoTrack {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.VideoTrack;{03e1fafc-c931-491a-b46b-c10ee8c256b7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VideoTrack {
     type Vtable = IMediaTrack_Vtbl;
@@ -8538,7 +8538,7 @@ impl VideoTrackOpenFailedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for VideoTrackOpenFailedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.VideoTrackOpenFailedEventArgs;{7679e231-04f9-4c82-a4ee-8602c8bb4754})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VideoTrackOpenFailedEventArgs {
     type Vtable = IVideoTrackOpenFailedEventArgs_Vtbl;
@@ -8572,7 +8572,7 @@ impl VideoTrackSupportInfo {
     }
 }
 impl ::windows_core::RuntimeType for VideoTrackSupportInfo {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Core.VideoTrackSupportInfo;{4bb534a0-fc5f-450d-8ff0-778d590486de})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for VideoTrackSupportInfo {
     type Vtable = IVideoTrackSupportInfo_Vtbl;

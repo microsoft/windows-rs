@@ -109,7 +109,7 @@ impl BackPressedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for BackPressedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.UI.Input.BackPressedEventArgs;{f6f555ff-64ec-42a2-b93b-2fbc0c36a121})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for BackPressedEventArgs {
     type Vtable = IBackPressedEventArgs_Vtbl;
@@ -128,7 +128,7 @@ unsafe impl ::core::marker::Sync for BackPressedEventArgs {}
 pub struct CameraEventArgs(::windows_core::IUnknown);
 impl CameraEventArgs {}
 impl ::windows_core::RuntimeType for CameraEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.UI.Input.CameraEventArgs;{b4063bda-201f-473d-bc69-e9e4ac57c9d0})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CameraEventArgs {
     type Vtable = ICameraEventArgs_Vtbl;

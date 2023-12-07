@@ -207,7 +207,7 @@ impl WebAuthenticationResult {
     }
 }
 impl ::windows_core::RuntimeType for WebAuthenticationResult {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.WebAuthenticationResult;{64002b4b-ede9-470a-a5cd-0323faf6e262})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WebAuthenticationResult {
     type Vtable = IWebAuthenticationResult_Vtbl;

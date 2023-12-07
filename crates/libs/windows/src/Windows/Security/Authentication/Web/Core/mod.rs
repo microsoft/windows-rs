@@ -449,7 +449,7 @@ impl FindAllAccountsResult {
     }
 }
 impl ::windows_core::RuntimeType for FindAllAccountsResult {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.FindAllAccountsResult;{a5812b5d-b72e-420c-86ab-aac0d7b7261f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FindAllAccountsResult {
     type Vtable = IFindAllAccountsResult_Vtbl;
@@ -478,7 +478,7 @@ impl WebAccountEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for WebAccountEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebAccountEventArgs;{6fb7037d-424e-44ec-977c-ef2415462a5a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WebAccountEventArgs {
     type Vtable = IWebAccountEventArgs_Vtbl;
@@ -570,7 +570,7 @@ impl WebAccountMonitor {
     }
 }
 impl ::windows_core::RuntimeType for WebAccountMonitor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebAccountMonitor;{7445f5fd-aa9d-4619-8d5d-c138a4ede3e5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WebAccountMonitor {
     type Vtable = IWebAccountMonitor_Vtbl;
@@ -794,7 +794,7 @@ impl WebProviderError {
     }
 }
 impl ::windows_core::RuntimeType for WebProviderError {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebProviderError;{db191bb1-50c5-4809-8dca-09c99410245c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WebProviderError {
     type Vtable = IWebProviderError_Vtbl;
@@ -922,7 +922,7 @@ impl WebTokenRequest {
     }
 }
 impl ::windows_core::RuntimeType for WebTokenRequest {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebTokenRequest;{b77b4d68-adcb-4673-b364-0cf7b35caf97})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WebTokenRequest {
     type Vtable = IWebTokenRequest_Vtbl;
@@ -974,7 +974,7 @@ impl WebTokenRequestResult {
     }
 }
 impl ::windows_core::RuntimeType for WebTokenRequestResult {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebTokenRequestResult;{c12a8305-d1f8-4483-8d54-38fe292784ff})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WebTokenRequestResult {
     type Vtable = IWebTokenRequestResult_Vtbl;
@@ -1067,7 +1067,7 @@ impl WebTokenResponse {
     }
 }
 impl ::windows_core::RuntimeType for WebTokenResponse {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebTokenResponse;{67a7c5ca-83f6-44c6-a3b1-0eb69e41fa8a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WebTokenResponse {
     type Vtable = IWebTokenResponse_Vtbl;

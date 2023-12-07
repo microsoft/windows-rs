@@ -342,7 +342,7 @@ impl ::windows_core::CanTryInto<IXmlNode> for IXmlCharacterData {}
 impl ::windows_core::CanTryInto<IXmlNodeSelector> for IXmlCharacterData {}
 impl ::windows_core::CanTryInto<IXmlNodeSerializer> for IXmlCharacterData {}
 impl ::windows_core::RuntimeType for IXmlCharacterData {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{132e42ab-4e36-4df6-b1c8-0ce62fd88b26}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IXmlCharacterData {
     type Vtable = IXmlCharacterData_Vtbl;
@@ -858,7 +858,7 @@ impl IXmlNode {
 impl ::windows_core::CanTryInto<IXmlNodeSelector> for IXmlNode {}
 impl ::windows_core::CanTryInto<IXmlNodeSerializer> for IXmlNode {}
 impl ::windows_core::RuntimeType for IXmlNode {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{1c741d59-2122-47d5-a856-83f3d4214875}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IXmlNode {
     type Vtable = IXmlNode_Vtbl;
@@ -952,7 +952,7 @@ impl IXmlNodeSelector {
 }
 ::windows_core::imp::interface_hierarchy!(IXmlNodeSelector, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IXmlNodeSelector {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{63dbba8b-d0db-4fe1-b745-f9433afdc25b}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IXmlNodeSelector {
     type Vtable = IXmlNodeSelector_Vtbl;
@@ -994,7 +994,7 @@ impl IXmlNodeSerializer {
 }
 ::windows_core::imp::interface_hierarchy!(IXmlNodeSerializer, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IXmlNodeSerializer {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{5cc5b382-e6dd-4991-abef-06d8d2e7bd0c}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IXmlNodeSerializer {
     type Vtable = IXmlNodeSerializer_Vtbl;
@@ -1311,7 +1311,7 @@ impl ::windows_core::CanTryInto<IXmlNode> for IXmlText {}
 impl ::windows_core::CanTryInto<IXmlNodeSelector> for IXmlText {}
 impl ::windows_core::CanTryInto<IXmlNodeSerializer> for IXmlText {}
 impl ::windows_core::RuntimeType for IXmlText {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{f931a4cb-308d-4760-a1d5-43b67450ac7e}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IXmlText {
     type Vtable = IXmlText_Vtbl;
@@ -1576,7 +1576,7 @@ impl DtdEntity {
     }
 }
 impl ::windows_core::RuntimeType for DtdEntity {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.DtdEntity;{6a0b5ffc-63b4-480f-9e6a-8a92816aade4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DtdEntity {
     type Vtable = IDtdEntity_Vtbl;
@@ -1837,7 +1837,7 @@ impl DtdNotation {
     }
 }
 impl ::windows_core::RuntimeType for DtdNotation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.DtdNotation;{8cb4e04d-6d46-4edb-ab73-df83c51ad397})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DtdNotation {
     type Vtable = IDtdNotation_Vtbl;
@@ -2109,7 +2109,7 @@ impl XmlAttribute {
     }
 }
 impl ::windows_core::RuntimeType for XmlAttribute {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlAttribute;{ac144aa4-b4f1-4db6-b206-8a22c308db0a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for XmlAttribute {
     type Vtable = IXmlAttribute_Vtbl;
@@ -2404,7 +2404,7 @@ impl XmlCDataSection {
     }
 }
 impl ::windows_core::RuntimeType for XmlCDataSection {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlCDataSection;{4d04b46f-c8bd-45b4-8899-0400d7c2c60f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for XmlCDataSection {
     type Vtable = IXmlCDataSection_Vtbl;
@@ -2694,7 +2694,7 @@ impl XmlComment {
     }
 }
 impl ::windows_core::RuntimeType for XmlComment {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlComment;{bca474d5-b61f-4611-9cac-2e92e3476d47})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for XmlComment {
     type Vtable = IXmlComment_Vtbl;
@@ -3170,7 +3170,7 @@ impl XmlDocument {
     }
 }
 impl ::windows_core::RuntimeType for XmlDocument {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocument;{f7f3a506-1e87-42d6-bcfb-b8c809fa5494})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for XmlDocument {
     type Vtable = IXmlDocument_Vtbl;
@@ -3417,7 +3417,7 @@ impl XmlDocumentFragment {
     }
 }
 impl ::windows_core::RuntimeType for XmlDocumentFragment {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocumentFragment;{e2ea6a96-0c21-44a5-8bc9-9e4a262708ec})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for XmlDocumentFragment {
     type Vtable = IXmlDocumentFragment_Vtbl;
@@ -3685,7 +3685,7 @@ impl XmlDocumentType {
     }
 }
 impl ::windows_core::RuntimeType for XmlDocumentType {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocumentType;{f7342425-9781-4964-8e94-9b1c6dfc9bc7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for XmlDocumentType {
     type Vtable = IXmlDocumentType_Vtbl;
@@ -3718,7 +3718,7 @@ impl XmlDomImplementation {
     }
 }
 impl ::windows_core::RuntimeType for XmlDomImplementation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDomImplementation;{6de58132-f11d-4fbb-8cc6-583cba93112f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for XmlDomImplementation {
     type Vtable = IXmlDomImplementation_Vtbl;
@@ -4062,7 +4062,7 @@ impl XmlElement {
     }
 }
 impl ::windows_core::RuntimeType for XmlElement {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlElement;{2dfb8a1f-6b10-4ef8-9f83-efcce8faec37})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for XmlElement {
     type Vtable = IXmlElement_Vtbl;
@@ -4309,7 +4309,7 @@ impl XmlEntityReference {
     }
 }
 impl ::windows_core::RuntimeType for XmlEntityReference {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlEntityReference;{2e2f47bc-c3d0-4ccf-bb86-0ab8c36a61cf})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for XmlEntityReference {
     type Vtable = IXmlEntityReference_Vtbl;
@@ -4394,7 +4394,7 @@ impl XmlLoadSettings {
     }
 }
 impl ::windows_core::RuntimeType for XmlLoadSettings {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlLoadSettings;{58aa07a8-fed6-46f7-b4c5-fb1ba72108d6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for XmlLoadSettings {
     type Vtable = IXmlLoadSettings_Vtbl;
@@ -4530,7 +4530,7 @@ impl XmlNamedNodeMap {
     }
 }
 impl ::windows_core::RuntimeType for XmlNamedNodeMap {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlNamedNodeMap;{b3a69eb0-aab0-4b82-a6fa-b1453f7c021b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for XmlNamedNodeMap {
     type Vtable = IXmlNamedNodeMap_Vtbl;
@@ -4632,7 +4632,7 @@ impl XmlNodeList {
     }
 }
 impl ::windows_core::RuntimeType for XmlNodeList {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlNodeList;{8c60ad77-83a4-4ec1-9c54-7ba429e13da6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for XmlNodeList {
     type Vtable = IXmlNodeList_Vtbl;
@@ -4914,7 +4914,7 @@ impl XmlProcessingInstruction {
     }
 }
 impl ::windows_core::RuntimeType for XmlProcessingInstruction {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlProcessingInstruction;{2707fd1e-1e92-4ece-b6f4-26f069078ddc})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for XmlProcessingInstruction {
     type Vtable = IXmlProcessingInstruction_Vtbl;
@@ -5209,7 +5209,7 @@ impl XmlText {
     }
 }
 impl ::windows_core::RuntimeType for XmlText {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlText;{f931a4cb-308d-4760-a1d5-43b67450ac7e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for XmlText {
     type Vtable = IXmlText_Vtbl;

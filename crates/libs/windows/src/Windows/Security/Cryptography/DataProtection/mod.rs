@@ -119,7 +119,7 @@ impl DataProtectionProvider {
     }
 }
 impl ::windows_core::RuntimeType for DataProtectionProvider {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.DataProtection.DataProtectionProvider;{09639948-ed22-4270-bd1c-6d72c00f8787})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DataProtectionProvider {
     type Vtable = IDataProtectionProvider_Vtbl;

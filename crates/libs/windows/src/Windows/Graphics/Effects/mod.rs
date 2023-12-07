@@ -17,7 +17,7 @@ impl IGraphicsEffect {
 ::windows_core::imp::interface_hierarchy!(IGraphicsEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IGraphicsEffectSource> for IGraphicsEffect {}
 impl ::windows_core::RuntimeType for IGraphicsEffect {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{cb51c0ce-8fe6-4636-b202-861faa07d8f3}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IGraphicsEffect {
     type Vtable = IGraphicsEffect_Vtbl;
@@ -38,7 +38,7 @@ pub struct IGraphicsEffectSource(::windows_core::IUnknown);
 impl IGraphicsEffectSource {}
 ::windows_core::imp::interface_hierarchy!(IGraphicsEffectSource, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IGraphicsEffectSource {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{2d8f9ddc-4339-4eb9-9216-f9deb75658a2}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IGraphicsEffectSource {
     type Vtable = IGraphicsEffectSource_Vtbl;

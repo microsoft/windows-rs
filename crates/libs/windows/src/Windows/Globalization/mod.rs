@@ -1626,7 +1626,7 @@ impl Calendar {
     }
 }
 impl ::windows_core::RuntimeType for Calendar {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.Calendar;{ca30221d-86d9-40fb-a26b-d44eb7cf08ea})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Calendar {
     type Vtable = ICalendar_Vtbl;
@@ -1805,7 +1805,7 @@ impl CurrencyAmount {
     }
 }
 impl ::windows_core::RuntimeType for CurrencyAmount {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.CurrencyAmount;{74b49942-eb75-443a-95b3-7d723f56f93c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CurrencyAmount {
     type Vtable = ICurrencyAmount_Vtbl;
@@ -2898,7 +2898,7 @@ impl GeographicRegion {
     }
 }
 impl ::windows_core::RuntimeType for GeographicRegion {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.GeographicRegion;{01e9a621-4a64-4ed9-954f-9edeb07bd903})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for GeographicRegion {
     type Vtable = IGeographicRegion_Vtbl;
@@ -2939,7 +2939,7 @@ impl JapanesePhoneme {
     }
 }
 impl ::windows_core::RuntimeType for JapanesePhoneme {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.JapanesePhoneme;{2f6a9300-e85b-43e6-897d-5d82f862df21})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for JapanesePhoneme {
     type Vtable = IJapanesePhoneme_Vtbl;
@@ -3090,7 +3090,7 @@ impl Language {
     }
 }
 impl ::windows_core::RuntimeType for Language {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.Language;{ea79a752-f7c2-4265-b1bd-c4dec4e4f080})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Language {
     type Vtable = ILanguage_Vtbl;

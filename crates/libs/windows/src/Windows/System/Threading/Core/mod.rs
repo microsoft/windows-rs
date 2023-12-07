@@ -139,7 +139,7 @@ impl PreallocatedWorkItem {
     }
 }
 impl ::windows_core::RuntimeType for PreallocatedWorkItem {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Threading.Core.PreallocatedWorkItem;{b6daa9fc-bc5b-401a-a8b2-6e754d14daa6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PreallocatedWorkItem {
     type Vtable = IPreallocatedWorkItem_Vtbl;
@@ -212,7 +212,7 @@ impl SignalNotifier {
     }
 }
 impl ::windows_core::RuntimeType for SignalNotifier {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Threading.Core.SignalNotifier;{14285e06-63a7-4713-b6d9-62f64b56fb8b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SignalNotifier {
     type Vtable = ISignalNotifier_Vtbl;
@@ -290,7 +290,7 @@ unsafe impl ::windows_core::ComInterface for SignalHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x923c402e_4721_440e_9dda_55b6f2e07710);
 }
 impl ::windows_core::RuntimeType for SignalHandler {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{923c402e-4721-440e-9dda-55b6f2e07710}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 #[doc(hidden)]

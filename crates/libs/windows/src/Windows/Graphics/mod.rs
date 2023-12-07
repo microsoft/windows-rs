@@ -28,7 +28,7 @@ pub struct IGeometrySource2D(::windows_core::IUnknown);
 impl IGeometrySource2D {}
 ::windows_core::imp::interface_hierarchy!(IGeometrySource2D, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IGeometrySource2D {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{caff7902-670c-4181-a624-da977203b845}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IGeometrySource2D {
     type Vtable = IGeometrySource2D_Vtbl;

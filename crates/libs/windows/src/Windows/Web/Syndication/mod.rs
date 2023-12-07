@@ -165,7 +165,7 @@ impl ISyndicationClient {
 }
 ::windows_core::imp::interface_hierarchy!(ISyndicationClient, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ISyndicationClient {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{9e18a9b7-7249-4b45-b229-7df895a5a1f5}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ISyndicationClient {
     type Vtable = ISyndicationClient_Vtbl;
@@ -692,7 +692,7 @@ impl ISyndicationNode {
 }
 ::windows_core::imp::interface_hierarchy!(ISyndicationNode, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ISyndicationNode {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{753cef78-51f8-45c0-a9f5-f1719dec3fb2}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ISyndicationNode {
     type Vtable = ISyndicationNode_Vtbl;
@@ -933,7 +933,7 @@ impl ISyndicationText {
 ::windows_core::imp::interface_hierarchy!(ISyndicationText, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<ISyndicationNode> for ISyndicationText {}
 impl ::windows_core::RuntimeType for ISyndicationText {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{b9cc5e80-313a-4091-a2a6-243e0ee923f9}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ISyndicationText {
     type Vtable = ISyndicationText_Vtbl;
@@ -1032,7 +1032,7 @@ impl SyndicationAttribute {
     }
 }
 impl ::windows_core::RuntimeType for SyndicationAttribute {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationAttribute;{71e8f969-526e-4001-9a91-e84f83161ab1})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SyndicationAttribute {
     type Vtable = ISyndicationAttribute_Vtbl;
@@ -1198,7 +1198,7 @@ impl SyndicationCategory {
     }
 }
 impl ::windows_core::RuntimeType for SyndicationCategory {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationCategory;{8715626f-0cba-4a7f-89ff-ecb5281423b6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SyndicationCategory {
     type Vtable = ISyndicationCategory_Vtbl;
@@ -1327,7 +1327,7 @@ impl SyndicationClient {
     }
 }
 impl ::windows_core::RuntimeType for SyndicationClient {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationClient;{9e18a9b7-7249-4b45-b229-7df895a5a1f5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SyndicationClient {
     type Vtable = ISyndicationClient_Vtbl;
@@ -1524,7 +1524,7 @@ impl SyndicationContent {
     }
 }
 impl ::windows_core::RuntimeType for SyndicationContent {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationContent;{4641fefe-0e55-40d0-b8d0-6a2ccba9fc7c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SyndicationContent {
     type Vtable = ISyndicationContent_Vtbl;
@@ -1894,7 +1894,7 @@ impl SyndicationFeed {
     }
 }
 impl ::windows_core::RuntimeType for SyndicationFeed {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationFeed;{7ffe3cd2-5b66-4d62-8403-1bc10d910d6b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SyndicationFeed {
     type Vtable = ISyndicationFeed_Vtbl;
@@ -2062,7 +2062,7 @@ impl SyndicationGenerator {
     }
 }
 impl ::windows_core::RuntimeType for SyndicationGenerator {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationGenerator;{9768b379-fb2b-4f6d-b41c-088a5868825c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SyndicationGenerator {
     type Vtable = ISyndicationGenerator_Vtbl;
@@ -2408,7 +2408,7 @@ impl SyndicationItem {
     }
 }
 impl ::windows_core::RuntimeType for SyndicationItem {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationItem;{548db883-c384-45c1-8ae8-a378c4ec486c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SyndicationItem {
     type Vtable = ISyndicationItem_Vtbl;
@@ -2625,7 +2625,7 @@ impl SyndicationLink {
     }
 }
 impl ::windows_core::RuntimeType for SyndicationLink {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationLink;{27553abd-a10e-41b5-86bd-9759086eb0c5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SyndicationLink {
     type Vtable = ISyndicationLink_Vtbl;
@@ -2753,7 +2753,7 @@ impl SyndicationNode {
     }
 }
 impl ::windows_core::RuntimeType for SyndicationNode {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationNode;{753cef78-51f8-45c0-a9f5-f1719dec3fb2})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SyndicationNode {
     type Vtable = ISyndicationNode_Vtbl;
@@ -2932,7 +2932,7 @@ impl SyndicationPerson {
     }
 }
 impl ::windows_core::RuntimeType for SyndicationPerson {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationPerson;{fa1ee5da-a7c6-4517-a096-0143faf29327})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SyndicationPerson {
     type Vtable = ISyndicationPerson_Vtbl;
@@ -3106,7 +3106,7 @@ impl SyndicationText {
     }
 }
 impl ::windows_core::RuntimeType for SyndicationText {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationText;{b9cc5e80-313a-4091-a2a6-243e0ee923f9})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SyndicationText {
     type Vtable = ISyndicationText_Vtbl;

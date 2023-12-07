@@ -188,7 +188,7 @@ impl OcrEngine {
     }
 }
 impl ::windows_core::RuntimeType for OcrEngine {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Ocr.OcrEngine;{5a14bc41-5b76-3140-b680-8825562683ac})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for OcrEngine {
     type Vtable = IOcrEngine_Vtbl;
@@ -224,7 +224,7 @@ impl OcrLine {
     }
 }
 impl ::windows_core::RuntimeType for OcrLine {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Ocr.OcrLine;{0043a16f-e31f-3a24-899c-d444bd088124})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for OcrLine {
     type Vtable = IOcrLine_Vtbl;
@@ -269,7 +269,7 @@ impl OcrResult {
     }
 }
 impl ::windows_core::RuntimeType for OcrResult {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Ocr.OcrResult;{9bd235b2-175b-3d6a-92e2-388c206e2f63})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for OcrResult {
     type Vtable = IOcrResult_Vtbl;
@@ -305,7 +305,7 @@ impl OcrWord {
     }
 }
 impl ::windows_core::RuntimeType for OcrWord {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Ocr.OcrWord;{3c2a477a-5cd9-3525-ba2a-23d1e0a68a1d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for OcrWord {
     type Vtable = IOcrWord_Vtbl;

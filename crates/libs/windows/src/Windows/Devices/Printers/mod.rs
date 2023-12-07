@@ -583,7 +583,7 @@ impl IppAttributeError {
     }
 }
 impl ::windows_core::RuntimeType for IppAttributeError {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppAttributeError;{750feda1-9eef-5c39-93e4-46149bbcef27})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for IppAttributeError {
     type Vtable = IIppAttributeError_Vtbl;
@@ -1130,7 +1130,7 @@ impl IppAttributeValue {
     }
 }
 impl ::windows_core::RuntimeType for IppAttributeValue {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppAttributeValue;{99407fed-e2bb-59a3-988b-28a974052a26})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for IppAttributeValue {
     type Vtable = IIppAttributeValue_Vtbl;
@@ -1175,7 +1175,7 @@ impl IppIntegerRange {
     }
 }
 impl ::windows_core::RuntimeType for IppIntegerRange {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppIntegerRange;{92907346-c3ea-5ed6-bdb1-3752c62c6f7f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for IppIntegerRange {
     type Vtable = IIppIntegerRange_Vtbl;
@@ -1316,7 +1316,7 @@ impl IppPrintDevice {
     }
 }
 impl ::windows_core::RuntimeType for IppPrintDevice {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppPrintDevice;{d748ac56-76f3-5dc6-afd4-c2a8686b9359})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for IppPrintDevice {
     type Vtable = IIppPrintDevice_Vtbl;
@@ -1368,7 +1368,7 @@ impl IppResolution {
     }
 }
 impl ::windows_core::RuntimeType for IppResolution {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppResolution;{cb493f86-6bf3-56f5-86ce-263d08aead63})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for IppResolution {
     type Vtable = IIppResolution_Vtbl;
@@ -1404,7 +1404,7 @@ impl IppSetAttributesResult {
     }
 }
 impl ::windows_core::RuntimeType for IppSetAttributesResult {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppSetAttributesResult;{7d1c7f55-aa9d-58a3-90e9-17bdc5281f07})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for IppSetAttributesResult {
     type Vtable = IIppSetAttributesResult_Vtbl;
@@ -1449,7 +1449,7 @@ impl IppTextWithLanguage {
     }
 }
 impl ::windows_core::RuntimeType for IppTextWithLanguage {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppTextWithLanguage;{326447a6-5149-5936-90e8-0c736036bf77})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for IppTextWithLanguage {
     type Vtable = IIppTextWithLanguage_Vtbl;
@@ -1498,7 +1498,7 @@ impl PageConfigurationSettings {
     }
 }
 impl ::windows_core::RuntimeType for PageConfigurationSettings {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PageConfigurationSettings;{b6fc1e02-5331-54ff-95a0-1fcb76bb97a9})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PageConfigurationSettings {
     type Vtable = IPageConfigurationSettings_Vtbl;
@@ -1553,7 +1553,7 @@ impl PdlPassthroughProvider {
     }
 }
 impl ::windows_core::RuntimeType for PdlPassthroughProvider {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PdlPassthroughProvider;{23c71dd2-6117-553f-9378-180af5849a49})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PdlPassthroughProvider {
     type Vtable = IPdlPassthroughProvider_Vtbl;
@@ -1599,7 +1599,7 @@ impl PdlPassthroughTarget {
     }
 }
 impl ::windows_core::RuntimeType for PdlPassthroughTarget {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PdlPassthroughTarget;{9840be79-67f8-5385-a5b9-e8c96e0fca76})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PdlPassthroughTarget {
     type Vtable = IPdlPassthroughTarget_Vtbl;
@@ -1647,7 +1647,7 @@ impl Print3DDevice {
     }
 }
 impl ::windows_core::RuntimeType for Print3DDevice {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Print3DDevice;{041c3d19-9713-42a2-9813-7dc3337428d3})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Print3DDevice {
     type Vtable = IPrint3DDevice_Vtbl;
@@ -1700,7 +1700,7 @@ impl PrintSchema {
     }
 }
 impl ::windows_core::RuntimeType for PrintSchema {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PrintSchema;{c2b98316-26b8-4bfb-8138-9f962c22a35b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PrintSchema {
     type Vtable = IPrintSchema_Vtbl;

@@ -23,7 +23,7 @@ impl IBuffer {
 }
 ::windows_core::imp::interface_hierarchy!(IBuffer, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IBuffer {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{905a0fe0-bc53-11df-8c49-001e4fc686da}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IBuffer {
     type Vtable = IBuffer_Vtbl;
@@ -92,7 +92,7 @@ impl IContentTypeProvider {
 }
 ::windows_core::imp::interface_hierarchy!(IContentTypeProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IContentTypeProvider {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{97d098a5-3b99-4de9-88a5-e11d2f50c795}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IContentTypeProvider {
     type Vtable = IContentTypeProvider_Vtbl;
@@ -289,7 +289,7 @@ impl IDataReader {
 }
 ::windows_core::imp::interface_hierarchy!(IDataReader, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IDataReader {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{e2b50029-b4c1-4314-a4b8-fb813a2f275e}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IDataReader {
     type Vtable = IDataReader_Vtbl;
@@ -525,7 +525,7 @@ impl IDataWriter {
 }
 ::windows_core::imp::interface_hierarchy!(IDataWriter, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IDataWriter {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{64b89265-d341-4922-b38a-dd4af8808c4e}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IDataWriter {
     type Vtable = IDataWriter_Vtbl;
@@ -667,7 +667,7 @@ impl IInputStream {
 #[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for IInputStream {}
 impl ::windows_core::RuntimeType for IInputStream {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{905a0fe2-bc53-11df-8c49-001e4fc686da}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IInputStream {
     type Vtable = IInputStream_Vtbl;
@@ -700,7 +700,7 @@ impl IInputStreamReference {
 }
 ::windows_core::imp::interface_hierarchy!(IInputStreamReference, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IInputStreamReference {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{43929d18-5ec9-4b5a-919c-4205b0c804b6}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IInputStreamReference {
     type Vtable = IInputStreamReference_Vtbl;
@@ -753,7 +753,7 @@ impl IOutputStream {
 #[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for IOutputStream {}
 impl ::windows_core::RuntimeType for IOutputStream {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{905a0fe6-bc53-11df-8c49-001e4fc686da}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IOutputStream {
     type Vtable = IOutputStream_Vtbl;
@@ -803,7 +803,7 @@ impl IPropertySetSerializer {
 }
 ::windows_core::imp::interface_hierarchy!(IPropertySetSerializer, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IPropertySetSerializer {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{6e8ebf1c-ef3d-4376-b20e-5be638aeac77}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IPropertySetSerializer {
     type Vtable = IPropertySetSerializer_Vtbl;
@@ -931,7 +931,7 @@ impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for IRandom
 impl ::windows_core::CanTryInto<IInputStream> for IRandomAccessStream {}
 impl ::windows_core::CanTryInto<IOutputStream> for IRandomAccessStream {}
 impl ::windows_core::RuntimeType for IRandomAccessStream {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{905a0fe1-bc53-11df-8c49-001e4fc686da}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IRandomAccessStream {
     type Vtable = IRandomAccessStream_Vtbl;
@@ -969,7 +969,7 @@ impl IRandomAccessStreamReference {
 }
 ::windows_core::imp::interface_hierarchy!(IRandomAccessStreamReference, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IRandomAccessStreamReference {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{33ee3134-1dd6-4e3a-8067-d1c162e8642b}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IRandomAccessStreamReference {
     type Vtable = IRandomAccessStreamReference_Vtbl;
@@ -1150,7 +1150,7 @@ impl ::windows_core::CanTryInto<IInputStream> for IRandomAccessStreamWithContent
 impl ::windows_core::CanTryInto<IOutputStream> for IRandomAccessStreamWithContentType {}
 impl ::windows_core::CanTryInto<IRandomAccessStream> for IRandomAccessStreamWithContentType {}
 impl ::windows_core::RuntimeType for IRandomAccessStreamWithContentType {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{cc254827-4b3d-438f-9232-10c76bc7e038}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IRandomAccessStreamWithContentType {
     type Vtable = IRandomAccessStreamWithContentType_Vtbl;
@@ -1225,7 +1225,7 @@ impl Buffer {
     }
 }
 impl ::windows_core::RuntimeType for Buffer {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.Buffer;{905a0fe0-bc53-11df-8c49-001e4fc686da})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Buffer {
     type Vtable = IBuffer_Vtbl;
@@ -1456,7 +1456,7 @@ impl DataReader {
     }
 }
 impl ::windows_core::RuntimeType for DataReader {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataReader;{e2b50029-b4c1-4314-a4b8-fb813a2f275e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DataReader {
     type Vtable = IDataReader_Vtbl;
@@ -1549,7 +1549,7 @@ impl DataReaderLoadOperation {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeType for DataReaderLoadOperation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataReaderLoadOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};u4))");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows_core::Interface for DataReaderLoadOperation {
@@ -1786,7 +1786,7 @@ impl DataWriter {
     }
 }
 impl ::windows_core::RuntimeType for DataWriter {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataWriter;{64b89265-d341-4922-b38a-dd4af8808c4e})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DataWriter {
     type Vtable = IDataWriter_Vtbl;
@@ -1879,7 +1879,7 @@ impl DataWriterStoreOperation {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeType for DataWriterStoreOperation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataWriterStoreOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};u4))");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows_core::Interface for DataWriterStoreOperation {
@@ -1958,7 +1958,7 @@ impl FileInputStream {
     }
 }
 impl ::windows_core::RuntimeType for FileInputStream {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.FileInputStream;{905a0fe2-bc53-11df-8c49-001e4fc686da})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FileInputStream {
     type Vtable = IInputStream_Vtbl;
@@ -2008,7 +2008,7 @@ impl FileOutputStream {
     }
 }
 impl ::windows_core::RuntimeType for FileOutputStream {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.FileOutputStream;{905a0fe6-bc53-11df-8c49-001e4fc686da})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FileOutputStream {
     type Vtable = IOutputStream_Vtbl;
@@ -2208,7 +2208,7 @@ impl FileRandomAccessStream {
     }
 }
 impl ::windows_core::RuntimeType for FileRandomAccessStream {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.FileRandomAccessStream;{905a0fe1-bc53-11df-8c49-001e4fc686da})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FileRandomAccessStream {
     type Vtable = IRandomAccessStream_Vtbl;
@@ -2336,7 +2336,7 @@ impl InMemoryRandomAccessStream {
     }
 }
 impl ::windows_core::RuntimeType for InMemoryRandomAccessStream {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.InMemoryRandomAccessStream;{905a0fe1-bc53-11df-8c49-001e4fc686da})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for InMemoryRandomAccessStream {
     type Vtable = IRandomAccessStream_Vtbl;
@@ -2379,7 +2379,7 @@ impl InputStreamOverStream {
     }
 }
 impl ::windows_core::RuntimeType for InputStreamOverStream {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.InputStreamOverStream;{905a0fe2-bc53-11df-8c49-001e4fc686da})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for InputStreamOverStream {
     type Vtable = IInputStream_Vtbl;
@@ -2429,7 +2429,7 @@ impl OutputStreamOverStream {
     }
 }
 impl ::windows_core::RuntimeType for OutputStreamOverStream {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.OutputStreamOverStream;{905a0fe6-bc53-11df-8c49-001e4fc686da})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for OutputStreamOverStream {
     type Vtable = IOutputStream_Vtbl;
@@ -2595,7 +2595,7 @@ impl RandomAccessStreamOverStream {
     }
 }
 impl ::windows_core::RuntimeType for RandomAccessStreamOverStream {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.RandomAccessStreamOverStream;{905a0fe1-bc53-11df-8c49-001e4fc686da})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for RandomAccessStreamOverStream {
     type Vtable = IRandomAccessStream_Vtbl;
@@ -2663,7 +2663,7 @@ impl RandomAccessStreamReference {
     }
 }
 impl ::windows_core::RuntimeType for RandomAccessStreamReference {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.RandomAccessStreamReference;{33ee3134-1dd6-4e3a-8067-d1c162e8642b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for RandomAccessStreamReference {
     type Vtable = IRandomAccessStreamReference_Vtbl;

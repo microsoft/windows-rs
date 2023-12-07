@@ -213,7 +213,7 @@ impl IGameController {
 }
 ::windows_core::imp::interface_hierarchy!(IGameController, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IGameController {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{1baf6522-5f64-42c5-8267-b9fe2215bfbd}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IGameController {
     type Vtable = IGameController_Vtbl;
@@ -272,7 +272,7 @@ impl IGameControllerBatteryInfo {
 }
 ::windows_core::imp::interface_hierarchy!(IGameControllerBatteryInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IGameControllerBatteryInfo {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{dcecc681-3963-4da6-955d-553f3b6f6161}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IGameControllerBatteryInfo {
     type Vtable = IGameControllerBatteryInfo_Vtbl;
@@ -786,7 +786,7 @@ impl ArcadeStick {
     }
 }
 impl ::windows_core::RuntimeType for ArcadeStick {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ArcadeStick;{b14a539d-befb-4c81-8051-15ecf3b13036})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ArcadeStick {
     type Vtable = IArcadeStick_Vtbl;
@@ -969,7 +969,7 @@ impl FlightStick {
     }
 }
 impl ::windows_core::RuntimeType for FlightStick {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.FlightStick;{b4a2c01c-b83b-4459-a1a9-97b03c33da7c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for FlightStick {
     type Vtable = IFlightStick_Vtbl;
@@ -1161,7 +1161,7 @@ impl Gamepad {
     }
 }
 impl ::windows_core::RuntimeType for Gamepad {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Gamepad;{bc7bb43c-0a69-3903-9e9d-a50f86a45de5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Gamepad {
     type Vtable = IGamepad_Vtbl;
@@ -1206,7 +1206,7 @@ impl Headset {
     }
 }
 impl ::windows_core::RuntimeType for Headset {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Headset;{3fd156ef-6925-3fa8-9181-029c5223ae3b})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for Headset {
     type Vtable = IHeadset_Vtbl;
@@ -1430,7 +1430,7 @@ impl RacingWheel {
     }
 }
 impl ::windows_core::RuntimeType for RacingWheel {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.RacingWheel;{f546656f-e106-4c82-a90f-554012904b85})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for RacingWheel {
     type Vtable = IRacingWheel_Vtbl;
@@ -1680,7 +1680,7 @@ impl RawGameController {
     }
 }
 impl ::windows_core::RuntimeType for RawGameController {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.RawGameController;{7cad6d91-a7e1-4f71-9a78-33e9c5dfea62})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for RawGameController {
     type Vtable = IRawGameController_Vtbl;
@@ -1868,7 +1868,7 @@ impl UINavigationController {
     }
 }
 impl ::windows_core::RuntimeType for UINavigationController {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.UINavigationController;{e5aeefdd-f50e-4a55-8cdc-d33229548175})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UINavigationController {
     type Vtable = IUINavigationController_Vtbl;

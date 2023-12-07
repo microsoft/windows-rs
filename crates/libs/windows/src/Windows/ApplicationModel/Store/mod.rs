@@ -931,7 +931,7 @@ impl LicenseInformation {
     }
 }
 impl ::windows_core::RuntimeType for LicenseInformation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseInformation;{8eb7dc30-f170-4ed5-8e21-1516da3fd367})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LicenseInformation {
     type Vtable = ILicenseInformation_Vtbl;
@@ -1025,7 +1025,7 @@ impl ListingInformation {
     }
 }
 impl ::windows_core::RuntimeType for ListingInformation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ListingInformation;{588b4abf-bc74-4383-b78c-99606323dece})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ListingInformation {
     type Vtable = IListingInformation_Vtbl;
@@ -1075,7 +1075,7 @@ impl ProductLicense {
     }
 }
 impl ::windows_core::RuntimeType for ProductLicense {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ProductLicense;{363308c7-2bcf-4c0e-8f2f-e808aaa8f99d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ProductLicense {
     type Vtable = IProductLicense_Vtbl;
@@ -1185,7 +1185,7 @@ impl ProductListing {
     }
 }
 impl ::windows_core::RuntimeType for ProductListing {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ProductListing;{45a7d6ad-c750-4d9c-947c-b00dcbf9e9c2})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ProductListing {
     type Vtable = IProductListing_Vtbl;
@@ -1263,7 +1263,7 @@ impl ProductPurchaseDisplayProperties {
     }
 }
 impl ::windows_core::RuntimeType for ProductPurchaseDisplayProperties {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ProductPurchaseDisplayProperties;{d70b7420-bc92-401b-a809-c9b2e5dbbdaf})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ProductPurchaseDisplayProperties {
     type Vtable = IProductPurchaseDisplayProperties_Vtbl;
@@ -1311,7 +1311,7 @@ impl PurchaseResults {
     }
 }
 impl ::windows_core::RuntimeType for PurchaseResults {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.PurchaseResults;{ed50b37e-8656-4f65-b8c8-ac7e0cb1a1c2})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PurchaseResults {
     type Vtable = IPurchaseResults_Vtbl;
@@ -1352,7 +1352,7 @@ impl UnfulfilledConsumable {
     }
 }
 impl ::windows_core::RuntimeType for UnfulfilledConsumable {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.UnfulfilledConsumable;{2df7fbbb-1cdd-4cb8-a014-7b9cf8986927})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UnfulfilledConsumable {
     type Vtable = IUnfulfilledConsumable_Vtbl;
@@ -1520,7 +1520,7 @@ unsafe impl ::windows_core::ComInterface for LicenseChangedEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd4a50255_1369_4c36_832f_6f2d88e3659b);
 }
 impl ::windows_core::RuntimeType for LicenseChangedEventHandler {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{d4a50255-1369-4c36-832f-6f2d88e3659b}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 #[doc(hidden)]

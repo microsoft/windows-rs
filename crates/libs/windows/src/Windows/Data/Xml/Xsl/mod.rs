@@ -101,7 +101,7 @@ impl XsltProcessor {
     }
 }
 impl ::windows_core::RuntimeType for XsltProcessor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Xsl.XsltProcessor;{7b64703f-550c-48c6-a90f-93a5b964518f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for XsltProcessor {
     type Vtable = IXsltProcessor_Vtbl;

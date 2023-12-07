@@ -291,7 +291,7 @@ impl DisplayMonitor {
     }
 }
 impl ::windows_core::RuntimeType for DisplayMonitor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.DisplayMonitor;{1f6b15d4-1d01-4c51-87e2-6f954a772b59})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DisplayMonitor {
     type Vtable = IDisplayMonitor_Vtbl;

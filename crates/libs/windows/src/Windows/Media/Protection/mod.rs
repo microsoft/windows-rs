@@ -187,7 +187,7 @@ impl IMediaProtectionServiceRequest {
 }
 ::windows_core::imp::interface_hierarchy!(IMediaProtectionServiceRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IMediaProtectionServiceRequest {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{b1de0ea6-2094-478d-87a4-8b95200f85c6}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for IMediaProtectionServiceRequest {
     type Vtable = IMediaProtectionServiceRequest_Vtbl;
@@ -313,7 +313,7 @@ impl ComponentLoadFailedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for ComponentLoadFailedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.ComponentLoadFailedEventArgs;{95972e93-7746-417e-8495-f031bbc5862c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ComponentLoadFailedEventArgs {
     type Vtable = IComponentLoadFailedEventArgs_Vtbl;
@@ -411,7 +411,7 @@ impl HdcpSession {
     }
 }
 impl ::windows_core::RuntimeType for HdcpSession {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.HdcpSession;{718845e9-64d7-426d-809b-1be461941a2a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HdcpSession {
     type Vtable = IHdcpSession_Vtbl;
@@ -503,7 +503,7 @@ impl MediaProtectionManager {
     }
 }
 impl ::windows_core::RuntimeType for MediaProtectionManager {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.MediaProtectionManager;{45694947-c741-434b-a79e-474c12d93d2f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaProtectionManager {
     type Vtable = IMediaProtectionManager_Vtbl;
@@ -548,7 +548,7 @@ impl MediaProtectionPMPServer {
     }
 }
 impl ::windows_core::RuntimeType for MediaProtectionPMPServer {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.MediaProtectionPMPServer;{0c111226-7b26-4d31-95bb-9c1b08ef7fc0})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaProtectionPMPServer {
     type Vtable = IMediaProtectionPMPServer_Vtbl;
@@ -572,7 +572,7 @@ impl MediaProtectionServiceCompletion {
     }
 }
 impl ::windows_core::RuntimeType for MediaProtectionServiceCompletion {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.MediaProtectionServiceCompletion;{8b5cca18-cfd5-44ee-a2ed-df76010c14b5})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaProtectionServiceCompletion {
     type Vtable = IMediaProtectionServiceCompletion_Vtbl;
@@ -606,7 +606,7 @@ impl ProtectionCapabilities {
     }
 }
 impl ::windows_core::RuntimeType for ProtectionCapabilities {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.ProtectionCapabilities;{c7ac5d7e-7480-4d29-a464-7bcd913dd8e4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ProtectionCapabilities {
     type Vtable = IProtectionCapabilities_Vtbl;
@@ -635,7 +635,7 @@ impl RevocationAndRenewalInformation {
     }
 }
 impl ::windows_core::RuntimeType for RevocationAndRenewalInformation {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.RevocationAndRenewalInformation;{f3a1937b-2501-439e-a6e7-6fc95e175fcf})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for RevocationAndRenewalInformation {
     type Vtable = IRevocationAndRenewalInformation_Vtbl;
@@ -690,7 +690,7 @@ impl RevocationAndRenewalItem {
     }
 }
 impl ::windows_core::RuntimeType for RevocationAndRenewalItem {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.RevocationAndRenewalItem;{3099c20c-3cf0-49ea-902d-caf32d2dde2c})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for RevocationAndRenewalItem {
     type Vtable = IRevocationAndRenewalItem_Vtbl;
@@ -733,7 +733,7 @@ impl ServiceRequestedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for ServiceRequestedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.ServiceRequestedEventArgs;{34283baf-abb4-4fc1-bd89-93f106573a49})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ServiceRequestedEventArgs {
     type Vtable = IServiceRequestedEventArgs_Vtbl;
@@ -1043,7 +1043,7 @@ unsafe impl ::windows_core::ComInterface for ComponentLoadFailedEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95da643c_6db9_424b_86ca_091af432081c);
 }
 impl ::windows_core::RuntimeType for ComponentLoadFailedEventHandler {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{95da643c-6db9-424b-86ca-091af432081c}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1115,7 +1115,7 @@ unsafe impl ::windows_core::ComInterface for RebootNeededEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64e12a45_973b_4a3a_b260_91898a49a82c);
 }
 impl ::windows_core::RuntimeType for RebootNeededEventHandler {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{64e12a45-973b-4a3a-b260-91898a49a82c}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1188,7 +1188,7 @@ unsafe impl ::windows_core::ComInterface for ServiceRequestedEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2d690ba_cac9_48e1_95c0_d38495a84055);
 }
 impl ::windows_core::RuntimeType for ServiceRequestedEventHandler {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{d2d690ba-cac9-48e1-95c0-d38495a84055}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 #[doc(hidden)]

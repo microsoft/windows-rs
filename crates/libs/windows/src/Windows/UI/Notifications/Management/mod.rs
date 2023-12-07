@@ -124,7 +124,7 @@ impl UserNotificationListener {
     }
 }
 impl ::windows_core::RuntimeType for UserNotificationListener {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.Management.UserNotificationListener;{62553e41-8a06-4cef-8215-6033a5be4b03})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UserNotificationListener {
     type Vtable = IUserNotificationListener_Vtbl;

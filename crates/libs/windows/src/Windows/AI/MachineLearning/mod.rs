@@ -261,7 +261,7 @@ impl ILearningModelFeatureDescriptor {
 }
 ::windows_core::imp::interface_hierarchy!(ILearningModelFeatureDescriptor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ILearningModelFeatureDescriptor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{bc08cf7c-6ed0-4004-97ba-b9a2eecd2b4f}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ILearningModelFeatureDescriptor {
     type Vtable = ILearningModelFeatureDescriptor_Vtbl;
@@ -292,7 +292,7 @@ impl ILearningModelFeatureValue {
 }
 ::windows_core::imp::interface_hierarchy!(ILearningModelFeatureValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ILearningModelFeatureValue {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{f51005db-4085-4dfe-9fed-95eb0c0cf75c}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ILearningModelFeatureValue {
     type Vtable = ILearningModelFeatureValue_Vtbl;
@@ -312,7 +312,7 @@ pub struct ILearningModelOperatorProvider(::windows_core::IUnknown);
 impl ILearningModelOperatorProvider {}
 ::windows_core::imp::interface_hierarchy!(ILearningModelOperatorProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ILearningModelOperatorProvider {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{2a222e5d-afb1-47ed-bfad-b5b3a459ec04}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ILearningModelOperatorProvider {
     type Vtable = ILearningModelOperatorProvider_Vtbl;
@@ -547,7 +547,7 @@ impl ITensor {
 ::windows_core::imp::interface_hierarchy!(ITensor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<ILearningModelFeatureValue> for ITensor {}
 impl ::windows_core::RuntimeType for ITensor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{05489593-a305-4a25-ad09-440119b4b7f6}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 unsafe impl ::windows_core::Interface for ITensor {
     type Vtable = ITensor_Vtbl;
@@ -1525,7 +1525,7 @@ impl ImageFeatureDescriptor {
     }
 }
 impl ::windows_core::RuntimeType for ImageFeatureDescriptor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.ImageFeatureDescriptor;{365585a5-171a-4a2a-985f-265159d3895a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ImageFeatureDescriptor {
     type Vtable = IImageFeatureDescriptor_Vtbl;
@@ -1578,7 +1578,7 @@ impl ImageFeatureValue {
     }
 }
 impl ::windows_core::RuntimeType for ImageFeatureValue {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.ImageFeatureValue;{f0414fd9-c9aa-4405-b7fb-94f87c8a3037})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ImageFeatureValue {
     type Vtable = IImageFeatureValue_Vtbl;
@@ -1756,7 +1756,7 @@ impl LearningModel {
     }
 }
 impl ::windows_core::RuntimeType for LearningModel {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModel;{5b8e4920-489f-4e86-9128-265a327b78fa})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LearningModel {
     type Vtable = ILearningModel_Vtbl;
@@ -1855,7 +1855,7 @@ impl LearningModelBinding {
     }
 }
 impl ::windows_core::RuntimeType for LearningModelBinding {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelBinding;{ea312f20-168f-4f8c-94fe-2e7ac31b4aa8})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LearningModelBinding {
     type Vtable = ILearningModelBinding_Vtbl;
@@ -1940,7 +1940,7 @@ impl LearningModelDevice {
     }
 }
 impl ::windows_core::RuntimeType for LearningModelDevice {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelDevice;{f5c2c8fe-3f56-4a8c-ac5f-fdb92d8b8252})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LearningModelDevice {
     type Vtable = ILearningModelDevice_Vtbl;
@@ -1990,7 +1990,7 @@ impl LearningModelEvaluationResult {
     }
 }
 impl ::windows_core::RuntimeType for LearningModelEvaluationResult {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelEvaluationResult;{b2f9bfcd-960e-49c0-8593-eb190ae3eee2})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LearningModelEvaluationResult {
     type Vtable = ILearningModelEvaluationResult_Vtbl;
@@ -2125,7 +2125,7 @@ impl LearningModelSession {
     }
 }
 impl ::windows_core::RuntimeType for LearningModelSession {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelSession;{8e58f8f6-b787-4c11-90f0-7129aeca74a9})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LearningModelSession {
     type Vtable = ILearningModelSession_Vtbl;
@@ -2180,7 +2180,7 @@ impl LearningModelSessionOptions {
     }
 }
 impl ::windows_core::RuntimeType for LearningModelSessionOptions {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelSessionOptions;{b8f63fa1-134d-5133-8cff-3a5c3c263beb})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for LearningModelSessionOptions {
     type Vtable = ILearningModelSessionOptions_Vtbl;
@@ -2242,7 +2242,7 @@ impl MapFeatureDescriptor {
     }
 }
 impl ::windows_core::RuntimeType for MapFeatureDescriptor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.MapFeatureDescriptor;{530424bd-a257-436d-9e60-c2981f7cc5c4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MapFeatureDescriptor {
     type Vtable = IMapFeatureDescriptor_Vtbl;
@@ -2298,7 +2298,7 @@ impl SequenceFeatureDescriptor {
     }
 }
 impl ::windows_core::RuntimeType for SequenceFeatureDescriptor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.SequenceFeatureDescriptor;{84f6945a-562b-4d62-a851-739aced96668})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SequenceFeatureDescriptor {
     type Vtable = ISequenceFeatureDescriptor_Vtbl;
@@ -2433,7 +2433,7 @@ impl TensorBoolean {
     }
 }
 impl ::windows_core::RuntimeType for TensorBoolean {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorBoolean;{50f311ed-29e9-4a5c-a44d-8fc512584eed})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TensorBoolean {
     type Vtable = ITensorBoolean_Vtbl;
@@ -2573,7 +2573,7 @@ impl TensorDouble {
     }
 }
 impl ::windows_core::RuntimeType for TensorDouble {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorDouble;{91e41252-7a8f-4f0e-a28f-9637ffc8a3d0})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TensorDouble {
     type Vtable = ITensorDouble_Vtbl;
@@ -2643,7 +2643,7 @@ impl TensorFeatureDescriptor {
     }
 }
 impl ::windows_core::RuntimeType for TensorFeatureDescriptor {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFeatureDescriptor;{74455c80-946a-4310-a19c-ee0af028fce4})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TensorFeatureDescriptor {
     type Vtable = ITensorFeatureDescriptor_Vtbl;
@@ -2778,7 +2778,7 @@ impl TensorFloat {
     }
 }
 impl ::windows_core::RuntimeType for TensorFloat {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFloat;{f2282d82-aa02-42c8-a0c8-df1efc9676e1})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TensorFloat {
     type Vtable = ITensorFloat_Vtbl;
@@ -2918,7 +2918,7 @@ impl TensorFloat16Bit {
     }
 }
 impl ::windows_core::RuntimeType for TensorFloat16Bit {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFloat16Bit;{0ab994fc-5b89-4c3c-b5e4-5282a5316c0a})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TensorFloat16Bit {
     type Vtable = ITensorFloat16Bit_Vtbl;
@@ -3058,7 +3058,7 @@ impl TensorInt16Bit {
     }
 }
 impl ::windows_core::RuntimeType for TensorInt16Bit {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt16Bit;{98a32d39-e6d6-44af-8afa-baebc44dc020})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TensorInt16Bit {
     type Vtable = ITensorInt16Bit_Vtbl;
@@ -3198,7 +3198,7 @@ impl TensorInt32Bit {
     }
 }
 impl ::windows_core::RuntimeType for TensorInt32Bit {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt32Bit;{2c0c28d3-207c-4486-a7d2-884522c5e589})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TensorInt32Bit {
     type Vtable = ITensorInt32Bit_Vtbl;
@@ -3338,7 +3338,7 @@ impl TensorInt64Bit {
     }
 }
 impl ::windows_core::RuntimeType for TensorInt64Bit {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt64Bit;{499665ba-1fa2-45ad-af25-a0bd9bda4c87})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TensorInt64Bit {
     type Vtable = ITensorInt64Bit_Vtbl;
@@ -3478,7 +3478,7 @@ impl TensorInt8Bit {
     }
 }
 impl ::windows_core::RuntimeType for TensorInt8Bit {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt8Bit;{cddd97c5-ffd8-4fef-aefb-30e1a485b2ee})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TensorInt8Bit {
     type Vtable = ITensorInt8Bit_Vtbl;
@@ -3607,7 +3607,7 @@ impl TensorString {
     }
 }
 impl ::windows_core::RuntimeType for TensorString {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorString;{582335c8-bdb1-4610-bc75-35e9cbf009b7})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TensorString {
     type Vtable = ITensorString_Vtbl;
@@ -3747,7 +3747,7 @@ impl TensorUInt16Bit {
     }
 }
 impl ::windows_core::RuntimeType for TensorUInt16Bit {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt16Bit;{68140f4b-23c0-42f3-81f6-a891c011bc3f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TensorUInt16Bit {
     type Vtable = ITensorUInt16Bit_Vtbl;
@@ -3887,7 +3887,7 @@ impl TensorUInt32Bit {
     }
 }
 impl ::windows_core::RuntimeType for TensorUInt32Bit {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt32Bit;{d8c9c2ff-7511-45a3-bfac-c38f370d2237})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TensorUInt32Bit {
     type Vtable = ITensorUInt32Bit_Vtbl;
@@ -4027,7 +4027,7 @@ impl TensorUInt64Bit {
     }
 }
 impl ::windows_core::RuntimeType for TensorUInt64Bit {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt64Bit;{2e70ffad-04bf-4825-839a-82baef8c7886})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TensorUInt64Bit {
     type Vtable = ITensorUInt64Bit_Vtbl;
@@ -4167,7 +4167,7 @@ impl TensorUInt8Bit {
     }
 }
 impl ::windows_core::RuntimeType for TensorUInt8Bit {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt8Bit;{58e1ae27-622b-48e3-be22-d867aed1daac})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TensorUInt8Bit {
     type Vtable = ITensorUInt8Bit_Vtbl;

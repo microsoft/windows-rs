@@ -191,7 +191,7 @@ impl EndpointPair {
     }
 }
 impl ::windows_core::RuntimeType for EndpointPair {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.EndpointPair;{33a0aa36-f8fa-4b30-b856-76517c3bd06d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for EndpointPair {
     type Vtable = IEndpointPair_Vtbl;
@@ -289,7 +289,7 @@ impl HostName {
     }
 }
 impl ::windows_core::RuntimeType for HostName {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.HostName;{bf8ecaad-ed96-49a7-9084-d416cae88dcb})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for HostName {
     type Vtable = IHostName_Vtbl;

@@ -519,7 +519,7 @@ impl AccountsSettingsPane {
     }
 }
 impl ::windows_core::RuntimeType for AccountsSettingsPane {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.AccountsSettingsPane;{81ea942c-4f09-4406-a538-838d9b14b7e6})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AccountsSettingsPane {
     type Vtable = IAccountsSettingsPane_Vtbl;
@@ -600,7 +600,7 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
     }
 }
 impl ::windows_core::RuntimeType for AccountsSettingsPaneCommandsRequestedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.AccountsSettingsPaneCommandsRequestedEventArgs;{3b68c099-db19-45d0-9abf-95d3773c9330})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AccountsSettingsPaneCommandsRequestedEventArgs {
     type Vtable = IAccountsSettingsPaneCommandsRequestedEventArgs_Vtbl;
@@ -622,7 +622,7 @@ impl AccountsSettingsPaneEventDeferral {
     }
 }
 impl ::windows_core::RuntimeType for AccountsSettingsPaneEventDeferral {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.AccountsSettingsPaneEventDeferral;{cbf25d3f-e5ba-40ef-93da-65e096e5fb04})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AccountsSettingsPaneEventDeferral {
     type Vtable = IAccountsSettingsPaneEventDeferral_Vtbl;
@@ -684,7 +684,7 @@ impl CredentialCommand {
     }
 }
 impl ::windows_core::RuntimeType for CredentialCommand {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.CredentialCommand;{a5f665e6-6143-4a7a-a971-b017ba978ce2})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CredentialCommand {
     type Vtable = ICredentialCommand_Vtbl;
@@ -787,7 +787,7 @@ impl SettingsCommand {
 }
 #[cfg(feature = "UI_Popups")]
 impl ::windows_core::RuntimeType for SettingsCommand {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.SettingsCommand;{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "UI_Popups")]
 unsafe impl ::windows_core::Interface for SettingsCommand {
@@ -860,7 +860,7 @@ impl SettingsPane {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeType for SettingsPane {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.SettingsPane;{b1cd0932-4570-4c69-8d38-89446561ace0})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for SettingsPane {
@@ -895,7 +895,7 @@ impl SettingsPaneCommandsRequest {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeType for SettingsPaneCommandsRequest {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.SettingsPaneCommandsRequest;{44df23ae-5d6e-4068-a168-f47643182114})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for SettingsPaneCommandsRequest {
@@ -930,7 +930,7 @@ impl SettingsPaneCommandsRequestedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeType for SettingsPaneCommandsRequestedEventArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.SettingsPaneCommandsRequestedEventArgs;{205f5d24-1b48-4629-a6ca-2fdfedafb75d})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for SettingsPaneCommandsRequestedEventArgs {
@@ -992,7 +992,7 @@ impl WebAccountCommand {
     }
 }
 impl ::windows_core::RuntimeType for WebAccountCommand {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.WebAccountCommand;{caa39398-9cfa-4246-b0c4-a913a3896541})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WebAccountCommand {
     type Vtable = IWebAccountCommand_Vtbl;
@@ -1017,7 +1017,7 @@ impl WebAccountInvokedArgs {
     }
 }
 impl ::windows_core::RuntimeType for WebAccountInvokedArgs {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.WebAccountInvokedArgs;{e7abcc40-a1d8-4c5d-9a7f-1d34b2f90ad2})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WebAccountInvokedArgs {
     type Vtable = IWebAccountInvokedArgs_Vtbl;
@@ -1068,7 +1068,7 @@ impl WebAccountProviderCommand {
     }
 }
 impl ::windows_core::RuntimeType for WebAccountProviderCommand {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.WebAccountProviderCommand;{d69bdd9a-a0a6-4e9b-88dc-c71e757a3501})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WebAccountProviderCommand {
     type Vtable = IWebAccountProviderCommand_Vtbl;
@@ -1280,7 +1280,7 @@ unsafe impl ::windows_core::ComInterface for CredentialCommandCredentialDeletedH
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x61c0e185_0977_4678_b4e2_98727afbeed9);
 }
 impl ::windows_core::RuntimeType for CredentialCommandCredentialDeletedHandler {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{61c0e185-0977-4678-b4e2-98727afbeed9}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1353,7 +1353,7 @@ unsafe impl ::windows_core::ComInterface for WebAccountCommandInvokedHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ee6e459_1705_4a9a_b599_a0c3d6921973);
 }
 impl ::windows_core::RuntimeType for WebAccountCommandInvokedHandler {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{1ee6e459-1705-4a9a-b599-a0c3d6921973}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1425,7 +1425,7 @@ unsafe impl ::windows_core::ComInterface for WebAccountProviderCommandInvokedHan
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb7de5527_4c8f_42dd_84da_5ec493abdb9a);
 }
 impl ::windows_core::RuntimeType for WebAccountProviderCommandInvokedHandler {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{b7de5527-4c8f-42dd-84da-5ec493abdb9a}");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 #[doc(hidden)]

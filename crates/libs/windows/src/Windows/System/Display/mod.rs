@@ -36,7 +36,7 @@ impl DisplayRequest {
     }
 }
 impl ::windows_core::RuntimeType for DisplayRequest {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Display.DisplayRequest;{e5732044-f49f-4b60-8dd4-5e7e3a632ac0})");
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for DisplayRequest {
     type Vtable = IDisplayRequest_Vtbl;
