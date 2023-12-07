@@ -639,42 +639,39 @@ impl Writer {
     pub fn interface_winrt_trait(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, _phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
         if def.flags().contains(TypeAttributes::WindowsRuntime) {
             let type_signature = if def.kind() == TypeKind::Class {
-                let type_signature = Literal::byte_string(type_def_signature(def, generics).as_bytes());
-                quote! { ::windows_core::imp::ConstBuffer::from_slice(#type_signature) }
+                quote! { ::windows_core::imp::ConstBuffer::for_class::<Self>() }
+            } else if generics.is_empty() {
+                quote! { ::windows_core::imp::ConstBuffer::for_interface::<Self>() }
             } else {
                 let signature = Literal::byte_string(
                     // TODO: workaround for riddle winmd generation (no attribute support)
                     if let Some(guid) = type_def_guid(def) { format!("{{{:#?}}}", guid) } else { "TODO".to_string() }.as_bytes(),
                 );
 
-                if generics.is_empty() {
-                    quote! { ::windows_core::imp::ConstBuffer::from_slice(#signature) }
-                } else {
-                    let generics = generics.iter().enumerate().map(|(index, g)| {
-                        let g = self.type_name(g);
-                        let semi = if index != generics.len() - 1 {
-                            Some(quote! {
-                                .push_slice(b";")
-                            })
-                        } else {
-                            None
-                        };
-
-                        quote! {
-                            .push_other(<#g as ::windows_core::RuntimeType>::SIGNATURE)
-                            #semi
-                        }
-                    });
+                let generics = generics.iter().enumerate().map(|(index, g)| {
+                    let g = self.type_name(g);
+                    let semi = if index != generics.len() - 1 {
+                        Some(quote! {
+                            .push_slice(b";")
+                        })
+                    } else {
+                        None
+                    };
 
                     quote! {
-                        {
-                            ::windows_core::imp::ConstBuffer::new()
-                            .push_slice(b"pinterface(")
-                            .push_slice(#signature)
-                            .push_slice(b";")
-                            #(#generics)*
-                            .push_slice(b")")
-                        }
+                        .push_other(<#g as ::windows_core::RuntimeType>::SIGNATURE)
+                        #semi
+                    }
+                });
+
+                quote! {
+                    {
+                        ::windows_core::imp::ConstBuffer::new()
+                        .push_slice(b"pinterface(")
+                        .push_slice(#signature)
+                        .push_slice(b";")
+                        #(#generics)*
+                        .push_slice(b")")
                     }
                 }
             };
