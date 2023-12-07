@@ -20,15 +20,6 @@ pub use sha1::*;
 pub use waiter::*;
 pub use weak_ref_count::*;
 
-// This is a workaround since 1.56 does not include `bool::then_some`.
-pub fn then_some<T>(value: bool, t: T) -> Option<T> {
-    if value {
-        Some(t)
-    } else {
-        None
-    }
-}
-
 pub fn wide_trim_end(mut wide: &[u16]) -> &[u16] {
     while let Some(last) = wide.last() {
         match last {
