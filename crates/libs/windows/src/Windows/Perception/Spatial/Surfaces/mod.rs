@@ -13,22 +13,13 @@ unsafe impl ::windows_core::ComInterface for ISpatialSurfaceInfo {
 pub struct ISpatialSurfaceInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub UpdateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    UpdateTime: usize,
     #[cfg(feature = "Foundation_Numerics")]
     pub TryGetBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     TryGetBounds: usize,
-    #[cfg(feature = "Foundation")]
     pub TryComputeLatestMeshAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxtrianglespercubicmeter: f64, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryComputeLatestMeshAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub TryComputeLatestMeshWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxtrianglespercubicmeter: f64, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryComputeLatestMeshWithOptionsAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -170,14 +161,8 @@ pub struct ISpatialSurfaceObserver_Vtbl {
     pub SetBoundingVolumes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bounds: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     SetBoundingVolumes: usize,
-    #[cfg(feature = "Foundation")]
     pub ObservedSurfacesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ObservedSurfacesChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveObservedSurfacesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveObservedSurfacesChanged: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -193,10 +178,7 @@ unsafe impl ::windows_core::ComInterface for ISpatialSurfaceObserverStatics {
 #[doc(hidden)]
 pub struct ISpatialSurfaceObserverStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub RequestAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestAccessAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -225,8 +207,6 @@ impl SpatialSurfaceInfo {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn UpdateTime(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -246,8 +226,6 @@ impl SpatialSurfaceInfo {
             (::windows_core::Interface::vtable(this).TryGetBounds)(::windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn TryComputeLatestMeshAsync(&self, maxtrianglespercubicmeter: f64) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>> {
         let this = self;
         unsafe {
@@ -255,8 +233,6 @@ impl SpatialSurfaceInfo {
             (::windows_core::Interface::vtable(this).TryComputeLatestMeshAsync)(::windows_core::Interface::as_raw(this), maxtrianglespercubicmeter, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn TryComputeLatestMeshWithOptionsAsync<P0>(&self, maxtrianglespercubicmeter: f64, options: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>
     where
         P0: ::windows_core::IntoParam<SpatialSurfaceMeshOptions>,
@@ -547,8 +523,6 @@ impl SpatialSurfaceObserver {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetBoundingVolumes)(::windows_core::Interface::as_raw(this), bounds.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ObservedSurfacesChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialSurfaceObserver, ::windows_core::IInspectable>>,
@@ -559,14 +533,10 @@ impl SpatialSurfaceObserver {
             (::windows_core::Interface::vtable(this).ObservedSurfacesChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveObservedSurfacesChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveObservedSurfacesChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync() -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::SpatialPerceptionAccessStatus>> {
         Self::ISpatialSurfaceObserverStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();

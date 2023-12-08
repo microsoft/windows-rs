@@ -1,13 +1,9 @@
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IInkPointFactory_Impl: Sized {
     fn CreateInkPoint(&self, position: &super::super::super::Foundation::Point, pressure: f32) -> ::windows_core::Result<InkPoint>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IInkPointFactory {
     const NAME: &'static str = "Windows.UI.Input.Inking.IInkPointFactory";
 }
-#[cfg(feature = "Foundation")]
 impl IInkPointFactory_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkPointFactory_Impl, const OFFSET: isize>() -> IInkPointFactory_Vtbl {
         unsafe extern "system" fn CreateInkPoint<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkPointFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: super::super::super::Foundation::Point, pressure: f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

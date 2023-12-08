@@ -1,62 +1,51 @@
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CfCloseHandle(filehandle : super::super::Foundation:: HANDLE));
+::windows_targets::link!("cldapi.dll" "system" fn CfCloseHandle(filehandle : super::super::Foundation:: HANDLE));
 #[cfg(feature = "Win32_System_CorrelationVector")]
 ::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_System_CorrelationVector\"`"] fn CfConnectSyncRoot(syncrootpath : ::windows_sys::core::PCWSTR, callbacktable : *const CF_CALLBACK_REGISTRATION, callbackcontext : *const ::core::ffi::c_void, connectflags : CF_CONNECT_FLAGS, connectionkey : *mut CF_CONNECTION_KEY) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn CfConvertToPlaceholder(filehandle : super::super::Foundation:: HANDLE, fileidentity : *const ::core::ffi::c_void, fileidentitylength : u32, convertflags : CF_CONVERT_FLAGS, convertusn : *mut i64, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn CfConvertToPlaceholder(filehandle : super::super::Foundation:: HANDLE, fileidentity : *const ::core::ffi::c_void, fileidentitylength : u32, convertflags : CF_CONVERT_FLAGS, convertusn : *mut i64, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Storage_FileSystem")]
 ::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Storage_FileSystem\"`"] fn CfCreatePlaceholders(basedirectorypath : ::windows_sys::core::PCWSTR, placeholderarray : *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount : u32, createflags : CF_CREATE_FLAGS, entriesprocessed : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn CfDehydratePlaceholder(filehandle : super::super::Foundation:: HANDLE, startingoffset : i64, length : i64, dehydrateflags : CF_DEHYDRATE_FLAGS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn CfDehydratePlaceholder(filehandle : super::super::Foundation:: HANDLE, startingoffset : i64, length : i64, dehydrateflags : CF_DEHYDRATE_FLAGS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("cldapi.dll" "system" fn CfDisconnectSyncRoot(connectionkey : CF_CONNECTION_KEY) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_CorrelationVector"))]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_CorrelationVector\"`"] fn CfExecute(opinfo : *const CF_OPERATION_INFO, opparams : *mut CF_OPERATION_PARAMETERS) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_CorrelationVector\"`"] fn CfGetCorrelationVector(filehandle : super::super::Foundation:: HANDLE, correlationvector : *mut super::super::System::CorrelationVector:: CORRELATION_VECTOR) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CfGetPlaceholderInfo(filehandle : super::super::Foundation:: HANDLE, infoclass : CF_PLACEHOLDER_INFO_CLASS, infobuffer : *mut ::core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CfGetPlaceholderRangeInfo(filehandle : super::super::Foundation:: HANDLE, infoclass : CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset : i64, length : i64, infobuffer : *mut ::core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_CorrelationVector"))]
+::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_System_CorrelationVector\"`"] fn CfExecute(opinfo : *const CF_OPERATION_INFO, opparams : *mut CF_OPERATION_PARAMETERS) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_CorrelationVector")]
+::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_System_CorrelationVector\"`"] fn CfGetCorrelationVector(filehandle : super::super::Foundation:: HANDLE, correlationvector : *mut super::super::System::CorrelationVector:: CORRELATION_VECTOR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("cldapi.dll" "system" fn CfGetPlaceholderInfo(filehandle : super::super::Foundation:: HANDLE, infoclass : CF_PLACEHOLDER_INFO_CLASS, infobuffer : *mut ::core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("cldapi.dll" "system" fn CfGetPlaceholderRangeInfo(filehandle : super::super::Foundation:: HANDLE, infoclass : CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset : i64, length : i64, infobuffer : *mut ::core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("cldapi.dll" "system" fn CfGetPlaceholderRangeInfoForHydration(connectionkey : CF_CONNECTION_KEY, transferkey : i64, fileid : i64, infoclass : CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset : i64, rangelength : i64, infobuffer : *mut ::core::ffi::c_void, infobuffersize : u32, infobufferwritten : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("cldapi.dll" "system" fn CfGetPlaceholderStateFromAttributeTag(fileattributes : u32, reparsetag : u32) -> CF_PLACEHOLDER_STATE);
 #[cfg(feature = "Win32_Storage_FileSystem")]
 ::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Storage_FileSystem\"`"] fn CfGetPlaceholderStateFromFileInfo(infobuffer : *const ::core::ffi::c_void, infoclass : super::FileSystem:: FILE_INFO_BY_HANDLE_CLASS) -> CF_PLACEHOLDER_STATE);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`"] fn CfGetPlaceholderStateFromFindData(finddata : *const super::FileSystem:: WIN32_FIND_DATAA) -> CF_PLACEHOLDER_STATE);
+#[cfg(feature = "Win32_Storage_FileSystem")]
+::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Storage_FileSystem\"`"] fn CfGetPlaceholderStateFromFindData(finddata : *const super::FileSystem:: WIN32_FIND_DATAA) -> CF_PLACEHOLDER_STATE);
 ::windows_targets::link!("cldapi.dll" "system" fn CfGetPlatformInfo(platformversion : *mut CF_PLATFORM_INFO) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CfGetSyncRootInfoByHandle(filehandle : super::super::Foundation:: HANDLE, infoclass : CF_SYNC_ROOT_INFO_CLASS, infobuffer : *mut ::core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("cldapi.dll" "system" fn CfGetSyncRootInfoByHandle(filehandle : super::super::Foundation:: HANDLE, infoclass : CF_SYNC_ROOT_INFO_CLASS, infobuffer : *mut ::core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("cldapi.dll" "system" fn CfGetSyncRootInfoByPath(filepath : ::windows_sys::core::PCWSTR, infoclass : CF_SYNC_ROOT_INFO_CLASS, infobuffer : *mut ::core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CfGetTransferKey(filehandle : super::super::Foundation:: HANDLE, transferkey : *mut i64) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CfGetWin32HandleFromProtectedHandle(protectedhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn CfHydratePlaceholder(filehandle : super::super::Foundation:: HANDLE, startingoffset : i64, length : i64, hydrateflags : CF_HYDRATE_FLAGS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CfOpenFileWithOplock(filepath : ::windows_sys::core::PCWSTR, flags : CF_OPEN_FILE_FLAGS, protectedhandle : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("cldapi.dll" "system" fn CfGetTransferKey(filehandle : super::super::Foundation:: HANDLE, transferkey : *mut i64) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("cldapi.dll" "system" fn CfGetWin32HandleFromProtectedHandle(protectedhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn CfHydratePlaceholder(filehandle : super::super::Foundation:: HANDLE, startingoffset : i64, length : i64, hydrateflags : CF_HYDRATE_FLAGS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("cldapi.dll" "system" fn CfOpenFileWithOplock(filepath : ::windows_sys::core::PCWSTR, flags : CF_OPEN_FILE_FLAGS, protectedhandle : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("cldapi.dll" "system" fn CfQuerySyncProviderStatus(connectionkey : CF_CONNECTION_KEY, providerstatus : *mut CF_SYNC_PROVIDER_STATUS) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CfReferenceProtectedHandle(protectedhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("cldapi.dll" "system" fn CfReferenceProtectedHandle(protectedhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("cldapi.dll" "system" fn CfRegisterSyncRoot(syncrootpath : ::windows_sys::core::PCWSTR, registration : *const CF_SYNC_REGISTRATION, policies : *const CF_SYNC_POLICIES, registerflags : CF_REGISTER_FLAGS) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CfReleaseProtectedHandle(protectedhandle : super::super::Foundation:: HANDLE));
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CfReleaseTransferKey(filehandle : super::super::Foundation:: HANDLE, transferkey : *const i64));
+::windows_targets::link!("cldapi.dll" "system" fn CfReleaseProtectedHandle(protectedhandle : super::super::Foundation:: HANDLE));
+::windows_targets::link!("cldapi.dll" "system" fn CfReleaseTransferKey(filehandle : super::super::Foundation:: HANDLE, transferkey : *const i64));
 ::windows_targets::link!("cldapi.dll" "system" fn CfReportProviderProgress(connectionkey : CF_CONNECTION_KEY, transferkey : i64, providerprogresstotal : i64, providerprogresscompleted : i64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("cldapi.dll" "system" fn CfReportProviderProgress2(connectionkey : CF_CONNECTION_KEY, transferkey : i64, requestkey : i64, providerprogresstotal : i64, providerprogresscompleted : i64, targetsessionid : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("cldapi.dll" "system" fn CfReportSyncStatus(syncrootpath : ::windows_sys::core::PCWSTR, syncstatus : *const CF_SYNC_STATUS) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn CfRevertPlaceholder(filehandle : super::super::Foundation:: HANDLE, revertflags : CF_REVERT_FLAGS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_CorrelationVector\"`"] fn CfSetCorrelationVector(filehandle : super::super::Foundation:: HANDLE, correlationvector : *const super::super::System::CorrelationVector:: CORRELATION_VECTOR) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CfSetInSyncState(filehandle : super::super::Foundation:: HANDLE, insyncstate : CF_IN_SYNC_STATE, insyncflags : CF_SET_IN_SYNC_FLAGS, insyncusn : *mut i64) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn CfSetPinState(filehandle : super::super::Foundation:: HANDLE, pinstate : CF_PIN_STATE, pinflags : CF_SET_PIN_FLAGS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn CfRevertPlaceholder(filehandle : super::super::Foundation:: HANDLE, revertflags : CF_REVERT_FLAGS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_CorrelationVector")]
+::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_System_CorrelationVector\"`"] fn CfSetCorrelationVector(filehandle : super::super::Foundation:: HANDLE, correlationvector : *const super::super::System::CorrelationVector:: CORRELATION_VECTOR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("cldapi.dll" "system" fn CfSetInSyncState(filehandle : super::super::Foundation:: HANDLE, insyncstate : CF_IN_SYNC_STATE, insyncflags : CF_SET_IN_SYNC_FLAGS, insyncusn : *mut i64) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn CfSetPinState(filehandle : super::super::Foundation:: HANDLE, pinstate : CF_PIN_STATE, pinflags : CF_SET_PIN_FLAGS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("cldapi.dll" "system" fn CfUnregisterSyncRoot(syncrootpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO"))]
-::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_IO\"`"] fn CfUpdatePlaceholder(filehandle : super::super::Foundation:: HANDLE, fsmetadata : *const CF_FS_METADATA, fileidentity : *const ::core::ffi::c_void, fileidentitylength : u32, dehydraterangearray : *const CF_FILE_RANGE, dehydraterangecount : u32, updateflags : CF_UPDATE_FLAGS, updateusn : *mut i64, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO"))]
+::windows_targets::link!("cldapi.dll" "system" #[doc = "Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_System_IO\"`"] fn CfUpdatePlaceholder(filehandle : super::super::Foundation:: HANDLE, fsmetadata : *const CF_FS_METADATA, fileidentity : *const ::core::ffi::c_void, fileidentitylength : u32, dehydraterangearray : *const CF_FILE_RANGE, dehydraterangecount : u32, updateflags : CF_UPDATE_FLAGS, updateusn : *mut i64, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("cldapi.dll" "system" fn CfUpdateSyncProviderStatus(connectionkey : CF_CONNECTION_KEY, providerstatus : CF_SYNC_PROVIDER_STATUS) -> ::windows_sys::core::HRESULT);
 pub const CF_CALLBACK_CANCEL_FLAG_IO_ABORTED: CF_CALLBACK_CANCEL_FLAGS = 2i32;
 pub const CF_CALLBACK_CANCEL_FLAG_IO_TIMEOUT: CF_CALLBACK_CANCEL_FLAGS = 1i32;
@@ -586,23 +575,23 @@ impl ::core::clone::Clone for CF_OPERATION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct CF_OPERATION_PARAMETERS {
     pub ParamSize: u32,
     pub Anonymous: CF_OPERATION_PARAMETERS_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::marker::Copy for CF_OPERATION_PARAMETERS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub union CF_OPERATION_PARAMETERS_0 {
     pub TransferData: CF_OPERATION_PARAMETERS_0_6,
     pub RetrieveData: CF_OPERATION_PARAMETERS_0_5,
@@ -613,98 +602,98 @@ pub union CF_OPERATION_PARAMETERS_0 {
     pub AckRename: CF_OPERATION_PARAMETERS_0_3,
     pub AckDelete: CF_OPERATION_PARAMETERS_0_2,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct CF_OPERATION_PARAMETERS_0_0 {
     pub Flags: CF_OPERATION_ACK_DATA_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
     pub Offset: i64,
     pub Length: i64,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct CF_OPERATION_PARAMETERS_0_1 {
     pub Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
     pub FileIdentity: *const ::core::ffi::c_void,
     pub FileIdentityLength: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct CF_OPERATION_PARAMETERS_0_2 {
     pub Flags: CF_OPERATION_ACK_DELETE_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct CF_OPERATION_PARAMETERS_0_3 {
     pub Flags: CF_OPERATION_ACK_RENAME_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct CF_OPERATION_PARAMETERS_0_4 {
     pub Flags: CF_OPERATION_RESTART_HYDRATION_FLAGS,
     pub FsMetadata: *const CF_FS_METADATA,
     pub FileIdentity: *const ::core::ffi::c_void,
     pub FileIdentityLength: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_4 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_4 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct CF_OPERATION_PARAMETERS_0_5 {
     pub Flags: CF_OPERATION_RETRIEVE_DATA_FLAGS,
     pub Buffer: *mut ::core::ffi::c_void,
@@ -712,17 +701,17 @@ pub struct CF_OPERATION_PARAMETERS_0_5 {
     pub Length: i64,
     pub ReturnedLength: i64,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_5 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_5 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct CF_OPERATION_PARAMETERS_0_6 {
     pub Flags: CF_OPERATION_TRANSFER_DATA_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
@@ -730,17 +719,17 @@ pub struct CF_OPERATION_PARAMETERS_0_6 {
     pub Offset: i64,
     pub Length: i64,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_6 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_6 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct CF_OPERATION_PARAMETERS_0_7 {
     pub Flags: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
@@ -749,9 +738,9 @@ pub struct CF_OPERATION_PARAMETERS_0_7 {
     pub PlaceholderCount: u32,
     pub EntriesProcessed: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_7 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_7 {
     fn clone(&self) -> Self {
         *self

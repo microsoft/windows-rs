@@ -8,16 +8,16 @@ pub unsafe fn DrtContinueSearch(hsearchcontext: *const ::core::ffi::c_void) -> :
     ::windows_targets::link!("drt.dll" "system" fn DrtContinueSearch(hsearchcontext : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     DrtContinueSearch(hsearchcontext).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn DrtCreateDerivedKey(plocalcert: *const super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows_core::Result<DRT_DATA> {
     ::windows_targets::link!("drtprov.dll" "system" fn DrtCreateDerivedKey(plocalcert : *const super::super::Security::Cryptography:: CERT_CONTEXT, pkey : *mut DRT_DATA) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     DrtCreateDerivedKey(plocalcert, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn DrtCreateDerivedKeySecurityProvider(prootcert: *const super::super::Security::Cryptography::CERT_CONTEXT, plocalcert: ::core::option::Option<*const super::super::Security::Cryptography::CERT_CONTEXT>) -> ::windows_core::Result<*mut DRT_SECURITY_PROVIDER> {
     ::windows_targets::link!("drtprov.dll" "system" fn DrtCreateDerivedKeySecurityProvider(prootcert : *const super::super::Security::Cryptography:: CERT_CONTEXT, plocalcert : *const super::super::Security::Cryptography:: CERT_CONTEXT, ppsecurityprovider : *mut *mut DRT_SECURITY_PROVIDER) -> ::windows_core::HRESULT);
@@ -44,8 +44,6 @@ pub unsafe fn DrtCreateNullSecurityProvider() -> ::windows_core::Result<*mut DRT
     let mut result__ = ::std::mem::zeroed();
     DrtCreateNullSecurityProvider(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrtCreatePnrpBootstrapResolver<P0, P1, P2, P3>(fpublish: P0, pwzpeername: P1, pwzcloudname: P2, pwzpublishingidentity: P3) -> ::windows_core::Result<*mut DRT_BOOTSTRAP_PROVIDER>
 where
@@ -136,8 +134,6 @@ pub unsafe fn DrtGetSearchResultSize(hsearchcontext: *const ::core::ffi::c_void)
     let mut result__ = ::std::mem::zeroed();
     DrtGetSearchResultSize(hsearchcontext, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrtOpen<P0>(psettings: *const DRT_SETTINGS, hevent: P0, pvcontext: ::core::option::Option<*const ::core::ffi::c_void>, phdrt: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -151,8 +147,6 @@ pub unsafe fn DrtRegisterKey(hdrt: *const ::core::ffi::c_void, pregistration: *c
     ::windows_targets::link!("drt.dll" "system" fn DrtRegisterKey(hdrt : *const ::core::ffi::c_void, pregistration : *const DRT_REGISTRATION, pvkeycontext : *const ::core::ffi::c_void, phkeyregistration : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     DrtRegisterKey(hdrt, pregistration, ::core::mem::transmute(pvkeycontext.unwrap_or(::std::ptr::null())), phkeyregistration).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrtStartSearch<P0>(hdrt: *const ::core::ffi::c_void, pkey: *const DRT_DATA, pinfo: ::core::option::Option<*const DRT_SEARCH_INFO>, timeout: u32, hevent: P0, pvcontext: ::core::option::Option<*const ::core::ffi::c_void>, hsearchcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -171,8 +165,6 @@ pub unsafe fn DrtUpdateKey(hkeyregistration: *const ::core::ffi::c_void, pappdat
     ::windows_targets::link!("drt.dll" "system" fn DrtUpdateKey(hkeyregistration : *const ::core::ffi::c_void, pappdata : *const DRT_DATA) -> ::windows_core::HRESULT);
     DrtUpdateKey(hkeyregistration, pappdata).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerCollabAddContact<P0>(pwzcontactdata: P0, ppcontact: ::core::option::Option<*mut *mut PEER_CONTACT>) -> ::windows_core::Result<()>
 where
@@ -181,8 +173,8 @@ where
     ::windows_targets::link!("p2p.dll" "system" fn PeerCollabAddContact(pwzcontactdata : ::windows_core::PCWSTR, ppcontact : *mut *mut PEER_CONTACT) -> ::windows_core::HRESULT);
     PeerCollabAddContact(pwzcontactdata.into_param().abi(), ::core::mem::transmute(ppcontact.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn PeerCollabAsyncInviteContact<P0>(pccontact: ::core::option::Option<*const PEER_CONTACT>, pcendpoint: *const PEER_ENDPOINT, pcinvitation: *const PEER_INVITATION, hevent: P0, phinvitation: ::core::option::Option<*mut super::super::Foundation::HANDLE>) -> ::windows_core::Result<()>
 where
@@ -191,8 +183,8 @@ where
     ::windows_targets::link!("p2p.dll" "system" fn PeerCollabAsyncInviteContact(pccontact : *const PEER_CONTACT, pcendpoint : *const PEER_ENDPOINT, pcinvitation : *const PEER_INVITATION, hevent : super::super::Foundation:: HANDLE, phinvitation : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     PeerCollabAsyncInviteContact(::core::mem::transmute(pccontact.unwrap_or(::std::ptr::null())), pcendpoint, pcinvitation, hevent.into_param().abi(), ::core::mem::transmute(phinvitation.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn PeerCollabAsyncInviteEndpoint<P0>(pcendpoint: *const PEER_ENDPOINT, pcinvitation: *const PEER_INVITATION, hevent: P0, phinvitation: ::core::option::Option<*mut super::super::Foundation::HANDLE>) -> ::windows_core::Result<()>
 where
@@ -201,8 +193,6 @@ where
     ::windows_targets::link!("p2p.dll" "system" fn PeerCollabAsyncInviteEndpoint(pcendpoint : *const PEER_ENDPOINT, pcinvitation : *const PEER_INVITATION, hevent : super::super::Foundation:: HANDLE, phinvitation : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     PeerCollabAsyncInviteEndpoint(pcendpoint, pcinvitation, hevent.into_param().abi(), ::core::mem::transmute(phinvitation.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerCollabCancelInvitation<P0>(hinvitation: P0) -> ::windows_core::Result<()>
 where
@@ -211,8 +201,6 @@ where
     ::windows_targets::link!("p2p.dll" "system" fn PeerCollabCancelInvitation(hinvitation : super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     PeerCollabCancelInvitation(hinvitation.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerCollabCloseHandle<P0>(hinvitation: P0) -> ::windows_core::Result<()>
 where
@@ -258,8 +246,6 @@ pub unsafe fn PeerCollabEnumContacts(phpeerenum: *mut *mut ::core::ffi::c_void) 
     ::windows_targets::link!("p2p.dll" "system" fn PeerCollabEnumContacts(phpeerenum : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     PeerCollabEnumContacts(phpeerenum).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerCollabEnumEndpoints(pccontact: ::core::option::Option<*const PEER_CONTACT>, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
     ::windows_targets::link!("p2p.dll" "system" fn PeerCollabEnumEndpoints(pccontact : *const PEER_CONTACT, phpeerenum : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
@@ -286,8 +272,8 @@ where
     let mut result__ = ::std::mem::zeroed();
     PeerCollabExportContact(pwzpeername.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn PeerCollabGetAppLaunchInfo() -> ::windows_core::Result<*mut PEER_APP_LAUNCH_INFO> {
     ::windows_targets::link!("p2p.dll" "system" fn PeerCollabGetAppLaunchInfo(pplaunchinfo : *mut *mut PEER_APP_LAUNCH_INFO) -> ::windows_core::HRESULT);
@@ -300,8 +286,6 @@ pub unsafe fn PeerCollabGetApplicationRegistrationInfo(papplicationid: *const ::
     let mut result__ = ::std::mem::zeroed();
     PeerCollabGetApplicationRegistrationInfo(papplicationid, registrationtype, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerCollabGetContact<P0>(pwzpeername: P0) -> ::windows_core::Result<*mut PEER_CONTACT>
 where
@@ -317,16 +301,14 @@ pub unsafe fn PeerCollabGetEndpointName() -> ::windows_core::Result<::windows_co
     let mut result__ = ::std::mem::zeroed();
     PeerCollabGetEndpointName(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn PeerCollabGetEventData(hpeerevent: *const ::core::ffi::c_void) -> ::windows_core::Result<*mut PEER_COLLAB_EVENT_DATA> {
     ::windows_targets::link!("p2p.dll" "system" fn PeerCollabGetEventData(hpeerevent : *const ::core::ffi::c_void, ppeventdata : *mut *mut PEER_COLLAB_EVENT_DATA) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     PeerCollabGetEventData(hpeerevent, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerCollabGetInvitationResponse<P0>(hinvitation: P0) -> ::windows_core::Result<*mut PEER_INVITATION_RESPONSE>
 where
@@ -350,8 +332,8 @@ pub unsafe fn PeerCollabGetSigninOptions() -> ::windows_core::Result<u32> {
     let mut result__ = ::std::mem::zeroed();
     PeerCollabGetSigninOptions(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn PeerCollabInviteContact(pccontact: ::core::option::Option<*const PEER_CONTACT>, pcendpoint: *const PEER_ENDPOINT, pcinvitation: *const PEER_INVITATION) -> ::windows_core::Result<*mut PEER_INVITATION_RESPONSE> {
     ::windows_targets::link!("p2p.dll" "system" fn PeerCollabInviteContact(pccontact : *const PEER_CONTACT, pcendpoint : *const PEER_ENDPOINT, pcinvitation : *const PEER_INVITATION, ppresponse : *mut *mut PEER_INVITATION_RESPONSE) -> ::windows_core::HRESULT);
@@ -366,8 +348,6 @@ pub unsafe fn PeerCollabInviteEndpoint(pcendpoint: *const PEER_ENDPOINT, pcinvit
     let mut result__ = ::std::mem::zeroed();
     PeerCollabInviteEndpoint(pcendpoint, pcinvitation, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerCollabParseContact<P0>(pwzcontactdata: P0) -> ::windows_core::Result<*mut PEER_CONTACT>
 where
@@ -397,8 +377,6 @@ pub unsafe fn PeerCollabRegisterApplication(pcapplication: *const PEER_APPLICATI
     ::windows_targets::link!("p2p.dll" "system" fn PeerCollabRegisterApplication(pcapplication : *const PEER_APPLICATION_REGISTRATION_INFO, registrationtype : PEER_APPLICATION_REGISTRATION_TYPE) -> ::windows_core::HRESULT);
     PeerCollabRegisterApplication(pcapplication, registrationtype).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerCollabRegisterEvent<P0>(hevent: P0, peventregistrations: &[PEER_COLLAB_EVENT_REGISTRATION], phpeerevent: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -430,8 +408,6 @@ pub unsafe fn PeerCollabShutdown() -> ::windows_core::Result<()> {
     ::windows_targets::link!("p2p.dll" "system" fn PeerCollabShutdown() -> ::windows_core::HRESULT);
     PeerCollabShutdown().ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerCollabSignin<P0>(hwndparent: P0, dwsigninoptions: u32) -> ::windows_core::Result<()>
 where
@@ -474,8 +450,6 @@ pub unsafe fn PeerCollabUnsubscribeEndpointData(pcendpoint: *const PEER_ENDPOINT
     ::windows_targets::link!("p2p.dll" "system" fn PeerCollabUnsubscribeEndpointData(pcendpoint : *const PEER_ENDPOINT) -> ::windows_core::HRESULT);
     PeerCollabUnsubscribeEndpointData(pcendpoint).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerCollabUpdateContact(pcontact: *const PEER_CONTACT) -> ::windows_core::Result<()> {
     ::windows_targets::link!("p2p.dll" "system" fn PeerCollabUpdateContact(pcontact : *const PEER_CONTACT) -> ::windows_core::HRESULT);
@@ -491,29 +465,29 @@ where
     let mut result__ = ::std::mem::zeroed();
     PeerCreatePeerName(pwzidentity.into_param().abi(), pwzclassifier.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn PeerDistClientAddContentInformation(hpeerdist: isize, hcontenthandle: isize, pbuffer: &[u8], lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistClientAddContentInformation(hpeerdist : isize, hcontenthandle : isize, cbnumberofbytes : u32, pbuffer : *const u8, lpoverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
     PeerDistClientAddContentInformation(hpeerdist, hcontenthandle, pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr()), lpoverlapped)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn PeerDistClientAddData(hpeerdist: isize, hcontenthandle: isize, pbuffer: &[u8], lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistClientAddData(hpeerdist : isize, hcontenthandle : isize, cbnumberofbytes : u32, pbuffer : *const u8, lpoverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
     PeerDistClientAddData(hpeerdist, hcontenthandle, pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr()), lpoverlapped)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn PeerDistClientBlockRead(hpeerdist: isize, hcontenthandle: isize, pbuffer: ::core::option::Option<&mut [u8]>, dwtimeoutinmilliseconds: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistClientBlockRead(hpeerdist : isize, hcontenthandle : isize, cbmaxnumberofbytes : u32, pbuffer : *mut u8, dwtimeoutinmilliseconds : u32, lpoverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
     PeerDistClientBlockRead(hpeerdist, hcontenthandle, pbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwtimeoutinmilliseconds, lpoverlapped)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn PeerDistClientCancelAsyncOperation(hpeerdist: isize, hcontenthandle: isize, poverlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> u32 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistClientCancelAsyncOperation(hpeerdist : isize, hcontenthandle : isize, poverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
@@ -524,15 +498,15 @@ pub unsafe fn PeerDistClientCloseContent(hpeerdist: isize, hcontenthandle: isize
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistClientCloseContent(hpeerdist : isize, hcontenthandle : isize) -> u32);
     PeerDistClientCloseContent(hpeerdist, hcontenthandle)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn PeerDistClientCompleteContentInformation(hpeerdist: isize, hcontenthandle: isize, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistClientCompleteContentInformation(hpeerdist : isize, hcontenthandle : isize, lpoverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
     PeerDistClientCompleteContentInformation(hpeerdist, hcontenthandle, lpoverlapped)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn PeerDistClientFlushContent<P0>(hpeerdist: isize, pcontenttag: *const PEERDIST_CONTENT_TAG, hcompletionport: P0, ulcompletionkey: usize, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32
 where
@@ -546,8 +520,6 @@ pub unsafe fn PeerDistClientGetInformationByHandle(hpeerdist: isize, hcontenthan
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistClientGetInformationByHandle(hpeerdist : isize, hcontenthandle : isize, peerdistclientinfoclass : PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS, dwbuffersize : u32, lpinformation : *mut ::core::ffi::c_void) -> u32);
     PeerDistClientGetInformationByHandle(hpeerdist, hcontenthandle, peerdistclientinfoclass, dwbuffersize, lpinformation)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerDistClientOpenContent<P0>(hpeerdist: isize, pcontenttag: *const PEERDIST_CONTENT_TAG, hcompletionport: P0, ulcompletionkey: usize, phcontenthandle: *mut isize) -> u32
 where
@@ -556,15 +528,15 @@ where
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistClientOpenContent(hpeerdist : isize, pcontenttag : *const PEERDIST_CONTENT_TAG, hcompletionport : super::super::Foundation:: HANDLE, ulcompletionkey : usize, phcontenthandle : *mut isize) -> u32);
     PeerDistClientOpenContent(hpeerdist, pcontenttag, hcompletionport.into_param().abi(), ulcompletionkey, phcontenthandle)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn PeerDistClientStreamRead(hpeerdist: isize, hcontenthandle: isize, pbuffer: ::core::option::Option<&mut [u8]>, dwtimeoutinmilliseconds: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistClientStreamRead(hpeerdist : isize, hcontenthandle : isize, cbmaxnumberofbytes : u32, pbuffer : *mut u8, dwtimeoutinmilliseconds : u32, lpoverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
     PeerDistClientStreamRead(hpeerdist, hcontenthandle, pbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwtimeoutinmilliseconds, lpoverlapped)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn PeerDistGetOverlappedResult<P0>(lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: P0) -> super::super::Foundation::BOOL
 where
@@ -583,8 +555,8 @@ pub unsafe fn PeerDistGetStatusEx(hpeerdist: isize, ppeerdiststatus: *mut PEERDI
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistGetStatusEx(hpeerdist : isize, ppeerdiststatus : *mut PEERDIST_STATUS_INFO) -> u32);
     PeerDistGetStatusEx(hpeerdist, ppeerdiststatus)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn PeerDistRegisterForStatusChangeNotification<P0>(hpeerdist: isize, hcompletionport: P0, ulcompletionkey: usize, lpoverlapped: *const super::super::System::IO::OVERLAPPED, ppeerdiststatus: *mut PEERDIST_STATUS) -> u32
 where
@@ -593,8 +565,8 @@ where
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistRegisterForStatusChangeNotification(hpeerdist : isize, hcompletionport : super::super::Foundation:: HANDLE, ulcompletionkey : usize, lpoverlapped : *const super::super::System::IO:: OVERLAPPED, ppeerdiststatus : *mut PEERDIST_STATUS) -> u32);
     PeerDistRegisterForStatusChangeNotification(hpeerdist, hcompletionport.into_param().abi(), ulcompletionkey, lpoverlapped, ppeerdiststatus)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn PeerDistRegisterForStatusChangeNotificationEx<P0>(hpeerdist: isize, hcompletionport: P0, ulcompletionkey: usize, lpoverlapped: *const super::super::System::IO::OVERLAPPED, ppeerdiststatus: *mut PEERDIST_STATUS_INFO) -> u32
 where
@@ -603,8 +575,8 @@ where
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistRegisterForStatusChangeNotificationEx(hpeerdist : isize, hcompletionport : super::super::Foundation:: HANDLE, ulcompletionkey : usize, lpoverlapped : *const super::super::System::IO:: OVERLAPPED, ppeerdiststatus : *mut PEERDIST_STATUS_INFO) -> u32);
     PeerDistRegisterForStatusChangeNotificationEx(hpeerdist, hcompletionport.into_param().abi(), ulcompletionkey, lpoverlapped, ppeerdiststatus)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn PeerDistServerCancelAsyncOperation(hpeerdist: isize, pcontentidentifier: &[u8], poverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistServerCancelAsyncOperation(hpeerdist : isize, cbcontentidentifier : u32, pcontentidentifier : *const u8, poverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
@@ -620,8 +592,6 @@ pub unsafe fn PeerDistServerCloseStreamHandle(hpeerdist: isize, hstream: isize) 
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistServerCloseStreamHandle(hpeerdist : isize, hstream : isize) -> u32);
     PeerDistServerCloseStreamHandle(hpeerdist, hstream)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerDistServerOpenContentInformation<P0>(hpeerdist: isize, pcontentidentifier: &[u8], ullcontentoffset: u64, cbcontentlength: u64, hcompletionport: P0, ulcompletionkey: usize, phcontentinfo: *mut isize) -> u32
 where
@@ -630,8 +600,6 @@ where
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistServerOpenContentInformation(hpeerdist : isize, cbcontentidentifier : u32, pcontentidentifier : *const u8, ullcontentoffset : u64, cbcontentlength : u64, hcompletionport : super::super::Foundation:: HANDLE, ulcompletionkey : usize, phcontentinfo : *mut isize) -> u32);
     PeerDistServerOpenContentInformation(hpeerdist, pcontentidentifier.len().try_into().unwrap(), ::core::mem::transmute(pcontentidentifier.as_ptr()), ullcontentoffset, cbcontentlength, hcompletionport.into_param().abi(), ulcompletionkey, phcontentinfo)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerDistServerOpenContentInformationEx<P0>(hpeerdist: isize, pcontentidentifier: &[u8], ullcontentoffset: u64, cbcontentlength: u64, pretrievaloptions: *const PEERDIST_RETRIEVAL_OPTIONS, hcompletionport: P0, ulcompletionkey: usize, phcontentinfo: *mut isize) -> u32
 where
@@ -640,22 +608,20 @@ where
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistServerOpenContentInformationEx(hpeerdist : isize, cbcontentidentifier : u32, pcontentidentifier : *const u8, ullcontentoffset : u64, cbcontentlength : u64, pretrievaloptions : *const PEERDIST_RETRIEVAL_OPTIONS, hcompletionport : super::super::Foundation:: HANDLE, ulcompletionkey : usize, phcontentinfo : *mut isize) -> u32);
     PeerDistServerOpenContentInformationEx(hpeerdist, pcontentidentifier.len().try_into().unwrap(), ::core::mem::transmute(pcontentidentifier.as_ptr()), ullcontentoffset, cbcontentlength, pretrievaloptions, hcompletionport.into_param().abi(), ulcompletionkey, phcontentinfo)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn PeerDistServerPublishAddToStream(hpeerdist: isize, hstream: isize, pbuffer: &[u8], lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistServerPublishAddToStream(hpeerdist : isize, hstream : isize, cbnumberofbytes : u32, pbuffer : *const u8, lpoverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
     PeerDistServerPublishAddToStream(hpeerdist, hstream, pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr()), lpoverlapped)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn PeerDistServerPublishCompleteStream(hpeerdist: isize, hstream: isize, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistServerPublishCompleteStream(hpeerdist : isize, hstream : isize, lpoverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
     PeerDistServerPublishCompleteStream(hpeerdist, hstream, lpoverlapped)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerDistServerPublishStream<P0>(hpeerdist: isize, pcontentidentifier: &[u8], cbcontentlength: u64, ppublishoptions: ::core::option::Option<*const PEERDIST_PUBLICATION_OPTIONS>, hcompletionport: P0, ulcompletionkey: usize, phstream: *mut isize) -> u32
 where
@@ -664,8 +630,8 @@ where
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistServerPublishStream(hpeerdist : isize, cbcontentidentifier : u32, pcontentidentifier : *const u8, cbcontentlength : u64, ppublishoptions : *const PEERDIST_PUBLICATION_OPTIONS, hcompletionport : super::super::Foundation:: HANDLE, ulcompletionkey : usize, phstream : *mut isize) -> u32);
     PeerDistServerPublishStream(hpeerdist, pcontentidentifier.len().try_into().unwrap(), ::core::mem::transmute(pcontentidentifier.as_ptr()), cbcontentlength, ::core::mem::transmute(ppublishoptions.unwrap_or(::std::ptr::null())), hcompletionport.into_param().abi(), ulcompletionkey, phstream)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn PeerDistServerRetrieveContentInformation(hpeerdist: isize, hcontentinfo: isize, pbuffer: &mut [u8], lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     ::windows_targets::link!("peerdist.dll" "system" fn PeerDistServerRetrieveContentInformation(hpeerdist : isize, hcontentinfo : isize, cbmaxnumberofbytes : u32, pbuffer : *mut u8, lpoverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
@@ -725,8 +691,6 @@ pub unsafe fn PeerGetNextItem(hpeerenum: *const ::core::ffi::c_void, pcount: *mu
     ::windows_targets::link!("p2p.dll" "system" fn PeerGetNextItem(hpeerenum : *const ::core::ffi::c_void, pcount : *mut u32, pppvitems : *mut *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     PeerGetNextItem(hpeerenum, pcount, pppvitems).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerGraphAddRecord(hgraph: *const ::core::ffi::c_void, precord: *const PEER_RECORD) -> ::windows_core::Result<::windows_core::GUID> {
     ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphAddRecord(hgraph : *const ::core::ffi::c_void, precord : *const PEER_RECORD, precordid : *mut ::windows_core::GUID) -> ::windows_core::HRESULT);
@@ -754,8 +718,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     PeerGraphConnect(hgraph, pwzpeerid.into_param().abi(), paddress, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerGraphCreate<P0>(pgraphproperties: *const PEER_GRAPH_PROPERTIES, pwzdatabasename: P0, psecurityinterface: ::core::option::Option<*const PEER_SECURITY_INTERFACE>, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -774,8 +736,6 @@ where
     ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphDelete(pwzgraphid : ::windows_core::PCWSTR, pwzpeerid : ::windows_core::PCWSTR, pwzdatabasename : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     PeerGraphDelete(pwzgraphid.into_param().abi(), pwzpeerid.into_param().abi(), pwzdatabasename.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerGraphDeleteRecord<P0>(hgraph: *const ::core::ffi::c_void, precordid: *const ::windows_core::GUID, flocal: P0) -> ::windows_core::Result<()>
 where
@@ -854,8 +814,6 @@ pub unsafe fn PeerGraphGetProperties(hgraph: *const ::core::ffi::c_void) -> ::wi
     let mut result__ = ::std::mem::zeroed();
     PeerGraphGetProperties(hgraph, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerGraphGetRecord(hgraph: *const ::core::ffi::c_void, precordid: *const ::windows_core::GUID) -> ::windows_core::Result<*mut PEER_RECORD> {
     ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphGetRecord(hgraph : *const ::core::ffi::c_void, precordid : *const ::windows_core::GUID, pprecord : *mut *mut PEER_RECORD) -> ::windows_core::HRESULT);
@@ -881,8 +839,6 @@ pub unsafe fn PeerGraphListen(hgraph: *const ::core::ffi::c_void, dwscope: u32, 
     ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphListen(hgraph : *const ::core::ffi::c_void, dwscope : u32, dwscopeid : u32, wport : u16) -> ::windows_core::HRESULT);
     PeerGraphListen(hgraph, dwscope, dwscopeid, wport).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerGraphOpen<P0, P1, P2>(pwzgraphid: P0, pwzpeerid: P1, pwzdatabasename: P2, psecurityinterface: ::core::option::Option<*const PEER_SECURITY_INTERFACE>, precordtypesyncprecedence: ::core::option::Option<&[::windows_core::GUID]>, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -904,16 +860,12 @@ where
     let mut result__ = ::std::mem::zeroed();
     PeerGraphOpenDirectConnection(hgraph, pwzpeerid.into_param().abi(), paddress, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerGraphPeerTimeToUniversalTime(hgraph: *const ::core::ffi::c_void, pftpeertime: *const super::super::Foundation::FILETIME) -> ::windows_core::Result<super::super::Foundation::FILETIME> {
     ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphPeerTimeToUniversalTime(hgraph : *const ::core::ffi::c_void, pftpeertime : *const super::super::Foundation:: FILETIME, pftuniversaltime : *mut super::super::Foundation:: FILETIME) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     PeerGraphPeerTimeToUniversalTime(hgraph, pftpeertime, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerGraphRegisterEvent<P0>(hgraph: *const ::core::ffi::c_void, hevent: P0, peventregistrations: &[PEER_GRAPH_EVENT_REGISTRATION], phpeerevent: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -943,8 +895,6 @@ where
     ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphSetNodeAttributes(hgraph : *const ::core::ffi::c_void, pwzattributes : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     PeerGraphSetNodeAttributes(hgraph, pwzattributes.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerGraphSetPresence<P0>(hgraph: *const ::core::ffi::c_void, fpresent: P0) -> ::windows_core::Result<()>
 where
@@ -969,8 +919,6 @@ pub unsafe fn PeerGraphStartup(wversionrequested: u16) -> ::windows_core::Result
     let mut result__ = ::std::mem::zeroed();
     PeerGraphStartup(wversionrequested, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerGraphUniversalTimeToPeerTime(hgraph: *const ::core::ffi::c_void, pftuniversaltime: *const super::super::Foundation::FILETIME) -> ::windows_core::Result<super::super::Foundation::FILETIME> {
     ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphUniversalTimeToPeerTime(hgraph : *const ::core::ffi::c_void, pftuniversaltime : *const super::super::Foundation:: FILETIME, pftpeertime : *mut super::super::Foundation:: FILETIME) -> ::windows_core::HRESULT);
@@ -982,8 +930,6 @@ pub unsafe fn PeerGraphUnregisterEvent(hpeerevent: *const ::core::ffi::c_void) -
     ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphUnregisterEvent(hpeerevent : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     PeerGraphUnregisterEvent(hpeerevent).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerGraphUpdateRecord(hgraph: *const ::core::ffi::c_void, precord: *const PEER_RECORD) -> ::windows_core::Result<()> {
     ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphUpdateRecord(hgraph : *const ::core::ffi::c_void, precord : *const PEER_RECORD) -> ::windows_core::HRESULT);
@@ -994,8 +940,6 @@ pub unsafe fn PeerGraphValidateDeferredRecords(hgraph: *const ::core::ffi::c_voi
     ::windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphValidateDeferredRecords(hgraph : *const ::core::ffi::c_void, crecordids : u32, precordids : *const ::windows_core::GUID) -> ::windows_core::HRESULT);
     PeerGraphValidateDeferredRecords(hgraph, precordids.len().try_into().unwrap(), ::core::mem::transmute(precordids.as_ptr())).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerGroupAddRecord(hgroup: *const ::core::ffi::c_void, precord: *const PEER_RECORD) -> ::windows_core::Result<::windows_core::GUID> {
     ::windows_targets::link!("p2p.dll" "system" fn PeerGroupAddRecord(hgroup : *const ::core::ffi::c_void, precord : *const PEER_RECORD, precordid : *mut ::windows_core::GUID) -> ::windows_core::HRESULT);
@@ -1029,8 +973,6 @@ pub unsafe fn PeerGroupCreate(pproperties: *const PEER_GROUP_PROPERTIES, phgroup
     ::windows_targets::link!("p2p.dll" "system" fn PeerGroupCreate(pproperties : *const PEER_GROUP_PROPERTIES, phgroup : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     PeerGroupCreate(pproperties, phgroup).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerGroupCreateInvitation<P0>(hgroup: *const ::core::ffi::c_void, pwzidentityinfo: P0, pftexpiration: ::core::option::Option<*const super::super::Foundation::FILETIME>, proles: ::core::option::Option<&[::windows_core::GUID]>) -> ::windows_core::Result<::windows_core::PWSTR>
 where
@@ -1107,8 +1049,6 @@ pub unsafe fn PeerGroupGetProperties(hgroup: *const ::core::ffi::c_void) -> ::wi
     let mut result__ = ::std::mem::zeroed();
     PeerGroupGetProperties(hgroup, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerGroupGetRecord(hgroup: *const ::core::ffi::c_void, precordid: *const ::windows_core::GUID) -> ::windows_core::Result<*mut PEER_RECORD> {
     ::windows_targets::link!("p2p.dll" "system" fn PeerGroupGetRecord(hgroup : *const ::core::ffi::c_void, precordid : *const ::windows_core::GUID, pprecord : *mut *mut PEER_RECORD) -> ::windows_core::HRESULT);
@@ -1121,8 +1061,6 @@ pub unsafe fn PeerGroupGetStatus(hgroup: *const ::core::ffi::c_void) -> ::window
     let mut result__ = ::std::mem::zeroed();
     PeerGroupGetStatus(hgroup, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerGroupImportConfig<P0, P1, P2>(pwzxml: P0, pwzpassword: P1, foverwrite: P2, ppwzidentity: *mut ::windows_core::PWSTR, ppwzgroup: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>
 where
@@ -1141,8 +1079,8 @@ where
     ::windows_targets::link!("p2p.dll" "system" fn PeerGroupImportDatabase(hgroup : *const ::core::ffi::c_void, pwzfilepath : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     PeerGroupImportDatabase(hgroup, pwzfilepath.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn PeerGroupIssueCredentials<P0>(hgroup: *const ::core::ffi::c_void, pwzsubjectidentity: P0, pcredentialinfo: ::core::option::Option<*const PEER_CREDENTIAL_INFO>, dwflags: u32, ppwzinvitation: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()>
 where
@@ -1182,8 +1120,8 @@ where
     let mut result__ = ::std::mem::zeroed();
     PeerGroupOpenDirectConnection(hgroup, pwzidentity.into_param().abi(), paddress, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn PeerGroupParseInvitation<P0>(pwzinvitation: P0) -> ::windows_core::Result<*mut PEER_INVITATION_INFO>
 where
@@ -1204,16 +1142,12 @@ where
     ::windows_targets::link!("p2p.dll" "system" fn PeerGroupPasswordJoin(pwzidentity : ::windows_core::PCWSTR, pwzinvitation : ::windows_core::PCWSTR, pwzpassword : ::windows_core::PCWSTR, pwzcloud : ::windows_core::PCWSTR, phgroup : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     PeerGroupPasswordJoin(pwzidentity.into_param().abi(), pwzinvitation.into_param().abi(), pwzpassword.into_param().abi(), pwzcloud.into_param().abi(), phgroup).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerGroupPeerTimeToUniversalTime(hgroup: *const ::core::ffi::c_void, pftpeertime: *const super::super::Foundation::FILETIME) -> ::windows_core::Result<super::super::Foundation::FILETIME> {
     ::windows_targets::link!("p2p.dll" "system" fn PeerGroupPeerTimeToUniversalTime(hgroup : *const ::core::ffi::c_void, pftpeertime : *const super::super::Foundation:: FILETIME, pftuniversaltime : *mut super::super::Foundation:: FILETIME) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     PeerGroupPeerTimeToUniversalTime(hgroup, pftpeertime, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerGroupRegisterEvent<P0>(hgroup: *const ::core::ffi::c_void, hevent: P0, peventregistrations: &[PEER_GROUP_EVENT_REGISTRATION], phpeerevent: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -1256,8 +1190,6 @@ pub unsafe fn PeerGroupStartup(wversionrequested: u16) -> ::windows_core::Result
     let mut result__ = ::std::mem::zeroed();
     PeerGroupStartup(wversionrequested, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerGroupUniversalTimeToPeerTime(hgroup: *const ::core::ffi::c_void, pftuniversaltime: *const super::super::Foundation::FILETIME) -> ::windows_core::Result<super::super::Foundation::FILETIME> {
     ::windows_targets::link!("p2p.dll" "system" fn PeerGroupUniversalTimeToPeerTime(hgroup : *const ::core::ffi::c_void, pftuniversaltime : *const super::super::Foundation:: FILETIME, pftpeertime : *mut super::super::Foundation:: FILETIME) -> ::windows_core::HRESULT);
@@ -1269,8 +1201,6 @@ pub unsafe fn PeerGroupUnregisterEvent(hpeerevent: *const ::core::ffi::c_void) -
     ::windows_targets::link!("p2p.dll" "system" fn PeerGroupUnregisterEvent(hpeerevent : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     PeerGroupUnregisterEvent(hpeerevent).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerGroupUpdateRecord(hgroup: *const ::core::ffi::c_void, precord: *const PEER_RECORD) -> ::windows_core::Result<()> {
     ::windows_targets::link!("p2p.dll" "system" fn PeerGroupUpdateRecord(hgroup : *const ::core::ffi::c_void, precord : *const PEER_RECORD) -> ::windows_core::HRESULT);
@@ -1418,8 +1348,6 @@ pub unsafe fn PeerPnrpShutdown() -> ::windows_core::Result<()> {
     ::windows_targets::link!("p2p.dll" "system" fn PeerPnrpShutdown() -> ::windows_core::HRESULT);
     PeerPnrpShutdown().ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerPnrpStartResolve<P0, P1, P2>(pcwzpeername: P0, pcwzcloudname: P1, cmaxendpoints: u32, hevent: P2, phresolve: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -2984,8 +2912,6 @@ impl ::core::default::Default for DRT_REGISTRATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DRT_SEARCH_INFO {
     pub dwSize: u32,
     pub fIterative: super::super::Foundation::BOOL,
@@ -2995,33 +2921,26 @@ pub struct DRT_SEARCH_INFO {
     pub pMaximumKey: *mut DRT_DATA,
     pub pMinimumKey: *mut DRT_DATA,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DRT_SEARCH_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DRT_SEARCH_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DRT_SEARCH_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DRT_SEARCH_INFO").field("dwSize", &self.dwSize).field("fIterative", &self.fIterative).field("fAllowCurrentInstanceMatch", &self.fAllowCurrentInstanceMatch).field("fAnyMatchInRange", &self.fAnyMatchInRange).field("cMaxEndpoints", &self.cMaxEndpoints).field("pMaximumKey", &self.pMaximumKey).field("pMinimumKey", &self.pMinimumKey).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DRT_SEARCH_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DRT_SEARCH_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.fIterative == other.fIterative && self.fAllowCurrentInstanceMatch == other.fAllowCurrentInstanceMatch && self.fAnyMatchInRange == other.fAnyMatchInRange && self.cMaxEndpoints == other.cMaxEndpoints && self.pMaximumKey == other.pMaximumKey && self.pMinimumKey == other.pMinimumKey
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DRT_SEARCH_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DRT_SEARCH_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3166,38 +3085,29 @@ impl ::core::default::Default for DRT_SETTINGS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PEERDIST_CLIENT_BASIC_INFO {
     pub fFlashCrowd: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEERDIST_CLIENT_BASIC_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEERDIST_CLIENT_BASIC_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PEERDIST_CLIENT_BASIC_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PEERDIST_CLIENT_BASIC_INFO").field("fFlashCrowd", &self.fFlashCrowd).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for PEERDIST_CLIENT_BASIC_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PEERDIST_CLIENT_BASIC_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.fFlashCrowd == other.fFlashCrowd
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PEERDIST_CLIENT_BASIC_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEERDIST_CLIENT_BASIC_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3415,73 +3325,73 @@ impl ::core::default::Default for PEER_APPLICATION_REGISTRATION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct PEER_APP_LAUNCH_INFO {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
     pub pInvitation: *mut PEER_INVITATION,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for PEER_APP_LAUNCH_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for PEER_APP_LAUNCH_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::fmt::Debug for PEER_APP_LAUNCH_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PEER_APP_LAUNCH_INFO").field("pContact", &self.pContact).field("pEndpoint", &self.pEndpoint).field("pInvitation", &self.pInvitation).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::windows_core::TypeKind for PEER_APP_LAUNCH_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for PEER_APP_LAUNCH_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.pContact == other.pContact && self.pEndpoint == other.pEndpoint && self.pInvitation == other.pInvitation
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for PEER_APP_LAUNCH_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for PEER_APP_LAUNCH_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct PEER_COLLAB_EVENT_DATA {
     pub eventType: PEER_COLLAB_EVENT_TYPE,
     pub Anonymous: PEER_COLLAB_EVENT_DATA_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for PEER_COLLAB_EVENT_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for PEER_COLLAB_EVENT_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::windows_core::TypeKind for PEER_COLLAB_EVENT_DATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for PEER_COLLAB_EVENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union PEER_COLLAB_EVENT_DATA_0 {
     pub watchListChangedData: PEER_EVENT_WATCHLIST_CHANGED_DATA,
     pub presenceChangedData: PEER_EVENT_PRESENCE_CHANGED_DATA,
@@ -3491,19 +3401,19 @@ pub union PEER_COLLAB_EVENT_DATA_0 {
     pub peopleNearMeChangedData: PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA,
     pub requestStatusChangedData: PEER_EVENT_REQUEST_STATUS_CHANGED_DATA,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for PEER_COLLAB_EVENT_DATA_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for PEER_COLLAB_EVENT_DATA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::windows_core::TypeKind for PEER_COLLAB_EVENT_DATA_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for PEER_COLLAB_EVENT_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3569,8 +3479,6 @@ impl ::core::default::Default for PEER_CONNECTION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_CONTACT {
     pub pwzPeerName: ::windows_core::PWSTR,
     pub pwzNickName: ::windows_core::PWSTR,
@@ -3580,41 +3488,34 @@ pub struct PEER_CONTACT {
     pub WatcherPermissions: PEER_WATCH_PERMISSION,
     pub credentials: PEER_DATA,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_CONTACT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_CONTACT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PEER_CONTACT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PEER_CONTACT").field("pwzPeerName", &self.pwzPeerName).field("pwzNickName", &self.pwzNickName).field("pwzDisplayName", &self.pwzDisplayName).field("pwzEmailAddress", &self.pwzEmailAddress).field("fWatch", &self.fWatch).field("WatcherPermissions", &self.WatcherPermissions).field("credentials", &self.credentials).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for PEER_CONTACT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PEER_CONTACT {
     fn eq(&self, other: &Self) -> bool {
         self.pwzPeerName == other.pwzPeerName && self.pwzNickName == other.pwzNickName && self.pwzDisplayName == other.pwzDisplayName && self.pwzEmailAddress == other.pwzEmailAddress && self.fWatch == other.fWatch && self.WatcherPermissions == other.WatcherPermissions && self.credentials == other.credentials
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PEER_CONTACT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_CONTACT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct PEER_CREDENTIAL_INFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -3627,33 +3528,33 @@ pub struct PEER_CREDENTIAL_INFO {
     pub cRoles: u32,
     pub pRoles: *mut ::windows_core::GUID,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for PEER_CREDENTIAL_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for PEER_CREDENTIAL_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for PEER_CREDENTIAL_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PEER_CREDENTIAL_INFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("pwzFriendlyName", &self.pwzFriendlyName).field("pPublicKey", &self.pPublicKey).field("pwzIssuerPeerName", &self.pwzIssuerPeerName).field("pwzIssuerFriendlyName", &self.pwzIssuerFriendlyName).field("ftValidityStart", &self.ftValidityStart).field("ftValidityEnd", &self.ftValidityEnd).field("cRoles", &self.cRoles).field("pRoles", &self.pRoles).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::windows_core::TypeKind for PEER_CREDENTIAL_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for PEER_CREDENTIAL_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.pwzFriendlyName == other.pwzFriendlyName && self.pPublicKey == other.pPublicKey && self.pwzIssuerPeerName == other.pwzIssuerPeerName && self.pwzIssuerFriendlyName == other.pwzIssuerFriendlyName && self.ftValidityStart == other.ftValidityStart && self.ftValidityEnd == other.ftValidityEnd && self.cRoles == other.cRoles && self.pRoles == other.pRoles
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for PEER_CREDENTIAL_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for PEER_CREDENTIAL_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3715,41 +3616,41 @@ impl ::core::default::Default for PEER_ENDPOINT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct PEER_EVENT_APPLICATION_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
     pub changeType: PEER_CHANGE_TYPE,
     pub pApplication: *mut PEER_APPLICATION,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for PEER_EVENT_APPLICATION_CHANGED_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for PEER_EVENT_APPLICATION_CHANGED_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::fmt::Debug for PEER_EVENT_APPLICATION_CHANGED_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PEER_EVENT_APPLICATION_CHANGED_DATA").field("pContact", &self.pContact).field("pEndpoint", &self.pEndpoint).field("changeType", &self.changeType).field("pApplication", &self.pApplication).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::windows_core::TypeKind for PEER_EVENT_APPLICATION_CHANGED_DATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for PEER_EVENT_APPLICATION_CHANGED_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.pContact == other.pContact && self.pEndpoint == other.pEndpoint && self.changeType == other.changeType && self.pApplication == other.pApplication
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for PEER_EVENT_APPLICATION_CHANGED_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for PEER_EVENT_APPLICATION_CHANGED_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3790,39 +3691,39 @@ impl ::core::default::Default for PEER_EVENT_CONNECTION_CHANGE_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct PEER_EVENT_ENDPOINT_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for PEER_EVENT_ENDPOINT_CHANGED_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for PEER_EVENT_ENDPOINT_CHANGED_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::fmt::Debug for PEER_EVENT_ENDPOINT_CHANGED_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PEER_EVENT_ENDPOINT_CHANGED_DATA").field("pContact", &self.pContact).field("pEndpoint", &self.pEndpoint).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::windows_core::TypeKind for PEER_EVENT_ENDPOINT_CHANGED_DATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for PEER_EVENT_ENDPOINT_CHANGED_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.pContact == other.pContact && self.pEndpoint == other.pEndpoint
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for PEER_EVENT_ENDPOINT_CHANGED_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for PEER_EVENT_ENDPOINT_CHANGED_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3924,41 +3825,41 @@ impl ::core::default::Default for PEER_EVENT_NODE_CHANGE_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct PEER_EVENT_OBJECT_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
     pub changeType: PEER_CHANGE_TYPE,
     pub pObject: *mut PEER_OBJECT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for PEER_EVENT_OBJECT_CHANGED_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for PEER_EVENT_OBJECT_CHANGED_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::fmt::Debug for PEER_EVENT_OBJECT_CHANGED_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PEER_EVENT_OBJECT_CHANGED_DATA").field("pContact", &self.pContact).field("pEndpoint", &self.pEndpoint).field("changeType", &self.changeType).field("pObject", &self.pObject).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::windows_core::TypeKind for PEER_EVENT_OBJECT_CHANGED_DATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for PEER_EVENT_OBJECT_CHANGED_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.pContact == other.pContact && self.pEndpoint == other.pEndpoint && self.changeType == other.changeType && self.pObject == other.pObject
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for PEER_EVENT_OBJECT_CHANGED_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for PEER_EVENT_OBJECT_CHANGED_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4004,41 +3905,41 @@ impl ::core::default::Default for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct PEER_EVENT_PRESENCE_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
     pub changeType: PEER_CHANGE_TYPE,
     pub pPresenceInfo: *mut PEER_PRESENCE_INFO,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for PEER_EVENT_PRESENCE_CHANGED_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for PEER_EVENT_PRESENCE_CHANGED_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::fmt::Debug for PEER_EVENT_PRESENCE_CHANGED_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PEER_EVENT_PRESENCE_CHANGED_DATA").field("pContact", &self.pContact).field("pEndpoint", &self.pEndpoint).field("changeType", &self.changeType).field("pPresenceInfo", &self.pPresenceInfo).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::windows_core::TypeKind for PEER_EVENT_PRESENCE_CHANGED_DATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for PEER_EVENT_PRESENCE_CHANGED_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.pContact == other.pContact && self.pEndpoint == other.pEndpoint && self.changeType == other.changeType && self.pPresenceInfo == other.pPresenceInfo
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for PEER_EVENT_PRESENCE_CHANGED_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for PEER_EVENT_PRESENCE_CHANGED_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4146,39 +4047,30 @@ impl ::core::default::Default for PEER_EVENT_SYNCHRONIZED_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_EVENT_WATCHLIST_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub changeType: PEER_CHANGE_TYPE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_EVENT_WATCHLIST_CHANGED_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_EVENT_WATCHLIST_CHANGED_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PEER_EVENT_WATCHLIST_CHANGED_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PEER_EVENT_WATCHLIST_CHANGED_DATA").field("pContact", &self.pContact).field("changeType", &self.changeType).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for PEER_EVENT_WATCHLIST_CHANGED_DATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PEER_EVENT_WATCHLIST_CHANGED_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.pContact == other.pContact && self.changeType == other.changeType
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PEER_EVENT_WATCHLIST_CHANGED_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_EVENT_WATCHLIST_CHANGED_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4453,8 +4345,8 @@ impl ::core::default::Default for PEER_INVITATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct PEER_INVITATION_INFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -4476,15 +4368,15 @@ pub struct PEER_INVITATION_INFO {
     pub pSubjectPublicKey: *mut super::super::Security::Cryptography::CERT_PUBLIC_KEY_INFO,
     pub authScheme: PEER_GROUP_AUTHENTICATION_SCHEME,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for PEER_INVITATION_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for PEER_INVITATION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for PEER_INVITATION_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PEER_INVITATION_INFO")
@@ -4510,11 +4402,11 @@ impl ::core::fmt::Debug for PEER_INVITATION_INFO {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::windows_core::TypeKind for PEER_INVITATION_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for PEER_INVITATION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -4538,9 +4430,9 @@ impl ::core::cmp::PartialEq for PEER_INVITATION_INFO {
             && self.authScheme == other.authScheme
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for PEER_INVITATION_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for PEER_INVITATION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4578,8 +4470,8 @@ impl ::core::default::Default for PEER_INVITATION_RESPONSE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`"]
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 pub struct PEER_MEMBER {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -4590,33 +4482,33 @@ pub struct PEER_MEMBER {
     pub pAddresses: *mut PEER_ADDRESS,
     pub pCredentialInfo: *mut PEER_CREDENTIAL_INFO,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl ::core::marker::Copy for PEER_MEMBER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl ::core::clone::Clone for PEER_MEMBER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for PEER_MEMBER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PEER_MEMBER").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("pwzIdentity", &self.pwzIdentity).field("pwzAttributes", &self.pwzAttributes).field("ullNodeId", &self.ullNodeId).field("cAddresses", &self.cAddresses).field("pAddresses", &self.pAddresses).field("pCredentialInfo", &self.pCredentialInfo).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl ::windows_core::TypeKind for PEER_MEMBER {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for PEER_MEMBER {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.pwzIdentity == other.pwzIdentity && self.pwzAttributes == other.pwzAttributes && self.ullNodeId == other.ullNodeId && self.cAddresses == other.cAddresses && self.pAddresses == other.pAddresses && self.pCredentialInfo == other.pCredentialInfo
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::Eq for PEER_MEMBER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for PEER_MEMBER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4901,8 +4793,6 @@ impl ::core::default::Default for PEER_PRESENCE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_RECORD {
     pub dwSize: u32,
     pub r#type: ::windows_core::GUID,
@@ -4918,15 +4808,12 @@ pub struct PEER_RECORD {
     pub securityData: PEER_DATA,
     pub data: PEER_DATA,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_RECORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_RECORD {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PEER_RECORD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PEER_RECORD")
@@ -4946,27 +4833,21 @@ impl ::core::fmt::Debug for PEER_RECORD {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for PEER_RECORD {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PEER_RECORD {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.r#type == other.r#type && self.id == other.id && self.dwVersion == other.dwVersion && self.dwFlags == other.dwFlags && self.pwzCreatorId == other.pwzCreatorId && self.pwzModifiedById == other.pwzModifiedById && self.pwzAttributes == other.pwzAttributes && self.ftCreation == other.ftCreation && self.ftExpiration == other.ftExpiration && self.ftLastModified == other.ftLastModified && self.securityData == other.securityData && self.data == other.data
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PEER_RECORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_RECORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_SECURITY_INTERFACE {
     pub dwSize: u32,
     pub pwzSspFilename: ::windows_core::PWSTR,
@@ -4979,25 +4860,20 @@ pub struct PEER_SECURITY_INTERFACE {
     pub pfnFreeSecurityData: PFNPEER_FREE_SECURITY_DATA,
     pub pfnAuthFailed: PFNPEER_ON_PASSWORD_AUTH_FAILED,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_SECURITY_INTERFACE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_SECURITY_INTERFACE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PEER_SECURITY_INTERFACE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PEER_SECURITY_INTERFACE").field("dwSize", &self.dwSize).field("pwzSspFilename", &self.pwzSspFilename).field("pwzPackageName", &self.pwzPackageName).field("cbSecurityInfo", &self.cbSecurityInfo).field("pbSecurityInfo", &self.pbSecurityInfo).field("pvContext", &self.pvContext).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for PEER_SECURITY_INTERFACE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_SECURITY_INTERFACE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5201,14 +5077,10 @@ impl ::core::default::Default for PNRP_CLOUD_ID {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hr: ::windows_core::HRESULT, pvcontext: *mut ::core::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: super::super::Foundation::BOOL)>;
 pub type PFNPEER_FREE_SECURITY_DATA = ::core::option::Option<unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, psecuritydata: *const PEER_DATA) -> ::windows_core::HRESULT>;
 pub type PFNPEER_ON_PASSWORD_AUTH_FAILED = ::core::option::Option<unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFNPEER_SECURE_RECORD = ::core::option::Option<unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, precord: *const PEER_RECORD, changetype: PEER_RECORD_CHANGE_TYPE, ppsecuritydata: *mut *mut PEER_DATA) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFNPEER_VALIDATE_RECORD = ::core::option::Option<unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, precord: *const PEER_RECORD, changetype: PEER_RECORD_CHANGE_TYPE) -> ::windows_core::HRESULT>;

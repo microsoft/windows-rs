@@ -15,14 +15,10 @@ impl IRDPSRAPIApplication {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Shared(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Shared)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShared<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
@@ -58,14 +54,8 @@ pub struct IRDPSRAPIApplication_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Windows: usize,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub Shared: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Shared: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetShared: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetShared: usize,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Flags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows_core::HRESULT,
 }
@@ -88,14 +78,10 @@ impl IRDPSRAPIApplicationFilter {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Windows)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Enabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnabled<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
@@ -126,14 +112,8 @@ pub struct IRDPSRAPIApplicationFilter_Vtbl {
     pub Windows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwindows: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Windows: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Enabled: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetEnabled: usize,
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
@@ -366,8 +346,8 @@ pub struct IRDPSRAPIAudioStream_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRDPSRAPIClipboardUseEvents(::windows_core::IUnknown);
 impl IRDPSRAPIClipboardUseEvents {
-    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnPasteFromClipboard<P0>(&self, clipboardformat: u32, pattendee: P0) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
         P0: ::windows_core::IntoParam<super::Com::IDispatch>,
@@ -387,9 +367,9 @@ unsafe impl ::windows_core::ComInterface for IRDPSRAPIClipboardUseEvents {
 #[doc(hidden)]
 pub struct IRDPSRAPIClipboardUseEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[cfg(feature = "Win32_System_Com")]
     pub OnPasteFromClipboard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clipboardformat: u32, pattendee: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(not(feature = "Win32_System_Com"))]
     OnPasteFromClipboard: usize,
 }
 #[repr(transparent)]
@@ -496,14 +476,10 @@ impl IRDPSRAPIInvitation {
     pub unsafe fn SetAttendeeLimit(&self, newval: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAttendeeLimit)(::windows_core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Revoked(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Revoked)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRevoked<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
@@ -531,14 +507,8 @@ pub struct IRDPSRAPIInvitation_Vtbl {
     pub Password: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub AttendeeLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows_core::HRESULT,
     pub SetAttendeeLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: i32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub Revoked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Revoked: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetRevoked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetRevoked: usize,
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
@@ -551,8 +521,8 @@ impl IRDPSRAPIInvitationManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, item: super::Variant::VARIANT) -> ::windows_core::Result<IRDPSRAPIInvitation> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(item), &mut result__).from_abi(result__)
@@ -589,9 +559,9 @@ unsafe impl ::windows_core::ComInterface for IRDPSRAPIInvitationManager {
 pub struct IRDPSRAPIInvitationManager_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: super::Variant::VARIANT, ppinvitation: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -652,8 +622,8 @@ pub struct IRDPSRAPIPerfCounterLoggingManager_Vtbl {
 pub struct IRDPSRAPISessionProperties(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPISessionProperties {
-    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Property<P0>(&self, propertyname: P0) -> ::windows_core::Result<super::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -661,8 +631,8 @@ impl IRDPSRAPISessionProperties {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Property)(::windows_core::Interface::as_raw(self), propertyname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn put_Property<P0>(&self, propertyname: P0, newval: super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -685,13 +655,13 @@ unsafe impl ::windows_core::ComInterface for IRDPSRAPISessionProperties {
 #[doc(hidden)]
 pub struct IRDPSRAPISessionProperties_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pval: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Property: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub put_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, newval: super::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     put_Property: usize,
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1170,16 +1140,12 @@ impl IRDPSRAPIViewer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VirtualChannelManager)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSmartSizing<P0>(&self, vbsmartsizing: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetSmartSizing)(::windows_core::Interface::as_raw(self), vbsmartsizing.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SmartSizing(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SmartSizing)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -1249,14 +1215,8 @@ pub struct IRDPSRAPIViewer_Vtbl {
     pub VirtualChannelManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     VirtualChannelManager: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetSmartSizing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vbsmartsizing: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetSmartSizing: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SmartSizing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbsmartsizing: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SmartSizing: usize,
     pub RequestControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ctrllevel: CTRL_LEVEL) -> ::windows_core::HRESULT,
     pub SetDisconnectedText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdisconnectedtext: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub DisconnectedText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdisconnectedtext: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -1328,8 +1288,8 @@ impl IRDPSRAPIVirtualChannelManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, item: super::Variant::VARIANT) -> ::windows_core::Result<IRDPSRAPIVirtualChannel> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(item), &mut result__).from_abi(result__)
@@ -1360,9 +1320,9 @@ unsafe impl ::windows_core::ComInterface for IRDPSRAPIVirtualChannelManager {
 pub struct IRDPSRAPIVirtualChannelManager_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: super::Variant::VARIANT, pchannel: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateVirtualChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrchannelname: ::std::mem::MaybeUninit<::windows_core::BSTR>, priority: CHANNEL_PRIORITY, channelflags: u32, ppchannel: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1386,14 +1346,10 @@ impl IRDPSRAPIWindow {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Application)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Shared(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Shared)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetShared<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
@@ -1432,14 +1388,8 @@ pub struct IRDPSRAPIWindow_Vtbl {
     pub Application: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, papplication: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Application: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub Shared: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Shared: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetShared: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetShared: usize,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Flags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows_core::HRESULT,
@@ -1487,8 +1437,6 @@ pub struct IRDPSRAPIWindowList_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRDPViewerInputSink(::windows_core::IUnknown);
 impl IRDPViewerInputSink {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SendMouseButtonEvent<P0>(&self, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: P0, xpos: u32, ypos: u32) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
@@ -1501,8 +1449,6 @@ impl IRDPViewerInputSink {
     pub unsafe fn SendMouseWheelEvent(&self, wheelrotation: u16) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SendMouseWheelEvent)(::windows_core::Interface::as_raw(self), wheelrotation).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SendKeyboardEvent<P0, P1, P2>(&self, codetype: RDPSRAPI_KBD_CODE_TYPE, keycode: u16, vbkeyup: P0, vbrepeat: P1, vbextended: P2) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
@@ -1535,16 +1481,10 @@ unsafe impl ::windows_core::ComInterface for IRDPViewerInputSink {
 #[doc(hidden)]
 pub struct IRDPViewerInputSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub SendMouseButtonEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: super::super::Foundation::VARIANT_BOOL, xpos: u32, ypos: u32) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SendMouseButtonEvent: usize,
     pub SendMouseMoveEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpos: u32, ypos: u32) -> ::windows_core::HRESULT,
     pub SendMouseWheelEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wheelrotation: u16) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub SendKeyboardEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, codetype: RDPSRAPI_KBD_CODE_TYPE, keycode: u16, vbkeyup: super::super::Foundation::VARIANT_BOOL, vbrepeat: super::super::Foundation::VARIANT_BOOL, vbextended: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SendKeyboardEvent: usize,
     pub SendSyncEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncflags: u32) -> ::windows_core::HRESULT,
     pub BeginTouchFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub AddTouchInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contactid: u32, event: u32, x: i32, y: i32) -> ::windows_core::HRESULT,

@@ -75,10 +75,7 @@ unsafe impl ::windows_core::ComInterface for IAdcControllerStatics2 {
 #[doc(hidden)]
 pub struct IAdcControllerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDefaultAsync: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -105,8 +102,6 @@ impl AdcChannel {
             (::windows_core::Interface::vtable(this).ReadRatio)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -125,7 +120,6 @@ impl ::windows_core::RuntimeName for AdcChannel {
     const NAME: &'static str = "Windows.Devices.Adc.AdcChannel";
 }
 ::windows_core::imp::interface_hierarchy!(AdcChannel, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for AdcChannel {}
 unsafe impl ::core::marker::Send for AdcChannel {}
 unsafe impl ::core::marker::Sync for AdcChannel {}
@@ -197,8 +191,6 @@ impl AdcController {
             (::windows_core::Interface::vtable(this).GetControllersAsync)(::windows_core::Interface::as_raw(this), provider.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AdcController>> {
         Self::IAdcControllerStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();

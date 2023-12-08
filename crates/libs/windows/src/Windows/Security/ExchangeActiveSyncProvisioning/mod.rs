@@ -58,31 +58,16 @@ pub struct IEasClientSecurityPolicy_Vtbl {
     pub SetDisallowConvenienceLogon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
     pub MinPasswordComplexCharacters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows_core::HRESULT,
     pub SetMinPasswordComplexCharacters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub PasswordExpiration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PasswordExpiration: usize,
-    #[cfg(feature = "Foundation")]
     pub SetPasswordExpiration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetPasswordExpiration: usize,
     pub PasswordHistory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub SetPasswordHistory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
     pub MaxPasswordFailedAttempts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows_core::HRESULT,
     pub SetMaxPasswordFailedAttempts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub MaxInactivityTimeLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MaxInactivityTimeLock: usize,
-    #[cfg(feature = "Foundation")]
     pub SetMaxInactivityTimeLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetMaxInactivityTimeLock: usize,
     pub CheckCompliance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub ApplyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ApplyAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -260,8 +245,6 @@ impl EasClientSecurityPolicy {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetMinPasswordComplexCharacters)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PasswordExpiration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -269,8 +252,6 @@ impl EasClientSecurityPolicy {
             (::windows_core::Interface::vtable(this).PasswordExpiration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetPasswordExpiration(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPasswordExpiration)(::windows_core::Interface::as_raw(this), value).ok() }
@@ -297,8 +278,6 @@ impl EasClientSecurityPolicy {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetMaxPasswordFailedAttempts)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn MaxInactivityTimeLock(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -306,8 +285,6 @@ impl EasClientSecurityPolicy {
             (::windows_core::Interface::vtable(this).MaxInactivityTimeLock)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetMaxInactivityTimeLock(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetMaxInactivityTimeLock)(::windows_core::Interface::as_raw(this), value).ok() }
@@ -319,8 +296,6 @@ impl EasClientSecurityPolicy {
             (::windows_core::Interface::vtable(this).CheckCompliance)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ApplyAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<EasComplianceResults>> {
         let this = self;
         unsafe {

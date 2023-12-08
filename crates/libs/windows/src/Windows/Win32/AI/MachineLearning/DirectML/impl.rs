@@ -81,14 +81,10 @@ impl IDMLCompiledOperator_Vtbl {
         *iid == <IDMLCompiledOperator as ::windows_core::ComInterface>::IID || *iid == <IDMLObject as ::windows_core::ComInterface>::IID || *iid == <IDMLDeviceChild as ::windows_core::ComInterface>::IID || *iid == <IDMLPageable as ::windows_core::ComInterface>::IID || *iid == <IDMLDispatchable as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDMLDebugDevice_Impl: Sized {
     fn SetMuteDebugOutput(&self, mute: super::super::super::Foundation::BOOL);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDMLDebugDevice {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDMLDebugDevice_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDMLDebugDevice_Impl, const OFFSET: isize>() -> IDMLDebugDevice_Vtbl {
         unsafe extern "system" fn SetMuteDebugOutput<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDMLDebugDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mute: super::super::super::Foundation::BOOL) {

@@ -17,10 +17,7 @@ pub struct ICoreTextCompositionCompletedEventArgs_Vtbl {
     pub CompositionSegments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CompositionSegments: usize,
-    #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -54,10 +51,7 @@ unsafe impl ::windows_core::ComInterface for ICoreTextCompositionStartedEventArg
 pub struct ICoreTextCompositionStartedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -81,78 +75,24 @@ pub struct ICoreTextEditContext_Vtbl {
     pub SetIsReadOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
     pub InputPaneDisplayPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextInputPaneDisplayPolicy) -> ::windows_core::HRESULT,
     pub SetInputPaneDisplayPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextInputPaneDisplayPolicy) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub TextRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TextRequested: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveTextRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveTextRequested: usize,
-    #[cfg(feature = "Foundation")]
     pub SelectionRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SelectionRequested: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveSelectionRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveSelectionRequested: usize,
-    #[cfg(feature = "Foundation")]
     pub LayoutRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    LayoutRequested: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveLayoutRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveLayoutRequested: usize,
-    #[cfg(feature = "Foundation")]
     pub TextUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TextUpdating: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveTextUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveTextUpdating: usize,
-    #[cfg(feature = "Foundation")]
     pub SelectionUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SelectionUpdating: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveSelectionUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveSelectionUpdating: usize,
-    #[cfg(feature = "Foundation")]
     pub FormatUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FormatUpdating: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveFormatUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveFormatUpdating: usize,
-    #[cfg(feature = "Foundation")]
     pub CompositionStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CompositionStarted: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveCompositionStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveCompositionStarted: usize,
-    #[cfg(feature = "Foundation")]
     pub CompositionCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CompositionCompleted: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveCompositionCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveCompositionCompleted: usize,
-    #[cfg(feature = "Foundation")]
     pub FocusRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FocusRemoved: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveFocusRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveFocusRemoved: usize,
     pub NotifyFocusEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub NotifyFocusLeave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub NotifyTextChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modifiedrange: CoreTextRange, newlength: i32, newselection: CoreTextRange) -> ::windows_core::HRESULT,
@@ -173,14 +113,8 @@ unsafe impl ::windows_core::ComInterface for ICoreTextEditContext2 {
 #[doc(hidden)]
 pub struct ICoreTextEditContext2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub NotifyFocusLeaveCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    NotifyFocusLeaveCompleted: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveNotifyFocusLeaveCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveNotifyFocusLeaveCompleted: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -197,30 +131,24 @@ unsafe impl ::windows_core::ComInterface for ICoreTextFormatUpdatingEventArgs {
 pub struct ICoreTextFormatUpdatingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
+    #[cfg(feature = "UI_ViewManagement")]
     pub TextColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_ViewManagement")))]
+    #[cfg(not(feature = "UI_ViewManagement"))]
     TextColor: usize,
-    #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
+    #[cfg(feature = "UI_ViewManagement")]
     pub BackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_ViewManagement")))]
+    #[cfg(not(feature = "UI_ViewManagement"))]
     BackgroundColor: usize,
-    #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
+    #[cfg(feature = "UI_ViewManagement")]
     pub UnderlineColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_ViewManagement")))]
+    #[cfg(not(feature = "UI_ViewManagement"))]
     UnderlineColor: usize,
-    #[cfg(feature = "Foundation")]
     pub UnderlineType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    UnderlineType: usize,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextFormatUpdatingReason) -> ::windows_core::HRESULT,
     pub Result: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextFormatUpdatingResult) -> ::windows_core::HRESULT,
     pub SetResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextFormatUpdatingResult) -> ::windows_core::HRESULT,
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -236,22 +164,10 @@ unsafe impl ::windows_core::ComInterface for ICoreTextLayoutBounds {
 #[doc(hidden)]
 pub struct ICoreTextLayoutBounds_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub TextBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TextBounds: usize,
-    #[cfg(feature = "Foundation")]
     pub SetTextBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Rect) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetTextBounds: usize,
-    #[cfg(feature = "Foundation")]
     pub ControlBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ControlBounds: usize,
-    #[cfg(feature = "Foundation")]
     pub SetControlBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Rect) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetControlBounds: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -270,10 +186,7 @@ pub struct ICoreTextLayoutRequest_Vtbl {
     pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows_core::HRESULT,
     pub LayoutBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -324,10 +237,7 @@ pub struct ICoreTextSelectionRequest_Vtbl {
     pub Selection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows_core::HRESULT,
     pub SetSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextRange) -> ::windows_core::HRESULT,
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -363,10 +273,7 @@ pub struct ICoreTextSelectionUpdatingEventArgs_Vtbl {
     pub Result: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextSelectionUpdatingResult) -> ::windows_core::HRESULT,
     pub SetResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextSelectionUpdatingResult) -> ::windows_core::HRESULT,
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -386,14 +293,8 @@ pub struct ICoreTextServicesManager_Vtbl {
     pub InputLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Globalization"))]
     InputLanguage: usize,
-    #[cfg(feature = "Foundation")]
     pub InputLanguageChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    InputLanguageChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveInputLanguageChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveInputLanguageChanged: usize,
     pub CreateEditContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
@@ -446,10 +347,7 @@ pub struct ICoreTextTextRequest_Vtbl {
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -491,10 +389,7 @@ pub struct ICoreTextTextUpdatingEventArgs_Vtbl {
     pub Result: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextTextUpdatingResult) -> ::windows_core::HRESULT,
     pub SetResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextTextUpdatingResult) -> ::windows_core::HRESULT,
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -516,8 +411,6 @@ impl CoreTextCompositionCompletedEventArgs {
             (::windows_core::Interface::vtable(this).CompositionSegments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -586,8 +479,6 @@ impl CoreTextCompositionStartedEventArgs {
             (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -659,8 +550,6 @@ impl CoreTextEditContext {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetInputPaneDisplayPolicy)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn TextRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextTextRequestedEventArgs>>,
@@ -671,14 +560,10 @@ impl CoreTextEditContext {
             (::windows_core::Interface::vtable(this).TextRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveTextRequested(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveTextRequested)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SelectionRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextSelectionRequestedEventArgs>>,
@@ -689,14 +574,10 @@ impl CoreTextEditContext {
             (::windows_core::Interface::vtable(this).SelectionRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveSelectionRequested(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSelectionRequested)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn LayoutRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextLayoutRequestedEventArgs>>,
@@ -707,14 +588,10 @@ impl CoreTextEditContext {
             (::windows_core::Interface::vtable(this).LayoutRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveLayoutRequested(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveLayoutRequested)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn TextUpdating<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextTextUpdatingEventArgs>>,
@@ -725,14 +602,10 @@ impl CoreTextEditContext {
             (::windows_core::Interface::vtable(this).TextUpdating)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveTextUpdating(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveTextUpdating)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SelectionUpdating<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextSelectionUpdatingEventArgs>>,
@@ -743,14 +616,10 @@ impl CoreTextEditContext {
             (::windows_core::Interface::vtable(this).SelectionUpdating)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveSelectionUpdating(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSelectionUpdating)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FormatUpdating<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextFormatUpdatingEventArgs>>,
@@ -761,14 +630,10 @@ impl CoreTextEditContext {
             (::windows_core::Interface::vtable(this).FormatUpdating)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveFormatUpdating(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveFormatUpdating)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CompositionStarted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextCompositionStartedEventArgs>>,
@@ -779,14 +644,10 @@ impl CoreTextEditContext {
             (::windows_core::Interface::vtable(this).CompositionStarted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveCompositionStarted(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCompositionStarted)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CompositionCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextCompositionCompletedEventArgs>>,
@@ -797,14 +658,10 @@ impl CoreTextEditContext {
             (::windows_core::Interface::vtable(this).CompositionCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveCompositionCompleted(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCompositionCompleted)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FocusRemoved<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows_core::IInspectable>>,
@@ -815,8 +672,6 @@ impl CoreTextEditContext {
             (::windows_core::Interface::vtable(this).FocusRemoved)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveFocusRemoved(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveFocusRemoved)(::windows_core::Interface::as_raw(this), cookie).ok() }
@@ -841,8 +696,6 @@ impl CoreTextEditContext {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).NotifyLayoutChanged)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn NotifyFocusLeaveCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows_core::IInspectable>>,
@@ -853,8 +706,6 @@ impl CoreTextEditContext {
             (::windows_core::Interface::vtable(this).NotifyFocusLeaveCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveNotifyFocusLeaveCompleted(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ICoreTextEditContext2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveNotifyFocusLeaveCompleted)(::windows_core::Interface::as_raw(this), cookie).ok() }
@@ -886,8 +737,8 @@ impl CoreTextFormatUpdatingEventArgs {
             (::windows_core::Interface::vtable(this).Range)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"UI_ViewManagement\"`"]
-    #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
+    #[doc = "Required features: `\"UI_ViewManagement\"`"]
+    #[cfg(feature = "UI_ViewManagement")]
     pub fn TextColor(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
         let this = self;
         unsafe {
@@ -895,8 +746,8 @@ impl CoreTextFormatUpdatingEventArgs {
             (::windows_core::Interface::vtable(this).TextColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"UI_ViewManagement\"`"]
-    #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
+    #[doc = "Required features: `\"UI_ViewManagement\"`"]
+    #[cfg(feature = "UI_ViewManagement")]
     pub fn BackgroundColor(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
         let this = self;
         unsafe {
@@ -904,8 +755,8 @@ impl CoreTextFormatUpdatingEventArgs {
             (::windows_core::Interface::vtable(this).BackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"UI_ViewManagement\"`"]
-    #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
+    #[doc = "Required features: `\"UI_ViewManagement\"`"]
+    #[cfg(feature = "UI_ViewManagement")]
     pub fn UnderlineColor(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
         let this = self;
         unsafe {
@@ -913,8 +764,6 @@ impl CoreTextFormatUpdatingEventArgs {
             (::windows_core::Interface::vtable(this).UnderlineColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn UnderlineType(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::UnderlineType>> {
         let this = self;
         unsafe {
@@ -947,8 +796,6 @@ impl CoreTextFormatUpdatingEventArgs {
             (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -976,8 +823,6 @@ unsafe impl ::core::marker::Sync for CoreTextFormatUpdatingEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CoreTextLayoutBounds(::windows_core::IUnknown);
 impl CoreTextLayoutBounds {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn TextBounds(&self) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
@@ -985,14 +830,10 @@ impl CoreTextLayoutBounds {
             (::windows_core::Interface::vtable(this).TextBounds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetTextBounds(&self, value: super::super::super::Foundation::Rect) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetTextBounds)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ControlBounds(&self) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
@@ -1000,8 +841,6 @@ impl CoreTextLayoutBounds {
             (::windows_core::Interface::vtable(this).ControlBounds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetControlBounds(&self, value: super::super::super::Foundation::Rect) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetControlBounds)(::windows_core::Interface::as_raw(this), value).ok() }
@@ -1047,8 +886,6 @@ impl CoreTextLayoutRequest {
             (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1128,8 +965,6 @@ impl CoreTextSelectionRequest {
             (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1209,8 +1044,6 @@ impl CoreTextSelectionUpdatingEventArgs {
             (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1264,8 +1097,6 @@ impl CoreTextServicesManager {
             (::windows_core::Interface::vtable(this).InputLanguage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn InputLanguageChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreTextServicesManager, ::windows_core::IInspectable>>,
@@ -1276,8 +1107,6 @@ impl CoreTextServicesManager {
             (::windows_core::Interface::vtable(this).InputLanguageChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveInputLanguageChanged(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveInputLanguageChanged)(::windows_core::Interface::as_raw(this), cookie).ok() }
@@ -1345,8 +1174,6 @@ impl CoreTextTextRequest {
             (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1449,8 +1276,6 @@ impl CoreTextTextUpdatingEventArgs {
             (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {

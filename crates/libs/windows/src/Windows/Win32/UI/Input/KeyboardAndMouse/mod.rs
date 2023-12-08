@@ -9,8 +9,6 @@ where
     let result__ = ActivateKeyboardLayout(hkl.into_param().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BlockInput<P0>(fblockit: P0) -> ::windows_core::Result<()>
 where
@@ -19,8 +17,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn BlockInput(fblockit : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
     BlockInput(fblockit.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DragDetect<P0>(hwnd: P0, pt: super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL
 where
@@ -29,8 +25,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn DragDetect(hwnd : super::super::super::Foundation:: HWND, pt : super::super::super::Foundation:: POINT) -> super::super::super::Foundation:: BOOL);
     DragDetect(hwnd.into_param().abi(), ::core::mem::transmute(pt))
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnableWindow<P0, P1>(hwnd: P0, benable: P1) -> super::super::super::Foundation::BOOL
 where
@@ -40,8 +34,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn EnableWindow(hwnd : super::super::super::Foundation:: HWND, benable : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
     EnableWindow(hwnd.into_param().abi(), benable.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetActiveWindow() -> super::super::super::Foundation::HWND {
     ::windows_targets::link!("user32.dll" "system" fn GetActiveWindow() -> super::super::super::Foundation:: HWND);
@@ -52,8 +44,6 @@ pub unsafe fn GetAsyncKeyState(vkey: i32) -> i16 {
     ::windows_targets::link!("user32.dll" "system" fn GetAsyncKeyState(vkey : i32) -> i16);
     GetAsyncKeyState(vkey)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCapture() -> super::super::super::Foundation::HWND {
     ::windows_targets::link!("user32.dll" "system" fn GetCapture() -> super::super::super::Foundation:: HWND);
@@ -64,8 +54,6 @@ pub unsafe fn GetDoubleClickTime() -> u32 {
     ::windows_targets::link!("user32.dll" "system" fn GetDoubleClickTime() -> u32);
     GetDoubleClickTime()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFocus() -> super::super::super::Foundation::HWND {
     ::windows_targets::link!("user32.dll" "system" fn GetFocus() -> super::super::super::Foundation:: HWND);
@@ -105,22 +93,16 @@ pub unsafe fn GetKeyboardLayoutList(lplist: ::core::option::Option<&mut [super::
     ::windows_targets::link!("user32.dll" "system" fn GetKeyboardLayoutList(nbuff : i32, lplist : *mut super::super::TextServices:: HKL) -> i32);
     GetKeyboardLayoutList(lplist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(lplist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetKeyboardLayoutNameA(pwszklid: &mut [u8; 9]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetKeyboardLayoutNameA(pwszklid : ::windows_core::PSTR) -> super::super::super::Foundation:: BOOL);
     GetKeyboardLayoutNameA(::core::mem::transmute(pwszklid.as_ptr())).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetKeyboardLayoutNameW(pwszklid: &mut [u16; 9]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetKeyboardLayoutNameW(pwszklid : ::windows_core::PWSTR) -> super::super::super::Foundation:: BOOL);
     GetKeyboardLayoutNameW(::core::mem::transmute(pwszklid.as_ptr())).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetKeyboardState(lpkeystate: &mut [u8; 256]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn GetKeyboardState(lpkeystate : *mut u8) -> super::super::super::Foundation:: BOOL);
@@ -131,8 +113,6 @@ pub unsafe fn GetKeyboardType(ntypeflag: i32) -> i32 {
     ::windows_targets::link!("user32.dll" "system" fn GetKeyboardType(ntypeflag : i32) -> i32);
     GetKeyboardType(ntypeflag)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLastInputInfo(plii: *mut LASTINPUTINFO) -> super::super::super::Foundation::BOOL {
     ::windows_targets::link!("user32.dll" "system" fn GetLastInputInfo(plii : *mut LASTINPUTINFO) -> super::super::super::Foundation:: BOOL);
@@ -143,8 +123,6 @@ pub unsafe fn GetMouseMovePointsEx(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpp
     ::windows_targets::link!("user32.dll" "system" fn GetMouseMovePointsEx(cbsize : u32, lppt : *const MOUSEMOVEPOINT, lpptbuf : *mut MOUSEMOVEPOINT, nbufpoints : i32, resolution : GET_MOUSE_MOVE_POINTS_EX_RESOLUTION) -> i32);
     GetMouseMovePointsEx(cbsize, lppt, ::core::mem::transmute(lpptbuf.as_ptr()), lpptbuf.len().try_into().unwrap(), resolution)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsWindowEnabled<P0>(hwnd: P0) -> super::super::super::Foundation::BOOL
 where
@@ -210,8 +188,6 @@ pub unsafe fn OemKeyScan(woemchar: u16) -> u32 {
     ::windows_targets::link!("user32.dll" "system" fn OemKeyScan(woemchar : u16) -> u32);
     OemKeyScan(woemchar)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterHotKey<P0>(hwnd: P0, id: i32, fsmodifiers: HOT_KEY_MODIFIERS, vk: u32) -> ::windows_core::Result<()>
 where
@@ -220,8 +196,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn RegisterHotKey(hwnd : super::super::super::Foundation:: HWND, id : i32, fsmodifiers : HOT_KEY_MODIFIERS, vk : u32) -> super::super::super::Foundation:: BOOL);
     RegisterHotKey(hwnd.into_param().abi(), id, fsmodifiers, vk).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReleaseCapture() -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn ReleaseCapture() -> super::super::super::Foundation:: BOOL);
@@ -232,8 +206,6 @@ pub unsafe fn SendInput(pinputs: &[INPUT], cbsize: i32) -> u32 {
     ::windows_targets::link!("user32.dll" "system" fn SendInput(cinputs : u32, pinputs : *const INPUT, cbsize : i32) -> u32);
     SendInput(pinputs.len().try_into().unwrap(), ::core::mem::transmute(pinputs.as_ptr()), cbsize)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetActiveWindow<P0>(hwnd: P0) -> super::super::super::Foundation::HWND
 where
@@ -242,8 +214,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn SetActiveWindow(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: HWND);
     SetActiveWindow(hwnd.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCapture<P0>(hwnd: P0) -> super::super::super::Foundation::HWND
 where
@@ -252,15 +222,11 @@ where
     ::windows_targets::link!("user32.dll" "system" fn SetCapture(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: HWND);
     SetCapture(hwnd.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDoubleClickTime(param0: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn SetDoubleClickTime(param0 : u32) -> super::super::super::Foundation:: BOOL);
     SetDoubleClickTime(param0).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFocus<P0>(hwnd: P0) -> super::super::super::Foundation::HWND
 where
@@ -269,15 +235,11 @@ where
     ::windows_targets::link!("user32.dll" "system" fn SetFocus(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: HWND);
     SetFocus(hwnd.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetKeyboardState(lpkeystate: &[u8; 256]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn SetKeyboardState(lpkeystate : *const u8) -> super::super::super::Foundation:: BOOL);
     SetKeyboardState(::core::mem::transmute(lpkeystate.as_ptr())).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SwapMouseButton<P0>(fswap: P0) -> super::super::super::Foundation::BOOL
 where
@@ -316,15 +278,13 @@ where
     ::windows_targets::link!("user32.dll" "system" fn ToUnicodeEx(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : ::windows_core::PWSTR, cchbuff : i32, wflags : u32, dwhkl : super::super::TextServices:: HKL) -> i32);
     ToUnicodeEx(wvirtkey, wscancode, ::core::mem::transmute(lpkeystate.as_ptr()), ::core::mem::transmute(pwszbuff.as_ptr()), pwszbuff.len().try_into().unwrap(), wflags, dwhkl.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn TrackMouseEvent(lpeventtrack : *mut TRACKMOUSEEVENT) -> super::super::super::Foundation:: BOOL);
     TrackMouseEvent(lpeventtrack).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+#[doc = "Required features: `\"Win32_UI_TextServices\"`"]
+#[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn UnloadKeyboardLayout<P0>(hkl: P0) -> ::windows_core::Result<()>
 where
@@ -333,8 +293,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn UnloadKeyboardLayout(hkl : super::super::TextServices:: HKL) -> super::super::super::Foundation:: BOOL);
     UnloadKeyboardLayout(hkl.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnregisterHotKey<P0>(hwnd: P0, id: i32) -> ::windows_core::Result<()>
 where
@@ -373,8 +331,6 @@ pub unsafe fn VkKeyScanW(ch: u16) -> i16 {
     ::windows_targets::link!("user32.dll" "system" fn VkKeyScanW(ch : u16) -> i16);
     VkKeyScanW(ch)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn _TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL {
     ::windows_targets::link!("comctl32.dll" "system" fn _TrackMouseEvent(lpeventtrack : *mut TRACKMOUSEEVENT) -> super::super::super::Foundation:: BOOL);
@@ -1750,41 +1706,32 @@ impl ::core::default::Default for MOUSEMOVEPOINT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct TRACKMOUSEEVENT {
     pub cbSize: u32,
     pub dwFlags: TRACKMOUSEEVENT_FLAGS,
     pub hwndTrack: super::super::super::Foundation::HWND,
     pub dwHoverTime: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TRACKMOUSEEVENT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TRACKMOUSEEVENT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for TRACKMOUSEEVENT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("TRACKMOUSEEVENT").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("hwndTrack", &self.hwndTrack).field("dwHoverTime", &self.dwHoverTime).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for TRACKMOUSEEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRACKMOUSEEVENT {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.hwndTrack == other.hwndTrack && self.dwHoverTime == other.dwHoverTime
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TRACKMOUSEEVENT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TRACKMOUSEEVENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

@@ -59,18 +59,14 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
         *iid == <IStorageProviderPropertyCapabilities as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IStorageProviderStatusUISource_Impl: Sized {
     fn GetStatusUI(&self) -> ::windows_core::Result<StorageProviderStatusUI>;
     fn StatusUIChanged(&self, handler: ::core::option::Option<&super::super::Foundation::TypedEventHandler<IStorageProviderStatusUISource, ::windows_core::IInspectable>>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveStatusUIChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IStorageProviderStatusUISource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderStatusUISource";
 }
-#[cfg(feature = "Foundation")]
 impl IStorageProviderStatusUISource_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusUISource_Impl, const OFFSET: isize>() -> IStorageProviderStatusUISource_Vtbl {
         unsafe extern "system" fn GetStatusUI<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusUISource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -141,8 +137,6 @@ impl IStorageProviderStatusUISourceFactory_Vtbl {
         *iid == <IStorageProviderStatusUISourceFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IStorageProviderUICommand_Impl: Sized {
     fn Label(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -150,11 +144,9 @@ pub trait IStorageProviderUICommand_Impl: Sized {
     fn State(&self) -> ::windows_core::Result<StorageProviderUICommandState>;
     fn Invoke(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IStorageProviderUICommand {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderUICommand";
 }
-#[cfg(feature = "Foundation")]
 impl IStorageProviderUICommand_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>() -> IStorageProviderUICommand_Vtbl {
         unsafe extern "system" fn Label<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT {

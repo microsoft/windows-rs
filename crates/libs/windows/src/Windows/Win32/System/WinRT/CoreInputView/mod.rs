@@ -2,8 +2,6 @@
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICoreFrameworkInputViewInterop(::windows_core::IUnknown);
 impl ICoreFrameworkInputViewInterop {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<P0, T>(&self, appwindow: P0) -> ::windows_core::Result<T>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
@@ -24,10 +22,7 @@ unsafe impl ::windows_core::ComInterface for ICoreFrameworkInputViewInterop {
 #[doc(hidden)]
 pub struct ICoreFrameworkInputViewInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows_core::GUID, coreframeworkinputview: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetForWindow: usize,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -2,8 +2,6 @@
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsolatedEnvironmentInterop(::windows_core::IUnknown);
 impl IIsolatedEnvironmentInterop {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHostHwndInterop<P0>(&self, containerhwnd: P0) -> ::windows_core::Result<super::super::super::Foundation::HWND>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
@@ -23,10 +21,7 @@ unsafe impl ::windows_core::ComInterface for IIsolatedEnvironmentInterop {
 #[doc(hidden)]
 pub struct IIsolatedEnvironmentInterop_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetHostHwndInterop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, containerhwnd: super::super::super::Foundation::HWND, hosthwnd: *mut super::super::super::Foundation::HWND) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetHostHwndInterop: usize,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

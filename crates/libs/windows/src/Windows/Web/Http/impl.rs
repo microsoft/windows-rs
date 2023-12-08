@@ -1,5 +1,5 @@
-#[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"Web_Http_Headers\"`"]
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Http_Headers"))]
+#[doc = "Required features: `\"Storage_Streams\"`, `\"Web_Http_Headers\"`"]
+#[cfg(all(feature = "Storage_Streams", feature = "Web_Http_Headers"))]
 pub trait IHttpContent_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn Headers(&self) -> ::windows_core::Result<Headers::HttpContentHeaderCollection>;
     fn BufferAllAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
@@ -9,11 +9,11 @@ pub trait IHttpContent_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn TryComputeLength(&self, length: &mut u64) -> ::windows_core::Result<bool>;
     fn WriteToStreamAsync(&self, outputstream: ::core::option::Option<&super::super::Storage::Streams::IOutputStream>) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Http_Headers"))]
+#[cfg(all(feature = "Storage_Streams", feature = "Web_Http_Headers"))]
 impl ::windows_core::RuntimeName for IHttpContent {
     const NAME: &'static str = "Windows.Web.Http.IHttpContent";
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Http_Headers"))]
+#[cfg(all(feature = "Storage_Streams", feature = "Web_Http_Headers"))]
 impl IHttpContent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IHttpContent_Impl, const OFFSET: isize>() -> IHttpContent_Vtbl {
         unsafe extern "system" fn Headers<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IHttpContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

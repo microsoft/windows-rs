@@ -61,14 +61,8 @@ pub struct IVpnChannel_Vtbl {
     pub LogDiagnosticMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, message: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub ActivityChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ActivityChange: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveActivityChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveActivityChange: usize,
     pub SetPlugInContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub PlugInContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SystemHealth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -101,32 +95,20 @@ pub struct IVpnChannel2_Vtbl {
     pub StartExistingTransports: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, assignedclientipv4list: *mut ::core::ffi::c_void, assignedclientipv6list: *mut ::core::ffi::c_void, vpninterfaceid: *mut ::core::ffi::c_void, assignedroutes: *mut ::core::ffi::c_void, assigneddomainname: *mut ::core::ffi::c_void, mtusize: u32, maxframesize: u32, reserved: bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     StartExistingTransports: usize,
-    #[cfg(feature = "Foundation")]
     pub ActivityStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ActivityStateChange: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveActivityStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveActivityStateChange: usize,
     pub GetVpnSendPacketBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetVpnReceivePacketBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub RequestCustomPromptAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, custompromptelement: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     RequestCustomPromptAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates"))]
+    #[cfg(feature = "Security_Cryptography_Certificates")]
     pub RequestCredentialsWithCertificateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credtype: VpnCredentialType, credoptions: u32, certificate: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Cryptography_Certificates")))]
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     RequestCredentialsWithCertificateAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub RequestCredentialsWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credtype: VpnCredentialType, credoptions: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestCredentialsWithOptionsAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub RequestCredentialsSimpleAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credtype: VpnCredentialType, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestCredentialsSimpleAsync: usize,
     pub TerminateConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, message: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub StartWithTrafficFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, assignedclientipv4list: *mut ::core::ffi::c_void, assignedclientipv6list: *mut ::core::ffi::c_void, vpninterfaceid: *mut ::core::ffi::c_void, assignedroutes: *mut ::core::ffi::c_void, assignednamespace: *mut ::core::ffi::c_void, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: *mut ::core::ffi::c_void, optionaloutertunneltransport: *mut ::core::ffi::c_void, assignedtrafficfilters: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -671,14 +653,8 @@ pub struct IVpnDomainNameAssignment_Vtbl {
     pub DomainNameList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     DomainNameList: usize,
-    #[cfg(feature = "Foundation")]
     pub SetProxyAutoConfigurationUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetProxyAutoConfigurationUri: usize,
-    #[cfg(feature = "Foundation")]
     pub ProxyAutoConfigurationUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ProxyAutoConfigurationUri: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -861,42 +837,21 @@ unsafe impl ::windows_core::ComInterface for IVpnManagementAgent {
 #[doc(hidden)]
 pub struct IVpnManagementAgent_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub AddProfileFromXmlAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xml: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AddProfileFromXmlAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub AddProfileFromObjectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profile: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AddProfileFromObjectAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub UpdateProfileFromXmlAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xml: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    UpdateProfileFromXmlAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub UpdateProfileFromObjectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profile: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    UpdateProfileFromObjectAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
     pub GetProfilesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetProfilesAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub DeleteProfileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profile: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DeleteProfileAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub ConnectProfileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profile: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ConnectProfileAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[cfg(feature = "Security_Credentials")]
     pub ConnectProfileWithPasswordCredentialAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profile: *mut ::core::ffi::c_void, passwordcredential: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))]
+    #[cfg(not(feature = "Security_Credentials"))]
     ConnectProfileWithPasswordCredentialAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub DisconnectProfileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profile: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DisconnectProfileAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -920,14 +875,8 @@ pub struct IVpnNamespaceAssignment_Vtbl {
     pub NamespaceList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     NamespaceList: usize,
-    #[cfg(feature = "Foundation")]
     pub SetProxyAutoConfigUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetProxyAutoConfigUri: usize,
-    #[cfg(feature = "Foundation")]
     pub ProxyAutoConfigUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ProxyAutoConfigUri: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1732,8 +1681,6 @@ impl VpnChannel {
             (::windows_core::Interface::vtable(this).Configuration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ActivityChange<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<VpnChannel, VpnChannelActivityEventArgs>>,
@@ -1744,8 +1691,6 @@ impl VpnChannel {
             (::windows_core::Interface::vtable(this).ActivityChange)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveActivityChange(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveActivityChange)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -1818,8 +1763,6 @@ impl VpnChannel {
         let this = &::windows_core::ComInterface::cast::<IVpnChannel2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).StartExistingTransports)(::windows_core::Interface::as_raw(this), assignedclientipv4list.try_into_param()?.abi(), assignedclientipv6list.try_into_param()?.abi(), vpninterfaceid.into_param().abi(), assignedroutes.into_param().abi(), assigneddomainname.into_param().abi(), mtusize, maxframesize, reserved).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ActivityStateChange<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<VpnChannel, VpnChannelActivityStateChangedArgs>>,
@@ -1830,8 +1773,6 @@ impl VpnChannel {
             (::windows_core::Interface::vtable(this).ActivityStateChange)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveActivityStateChange(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IVpnChannel2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveActivityStateChange)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -1862,8 +1803,8 @@ impl VpnChannel {
             (::windows_core::Interface::vtable(this).RequestCustomPromptAsync)(::windows_core::Interface::as_raw(this), custompromptelement.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Security_Cryptography_Certificates\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates"))]
+    #[doc = "Required features: `\"Security_Cryptography_Certificates\"`"]
+    #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn RequestCredentialsWithCertificateAsync<P0>(&self, credtype: VpnCredentialType, credoptions: u32, certificate: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>>
     where
         P0: ::windows_core::IntoParam<super::super::Security::Cryptography::Certificates::Certificate>,
@@ -1874,8 +1815,6 @@ impl VpnChannel {
             (::windows_core::Interface::vtable(this).RequestCredentialsWithCertificateAsync)(::windows_core::Interface::as_raw(this), credtype, credoptions, certificate.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RequestCredentialsWithOptionsAsync(&self, credtype: VpnCredentialType, credoptions: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>> {
         let this = &::windows_core::ComInterface::cast::<IVpnChannel2>(self)?;
         unsafe {
@@ -1883,8 +1822,6 @@ impl VpnChannel {
             (::windows_core::Interface::vtable(this).RequestCredentialsWithOptionsAsync)(::windows_core::Interface::as_raw(this), credtype, credoptions, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RequestCredentialsSimpleAsync(&self, credtype: VpnCredentialType) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>> {
         let this = &::windows_core::ComInterface::cast::<IVpnChannel2>(self)?;
         unsafe {
@@ -2919,8 +2856,6 @@ impl VpnDomainNameAssignment {
             (::windows_core::Interface::vtable(this).DomainNameList)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetProxyAutoConfigurationUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
@@ -2928,8 +2863,6 @@ impl VpnDomainNameAssignment {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetProxyAutoConfigurationUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ProxyAutoConfigurationUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -3200,8 +3133,6 @@ impl VpnManagementAgent {
         static SHARED: ::windows_core::imp::FactoryCache<VpnManagementAgent, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AddProfileFromXmlAsync(&self, xml: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>> {
         let this = self;
         unsafe {
@@ -3209,8 +3140,6 @@ impl VpnManagementAgent {
             (::windows_core::Interface::vtable(this).AddProfileFromXmlAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(xml), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AddProfileFromObjectAsync<P0>(&self, profile: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
     where
         P0: ::windows_core::TryIntoParam<IVpnProfile>,
@@ -3221,8 +3150,6 @@ impl VpnManagementAgent {
             (::windows_core::Interface::vtable(this).AddProfileFromObjectAsync)(::windows_core::Interface::as_raw(this), profile.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn UpdateProfileFromXmlAsync(&self, xml: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>> {
         let this = self;
         unsafe {
@@ -3230,8 +3157,6 @@ impl VpnManagementAgent {
             (::windows_core::Interface::vtable(this).UpdateProfileFromXmlAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(xml), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn UpdateProfileFromObjectAsync<P0>(&self, profile: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
     where
         P0: ::windows_core::TryIntoParam<IVpnProfile>,
@@ -3251,8 +3176,6 @@ impl VpnManagementAgent {
             (::windows_core::Interface::vtable(this).GetProfilesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn DeleteProfileAsync<P0>(&self, profile: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
     where
         P0: ::windows_core::TryIntoParam<IVpnProfile>,
@@ -3263,8 +3186,6 @@ impl VpnManagementAgent {
             (::windows_core::Interface::vtable(this).DeleteProfileAsync)(::windows_core::Interface::as_raw(this), profile.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ConnectProfileAsync<P0>(&self, profile: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
     where
         P0: ::windows_core::TryIntoParam<IVpnProfile>,
@@ -3275,8 +3196,8 @@ impl VpnManagementAgent {
             (::windows_core::Interface::vtable(this).ConnectProfileAsync)(::windows_core::Interface::as_raw(this), profile.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Security_Credentials\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
+    #[cfg(feature = "Security_Credentials")]
     pub fn ConnectProfileWithPasswordCredentialAsync<P0, P1>(&self, profile: P0, passwordcredential: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
     where
         P0: ::windows_core::TryIntoParam<IVpnProfile>,
@@ -3288,8 +3209,6 @@ impl VpnManagementAgent {
             (::windows_core::Interface::vtable(this).ConnectProfileWithPasswordCredentialAsync)(::windows_core::Interface::as_raw(this), profile.try_into_param()?.abi(), passwordcredential.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn DisconnectProfileAsync<P0>(&self, profile: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
     where
         P0: ::windows_core::TryIntoParam<IVpnProfile>,
@@ -3345,8 +3264,6 @@ impl VpnNamespaceAssignment {
             (::windows_core::Interface::vtable(this).NamespaceList)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetProxyAutoConfigUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
@@ -3354,8 +3271,6 @@ impl VpnNamespaceAssignment {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetProxyAutoConfigUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ProxyAutoConfigUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {

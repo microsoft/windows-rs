@@ -2649,8 +2649,6 @@ impl ::core::clone::Clone for NDIS_HARDWARE_CROSSTIMESTAMP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct NDIS_INTERFACE_INFORMATION {
     pub ifOperStatus: NET_IF_OPER_STATUS,
     pub ifOperStatusFlags: u32,
@@ -2685,9 +2683,7 @@ pub struct NDIS_INTERFACE_INFORMATION {
     pub CompartmentId: u32,
     pub SupportedStatistics: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NDIS_INTERFACE_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NDIS_INTERFACE_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -3286,8 +3282,6 @@ impl ::core::clone::Clone for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct NDIS_TIMESTAMP_CAPABILITIES {
     pub Header: NDIS_OBJECT_HEADER,
     pub HardwareClockFrequencyHz: u64,
@@ -3296,17 +3290,13 @@ pub struct NDIS_TIMESTAMP_CAPABILITIES {
     pub Reserved2: u64,
     pub TimestampFlags: NDIS_TIMESTAMP_CAPABILITY_FLAGS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NDIS_TIMESTAMP_CAPABILITIES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NDIS_TIMESTAMP_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     pub PtpV2OverUdpIPv4EventMsgReceiveHw: super::super::Foundation::BOOLEAN,
     pub PtpV2OverUdpIPv4AllMsgReceiveHw: super::super::Foundation::BOOLEAN,
@@ -3323,9 +3313,7 @@ pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     pub AllTransmitSw: super::super::Foundation::BOOLEAN,
     pub TaggedTransmitSw: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NDIS_TIMESTAMP_CAPABILITY_FLAGS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     fn clone(&self) -> Self {
         *self
@@ -3862,8 +3850,6 @@ impl ::core::clone::Clone for OFFLOAD_ALGO_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct OFFLOAD_IPSEC_ADD_SA {
     pub SrcAddr: u32,
     pub SrcMask: u32,
@@ -3881,17 +3867,13 @@ pub struct OFFLOAD_IPSEC_ADD_SA {
     pub KeyLen: u32,
     pub KeyMat: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OFFLOAD_IPSEC_ADD_SA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OFFLOAD_IPSEC_ADD_SA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
     pub SrcAddr: u32,
     pub SrcMask: u32,
@@ -3911,38 +3893,28 @@ pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
     pub KeyLen: u32,
     pub KeyMat: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OFFLOAD_IPSEC_ADD_UDPESP_SA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OFFLOAD_IPSEC_ADD_UDPESP_SA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct OFFLOAD_IPSEC_DELETE_SA {
     pub OffloadHandle: super::super::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OFFLOAD_IPSEC_DELETE_SA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OFFLOAD_IPSEC_DELETE_SA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     pub OffloadHandle: super::super::Foundation::HANDLE,
     pub EncapTypeEntryOffldHandle: super::super::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OFFLOAD_IPSEC_DELETE_UDPESP_SA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     fn clone(&self) -> Self {
         *self

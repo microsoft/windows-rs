@@ -38,8 +38,6 @@ pub struct IRemoteTextConnectionFactory_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteTextConnection(::windows_core::IUnknown);
 impl RemoteTextConnection {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -95,7 +93,6 @@ impl ::windows_core::RuntimeName for RemoteTextConnection {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Input.RemoteTextConnection";
 }
 ::windows_core::imp::interface_hierarchy!(RemoteTextConnection, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for RemoteTextConnection {}
 unsafe impl ::core::marker::Send for RemoteTextConnection {}
 unsafe impl ::core::marker::Sync for RemoteTextConnection {}

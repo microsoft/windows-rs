@@ -1,13 +1,13 @@
-#[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[doc = "Required features: `\"Storage_Streams\"`"]
+#[cfg(feature = "Storage_Streams")]
 pub trait IUriToStreamResolver_Impl: Sized {
     fn UriToStreamAsync(&self, uri: ::core::option::Option<&super::Foundation::Uri>) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>;
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl ::windows_core::RuntimeName for IUriToStreamResolver {
     const NAME: &'static str = "Windows.Web.IUriToStreamResolver";
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl IUriToStreamResolver_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUriToStreamResolver_Impl, const OFFSET: isize>() -> IUriToStreamResolver_Vtbl {
         unsafe extern "system" fn UriToStreamAsync<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUriToStreamResolver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

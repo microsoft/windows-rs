@@ -54,17 +54,13 @@ impl IWsbApplicationBackupSupport_Vtbl {
         *iid == <IWsbApplicationBackupSupport as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWsbApplicationRestoreSupport_Impl: Sized {
     fn PreRestore(&self, wszwritermetadata: &::windows_core::PCWSTR, wszcomponentname: &::windows_core::PCWSTR, wszcomponentlogicalpath: &::windows_core::PCWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> ::windows_core::Result<()>;
     fn PostRestore(&self, wszwritermetadata: &::windows_core::PCWSTR, wszcomponentname: &::windows_core::PCWSTR, wszcomponentlogicalpath: &::windows_core::PCWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> ::windows_core::Result<()>;
     fn OrderComponents(&self, ccomponents: u32, rgcomponentname: *const ::windows_core::PCWSTR, rgcomponentlogicalpaths: *const ::windows_core::PCWSTR, prgcomponentname: *mut *mut ::windows_core::PWSTR, prgcomponentlogicalpath: *mut *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>;
     fn IsRollForwardSupported(&self) -> ::windows_core::Result<u8>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IWsbApplicationRestoreSupport {}
-#[cfg(feature = "Win32_Foundation")]
 impl IWsbApplicationRestoreSupport_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWsbApplicationRestoreSupport_Impl, const OFFSET: isize>() -> IWsbApplicationRestoreSupport_Vtbl {
         unsafe extern "system" fn PreRestore<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWsbApplicationRestoreSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszwritermetadata: ::windows_core::PCWSTR, wszcomponentname: ::windows_core::PCWSTR, wszcomponentlogicalpath: ::windows_core::PCWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> ::windows_core::HRESULT {

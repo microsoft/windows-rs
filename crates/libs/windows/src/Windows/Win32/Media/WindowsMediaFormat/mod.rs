@@ -70,8 +70,6 @@ pub unsafe fn WMCreateWriterPushSink() -> ::windows_core::Result<IWMWriterPushSi
     let mut result__ = ::std::mem::zeroed();
     WMCreateWriterPushSink(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WMIsContentProtected<P0>(pwszfilename: P0, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>
 where
@@ -107,8 +105,8 @@ impl INSNetSourceCreator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNetSourceSharedNamespace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetNetSourceAdminInterface<P0>(&self, pszstreamname: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -142,9 +140,9 @@ pub struct INSNetSourceCreator_Vtbl {
     pub CreateNetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstreamname: ::windows_core::PCWSTR, pmonitor: *mut ::core::ffi::c_void, pdata: *const u8, pusercontext: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, qwcontext: u64) -> ::windows_core::HRESULT,
     pub GetNetSourceProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstreamname: ::windows_core::PCWSTR, pppropertiesnode: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetNetSourceSharedNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsharednamespace: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetNetSourceAdminInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstreamname: ::windows_core::PCWSTR, pval: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetNetSourceAdminInterface: usize,
     pub GetNumProtocolsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcprotocols: *mut u32) -> ::windows_core::HRESULT,
     pub GetProtocolName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwprotocolnum: u32, pwszprotocolname: ::windows_core::PWSTR, pcchprotocolname: *mut u16) -> ::windows_core::HRESULT,
@@ -896,8 +894,6 @@ impl IWMDRMReader2 {
     {
         (::windows_core::Interface::vtable(self).base__.GetDRMProperty)(::windows_core::Interface::as_raw(self), pwstrname.into_param().abi(), pdwtype, pvalue, pcblength).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEvaluateOutputLevelLicenses<P0>(&self, fevaluate: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -925,10 +921,7 @@ unsafe impl ::windows_core::ComInterface for IWMDRMReader2 {
 #[doc(hidden)]
 pub struct IWMDRMReader2_Vtbl {
     pub base__: IWMDRMReader_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetEvaluateOutputLevelLicenses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fevaluate: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetEvaluateOutputLevelLicenses: usize,
     pub GetPlayOutputLevels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplayopl: *mut DRM_PLAY_OPL, pcblength: *mut u32, pdwminappcompliancelevel: *mut u32) -> ::windows_core::HRESULT,
     pub GetCopyOutputLevels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcopyopl: *mut DRM_COPY_OPL, pcblength: *mut u32, pdwminappcompliancelevel: *mut u32) -> ::windows_core::HRESULT,
     pub TryNextLicense: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -967,8 +960,6 @@ impl IWMDRMReader3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.GetDRMProperty)(::windows_core::Interface::as_raw(self), pwstrname.into_param().abi(), pdwtype, pvalue, pcblength).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEvaluateOutputLevelLicenses<P0>(&self, fevaluate: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -1080,16 +1071,12 @@ impl IWMDRMTranscryptor2 {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SeekEx<P0>(&self, cnsstarttime: u64, cnsduration: u64, flrate: f32, fincludefileheader: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SeekEx)(::windows_core::Interface::as_raw(self), cnsstarttime, cnsduration, flrate, fincludefileheader.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ZeroAdjustTimestamps<P0>(&self, fenable: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -1116,14 +1103,8 @@ unsafe impl ::windows_core::ComInterface for IWMDRMTranscryptor2 {
 #[doc(hidden)]
 pub struct IWMDRMTranscryptor2_Vtbl {
     pub base__: IWMDRMTranscryptor_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub SeekEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnsstarttime: u64, cnsduration: u64, flrate: f32, fincludefileheader: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SeekEx: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub ZeroAdjustTimestamps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    ZeroAdjustTimestamps: usize,
     pub GetSeekStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnstime: *mut u64) -> ::windows_core::HRESULT,
     pub GetDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnsduration: *mut u64) -> ::windows_core::HRESULT,
 }
@@ -1182,8 +1163,6 @@ impl IWMDRMWriter2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetDRMAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWMDRMNetEncryption<P0>(&self, fsamplesencrypted: P0, pbkeyid: *const u8, cbkeyid: u32) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -1202,10 +1181,7 @@ unsafe impl ::windows_core::ComInterface for IWMDRMWriter2 {
 #[doc(hidden)]
 pub struct IWMDRMWriter2_Vtbl {
     pub base__: IWMDRMWriter_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetWMDRMNetEncryption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fsamplesencrypted: super::super::Foundation::BOOL, pbkeyid: *const u8, cbkeyid: u32) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetWMDRMNetEncryption: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1226,8 +1202,6 @@ impl IWMDRMWriter3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetDRMAttribute)(::windows_core::Interface::as_raw(self), wstreamnum, pszname.into_param().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWMDRMNetEncryption<P0>(&self, fsamplesencrypted: P0, pbkeyid: *const u8, cbkeyid: u32) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -1711,13 +1685,9 @@ impl IWMInputMediaProps {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMediaType(&self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetMediaType)(::windows_core::Interface::as_raw(self), ptype, pcbtype).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMediaType(&self, ptype: *const WM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetMediaType)(::windows_core::Interface::as_raw(self), ptype).ok()
     }
@@ -1865,13 +1835,9 @@ impl IWMMediaProps {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMediaType(&self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetMediaType)(::windows_core::Interface::as_raw(self), ptype, pcbtype).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMediaType(&self, ptype: *const WM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMediaType)(::windows_core::Interface::as_raw(self), ptype).ok()
     }
@@ -1888,14 +1854,8 @@ unsafe impl ::windows_core::ComInterface for IWMMediaProps {
 pub struct IWMMediaProps_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidtype: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetMediaType: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *const WM_MEDIA_TYPE) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetMediaType: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2088,13 +2048,9 @@ impl IWMOutputMediaProps {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMediaType(&self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetMediaType)(::windows_core::Interface::as_raw(self), ptype, pcbtype).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMediaType(&self, ptype: *const WM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetMediaType)(::windows_core::Interface::as_raw(self), ptype).ok()
     }
@@ -2898,8 +2854,6 @@ impl IWMReaderAccelerator {
     pub unsafe fn GetCodecInterface(&self, dwoutputnum: u32, riid: *const ::windows_core::GUID, ppvcodecinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCodecInterface)(::windows_core::Interface::as_raw(self), dwoutputnum, riid, ppvcodecinterface).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Notify(&self, dwoutputnum: u32, psubtype: *const WM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Notify)(::windows_core::Interface::as_raw(self), dwoutputnum, psubtype).ok()
     }
@@ -2916,25 +2870,18 @@ unsafe impl ::windows_core::ComInterface for IWMReaderAccelerator {
 pub struct IWMReaderAccelerator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCodecInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, riid: *const ::windows_core::GUID, ppvcodecinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, psubtype: *const WM_MEDIA_TYPE) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Notify: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMReaderAdvanced(::windows_core::IUnknown);
 impl IWMReaderAdvanced {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserProvidedClock<P0>(&self, fuserclock: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetUserProvidedClock)(::windows_core::Interface::as_raw(self), fuserclock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserProvidedClock(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetUserProvidedClock)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -2942,16 +2889,12 @@ impl IWMReaderAdvanced {
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeliverTime)(::windows_core::Interface::as_raw(self), cnstime).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetManualStreamSelection<P0>(&self, fselection: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetManualStreamSelection)(::windows_core::Interface::as_raw(self), fselection.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetManualStreamSelection(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetManualStreamSelection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -2963,58 +2906,42 @@ impl IWMReaderAdvanced {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStreamSelected)(::windows_core::Interface::as_raw(self), wstreamnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveSelectionCallbacks<P0>(&self, fgetcallbacks: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetReceiveSelectionCallbacks)(::windows_core::Interface::as_raw(self), fgetcallbacks.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveSelectionCallbacks(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReceiveSelectionCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveStreamSamples<P0>(&self, wstreamnum: u16, freceivestreamsamples: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetReceiveStreamSamples)(::windows_core::Interface::as_raw(self), wstreamnum, freceivestreamsamples.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReceiveStreamSamples)(::windows_core::Interface::as_raw(self), wstreamnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForOutput<P0>(&self, dwoutputnum: u32, fallocate: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetAllocateForOutput)(::windows_core::Interface::as_raw(self), dwoutputnum, fallocate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAllocateForOutput)(::windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForStream<P0>(&self, wstreamnum: u16, fallocate: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetAllocateForStream)(::windows_core::Interface::as_raw(self), wstreamnum, fallocate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAllocateForStream)(::windows_core::Interface::as_raw(self), dwsreamnum, &mut result__).from_abi(result__)
@@ -3022,8 +2949,6 @@ impl IWMReaderAdvanced {
     pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStatistics)(::windows_core::Interface::as_raw(self), pstatistics).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetClientInfo)(::windows_core::Interface::as_raw(self), pclientinfo).ok()
     }
@@ -3050,62 +2975,23 @@ unsafe impl ::windows_core::ComInterface for IWMReaderAdvanced {
 #[doc(hidden)]
 pub struct IWMReaderAdvanced_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetUserProvidedClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fuserclock: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetUserProvidedClock: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetUserProvidedClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfuserclock: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetUserProvidedClock: usize,
     pub DeliverTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnstime: u64) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetManualStreamSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fselection: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetManualStreamSelection: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetManualStreamSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfselection: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetManualStreamSelection: usize,
     pub SetStreamsSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> ::windows_core::HRESULT,
     pub GetStreamSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pselection: *mut WMT_STREAM_SELECTION) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetReceiveSelectionCallbacks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fgetcallbacks: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetReceiveSelectionCallbacks: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetReceiveSelectionCallbacks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfgetcallbacks: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetReceiveSelectionCallbacks: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetReceiveStreamSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, freceivestreamsamples: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetReceiveStreamSamples: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetReceiveStreamSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pfreceivestreamsamples: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetReceiveStreamSamples: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetAllocateForOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, fallocate: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetAllocateForOutput: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetAllocateForOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pfallocate: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetAllocateForOutput: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetAllocateForStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, fallocate: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetAllocateForStream: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetAllocateForStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsreamnum: u16, pfallocate: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetAllocateForStream: usize,
     pub GetStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatistics: *mut WM_READER_STATISTICS) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetClientInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclientinfo: *const WM_READER_CLIENTINFO) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetClientInfo: usize,
     pub GetMaxOutputSampleSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutput: u32, pcbmax: *mut u32) -> ::windows_core::HRESULT,
     pub GetMaxStreamSampleSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstream: u16, pcbmax: *mut u32) -> ::windows_core::HRESULT,
     pub NotifyLateDelivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnslateness: u64) -> ::windows_core::HRESULT,
@@ -3114,16 +3000,12 @@ pub struct IWMReaderAdvanced_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMReaderAdvanced2(::windows_core::IUnknown);
 impl IWMReaderAdvanced2 {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserProvidedClock<P0>(&self, fuserclock: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.SetUserProvidedClock)(::windows_core::Interface::as_raw(self), fuserclock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserProvidedClock(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetUserProvidedClock)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -3131,16 +3013,12 @@ impl IWMReaderAdvanced2 {
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.DeliverTime)(::windows_core::Interface::as_raw(self), cnstime).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetManualStreamSelection<P0>(&self, fselection: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.SetManualStreamSelection)(::windows_core::Interface::as_raw(self), fselection.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetManualStreamSelection(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetManualStreamSelection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -3152,58 +3030,42 @@ impl IWMReaderAdvanced2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStreamSelected)(::windows_core::Interface::as_raw(self), wstreamnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveSelectionCallbacks<P0>(&self, fgetcallbacks: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.SetReceiveSelectionCallbacks)(::windows_core::Interface::as_raw(self), fgetcallbacks.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveSelectionCallbacks(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetReceiveSelectionCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveStreamSamples<P0>(&self, wstreamnum: u16, freceivestreamsamples: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.SetReceiveStreamSamples)(::windows_core::Interface::as_raw(self), wstreamnum, freceivestreamsamples.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetReceiveStreamSamples)(::windows_core::Interface::as_raw(self), wstreamnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForOutput<P0>(&self, dwoutputnum: u32, fallocate: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.SetAllocateForOutput)(::windows_core::Interface::as_raw(self), dwoutputnum, fallocate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetAllocateForOutput)(::windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForStream<P0>(&self, wstreamnum: u16, fallocate: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.SetAllocateForStream)(::windows_core::Interface::as_raw(self), wstreamnum, fallocate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetAllocateForStream)(::windows_core::Interface::as_raw(self), dwsreamnum, &mut result__).from_abi(result__)
@@ -3211,8 +3073,6 @@ impl IWMReaderAdvanced2 {
     pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetStatistics)(::windows_core::Interface::as_raw(self), pstatistics).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetClientInfo)(::windows_core::Interface::as_raw(self), pclientinfo).ok()
     }
@@ -3271,16 +3131,12 @@ impl IWMReaderAdvanced2 {
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Preroll)(::windows_core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogClientID<P0>(&self, flogclientid: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetLogClientID)(::windows_core::Interface::as_raw(self), flogclientid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogClientID(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLogClientID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -3320,14 +3176,8 @@ pub struct IWMReaderAdvanced2_Vtbl {
     pub GetOutputSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pszname: ::windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::HRESULT,
     pub SetOutputSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pszname: ::windows_core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows_core::HRESULT,
     pub Preroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetLogClientID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flogclientid: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetLogClientID: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetLogClientID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflogclientid: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetLogClientID: usize,
     pub StopBuffering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub OpenStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstream: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -3338,16 +3188,12 @@ pub struct IWMReaderAdvanced2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMReaderAdvanced3(::windows_core::IUnknown);
 impl IWMReaderAdvanced3 {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserProvidedClock<P0>(&self, fuserclock: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetUserProvidedClock)(::windows_core::Interface::as_raw(self), fuserclock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserProvidedClock(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetUserProvidedClock)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -3355,16 +3201,12 @@ impl IWMReaderAdvanced3 {
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.DeliverTime)(::windows_core::Interface::as_raw(self), cnstime).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetManualStreamSelection<P0>(&self, fselection: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetManualStreamSelection)(::windows_core::Interface::as_raw(self), fselection.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetManualStreamSelection(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetManualStreamSelection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -3376,58 +3218,42 @@ impl IWMReaderAdvanced3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetStreamSelected)(::windows_core::Interface::as_raw(self), wstreamnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveSelectionCallbacks<P0>(&self, fgetcallbacks: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetReceiveSelectionCallbacks)(::windows_core::Interface::as_raw(self), fgetcallbacks.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveSelectionCallbacks(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetReceiveSelectionCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveStreamSamples<P0>(&self, wstreamnum: u16, freceivestreamsamples: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetReceiveStreamSamples)(::windows_core::Interface::as_raw(self), wstreamnum, freceivestreamsamples.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetReceiveStreamSamples)(::windows_core::Interface::as_raw(self), wstreamnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForOutput<P0>(&self, dwoutputnum: u32, fallocate: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetAllocateForOutput)(::windows_core::Interface::as_raw(self), dwoutputnum, fallocate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetAllocateForOutput)(::windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForStream<P0>(&self, wstreamnum: u16, fallocate: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetAllocateForStream)(::windows_core::Interface::as_raw(self), wstreamnum, fallocate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetAllocateForStream)(::windows_core::Interface::as_raw(self), dwsreamnum, &mut result__).from_abi(result__)
@@ -3435,8 +3261,6 @@ impl IWMReaderAdvanced3 {
     pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetStatistics)(::windows_core::Interface::as_raw(self), pstatistics).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetClientInfo)(::windows_core::Interface::as_raw(self), pclientinfo).ok()
     }
@@ -3495,16 +3319,12 @@ impl IWMReaderAdvanced3 {
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Preroll)(::windows_core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogClientID<P0>(&self, flogclientid: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.SetLogClientID)(::windows_core::Interface::as_raw(self), flogclientid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogClientID(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetLogClientID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -3546,16 +3366,12 @@ pub struct IWMReaderAdvanced3_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMReaderAdvanced4(::windows_core::IUnknown);
 impl IWMReaderAdvanced4 {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserProvidedClock<P0>(&self, fuserclock: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetUserProvidedClock)(::windows_core::Interface::as_raw(self), fuserclock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserProvidedClock(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetUserProvidedClock)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -3563,16 +3379,12 @@ impl IWMReaderAdvanced4 {
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.DeliverTime)(::windows_core::Interface::as_raw(self), cnstime).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetManualStreamSelection<P0>(&self, fselection: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetManualStreamSelection)(::windows_core::Interface::as_raw(self), fselection.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetManualStreamSelection(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetManualStreamSelection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -3584,58 +3396,42 @@ impl IWMReaderAdvanced4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetStreamSelected)(::windows_core::Interface::as_raw(self), wstreamnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveSelectionCallbacks<P0>(&self, fgetcallbacks: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetReceiveSelectionCallbacks)(::windows_core::Interface::as_raw(self), fgetcallbacks.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveSelectionCallbacks(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetReceiveSelectionCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveStreamSamples<P0>(&self, wstreamnum: u16, freceivestreamsamples: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetReceiveStreamSamples)(::windows_core::Interface::as_raw(self), wstreamnum, freceivestreamsamples.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetReceiveStreamSamples)(::windows_core::Interface::as_raw(self), wstreamnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForOutput<P0>(&self, dwoutputnum: u32, fallocate: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetAllocateForOutput)(::windows_core::Interface::as_raw(self), dwoutputnum, fallocate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetAllocateForOutput)(::windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForStream<P0>(&self, wstreamnum: u16, fallocate: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetAllocateForStream)(::windows_core::Interface::as_raw(self), wstreamnum, fallocate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetAllocateForStream)(::windows_core::Interface::as_raw(self), dwsreamnum, &mut result__).from_abi(result__)
@@ -3643,8 +3439,6 @@ impl IWMReaderAdvanced4 {
     pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetStatistics)(::windows_core::Interface::as_raw(self), pstatistics).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetClientInfo)(::windows_core::Interface::as_raw(self), pclientinfo).ok()
     }
@@ -3703,16 +3497,12 @@ impl IWMReaderAdvanced4 {
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Preroll)(::windows_core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogClientID<P0>(&self, flogclientid: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetLogClientID)(::windows_core::Interface::as_raw(self), flogclientid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogClientID(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetLogClientID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -3746,8 +3536,6 @@ impl IWMReaderAdvanced4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMaxSpeedFactor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUsingFastCache(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsUsingFastCache)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -3763,8 +3551,6 @@ impl IWMReaderAdvanced4 {
     pub unsafe fn SendLogParams(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SendLogParams)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanSaveFileAs(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CanSaveFileAs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -3790,16 +3576,10 @@ pub struct IWMReaderAdvanced4_Vtbl {
     pub GetLanguageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pwlanguagecount: *mut u16) -> ::windows_core::HRESULT,
     pub GetLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, wlanguage: u16, pwszlanguagestring: ::windows_core::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows_core::HRESULT,
     pub GetMaxSpeedFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdblfactor: *mut f64) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsUsingFastCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfusingfastcache: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsUsingFastCache: usize,
     pub AddLogParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wsznamespace: ::windows_core::PCWSTR, wszname: ::windows_core::PCWSTR, wszvalue: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub SendLogParams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub CanSaveFileAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfcansave: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    CanSaveFileAs: usize,
     pub CancelSaveFileAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: ::windows_core::PWSTR, pcchurl: *mut u32) -> ::windows_core::HRESULT,
 }
@@ -3807,16 +3587,12 @@ pub struct IWMReaderAdvanced4_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMReaderAdvanced5(::windows_core::IUnknown);
 impl IWMReaderAdvanced5 {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserProvidedClock<P0>(&self, fuserclock: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetUserProvidedClock)(::windows_core::Interface::as_raw(self), fuserclock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserProvidedClock(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetUserProvidedClock)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -3824,16 +3600,12 @@ impl IWMReaderAdvanced5 {
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.DeliverTime)(::windows_core::Interface::as_raw(self), cnstime).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetManualStreamSelection<P0>(&self, fselection: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetManualStreamSelection)(::windows_core::Interface::as_raw(self), fselection.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetManualStreamSelection(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetManualStreamSelection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -3845,58 +3617,42 @@ impl IWMReaderAdvanced5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetStreamSelected)(::windows_core::Interface::as_raw(self), wstreamnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveSelectionCallbacks<P0>(&self, fgetcallbacks: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetReceiveSelectionCallbacks)(::windows_core::Interface::as_raw(self), fgetcallbacks.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveSelectionCallbacks(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetReceiveSelectionCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveStreamSamples<P0>(&self, wstreamnum: u16, freceivestreamsamples: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetReceiveStreamSamples)(::windows_core::Interface::as_raw(self), wstreamnum, freceivestreamsamples.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetReceiveStreamSamples)(::windows_core::Interface::as_raw(self), wstreamnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForOutput<P0>(&self, dwoutputnum: u32, fallocate: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetAllocateForOutput)(::windows_core::Interface::as_raw(self), dwoutputnum, fallocate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetAllocateForOutput)(::windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForStream<P0>(&self, wstreamnum: u16, fallocate: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetAllocateForStream)(::windows_core::Interface::as_raw(self), wstreamnum, fallocate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetAllocateForStream)(::windows_core::Interface::as_raw(self), dwsreamnum, &mut result__).from_abi(result__)
@@ -3904,8 +3660,6 @@ impl IWMReaderAdvanced5 {
     pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetStatistics)(::windows_core::Interface::as_raw(self), pstatistics).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetClientInfo)(::windows_core::Interface::as_raw(self), pclientinfo).ok()
     }
@@ -3964,16 +3718,12 @@ impl IWMReaderAdvanced5 {
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.Preroll)(::windows_core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogClientID<P0>(&self, flogclientid: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetLogClientID)(::windows_core::Interface::as_raw(self), flogclientid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogClientID(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetLogClientID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -4007,8 +3757,6 @@ impl IWMReaderAdvanced5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetMaxSpeedFactor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUsingFastCache(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsUsingFastCache)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -4024,8 +3772,6 @@ impl IWMReaderAdvanced5 {
     pub unsafe fn SendLogParams(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SendLogParams)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanSaveFileAs(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CanSaveFileAs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -4060,16 +3806,12 @@ pub struct IWMReaderAdvanced5_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMReaderAdvanced6(::windows_core::IUnknown);
 impl IWMReaderAdvanced6 {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserProvidedClock<P0>(&self, fuserclock: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetUserProvidedClock)(::windows_core::Interface::as_raw(self), fuserclock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserProvidedClock(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetUserProvidedClock)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -4077,16 +3819,12 @@ impl IWMReaderAdvanced6 {
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.DeliverTime)(::windows_core::Interface::as_raw(self), cnstime).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetManualStreamSelection<P0>(&self, fselection: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetManualStreamSelection)(::windows_core::Interface::as_raw(self), fselection.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetManualStreamSelection(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetManualStreamSelection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -4098,58 +3836,42 @@ impl IWMReaderAdvanced6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetStreamSelected)(::windows_core::Interface::as_raw(self), wstreamnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveSelectionCallbacks<P0>(&self, fgetcallbacks: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetReceiveSelectionCallbacks)(::windows_core::Interface::as_raw(self), fgetcallbacks.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveSelectionCallbacks(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetReceiveSelectionCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveStreamSamples<P0>(&self, wstreamnum: u16, freceivestreamsamples: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetReceiveStreamSamples)(::windows_core::Interface::as_raw(self), wstreamnum, freceivestreamsamples.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetReceiveStreamSamples)(::windows_core::Interface::as_raw(self), wstreamnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForOutput<P0>(&self, dwoutputnum: u32, fallocate: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetAllocateForOutput)(::windows_core::Interface::as_raw(self), dwoutputnum, fallocate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetAllocateForOutput)(::windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForStream<P0>(&self, wstreamnum: u16, fallocate: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetAllocateForStream)(::windows_core::Interface::as_raw(self), wstreamnum, fallocate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetAllocateForStream)(::windows_core::Interface::as_raw(self), dwsreamnum, &mut result__).from_abi(result__)
@@ -4157,8 +3879,6 @@ impl IWMReaderAdvanced6 {
     pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetStatistics)(::windows_core::Interface::as_raw(self), pstatistics).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetClientInfo)(::windows_core::Interface::as_raw(self), pclientinfo).ok()
     }
@@ -4217,16 +3937,12 @@ impl IWMReaderAdvanced6 {
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.Preroll)(::windows_core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogClientID<P0>(&self, flogclientid: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetLogClientID)(::windows_core::Interface::as_raw(self), flogclientid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogClientID(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetLogClientID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -4260,8 +3976,6 @@ impl IWMReaderAdvanced6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetMaxSpeedFactor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUsingFastCache(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsUsingFastCache)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -4277,8 +3991,6 @@ impl IWMReaderAdvanced6 {
     pub unsafe fn SendLogParams(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SendLogParams)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanSaveFileAs(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CanSaveFileAs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -4380,8 +4092,6 @@ impl IWMReaderCallbackAdvanced {
     pub unsafe fn OnStreamSelection(&self, wstreamcount: u16, pstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnStreamSelection)(::windows_core::Interface::as_raw(self), wstreamcount, pstreamnumbers, pselections, pvcontext).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnOutputPropsChanged(&self, dwoutputnum: u32, pmediatype: *const WM_MEDIA_TYPE, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnOutputPropsChanged)(::windows_core::Interface::as_raw(self), dwoutputnum, pmediatype, pvcontext).ok()
     }
@@ -4406,10 +4116,7 @@ pub struct IWMReaderCallbackAdvanced_Vtbl {
     pub OnStreamSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub OnTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnscurrenttime: u64, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub OnStreamSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamcount: u16, pstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub OnOutputPropsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pmediatype: *const WM_MEDIA_TYPE, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    OnOutputPropsChanged: usize,
     pub AllocateForStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub AllocateForOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -4482,8 +4189,6 @@ impl IWMReaderNetworkConfig {
     {
         (::windows_core::Interface::vtable(self).SetProxyExceptionList)(::windows_core::Interface::as_raw(self), pwszprotocol.into_param().abi(), pwszexceptionlist.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProxyBypassForLocal<P0>(&self, pwszprotocol: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -4491,8 +4196,6 @@ impl IWMReaderNetworkConfig {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProxyBypassForLocal)(::windows_core::Interface::as_raw(self), pwszprotocol.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetProxyBypassForLocal<P0, P1>(&self, pwszprotocol: P0, fbypassforlocal: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -4500,70 +4203,50 @@ impl IWMReaderNetworkConfig {
     {
         (::windows_core::Interface::vtable(self).SetProxyBypassForLocal)(::windows_core::Interface::as_raw(self), pwszprotocol.into_param().abi(), fbypassforlocal.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForceRerunAutoProxyDetection(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetForceRerunAutoProxyDetection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetForceRerunAutoProxyDetection<P0>(&self, fforcererundetection: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetForceRerunAutoProxyDetection)(::windows_core::Interface::as_raw(self), fforcererundetection.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableMulticast(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEnableMulticast)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableMulticast<P0>(&self, fenablemulticast: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetEnableMulticast)(::windows_core::Interface::as_raw(self), fenablemulticast.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableHTTP(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEnableHTTP)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableHTTP<P0>(&self, fenablehttp: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetEnableHTTP)(::windows_core::Interface::as_raw(self), fenablehttp.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableUDP(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEnableUDP)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableUDP<P0>(&self, fenableudp: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetEnableUDP)(::windows_core::Interface::as_raw(self), fenableudp.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableTCP(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEnableTCP)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableTCP<P0>(&self, fenabletcp: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -4627,54 +4310,18 @@ pub struct IWMReaderNetworkConfig_Vtbl {
     pub SetProxyPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprotocol: ::windows_core::PCWSTR, dwport: u32) -> ::windows_core::HRESULT,
     pub GetProxyExceptionList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprotocol: ::windows_core::PCWSTR, pwszexceptionlist: ::windows_core::PWSTR, pcchexceptionlist: *mut u32) -> ::windows_core::HRESULT,
     pub SetProxyExceptionList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprotocol: ::windows_core::PCWSTR, pwszexceptionlist: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetProxyBypassForLocal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprotocol: ::windows_core::PCWSTR, pfbypassforlocal: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetProxyBypassForLocal: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetProxyBypassForLocal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprotocol: ::windows_core::PCWSTR, fbypassforlocal: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetProxyBypassForLocal: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetForceRerunAutoProxyDetection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfforcererundetection: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetForceRerunAutoProxyDetection: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetForceRerunAutoProxyDetection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fforcererundetection: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetForceRerunAutoProxyDetection: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetEnableMulticast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenablemulticast: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetEnableMulticast: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetEnableMulticast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenablemulticast: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetEnableMulticast: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetEnableHTTP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenablehttp: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetEnableHTTP: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetEnableHTTP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenablehttp: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetEnableHTTP: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetEnableUDP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenableudp: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetEnableUDP: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetEnableUDP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenableudp: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetEnableUDP: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetEnableTCP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenabletcp: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetEnableTCP: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetEnableTCP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenabletcp: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetEnableTCP: usize,
     pub ResetProtocolRollover: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetConnectionBandwidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwconnectionbandwidth: *mut u32) -> ::windows_core::HRESULT,
     pub SetConnectionBandwidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwconnectionbandwidth: u32) -> ::windows_core::HRESULT,
@@ -4754,8 +4401,6 @@ impl IWMReaderNetworkConfig2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetProxyExceptionList)(::windows_core::Interface::as_raw(self), pwszprotocol.into_param().abi(), pwszexceptionlist.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProxyBypassForLocal<P0>(&self, pwszprotocol: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -4763,8 +4408,6 @@ impl IWMReaderNetworkConfig2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetProxyBypassForLocal)(::windows_core::Interface::as_raw(self), pwszprotocol.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetProxyBypassForLocal<P0, P1>(&self, pwszprotocol: P0, fbypassforlocal: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -4772,70 +4415,50 @@ impl IWMReaderNetworkConfig2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetProxyBypassForLocal)(::windows_core::Interface::as_raw(self), pwszprotocol.into_param().abi(), fbypassforlocal.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForceRerunAutoProxyDetection(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetForceRerunAutoProxyDetection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetForceRerunAutoProxyDetection<P0>(&self, fforcererundetection: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.SetForceRerunAutoProxyDetection)(::windows_core::Interface::as_raw(self), fforcererundetection.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableMulticast(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEnableMulticast)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableMulticast<P0>(&self, fenablemulticast: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.SetEnableMulticast)(::windows_core::Interface::as_raw(self), fenablemulticast.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableHTTP(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEnableHTTP)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableHTTP<P0>(&self, fenablehttp: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.SetEnableHTTP)(::windows_core::Interface::as_raw(self), fenablehttp.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableUDP(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEnableUDP)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableUDP<P0>(&self, fenableudp: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.SetEnableUDP)(::windows_core::Interface::as_raw(self), fenableudp.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableTCP(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEnableTCP)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableTCP<P0>(&self, fenabletcp: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -4875,28 +4498,20 @@ impl IWMReaderNetworkConfig2 {
     pub unsafe fn ResetLoggingUrlList(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ResetLoggingUrlList)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableContentCaching(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEnableContentCaching)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableContentCaching<P0>(&self, fenablecontentcaching: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetEnableContentCaching)(::windows_core::Interface::as_raw(self), fenablecontentcaching.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableFastCache(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEnableFastCache)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableFastCache<P0>(&self, fenablefastcache: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -4917,28 +4532,20 @@ impl IWMReaderNetworkConfig2 {
     pub unsafe fn SetAutoReconnectLimit(&self, dwautoreconnectlimit: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAutoReconnectLimit)(::windows_core::Interface::as_raw(self), dwautoreconnectlimit).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableResends(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEnableResends)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableResends<P0>(&self, fenableresends: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetEnableResends)(::windows_core::Interface::as_raw(self), fenableresends.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableThinning(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEnableThinning)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableThinning<P0>(&self, fenablethinning: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -4961,42 +4568,18 @@ unsafe impl ::windows_core::ComInterface for IWMReaderNetworkConfig2 {
 #[doc(hidden)]
 pub struct IWMReaderNetworkConfig2_Vtbl {
     pub base__: IWMReaderNetworkConfig_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetEnableContentCaching: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenablecontentcaching: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetEnableContentCaching: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetEnableContentCaching: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenablecontentcaching: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetEnableContentCaching: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetEnableFastCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenablefastcache: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetEnableFastCache: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetEnableFastCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenablefastcache: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetEnableFastCache: usize,
     pub GetAcceleratedStreamingDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnsaccelduration: *mut u64) -> ::windows_core::HRESULT,
     pub SetAcceleratedStreamingDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnsaccelduration: u64) -> ::windows_core::HRESULT,
     pub GetAutoReconnectLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwautoreconnectlimit: *mut u32) -> ::windows_core::HRESULT,
     pub SetAutoReconnectLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwautoreconnectlimit: u32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetEnableResends: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenableresends: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetEnableResends: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetEnableResends: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenableresends: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetEnableResends: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetEnableThinning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenablethinning: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetEnableThinning: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetEnableThinning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenablethinning: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetEnableThinning: usize,
     pub GetMaxNetPacketSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmaxnetpacketsize: *mut u32) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -5184,34 +4767,24 @@ impl IWMRegisteredDevice {
     {
         (::windows_core::Interface::vtable(self).SetAttributeByName)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), bstrvalue.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Approve<P0>(&self, fapprove: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).Approve)(::windows_core::Interface::as_raw(self), fapprove.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsValid(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsValid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsApproved(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsApproved)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsWmdrmCompliant(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsWmdrmCompliant)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsOpened(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsOpened)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -5241,26 +4814,11 @@ pub struct IWMRegisteredDevice_Vtbl {
     pub GetAttributeByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetAttributeByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetAttributeByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrvalue: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub Approve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fapprove: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Approve: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsValid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfvalid: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsValid: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsApproved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfapproved: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsApproved: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsWmdrmCompliant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfcompliant: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsWmdrmCompliant: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsOpened: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfopened: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsOpened: usize,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -5295,8 +4853,6 @@ pub struct IWMSBufferAllocator_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMSInternalAdminNetSource(::windows_core::IUnknown);
 impl IWMSInternalAdminNetSource {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0, P1, P2, P3>(&self, psharednamespace: P0, pnamespacenode: P1, pnetsourcecreator: P2, fembeddedinserver: P3) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
@@ -5310,8 +4866,6 @@ impl IWMSInternalAdminNetSource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNetSourceCreator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCredentials<P0, P1, P2, P3, P4>(&self, bstrrealm: P0, bstrname: P1, bstrpassword: P2, fpersist: P3, fconfirmedgood: P4) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5322,8 +4876,6 @@ impl IWMSInternalAdminNetSource {
     {
         (::windows_core::Interface::vtable(self).SetCredentials)(::windows_core::Interface::as_raw(self), bstrrealm.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi(), fpersist.into_param().abi(), fconfirmedgood.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCredentials<P0>(&self, bstrrealm: P0, pbstrname: *mut ::windows_core::BSTR, pbstrpassword: *mut ::windows_core::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5343,8 +4895,6 @@ impl IWMSInternalAdminNetSource {
     pub unsafe fn SetCredentialFlags(&self, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCredentialFlags)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindProxyForURL<P0, P1>(&self, bstrprotocol: P0, bstrhost: P1, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::windows_core::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5358,8 +4908,6 @@ impl IWMSInternalAdminNetSource {
     pub unsafe fn ShutdownProxyContext(&self, dwproxycontext: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ShutdownProxyContext)(::windows_core::Interface::as_raw(self), dwproxycontext).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUsingIE(&self, dwproxycontext: u32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsUsingIE)(::windows_core::Interface::as_raw(self), dwproxycontext, &mut result__).from_abi(result__)
@@ -5376,39 +4924,22 @@ unsafe impl ::windows_core::ComInterface for IWMSInternalAdminNetSource {
 #[doc(hidden)]
 pub struct IWMSInternalAdminNetSource_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psharednamespace: *mut ::core::ffi::c_void, pnamespacenode: *mut ::core::ffi::c_void, pnetsourcecreator: *mut ::core::ffi::c_void, fembeddedinserver: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Initialize: usize,
     pub GetNetSourceCreator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnetsourcecreator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrealm: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpassword: ::std::mem::MaybeUninit<::windows_core::BSTR>, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetCredentials: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrealm: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrpassword: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetCredentials: usize,
     pub DeleteCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrealm: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetCredentialFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpdwflags: *mut u32) -> ::windows_core::HRESULT,
     pub SetCredentialFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub FindProxyForURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprotocol: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrhost: ::std::mem::MaybeUninit<::windows_core::BSTR>, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    FindProxyForURL: usize,
     pub RegisterProxyFailure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrparam: ::windows_core::HRESULT, dwproxycontext: u32) -> ::windows_core::HRESULT,
     pub ShutdownProxyContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproxycontext: u32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsUsingIE: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproxycontext: u32, pfisusingie: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsUsingIE: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMSInternalAdminNetSource2(::windows_core::IUnknown);
 impl IWMSInternalAdminNetSource2 {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCredentialsEx<P0, P1, P2, P3, P4, P5, P6>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, bstrname: P3, bstrpassword: P4, fpersist: P5, fconfirmedgood: P6) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5421,8 +4952,6 @@ impl IWMSInternalAdminNetSource2 {
     {
         (::windows_core::Interface::vtable(self).SetCredentialsEx)(::windows_core::Interface::as_raw(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi(), fpersist.into_param().abi(), fconfirmedgood.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCredentialsEx<P0, P1, P2>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut ::windows_core::BSTR, pbstrpassword: *mut ::windows_core::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5431,8 +4960,6 @@ impl IWMSInternalAdminNetSource2 {
     {
         (::windows_core::Interface::vtable(self).GetCredentialsEx)(::windows_core::Interface::as_raw(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), pdwurlpolicy, ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrpassword), pfconfirmedgood).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteCredentialsEx<P0, P1, P2>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5441,8 +4968,6 @@ impl IWMSInternalAdminNetSource2 {
     {
         (::windows_core::Interface::vtable(self).DeleteCredentialsEx)(::windows_core::Interface::as_raw(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindProxyForURLEx<P0, P1, P2>(&self, bstrprotocol: P0, bstrhost: P1, bstrurl: P2, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::windows_core::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5463,29 +4988,15 @@ unsafe impl ::windows_core::ComInterface for IWMSInternalAdminNetSource2 {
 #[doc(hidden)]
 pub struct IWMSInternalAdminNetSource2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetCredentialsEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrealm: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, fproxy: super::super::Foundation::BOOL, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpassword: ::std::mem::MaybeUninit<::windows_core::BSTR>, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetCredentialsEx: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetCredentialsEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrealm: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, fproxy: super::super::Foundation::BOOL, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrpassword: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetCredentialsEx: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub DeleteCredentialsEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrealm: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, fproxy: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    DeleteCredentialsEx: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub FindProxyForURLEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprotocol: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrhost: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    FindProxyForURLEx: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMSInternalAdminNetSource3(::windows_core::IUnknown);
 impl IWMSInternalAdminNetSource3 {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCredentialsEx<P0, P1, P2, P3, P4, P5, P6>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, bstrname: P3, bstrpassword: P4, fpersist: P5, fconfirmedgood: P6) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5498,8 +5009,6 @@ impl IWMSInternalAdminNetSource3 {
     {
         (::windows_core::Interface::vtable(self).base__.SetCredentialsEx)(::windows_core::Interface::as_raw(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi(), fpersist.into_param().abi(), fconfirmedgood.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCredentialsEx<P0, P1, P2>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut ::windows_core::BSTR, pbstrpassword: *mut ::windows_core::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5508,8 +5017,6 @@ impl IWMSInternalAdminNetSource3 {
     {
         (::windows_core::Interface::vtable(self).base__.GetCredentialsEx)(::windows_core::Interface::as_raw(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), pdwurlpolicy, ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrpassword), pfconfirmedgood).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteCredentialsEx<P0, P1, P2>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5518,8 +5025,6 @@ impl IWMSInternalAdminNetSource3 {
     {
         (::windows_core::Interface::vtable(self).base__.DeleteCredentialsEx)(::windows_core::Interface::as_raw(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindProxyForURLEx<P0, P1, P2>(&self, bstrprotocol: P0, bstrhost: P1, bstrurl: P2, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::windows_core::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5532,8 +5037,6 @@ impl IWMSInternalAdminNetSource3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNetSourceCreator2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindProxyForURLEx2<P0, P1, P2>(&self, bstrprotocol: P0, bstrhost: P1, bstrurl: P2, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::windows_core::BSTR, pdwproxyport: *mut u32, pqwproxycontext: *mut u64) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5548,14 +5051,10 @@ impl IWMSInternalAdminNetSource3 {
     pub unsafe fn ShutdownProxyContext2(&self, qwproxycontext: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ShutdownProxyContext2)(::windows_core::Interface::as_raw(self), qwproxycontext).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUsingIE2(&self, qwproxycontext: u64) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsUsingIE2)(::windows_core::Interface::as_raw(self), qwproxycontext, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCredentialsEx2<P0, P1, P2, P3, P4, P5, P6, P7>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, bstrname: P3, bstrpassword: P4, fpersist: P5, fconfirmedgood: P6, fcleartextauthentication: P7) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5569,8 +5068,6 @@ impl IWMSInternalAdminNetSource3 {
     {
         (::windows_core::Interface::vtable(self).SetCredentialsEx2)(::windows_core::Interface::as_raw(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi(), fpersist.into_param().abi(), fconfirmedgood.into_param().abi(), fcleartextauthentication.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCredentialsEx2<P0, P1, P2, P3>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, fcleartextauthentication: P3, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut ::windows_core::BSTR, pbstrpassword: *mut ::windows_core::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5593,24 +5090,12 @@ unsafe impl ::windows_core::ComInterface for IWMSInternalAdminNetSource3 {
 pub struct IWMSInternalAdminNetSource3_Vtbl {
     pub base__: IWMSInternalAdminNetSource2_Vtbl,
     pub GetNetSourceCreator2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnetsourcecreator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub FindProxyForURLEx2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprotocol: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrhost: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pdwproxyport: *mut u32, pqwproxycontext: *mut u64) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    FindProxyForURLEx2: usize,
     pub RegisterProxyFailure2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrparam: ::windows_core::HRESULT, qwproxycontext: u64) -> ::windows_core::HRESULT,
     pub ShutdownProxyContext2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, qwproxycontext: u64) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsUsingIE2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, qwproxycontext: u64, pfisusingie: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsUsingIE2: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetCredentialsEx2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrealm: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, fproxy: super::super::Foundation::BOOL, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpassword: ::std::mem::MaybeUninit<::windows_core::BSTR>, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL, fcleartextauthentication: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetCredentialsEx2: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetCredentialsEx2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrealm: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, fproxy: super::super::Foundation::BOOL, fcleartextauthentication: super::super::Foundation::BOOL, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrpassword: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetCredentialsEx2: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5643,8 +5128,6 @@ impl IWMSecureChannel {
     {
         (::windows_core::Interface::vtable(self).WMSC_Connect)(::windows_core::Interface::as_raw(self), potherside.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WMSC_IsConnected(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).WMSC_IsConnected)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -5685,10 +5168,7 @@ pub struct IWMSecureChannel_Vtbl {
     pub WMSC_AddCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcert: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub WMSC_AddSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbcertsig: *const u8, cbcertsig: u32) -> ::windows_core::HRESULT,
     pub WMSC_Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, potherside: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub WMSC_IsConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisconnected: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    WMSC_IsConnected: usize,
     pub WMSC_Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub WMSC_GetValidCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbcertificate: *mut *mut u8, pdwsignature: *mut u32) -> ::windows_core::HRESULT,
     pub WMSC_Encrypt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdata: *const u8, cbdata: u32) -> ::windows_core::HRESULT,
@@ -5999,13 +5479,9 @@ pub struct IWMStreamList_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMStreamPrioritization(::windows_core::IUnknown);
 impl IWMStreamPrioritization {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPriorityRecords(&self, precordarray: *mut WM_STREAM_PRIORITY_RECORD, pcrecords: *mut u16) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPriorityRecords)(::windows_core::Interface::as_raw(self), precordarray, pcrecords).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPriorityRecords(&self, precordarray: *const WM_STREAM_PRIORITY_RECORD, crecords: u16) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPriorityRecords)(::windows_core::Interface::as_raw(self), precordarray, crecords).ok()
     }
@@ -6021,14 +5497,8 @@ unsafe impl ::windows_core::ComInterface for IWMStreamPrioritization {
 #[doc(hidden)]
 pub struct IWMStreamPrioritization_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetPriorityRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precordarray: *mut WM_STREAM_PRIORITY_RECORD, pcrecords: *mut u16) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetPriorityRecords: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetPriorityRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precordarray: *const WM_STREAM_PRIORITY_RECORD, crecords: u16) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetPriorityRecords: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6059,16 +5529,12 @@ impl IWMSyncReader {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStreamSelected)(::windows_core::Interface::as_raw(self), wstreamnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReadStreamSamples<P0>(&self, wstreamnum: u16, fcompressed: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetReadStreamSamples)(::windows_core::Interface::as_raw(self), wstreamnum, fcompressed.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReadStreamSamples(&self, wstreamnum: u16) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReadStreamSamples)(::windows_core::Interface::as_raw(self), wstreamnum, &mut result__).from_abi(result__)
@@ -6150,14 +5616,8 @@ pub struct IWMSyncReader_Vtbl {
     pub GetNextSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, ppsample: *mut *mut ::core::ffi::c_void, pcnssampletime: *mut u64, pcnsduration: *mut u64, pdwflags: *mut u32, pdwoutputnum: *mut u32, pwstreamnum: *mut u16) -> ::windows_core::HRESULT,
     pub SetStreamsSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> ::windows_core::HRESULT,
     pub GetStreamSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pselection: *mut WMT_STREAM_SELECTION) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetReadStreamSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, fcompressed: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetReadStreamSamples: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetReadStreamSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pfcompressed: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetReadStreamSamples: usize,
     pub GetOutputSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pszname: ::windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::HRESULT,
     pub SetOutputSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pszname: ::windows_core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows_core::HRESULT,
     pub GetOutputCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcoutputs: *mut u32) -> ::windows_core::HRESULT,
@@ -6203,16 +5663,12 @@ impl IWMSyncReader2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStreamSelected)(::windows_core::Interface::as_raw(self), wstreamnum, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReadStreamSamples<P0>(&self, wstreamnum: u16, fcompressed: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.SetReadStreamSamples)(::windows_core::Interface::as_raw(self), wstreamnum, fcompressed.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReadStreamSamples(&self, wstreamnum: u16) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetReadStreamSamples)(::windows_core::Interface::as_raw(self), wstreamnum, &mut result__).from_abi(result__)
@@ -6329,13 +5785,9 @@ impl IWMVideoMediaProps {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMediaType(&self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetMediaType)(::windows_core::Interface::as_raw(self), ptype, pcbtype).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMediaType(&self, ptype: *const WM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetMediaType)(::windows_core::Interface::as_raw(self), ptype).ok()
     }
@@ -6512,16 +5964,12 @@ impl IWMWriterAdvanced {
     {
         (::windows_core::Interface::vtable(self).WriteStreamSample)(::windows_core::Interface::as_raw(self), wstreamnum, cnssampletime, mssamplesendtime, cnssampleduration, dwflags, psample.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLiveSource<P0>(&self, fislivesource: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetLiveSource)(::windows_core::Interface::as_raw(self), fislivesource.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsRealTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -6557,14 +6005,8 @@ pub struct IWMWriterAdvanced_Vtbl {
     pub AddSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RemoveSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub WriteStreamSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, cnssampletime: u64, mssamplesendtime: u32, cnssampleduration: u64, dwflags: u32, psample: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetLiveSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fislivesource: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetLiveSource: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsRealTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfrealtime: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsRealTime: usize,
     pub GetWriterTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnscurrenttime: *mut u64) -> ::windows_core::HRESULT,
     pub GetStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS) -> ::windows_core::HRESULT,
     pub SetSyncTolerance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mswindow: u32) -> ::windows_core::HRESULT,
@@ -6600,16 +6042,12 @@ impl IWMWriterAdvanced2 {
     {
         (::windows_core::Interface::vtable(self).base__.WriteStreamSample)(::windows_core::Interface::as_raw(self), wstreamnum, cnssampletime, mssamplesendtime, cnssampleduration, dwflags, psample.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLiveSource<P0>(&self, fislivesource: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.SetLiveSource)(::windows_core::Interface::as_raw(self), fislivesource.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsRealTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -6685,16 +6123,12 @@ impl IWMWriterAdvanced3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.WriteStreamSample)(::windows_core::Interface::as_raw(self), wstreamnum, cnssampletime, mssamplesendtime, cnssampleduration, dwflags, psample.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLiveSource<P0>(&self, fislivesource: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetLiveSource)(::windows_core::Interface::as_raw(self), fislivesource.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsRealTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -6756,8 +6190,6 @@ impl IWMWriterFileSink {
     {
         (::windows_core::Interface::vtable(self).base__.OnHeader)(::windows_core::Interface::as_raw(self), pheader.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsRealTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -6805,8 +6237,6 @@ impl IWMWriterFileSink2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.OnHeader)(::windows_core::Interface::as_raw(self), pheader.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsRealTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -6836,8 +6266,6 @@ impl IWMWriterFileSink2 {
     pub unsafe fn Stop(&self, cnsstoptime: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Stop)(::windows_core::Interface::as_raw(self), cnsstoptime).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsStopped(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsStopped)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -6853,8 +6281,6 @@ impl IWMWriterFileSink2 {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsClosed(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsClosed)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -6873,17 +6299,11 @@ pub struct IWMWriterFileSink2_Vtbl {
     pub base__: IWMWriterFileSink_Vtbl,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnsstarttime: u64) -> ::windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnsstoptime: u64) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsStopped: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfstopped: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsStopped: usize,
     pub GetFileDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnsduration: *mut u64) -> ::windows_core::HRESULT,
     pub GetFileSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbfile: *mut u64) -> ::windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfclosed: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsClosed: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6895,8 +6315,6 @@ impl IWMWriterFileSink3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.OnHeader)(::windows_core::Interface::as_raw(self), pheader.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsRealTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -6926,8 +6344,6 @@ impl IWMWriterFileSink3 {
     pub unsafe fn Stop(&self, cnsstoptime: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Stop)(::windows_core::Interface::as_raw(self), cnsstoptime).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsStopped(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsStopped)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -6943,28 +6359,20 @@ impl IWMWriterFileSink3 {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsClosed(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsClosed)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAutoIndexing<P0>(&self, fdoautoindexing: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetAutoIndexing)(::windows_core::Interface::as_raw(self), fdoautoindexing.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAutoIndexing(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAutoIndexing)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetControlStream<P0>(&self, wstreamnumber: u16, fshouldcontrolstartandstop: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -6978,8 +6386,6 @@ impl IWMWriterFileSink3 {
     pub unsafe fn OnDataUnitEx(&self, pfilesinkdataunit: *const WMT_FILESINK_DATA_UNIT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnDataUnitEx)(::windows_core::Interface::as_raw(self), pfilesinkdataunit).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUnbufferedIO<P0, P1>(&self, funbufferedio: P0, frestrictmemusage: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -6987,8 +6393,6 @@ impl IWMWriterFileSink3 {
     {
         (::windows_core::Interface::vtable(self).SetUnbufferedIO)(::windows_core::Interface::as_raw(self), funbufferedio.into_param().abi(), frestrictmemusage.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUnbufferedIO(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetUnbufferedIO)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -7008,28 +6412,13 @@ unsafe impl ::windows_core::ComInterface for IWMWriterFileSink3 {
 #[doc(hidden)]
 pub struct IWMWriterFileSink3_Vtbl {
     pub base__: IWMWriterFileSink2_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetAutoIndexing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fdoautoindexing: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetAutoIndexing: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetAutoIndexing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfautoindexing: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetAutoIndexing: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetControlStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, fshouldcontrolstartandstop: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetControlStream: usize,
     pub GetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwfilesinkmode: *mut u32) -> ::windows_core::HRESULT,
     pub OnDataUnitEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilesinkdataunit: *const WMT_FILESINK_DATA_UNIT) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetUnbufferedIO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, funbufferedio: super::super::Foundation::BOOL, frestrictmemusage: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetUnbufferedIO: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetUnbufferedIO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfunbufferedio: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetUnbufferedIO: usize,
     pub CompleteOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -7042,8 +6431,6 @@ impl IWMWriterNetworkSink {
     {
         (::windows_core::Interface::vtable(self).base__.OnHeader)(::windows_core::Interface::as_raw(self), pheader.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsRealTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -7118,16 +6505,12 @@ impl IWMWriterPostView {
     {
         (::windows_core::Interface::vtable(self).SetPostViewCallback)(::windows_core::Interface::as_raw(self), pcallback.into_param().abi(), pvcontext).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceivePostViewSamples<P0>(&self, wstreamnum: u16, freceivepostviewsamples: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetReceivePostViewSamples)(::windows_core::Interface::as_raw(self), wstreamnum, freceivepostviewsamples.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceivePostViewSamples(&self, wstreamnum: u16) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReceivePostViewSamples)(::windows_core::Interface::as_raw(self), wstreamnum, &mut result__).from_abi(result__)
@@ -7150,16 +6533,12 @@ impl IWMWriterPostView {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPostViewFormat)(::windows_core::Interface::as_raw(self), wstreamnumber, dwformatnumber, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForPostView<P0>(&self, wstreamnumber: u16, fallocate: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetAllocateForPostView)(::windows_core::Interface::as_raw(self), wstreamnumber, fallocate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForPostView(&self, wstreamnumber: u16) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAllocateForPostView)(::windows_core::Interface::as_raw(self), wstreamnumber, &mut result__).from_abi(result__)
@@ -7177,26 +6556,14 @@ unsafe impl ::windows_core::ComInterface for IWMWriterPostView {
 pub struct IWMWriterPostView_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetPostViewCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, pvcontext: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetReceivePostViewSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, freceivepostviewsamples: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetReceivePostViewSamples: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetReceivePostViewSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pfreceivepostviewsamples: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetReceivePostViewSamples: usize,
     pub GetPostViewProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, ppoutput: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetPostViewProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, poutput: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetPostViewFormatCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, pcformats: *mut u32) -> ::windows_core::HRESULT,
     pub GetPostViewFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, dwformatnumber: u32, ppprops: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetAllocateForPostView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, fallocate: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetAllocateForPostView: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetAllocateForPostView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, pfallocate: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetAllocateForPostView: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -7280,8 +6647,6 @@ impl IWMWriterPushSink {
     {
         (::windows_core::Interface::vtable(self).base__.OnHeader)(::windows_core::Interface::as_raw(self), pheader.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsRealTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -7299,8 +6664,6 @@ impl IWMWriterPushSink {
     pub unsafe fn OnEndWriting(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.OnEndWriting)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Connect<P0, P1, P2>(&self, pwszurl: P0, pwsztemplateurl: P1, fautodestroy: P2) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -7327,10 +6690,7 @@ unsafe impl ::windows_core::ComInterface for IWMWriterPushSink {
 #[doc(hidden)]
 pub struct IWMWriterPushSink_Vtbl {
     pub base__: IWMWriterSink_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: ::windows_core::PCWSTR, pwsztemplateurl: ::windows_core::PCWSTR, fautodestroy: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Connect: usize,
     pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub EndSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -7344,8 +6704,6 @@ impl IWMWriterSink {
     {
         (::windows_core::Interface::vtable(self).OnHeader)(::windows_core::Interface::as_raw(self), pheader.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsRealTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -7376,10 +6734,7 @@ unsafe impl ::windows_core::ComInterface for IWMWriterSink {
 pub struct IWMWriterSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pheader: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsRealTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfrealtime: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsRealTime: usize,
     pub AllocateDataUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbdataunit: u32, ppdataunit: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub OnDataUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataunit: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub OnEndWriting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -8853,8 +8208,8 @@ impl ::core::default::Default for WMDRM_IMPORT_INIT_STRUCT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct WMMPEG2VIDEOINFO {
     pub hdr: WMVIDEOINFOHEADER2,
     pub dwStartTimeCode: u32,
@@ -8864,33 +8219,33 @@ pub struct WMMPEG2VIDEOINFO {
     pub dwFlags: u32,
     pub dwSequenceHeader: [u32; 1],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for WMMPEG2VIDEOINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for WMMPEG2VIDEOINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for WMMPEG2VIDEOINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WMMPEG2VIDEOINFO").field("hdr", &self.hdr).field("dwStartTimeCode", &self.dwStartTimeCode).field("cbSequenceHeader", &self.cbSequenceHeader).field("dwProfile", &self.dwProfile).field("dwLevel", &self.dwLevel).field("dwFlags", &self.dwFlags).field("dwSequenceHeader", &self.dwSequenceHeader).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::windows_core::TypeKind for WMMPEG2VIDEOINFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for WMMPEG2VIDEOINFO {
     fn eq(&self, other: &Self) -> bool {
         self.hdr == other.hdr && self.dwStartTimeCode == other.dwStartTimeCode && self.cbSequenceHeader == other.cbSequenceHeader && self.dwProfile == other.dwProfile && self.dwLevel == other.dwLevel && self.dwFlags == other.dwFlags && self.dwSequenceHeader == other.dwSequenceHeader
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for WMMPEG2VIDEOINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for WMMPEG2VIDEOINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9160,8 +8515,6 @@ impl ::core::default::Default for WMT_VIDEOIMAGE_SAMPLE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WMT_VIDEOIMAGE_SAMPLE2 {
     pub dwMagic: u32,
     pub dwStructSize: u32,
@@ -9191,15 +8544,12 @@ pub struct WMT_VIDEOIMAGE_SAMPLE2 {
     pub fEffectPara4: f32,
     pub bKeepPrevImage: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WMT_VIDEOIMAGE_SAMPLE2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WMT_VIDEOIMAGE_SAMPLE2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WMT_VIDEOIMAGE_SAMPLE2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WMT_VIDEOIMAGE_SAMPLE2")
@@ -9233,11 +8583,9 @@ impl ::core::fmt::Debug for WMT_VIDEOIMAGE_SAMPLE2 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for WMT_VIDEOIMAGE_SAMPLE2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WMT_VIDEOIMAGE_SAMPLE2 {
     fn eq(&self, other: &Self) -> bool {
         self.dwMagic == other.dwMagic
@@ -9269,9 +8617,7 @@ impl ::core::cmp::PartialEq for WMT_VIDEOIMAGE_SAMPLE2 {
             && self.bKeepPrevImage == other.bKeepPrevImage
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WMT_VIDEOIMAGE_SAMPLE2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WMT_VIDEOIMAGE_SAMPLE2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9375,8 +8721,8 @@ impl ::core::default::Default for WMT_WEBSTREAM_SAMPLE_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct WMVIDEOINFOHEADER {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -9385,41 +8731,41 @@ pub struct WMVIDEOINFOHEADER {
     pub AvgTimePerFrame: i64,
     pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for WMVIDEOINFOHEADER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for WMVIDEOINFOHEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for WMVIDEOINFOHEADER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WMVIDEOINFOHEADER").field("rcSource", &self.rcSource).field("rcTarget", &self.rcTarget).field("dwBitRate", &self.dwBitRate).field("dwBitErrorRate", &self.dwBitErrorRate).field("AvgTimePerFrame", &self.AvgTimePerFrame).field("bmiHeader", &self.bmiHeader).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::windows_core::TypeKind for WMVIDEOINFOHEADER {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for WMVIDEOINFOHEADER {
     fn eq(&self, other: &Self) -> bool {
         self.rcSource == other.rcSource && self.rcTarget == other.rcTarget && self.dwBitRate == other.dwBitRate && self.dwBitErrorRate == other.dwBitErrorRate && self.AvgTimePerFrame == other.AvgTimePerFrame && self.bmiHeader == other.bmiHeader
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for WMVIDEOINFOHEADER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for WMVIDEOINFOHEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct WMVIDEOINFOHEADER2 {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -9434,15 +8780,15 @@ pub struct WMVIDEOINFOHEADER2 {
     pub dwReserved2: u32,
     pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for WMVIDEOINFOHEADER2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for WMVIDEOINFOHEADER2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for WMVIDEOINFOHEADER2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WMVIDEOINFOHEADER2")
@@ -9461,19 +8807,19 @@ impl ::core::fmt::Debug for WMVIDEOINFOHEADER2 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::windows_core::TypeKind for WMVIDEOINFOHEADER2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for WMVIDEOINFOHEADER2 {
     fn eq(&self, other: &Self) -> bool {
         self.rcSource == other.rcSource && self.rcTarget == other.rcTarget && self.dwBitRate == other.dwBitRate && self.dwBitErrorRate == other.dwBitErrorRate && self.AvgTimePerFrame == other.AvgTimePerFrame && self.dwInterlaceFlags == other.dwInterlaceFlags && self.dwCopyProtectFlags == other.dwCopyProtectFlags && self.dwPictAspectRatioX == other.dwPictAspectRatioX && self.dwPictAspectRatioY == other.dwPictAspectRatioY && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2 && self.bmiHeader == other.bmiHeader
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for WMVIDEOINFOHEADER2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for WMVIDEOINFOHEADER2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9591,8 +8937,6 @@ impl ::core::default::Default for WM_LEAKY_BUCKET_PAIR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WM_MEDIA_TYPE {
     pub majortype: ::windows_core::GUID,
     pub subtype: ::windows_core::GUID,
@@ -9604,31 +8948,25 @@ pub struct WM_MEDIA_TYPE {
     pub cbFormat: u32,
     pub pbFormat: *mut u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WM_MEDIA_TYPE {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WM_MEDIA_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WM_MEDIA_TYPE").field("majortype", &self.majortype).field("subtype", &self.subtype).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("lSampleSize", &self.lSampleSize).field("formattype", &self.formattype).field("pUnk", &self.pUnk).field("cbFormat", &self.cbFormat).field("pbFormat", &self.pbFormat).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for WM_MEDIA_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WM_MEDIA_TYPE {
     fn eq(&self, other: &Self) -> bool {
         self.majortype == other.majortype && self.subtype == other.subtype && self.bFixedSizeSamples == other.bFixedSizeSamples && self.bTemporalCompression == other.bTemporalCompression && self.lSampleSize == other.lSampleSize && self.formattype == other.formattype && self.pUnk == other.pUnk && self.cbFormat == other.cbFormat && self.pbFormat == other.pbFormat
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WM_MEDIA_TYPE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WM_MEDIA_TYPE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9687,8 +9025,6 @@ impl ::core::default::Default for WM_PORT_NUMBER_RANGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WM_READER_CLIENTINFO {
     pub cbSize: u32,
     pub wszLang: ::windows_core::PWSTR,
@@ -9700,33 +9036,26 @@ pub struct WM_READER_CLIENTINFO {
     pub qwHostVersion: u64,
     pub wszPlayerUserAgent: ::windows_core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WM_READER_CLIENTINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WM_READER_CLIENTINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WM_READER_CLIENTINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WM_READER_CLIENTINFO").field("cbSize", &self.cbSize).field("wszLang", &self.wszLang).field("wszBrowserUserAgent", &self.wszBrowserUserAgent).field("wszBrowserWebPage", &self.wszBrowserWebPage).field("qwReserved", &self.qwReserved).field("pReserved", &self.pReserved).field("wszHostExe", &self.wszHostExe).field("qwHostVersion", &self.qwHostVersion).field("wszPlayerUserAgent", &self.wszPlayerUserAgent).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for WM_READER_CLIENTINFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WM_READER_CLIENTINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.wszLang == other.wszLang && self.wszBrowserUserAgent == other.wszBrowserUserAgent && self.wszBrowserWebPage == other.wszBrowserWebPage && self.qwReserved == other.qwReserved && self.pReserved == other.pReserved && self.wszHostExe == other.wszHostExe && self.qwHostVersion == other.qwHostVersion && self.wszPlayerUserAgent == other.wszPlayerUserAgent
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WM_READER_CLIENTINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WM_READER_CLIENTINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9767,25 +9096,19 @@ impl ::core::default::Default for WM_READER_STATISTICS {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WM_STREAM_PRIORITY_RECORD {
     pub wStreamNumber: u16,
     pub fMandatory: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WM_STREAM_PRIORITY_RECORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WM_STREAM_PRIORITY_RECORD {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for WM_STREAM_PRIORITY_RECORD {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WM_STREAM_PRIORITY_RECORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

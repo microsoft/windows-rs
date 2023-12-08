@@ -59,8 +59,6 @@ impl IImageScannerFormatConfiguration_Vtbl {
         *iid == <IImageScannerFormatConfiguration as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IImageScannerSourceConfiguration_Impl: Sized + IImageScannerFormatConfiguration_Impl {
     fn MinScanArea(&self) -> ::windows_core::Result<super::super::Foundation::Size>;
     fn MaxScanArea(&self) -> ::windows_core::Result<super::super::Foundation::Size>;
@@ -92,11 +90,9 @@ pub trait IImageScannerSourceConfiguration_Impl: Sized + IImageScannerFormatConf
     fn Contrast(&self) -> ::windows_core::Result<i32>;
     fn SetContrast(&self, value: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IImageScannerSourceConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScannerSourceConfiguration";
 }
-#[cfg(feature = "Foundation")]
 impl IImageScannerSourceConfiguration_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>() -> IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn MinScanArea<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows_core::HRESULT {

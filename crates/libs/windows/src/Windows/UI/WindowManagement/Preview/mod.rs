@@ -27,17 +27,12 @@ unsafe impl ::windows_core::ComInterface for IWindowManagementPreviewStatics {
 #[doc(hidden)]
 pub struct IWindowManagementPreviewStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub SetPreferredMinSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: *mut ::core::ffi::c_void, preferredframeminsize: super::super::super::Foundation::Size) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetPreferredMinSize: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WindowManagementPreview(::windows_core::IUnknown);
 impl WindowManagementPreview {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetPreferredMinSize<P0>(window: P0, preferredframeminsize: super::super::super::Foundation::Size) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::AppWindow>,

@@ -27,10 +27,7 @@ pub struct IFileOpenPicker_Vtbl {
     pub FileTypeFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     FileTypeFilter: usize,
-    #[cfg(feature = "Foundation")]
     pub PickSingleFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PickSingleFileAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
     pub PickMultipleFilesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -96,9 +93,9 @@ unsafe impl ::windows_core::ComInterface for IFileOpenPickerStatics {
 #[doc(hidden)]
 pub struct IFileOpenPickerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub ResumePickSingleFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    #[cfg(not(feature = "deprecated"))]
     ResumePickSingleFileAsync: usize,
 }
 #[doc(hidden)]
@@ -134,10 +131,7 @@ unsafe impl ::windows_core::ComInterface for IFileOpenPickerWithOperationId {
 #[doc(hidden)]
 pub struct IFileOpenPickerWithOperationId_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub PickSingleFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pickeroperationid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PickSingleFileAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -169,10 +163,7 @@ pub struct IFileSavePicker_Vtbl {
     pub SetSuggestedSaveFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SuggestedFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SetSuggestedFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub PickSaveFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PickSaveFileAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -278,10 +269,7 @@ pub struct IFolderPicker_Vtbl {
     pub FileTypeFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     FileTypeFilter: usize,
-    #[cfg(feature = "Foundation")]
     pub PickSingleFolderAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PickSingleFolderAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -554,8 +542,6 @@ impl FileOpenPicker {
             (::windows_core::Interface::vtable(this).FileTypeFilter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PickSingleFileAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = self;
         unsafe {
@@ -602,8 +588,8 @@ impl FileOpenPicker {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    #[doc = "Required features: `\"deprecated\"`"]
+    #[cfg(feature = "deprecated")]
     pub fn ResumePickSingleFileAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         Self::IFileOpenPickerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
@@ -621,8 +607,6 @@ impl FileOpenPicker {
             (::windows_core::Interface::vtable(this).CreateForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PickSingleFileAsync2(&self, pickeroperationid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = &::windows_core::ComInterface::cast::<IFileOpenPickerWithOperationId>(self)?;
         unsafe {
@@ -962,8 +946,6 @@ impl FileSavePicker {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSuggestedFileName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PickSaveFileAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = self;
         unsafe {
@@ -1102,8 +1084,6 @@ impl FolderPicker {
             (::windows_core::Interface::vtable(this).FileTypeFilter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PickSingleFolderAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = self;
         unsafe {

@@ -1,32 +1,20 @@
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CloseTrace(tracehandle : PROCESSTRACE_HANDLE) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ControlTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES, controlcode : EVENT_TRACE_CONTROL) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ControlTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES, controlcode : EVENT_TRACE_CONTROL) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CreateTraceInstanceId(reghandle : super::super::super::Foundation:: HANDLE, instinfo : *mut EVENT_INSTANCE_INFO) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn CloseTrace(tracehandle : PROCESSTRACE_HANDLE) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn ControlTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES, controlcode : EVENT_TRACE_CONTROL) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn ControlTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES, controlcode : EVENT_TRACE_CONTROL) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn CreateTraceInstanceId(reghandle : super::super::super::Foundation:: HANDLE, instinfo : *mut EVENT_INSTANCE_INFO) -> super::super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("advapi32.dll" "system" fn CveEventWrite(cveid : ::windows_sys::core::PCWSTR, additionaldetails : ::windows_sys::core::PCWSTR) -> i32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EnableTrace(enable : u32, enableflag : u32, enablelevel : u32, controlguid : *const ::windows_sys::core::GUID, tracehandle : CONTROLTRACE_HANDLE) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EnableTraceEx(providerid : *const ::windows_sys::core::GUID, sourceid : *const ::windows_sys::core::GUID, tracehandle : CONTROLTRACE_HANDLE, isenabled : u32, level : u8, matchanykeyword : u64, matchallkeyword : u64, enableproperty : u32, enablefilterdesc : *const EVENT_FILTER_DESCRIPTOR) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EnableTraceEx2(tracehandle : CONTROLTRACE_HANDLE, providerid : *const ::windows_sys::core::GUID, controlcode : u32, level : u8, matchanykeyword : u64, matchallkeyword : u64, timeout : u32, enableparameters : *const ENABLE_TRACE_PARAMETERS) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EnumerateTraceGuids(guidpropertiesarray : *mut *mut TRACE_GUID_PROPERTIES, propertyarraycount : u32, guidcount : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EnumerateTraceGuidsEx(tracequeryinfoclass : TRACE_QUERY_INFO_CLASS, inbuffer : *const ::core::ffi::c_void, inbuffersize : u32, outbuffer : *mut ::core::ffi::c_void, outbuffersize : u32, returnlength : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EventAccessControl(guid : *const ::windows_sys::core::GUID, operation : u32, sid : super::super::super::Foundation:: PSID, rights : u32, allowordeny : super::super::super::Foundation:: BOOLEAN) -> u32);
+::windows_targets::link!("advapi32.dll" "system" fn EnableTrace(enable : u32, enableflag : u32, enablelevel : u32, controlguid : *const ::windows_sys::core::GUID, tracehandle : CONTROLTRACE_HANDLE) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn EnableTraceEx(providerid : *const ::windows_sys::core::GUID, sourceid : *const ::windows_sys::core::GUID, tracehandle : CONTROLTRACE_HANDLE, isenabled : u32, level : u8, matchanykeyword : u64, matchallkeyword : u64, enableproperty : u32, enablefilterdesc : *const EVENT_FILTER_DESCRIPTOR) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn EnableTraceEx2(tracehandle : CONTROLTRACE_HANDLE, providerid : *const ::windows_sys::core::GUID, controlcode : u32, level : u8, matchanykeyword : u64, matchallkeyword : u64, timeout : u32, enableparameters : *const ENABLE_TRACE_PARAMETERS) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn EnumerateTraceGuids(guidpropertiesarray : *mut *mut TRACE_GUID_PROPERTIES, propertyarraycount : u32, guidcount : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn EnumerateTraceGuidsEx(tracequeryinfoclass : TRACE_QUERY_INFO_CLASS, inbuffer : *const ::core::ffi::c_void, inbuffersize : u32, outbuffer : *mut ::core::ffi::c_void, outbuffersize : u32, returnlength : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn EventAccessControl(guid : *const ::windows_sys::core::GUID, operation : u32, sid : super::super::super::Foundation:: PSID, rights : u32, allowordeny : super::super::super::Foundation:: BOOLEAN) -> u32);
 #[cfg(feature = "Win32_Security")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn EventAccessQuery(guid : *const ::windows_sys::core::GUID, buffer : super::super::super::Security:: PSECURITY_DESCRIPTOR, buffersize : *mut u32) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" fn EventAccessRemove(guid : *const ::windows_sys::core::GUID) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" fn EventActivityIdControl(controlcode : u32, activityid : *mut ::windows_sys::core::GUID) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EventEnabled(reghandle : u64, eventdescriptor : *const EVENT_DESCRIPTOR) -> super::super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EventProviderEnabled(reghandle : u64, level : u8, keyword : u64) -> super::super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("advapi32.dll" "system" fn EventEnabled(reghandle : u64, eventdescriptor : *const EVENT_DESCRIPTOR) -> super::super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("advapi32.dll" "system" fn EventProviderEnabled(reghandle : u64, level : u8, keyword : u64) -> super::super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("advapi32.dll" "system" fn EventRegister(providerid : *const ::windows_sys::core::GUID, enablecallback : PENABLECALLBACK, callbackcontext : *const ::core::ffi::c_void, reghandle : *mut u64) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" fn EventSetInformation(reghandle : u64, informationclass : EVENT_INFO_CLASS, eventinformation : *const ::core::ffi::c_void, informationlength : u32) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" fn EventUnregister(reghandle : u64) -> u32);
@@ -34,62 +22,44 @@
 ::windows_targets::link!("advapi32.dll" "system" fn EventWriteEx(reghandle : u64, eventdescriptor : *const EVENT_DESCRIPTOR, filter : u64, flags : u32, activityid : *const ::windows_sys::core::GUID, relatedactivityid : *const ::windows_sys::core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" fn EventWriteString(reghandle : u64, level : u8, keyword : u64, string : ::windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" fn EventWriteTransfer(reghandle : u64, eventdescriptor : *const EVENT_DESCRIPTOR, activityid : *const ::windows_sys::core::GUID, relatedactivityid : *const ::windows_sys::core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FlushTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FlushTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn FlushTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn FlushTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("advapi32.dll" "system" fn GetTraceEnableFlags(tracehandle : u64) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" fn GetTraceEnableLevel(tracehandle : u64) -> u8);
 ::windows_targets::link!("advapi32.dll" "system" fn GetTraceLoggerHandle(buffer : *const ::core::ffi::c_void) -> u64);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"] fn OpenTraceA(logfile : *mut EVENT_TRACE_LOGFILEA) -> PROCESSTRACE_HANDLE);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"] fn OpenTraceFromBufferStream(options : *const ETW_OPEN_TRACE_OPTIONS, buffercompletioncallback : PETW_BUFFER_COMPLETION_CALLBACK, buffercompletioncontext : *const ::core::ffi::c_void) -> u64);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"] fn OpenTraceFromFile(logfilename : ::windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"] fn OpenTraceFromRealTimeLogger(loggername : ::windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"] fn OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername : ::windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, allocationsize : usize, memorypartitionhandle : super::super::super::Foundation:: HANDLE, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"] fn OpenTraceW(logfile : *mut EVENT_TRACE_LOGFILEW) -> PROCESSTRACE_HANDLE);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ProcessTrace(handlearray : *const PROCESSTRACE_HANDLE, handlecount : u32, starttime : *const super::super::super::Foundation:: FILETIME, endtime : *const super::super::super::Foundation:: FILETIME) -> super::super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Time")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Time\"`"] fn OpenTraceA(logfile : *mut EVENT_TRACE_LOGFILEA) -> PROCESSTRACE_HANDLE);
+#[cfg(feature = "Win32_System_Time")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Time\"`"] fn OpenTraceFromBufferStream(options : *const ETW_OPEN_TRACE_OPTIONS, buffercompletioncallback : PETW_BUFFER_COMPLETION_CALLBACK, buffercompletioncontext : *const ::core::ffi::c_void) -> u64);
+#[cfg(feature = "Win32_System_Time")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Time\"`"] fn OpenTraceFromFile(logfilename : ::windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
+#[cfg(feature = "Win32_System_Time")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Time\"`"] fn OpenTraceFromRealTimeLogger(loggername : ::windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
+#[cfg(feature = "Win32_System_Time")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Time\"`"] fn OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername : ::windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, allocationsize : usize, memorypartitionhandle : super::super::super::Foundation:: HANDLE, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
+#[cfg(feature = "Win32_System_Time")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Time\"`"] fn OpenTraceW(logfile : *mut EVENT_TRACE_LOGFILEW) -> PROCESSTRACE_HANDLE);
+::windows_targets::link!("advapi32.dll" "system" fn ProcessTrace(handlearray : *const PROCESSTRACE_HANDLE, handlecount : u32, starttime : *const super::super::super::Foundation:: FILETIME, endtime : *const super::super::super::Foundation:: FILETIME) -> super::super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("advapi32.dll" "system" fn ProcessTraceAddBufferToBufferStream(tracehandle : u64, buffer : *const ETW_BUFFER_HEADER, buffersize : u32) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" fn ProcessTraceBufferDecrementReference(buffer : *const ETW_BUFFER_HEADER) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" fn ProcessTraceBufferIncrementReference(tracehandle : u64, buffer : *const ETW_BUFFER_HEADER) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn QueryAllTracesA(propertyarray : *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount : u32, loggercount : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn QueryAllTracesW(propertyarray : *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount : u32, loggercount : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn QueryTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn QueryTraceProcessingHandle(processinghandle : PROCESSTRACE_HANDLE, informationclass : ETW_PROCESS_HANDLE_INFO_TYPE, inbuffer : *const ::core::ffi::c_void, inbuffersize : u32, outbuffer : *mut ::core::ffi::c_void, outbuffersize : u32, returnlength : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn QueryTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RegisterTraceGuidsA(requestaddress : WMIDPREQUEST, requestcontext : *const ::core::ffi::c_void, controlguid : *const ::windows_sys::core::GUID, guidcount : u32, traceguidreg : *const TRACE_GUID_REGISTRATION, mofimagepath : ::windows_sys::core::PCSTR, mofresourcename : ::windows_sys::core::PCSTR, registrationhandle : *mut u64) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RegisterTraceGuidsW(requestaddress : WMIDPREQUEST, requestcontext : *const ::core::ffi::c_void, controlguid : *const ::windows_sys::core::GUID, guidcount : u32, traceguidreg : *const TRACE_GUID_REGISTRATION, mofimagepath : ::windows_sys::core::PCWSTR, mofresourcename : ::windows_sys::core::PCWSTR, registrationhandle : *mut u64) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RemoveTraceCallback(pguid : *const ::windows_sys::core::GUID) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetTraceCallback(pguid : *const ::windows_sys::core::GUID, eventcallback : PEVENT_CALLBACK) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn StartTraceA(tracehandle : *mut CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn StartTraceW(tracehandle : *mut CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn StopTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn StopTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("tdh.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TdhAggregatePayloadFilters(payloadfiltercount : u32, payloadfilterptrs : *const *const ::core::ffi::c_void, eventmatchallflags : *const super::super::super::Foundation:: BOOLEAN, eventfilterdescriptor : *mut EVENT_FILTER_DESCRIPTOR) -> u32);
+::windows_targets::link!("advapi32.dll" "system" fn QueryAllTracesA(propertyarray : *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount : u32, loggercount : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn QueryAllTracesW(propertyarray : *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount : u32, loggercount : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn QueryTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn QueryTraceProcessingHandle(processinghandle : PROCESSTRACE_HANDLE, informationclass : ETW_PROCESS_HANDLE_INFO_TYPE, inbuffer : *const ::core::ffi::c_void, inbuffersize : u32, outbuffer : *mut ::core::ffi::c_void, outbuffersize : u32, returnlength : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn QueryTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn RegisterTraceGuidsA(requestaddress : WMIDPREQUEST, requestcontext : *const ::core::ffi::c_void, controlguid : *const ::windows_sys::core::GUID, guidcount : u32, traceguidreg : *const TRACE_GUID_REGISTRATION, mofimagepath : ::windows_sys::core::PCSTR, mofresourcename : ::windows_sys::core::PCSTR, registrationhandle : *mut u64) -> u32);
+::windows_targets::link!("advapi32.dll" "system" fn RegisterTraceGuidsW(requestaddress : WMIDPREQUEST, requestcontext : *const ::core::ffi::c_void, controlguid : *const ::windows_sys::core::GUID, guidcount : u32, traceguidreg : *const TRACE_GUID_REGISTRATION, mofimagepath : ::windows_sys::core::PCWSTR, mofresourcename : ::windows_sys::core::PCWSTR, registrationhandle : *mut u64) -> u32);
+::windows_targets::link!("advapi32.dll" "system" fn RemoveTraceCallback(pguid : *const ::windows_sys::core::GUID) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn SetTraceCallback(pguid : *const ::windows_sys::core::GUID, eventcallback : PEVENT_CALLBACK) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn StartTraceA(tracehandle : *mut CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn StartTraceW(tracehandle : *mut CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn StopTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn StopTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("tdh.dll" "system" fn TdhAggregatePayloadFilters(payloadfiltercount : u32, payloadfilterptrs : *const *const ::core::ffi::c_void, eventmatchallflags : *const super::super::super::Foundation:: BOOLEAN, eventfilterdescriptor : *mut EVENT_FILTER_DESCRIPTOR) -> u32);
 ::windows_targets::link!("tdh.dll" "system" fn TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor : *mut EVENT_FILTER_DESCRIPTOR) -> u32);
 ::windows_targets::link!("tdh.dll" "system" fn TdhCloseDecodingHandle(handle : TDH_HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("tdh.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TdhCreatePayloadFilter(providerguid : *const ::windows_sys::core::GUID, eventdescriptor : *const EVENT_DESCRIPTOR, eventmatchany : super::super::super::Foundation:: BOOLEAN, payloadpredicatecount : u32, payloadpredicates : *const PAYLOAD_FILTER_PREDICATE, payloadfilter : *mut *mut ::core::ffi::c_void) -> u32);
+::windows_targets::link!("tdh.dll" "system" fn TdhCreatePayloadFilter(providerguid : *const ::windows_sys::core::GUID, eventdescriptor : *const EVENT_DESCRIPTOR, eventmatchany : super::super::super::Foundation:: BOOLEAN, payloadpredicatecount : u32, payloadpredicates : *const PAYLOAD_FILTER_PREDICATE, payloadfilter : *mut *mut ::core::ffi::c_void) -> u32);
 ::windows_targets::link!("tdh.dll" "system" fn TdhDeletePayloadFilter(payloadfilter : *mut *mut ::core::ffi::c_void) -> u32);
 ::windows_targets::link!("tdh.dll" "system" fn TdhEnumerateManifestProviderEvents(providerguid : *const ::windows_sys::core::GUID, buffer : *mut PROVIDER_EVENT_INFO, buffersize : *mut u32) -> u32);
 ::windows_targets::link!("tdh.dll" "system" fn TdhEnumerateProviderFieldInformation(pguid : *const ::windows_sys::core::GUID, eventfieldtype : EVENT_FIELD_TYPE, pbuffer : *mut PROVIDER_FIELD_INFOARRAY, pbuffersize : *mut u32) -> u32);
@@ -113,23 +83,15 @@
 ::windows_targets::link!("tdh.dll" "system" fn TdhSetDecodingParameter(handle : TDH_HANDLE, tdhcontext : *const TDH_CONTEXT) -> u32);
 ::windows_targets::link!("tdh.dll" "system" fn TdhUnloadManifest(manifest : ::windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("tdh.dll" "system" fn TdhUnloadManifestFromMemory(pdata : *const ::core::ffi::c_void, cbdata : u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TraceEvent(tracehandle : u64, eventtrace : *const EVENT_TRACE_HEADER) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TraceEventInstance(tracehandle : u64, eventtrace : *const EVENT_INSTANCE_HEADER, instinfo : *const EVENT_INSTANCE_INFO, parentinstinfo : *const EVENT_INSTANCE_INFO) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TraceMessage(loggerhandle : u64, messageflags : TRACE_MESSAGE_FLAGS, messageguid : *const ::windows_sys::core::GUID, messagenumber : u16, ...) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TraceMessageVa(loggerhandle : u64, messageflags : TRACE_MESSAGE_FLAGS, messageguid : *const ::windows_sys::core::GUID, messagenumber : u16, messagearglist : *const i8) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TraceQueryInformation(sessionhandle : CONTROLTRACE_HANDLE, informationclass : TRACE_QUERY_INFO_CLASS, traceinformation : *mut ::core::ffi::c_void, informationlength : u32, returnlength : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TraceSetInformation(sessionhandle : CONTROLTRACE_HANDLE, informationclass : TRACE_QUERY_INFO_CLASS, traceinformation : *const ::core::ffi::c_void, informationlength : u32) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn TraceEvent(tracehandle : u64, eventtrace : *const EVENT_TRACE_HEADER) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn TraceEventInstance(tracehandle : u64, eventtrace : *const EVENT_INSTANCE_HEADER, instinfo : *const EVENT_INSTANCE_INFO, parentinstinfo : *const EVENT_INSTANCE_INFO) -> u32);
+::windows_targets::link!("advapi32.dll" "cdecl" fn TraceMessage(loggerhandle : u64, messageflags : TRACE_MESSAGE_FLAGS, messageguid : *const ::windows_sys::core::GUID, messagenumber : u16, ...) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn TraceMessageVa(loggerhandle : u64, messageflags : TRACE_MESSAGE_FLAGS, messageguid : *const ::windows_sys::core::GUID, messagenumber : u16, messagearglist : *const i8) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn TraceQueryInformation(sessionhandle : CONTROLTRACE_HANDLE, informationclass : TRACE_QUERY_INFO_CLASS, traceinformation : *mut ::core::ffi::c_void, informationlength : u32, returnlength : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn TraceSetInformation(sessionhandle : CONTROLTRACE_HANDLE, informationclass : TRACE_QUERY_INFO_CLASS, traceinformation : *const ::core::ffi::c_void, informationlength : u32) -> super::super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("advapi32.dll" "system" fn UnregisterTraceGuids(registrationhandle : u64) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UpdateTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UpdateTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn UpdateTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" fn UpdateTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
 pub type ITraceEvent = *mut ::core::ffi::c_void;
 pub type ITraceEventCallback = *mut ::core::ffi::c_void;
 pub type ITraceRelogger = *mut ::core::ffi::c_void;
@@ -927,16 +889,16 @@ impl ::core::clone::Clone for ENABLE_TRACE_PARAMETERS_V1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub struct ETW_BUFFER_CALLBACK_INFORMATION {
     pub TraceHandle: u64,
     pub LogfileHeader: *const TRACE_LOGFILE_HEADER,
     pub BuffersRead: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for ETW_BUFFER_CALLBACK_INFORMATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for ETW_BUFFER_CALLBACK_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -992,8 +954,8 @@ impl ::core::clone::Clone for ETW_BUFFER_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub struct ETW_OPEN_TRACE_OPTIONS {
     pub ProcessTraceModes: ETW_PROCESS_TRACE_MODES,
     pub EventCallback: PEVENT_RECORD_CALLBACK,
@@ -1001,9 +963,9 @@ pub struct ETW_OPEN_TRACE_OPTIONS {
     pub BufferCallback: PETW_BUFFER_CALLBACK,
     pub BufferCallbackContext: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for ETW_OPEN_TRACE_OPTIONS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for ETW_OPEN_TRACE_OPTIONS {
     fn clone(&self) -> Self {
         *self
@@ -1254,25 +1216,19 @@ impl ::core::clone::Clone for EVENT_FILTER_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_FILTER_EVENT_ID {
     pub FilterIn: super::super::super::Foundation::BOOLEAN,
     pub Reserved: u8,
     pub Count: u16,
     pub Events: [u16; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EVENT_FILTER_EVENT_ID {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EVENT_FILTER_EVENT_ID {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_FILTER_EVENT_NAME {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,
@@ -1281,9 +1237,7 @@ pub struct EVENT_FILTER_EVENT_NAME {
     pub NameCount: u16,
     pub Names: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EVENT_FILTER_EVENT_NAME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EVENT_FILTER_EVENT_NAME {
     fn clone(&self) -> Self {
         *self
@@ -1305,17 +1259,13 @@ impl ::core::clone::Clone for EVENT_FILTER_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_FILTER_LEVEL_KW {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,
     pub Level: u8,
     pub FilterIn: super::super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EVENT_FILTER_LEVEL_KW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EVENT_FILTER_LEVEL_KW {
     fn clone(&self) -> Self {
         *self
@@ -1487,15 +1437,11 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER_2_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_INSTANCE_INFO {
     pub RegHandle: super::super::super::Foundation::HANDLE,
     pub InstanceId: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EVENT_INSTANCE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EVENT_INSTANCE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1805,8 +1751,8 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_3_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub struct EVENT_TRACE_LOGFILEA {
     pub LogFileName: ::windows_sys::core::PSTR,
     pub LoggerName: ::windows_sys::core::PSTR,
@@ -1823,47 +1769,47 @@ pub struct EVENT_TRACE_LOGFILEA {
     pub IsKernelTrace: u32,
     pub Context: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for EVENT_TRACE_LOGFILEA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for EVENT_TRACE_LOGFILEA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub union EVENT_TRACE_LOGFILEA_0 {
     pub LogFileMode: u32,
     pub ProcessTraceMode: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for EVENT_TRACE_LOGFILEA_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for EVENT_TRACE_LOGFILEA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub union EVENT_TRACE_LOGFILEA_1 {
     pub EventCallback: PEVENT_CALLBACK,
     pub EventRecordCallback: PEVENT_RECORD_CALLBACK,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for EVENT_TRACE_LOGFILEA_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for EVENT_TRACE_LOGFILEA_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub struct EVENT_TRACE_LOGFILEW {
     pub LogFileName: ::windows_sys::core::PWSTR,
     pub LoggerName: ::windows_sys::core::PWSTR,
@@ -1880,47 +1826,45 @@ pub struct EVENT_TRACE_LOGFILEW {
     pub IsKernelTrace: u32,
     pub Context: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for EVENT_TRACE_LOGFILEW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for EVENT_TRACE_LOGFILEW {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub union EVENT_TRACE_LOGFILEW_0 {
     pub LogFileMode: u32,
     pub ProcessTraceMode: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for EVENT_TRACE_LOGFILEW_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for EVENT_TRACE_LOGFILEW_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub union EVENT_TRACE_LOGFILEW_1 {
     pub EventCallback: PEVENT_CALLBACK,
     pub EventRecordCallback: PEVENT_RECORD_CALLBACK,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for EVENT_TRACE_LOGFILEW_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for EVENT_TRACE_LOGFILEW_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_TRACE_PROPERTIES {
     pub Wnode: WNODE_HEADER,
     pub BufferSize: u32,
@@ -1941,32 +1885,24 @@ pub struct EVENT_TRACE_PROPERTIES {
     pub LogFileNameOffset: u32,
     pub LoggerNameOffset: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EVENT_TRACE_PROPERTIES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union EVENT_TRACE_PROPERTIES_0 {
     pub AgeLimit: i32,
     pub FlushThreshold: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EVENT_TRACE_PROPERTIES_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_TRACE_PROPERTIES_V2 {
     pub Wnode: WNODE_HEADER,
     pub BufferSize: u32,
@@ -1991,82 +1927,60 @@ pub struct EVENT_TRACE_PROPERTIES_V2 {
     pub FilterDesc: *mut EVENT_FILTER_DESCRIPTOR,
     pub Anonymous3: EVENT_TRACE_PROPERTIES_V2_2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EVENT_TRACE_PROPERTIES_V2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union EVENT_TRACE_PROPERTIES_V2_0 {
     pub AgeLimit: i32,
     pub FlushThreshold: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EVENT_TRACE_PROPERTIES_V2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union EVENT_TRACE_PROPERTIES_V2_1 {
     pub Anonymous: EVENT_TRACE_PROPERTIES_V2_1_0,
     pub V2Control: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EVENT_TRACE_PROPERTIES_V2_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_TRACE_PROPERTIES_V2_1_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EVENT_TRACE_PROPERTIES_V2_1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2_1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union EVENT_TRACE_PROPERTIES_V2_2 {
     pub Anonymous: EVENT_TRACE_PROPERTIES_V2_2_0,
     pub V2Options: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EVENT_TRACE_PROPERTIES_V2_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_TRACE_PROPERTIES_V2_2_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EVENT_TRACE_PROPERTIES_V2_2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2_2_0 {
     fn clone(&self) -> Self {
         *self
@@ -2331,8 +2245,6 @@ impl ::core::clone::Clone for TRACE_GUID_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct TRACE_GUID_PROPERTIES {
     pub Guid: ::windows_sys::core::GUID,
     pub GuidType: u32,
@@ -2341,32 +2253,26 @@ pub struct TRACE_GUID_PROPERTIES {
     pub EnableFlags: u32,
     pub IsEnable: super::super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TRACE_GUID_PROPERTIES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TRACE_GUID_PROPERTIES {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct TRACE_GUID_REGISTRATION {
     pub Guid: *const ::windows_sys::core::GUID,
     pub RegHandle: super::super::super::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TRACE_GUID_REGISTRATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TRACE_GUID_REGISTRATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub struct TRACE_LOGFILE_HEADER {
     pub BufferSize: u32,
     pub Anonymous1: TRACE_LOGFILE_HEADER_0,
@@ -2387,81 +2293,81 @@ pub struct TRACE_LOGFILE_HEADER {
     pub ReservedFlags: u32,
     pub BuffersLost: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for TRACE_LOGFILE_HEADER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for TRACE_LOGFILE_HEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub union TRACE_LOGFILE_HEADER_0 {
     pub Version: u32,
     pub VersionDetail: TRACE_LOGFILE_HEADER_0_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for TRACE_LOGFILE_HEADER_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for TRACE_LOGFILE_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub struct TRACE_LOGFILE_HEADER_0_0 {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
     pub SubVersion: u8,
     pub SubMinorVersion: u8,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for TRACE_LOGFILE_HEADER_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for TRACE_LOGFILE_HEADER_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub union TRACE_LOGFILE_HEADER_1 {
     pub LogInstanceGuid: ::windows_sys::core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER_1_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for TRACE_LOGFILE_HEADER_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for TRACE_LOGFILE_HEADER_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub struct TRACE_LOGFILE_HEADER_1_0 {
     pub StartBuffers: u32,
     pub PointerSize: u32,
     pub EventsLost: u32,
     pub CpuSpeedInMHz: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for TRACE_LOGFILE_HEADER_1_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for TRACE_LOGFILE_HEADER_1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub struct TRACE_LOGFILE_HEADER32 {
     pub BufferSize: u32,
     pub Anonymous1: TRACE_LOGFILE_HEADER32_0,
@@ -2482,81 +2388,81 @@ pub struct TRACE_LOGFILE_HEADER32 {
     pub ReservedFlags: u32,
     pub BuffersLost: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for TRACE_LOGFILE_HEADER32 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub union TRACE_LOGFILE_HEADER32_0 {
     pub Version: u32,
     pub VersionDetail: TRACE_LOGFILE_HEADER32_0_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for TRACE_LOGFILE_HEADER32_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub struct TRACE_LOGFILE_HEADER32_0_0 {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
     pub SubVersion: u8,
     pub SubMinorVersion: u8,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for TRACE_LOGFILE_HEADER32_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub union TRACE_LOGFILE_HEADER32_1 {
     pub LogInstanceGuid: ::windows_sys::core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER32_1_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for TRACE_LOGFILE_HEADER32_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub struct TRACE_LOGFILE_HEADER32_1_0 {
     pub StartBuffers: u32,
     pub PointerSize: u32,
     pub EventsLost: u32,
     pub CpuSpeedInMHz: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for TRACE_LOGFILE_HEADER32_1_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32_1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub struct TRACE_LOGFILE_HEADER64 {
     pub BufferSize: u32,
     pub Anonymous1: TRACE_LOGFILE_HEADER64_0,
@@ -2577,73 +2483,73 @@ pub struct TRACE_LOGFILE_HEADER64 {
     pub ReservedFlags: u32,
     pub BuffersLost: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for TRACE_LOGFILE_HEADER64 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub union TRACE_LOGFILE_HEADER64_0 {
     pub Version: u32,
     pub VersionDetail: TRACE_LOGFILE_HEADER64_0_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for TRACE_LOGFILE_HEADER64_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub struct TRACE_LOGFILE_HEADER64_0_0 {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
     pub SubVersion: u8,
     pub SubMinorVersion: u8,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for TRACE_LOGFILE_HEADER64_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub union TRACE_LOGFILE_HEADER64_1 {
     pub LogInstanceGuid: ::windows_sys::core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER64_1_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for TRACE_LOGFILE_HEADER64_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub struct TRACE_LOGFILE_HEADER64_1_0 {
     pub StartBuffers: u32,
     pub PointerSize: u32,
     pub EventsLost: u32,
     pub CpuSpeedInMHz: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::marker::Copy for TRACE_LOGFILE_HEADER64_1_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[cfg(feature = "Win32_System_Time")]
 impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64_1_0 {
     fn clone(&self) -> Self {
         *self
@@ -2698,16 +2604,12 @@ impl ::core::clone::Clone for TRACE_PROVIDER_INSTANCE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct TRACE_STACK_CACHING_INFO {
     pub Enabled: super::super::super::Foundation::BOOLEAN,
     pub CacheSize: u32,
     pub BucketCount: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TRACE_STACK_CACHING_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TRACE_STACK_CACHING_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2766,8 +2668,6 @@ impl ::core::clone::Clone for WMIREGINFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_ALL_DATA {
     pub WnodeHeader: WNODE_HEADER,
     pub DataBlockOffset: u32,
@@ -2775,78 +2675,58 @@ pub struct WNODE_ALL_DATA {
     pub OffsetInstanceNameOffsets: u32,
     pub Anonymous: WNODE_ALL_DATA_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WNODE_ALL_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WNODE_ALL_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union WNODE_ALL_DATA_0 {
     pub FixedInstanceSize: u32,
     pub OffsetInstanceDataAndLength: [OFFSETINSTANCEDATAANDLENGTH; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WNODE_ALL_DATA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WNODE_ALL_DATA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_EVENT_ITEM {
     pub WnodeHeader: WNODE_HEADER,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WNODE_EVENT_ITEM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WNODE_EVENT_ITEM {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_EVENT_REFERENCE {
     pub WnodeHeader: WNODE_HEADER,
     pub TargetGuid: ::windows_sys::core::GUID,
     pub TargetDataBlockSize: u32,
     pub Anonymous: WNODE_EVENT_REFERENCE_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WNODE_EVENT_REFERENCE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WNODE_EVENT_REFERENCE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union WNODE_EVENT_REFERENCE_0 {
     pub TargetInstanceIndex: u32,
     pub TargetInstanceName: [u16; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WNODE_EVENT_REFERENCE_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WNODE_EVENT_REFERENCE_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_HEADER {
     pub BufferSize: u32,
     pub ProviderId: u32,
@@ -2856,63 +2736,47 @@ pub struct WNODE_HEADER {
     pub ClientContext: u32,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WNODE_HEADER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WNODE_HEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union WNODE_HEADER_0 {
     pub HistoricalContext: u64,
     pub Anonymous: WNODE_HEADER_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WNODE_HEADER_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WNODE_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_HEADER_0_0 {
     pub Version: u32,
     pub Linkage: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WNODE_HEADER_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WNODE_HEADER_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union WNODE_HEADER_1 {
     pub CountLost: u32,
     pub KernelHandle: super::super::super::Foundation::HANDLE,
     pub TimeStamp: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WNODE_HEADER_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WNODE_HEADER_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_METHOD_ITEM {
     pub WnodeHeader: WNODE_HEADER,
     pub OffsetInstanceName: u32,
@@ -2922,17 +2786,13 @@ pub struct WNODE_METHOD_ITEM {
     pub SizeDataBlock: u32,
     pub VariableData: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WNODE_METHOD_ITEM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WNODE_METHOD_ITEM {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_SINGLE_INSTANCE {
     pub WnodeHeader: WNODE_HEADER,
     pub OffsetInstanceName: u32,
@@ -2941,17 +2801,13 @@ pub struct WNODE_SINGLE_INSTANCE {
     pub SizeDataBlock: u32,
     pub VariableData: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WNODE_SINGLE_INSTANCE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WNODE_SINGLE_INSTANCE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_SINGLE_ITEM {
     pub WnodeHeader: WNODE_HEADER,
     pub OffsetInstanceName: u32,
@@ -2961,40 +2817,34 @@ pub struct WNODE_SINGLE_ITEM {
     pub SizeDataItem: u32,
     pub VariableData: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WNODE_SINGLE_ITEM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WNODE_SINGLE_ITEM {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_TOO_SMALL {
     pub WnodeHeader: WNODE_HEADER,
     pub SizeNeeded: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WNODE_TOO_SMALL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WNODE_TOO_SMALL {
     fn clone(&self) -> Self {
         *self
     }
 }
 pub type PENABLECALLBACK = ::core::option::Option<unsafe extern "system" fn(sourceid: *const ::windows_sys::core::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut ::core::ffi::c_void)>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub type PETW_BUFFER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(buffer: *const ETW_BUFFER_HEADER, buffersize: u32, consumerinfo: *const ETW_BUFFER_CALLBACK_INFORMATION, callbackcontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 pub type PETW_BUFFER_COMPLETION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(buffer: *const ETW_BUFFER_HEADER, callbackcontext: *const ::core::ffi::c_void)>;
 pub type PEVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pevent: *mut EVENT_TRACE)>;
 pub type PEVENT_RECORD_CALLBACK = ::core::option::Option<unsafe extern "system" fn(eventrecord: *mut EVENT_RECORD)>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub type PEVENT_TRACE_BUFFER_CALLBACKA = ::core::option::Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEA) -> u32>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Time\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[doc = "Required features: `\"Win32_System_Time\"`"]
+#[cfg(feature = "Win32_System_Time")]
 pub type PEVENT_TRACE_BUFFER_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEW) -> u32>;
 pub type WMIDPREQUEST = ::core::option::Option<unsafe extern "system" fn(requestcode: WMIDPREQUESTCODE, requestcontext: *const ::core::ffi::c_void, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32>;

@@ -1,8 +1,7 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("inkobjcore.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn AddStroke(hrc : HRECOCONTEXT, ppacketdesc : *const PACKET_DESCRIPTION, cbpacket : u32, ppacket : *const u8, pxform : *const super::super::Graphics::Gdi:: XFORM) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("inkobjcore.dll" "system" fn AddWordsToWordList(hwl : HRECOWORDLIST, pwcwords : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("inkobjcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AdviseInkChange(hrc : HRECOCONTEXT, bnewstroke : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("inkobjcore.dll" "system" fn AdviseInkChange(hrc : HRECOCONTEXT, bnewstroke : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("inkobjcore.dll" "system" fn CreateContext(hrec : HRECOGNIZER, phrc : *mut HRECOCONTEXT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("inkobjcore.dll" "system" fn CreateRecognizer(pclsid : *mut ::windows_sys::core::GUID, phrec : *mut HRECOGNIZER) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("inkobjcore.dll" "system" fn DestroyContext(hrc : HRECOCONTEXT) -> ::windows_sys::core::HRESULT);
@@ -20,8 +19,7 @@
 ::windows_targets::link!("inkobjcore.dll" "system" fn IsStringSupported(hrc : HRECOCONTEXT, wcstring : u32, pwcstring : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("inkobjcore.dll" "system" fn LoadCachedAttributes(clsid : ::windows_sys::core::GUID, precoattributes : *mut RECO_ATTRS) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("inkobjcore.dll" "system" fn MakeWordList(hrec : HRECOGNIZER, pbuffer : ::windows_sys::core::PCWSTR, phwl : *mut HRECOWORDLIST) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("inkobjcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn Process(hrc : HRECOCONTEXT, pbpartialprocessing : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("inkobjcore.dll" "system" fn Process(hrc : HRECOCONTEXT, pbpartialprocessing : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("inkobjcore.dll" "system" fn SetEnabledUnicodeRanges(hrc : HRECOCONTEXT, cranges : u32, pcr : *mut CHARACTER_RANGE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("inkobjcore.dll" "system" fn SetFactoid(hrc : HRECOCONTEXT, cwcfactoid : u32, pwcfactoid : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("inkobjcore.dll" "system" fn SetFlags(hrc : HRECOCONTEXT, dwflags : u32) -> ::windows_sys::core::HRESULT);
@@ -1460,56 +1458,54 @@ pub type HRECOGNIZER = isize;
 pub type HRECOLATTICE = isize;
 pub type HRECOWORDLIST = isize;
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Controls\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Controls\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
 pub struct IEC_GESTUREINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub Cursor: IInkCursor,
     pub Strokes: IInkStrokes,
     pub Gestures: super::super::System::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
 impl ::core::marker::Copy for IEC_GESTUREINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
 impl ::core::clone::Clone for IEC_GESTUREINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Controls\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Controls\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 pub struct IEC_RECOGNITIONRESULTINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub RecognitionResult: IInkRecognitionResult,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 impl ::core::marker::Copy for IEC_RECOGNITIONRESULTINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 impl ::core::clone::Clone for IEC_RECOGNITIONRESULTINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Controls\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Controls\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 pub struct IEC_STROKEINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub Cursor: IInkCursor,
     pub Stroke: IInkStrokeDisp,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 impl ::core::marker::Copy for IEC_STROKEINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 impl ::core::clone::Clone for IEC_STROKEINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct INKMETRIC {
     pub iHeight: i32,
     pub iFontAscent: i32,
@@ -1517,17 +1513,13 @@ pub struct INKMETRIC {
     pub dwFlags: u32,
     pub color: super::super::Foundation::COLORREF,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for INKMETRIC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INKMETRIC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct InkRecoGuide {
     pub rectWritingBox: super::super::Foundation::RECT,
     pub rectDrawnBox: super::super::Foundation::RECT,
@@ -1535,39 +1527,29 @@ pub struct InkRecoGuide {
     pub cColumns: i32,
     pub midline: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for InkRecoGuide {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for InkRecoGuide {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct LATTICE_METRICS {
     pub lsBaseline: LINE_SEGMENT,
     pub iMidlineOffset: i16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LATTICE_METRICS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LATTICE_METRICS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct LINE_SEGMENT {
     pub PtA: super::super::Foundation::POINT,
     pub PtB: super::super::Foundation::POINT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LINE_SEGMENT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LINE_SEGMENT {
     fn clone(&self) -> Self {
         *self
@@ -1749,16 +1731,12 @@ impl ::core::clone::Clone for SYSTEM_EVENT_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct StylusInfo {
     pub tcid: u32,
     pub cid: u32,
     pub bIsInvertedCursor: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for StylusInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for StylusInfo {
     fn clone(&self) -> Self {
         *self

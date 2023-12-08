@@ -8,6 +8,5 @@ publish = false
 path = "../../../libs/windows"
 features = [
     "Win32_System_Com",
-    "Win32_Foundation",
     "Win32_Globalization",
 ]

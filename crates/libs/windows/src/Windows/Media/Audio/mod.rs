@@ -52,54 +52,21 @@ pub struct IAudioFileInputNode_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetPlaybackSpeedFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
     pub PlaybackSpeedFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Position: usize,
-    #[cfg(feature = "Foundation")]
     pub Seek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Seek: usize,
-    #[cfg(feature = "Foundation")]
     pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StartTime: usize,
-    #[cfg(feature = "Foundation")]
     pub SetStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetStartTime: usize,
-    #[cfg(feature = "Foundation")]
     pub EndTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    EndTime: usize,
-    #[cfg(feature = "Foundation")]
     pub SetEndTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetEndTime: usize,
-    #[cfg(feature = "Foundation")]
     pub LoopCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    LoopCount: usize,
-    #[cfg(feature = "Foundation")]
     pub SetLoopCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetLoopCount: usize,
-    #[cfg(feature = "Foundation")]
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Duration: usize,
     #[cfg(feature = "Storage")]
     pub SourceFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage"))]
     SourceFile: usize,
-    #[cfg(feature = "Foundation")]
     pub FileCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FileCompleted: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveFileCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveFileCompleted: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -123,9 +90,9 @@ pub struct IAudioFileOutputNode_Vtbl {
     pub FileEncodingProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
     FileEncodingProfile: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_Transcoding"))]
+    #[cfg(feature = "Media_Transcoding")]
     pub FinalizeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Transcoding")))]
+    #[cfg(not(feature = "Media_Transcoding"))]
     FinalizeAsync: usize,
 }
 #[doc(hidden)]
@@ -163,22 +130,10 @@ pub struct IAudioFrameInputNode_Vtbl {
     pub AddFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frame: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub DiscardQueuedFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub QueuedSampleCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub AudioFrameCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AudioFrameCompleted: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveAudioFrameCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveAudioFrameCompleted: usize,
-    #[cfg(feature = "Foundation")]
     pub QuantumStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    QuantumStarted: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveQuantumStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveQuantumStarted: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -215,38 +170,35 @@ pub struct IAudioGraph_Vtbl {
     pub CreateFrameInputNodeWithFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingproperties: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
     CreateFrameInputNodeWithFormat: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_Capture"))]
+    #[cfg(feature = "Media_Capture")]
     pub CreateDeviceInputNodeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: super::Capture::MediaCategory, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Capture")))]
+    #[cfg(not(feature = "Media_Capture"))]
     CreateDeviceInputNodeAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub CreateDeviceInputNodeWithFormatAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: super::Capture::MediaCategory, encodingproperties: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties")))]
+    #[cfg(not(all(feature = "Media_Capture", feature = "Media_MediaProperties")))]
     CreateDeviceInputNodeWithFormatAsync: usize,
-    #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    #[cfg(all(feature = "Devices_Enumeration", feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub CreateDeviceInputNodeWithFormatOnDeviceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: super::Capture::MediaCategory, encodingproperties: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties")))]
+    #[cfg(not(all(feature = "Devices_Enumeration", feature = "Media_Capture", feature = "Media_MediaProperties")))]
     CreateDeviceInputNodeWithFormatOnDeviceAsync: usize,
     pub CreateFrameOutputNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Media_MediaProperties")]
     pub CreateFrameOutputNodeWithFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingproperties: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
     CreateFrameOutputNodeWithFormat: usize,
-    #[cfg(feature = "Foundation")]
     pub CreateDeviceOutputNodeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateDeviceOutputNodeAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[cfg(feature = "Storage")]
     pub CreateFileInputNodeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
+    #[cfg(not(feature = "Storage"))]
     CreateFileInputNodeAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[cfg(feature = "Storage")]
     pub CreateFileOutputNodeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
+    #[cfg(not(feature = "Storage"))]
     CreateFileOutputNodeAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage"))]
+    #[cfg(all(feature = "Media_MediaProperties", feature = "Storage"))]
     pub CreateFileOutputNodeWithFileProfileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, fileencodingprofile: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage")))]
+    #[cfg(not(all(feature = "Media_MediaProperties", feature = "Storage")))]
     CreateFileOutputNodeWithFileProfileAsync: usize,
     pub CreateSubmixNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Media_MediaProperties")]
@@ -256,30 +208,12 @@ pub struct IAudioGraph_Vtbl {
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ResetAllNodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub QuantumStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    QuantumStarted: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveQuantumStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveQuantumStarted: usize,
-    #[cfg(feature = "Foundation")]
     pub QuantumProcessed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    QuantumProcessed: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveQuantumProcessed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveQuantumProcessed: usize,
-    #[cfg(feature = "Foundation")]
     pub UnrecoverableErrorOccurred: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    UnrecoverableErrorOccurred: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveUnrecoverableErrorOccurred: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveUnrecoverableErrorOccurred: usize,
     pub CompletedQuantumCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows_core::HRESULT,
     #[cfg(feature = "Media_MediaProperties")]
     pub EncodingProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -311,22 +245,19 @@ pub struct IAudioGraph2_Vtbl {
     pub CreateFrameInputNodeWithFormatAndEmitter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingproperties: *mut ::core::ffi::c_void, emitter: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
     CreateFrameInputNodeWithFormatAndEmitter: usize,
-    #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    #[cfg(all(feature = "Devices_Enumeration", feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: super::Capture::MediaCategory, encodingproperties: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void, emitter: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties")))]
+    #[cfg(not(all(feature = "Devices_Enumeration", feature = "Media_Capture", feature = "Media_MediaProperties")))]
     CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[cfg(feature = "Storage")]
     pub CreateFileInputNodeWithEmitterAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, emitter: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
+    #[cfg(not(feature = "Storage"))]
     CreateFileInputNodeWithEmitterAsync: usize,
     #[cfg(feature = "Media_MediaProperties")]
     pub CreateSubmixNodeWithFormatAndEmitter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingproperties: *mut ::core::ffi::c_void, emitter: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
     CreateSubmixNodeWithFormatAndEmitter: usize,
-    #[cfg(feature = "Foundation")]
     pub CreateBatchUpdater: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateBatchUpdater: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -342,13 +273,13 @@ unsafe impl ::windows_core::ComInterface for IAudioGraph3 {
 #[doc(hidden)]
 pub struct IAudioGraph3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation", feature = "Media_Core"))]
+    #[cfg(feature = "Media_Core")]
     pub CreateMediaSourceAudioInputNodeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediasource: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Core")))]
+    #[cfg(not(feature = "Media_Core"))]
     CreateMediaSourceAudioInputNodeAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_Core"))]
+    #[cfg(feature = "Media_Core")]
     pub CreateMediaSourceAudioInputNodeWithEmitterAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediasource: *mut ::core::ffi::c_void, emitter: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Core")))]
+    #[cfg(not(feature = "Media_Core"))]
     CreateMediaSourceAudioInputNodeWithEmitterAsync: usize,
 }
 #[doc(hidden)]
@@ -464,10 +395,7 @@ unsafe impl ::windows_core::ComInterface for IAudioGraphStatics {
 #[doc(hidden)]
 pub struct IAudioGraphStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub CreateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -589,8 +517,6 @@ impl IAudioInputNode {
         let this = &::windows_core::ComInterface::cast::<IAudioNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).EnableEffectsByDefinition)(::windows_core::Interface::as_raw(this), definition.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -598,7 +524,6 @@ impl IAudioInputNode {
 }
 ::windows_core::imp::interface_hierarchy!(IAudioInputNode, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IAudioNode> for IAudioInputNode {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for IAudioInputNode {}
 impl ::windows_core::RuntimeType for IAudioInputNode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -732,8 +657,6 @@ impl IAudioInputNode2 {
         let this = &::windows_core::ComInterface::cast::<IAudioNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).EnableEffectsByDefinition)(::windows_core::Interface::as_raw(this), definition.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -742,7 +665,6 @@ impl IAudioInputNode2 {
 ::windows_core::imp::interface_hierarchy!(IAudioInputNode2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IAudioInputNode> for IAudioInputNode2 {}
 impl ::windows_core::CanTryInto<IAudioNode> for IAudioInputNode2 {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for IAudioInputNode2 {}
 impl ::windows_core::RuntimeType for IAudioInputNode2 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -833,15 +755,12 @@ impl IAudioNode {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).EnableEffectsByDefinition)(::windows_core::Interface::as_raw(this), definition.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioNode, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for IAudioNode {}
 impl ::windows_core::RuntimeType for IAudioNode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1195,8 +1114,6 @@ impl IAudioNodeWithListener {
         let this = &::windows_core::ComInterface::cast::<IAudioNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).EnableEffectsByDefinition)(::windows_core::Interface::as_raw(this), definition.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -1204,7 +1121,6 @@ impl IAudioNodeWithListener {
 }
 ::windows_core::imp::interface_hierarchy!(IAudioNodeWithListener, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IAudioNode> for IAudioNodeWithListener {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for IAudioNodeWithListener {}
 impl ::windows_core::RuntimeType for IAudioNodeWithListener {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1237,25 +1153,13 @@ unsafe impl ::windows_core::ComInterface for IAudioPlaybackConnection {
 pub struct IAudioPlaybackConnection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub StartAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StartAsync: usize,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioPlaybackConnectionState) -> ::windows_core::HRESULT,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub OpenAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    OpenAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub StateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveStateChanged: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1305,14 +1209,8 @@ unsafe impl ::windows_core::ComInterface for IAudioStateMonitor {
 #[doc(hidden)]
 pub struct IAudioStateMonitor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub SoundLevelChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SoundLevelChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveSoundLevelChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveSoundLevelChanged: usize,
     pub SoundLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::SoundLevel) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
@@ -1714,54 +1612,21 @@ pub struct IMediaSourceAudioInputNode_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetPlaybackSpeedFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
     pub PlaybackSpeedFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Position: usize,
-    #[cfg(feature = "Foundation")]
     pub Seek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Seek: usize,
-    #[cfg(feature = "Foundation")]
     pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StartTime: usize,
-    #[cfg(feature = "Foundation")]
     pub SetStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetStartTime: usize,
-    #[cfg(feature = "Foundation")]
     pub EndTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    EndTime: usize,
-    #[cfg(feature = "Foundation")]
     pub SetEndTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetEndTime: usize,
-    #[cfg(feature = "Foundation")]
     pub LoopCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    LoopCount: usize,
-    #[cfg(feature = "Foundation")]
     pub SetLoopCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetLoopCount: usize,
-    #[cfg(feature = "Foundation")]
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Duration: usize,
     #[cfg(feature = "Media_Core")]
     pub MediaSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_Core"))]
     MediaSource: usize,
-    #[cfg(feature = "Foundation")]
     pub MediaSourceCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MediaSourceCompleted: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveMediaSourceCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveMediaSourceCompleted: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1875,18 +1740,9 @@ pub struct ISpatialAudioDeviceConfiguration_Vtbl {
     pub IsSpatialAudioFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtype: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut bool) -> ::windows_core::HRESULT,
     pub ActiveSpatialAudioFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub DefaultSpatialAudioFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub SetDefaultSpatialAudioFormatAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtype: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetDefaultSpatialAudioFormatAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub ConfigurationChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ConfigurationChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveConfigurationChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveConfigurationChanged: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1918,14 +1774,8 @@ unsafe impl ::windows_core::ComInterface for ISpatialAudioFormatConfiguration {
 #[doc(hidden)]
 pub struct ISpatialAudioFormatConfiguration_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub ReportLicenseChangedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtype: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportLicenseChangedAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub ReportConfigurationChangedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtype: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportConfigurationChangedAsync: usize,
     pub MixedRealityExclusiveModePolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MixedRealitySpatialAudioFormatPolicy) -> ::windows_core::HRESULT,
     pub SetMixedRealityExclusiveModePolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MixedRealitySpatialAudioFormatPolicy) -> ::windows_core::HRESULT,
 }
@@ -2102,8 +1952,6 @@ impl AudioDeviceInputNode {
         let this = &::windows_core::ComInterface::cast::<IAudioNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).EnableEffectsByDefinition)(::windows_core::Interface::as_raw(this), definition.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2125,7 +1973,6 @@ impl ::windows_core::RuntimeName for AudioDeviceInputNode {
 impl ::windows_core::CanTryInto<IAudioInputNode> for AudioDeviceInputNode {}
 impl ::windows_core::CanTryInto<IAudioInputNode2> for AudioDeviceInputNode {}
 impl ::windows_core::CanTryInto<IAudioNode> for AudioDeviceInputNode {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for AudioDeviceInputNode {}
 unsafe impl ::core::marker::Send for AudioDeviceInputNode {}
 unsafe impl ::core::marker::Sync for AudioDeviceInputNode {}
@@ -2226,8 +2073,6 @@ impl AudioDeviceOutputNode {
             (::windows_core::Interface::vtable(this).Listener)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2248,7 +2093,6 @@ impl ::windows_core::RuntimeName for AudioDeviceOutputNode {
 ::windows_core::imp::interface_hierarchy!(AudioDeviceOutputNode, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IAudioNode> for AudioDeviceOutputNode {}
 impl ::windows_core::CanTryInto<IAudioNodeWithListener> for AudioDeviceOutputNode {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for AudioDeviceOutputNode {}
 unsafe impl ::core::marker::Send for AudioDeviceOutputNode {}
 unsafe impl ::core::marker::Sync for AudioDeviceOutputNode {}
@@ -2267,8 +2111,6 @@ impl AudioFileInputNode {
             (::windows_core::Interface::vtable(this).PlaybackSpeedFactor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -2276,14 +2118,10 @@ impl AudioFileInputNode {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Seek(&self, position: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Seek)(::windows_core::Interface::as_raw(this), position).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StartTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -2291,8 +2129,6 @@ impl AudioFileInputNode {
             (::windows_core::Interface::vtable(this).StartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetStartTime<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
@@ -2300,8 +2136,6 @@ impl AudioFileInputNode {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetStartTime)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn EndTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -2309,8 +2143,6 @@ impl AudioFileInputNode {
             (::windows_core::Interface::vtable(this).EndTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetEndTime<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
@@ -2318,8 +2150,6 @@ impl AudioFileInputNode {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetEndTime)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn LoopCount(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -2327,8 +2157,6 @@ impl AudioFileInputNode {
             (::windows_core::Interface::vtable(this).LoopCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetLoopCount<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<i32>>,
@@ -2336,8 +2164,6 @@ impl AudioFileInputNode {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetLoopCount)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -2354,8 +2180,6 @@ impl AudioFileInputNode {
             (::windows_core::Interface::vtable(this).SourceFile)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FileCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioFileInputNode, ::windows_core::IInspectable>>,
@@ -2366,8 +2190,6 @@ impl AudioFileInputNode {
             (::windows_core::Interface::vtable(this).FileCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveFileCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveFileCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -2479,8 +2301,6 @@ impl AudioFileInputNode {
         let this = &::windows_core::ComInterface::cast::<IAudioNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).EnableEffectsByDefinition)(::windows_core::Interface::as_raw(this), definition.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2502,7 +2322,6 @@ impl ::windows_core::RuntimeName for AudioFileInputNode {
 impl ::windows_core::CanTryInto<IAudioInputNode> for AudioFileInputNode {}
 impl ::windows_core::CanTryInto<IAudioInputNode2> for AudioFileInputNode {}
 impl ::windows_core::CanTryInto<IAudioNode> for AudioFileInputNode {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for AudioFileInputNode {}
 unsafe impl ::core::marker::Send for AudioFileInputNode {}
 unsafe impl ::core::marker::Sync for AudioFileInputNode {}
@@ -2528,8 +2347,8 @@ impl AudioFileOutputNode {
             (::windows_core::Interface::vtable(this).FileEncodingProfile)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_Transcoding\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_Transcoding"))]
+    #[doc = "Required features: `\"Media_Transcoding\"`"]
+    #[cfg(feature = "Media_Transcoding")]
     pub fn FinalizeAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::Transcoding::TranscodeFailureReason>> {
         let this = self;
         unsafe {
@@ -2607,8 +2426,6 @@ impl AudioFileOutputNode {
         let this = &::windows_core::ComInterface::cast::<IAudioNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).EnableEffectsByDefinition)(::windows_core::Interface::as_raw(this), definition.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2628,7 +2445,6 @@ impl ::windows_core::RuntimeName for AudioFileOutputNode {
 }
 ::windows_core::imp::interface_hierarchy!(AudioFileOutputNode, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IAudioNode> for AudioFileOutputNode {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for AudioFileOutputNode {}
 unsafe impl ::core::marker::Send for AudioFileOutputNode {}
 unsafe impl ::core::marker::Sync for AudioFileOutputNode {}
@@ -2692,8 +2508,6 @@ impl AudioFrameInputNode {
             (::windows_core::Interface::vtable(this).QueuedSampleCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AudioFrameCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioFrameInputNode, AudioFrameCompletedEventArgs>>,
@@ -2704,14 +2518,10 @@ impl AudioFrameInputNode {
             (::windows_core::Interface::vtable(this).AudioFrameCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveAudioFrameCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAudioFrameCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn QuantumStarted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioFrameInputNode, FrameInputNodeQuantumStartedEventArgs>>,
@@ -2722,8 +2532,6 @@ impl AudioFrameInputNode {
             (::windows_core::Interface::vtable(this).QuantumStarted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveQuantumStarted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveQuantumStarted)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -2835,8 +2643,6 @@ impl AudioFrameInputNode {
         let this = &::windows_core::ComInterface::cast::<IAudioNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).EnableEffectsByDefinition)(::windows_core::Interface::as_raw(this), definition.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2858,7 +2664,6 @@ impl ::windows_core::RuntimeName for AudioFrameInputNode {
 impl ::windows_core::CanTryInto<IAudioInputNode> for AudioFrameInputNode {}
 impl ::windows_core::CanTryInto<IAudioInputNode2> for AudioFrameInputNode {}
 impl ::windows_core::CanTryInto<IAudioNode> for AudioFrameInputNode {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for AudioFrameInputNode {}
 unsafe impl ::core::marker::Send for AudioFrameInputNode {}
 unsafe impl ::core::marker::Sync for AudioFrameInputNode {}
@@ -2943,8 +2748,6 @@ impl AudioFrameOutputNode {
         let this = &::windows_core::ComInterface::cast::<IAudioNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).EnableEffectsByDefinition)(::windows_core::Interface::as_raw(this), definition.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2964,7 +2767,6 @@ impl ::windows_core::RuntimeName for AudioFrameOutputNode {
 }
 ::windows_core::imp::interface_hierarchy!(AudioFrameOutputNode, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IAudioNode> for AudioFrameOutputNode {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for AudioFrameOutputNode {}
 unsafe impl ::core::marker::Send for AudioFrameOutputNode {}
 unsafe impl ::core::marker::Sync for AudioFrameOutputNode {}
@@ -2991,8 +2793,8 @@ impl AudioGraph {
             (::windows_core::Interface::vtable(this).CreateFrameInputNodeWithFormat)(::windows_core::Interface::as_raw(this), encodingproperties.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_Capture\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_Capture"))]
+    #[doc = "Required features: `\"Media_Capture\"`"]
+    #[cfg(feature = "Media_Capture")]
     pub fn CreateDeviceInputNodeAsync(&self, category: super::Capture::MediaCategory) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>> {
         let this = self;
         unsafe {
@@ -3000,8 +2802,8 @@ impl AudioGraph {
             (::windows_core::Interface::vtable(this).CreateDeviceInputNodeAsync)(::windows_core::Interface::as_raw(this), category, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    #[doc = "Required features: `\"Media_Capture\"`, `\"Media_MediaProperties\"`"]
+    #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn CreateDeviceInputNodeWithFormatAsync<P0>(&self, category: super::Capture::MediaCategory, encodingproperties: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
     where
         P0: ::windows_core::IntoParam<super::MediaProperties::AudioEncodingProperties>,
@@ -3012,8 +2814,8 @@ impl AudioGraph {
             (::windows_core::Interface::vtable(this).CreateDeviceInputNodeWithFormatAsync)(::windows_core::Interface::as_raw(this), category, encodingproperties.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`"]
-    #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    #[doc = "Required features: `\"Devices_Enumeration\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`"]
+    #[cfg(all(feature = "Devices_Enumeration", feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn CreateDeviceInputNodeWithFormatOnDeviceAsync<P0, P1>(&self, category: super::Capture::MediaCategory, encodingproperties: P0, device: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
     where
         P0: ::windows_core::IntoParam<super::MediaProperties::AudioEncodingProperties>,
@@ -3044,8 +2846,6 @@ impl AudioGraph {
             (::windows_core::Interface::vtable(this).CreateFrameOutputNodeWithFormat)(::windows_core::Interface::as_raw(this), encodingproperties.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateDeviceOutputNodeAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceOutputNodeResult>> {
         let this = self;
         unsafe {
@@ -3053,8 +2853,8 @@ impl AudioGraph {
             (::windows_core::Interface::vtable(this).CreateDeviceOutputNodeAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "Required features: `\"Storage\"`"]
+    #[cfg(feature = "Storage")]
     pub fn CreateFileInputNodeAsync<P0>(&self, file: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileInputNodeResult>>
     where
         P0: ::windows_core::TryIntoParam<super::super::Storage::IStorageFile>,
@@ -3065,8 +2865,8 @@ impl AudioGraph {
             (::windows_core::Interface::vtable(this).CreateFileInputNodeAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "Required features: `\"Storage\"`"]
+    #[cfg(feature = "Storage")]
     pub fn CreateFileOutputNodeAsync<P0>(&self, file: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileOutputNodeResult>>
     where
         P0: ::windows_core::TryIntoParam<super::super::Storage::IStorageFile>,
@@ -3077,8 +2877,8 @@ impl AudioGraph {
             (::windows_core::Interface::vtable(this).CreateFileOutputNodeAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage"))]
+    #[doc = "Required features: `\"Media_MediaProperties\"`, `\"Storage\"`"]
+    #[cfg(all(feature = "Media_MediaProperties", feature = "Storage"))]
     pub fn CreateFileOutputNodeWithFileProfileAsync<P0, P1>(&self, file: P0, fileencodingprofile: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileOutputNodeResult>>
     where
         P0: ::windows_core::TryIntoParam<super::super::Storage::IStorageFile>,
@@ -3121,8 +2921,6 @@ impl AudioGraph {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).ResetAllNodes)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn QuantumStarted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioGraph, ::windows_core::IInspectable>>,
@@ -3133,14 +2931,10 @@ impl AudioGraph {
             (::windows_core::Interface::vtable(this).QuantumStarted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveQuantumStarted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveQuantumStarted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn QuantumProcessed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioGraph, ::windows_core::IInspectable>>,
@@ -3151,14 +2945,10 @@ impl AudioGraph {
             (::windows_core::Interface::vtable(this).QuantumProcessed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveQuantumProcessed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveQuantumProcessed)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn UnrecoverableErrorOccurred<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioGraph, AudioGraphUnrecoverableErrorOccurredEventArgs>>,
@@ -3169,8 +2959,6 @@ impl AudioGraph {
             (::windows_core::Interface::vtable(this).UnrecoverableErrorOccurred)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveUnrecoverableErrorOccurred(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveUnrecoverableErrorOccurred)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -3234,8 +3022,8 @@ impl AudioGraph {
             (::windows_core::Interface::vtable(this).CreateFrameInputNodeWithFormatAndEmitter)(::windows_core::Interface::as_raw(this), encodingproperties.into_param().abi(), emitter.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`"]
-    #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    #[doc = "Required features: `\"Devices_Enumeration\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`"]
+    #[cfg(all(feature = "Devices_Enumeration", feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync<P0, P1, P2>(&self, category: super::Capture::MediaCategory, encodingproperties: P0, device: P1, emitter: P2) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
     where
         P0: ::windows_core::IntoParam<super::MediaProperties::AudioEncodingProperties>,
@@ -3248,8 +3036,8 @@ impl AudioGraph {
             (::windows_core::Interface::vtable(this).CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync)(::windows_core::Interface::as_raw(this), category, encodingproperties.into_param().abi(), device.into_param().abi(), emitter.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "Required features: `\"Storage\"`"]
+    #[cfg(feature = "Storage")]
     pub fn CreateFileInputNodeWithEmitterAsync<P0, P1>(&self, file: P0, emitter: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileInputNodeResult>>
     where
         P0: ::windows_core::TryIntoParam<super::super::Storage::IStorageFile>,
@@ -3274,8 +3062,6 @@ impl AudioGraph {
             (::windows_core::Interface::vtable(this).CreateSubmixNodeWithFormatAndEmitter)(::windows_core::Interface::as_raw(this), encodingproperties.into_param().abi(), emitter.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateBatchUpdater(&self) -> ::windows_core::Result<AudioGraphBatchUpdater> {
         let this = &::windows_core::ComInterface::cast::<IAudioGraph2>(self)?;
         unsafe {
@@ -3283,8 +3069,8 @@ impl AudioGraph {
             (::windows_core::Interface::vtable(this).CreateBatchUpdater)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_Core\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_Core"))]
+    #[doc = "Required features: `\"Media_Core\"`"]
+    #[cfg(feature = "Media_Core")]
     pub fn CreateMediaSourceAudioInputNodeAsync<P0>(&self, mediasource: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>>
     where
         P0: ::windows_core::IntoParam<super::Core::MediaSource>,
@@ -3295,8 +3081,8 @@ impl AudioGraph {
             (::windows_core::Interface::vtable(this).CreateMediaSourceAudioInputNodeAsync)(::windows_core::Interface::as_raw(this), mediasource.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_Core\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_Core"))]
+    #[doc = "Required features: `\"Media_Core\"`"]
+    #[cfg(feature = "Media_Core")]
     pub fn CreateMediaSourceAudioInputNodeWithEmitterAsync<P0, P1>(&self, mediasource: P0, emitter: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>>
     where
         P0: ::windows_core::IntoParam<super::Core::MediaSource>,
@@ -3308,8 +3094,6 @@ impl AudioGraph {
             (::windows_core::Interface::vtable(this).CreateMediaSourceAudioInputNodeWithEmitterAsync)(::windows_core::Interface::as_raw(this), mediasource.into_param().abi(), emitter.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateAsync<P0>(settings: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioGraphResult>>
     where
         P0: ::windows_core::IntoParam<AudioGraphSettings>,
@@ -3319,8 +3103,6 @@ impl AudioGraph {
             (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), settings.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -3344,47 +3126,33 @@ impl ::windows_core::RuntimeName for AudioGraph {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraph";
 }
 ::windows_core::imp::interface_hierarchy!(AudioGraph, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for AudioGraph {}
 unsafe impl ::core::marker::Send for AudioGraph {}
 unsafe impl ::core::marker::Sync for AudioGraph {}
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AudioGraphBatchUpdater(::windows_core::IUnknown);
-#[cfg(feature = "Foundation")]
 impl AudioGraphBatchUpdater {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeType for AudioGraphBatchUpdater {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
-#[cfg(feature = "Foundation")]
 unsafe impl ::windows_core::Interface for AudioGraphBatchUpdater {
     type Vtable = super::super::Foundation::IClosable_Vtbl;
 }
-#[cfg(feature = "Foundation")]
 unsafe impl ::windows_core::ComInterface for AudioGraphBatchUpdater {
     const IID: ::windows_core::GUID = <super::super::Foundation::IClosable as ::windows_core::ComInterface>::IID;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for AudioGraphBatchUpdater {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphBatchUpdater";
 }
-#[cfg(feature = "Foundation")]
 ::windows_core::imp::interface_hierarchy!(AudioGraphBatchUpdater, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for AudioGraphBatchUpdater {}
-#[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Send for AudioGraphBatchUpdater {}
-#[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Sync for AudioGraphBatchUpdater {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4013,8 +3781,6 @@ impl AudioPlaybackConnection {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Start)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StartAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -4043,8 +3809,6 @@ impl AudioPlaybackConnection {
             (::windows_core::Interface::vtable(this).Open)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn OpenAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AudioPlaybackConnectionOpenResult>> {
         let this = self;
         unsafe {
@@ -4052,8 +3816,6 @@ impl AudioPlaybackConnection {
             (::windows_core::Interface::vtable(this).OpenAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioPlaybackConnection, ::windows_core::IInspectable>>,
@@ -4064,8 +3826,6 @@ impl AudioPlaybackConnection {
             (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -4082,8 +3842,6 @@ impl AudioPlaybackConnection {
             (::windows_core::Interface::vtable(this).TryCreateFromId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -4107,7 +3865,6 @@ impl ::windows_core::RuntimeName for AudioPlaybackConnection {
     const NAME: &'static str = "Windows.Media.Audio.AudioPlaybackConnection";
 }
 ::windows_core::imp::interface_hierarchy!(AudioPlaybackConnection, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for AudioPlaybackConnection {}
 unsafe impl ::core::marker::Send for AudioPlaybackConnection {}
 unsafe impl ::core::marker::Sync for AudioPlaybackConnection {}
@@ -4149,8 +3906,6 @@ unsafe impl ::core::marker::Sync for AudioPlaybackConnectionOpenResult {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AudioStateMonitor(::windows_core::IUnknown);
 impl AudioStateMonitor {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SoundLevelChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioStateMonitor, ::windows_core::IInspectable>>,
@@ -4161,8 +3916,6 @@ impl AudioStateMonitor {
             (::windows_core::Interface::vtable(this).SoundLevelChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveSoundLevelChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSoundLevelChanged)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -4366,8 +4119,6 @@ impl AudioSubmixNode {
         let this = &::windows_core::ComInterface::cast::<IAudioNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).EnableEffectsByDefinition)(::windows_core::Interface::as_raw(this), definition.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -4389,7 +4140,6 @@ impl ::windows_core::RuntimeName for AudioSubmixNode {
 impl ::windows_core::CanTryInto<IAudioInputNode> for AudioSubmixNode {}
 impl ::windows_core::CanTryInto<IAudioInputNode2> for AudioSubmixNode {}
 impl ::windows_core::CanTryInto<IAudioNode> for AudioSubmixNode {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for AudioSubmixNode {}
 unsafe impl ::core::marker::Send for AudioSubmixNode {}
 unsafe impl ::core::marker::Sync for AudioSubmixNode {}
@@ -5056,8 +4806,6 @@ impl MediaSourceAudioInputNode {
         let this = &::windows_core::ComInterface::cast::<IAudioNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).EnableEffectsByDefinition)(::windows_core::Interface::as_raw(this), definition.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -5073,8 +4821,6 @@ impl MediaSourceAudioInputNode {
             (::windows_core::Interface::vtable(this).PlaybackSpeedFactor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -5082,14 +4828,10 @@ impl MediaSourceAudioInputNode {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Seek(&self, position: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Seek)(::windows_core::Interface::as_raw(this), position).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StartTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -5097,8 +4839,6 @@ impl MediaSourceAudioInputNode {
             (::windows_core::Interface::vtable(this).StartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetStartTime<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
@@ -5106,8 +4846,6 @@ impl MediaSourceAudioInputNode {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetStartTime)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn EndTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -5115,8 +4853,6 @@ impl MediaSourceAudioInputNode {
             (::windows_core::Interface::vtable(this).EndTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetEndTime<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
@@ -5124,8 +4860,6 @@ impl MediaSourceAudioInputNode {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetEndTime)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn LoopCount(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -5133,8 +4867,6 @@ impl MediaSourceAudioInputNode {
             (::windows_core::Interface::vtable(this).LoopCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetLoopCount<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<i32>>,
@@ -5142,8 +4874,6 @@ impl MediaSourceAudioInputNode {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetLoopCount)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -5160,8 +4890,6 @@ impl MediaSourceAudioInputNode {
             (::windows_core::Interface::vtable(this).MediaSource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn MediaSourceCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MediaSourceAudioInputNode, ::windows_core::IInspectable>>,
@@ -5172,8 +4900,6 @@ impl MediaSourceAudioInputNode {
             (::windows_core::Interface::vtable(this).MediaSourceCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveMediaSourceCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveMediaSourceCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -5195,7 +4921,6 @@ impl ::windows_core::RuntimeName for MediaSourceAudioInputNode {
 impl ::windows_core::CanTryInto<IAudioInputNode> for MediaSourceAudioInputNode {}
 impl ::windows_core::CanTryInto<IAudioInputNode2> for MediaSourceAudioInputNode {}
 impl ::windows_core::CanTryInto<IAudioNode> for MediaSourceAudioInputNode {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for MediaSourceAudioInputNode {}
 unsafe impl ::core::marker::Send for MediaSourceAudioInputNode {}
 unsafe impl ::core::marker::Sync for MediaSourceAudioInputNode {}
@@ -5572,8 +5297,6 @@ impl SpatialAudioDeviceConfiguration {
             (::windows_core::Interface::vtable(this).DefaultSpatialAudioFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetDefaultSpatialAudioFormatAsync(&self, subtype: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SetDefaultSpatialAudioFormatResult>> {
         let this = self;
         unsafe {
@@ -5581,8 +5304,6 @@ impl SpatialAudioDeviceConfiguration {
             (::windows_core::Interface::vtable(this).SetDefaultSpatialAudioFormatAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(subtype), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ConfigurationChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SpatialAudioDeviceConfiguration, ::windows_core::IInspectable>>,
@@ -5593,8 +5314,6 @@ impl SpatialAudioDeviceConfiguration {
             (::windows_core::Interface::vtable(this).ConfigurationChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveConfigurationChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveConfigurationChanged)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -5630,8 +5349,6 @@ unsafe impl ::core::marker::Sync for SpatialAudioDeviceConfiguration {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpatialAudioFormatConfiguration(::windows_core::IUnknown);
 impl SpatialAudioFormatConfiguration {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ReportLicenseChangedAsync(&self, subtype: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -5639,8 +5356,6 @@ impl SpatialAudioFormatConfiguration {
             (::windows_core::Interface::vtable(this).ReportLicenseChangedAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(subtype), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ReportConfigurationChangedAsync(&self, subtype: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {

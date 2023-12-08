@@ -8,8 +8,7 @@
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqFreeDiagnosticRecordProducers(hproducerdescription : super:: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqFreeDiagnosticReport(hreport : super:: HDIAGNOSTIC_REPORT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticDataAccessLevelAllowed(accesslevel : *mut DdqAccessLevel) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("diagnosticdataquery.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DdqGetDiagnosticRecordAtIndex(hrecord : super:: HDIAGNOSTIC_RECORD, index : u32, record : *mut DIAGNOSTIC_DATA_RECORD) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordAtIndex(hrecord : super:: HDIAGNOSTIC_RECORD, index : u32, record : *mut DIAGNOSTIC_DATA_RECORD) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordBinaryDistribution(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, producernames : *const ::windows_sys::core::PCWSTR, producernamecount : u32, topnbinaries : u32, binarystats : *mut *mut DIAGNOSTIC_DATA_EVENT_BINARY_STATS, statcount : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription : super:: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION, index : u32, categorydescription : *mut DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordCategoryCount(hcategorydescription : super:: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION, categorydescriptioncount : *mut u32) -> ::windows_sys::core::HRESULT);
@@ -17,26 +16,22 @@
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription : super:: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION, index : u32, tagdescription : *mut DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordLocaleTagCount(htagdescription : super:: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION, tagdescriptioncount : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordLocaleTags(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, locale : ::windows_sys::core::PCWSTR, htagdescription : *mut super:: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("diagnosticdataquery.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DdqGetDiagnosticRecordPage(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, searchcriteria : *const DIAGNOSTIC_DATA_SEARCH_CRITERIA, offset : u32, pagerecordcount : u32, baserowid : i64, hrecord : *mut super:: HDIAGNOSTIC_RECORD) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordPage(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, searchcriteria : *const DIAGNOSTIC_DATA_SEARCH_CRITERIA, offset : u32, pagerecordcount : u32, baserowid : i64, hrecord : *mut super:: HDIAGNOSTIC_RECORD) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordPayload(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, rowid : i64, payload : *mut ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription : super:: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION, index : u32, producerdescription : *mut DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordProducerCategories(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, producername : ::windows_sys::core::PCWSTR, hcategorydescription : *mut super:: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordProducerCount(hproducerdescription : super:: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION, producerdescriptioncount : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordProducers(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, hproducerdescription : *mut super:: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("diagnosticdataquery.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DdqGetDiagnosticRecordStats(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, searchcriteria : *const DIAGNOSTIC_DATA_SEARCH_CRITERIA, recordcount : *mut u32, minrowid : *mut i64, maxrowid : *mut i64) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordStats(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, searchcriteria : *const DIAGNOSTIC_DATA_SEARCH_CRITERIA, recordcount : *mut u32, minrowid : *mut i64, maxrowid : *mut i64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordSummary(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, producernames : *const ::windows_sys::core::PCWSTR, producernamecount : u32, generalstats : *mut DIAGNOSTIC_DATA_GENERAL_STATS) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordTagDistribution(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, producernames : *const ::windows_sys::core::PCWSTR, producernamecount : u32, tagstats : *mut *mut DIAGNOSTIC_DATA_EVENT_TAG_STATS, statcount : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticReport(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype : u32, hreport : *mut super:: HDIAGNOSTIC_REPORT) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("diagnosticdataquery.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DdqGetDiagnosticReportAtIndex(hreport : super:: HDIAGNOSTIC_REPORT, index : u32, report : *mut DIAGNOSTIC_REPORT_DATA) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticReportAtIndex(hreport : super:: HDIAGNOSTIC_REPORT, index : u32, report : *mut DIAGNOSTIC_REPORT_DATA) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticReportCount(hreport : super:: HDIAGNOSTIC_REPORT, reportcount : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticReportStoreReportCount(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype : u32, reportcount : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetSessionAccessLevel(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, accesslevel : *mut DdqAccessLevel) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetTranscriptConfiguration(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, currentconfig : *mut DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("diagnosticdataquery.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DdqIsDiagnosticRecordSampledIn(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup : *const ::windows_sys::core::GUID, providerid : *const ::windows_sys::core::GUID, providername : ::windows_sys::core::PCWSTR, eventid : *const u32, eventname : ::windows_sys::core::PCWSTR, eventversion : *const u32, eventkeywords : *const u64, issampledin : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqIsDiagnosticRecordSampledIn(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup : *const ::windows_sys::core::GUID, providerid : *const ::windows_sys::core::GUID, providername : ::windows_sys::core::PCWSTR, eventid : *const u32, eventname : ::windows_sys::core::PCWSTR, eventversion : *const u32, eventkeywords : *const u64, issampledin : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqSetTranscriptConfiguration(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, desiredconfig : *const DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> ::windows_sys::core::HRESULT);
 pub const AllUserData: DdqAccessLevel = 2i32;
 pub const CurrentUserData: DdqAccessLevel = 1i32;
@@ -126,8 +121,6 @@ impl ::core::clone::Clone for DIAGNOSTIC_DATA_GENERAL_STATS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_DATA_RECORD {
     pub rowId: i64,
     pub timestamp: u64,
@@ -144,17 +137,13 @@ pub struct DIAGNOSTIC_DATA_RECORD {
     pub extra2: ::windows_sys::core::PWSTR,
     pub extra3: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIAGNOSTIC_DATA_RECORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIAGNOSTIC_DATA_RECORD {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     pub producerNames: *const ::windows_sys::core::PCWSTR,
     pub producerNameCount: u32,
@@ -165,17 +154,13 @@ pub struct DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     pub privacyTagCount: u32,
     pub coreDataOnly: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIAGNOSTIC_DATA_SEARCH_CRITERIA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_REPORT_DATA {
     pub signature: DIAGNOSTIC_REPORT_SIGNATURE,
     pub bucketId: ::windows_sys::core::GUID,
@@ -195,9 +180,7 @@ pub struct DIAGNOSTIC_REPORT_DATA {
     pub legacyBucketId: u64,
     pub reportKey: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIAGNOSTIC_REPORT_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIAGNOSTIC_REPORT_DATA {
     fn clone(&self) -> Self {
         *self

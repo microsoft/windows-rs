@@ -21,14 +21,8 @@ unsafe impl ::windows_core::ComInterface for IPerceptionTimestamp {
 #[doc(hidden)]
 pub struct IPerceptionTimestamp_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub TargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TargetTime: usize,
-    #[cfg(feature = "Foundation")]
     pub PredictionAmount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PredictionAmount: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -44,10 +38,7 @@ unsafe impl ::windows_core::ComInterface for IPerceptionTimestamp2 {
 #[doc(hidden)]
 pub struct IPerceptionTimestamp2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub SystemRelativeTargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SystemRelativeTargetTime: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -63,10 +54,7 @@ unsafe impl ::windows_core::ComInterface for IPerceptionTimestampHelperStatics {
 #[doc(hidden)]
 pub struct IPerceptionTimestampHelperStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub FromHistoricalTargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targettime: super::Foundation::DateTime, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FromHistoricalTargetTime: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -82,17 +70,12 @@ unsafe impl ::windows_core::ComInterface for IPerceptionTimestampHelperStatics2 
 #[doc(hidden)]
 pub struct IPerceptionTimestampHelperStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub FromSystemRelativeTargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targettime: super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FromSystemRelativeTargetTime: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PerceptionTimestamp(::windows_core::IUnknown);
 impl PerceptionTimestamp {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn TargetTime(&self) -> ::windows_core::Result<super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -100,8 +83,6 @@ impl PerceptionTimestamp {
             (::windows_core::Interface::vtable(this).TargetTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PredictionAmount(&self) -> ::windows_core::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -109,8 +90,6 @@ impl PerceptionTimestamp {
             (::windows_core::Interface::vtable(this).PredictionAmount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SystemRelativeTargetTime(&self) -> ::windows_core::Result<super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IPerceptionTimestamp2>(self)?;
         unsafe {
@@ -136,16 +115,12 @@ unsafe impl ::core::marker::Send for PerceptionTimestamp {}
 unsafe impl ::core::marker::Sync for PerceptionTimestamp {}
 pub struct PerceptionTimestampHelper;
 impl PerceptionTimestampHelper {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FromHistoricalTargetTime(targettime: super::Foundation::DateTime) -> ::windows_core::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromHistoricalTargetTime)(::windows_core::Interface::as_raw(this), targettime, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FromSystemRelativeTargetTime(targettime: super::Foundation::TimeSpan) -> ::windows_core::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();

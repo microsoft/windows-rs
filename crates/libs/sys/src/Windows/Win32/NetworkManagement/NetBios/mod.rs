@@ -1,5 +1,4 @@
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn Netbios(pncb : *mut NCB) -> u8);
+::windows_targets::link!("netapi32.dll" "system" fn Netbios(pncb : *mut NCB) -> u8);
 pub const ALL_TRANSPORTS: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("M\u{0}\u{0}\u{0}");
 pub const ASYNCH: u32 = 128u32;
 pub const CALL_PENDING: u32 = 2u32;
@@ -183,9 +182,7 @@ impl ::core::clone::Clone for NAME_BUFFER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct NCB {
     pub ncb_command: u8,
     pub ncb_retcode: u8,
@@ -204,19 +201,15 @@ pub struct NCB {
     pub ncb_event: super::super::Foundation::HANDLE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NCB {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NCB {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 pub struct NCB {
     pub ncb_command: u8,
     pub ncb_retcode: u8,
@@ -235,10 +228,8 @@ pub struct NCB {
     pub ncb_event: super::super::Foundation::HANDLE,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NCB {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NCB {
     fn clone(&self) -> Self {
         *self

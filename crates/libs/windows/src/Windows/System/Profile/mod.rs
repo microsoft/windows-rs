@@ -203,14 +203,8 @@ unsafe impl ::windows_core::ComInterface for IPlatformDiagnosticsAndUsageDataSet
 pub struct IPlatformDiagnosticsAndUsageDataSettingsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CollectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PlatformDataCollectionLevel) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub CollectionLevelChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CollectionLevelChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveCollectionLevelChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveCollectionLevelChanged: usize,
     pub CanCollectDiagnostics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: PlatformDataCollectionLevel, result__: *mut bool) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
@@ -280,14 +274,8 @@ unsafe impl ::windows_core::ComInterface for ISmartAppControlPolicyStatics {
 pub struct ISmartAppControlPolicyStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Changed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Changed: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveChanged: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -341,14 +329,8 @@ unsafe impl ::windows_core::ComInterface for ISystemSetupInfoStatics {
 pub struct ISystemSetupInfoStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OutOfBoxExperienceState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SystemOutOfBoxExperienceState) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub OutOfBoxExperienceStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    OutOfBoxExperienceStateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveOutOfBoxExperienceStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveOutOfBoxExperienceStateChanged: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -385,14 +367,8 @@ pub struct IWindowsIntegrityPolicyStatics_Vtbl {
     pub IsEnabledForTrial: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub CanDisable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub IsDisableSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub PolicyChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PolicyChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemovePolicyChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePolicyChanged: usize,
 }
 pub struct AnalyticsInfo;
 impl AnalyticsInfo {
@@ -733,8 +709,6 @@ impl PlatformDiagnosticsAndUsageDataSettings {
             (::windows_core::Interface::vtable(this).CollectionLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CollectionLevelChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::EventHandler<::windows_core::IInspectable>>,
@@ -744,8 +718,6 @@ impl PlatformDiagnosticsAndUsageDataSettings {
             (::windows_core::Interface::vtable(this).CollectionLevelChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveCollectionLevelChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveCollectionLevelChanged)(::windows_core::Interface::as_raw(this), token).ok() })
     }
@@ -825,8 +797,6 @@ impl SmartAppControlPolicy {
             (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Changed<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::EventHandler<::windows_core::IInspectable>>,
@@ -836,8 +806,6 @@ impl SmartAppControlPolicy {
             (::windows_core::Interface::vtable(this).Changed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::ISmartAppControlPolicyStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveChanged)(::windows_core::Interface::as_raw(this), token).ok() })
     }
@@ -920,8 +888,6 @@ impl SystemSetupInfo {
             (::windows_core::Interface::vtable(this).OutOfBoxExperienceState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn OutOfBoxExperienceStateChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::EventHandler<::windows_core::IInspectable>>,
@@ -931,8 +897,6 @@ impl SystemSetupInfo {
             (::windows_core::Interface::vtable(this).OutOfBoxExperienceStateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveOutOfBoxExperienceStateChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::ISystemSetupInfoStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveOutOfBoxExperienceStateChanged)(::windows_core::Interface::as_raw(this), token).ok() })
     }
@@ -1005,8 +969,6 @@ impl WindowsIntegrityPolicy {
             (::windows_core::Interface::vtable(this).IsDisableSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PolicyChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::EventHandler<::windows_core::IInspectable>>,
@@ -1016,8 +978,6 @@ impl WindowsIntegrityPolicy {
             (::windows_core::Interface::vtable(this).PolicyChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemovePolicyChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemovePolicyChanged)(::windows_core::Interface::as_raw(this), token).ok() })
     }

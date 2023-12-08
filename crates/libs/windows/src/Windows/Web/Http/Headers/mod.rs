@@ -12,38 +12,14 @@ unsafe impl ::windows_core::ComInterface for IHttpCacheDirectiveHeaderValueColle
 #[doc(hidden)]
 pub struct IHttpCacheDirectiveHeaderValueCollection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub MaxAge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MaxAge: usize,
-    #[cfg(feature = "Foundation")]
     pub SetMaxAge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetMaxAge: usize,
-    #[cfg(feature = "Foundation")]
     pub MaxStale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MaxStale: usize,
-    #[cfg(feature = "Foundation")]
     pub SetMaxStale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetMaxStale: usize,
-    #[cfg(feature = "Foundation")]
     pub MinFresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MinFresh: usize,
-    #[cfg(feature = "Foundation")]
     pub SetMinFresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetMinFresh: usize,
-    #[cfg(feature = "Foundation")]
     pub SharedMaxAge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SharedMaxAge: usize,
-    #[cfg(feature = "Foundation")]
     pub SetSharedMaxAge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetSharedMaxAge: usize,
     pub ParseAdd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub TryParseAdd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut bool) -> ::windows_core::HRESULT,
 }
@@ -266,10 +242,7 @@ unsafe impl ::windows_core::ComInterface for IHttpContentCodingWithQualityHeader
 pub struct IHttpContentCodingWithQualityHeaderValue_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContentCoding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Quality: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Quality: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -348,14 +321,8 @@ pub struct IHttpContentDispositionHeaderValue_Vtbl {
     pub Parameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Parameters: usize,
-    #[cfg(feature = "Foundation")]
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Size: usize,
-    #[cfg(feature = "Foundation")]
     pub SetSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetSize: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -408,22 +375,10 @@ pub struct IHttpContentHeaderCollection_Vtbl {
     pub SetContentDisposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ContentEncoding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ContentLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub ContentLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ContentLength: usize,
-    #[cfg(feature = "Foundation")]
     pub SetContentLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetContentLength: usize,
-    #[cfg(feature = "Foundation")]
     pub ContentLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ContentLocation: usize,
-    #[cfg(feature = "Foundation")]
     pub SetContentLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetContentLocation: usize,
     #[cfg(feature = "Storage_Streams")]
     pub ContentMD5: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -436,22 +391,10 @@ pub struct IHttpContentHeaderCollection_Vtbl {
     pub SetContentRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ContentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetContentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Expires: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Expires: usize,
-    #[cfg(feature = "Foundation")]
     pub SetExpires: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetExpires: usize,
-    #[cfg(feature = "Foundation")]
     pub LastModified: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    LastModified: usize,
-    #[cfg(feature = "Foundation")]
     pub SetLastModified: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetLastModified: usize,
     pub Append: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub TryAppendWithoutValidation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut bool) -> ::windows_core::HRESULT,
 }
@@ -469,18 +412,9 @@ unsafe impl ::windows_core::ComInterface for IHttpContentRangeHeaderValue {
 #[doc(hidden)]
 pub struct IHttpContentRangeHeaderValue_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub FirstBytePosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FirstBytePosition: usize,
-    #[cfg(feature = "Foundation")]
     pub LastBytePosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    LastBytePosition: usize,
-    #[cfg(feature = "Foundation")]
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Length: usize,
     pub Unit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SetUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
@@ -657,14 +591,8 @@ unsafe impl ::windows_core::ComInterface for IHttpDateOrDeltaHeaderValue {
 #[doc(hidden)]
 pub struct IHttpDateOrDeltaHeaderValue_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub Date: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Date: usize,
-    #[cfg(feature = "Foundation")]
     pub Delta: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Delta: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -788,10 +716,7 @@ unsafe impl ::windows_core::ComInterface for IHttpLanguageRangeWithQualityHeader
 pub struct IHttpLanguageRangeWithQualityHeaderValue_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LanguageRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Quality: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Quality: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -922,14 +847,8 @@ pub struct IHttpMediaTypeWithQualityHeaderValue_Vtbl {
     pub Parameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Parameters: usize,
-    #[cfg(feature = "Foundation")]
     pub Quality: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Quality: usize,
-    #[cfg(feature = "Foundation")]
     pub SetQuality: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetQuality: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1192,14 +1111,8 @@ pub struct IHttpRequestHeaderCollection_Vtbl {
     pub CacheControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Connection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Cookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Date: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Date: usize,
-    #[cfg(feature = "Foundation")]
     pub SetDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetDate: usize,
     pub Expect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub From: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SetFrom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1211,40 +1124,16 @@ pub struct IHttpRequestHeaderCollection_Vtbl {
     pub SetHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Networking"))]
     SetHost: usize,
-    #[cfg(feature = "Foundation")]
     pub IfModifiedSince: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IfModifiedSince: usize,
-    #[cfg(feature = "Foundation")]
     pub SetIfModifiedSince: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetIfModifiedSince: usize,
-    #[cfg(feature = "Foundation")]
     pub IfUnmodifiedSince: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IfUnmodifiedSince: usize,
-    #[cfg(feature = "Foundation")]
     pub SetIfUnmodifiedSince: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetIfUnmodifiedSince: usize,
-    #[cfg(feature = "Foundation")]
     pub MaxForwards: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MaxForwards: usize,
-    #[cfg(feature = "Foundation")]
     pub SetMaxForwards: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetMaxForwards: usize,
     pub ProxyAuthorization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetProxyAuthorization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Referer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Referer: usize,
-    #[cfg(feature = "Foundation")]
     pub SetReferer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetReferer: usize,
     pub TransferEncoding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub UserAgent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Append: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1264,33 +1153,15 @@ unsafe impl ::windows_core::ComInterface for IHttpResponseHeaderCollection {
 #[doc(hidden)]
 pub struct IHttpResponseHeaderCollection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub Age: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Age: usize,
-    #[cfg(feature = "Foundation")]
     pub SetAge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetAge: usize,
     pub Allow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CacheControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Connection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Date: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Date: usize,
-    #[cfg(feature = "Foundation")]
     pub SetDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetDate: usize,
-    #[cfg(feature = "Foundation")]
     pub Location: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Location: usize,
-    #[cfg(feature = "Foundation")]
     pub SetLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetLocation: usize,
     pub ProxyAuthenticate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RetryAfter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetRetryAfter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1373,8 +1244,6 @@ pub struct IHttpTransferCodingHeaderValueStatics_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpCacheDirectiveHeaderValueCollection(::windows_core::IUnknown);
 impl HttpCacheDirectiveHeaderValueCollection {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn MaxAge(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -1382,8 +1251,6 @@ impl HttpCacheDirectiveHeaderValueCollection {
             (::windows_core::Interface::vtable(this).MaxAge)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetMaxAge<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
@@ -1391,8 +1258,6 @@ impl HttpCacheDirectiveHeaderValueCollection {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetMaxAge)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn MaxStale(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -1400,8 +1265,6 @@ impl HttpCacheDirectiveHeaderValueCollection {
             (::windows_core::Interface::vtable(this).MaxStale)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetMaxStale<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
@@ -1409,8 +1272,6 @@ impl HttpCacheDirectiveHeaderValueCollection {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetMaxStale)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn MinFresh(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -1418,8 +1279,6 @@ impl HttpCacheDirectiveHeaderValueCollection {
             (::windows_core::Interface::vtable(this).MinFresh)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetMinFresh<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
@@ -1427,8 +1286,6 @@ impl HttpCacheDirectiveHeaderValueCollection {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetMinFresh)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SharedMaxAge(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -1436,8 +1293,6 @@ impl HttpCacheDirectiveHeaderValueCollection {
             (::windows_core::Interface::vtable(this).SharedMaxAge)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetSharedMaxAge<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
@@ -1465,8 +1320,6 @@ impl HttpCacheDirectiveHeaderValueCollection {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -1605,7 +1458,6 @@ impl ::core::iter::IntoIterator for &HttpCacheDirectiveHeaderValueCollection {
 ::windows_core::imp::interface_hierarchy!(HttpCacheDirectiveHeaderValueCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<HttpNameValueHeaderValue>> for HttpCacheDirectiveHeaderValueCollection {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpCacheDirectiveHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>> for HttpCacheDirectiveHeaderValueCollection {}
@@ -1662,8 +1514,6 @@ impl HttpChallengeHeaderValue {
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), challengeheadervalue as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -1695,7 +1545,6 @@ impl ::windows_core::RuntimeName for HttpChallengeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpChallengeHeaderValue";
 }
 ::windows_core::imp::interface_hierarchy!(HttpChallengeHeaderValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpChallengeHeaderValue {}
 unsafe impl ::core::marker::Send for HttpChallengeHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpChallengeHeaderValue {}
@@ -1723,8 +1572,6 @@ impl HttpChallengeHeaderValueCollection {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -1863,7 +1710,6 @@ impl ::core::iter::IntoIterator for &HttpChallengeHeaderValueCollection {
 ::windows_core::imp::interface_hierarchy!(HttpChallengeHeaderValueCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<HttpChallengeHeaderValue>> for HttpChallengeHeaderValueCollection {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpChallengeHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>> for HttpChallengeHeaderValueCollection {}
@@ -1898,8 +1744,6 @@ impl HttpConnectionOptionHeaderValue {
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), connectionoptionheadervalue as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -1931,7 +1775,6 @@ impl ::windows_core::RuntimeName for HttpConnectionOptionHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue";
 }
 ::windows_core::imp::interface_hierarchy!(HttpConnectionOptionHeaderValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpConnectionOptionHeaderValue {}
 unsafe impl ::core::marker::Send for HttpConnectionOptionHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpConnectionOptionHeaderValue {}
@@ -1959,8 +1802,6 @@ impl HttpConnectionOptionHeaderValueCollection {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -2099,7 +1940,6 @@ impl ::core::iter::IntoIterator for &HttpConnectionOptionHeaderValueCollection {
 ::windows_core::imp::interface_hierarchy!(HttpConnectionOptionHeaderValueCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<HttpConnectionOptionHeaderValue>> for HttpConnectionOptionHeaderValueCollection {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpConnectionOptionHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>> for HttpConnectionOptionHeaderValueCollection {}
@@ -2134,8 +1974,6 @@ impl HttpContentCodingHeaderValue {
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), contentcodingheadervalue as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -2167,7 +2005,6 @@ impl ::windows_core::RuntimeName for HttpContentCodingHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingHeaderValue";
 }
 ::windows_core::imp::interface_hierarchy!(HttpContentCodingHeaderValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpContentCodingHeaderValue {}
 unsafe impl ::core::marker::Send for HttpContentCodingHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpContentCodingHeaderValue {}
@@ -2195,8 +2032,6 @@ impl HttpContentCodingHeaderValueCollection {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -2335,7 +2170,6 @@ impl ::core::iter::IntoIterator for &HttpContentCodingHeaderValueCollection {
 ::windows_core::imp::interface_hierarchy!(HttpContentCodingHeaderValueCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<HttpContentCodingHeaderValue>> for HttpContentCodingHeaderValueCollection {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpContentCodingHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>> for HttpContentCodingHeaderValueCollection {}
@@ -2352,8 +2186,6 @@ impl HttpContentCodingWithQualityHeaderValue {
             (::windows_core::Interface::vtable(this).ContentCoding)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Quality(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -2385,8 +2217,6 @@ impl HttpContentCodingWithQualityHeaderValue {
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), contentcodingwithqualityheadervalue as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -2418,7 +2248,6 @@ impl ::windows_core::RuntimeName for HttpContentCodingWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue";
 }
 ::windows_core::imp::interface_hierarchy!(HttpContentCodingWithQualityHeaderValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpContentCodingWithQualityHeaderValue {}
 unsafe impl ::core::marker::Send for HttpContentCodingWithQualityHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpContentCodingWithQualityHeaderValue {}
@@ -2446,8 +2275,6 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -2586,7 +2413,6 @@ impl ::core::iter::IntoIterator for &HttpContentCodingWithQualityHeaderValueColl
 ::windows_core::imp::interface_hierarchy!(HttpContentCodingWithQualityHeaderValueCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<HttpContentCodingWithQualityHeaderValue>> for HttpContentCodingWithQualityHeaderValueCollection {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpContentCodingWithQualityHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>> for HttpContentCodingWithQualityHeaderValueCollection {}
@@ -2649,8 +2475,6 @@ impl HttpContentDispositionHeaderValue {
             (::windows_core::Interface::vtable(this).Parameters)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Size(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
         unsafe {
@@ -2658,8 +2482,6 @@ impl HttpContentDispositionHeaderValue {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetSize<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<u64>>,
@@ -2685,8 +2507,6 @@ impl HttpContentDispositionHeaderValue {
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), contentdispositionheadervalue as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -2718,7 +2538,6 @@ impl ::windows_core::RuntimeName for HttpContentDispositionHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentDispositionHeaderValue";
 }
 ::windows_core::imp::interface_hierarchy!(HttpContentDispositionHeaderValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpContentDispositionHeaderValue {}
 unsafe impl ::core::marker::Send for HttpContentDispositionHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpContentDispositionHeaderValue {}
@@ -2761,8 +2580,6 @@ impl HttpContentHeaderCollection {
             (::windows_core::Interface::vtable(this).ContentLanguage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ContentLength(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
         unsafe {
@@ -2770,8 +2587,6 @@ impl HttpContentHeaderCollection {
             (::windows_core::Interface::vtable(this).ContentLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetContentLength<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<u64>>,
@@ -2779,8 +2594,6 @@ impl HttpContentHeaderCollection {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetContentLength)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ContentLocation(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -2788,8 +2601,6 @@ impl HttpContentHeaderCollection {
             (::windows_core::Interface::vtable(this).ContentLocation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetContentLocation<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::Uri>,
@@ -2843,8 +2654,6 @@ impl HttpContentHeaderCollection {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetContentType)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Expires(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -2852,8 +2661,6 @@ impl HttpContentHeaderCollection {
             (::windows_core::Interface::vtable(this).Expires)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetExpires<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
@@ -2861,8 +2668,6 @@ impl HttpContentHeaderCollection {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetExpires)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn LastModified(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -2870,8 +2675,6 @@ impl HttpContentHeaderCollection {
             (::windows_core::Interface::vtable(this).LastModified)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetLastModified<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
@@ -2956,8 +2759,6 @@ impl HttpContentHeaderCollection {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::HSTRING>>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Clear)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -2999,7 +2800,6 @@ impl ::core::iter::IntoIterator for &HttpContentHeaderCollection {
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::HSTRING>>> for HttpContentHeaderCollection {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::HSTRING>> for HttpContentHeaderCollection {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpContentHeaderCollection {}
 unsafe impl ::core::marker::Send for HttpContentHeaderCollection {}
 unsafe impl ::core::marker::Sync for HttpContentHeaderCollection {}
@@ -3007,8 +2807,6 @@ unsafe impl ::core::marker::Sync for HttpContentHeaderCollection {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpContentRangeHeaderValue(::windows_core::IUnknown);
 impl HttpContentRangeHeaderValue {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FirstBytePosition(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
         unsafe {
@@ -3016,8 +2814,6 @@ impl HttpContentRangeHeaderValue {
             (::windows_core::Interface::vtable(this).FirstBytePosition)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn LastBytePosition(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
         unsafe {
@@ -3025,8 +2821,6 @@ impl HttpContentRangeHeaderValue {
             (::windows_core::Interface::vtable(this).LastBytePosition)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Length(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
         unsafe {
@@ -3075,8 +2869,6 @@ impl HttpContentRangeHeaderValue {
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), contentrangeheadervalue as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -3108,7 +2900,6 @@ impl ::windows_core::RuntimeName for HttpContentRangeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentRangeHeaderValue";
 }
 ::windows_core::imp::interface_hierarchy!(HttpContentRangeHeaderValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpContentRangeHeaderValue {}
 unsafe impl ::core::marker::Send for HttpContentRangeHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpContentRangeHeaderValue {}
@@ -3158,8 +2949,6 @@ impl HttpCookiePairHeaderValue {
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), cookiepairheadervalue as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -3191,7 +2980,6 @@ impl ::windows_core::RuntimeName for HttpCookiePairHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCookiePairHeaderValue";
 }
 ::windows_core::imp::interface_hierarchy!(HttpCookiePairHeaderValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpCookiePairHeaderValue {}
 unsafe impl ::core::marker::Send for HttpCookiePairHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpCookiePairHeaderValue {}
@@ -3219,8 +3007,6 @@ impl HttpCookiePairHeaderValueCollection {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -3359,7 +3145,6 @@ impl ::core::iter::IntoIterator for &HttpCookiePairHeaderValueCollection {
 ::windows_core::imp::interface_hierarchy!(HttpCookiePairHeaderValueCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<HttpCookiePairHeaderValue>> for HttpCookiePairHeaderValueCollection {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpCookiePairHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>> for HttpCookiePairHeaderValueCollection {}
@@ -3416,8 +3201,6 @@ impl HttpCredentialsHeaderValue {
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), credentialsheadervalue as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -3449,7 +3232,6 @@ impl ::windows_core::RuntimeName for HttpCredentialsHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCredentialsHeaderValue";
 }
 ::windows_core::imp::interface_hierarchy!(HttpCredentialsHeaderValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpCredentialsHeaderValue {}
 unsafe impl ::core::marker::Send for HttpCredentialsHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpCredentialsHeaderValue {}
@@ -3457,8 +3239,6 @@ unsafe impl ::core::marker::Sync for HttpCredentialsHeaderValue {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpDateOrDeltaHeaderValue(::windows_core::IUnknown);
 impl HttpDateOrDeltaHeaderValue {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Date(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -3466,8 +3246,6 @@ impl HttpDateOrDeltaHeaderValue {
             (::windows_core::Interface::vtable(this).Date)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Delta(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -3487,8 +3265,6 @@ impl HttpDateOrDeltaHeaderValue {
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), dateordeltaheadervalue as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -3515,7 +3291,6 @@ impl ::windows_core::RuntimeName for HttpDateOrDeltaHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpDateOrDeltaHeaderValue";
 }
 ::windows_core::imp::interface_hierarchy!(HttpDateOrDeltaHeaderValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpDateOrDeltaHeaderValue {}
 unsafe impl ::core::marker::Send for HttpDateOrDeltaHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpDateOrDeltaHeaderValue {}
@@ -3574,8 +3349,6 @@ impl HttpExpectationHeaderValue {
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), expectationheadervalue as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -3607,7 +3380,6 @@ impl ::windows_core::RuntimeName for HttpExpectationHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpExpectationHeaderValue";
 }
 ::windows_core::imp::interface_hierarchy!(HttpExpectationHeaderValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpExpectationHeaderValue {}
 unsafe impl ::core::marker::Send for HttpExpectationHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpExpectationHeaderValue {}
@@ -3635,8 +3407,6 @@ impl HttpExpectationHeaderValueCollection {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -3775,7 +3545,6 @@ impl ::core::iter::IntoIterator for &HttpExpectationHeaderValueCollection {
 ::windows_core::imp::interface_hierarchy!(HttpExpectationHeaderValueCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<HttpExpectationHeaderValue>> for HttpExpectationHeaderValueCollection {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpExpectationHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>> for HttpExpectationHeaderValueCollection {}
@@ -3805,8 +3574,6 @@ impl HttpLanguageHeaderValueCollection {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -3945,7 +3712,6 @@ impl ::core::iter::IntoIterator for &HttpLanguageHeaderValueCollection {
 ::windows_core::imp::interface_hierarchy!(HttpLanguageHeaderValueCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<super::super::super::Globalization::Language>> for HttpLanguageHeaderValueCollection {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpLanguageHeaderValueCollection {}
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>> for HttpLanguageHeaderValueCollection {}
@@ -3962,8 +3728,6 @@ impl HttpLanguageRangeWithQualityHeaderValue {
             (::windows_core::Interface::vtable(this).LanguageRange)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Quality(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -3995,8 +3759,6 @@ impl HttpLanguageRangeWithQualityHeaderValue {
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), languagerangewithqualityheadervalue as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -4028,7 +3790,6 @@ impl ::windows_core::RuntimeName for HttpLanguageRangeWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue";
 }
 ::windows_core::imp::interface_hierarchy!(HttpLanguageRangeWithQualityHeaderValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpLanguageRangeWithQualityHeaderValue {}
 unsafe impl ::core::marker::Send for HttpLanguageRangeWithQualityHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpLanguageRangeWithQualityHeaderValue {}
@@ -4056,8 +3817,6 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -4196,7 +3955,6 @@ impl ::core::iter::IntoIterator for &HttpLanguageRangeWithQualityHeaderValueColl
 ::windows_core::imp::interface_hierarchy!(HttpLanguageRangeWithQualityHeaderValueCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<HttpLanguageRangeWithQualityHeaderValue>> for HttpLanguageRangeWithQualityHeaderValueCollection {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpLanguageRangeWithQualityHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>> for HttpLanguageRangeWithQualityHeaderValueCollection {}
@@ -4255,8 +4013,6 @@ impl HttpMediaTypeHeaderValue {
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), mediatypeheadervalue as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -4288,7 +4044,6 @@ impl ::windows_core::RuntimeName for HttpMediaTypeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeHeaderValue";
 }
 ::windows_core::imp::interface_hierarchy!(HttpMediaTypeHeaderValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpMediaTypeHeaderValue {}
 unsafe impl ::core::marker::Send for HttpMediaTypeHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpMediaTypeHeaderValue {}
@@ -4327,8 +4082,6 @@ impl HttpMediaTypeWithQualityHeaderValue {
             (::windows_core::Interface::vtable(this).Parameters)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Quality(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -4336,8 +4089,6 @@ impl HttpMediaTypeWithQualityHeaderValue {
             (::windows_core::Interface::vtable(this).Quality)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetQuality<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<f64>>,
@@ -4369,8 +4120,6 @@ impl HttpMediaTypeWithQualityHeaderValue {
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), mediatypewithqualityheadervalue as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -4402,7 +4151,6 @@ impl ::windows_core::RuntimeName for HttpMediaTypeWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue";
 }
 ::windows_core::imp::interface_hierarchy!(HttpMediaTypeWithQualityHeaderValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpMediaTypeWithQualityHeaderValue {}
 unsafe impl ::core::marker::Send for HttpMediaTypeWithQualityHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpMediaTypeWithQualityHeaderValue {}
@@ -4430,8 +4178,6 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -4570,7 +4316,6 @@ impl ::core::iter::IntoIterator for &HttpMediaTypeWithQualityHeaderValueCollecti
 ::windows_core::imp::interface_hierarchy!(HttpMediaTypeWithQualityHeaderValueCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<HttpMediaTypeWithQualityHeaderValue>> for HttpMediaTypeWithQualityHeaderValueCollection {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpMediaTypeWithQualityHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>> for HttpMediaTypeWithQualityHeaderValueCollection {}
@@ -4600,8 +4345,6 @@ impl HttpMethodHeaderValueCollection {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -4740,7 +4483,6 @@ impl ::core::iter::IntoIterator for &HttpMethodHeaderValueCollection {
 ::windows_core::imp::interface_hierarchy!(HttpMethodHeaderValueCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<super::HttpMethod>> for HttpMethodHeaderValueCollection {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpMethodHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVector<super::HttpMethod>> for HttpMethodHeaderValueCollection {}
@@ -4792,8 +4534,6 @@ impl HttpNameValueHeaderValue {
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), namevalueheadervalue as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -4825,7 +4565,6 @@ impl ::windows_core::RuntimeName for HttpNameValueHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpNameValueHeaderValue";
 }
 ::windows_core::imp::interface_hierarchy!(HttpNameValueHeaderValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpNameValueHeaderValue {}
 unsafe impl ::core::marker::Send for HttpNameValueHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpNameValueHeaderValue {}
@@ -4871,8 +4610,6 @@ impl HttpProductHeaderValue {
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), productheadervalue as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -4904,7 +4641,6 @@ impl ::windows_core::RuntimeName for HttpProductHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductHeaderValue";
 }
 ::windows_core::imp::interface_hierarchy!(HttpProductHeaderValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpProductHeaderValue {}
 unsafe impl ::core::marker::Send for HttpProductHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpProductHeaderValue {}
@@ -4950,8 +4686,6 @@ impl HttpProductInfoHeaderValue {
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), productinfoheadervalue as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -4983,7 +4717,6 @@ impl ::windows_core::RuntimeName for HttpProductInfoHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductInfoHeaderValue";
 }
 ::windows_core::imp::interface_hierarchy!(HttpProductInfoHeaderValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpProductInfoHeaderValue {}
 unsafe impl ::core::marker::Send for HttpProductInfoHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpProductInfoHeaderValue {}
@@ -5011,8 +4744,6 @@ impl HttpProductInfoHeaderValueCollection {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -5151,7 +4882,6 @@ impl ::core::iter::IntoIterator for &HttpProductInfoHeaderValueCollection {
 ::windows_core::imp::interface_hierarchy!(HttpProductInfoHeaderValueCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<HttpProductInfoHeaderValue>> for HttpProductInfoHeaderValueCollection {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpProductInfoHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>> for HttpProductInfoHeaderValueCollection {}
@@ -5217,8 +4947,6 @@ impl HttpRequestHeaderCollection {
             (::windows_core::Interface::vtable(this).Cookie)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Date(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -5226,8 +4954,6 @@ impl HttpRequestHeaderCollection {
             (::windows_core::Interface::vtable(this).Date)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetDate<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
@@ -5271,8 +4997,6 @@ impl HttpRequestHeaderCollection {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetHost)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn IfModifiedSince(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -5280,8 +5004,6 @@ impl HttpRequestHeaderCollection {
             (::windows_core::Interface::vtable(this).IfModifiedSince)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetIfModifiedSince<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
@@ -5289,8 +5011,6 @@ impl HttpRequestHeaderCollection {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIfModifiedSince)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn IfUnmodifiedSince(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -5298,8 +5018,6 @@ impl HttpRequestHeaderCollection {
             (::windows_core::Interface::vtable(this).IfUnmodifiedSince)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetIfUnmodifiedSince<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
@@ -5307,8 +5025,6 @@ impl HttpRequestHeaderCollection {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIfUnmodifiedSince)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn MaxForwards(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
@@ -5316,8 +5032,6 @@ impl HttpRequestHeaderCollection {
             (::windows_core::Interface::vtable(this).MaxForwards)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetMaxForwards<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<u32>>,
@@ -5339,8 +5053,6 @@ impl HttpRequestHeaderCollection {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetProxyAuthorization)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Referer(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -5348,8 +5060,6 @@ impl HttpRequestHeaderCollection {
             (::windows_core::Interface::vtable(this).Referer)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetReferer<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::Uri>,
@@ -5448,8 +5158,6 @@ impl HttpRequestHeaderCollection {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::HSTRING>>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Clear)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -5491,7 +5199,6 @@ impl ::core::iter::IntoIterator for &HttpRequestHeaderCollection {
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::HSTRING>>> for HttpRequestHeaderCollection {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::HSTRING>> for HttpRequestHeaderCollection {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpRequestHeaderCollection {}
 unsafe impl ::core::marker::Send for HttpRequestHeaderCollection {}
 unsafe impl ::core::marker::Sync for HttpRequestHeaderCollection {}
@@ -5499,8 +5206,6 @@ unsafe impl ::core::marker::Sync for HttpRequestHeaderCollection {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpResponseHeaderCollection(::windows_core::IUnknown);
 impl HttpResponseHeaderCollection {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Age(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -5508,8 +5213,6 @@ impl HttpResponseHeaderCollection {
             (::windows_core::Interface::vtable(this).Age)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetAge<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
@@ -5538,8 +5241,6 @@ impl HttpResponseHeaderCollection {
             (::windows_core::Interface::vtable(this).Connection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Date(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -5547,8 +5248,6 @@ impl HttpResponseHeaderCollection {
             (::windows_core::Interface::vtable(this).Date)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetDate<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
@@ -5556,8 +5255,6 @@ impl HttpResponseHeaderCollection {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDate)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Location(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -5565,8 +5262,6 @@ impl HttpResponseHeaderCollection {
             (::windows_core::Interface::vtable(this).Location)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetLocation<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::Uri>,
@@ -5686,8 +5381,6 @@ impl HttpResponseHeaderCollection {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::HSTRING>>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Clear)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -5729,7 +5422,6 @@ impl ::core::iter::IntoIterator for &HttpResponseHeaderCollection {
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::HSTRING>>> for HttpResponseHeaderCollection {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::HSTRING>> for HttpResponseHeaderCollection {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpResponseHeaderCollection {}
 unsafe impl ::core::marker::Send for HttpResponseHeaderCollection {}
 unsafe impl ::core::marker::Sync for HttpResponseHeaderCollection {}
@@ -5771,8 +5463,6 @@ impl HttpTransferCodingHeaderValue {
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), transfercodingheadervalue as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -5804,7 +5494,6 @@ impl ::windows_core::RuntimeName for HttpTransferCodingHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpTransferCodingHeaderValue";
 }
 ::windows_core::imp::interface_hierarchy!(HttpTransferCodingHeaderValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpTransferCodingHeaderValue {}
 unsafe impl ::core::marker::Send for HttpTransferCodingHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpTransferCodingHeaderValue {}
@@ -5832,8 +5521,6 @@ impl HttpTransferCodingHeaderValueCollection {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -5972,7 +5659,6 @@ impl ::core::iter::IntoIterator for &HttpTransferCodingHeaderValueCollection {
 ::windows_core::imp::interface_hierarchy!(HttpTransferCodingHeaderValueCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<HttpTransferCodingHeaderValue>> for HttpTransferCodingHeaderValueCollection {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for HttpTransferCodingHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>> for HttpTransferCodingHeaderValueCollection {}

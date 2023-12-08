@@ -12,10 +12,7 @@ unsafe impl ::windows_core::ComInterface for IPreallocatedWorkItem {
 #[doc(hidden)]
 pub struct IPreallocatedWorkItem_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub RunAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RunAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -31,18 +28,9 @@ unsafe impl ::windows_core::ComInterface for IPreallocatedWorkItemFactory {
 #[doc(hidden)]
 pub struct IPreallocatedWorkItemFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub CreateWorkItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateWorkItem: usize,
-    #[cfg(feature = "Foundation")]
     pub CreateWorkItemWithPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, priority: super::WorkItemPriority, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateWorkItemWithPriority: usize,
-    #[cfg(feature = "Foundation")]
     pub CreateWorkItemWithPriorityAndOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, priority: super::WorkItemPriority, options: super::WorkItemOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateWorkItemWithPriorityAndOptions: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -76,22 +64,14 @@ unsafe impl ::windows_core::ComInterface for ISignalNotifierStatics {
 pub struct ISignalNotifierStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AttachToEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, handler: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub AttachToEventWithTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, handler: *mut ::core::ffi::c_void, timeout: super::super::super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AttachToEventWithTimeout: usize,
     pub AttachToSemaphore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, handler: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub AttachToSemaphoreWithTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, handler: *mut ::core::ffi::c_void, timeout: super::super::super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AttachToSemaphoreWithTimeout: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PreallocatedWorkItem(::windows_core::IUnknown);
 impl PreallocatedWorkItem {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RunAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -99,8 +79,6 @@ impl PreallocatedWorkItem {
             (::windows_core::Interface::vtable(this).RunAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateWorkItem<P0>(handler: P0) -> ::windows_core::Result<PreallocatedWorkItem>
     where
         P0: ::windows_core::IntoParam<super::WorkItemHandler>,
@@ -110,8 +88,6 @@ impl PreallocatedWorkItem {
             (::windows_core::Interface::vtable(this).CreateWorkItem)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateWorkItemWithPriority<P0>(handler: P0, priority: super::WorkItemPriority) -> ::windows_core::Result<PreallocatedWorkItem>
     where
         P0: ::windows_core::IntoParam<super::WorkItemHandler>,
@@ -121,8 +97,6 @@ impl PreallocatedWorkItem {
             (::windows_core::Interface::vtable(this).CreateWorkItemWithPriority)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), priority, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateWorkItemWithPriorityAndOptions<P0>(handler: P0, priority: super::WorkItemPriority, options: super::WorkItemOptions) -> ::windows_core::Result<PreallocatedWorkItem>
     where
         P0: ::windows_core::IntoParam<super::WorkItemHandler>,
@@ -174,8 +148,6 @@ impl SignalNotifier {
             (::windows_core::Interface::vtable(this).AttachToEvent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AttachToEventWithTimeout<P0>(name: &::windows_core::HSTRING, handler: P0, timeout: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<SignalNotifier>
     where
         P0: ::windows_core::IntoParam<SignalHandler>,
@@ -194,8 +166,6 @@ impl SignalNotifier {
             (::windows_core::Interface::vtable(this).AttachToSemaphore)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AttachToSemaphoreWithTimeout<P0>(name: &::windows_core::HSTRING, handler: P0, timeout: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<SignalNotifier>
     where
         P0: ::windows_core::IntoParam<SignalHandler>,

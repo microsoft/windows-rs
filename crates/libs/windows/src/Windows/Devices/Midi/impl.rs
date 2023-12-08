@@ -1,15 +1,15 @@
-#[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[doc = "Required features: `\"Storage_Streams\"`"]
+#[cfg(feature = "Storage_Streams")]
 pub trait IMidiMessage_Impl: Sized {
     fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan>;
     fn RawData(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer>;
     fn Type(&self) -> ::windows_core::Result<MidiMessageType>;
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl ::windows_core::RuntimeName for IMidiMessage {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiMessage";
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl IMidiMessage_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMidiMessage_Impl, const OFFSET: isize>() -> IMidiMessage_Vtbl {
         unsafe extern "system" fn Timestamp<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMidiMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT {
@@ -57,18 +57,18 @@ impl IMidiMessage_Vtbl {
         *iid == <IMidiMessage as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[doc = "Required features: `\"Storage_Streams\"`"]
+#[cfg(feature = "Storage_Streams")]
 pub trait IMidiOutPort_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn SendMessage(&self, midimessage: ::core::option::Option<&IMidiMessage>) -> ::windows_core::Result<()>;
     fn SendBuffer(&self, mididata: ::core::option::Option<&super::super::Storage::Streams::IBuffer>) -> ::windows_core::Result<()>;
     fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl ::windows_core::RuntimeName for IMidiOutPort {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiOutPort";
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl IMidiOutPort_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMidiOutPort_Impl, const OFFSET: isize>() -> IMidiOutPort_Vtbl {
         unsafe extern "system" fn SendMessage<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, midimessage: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

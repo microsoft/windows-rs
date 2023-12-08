@@ -206,17 +206,13 @@ impl IContactInformation_Vtbl {
         *iid == <IContactInformation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IContactInformation2_Impl: Sized {
     fn DisplayPictureDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime>;
     fn SetDisplayPictureDate(&self, returnvalue: &super::super::Foundation::DateTime) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IContactInformation2 {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.IContactInformation2";
 }
-#[cfg(feature = "Foundation")]
 impl IContactInformation2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation2_Impl, const OFFSET: isize>() -> IContactInformation2_Vtbl {
         unsafe extern "system" fn DisplayPictureDate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT {

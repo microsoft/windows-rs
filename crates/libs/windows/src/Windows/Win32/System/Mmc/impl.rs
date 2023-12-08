@@ -1,9 +1,9 @@
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait AppEvents_Impl: Sized + super::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for AppEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl AppEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: AppEvents_Impl, const OFFSET: isize>() -> AppEvents_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -12,8 +12,8 @@ impl AppEvents_Vtbl {
         *iid == <AppEvents as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Column_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Width(&self) -> ::windows_core::Result<i32>;
@@ -25,9 +25,9 @@ pub trait Column_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetAsSortColumn(&self, sortorder: _ColumnSortOrder) -> ::windows_core::Result<()>;
     fn IsSortColumn(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for Column {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Column_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Column_Impl, const OFFSET: isize>() -> Column_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Column_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -122,16 +122,16 @@ impl Column_Vtbl {
         *iid == <Column as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Columns_Impl: Sized + super::Com::IDispatch_Impl {
     fn Item(&self, index: i32) -> ::windows_core::Result<Column>;
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for Columns {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Columns_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Columns_Impl, const OFFSET: isize>() -> Columns_Vtbl {
         unsafe extern "system" fn Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Columns_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, column: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -178,16 +178,16 @@ impl Columns_Vtbl {
         *iid == <Columns as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ContextMenu_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn get_Item(&self, indexorpath: &super::Variant::VARIANT) -> ::windows_core::Result<MenuItem>;
     fn Count(&self) -> ::windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ContextMenu {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ContextMenu_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ContextMenu_Impl, const OFFSET: isize>() -> ContextMenu_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ContextMenu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -234,8 +234,8 @@ impl ContextMenu_Vtbl {
         *iid == <ContextMenu as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Document_Impl: Sized + super::Com::IDispatch_Impl {
     fn Save(&self) -> ::windows_core::Result<()>;
     fn SaveAs(&self, filename: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -254,9 +254,9 @@ pub trait Document_Impl: Sized + super::Com::IDispatch_Impl {
     fn CreateProperties(&self) -> ::windows_core::Result<Properties>;
     fn Application(&self) -> ::windows_core::Result<_Application>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for Document {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Document_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Document_Impl, const OFFSET: isize>() -> Document_Vtbl {
         unsafe extern "system" fn Save<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Document_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -429,8 +429,8 @@ impl Document_Vtbl {
         *iid == <Document as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Extension_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Vendor(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -440,9 +440,9 @@ pub trait Extension_Impl: Sized + super::Com::IDispatch_Impl {
     fn EnableAllExtensions(&self, enable: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn Enable(&self, enable: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for Extension {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Extension_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Extension_Impl, const OFFSET: isize>() -> Extension_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Extension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -525,16 +525,16 @@ impl Extension_Vtbl {
         *iid == <Extension as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Extensions_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Item(&self, index: i32) -> ::windows_core::Result<Extension>;
     fn Count(&self) -> ::windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for Extensions {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Extensions_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Extensions_Impl, const OFFSET: isize>() -> Extensions_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Extensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -581,8 +581,8 @@ impl Extensions_Vtbl {
         *iid == <Extensions as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Frame_Impl: Sized + super::Com::IDispatch_Impl {
     fn Maximize(&self) -> ::windows_core::Result<()>;
     fn Minimize(&self) -> ::windows_core::Result<()>;
@@ -596,9 +596,9 @@ pub trait Frame_Impl: Sized + super::Com::IDispatch_Impl {
     fn Right(&self) -> ::windows_core::Result<i32>;
     fn SetRight(&self, right: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for Frame {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Frame_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Frame_Impl, const OFFSET: isize>() -> Frame_Vtbl {
         unsafe extern "system" fn Maximize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Frame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -752,8 +752,8 @@ impl IColumnData_Vtbl {
         *iid == <IColumnData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IComponent_Impl: Sized {
     fn Initialize(&self, lpconsole: ::core::option::Option<&IConsole>) -> ::windows_core::Result<()>;
     fn Notify(&self, lpdataobject: ::core::option::Option<&super::Com::IDataObject>, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> ::windows_core::Result<()>;
@@ -763,9 +763,9 @@ pub trait IComponent_Impl: Sized {
     fn GetDisplayInfo(&self, presultdataitem: *mut RESULTDATAITEM) -> ::windows_core::Result<()>;
     fn CompareObjects(&self, lpdataobjecta: ::core::option::Option<&super::Com::IDataObject>, lpdataobjectb: ::core::option::Option<&super::Com::IDataObject>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IComponent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IComponent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IComponent_Impl, const OFFSET: isize>() -> IComponent_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpconsole: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -824,16 +824,16 @@ impl IComponent_Vtbl {
         *iid == <IComponent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IComponent2_Impl: Sized + IComponent_Impl {
     fn QueryDispatch(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows_core::Result<super::Com::IDispatch>;
     fn GetResultViewType2(&self, cookie: isize, presultviewtype: *mut RESULT_VIEW_TYPE_INFO) -> ::windows_core::Result<()>;
     fn RestoreResultView(&self, cookie: isize, presultviewtype: *const RESULT_VIEW_TYPE_INFO) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IComponent2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IComponent2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IComponent2_Impl, const OFFSET: isize>() -> IComponent2_Vtbl {
         unsafe extern "system" fn QueryDispatch<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IComponent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: isize, r#type: DATA_OBJECT_TYPES, ppdispatch: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -868,8 +868,8 @@ impl IComponent2_Vtbl {
         *iid == <IComponent2 as ::windows_core::ComInterface>::IID || *iid == <IComponent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IComponentData_Impl: Sized {
     fn Initialize(&self, punknown: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn CreateComponent(&self) -> ::windows_core::Result<IComponent>;
@@ -879,9 +879,9 @@ pub trait IComponentData_Impl: Sized {
     fn GetDisplayInfo(&self, pscopedataitem: *mut SCOPEDATAITEM) -> ::windows_core::Result<()>;
     fn CompareObjects(&self, lpdataobjecta: ::core::option::Option<&super::Com::IDataObject>, lpdataobjectb: ::core::option::Option<&super::Com::IDataObject>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IComponentData {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IComponentData_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IComponentData_Impl, const OFFSET: isize>() -> IComponentData_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IComponentData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punknown: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -946,14 +946,14 @@ impl IComponentData_Vtbl {
         *iid == <IComponentData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IComponentData2_Impl: Sized + IComponentData_Impl {
     fn QueryDispatch(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows_core::Result<super::Com::IDispatch>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IComponentData2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IComponentData2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IComponentData2_Impl, const OFFSET: isize>() -> IComponentData2_Vtbl {
         unsafe extern "system" fn QueryDispatch<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IComponentData2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: isize, r#type: DATA_OBJECT_TYPES, ppdispatch: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -973,8 +973,8 @@ impl IComponentData2_Vtbl {
         *iid == <IComponentData2 as ::windows_core::ComInterface>::IID || *iid == <IComponentData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IConsole_Impl: Sized {
     fn SetHeader(&self, pheader: ::core::option::Option<&IHeaderCtrl>) -> ::windows_core::Result<()>;
     fn SetToolbar(&self, ptoolbar: ::core::option::Option<&IToolbar>) -> ::windows_core::Result<()>;
@@ -988,9 +988,9 @@ pub trait IConsole_Impl: Sized {
     fn GetMainWindow(&self) -> ::windows_core::Result<super::super::Foundation::HWND>;
     fn NewWindow(&self, hscopeitem: isize, loptions: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IConsole {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IConsole_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IConsole_Impl, const OFFSET: isize>() -> IConsole_Vtbl {
         unsafe extern "system" fn SetHeader<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IConsole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheader: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1103,16 +1103,16 @@ impl IConsole_Vtbl {
         *iid == <IConsole as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IConsole2_Impl: Sized + IConsole_Impl {
     fn Expand(&self, hitem: isize, bexpand: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn IsTaskpadViewPreferred(&self) -> ::windows_core::Result<()>;
     fn SetStatusText(&self, pszstatustext: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IConsole2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IConsole2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IConsole2_Impl, const OFFSET: isize>() -> IConsole2_Vtbl {
         unsafe extern "system" fn Expand<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IConsole2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hitem: isize, bexpand: super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -1141,14 +1141,14 @@ impl IConsole2_Vtbl {
         *iid == <IConsole2 as ::windows_core::ComInterface>::IID || *iid == <IConsole as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IConsole3_Impl: Sized + IConsole2_Impl {
     fn RenameScopeItem(&self, hscopeitem: isize) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IConsole3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IConsole3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IConsole3_Impl, const OFFSET: isize>() -> IConsole3_Vtbl {
         unsafe extern "system" fn RenameScopeItem<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IConsole3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hscopeitem: isize) -> ::windows_core::HRESULT {
@@ -1162,8 +1162,6 @@ impl IConsole3_Vtbl {
         *iid == <IConsole3 as ::windows_core::ComInterface>::IID || *iid == <IConsole as ::windows_core::ComInterface>::IID || *iid == <IConsole2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IConsoleNameSpace_Impl: Sized {
     fn InsertItem(&self, item: *mut SCOPEDATAITEM) -> ::windows_core::Result<()>;
     fn DeleteItem(&self, hitem: isize, fdeletethis: i32) -> ::windows_core::Result<()>;
@@ -1173,9 +1171,7 @@ pub trait IConsoleNameSpace_Impl: Sized {
     fn GetNextItem(&self, item: isize, pitemnext: *mut isize, pcookie: *mut isize) -> ::windows_core::Result<()>;
     fn GetParentItem(&self, item: isize, pitemparent: *mut isize, pcookie: *mut isize) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IConsoleNameSpace {}
-#[cfg(feature = "Win32_Foundation")]
 impl IConsoleNameSpace_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IConsoleNameSpace_Impl, const OFFSET: isize>() -> IConsoleNameSpace_Vtbl {
         unsafe extern "system" fn InsertItem<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IConsoleNameSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *mut SCOPEDATAITEM) -> ::windows_core::HRESULT {
@@ -1228,15 +1224,11 @@ impl IConsoleNameSpace_Vtbl {
         *iid == <IConsoleNameSpace as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IConsoleNameSpace2_Impl: Sized + IConsoleNameSpace_Impl {
     fn Expand(&self, hitem: isize) -> ::windows_core::Result<()>;
     fn AddExtension(&self, hitem: isize, lpclsid: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IConsoleNameSpace2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IConsoleNameSpace2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IConsoleNameSpace2_Impl, const OFFSET: isize>() -> IConsoleNameSpace2_Vtbl {
         unsafe extern "system" fn Expand<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IConsoleNameSpace2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hitem: isize) -> ::windows_core::HRESULT {
@@ -1286,14 +1278,10 @@ impl IConsolePower_Vtbl {
         *iid == <IConsolePower as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IConsolePowerSink_Impl: Sized {
     fn OnPowerBroadcast(&self, nevent: u32, lparam: super::super::Foundation::LPARAM) -> ::windows_core::Result<super::super::Foundation::LRESULT>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IConsolePowerSink {}
-#[cfg(feature = "Win32_Foundation")]
 impl IConsolePowerSink_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IConsolePowerSink_Impl, const OFFSET: isize>() -> IConsolePowerSink_Vtbl {
         unsafe extern "system" fn OnPowerBroadcast<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IConsolePowerSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nevent: u32, lparam: super::super::Foundation::LPARAM, plreturn: *mut super::super::Foundation::LRESULT) -> ::windows_core::HRESULT {
@@ -1313,17 +1301,13 @@ impl IConsolePowerSink_Vtbl {
         *iid == <IConsolePowerSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IConsoleVerb_Impl: Sized {
     fn GetVerbState(&self, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn SetVerbState(&self, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE, bstate: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn SetDefaultVerb(&self, ecmdid: MMC_CONSOLE_VERB) -> ::windows_core::Result<()>;
     fn GetDefaultVerb(&self) -> ::windows_core::Result<MMC_CONSOLE_VERB>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IConsoleVerb {}
-#[cfg(feature = "Win32_Foundation")]
 impl IConsoleVerb_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IConsoleVerb_Impl, const OFFSET: isize>() -> IConsoleVerb_Vtbl {
         unsafe extern "system" fn GetVerbState<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IConsoleVerb_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE, pstate: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -1404,17 +1388,17 @@ impl IContextMenuCallback2_Vtbl {
         *iid == <IContextMenuCallback2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IContextMenuProvider_Impl: Sized + IContextMenuCallback_Impl {
     fn EmptyMenuList(&self) -> ::windows_core::Result<()>;
     fn AddPrimaryExtensionItems(&self, piextension: ::core::option::Option<&::windows_core::IUnknown>, pidataobject: ::core::option::Option<&super::Com::IDataObject>) -> ::windows_core::Result<()>;
     fn AddThirdPartyExtensionItems(&self, pidataobject: ::core::option::Option<&super::Com::IDataObject>) -> ::windows_core::Result<()>;
     fn ShowContextMenu(&self, hwndparent: super::super::Foundation::HWND, xpos: i32, ypos: i32) -> ::windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IContextMenuProvider {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IContextMenuProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContextMenuProvider_Impl, const OFFSET: isize>() -> IContextMenuProvider_Vtbl {
         unsafe extern "system" fn EmptyMenuList<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContextMenuProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1590,15 +1574,11 @@ impl IExtendContextMenu_Vtbl {
         *iid == <IExtendContextMenu as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IExtendControlbar_Impl: Sized {
     fn SetControlbar(&self, pcontrolbar: ::core::option::Option<&IControlbar>) -> ::windows_core::Result<()>;
     fn ControlbarNotify(&self, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IExtendControlbar {}
-#[cfg(feature = "Win32_Foundation")]
 impl IExtendControlbar_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IExtendControlbar_Impl, const OFFSET: isize>() -> IExtendControlbar_Vtbl {
         unsafe extern "system" fn SetControlbar<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IExtendControlbar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcontrolbar: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1652,14 +1632,14 @@ impl IExtendPropertySheet_Vtbl {
         *iid == <IExtendPropertySheet as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IExtendPropertySheet2_Impl: Sized + IExtendPropertySheet_Impl {
     fn GetWatermarks(&self, lpidataobject: ::core::option::Option<&super::Com::IDataObject>, lphwatermark: *mut super::super::Graphics::Gdi::HBITMAP, lphheader: *mut super::super::Graphics::Gdi::HBITMAP, lphpalette: *mut super::super::Graphics::Gdi::HPALETTE, bstretch: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl ::windows_core::RuntimeName for IExtendPropertySheet2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IExtendPropertySheet2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IExtendPropertySheet2_Impl, const OFFSET: isize>() -> IExtendPropertySheet2_Vtbl {
         unsafe extern "system" fn GetWatermarks<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IExtendPropertySheet2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpidataobject: *mut ::core::ffi::c_void, lphwatermark: *mut super::super::Graphics::Gdi::HBITMAP, lphheader: *mut super::super::Graphics::Gdi::HBITMAP, lphpalette: *mut super::super::Graphics::Gdi::HPALETTE, bstretch: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -1673,8 +1653,8 @@ impl IExtendPropertySheet2_Vtbl {
         *iid == <IExtendPropertySheet2 as ::windows_core::ComInterface>::IID || *iid == <IExtendPropertySheet as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IExtendTaskPad_Impl: Sized {
     fn TaskNotify(&self, pdo: ::core::option::Option<&super::Com::IDataObject>, arg: *const super::Variant::VARIANT, param2: *const super::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn EnumTasks(&self, pdo: ::core::option::Option<&super::Com::IDataObject>, sztaskgroup: &::windows_core::PCWSTR) -> ::windows_core::Result<IEnumTASK>;
@@ -1683,9 +1663,9 @@ pub trait IExtendTaskPad_Impl: Sized {
     fn GetBackground(&self, pszgroup: &::windows_core::PCWSTR) -> ::windows_core::Result<MMC_TASK_DISPLAY_OBJECT>;
     fn GetListPadInfo(&self, pszgroup: &::windows_core::PCWSTR) -> ::windows_core::Result<MMC_LISTPAD_INFO>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IExtendTaskPad {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IExtendTaskPad_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IExtendTaskPad_Impl, const OFFSET: isize>() -> IExtendTaskPad_Vtbl {
         unsafe extern "system" fn TaskNotify<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IExtendTaskPad_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdo: *mut ::core::ffi::c_void, arg: *const super::Variant::VARIANT, param2: *const super::Variant::VARIANT) -> ::windows_core::HRESULT {
@@ -1884,15 +1864,11 @@ impl IHeaderCtrl2_Vtbl {
         *iid == <IHeaderCtrl2 as ::windows_core::ComInterface>::IID || *iid == <IHeaderCtrl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IImageList_Impl: Sized {
     fn ImageListSetIcon(&self, picon: *const isize, nloc: i32) -> ::windows_core::Result<()>;
     fn ImageListSetStrip(&self, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: super::super::Foundation::COLORREF) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IImageList {}
-#[cfg(feature = "Win32_Foundation")]
 impl IImageList_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageList_Impl, const OFFSET: isize>() -> IImageList_Vtbl {
         unsafe extern "system" fn ImageListSetIcon<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, picon: *const isize, nloc: i32) -> ::windows_core::HRESULT {
@@ -1932,16 +1908,12 @@ impl IMMCVersionInfo_Vtbl {
         *iid == <IMMCVersionInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMenuButton_Impl: Sized {
     fn AddButton(&self, idcommand: i32, lpbuttontext: &::windows_core::PCWSTR, lptooltiptext: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn SetButton(&self, idcommand: i32, lpbuttontext: &::windows_core::PCWSTR, lptooltiptext: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn SetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IMenuButton {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMenuButton_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMenuButton_Impl, const OFFSET: isize>() -> IMenuButton_Vtbl {
         unsafe extern "system" fn AddButton<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMenuButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idcommand: i32, lpbuttontext: ::windows_core::PCWSTR, lptooltiptext: ::windows_core::PCWSTR) -> ::windows_core::HRESULT {
@@ -2069,8 +2041,8 @@ impl IPropertySheetCallback_Vtbl {
         *iid == <IPropertySheetCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPropertySheetProvider_Impl: Sized {
     fn CreatePropertySheet(&self, title: &::windows_core::PCWSTR, r#type: u8, cookie: isize, pidataobjectm: ::core::option::Option<&super::Com::IDataObject>, dwoptions: u32) -> ::windows_core::Result<()>;
     fn FindPropertySheet(&self, hitem: isize, lpcomponent: ::core::option::Option<&IComponent>, lpdataobject: ::core::option::Option<&super::Com::IDataObject>) -> ::windows_core::Result<()>;
@@ -2078,9 +2050,9 @@ pub trait IPropertySheetProvider_Impl: Sized {
     fn AddExtensionPages(&self) -> ::windows_core::Result<()>;
     fn Show(&self, window: isize, page: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IPropertySheetProvider {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPropertySheetProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySheetProvider_Impl, const OFFSET: isize>() -> IPropertySheetProvider_Vtbl {
         unsafe extern "system" fn CreatePropertySheet<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySheetProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, title: ::windows_core::PCWSTR, r#type: u8, cookie: isize, pidataobjectm: *mut ::core::ffi::c_void, dwoptions: u32) -> ::windows_core::HRESULT {
@@ -2167,8 +2139,6 @@ impl IRequiredExtensions_Vtbl {
         *iid == <IRequiredExtensions as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IResultData_Impl: Sized {
     fn InsertItem(&self, item: *mut RESULTDATAITEM) -> ::windows_core::Result<()>;
     fn DeleteItem(&self, itemid: isize, ncol: i32) -> ::windows_core::Result<()>;
@@ -2186,9 +2156,7 @@ pub trait IResultData_Impl: Sized {
     fn SetDescBarText(&self, desctext: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn SetItemCount(&self, nitemcount: i32, dwoptions: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IResultData {}
-#[cfg(feature = "Win32_Foundation")]
 impl IResultData_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IResultData_Impl, const OFFSET: isize>() -> IResultData_Vtbl {
         unsafe extern "system" fn InsertItem<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IResultData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *mut RESULTDATAITEM) -> ::windows_core::HRESULT {
@@ -2301,14 +2269,10 @@ impl IResultData_Vtbl {
         *iid == <IResultData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IResultData2_Impl: Sized + IResultData_Impl {
     fn RenameResultItem(&self, itemid: isize) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IResultData2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IResultData2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IResultData2_Impl, const OFFSET: isize>() -> IResultData2_Vtbl {
         unsafe extern "system" fn RenameResultItem<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IResultData2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemid: isize) -> ::windows_core::HRESULT {
@@ -2322,14 +2286,10 @@ impl IResultData2_Vtbl {
         *iid == <IResultData2 as ::windows_core::ComInterface>::IID || *iid == <IResultData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IResultDataCompare_Impl: Sized {
     fn Compare(&self, luserparam: super::super::Foundation::LPARAM, cookiea: isize, cookieb: isize, pnresult: *mut i32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IResultDataCompare {}
-#[cfg(feature = "Win32_Foundation")]
 impl IResultDataCompare_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IResultDataCompare_Impl, const OFFSET: isize>() -> IResultDataCompare_Vtbl {
         unsafe extern "system" fn Compare<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IResultDataCompare_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, luserparam: super::super::Foundation::LPARAM, cookiea: isize, cookieb: isize, pnresult: *mut i32) -> ::windows_core::HRESULT {
@@ -2343,14 +2303,10 @@ impl IResultDataCompare_Vtbl {
         *iid == <IResultDataCompare as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IResultDataCompareEx_Impl: Sized {
     fn Compare(&self, prdc: *const RDCOMPARE) -> ::windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IResultDataCompareEx {}
-#[cfg(feature = "Win32_Foundation")]
 impl IResultDataCompareEx_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IResultDataCompareEx_Impl, const OFFSET: isize>() -> IResultDataCompareEx_Vtbl {
         unsafe extern "system" fn Compare<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IResultDataCompareEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prdc: *const RDCOMPARE, pnresult: *mut i32) -> ::windows_core::HRESULT {
@@ -2370,16 +2326,12 @@ impl IResultDataCompareEx_Vtbl {
         *iid == <IResultDataCompareEx as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IResultOwnerData_Impl: Sized {
     fn FindItem(&self, pfindinfo: *const RESULTFINDINFO) -> ::windows_core::Result<i32>;
     fn CacheHint(&self, nstartindex: i32, nendindex: i32) -> ::windows_core::Result<()>;
     fn SortItems(&self, ncolumn: i32, dwsortoptions: u32, luserparam: super::super::Foundation::LPARAM) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IResultOwnerData {}
-#[cfg(feature = "Win32_Foundation")]
 impl IResultOwnerData_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IResultOwnerData_Impl, const OFFSET: isize>() -> IResultOwnerData_Vtbl {
         unsafe extern "system" fn FindItem<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IResultOwnerData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfindinfo: *const RESULTFINDINFO, pnfoundindex: *mut i32) -> ::windows_core::HRESULT {
@@ -2414,8 +2366,8 @@ impl IResultOwnerData_Vtbl {
         *iid == <IResultOwnerData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait ISnapinAbout_Impl: Sized {
     fn GetSnapinDescription(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetProvider(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -2423,9 +2375,9 @@ pub trait ISnapinAbout_Impl: Sized {
     fn GetSnapinImage(&self) -> ::windows_core::Result<super::super::UI::WindowsAndMessaging::HICON>;
     fn GetStaticFolderImage(&self, hsmallimage: *mut super::super::Graphics::Gdi::HBITMAP, hsmallimageopen: *mut super::super::Graphics::Gdi::HBITMAP, hlargeimage: *mut super::super::Graphics::Gdi::HBITMAP, cmask: *mut super::super::Foundation::COLORREF) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows_core::RuntimeName for ISnapinAbout {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ISnapinAbout_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISnapinAbout_Impl, const OFFSET: isize>() -> ISnapinAbout_Vtbl {
         unsafe extern "system" fn GetSnapinDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISnapinAbout_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpdescription: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
@@ -2536,16 +2488,16 @@ impl ISnapinHelp2_Vtbl {
         *iid == <ISnapinHelp2 as ::windows_core::ComInterface>::IID || *iid == <ISnapinHelp as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISnapinProperties_Impl: Sized {
     fn Initialize(&self, pproperties: ::core::option::Option<&Properties>) -> ::windows_core::Result<()>;
     fn QueryPropertyNames(&self, pcallback: ::core::option::Option<&ISnapinPropertiesCallback>) -> ::windows_core::Result<()>;
     fn PropertiesChanged(&self, cproperties: i32, pproperties: *const MMC_SNAPIN_PROPERTY) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISnapinProperties {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISnapinProperties_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISnapinProperties_Impl, const OFFSET: isize>() -> ISnapinProperties_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISnapinProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproperties: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2681,8 +2633,8 @@ impl IStringTable_Vtbl {
         *iid == <IStringTable as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IToolbar_Impl: Sized {
     fn AddBitmap(&self, nimages: i32, hbmp: super::super::Graphics::Gdi::HBITMAP, cxsize: i32, cysize: i32, crmask: super::super::Foundation::COLORREF) -> ::windows_core::Result<()>;
     fn AddButtons(&self, nbuttons: i32, lpbuttons: *const MMCBUTTON) -> ::windows_core::Result<()>;
@@ -2691,9 +2643,9 @@ pub trait IToolbar_Impl: Sized {
     fn GetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn SetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::windows_core::RuntimeName for IToolbar {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl IToolbar_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IToolbar_Impl, const OFFSET: isize>() -> IToolbar_Vtbl {
         unsafe extern "system" fn AddBitmap<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IToolbar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nimages: i32, hbmp: super::super::Graphics::Gdi::HBITMAP, cxsize: i32, cysize: i32, crmask: super::super::Foundation::COLORREF) -> ::windows_core::HRESULT {
@@ -2746,14 +2698,10 @@ impl IToolbar_Vtbl {
         *iid == <IToolbar as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IViewExtensionCallback_Impl: Sized {
     fn AddView(&self, pextviewdata: *const MMC_EXT_VIEW_DATA) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IViewExtensionCallback {}
-#[cfg(feature = "Win32_Foundation")]
 impl IViewExtensionCallback_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IViewExtensionCallback_Impl, const OFFSET: isize>() -> IViewExtensionCallback_Vtbl {
         unsafe extern "system" fn AddView<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IViewExtensionCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pextviewdata: *const MMC_EXT_VIEW_DATA) -> ::windows_core::HRESULT {
@@ -2767,8 +2715,8 @@ impl IViewExtensionCallback_Vtbl {
         *iid == <IViewExtensionCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait MenuItem_Impl: Sized + super::Com::IDispatch_Impl {
     fn DisplayName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn LanguageIndependentName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2777,9 +2725,9 @@ pub trait MenuItem_Impl: Sized + super::Com::IDispatch_Impl {
     fn Execute(&self) -> ::windows_core::Result<()>;
     fn Enabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for MenuItem {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl MenuItem_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: MenuItem_Impl, const OFFSET: isize>() -> MenuItem_Vtbl {
         unsafe extern "system" fn DisplayName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: MenuItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displayname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -2856,8 +2804,8 @@ impl MenuItem_Vtbl {
         *iid == <MenuItem as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Node_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn get_Property(&self, propertyname: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2865,9 +2813,9 @@ pub trait Node_Impl: Sized + super::Com::IDispatch_Impl {
     fn IsScopeNode(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn Nodetype(&self) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for Node {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Node_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Node_Impl, const OFFSET: isize>() -> Node_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Node_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -2938,16 +2886,16 @@ impl Node_Vtbl {
         *iid == <Node as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Nodes_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Item(&self, index: i32) -> ::windows_core::Result<Node>;
     fn Count(&self) -> ::windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for Nodes {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Nodes_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Nodes_Impl, const OFFSET: isize>() -> Nodes_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Nodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2994,17 +2942,17 @@ impl Nodes_Vtbl {
         *iid == <Nodes as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Properties_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Item(&self, name: &::windows_core::BSTR) -> ::windows_core::Result<Property>;
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn Remove(&self, name: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for Properties {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Properties_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Properties_Impl, const OFFSET: isize>() -> Properties_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3057,16 +3005,16 @@ impl Properties_Vtbl {
         *iid == <Properties as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Property_Impl: Sized + super::Com::IDispatch_Impl {
     fn Value(&self) -> ::windows_core::Result<super::Variant::VARIANT>;
     fn SetValue(&self, value: &super::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for Property {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Property_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Property_Impl, const OFFSET: isize>() -> Property_Vtbl {
         unsafe extern "system" fn Value<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Property_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
@@ -3107,8 +3055,8 @@ impl Property_Vtbl {
         *iid == <Property as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ScopeNamespace_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetParent(&self, node: ::core::option::Option<&Node>) -> ::windows_core::Result<Node>;
     fn GetChild(&self, node: ::core::option::Option<&Node>) -> ::windows_core::Result<Node>;
@@ -3116,9 +3064,9 @@ pub trait ScopeNamespace_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetRoot(&self) -> ::windows_core::Result<Node>;
     fn Expand(&self, node: ::core::option::Option<&Node>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ScopeNamespace {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ScopeNamespace_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ScopeNamespace_Impl, const OFFSET: isize>() -> ScopeNamespace_Vtbl {
         unsafe extern "system" fn GetParent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ScopeNamespace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, node: *mut ::core::ffi::c_void, parent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3183,8 +3131,8 @@ impl ScopeNamespace_Vtbl {
         *iid == <ScopeNamespace as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait SnapIn_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Vendor(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -3194,9 +3142,9 @@ pub trait SnapIn_Impl: Sized + super::Com::IDispatch_Impl {
     fn Properties(&self) -> ::windows_core::Result<Properties>;
     fn EnableAllExtensions(&self, enable: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for SnapIn {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl SnapIn_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: SnapIn_Impl, const OFFSET: isize>() -> SnapIn_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: SnapIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -3285,8 +3233,8 @@ impl SnapIn_Vtbl {
         *iid == <SnapIn as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait SnapIns_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Item(&self, index: i32) -> ::windows_core::Result<SnapIn>;
@@ -3294,9 +3242,9 @@ pub trait SnapIns_Impl: Sized + super::Com::IDispatch_Impl {
     fn Add(&self, snapinnameorclsid: &::windows_core::BSTR, parentsnapin: &super::Variant::VARIANT, properties: &super::Variant::VARIANT) -> ::windows_core::Result<SnapIn>;
     fn Remove(&self, snapin: ::core::option::Option<&SnapIn>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for SnapIns {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl SnapIns_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: SnapIns_Impl, const OFFSET: isize>() -> SnapIns_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: SnapIns_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3361,8 +3309,8 @@ impl SnapIns_Vtbl {
         *iid == <SnapIns as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait View_Impl: Sized + super::Com::IDispatch_Impl {
     fn ActiveScopeNode(&self) -> ::windows_core::Result<Node>;
     fn SetActiveScopeNode(&self, node: ::core::option::Option<&Node>) -> ::windows_core::Result<()>;
@@ -3407,9 +3355,9 @@ pub trait View_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetListViewMode(&self, mode: _ListViewMode) -> ::windows_core::Result<()>;
     fn ControlObject(&self) -> ::windows_core::Result<super::Com::IDispatch>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for View {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl View_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>() -> View_Vtbl {
         unsafe extern "system" fn ActiveScopeNode<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, node: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3774,17 +3722,17 @@ impl View_Vtbl {
         *iid == <View as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Views_Impl: Sized + super::Com::IDispatch_Impl {
     fn Item(&self, index: i32) -> ::windows_core::Result<View>;
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn Add(&self, node: ::core::option::Option<&Node>, viewoptions: _ViewOptions) -> ::windows_core::Result<()>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for Views {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Views_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Views_Impl, const OFFSET: isize>() -> Views_Vtbl {
         unsafe extern "system" fn Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Views_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, view: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3837,8 +3785,8 @@ impl Views_Vtbl {
         *iid == <Views as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _AppEvents_Impl: Sized + super::Com::IDispatch_Impl {
     fn OnQuit(&self, application: ::core::option::Option<&_Application>) -> ::windows_core::Result<()>;
     fn OnDocumentOpen(&self, document: ::core::option::Option<&Document>, new: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -3853,9 +3801,9 @@ pub trait _AppEvents_Impl: Sized + super::Com::IDispatch_Impl {
     fn OnToolbarButtonClicked(&self) -> ::windows_core::Result<()>;
     fn OnListUpdated(&self, view: ::core::option::Option<&View>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for _AppEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _AppEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _AppEvents_Impl, const OFFSET: isize>() -> _AppEvents_Vtbl {
         unsafe extern "system" fn OnQuit<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _AppEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, application: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3938,8 +3886,8 @@ impl _AppEvents_Vtbl {
         *iid == <_AppEvents as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _Application_Impl: Sized + super::Com::IDispatch_Impl {
     fn Help(&self);
     fn Quit(&self);
@@ -3954,9 +3902,9 @@ pub trait _Application_Impl: Sized + super::Com::IDispatch_Impl {
     fn VersionMajor(&self) -> ::windows_core::Result<i32>;
     fn VersionMinor(&self) -> ::windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for _Application {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _Application_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _Application_Impl, const OFFSET: isize>() -> _Application_Vtbl {
         unsafe extern "system" fn Help<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _Application_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
@@ -4075,15 +4023,15 @@ impl _Application_Vtbl {
         *iid == <_Application as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _EventConnector_Impl: Sized + super::Com::IDispatch_Impl {
     fn ConnectTo(&self, application: ::core::option::Option<&_Application>) -> ::windows_core::Result<()>;
     fn Disconnect(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for _EventConnector {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _EventConnector_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _EventConnector_Impl, const OFFSET: isize>() -> _EventConnector_Vtbl {
         unsafe extern "system" fn ConnectTo<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _EventConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, application: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

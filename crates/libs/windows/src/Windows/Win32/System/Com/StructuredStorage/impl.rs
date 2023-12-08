@@ -32,17 +32,13 @@ impl IDirectWriterLock_Vtbl {
         *iid == <IDirectWriterLock as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IEnumSTATPROPSETSTG_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut STATPROPSETSTG, pceltfetched: *mut u32) -> ::windows_core::HRESULT;
     fn Skip(&self, celt: u32) -> ::windows_core::HRESULT;
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IEnumSTATPROPSETSTG>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IEnumSTATPROPSETSTG {}
-#[cfg(feature = "Win32_Foundation")]
 impl IEnumSTATPROPSETSTG_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumSTATPROPSETSTG_Impl, const OFFSET: isize>() -> IEnumSTATPROPSETSTG_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumSTATPROPSETSTG_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut STATPROPSETSTG, pceltfetched: *mut u32) -> ::windows_core::HRESULT {
@@ -134,17 +130,13 @@ impl IEnumSTATPROPSTG_Vtbl {
         *iid == <IEnumSTATPROPSTG as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IEnumSTATSTG_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut super::STATSTG, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows_core::Result<()>;
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IEnumSTATSTG>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IEnumSTATSTG {}
-#[cfg(feature = "Win32_Foundation")]
 impl IEnumSTATSTG_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumSTATSTG_Impl, const OFFSET: isize>() -> IEnumSTATSTG_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumSTATSTG_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut super::STATSTG, pceltfetched: *mut u32) -> ::windows_core::HRESULT {
@@ -185,17 +177,13 @@ impl IEnumSTATSTG_Vtbl {
         *iid == <IEnumSTATSTG as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IFillLockBytes_Impl: Sized {
     fn FillAppend(&self, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows_core::Result<u32>;
     fn FillAt(&self, uloffset: u64, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows_core::Result<u32>;
     fn SetFillSize(&self, ulsize: u64) -> ::windows_core::Result<()>;
     fn Terminate(&self, bcanceled: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IFillLockBytes {}
-#[cfg(feature = "Win32_Foundation")]
 impl IFillLockBytes_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFillLockBytes_Impl, const OFFSET: isize>() -> IFillLockBytes_Vtbl {
         unsafe extern "system" fn FillAppend<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFillLockBytes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pv: *const ::core::ffi::c_void, cb: u32, pcbwritten: *mut u32) -> ::windows_core::HRESULT {
@@ -290,8 +278,6 @@ impl ILayoutStorage_Vtbl {
         *iid == <ILayoutStorage as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ILockBytes_Impl: Sized {
     fn ReadAt(&self, uloffset: u64, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows_core::Result<()>;
     fn WriteAt(&self, uloffset: u64, pv: *const ::core::ffi::c_void, cb: u32, pcbwritten: *mut u32) -> ::windows_core::Result<()>;
@@ -301,9 +287,7 @@ pub trait ILockBytes_Impl: Sized {
     fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows_core::Result<()>;
     fn Stat(&self, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ILockBytes {}
-#[cfg(feature = "Win32_Foundation")]
 impl ILockBytes_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILockBytes_Impl, const OFFSET: isize>() -> ILockBytes_Vtbl {
         unsafe extern "system" fn ReadAt<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILockBytes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uloffset: u64, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows_core::HRESULT {
@@ -356,8 +340,6 @@ impl ILockBytes_Vtbl {
         *iid == <ILockBytes as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IPersistStorage_Impl: Sized + super::IPersist_Impl {
     fn IsDirty(&self) -> ::windows_core::HRESULT;
     fn InitNew(&self, pstg: ::core::option::Option<&IStorage>) -> ::windows_core::Result<()>;
@@ -366,9 +348,7 @@ pub trait IPersistStorage_Impl: Sized + super::IPersist_Impl {
     fn SaveCompleted(&self, pstgnew: ::core::option::Option<&IStorage>) -> ::windows_core::Result<()>;
     fn HandsOffStorage(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IPersistStorage {}
-#[cfg(feature = "Win32_Foundation")]
 impl IPersistStorage_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPersistStorage_Impl, const OFFSET: isize>() -> IPersistStorage_Vtbl {
         unsafe extern "system" fn IsDirty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPersistStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -415,15 +395,15 @@ impl IPersistStorage_Vtbl {
         *iid == <IPersistStorage as ::windows_core::ComInterface>::IID || *iid == <super::IPersist as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPropertyBag_Impl: Sized {
     fn Read(&self, pszpropname: &::windows_core::PCWSTR, pvar: *mut super::super::Variant::VARIANT, perrorlog: ::core::option::Option<&super::IErrorLog>) -> ::windows_core::Result<()>;
     fn Write(&self, pszpropname: &::windows_core::PCWSTR, pvar: *const super::super::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPropertyBag {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPropertyBag_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag_Impl, const OFFSET: isize>() -> IPropertyBag_Vtbl {
         unsafe extern "system" fn Read<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropname: ::windows_core::PCWSTR, pvar: *mut super::super::Variant::VARIANT, perrorlog: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -442,8 +422,8 @@ impl IPropertyBag_Vtbl {
         *iid == <IPropertyBag as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPropertyBag2_Impl: Sized {
     fn Read(&self, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: ::core::option::Option<&super::IErrorLog>, pvarvalue: *mut super::super::Variant::VARIANT, phrerror: *mut ::windows_core::HRESULT) -> ::windows_core::Result<()>;
     fn Write(&self, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::super::Variant::VARIANT) -> ::windows_core::Result<()>;
@@ -451,9 +431,9 @@ pub trait IPropertyBag2_Impl: Sized {
     fn GetPropertyInfo(&self, iproperty: u32, cproperties: u32, ppropbag: *mut PROPBAG2, pcproperties: *mut u32) -> ::windows_core::Result<()>;
     fn LoadObject(&self, pstrname: &::windows_core::PCWSTR, dwhint: u32, punkobject: ::core::option::Option<&::windows_core::IUnknown>, perrlog: ::core::option::Option<&super::IErrorLog>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPropertyBag2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPropertyBag2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag2_Impl, const OFFSET: isize>() -> IPropertyBag2_Vtbl {
         unsafe extern "system" fn Read<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: *mut ::core::ffi::c_void, pvarvalue: *mut super::super::Variant::VARIANT, phrerror: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT {
@@ -559,8 +539,8 @@ impl IPropertySetStorage_Vtbl {
         *iid == <IPropertySetStorage as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
+#[cfg(feature = "Win32_System_Variant")]
 pub trait IPropertyStorage_Impl: Sized {
     fn ReadMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut PROPVARIANT) -> ::windows_core::Result<()>;
     fn WriteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const PROPVARIANT, propidnamefirst: u32) -> ::windows_core::Result<()>;
@@ -575,9 +555,9 @@ pub trait IPropertyStorage_Impl: Sized {
     fn SetClass(&self, clsid: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn Stat(&self, pstatpsstg: *mut STATPROPSETSTG) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::windows_core::RuntimeName for IPropertyStorage {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 impl IPropertyStorage_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStorage_Impl, const OFFSET: isize>() -> IPropertyStorage_Vtbl {
         unsafe extern "system" fn ReadMultiple<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut PROPVARIANT) -> ::windows_core::HRESULT {
@@ -683,8 +663,6 @@ impl IRootStorage_Vtbl {
         *iid == <IRootStorage as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IStorage_Impl: Sized {
     fn CreateStream(&self, pwcsname: &::windows_core::PCWSTR, grfmode: super::STGM, reserved1: u32, reserved2: u32) -> ::windows_core::Result<super::IStream>;
     fn OpenStream(&self, pwcsname: &::windows_core::PCWSTR, reserved1: *const ::core::ffi::c_void, grfmode: super::STGM, reserved2: u32) -> ::windows_core::Result<super::IStream>;
@@ -702,9 +680,7 @@ pub trait IStorage_Impl: Sized {
     fn SetStateBits(&self, grfstatebits: u32, grfmask: u32) -> ::windows_core::Result<()>;
     fn Stat(&self, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IStorage {}
-#[cfg(feature = "Win32_Foundation")]
 impl IStorage_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorage_Impl, const OFFSET: isize>() -> IStorage_Vtbl {
         unsafe extern "system" fn CreateStream<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcsname: ::windows_core::PCWSTR, grfmode: super::STGM, reserved1: u32, reserved2: u32, ppstm: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

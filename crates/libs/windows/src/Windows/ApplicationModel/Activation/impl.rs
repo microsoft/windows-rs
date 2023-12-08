@@ -239,18 +239,14 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
         *iid == <IAppointmentsProviderReplaceAppointmentActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl + IAppointmentsProviderActivatedEventArgs_Impl {
     fn InstanceStartDate(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
     fn LocalId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn RoamingId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
 }
-#[cfg(feature = "Foundation")]
 impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl, const OFFSET: isize>() -> IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
         unsafe extern "system" fn InstanceStartDate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -300,17 +296,13 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
         *iid == <IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl + IAppointmentsProviderActivatedEventArgs_Impl {
     fn TimeToShow(&self) -> ::windows_core::Result<super::super::Foundation::DateTime>;
     fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IAppointmentsProviderShowTimeFrameActivatedEventArgs";
 }
-#[cfg(feature = "Foundation")]
 impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl, const OFFSET: isize>() -> IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
         unsafe extern "system" fn TimeToShow<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT {
@@ -1695,16 +1687,12 @@ impl IPrintTaskSettingsActivatedEventArgs_Vtbl {
         *iid == <IPrintTaskSettingsActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IProtocolActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IProtocolActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IProtocolActivatedEventArgs";
 }
-#[cfg(feature = "Foundation")]
 impl IProtocolActivatedEventArgs_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IProtocolActivatedEventArgs_Impl, const OFFSET: isize>() -> IProtocolActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Uri<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IProtocolActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

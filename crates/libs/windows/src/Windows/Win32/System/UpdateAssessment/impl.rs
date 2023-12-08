@@ -1,11 +1,7 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWaaSAssessor_Impl: Sized {
     fn GetOSUpdateAssessment(&self) -> ::windows_core::Result<OSUpdateAssessment>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IWaaSAssessor {}
-#[cfg(feature = "Win32_Foundation")]
 impl IWaaSAssessor_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWaaSAssessor_Impl, const OFFSET: isize>() -> IWaaSAssessor_Vtbl {
         unsafe extern "system" fn GetOSUpdateAssessment<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWaaSAssessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result: *mut OSUpdateAssessment) -> ::windows_core::HRESULT {

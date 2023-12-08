@@ -1,11 +1,7 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IIsolatedAppLauncher_Impl: Sized {
     fn Launch(&self, appusermodelid: &::windows_core::PCWSTR, arguments: &::windows_core::PCWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IIsolatedAppLauncher {}
-#[cfg(feature = "Win32_Foundation")]
 impl IIsolatedAppLauncher_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IIsolatedAppLauncher_Impl, const OFFSET: isize>() -> IIsolatedAppLauncher_Vtbl {
         unsafe extern "system" fn Launch<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IIsolatedAppLauncher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appusermodelid: ::windows_core::PCWSTR, arguments: ::windows_core::PCWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows_core::HRESULT {

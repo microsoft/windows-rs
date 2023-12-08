@@ -402,8 +402,8 @@ impl IMetaDataDispenser_Vtbl {
         *iid == <IMetaDataDispenser as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMetaDataDispenserEx_Impl: Sized + IMetaDataDispenser_Impl {
     fn SetOption(&self, optionid: *const ::windows_core::GUID, value: *const super::super::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn GetOption(&self, optionid: *const ::windows_core::GUID, pvalue: *mut super::super::Variant::VARIANT) -> ::windows_core::Result<()>;
@@ -412,9 +412,9 @@ pub trait IMetaDataDispenserEx_Impl: Sized + IMetaDataDispenser_Impl {
     fn FindAssembly(&self, szappbase: &::windows_core::PCWSTR, szprivatebin: &::windows_core::PCWSTR, szglobalbin: &::windows_core::PCWSTR, szassemblyname: &::windows_core::PCWSTR, szname: &::windows_core::PCWSTR, cchname: u32, pcname: *mut u32) -> ::windows_core::Result<()>;
     fn FindAssemblyModule(&self, szappbase: &::windows_core::PCWSTR, szprivatebin: &::windows_core::PCWSTR, szglobalbin: &::windows_core::PCWSTR, szassemblyname: &::windows_core::PCWSTR, szmodulename: &::windows_core::PCWSTR, szname: ::windows_core::PWSTR, cchname: u32, pcname: *mut u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMetaDataDispenserEx {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMetaDataDispenserEx_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMetaDataDispenserEx_Impl, const OFFSET: isize>() -> IMetaDataDispenserEx_Vtbl {
         unsafe extern "system" fn SetOption<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMetaDataDispenserEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionid: *const ::windows_core::GUID, value: *const super::super::Variant::VARIANT) -> ::windows_core::HRESULT {
@@ -931,16 +931,12 @@ impl IMetaDataError_Vtbl {
         *iid == <IMetaDataError as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMetaDataFilter_Impl: Sized {
     fn UnmarkAll(&self) -> ::windows_core::Result<()>;
     fn MarkToken(&self, tk: u32) -> ::windows_core::Result<()>;
     fn IsTokenMarked(&self, tk: u32, pismarked: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IMetaDataFilter {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMetaDataFilter_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMetaDataFilter_Impl, const OFFSET: isize>() -> IMetaDataFilter_Vtbl {
         unsafe extern "system" fn UnmarkAll<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMetaDataFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -969,8 +965,6 @@ impl IMetaDataFilter_Vtbl {
         *iid == <IMetaDataFilter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMetaDataImport_Impl: Sized {
     fn CloseEnum(&self, henum: *mut ::core::ffi::c_void);
     fn CountEnum(&self, henum: *mut ::core::ffi::c_void, pulcount: *mut u32) -> ::windows_core::Result<()>;
@@ -1035,9 +1029,7 @@ pub trait IMetaDataImport_Impl: Sized {
     fn GetNativeCallConvFromSig(&self, pvsig: *const ::core::ffi::c_void, cbsig: u32, pcallconv: *mut u32) -> ::windows_core::Result<()>;
     fn IsGlobal(&self, pd: u32, pbglobal: *mut i32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IMetaDataImport {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMetaDataImport_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMetaDataImport_Impl, const OFFSET: isize>() -> IMetaDataImport_Vtbl {
         unsafe extern "system" fn CloseEnum<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMetaDataImport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, henum: *mut ::core::ffi::c_void) {
@@ -1468,8 +1460,6 @@ impl IMetaDataImport_Vtbl {
         *iid == <IMetaDataImport as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMetaDataImport2_Impl: Sized + IMetaDataImport_Impl {
     fn EnumGenericParams(&self, phenum: *mut *mut ::core::ffi::c_void, tk: u32, rgenericparams: *mut u32, cmax: u32, pcgenericparams: *mut u32) -> ::windows_core::Result<()>;
     fn GetGenericParamProps(&self, gp: u32, pulparamseq: *mut u32, pdwparamflags: *mut u32, ptowner: *mut u32, reserved: *mut u32, wzname: ::windows_core::PWSTR, cchname: u32, pchname: *mut u32) -> ::windows_core::Result<()>;
@@ -1480,9 +1470,7 @@ pub trait IMetaDataImport2_Impl: Sized + IMetaDataImport_Impl {
     fn GetVersionString(&self, pwzbuf: ::windows_core::PWSTR, ccbufsize: u32, pccbufsize: *mut u32) -> ::windows_core::Result<()>;
     fn EnumMethodSpecs(&self, phenum: *mut *mut ::core::ffi::c_void, tk: u32, rmethodspecs: *mut u32, cmax: u32, pcmethodspecs: *mut u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IMetaDataImport2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMetaDataImport2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMetaDataImport2_Impl, const OFFSET: isize>() -> IMetaDataImport2_Vtbl {
         unsafe extern "system" fn EnumGenericParams<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMetaDataImport2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phenum: *mut *mut ::core::ffi::c_void, tk: u32, rgenericparams: *mut u32, cmax: u32, pcgenericparams: *mut u32) -> ::windows_core::HRESULT {

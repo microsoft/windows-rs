@@ -32,8 +32,6 @@ impl ID3D12CommandList_Vtbl {
         *iid == <ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12DeviceChild as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12CommandQueue_Impl: Sized + ID3D12Pageable_Impl {
     fn UpdateTileMappings(&self, presource: ::core::option::Option<&ID3D12Resource>, numresourceregions: u32, presourceregionstartcoordinates: *const D3D12_TILED_RESOURCE_COORDINATE, presourceregionsizes: *const D3D12_TILE_REGION_SIZE, pheap: ::core::option::Option<&ID3D12Heap>, numranges: u32, prangeflags: *const D3D12_TILE_RANGE_FLAGS, pheaprangestartoffsets: *const u32, prangetilecounts: *const u32, flags: D3D12_TILE_MAPPING_FLAGS);
     fn CopyTileMappings(&self, pdstresource: ::core::option::Option<&ID3D12Resource>, pdstregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, psrcresource: ::core::option::Option<&ID3D12Resource>, psrcregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, pregionsize: *const D3D12_TILE_REGION_SIZE, flags: D3D12_TILE_MAPPING_FLAGS);
@@ -47,9 +45,7 @@ pub trait ID3D12CommandQueue_Impl: Sized + ID3D12Pageable_Impl {
     fn GetClockCalibration(&self, pgputimestamp: *mut u64, pcputimestamp: *mut u64) -> ::windows_core::Result<()>;
     fn GetDesc(&self) -> D3D12_COMMAND_QUEUE_DESC;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12CommandQueue {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12CommandQueue_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12CommandQueue_Impl, const OFFSET: isize>() -> ID3D12CommandQueue_Vtbl {
         unsafe extern "system" fn UpdateTileMappings<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12CommandQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, numresourceregions: u32, presourceregionstartcoordinates: *const D3D12_TILED_RESOURCE_COORDINATE, presourceregionsizes: *const D3D12_TILE_REGION_SIZE, pheap: *mut ::core::ffi::c_void, numranges: u32, prangeflags: *const D3D12_TILE_RANGE_FLAGS, pheaprangestartoffsets: *const u32, prangetilecounts: *const u32, flags: D3D12_TILE_MAPPING_FLAGS) {
@@ -159,16 +155,12 @@ impl ID3D12Debug_Vtbl {
         *iid == <ID3D12Debug as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12Debug1_Impl: Sized {
     fn EnableDebugLayer(&self);
     fn SetEnableGPUBasedValidation(&self, enable: super::super::Foundation::BOOL);
     fn SetEnableSynchronizedCommandQueueValidation(&self, enable: super::super::Foundation::BOOL);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12Debug1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12Debug1_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Debug1_Impl, const OFFSET: isize>() -> ID3D12Debug1_Vtbl {
         unsafe extern "system" fn EnableDebugLayer<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Debug1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
@@ -217,16 +209,12 @@ impl ID3D12Debug2_Vtbl {
         *iid == <ID3D12Debug2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12Debug3_Impl: Sized + ID3D12Debug_Impl {
     fn SetEnableGPUBasedValidation(&self, enable: super::super::Foundation::BOOL);
     fn SetEnableSynchronizedCommandQueueValidation(&self, enable: super::super::Foundation::BOOL);
     fn SetGPUBasedValidationFlags(&self, flags: D3D12_GPU_BASED_VALIDATION_FLAGS);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12Debug3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12Debug3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Debug3_Impl, const OFFSET: isize>() -> ID3D12Debug3_Vtbl {
         unsafe extern "system" fn SetEnableGPUBasedValidation<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Debug3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enable: super::super::Foundation::BOOL) {
@@ -255,14 +243,10 @@ impl ID3D12Debug3_Vtbl {
         *iid == <ID3D12Debug3 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Debug as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12Debug4_Impl: Sized + ID3D12Debug3_Impl {
     fn DisableDebugLayer(&self);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12Debug4 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12Debug4_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Debug4_Impl, const OFFSET: isize>() -> ID3D12Debug4_Vtbl {
         unsafe extern "system" fn DisableDebugLayer<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Debug4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
@@ -276,14 +260,10 @@ impl ID3D12Debug4_Vtbl {
         *iid == <ID3D12Debug4 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Debug as ::windows_core::ComInterface>::IID || *iid == <ID3D12Debug3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12Debug5_Impl: Sized + ID3D12Debug4_Impl {
     fn SetEnableAutoName(&self, enable: super::super::Foundation::BOOL);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12Debug5 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12Debug5_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Debug5_Impl, const OFFSET: isize>() -> ID3D12Debug5_Vtbl {
         unsafe extern "system" fn SetEnableAutoName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Debug5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enable: super::super::Foundation::BOOL) {
@@ -297,14 +277,10 @@ impl ID3D12Debug5_Vtbl {
         *iid == <ID3D12Debug5 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Debug as ::windows_core::ComInterface>::IID || *iid == <ID3D12Debug3 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Debug4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12Debug6_Impl: Sized + ID3D12Debug5_Impl {
     fn SetForceLegacyBarrierValidation(&self, enable: super::super::Foundation::BOOL);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12Debug6 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12Debug6_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Debug6_Impl, const OFFSET: isize>() -> ID3D12Debug6_Vtbl {
         unsafe extern "system" fn SetForceLegacyBarrierValidation<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Debug6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enable: super::super::Foundation::BOOL) {
@@ -321,16 +297,12 @@ impl ID3D12Debug6_Vtbl {
         *iid == <ID3D12Debug6 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Debug as ::windows_core::ComInterface>::IID || *iid == <ID3D12Debug3 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Debug4 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Debug5 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12DebugCommandList_Impl: Sized {
     fn AssertResourceState(&self, presource: ::core::option::Option<&ID3D12Resource>, subresource: u32, state: u32) -> super::super::Foundation::BOOL;
     fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> ::windows_core::Result<()>;
     fn GetFeatureMask(&self) -> D3D12_DEBUG_FEATURE;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12DebugCommandList {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12DebugCommandList_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DebugCommandList_Impl, const OFFSET: isize>() -> ID3D12DebugCommandList_Vtbl {
         unsafe extern "system" fn AssertResourceState<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DebugCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, subresource: u32, state: u32) -> super::super::Foundation::BOOL {
@@ -359,16 +331,12 @@ impl ID3D12DebugCommandList_Vtbl {
         *iid == <ID3D12DebugCommandList as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12DebugCommandList1_Impl: Sized {
     fn AssertResourceState(&self, presource: ::core::option::Option<&ID3D12Resource>, subresource: u32, state: u32) -> super::super::Foundation::BOOL;
     fn SetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows_core::Result<()>;
     fn GetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut ::core::ffi::c_void, datasize: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12DebugCommandList1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12DebugCommandList1_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DebugCommandList1_Impl, const OFFSET: isize>() -> ID3D12DebugCommandList1_Vtbl {
         unsafe extern "system" fn AssertResourceState<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DebugCommandList1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, subresource: u32, state: u32) -> super::super::Foundation::BOOL {
@@ -397,15 +365,11 @@ impl ID3D12DebugCommandList1_Vtbl {
         *iid == <ID3D12DebugCommandList1 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12DebugCommandList2_Impl: Sized + ID3D12DebugCommandList_Impl {
     fn SetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows_core::Result<()>;
     fn GetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut ::core::ffi::c_void, datasize: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12DebugCommandList2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12DebugCommandList2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DebugCommandList2_Impl, const OFFSET: isize>() -> ID3D12DebugCommandList2_Vtbl {
         unsafe extern "system" fn SetDebugParameter<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DebugCommandList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows_core::HRESULT {
@@ -428,15 +392,11 @@ impl ID3D12DebugCommandList2_Vtbl {
         *iid == <ID3D12DebugCommandList2 as ::windows_core::ComInterface>::IID || *iid == <ID3D12DebugCommandList as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12DebugCommandList3_Impl: Sized + ID3D12DebugCommandList2_Impl {
     fn AssertResourceAccess(&self, presource: ::core::option::Option<&ID3D12Resource>, subresource: u32, access: D3D12_BARRIER_ACCESS);
     fn AssertTextureLayout(&self, presource: ::core::option::Option<&ID3D12Resource>, subresource: u32, layout: D3D12_BARRIER_LAYOUT);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12DebugCommandList3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12DebugCommandList3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DebugCommandList3_Impl, const OFFSET: isize>() -> ID3D12DebugCommandList3_Vtbl {
         unsafe extern "system" fn AssertResourceAccess<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DebugCommandList3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, subresource: u32, access: D3D12_BARRIER_ACCESS) {
@@ -459,14 +419,10 @@ impl ID3D12DebugCommandList3_Vtbl {
         *iid == <ID3D12DebugCommandList3 as ::windows_core::ComInterface>::IID || *iid == <ID3D12DebugCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12DebugCommandList2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12DebugCommandQueue_Impl: Sized {
     fn AssertResourceState(&self, presource: ::core::option::Option<&ID3D12Resource>, subresource: u32, state: u32) -> super::super::Foundation::BOOL;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12DebugCommandQueue {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12DebugCommandQueue_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DebugCommandQueue_Impl, const OFFSET: isize>() -> ID3D12DebugCommandQueue_Vtbl {
         unsafe extern "system" fn AssertResourceState<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DebugCommandQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, subresource: u32, state: u32) -> super::super::Foundation::BOOL {
@@ -480,15 +436,11 @@ impl ID3D12DebugCommandQueue_Vtbl {
         *iid == <ID3D12DebugCommandQueue as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12DebugCommandQueue1_Impl: Sized + ID3D12DebugCommandQueue_Impl {
     fn AssertResourceAccess(&self, presource: ::core::option::Option<&ID3D12Resource>, subresource: u32, access: D3D12_BARRIER_ACCESS);
     fn AssertTextureLayout(&self, presource: ::core::option::Option<&ID3D12Resource>, subresource: u32, layout: D3D12_BARRIER_LAYOUT);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12DebugCommandQueue1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12DebugCommandQueue1_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DebugCommandQueue1_Impl, const OFFSET: isize>() -> ID3D12DebugCommandQueue1_Vtbl {
         unsafe extern "system" fn AssertResourceAccess<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DebugCommandQueue1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, subresource: u32, access: D3D12_BARRIER_ACCESS) {
@@ -640,8 +592,8 @@ impl ID3D12DescriptorHeap_Vtbl {
         *iid == <ID3D12DescriptorHeap as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device_Impl: Sized + ID3D12Object_Impl {
     fn GetNodeCount(&self) -> u32;
     fn CreateCommandQueue(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const ::windows_core::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -681,9 +633,9 @@ pub trait ID3D12Device_Impl: Sized + ID3D12Object_Impl {
     fn GetResourceTiling(&self, ptiledresource: ::core::option::Option<&ID3D12Resource>, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING);
     fn GetAdapterLuid(&self) -> super::super::Foundation::LUID;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ::windows_core::RuntimeName for ID3D12Device {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>() -> ID3D12Device_Vtbl {
         unsafe extern "system" fn GetNodeCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -928,16 +880,16 @@ impl ID3D12Device_Vtbl {
         *iid == <ID3D12Device as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device1_Impl: Sized + ID3D12Device_Impl {
     fn CreatePipelineLibrary(&self, plibraryblob: *const ::core::ffi::c_void, bloblength: usize, riid: *const ::windows_core::GUID, pppipelinelibrary: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn SetEventOnMultipleFenceCompletion(&self, ppfences: *const ::core::option::Option<ID3D12Fence>, pfencevalues: *const u64, numfences: u32, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
     fn SetResidencyPriority(&self, numobjects: u32, ppobjects: *const ::core::option::Option<ID3D12Pageable>, ppriorities: *const D3D12_RESIDENCY_PRIORITY) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ::windows_core::RuntimeName for ID3D12Device1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device1_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device1_Impl, const OFFSET: isize>() -> ID3D12Device1_Vtbl {
         unsafe extern "system" fn CreatePipelineLibrary<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plibraryblob: *const ::core::ffi::c_void, bloblength: usize, riid: *const ::windows_core::GUID, pppipelinelibrary: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -966,16 +918,16 @@ impl ID3D12Device1_Vtbl {
         *iid == <ID3D12Device1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device10_Impl: Sized + ID3D12Device9_Impl {
     fn CreateCommittedResource3(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::core::option::Option<&ID3D12ProtectedResourceSession>, numcastableformats: u32, pcastableformats: *const super::Dxgi::Common::DXGI_FORMAT, riidresource: *const ::windows_core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn CreatePlacedResource2(&self, pheap: ::core::option::Option<&ID3D12Heap>, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, numcastableformats: u32, pcastableformats: *const super::Dxgi::Common::DXGI_FORMAT, riid: *const ::windows_core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn CreateReservedResource2(&self, pdesc: *const D3D12_RESOURCE_DESC, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::core::option::Option<&ID3D12ProtectedResourceSession>, numcastableformats: u32, pcastableformats: *const super::Dxgi::Common::DXGI_FORMAT, riid: *const ::windows_core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ::windows_core::RuntimeName for ID3D12Device10 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device10_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device10_Impl, const OFFSET: isize>() -> ID3D12Device10_Vtbl {
         unsafe extern "system" fn CreateCommittedResource3<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: *mut ::core::ffi::c_void, numcastableformats: u32, pcastableformats: *const super::Dxgi::Common::DXGI_FORMAT, riidresource: *const ::windows_core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1005,14 +957,14 @@ impl ID3D12Device10_Vtbl {
         *iid == <ID3D12Device10 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device2 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device3 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device4 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device5 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device6 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device7 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device8 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device11_Impl: Sized + ID3D12Device10_Impl {
     fn CreateSampler2(&self, pdesc: *const D3D12_SAMPLER_DESC2, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ::windows_core::RuntimeName for ID3D12Device11 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device11_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device11_Impl, const OFFSET: isize>() -> ID3D12Device11_Vtbl {
         unsafe extern "system" fn CreateSampler2<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device11_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_SAMPLER_DESC2, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
@@ -1038,14 +990,14 @@ impl ID3D12Device11_Vtbl {
             || *iid == <ID3D12Device10 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device12_Impl: Sized + ID3D12Device11_Impl {
     fn GetResourceAllocationInfo3(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, pnumcastableformats: *const u32, ppcastableformats: *const *const super::Dxgi::Common::DXGI_FORMAT, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ::windows_core::RuntimeName for ID3D12Device12 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device12_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device12_Impl, const OFFSET: isize>() -> ID3D12Device12_Vtbl {
         unsafe extern "system" fn GetResourceAllocationInfo3<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device12_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, pnumcastableformats: *const u32, ppcastableformats: *const *const super::Dxgi::Common::DXGI_FORMAT, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) {
@@ -1072,14 +1024,14 @@ impl ID3D12Device12_Vtbl {
             || *iid == <ID3D12Device11 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device13_Impl: Sized + ID3D12Device12_Impl {
     fn OpenExistingHeapFromAddress1(&self, paddress: *const ::core::ffi::c_void, size: usize, riid: *const ::windows_core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ::windows_core::RuntimeName for ID3D12Device13 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device13_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device13_Impl, const OFFSET: isize>() -> ID3D12Device13_Vtbl {
         unsafe extern "system" fn OpenExistingHeapFromAddress1<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device13_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress: *const ::core::ffi::c_void, size: usize, riid: *const ::windows_core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1110,14 +1062,14 @@ impl ID3D12Device13_Vtbl {
             || *iid == <ID3D12Device12 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device2_Impl: Sized + ID3D12Device1_Impl {
     fn CreatePipelineState(&self, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const ::windows_core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ::windows_core::RuntimeName for ID3D12Device2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device2_Impl, const OFFSET: isize>() -> ID3D12Device2_Vtbl {
         unsafe extern "system" fn CreatePipelineState<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const ::windows_core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1131,16 +1083,16 @@ impl ID3D12Device2_Vtbl {
         *iid == <ID3D12Device2 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device1 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device3_Impl: Sized + ID3D12Device2_Impl {
     fn OpenExistingHeapFromAddress(&self, paddress: *const ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn OpenExistingHeapFromFileMapping(&self, hfilemapping: super::super::Foundation::HANDLE, riid: *const ::windows_core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn EnqueueMakeResident(&self, flags: D3D12_RESIDENCY_FLAGS, numobjects: u32, ppobjects: *const ::core::option::Option<ID3D12Pageable>, pfencetosignal: ::core::option::Option<&ID3D12Fence>, fencevaluetosignal: u64) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ::windows_core::RuntimeName for ID3D12Device3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device3_Impl, const OFFSET: isize>() -> ID3D12Device3_Vtbl {
         unsafe extern "system" fn OpenExistingHeapFromAddress<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress: *const ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1169,8 +1121,8 @@ impl ID3D12Device3_Vtbl {
         *iid == <ID3D12Device3 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device4_Impl: Sized + ID3D12Device3_Impl {
     fn CreateCommandList1(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS, riid: *const ::windows_core::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn CreateProtectedResourceSession(&self, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC, riid: *const ::windows_core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -1179,9 +1131,9 @@ pub trait ID3D12Device4_Impl: Sized + ID3D12Device3_Impl {
     fn CreateReservedResource1(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::core::option::Option<&ID3D12ProtectedResourceSession>, riid: *const ::windows_core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ::windows_core::RuntimeName for ID3D12Device4 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device4_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device4_Impl, const OFFSET: isize>() -> ID3D12Device4_Vtbl {
         unsafe extern "system" fn CreateCommandList1<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS, riid: *const ::windows_core::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1228,8 +1180,8 @@ impl ID3D12Device4_Vtbl {
         *iid == <ID3D12Device4 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device2 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device5_Impl: Sized + ID3D12Device4_Impl {
     fn CreateLifetimeTracker(&self, powner: ::core::option::Option<&ID3D12LifetimeOwner>, riid: *const ::windows_core::GUID, ppvtracker: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn RemoveDevice(&self);
@@ -1240,9 +1192,9 @@ pub trait ID3D12Device5_Impl: Sized + ID3D12Device4_Impl {
     fn GetRaytracingAccelerationStructurePrebuildInfo(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO);
     fn CheckDriverMatchingIdentifier(&self, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ::windows_core::RuntimeName for ID3D12Device5 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device5_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device5_Impl, const OFFSET: isize>() -> ID3D12Device5_Vtbl {
         unsafe extern "system" fn CreateLifetimeTracker<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, powner: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppvtracker: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1301,14 +1253,14 @@ impl ID3D12Device5_Vtbl {
         *iid == <ID3D12Device5 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device2 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device3 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device6_Impl: Sized + ID3D12Device5_Impl {
     fn SetBackgroundProcessingMode(&self, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE, pbfurthermeasurementsdesired: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ::windows_core::RuntimeName for ID3D12Device6 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device6_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device6_Impl, const OFFSET: isize>() -> ID3D12Device6_Vtbl {
         unsafe extern "system" fn SetBackgroundProcessingMode<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE, pbfurthermeasurementsdesired: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -1322,15 +1274,15 @@ impl ID3D12Device6_Vtbl {
         *iid == <ID3D12Device6 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device2 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device3 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device4 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device5 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device7_Impl: Sized + ID3D12Device6_Impl {
     fn AddToStateObject(&self, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: ::core::option::Option<&ID3D12StateObject>, riid: *const ::windows_core::GUID, ppnewstateobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn CreateProtectedResourceSession1(&self, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1, riid: *const ::windows_core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ::windows_core::RuntimeName for ID3D12Device7 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device7_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device7_Impl, const OFFSET: isize>() -> ID3D12Device7_Vtbl {
         unsafe extern "system" fn AddToStateObject<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppnewstateobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1353,8 +1305,8 @@ impl ID3D12Device7_Vtbl {
         *iid == <ID3D12Device7 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device2 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device3 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device4 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device5 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device6 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device8_Impl: Sized + ID3D12Device7_Impl {
     fn GetResourceAllocationInfo2(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO;
     fn CreateCommittedResource2(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::core::option::Option<&ID3D12ProtectedResourceSession>, riidresource: *const ::windows_core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -1362,9 +1314,9 @@ pub trait ID3D12Device8_Impl: Sized + ID3D12Device7_Impl {
     fn CreateSamplerFeedbackUnorderedAccessView(&self, ptargetedresource: ::core::option::Option<&ID3D12Resource>, pfeedbackresource: ::core::option::Option<&ID3D12Resource>, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
     fn GetCopyableFootprints1(&self, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64);
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ::windows_core::RuntimeName for ID3D12Device8 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device8_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device8_Impl, const OFFSET: isize>() -> ID3D12Device8_Vtbl {
         unsafe extern "system" fn GetResourceAllocationInfo2<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) {
@@ -1405,16 +1357,16 @@ impl ID3D12Device8_Vtbl {
         *iid == <ID3D12Device8 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device2 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device3 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device4 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device5 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device6 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Device7 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`"]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device9_Impl: Sized + ID3D12Device8_Impl {
     fn CreateShaderCacheSession(&self, pdesc: *const D3D12_SHADER_CACHE_SESSION_DESC, riid: *const ::windows_core::GUID, ppvsession: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn ShaderCacheControl(&self, kinds: D3D12_SHADER_CACHE_KIND_FLAGS, control: D3D12_SHADER_CACHE_CONTROL_FLAGS) -> ::windows_core::Result<()>;
     fn CreateCommandQueue1(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC, creatorid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ::windows_core::RuntimeName for ID3D12Device9 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device9_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device9_Impl, const OFFSET: isize>() -> ID3D12Device9_Vtbl {
         unsafe extern "system" fn CreateShaderCacheSession<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_SHADER_CACHE_SESSION_DESC, riid: *const ::windows_core::GUID, ppvsession: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1730,14 +1682,10 @@ impl ID3D12DeviceRemovedExtendedDataSettings1_Vtbl {
         *iid == <ID3D12DeviceRemovedExtendedDataSettings1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12DeviceRemovedExtendedDataSettings as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12DeviceRemovedExtendedDataSettings2_Impl: Sized + ID3D12DeviceRemovedExtendedDataSettings1_Impl {
     fn UseMarkersOnlyAutoBreadcrumbs(&self, markersonly: super::super::Foundation::BOOL);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12DeviceRemovedExtendedDataSettings2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12DeviceRemovedExtendedDataSettings2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DeviceRemovedExtendedDataSettings2_Impl, const OFFSET: isize>() -> ID3D12DeviceRemovedExtendedDataSettings2_Vtbl {
         unsafe extern "system" fn UseMarkersOnlyAutoBreadcrumbs<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DeviceRemovedExtendedDataSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, markersonly: super::super::Foundation::BOOL) {
@@ -1754,16 +1702,12 @@ impl ID3D12DeviceRemovedExtendedDataSettings2_Vtbl {
         *iid == <ID3D12DeviceRemovedExtendedDataSettings2 as ::windows_core::ComInterface>::IID || *iid == <ID3D12DeviceRemovedExtendedDataSettings as ::windows_core::ComInterface>::IID || *iid == <ID3D12DeviceRemovedExtendedDataSettings1 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12Fence_Impl: Sized + ID3D12Pageable_Impl {
     fn GetCompletedValue(&self) -> u64;
     fn SetEventOnCompletion(&self, value: u64, hevent: super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
     fn Signal(&self, value: u64) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12Fence {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12Fence_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Fence_Impl, const OFFSET: isize>() -> ID3D12Fence_Vtbl {
         unsafe extern "system" fn GetCompletedValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Fence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u64 {
@@ -1792,14 +1736,10 @@ impl ID3D12Fence_Vtbl {
         *iid == <ID3D12Fence as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12Fence1_Impl: Sized + ID3D12Fence_Impl {
     fn GetCreationFlags(&self) -> D3D12_FENCE_FLAGS;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12Fence1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12Fence1_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Fence1_Impl, const OFFSET: isize>() -> ID3D12Fence1_Vtbl {
         unsafe extern "system" fn GetCreationFlags<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Fence1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> D3D12_FENCE_FLAGS {
@@ -1844,8 +1784,8 @@ impl ID3D12FunctionParameterReflection {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D12FunctionReflection_Impl: Sized {
     fn GetDesc(&self, pdesc: *mut D3D12_FUNCTION_DESC) -> ::windows_core::Result<()>;
     fn GetConstantBufferByIndex(&self, bufferindex: u32) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer>;
@@ -1855,7 +1795,7 @@ pub trait ID3D12FunctionReflection_Impl: Sized {
     fn GetResourceBindingDescByName(&self, name: &::windows_core::PCSTR, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> ::windows_core::Result<()>;
     fn GetFunctionParameter(&self, parameterindex: i32) -> ::core::option::Option<ID3D12FunctionParameterReflection>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D12FunctionReflection_Vtbl {
     pub const fn new<Impl: ID3D12FunctionReflection_Impl>() -> ID3D12FunctionReflection_Vtbl {
         unsafe extern "system" fn GetDesc<Impl: ID3D12FunctionReflection_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_FUNCTION_DESC) -> ::windows_core::HRESULT {
@@ -1905,13 +1845,13 @@ impl ID3D12FunctionReflection_Vtbl {
     }
 }
 #[doc(hidden)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 struct ID3D12FunctionReflection_ImplVtbl<T: ID3D12FunctionReflection_Impl>(::std::marker::PhantomData<T>);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl<T: ID3D12FunctionReflection_Impl> ID3D12FunctionReflection_ImplVtbl<T> {
     const VTABLE: ID3D12FunctionReflection_Vtbl = ID3D12FunctionReflection_Vtbl::new::<T>();
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D12FunctionReflection {
     pub fn new<'a, T: ID3D12FunctionReflection_Impl>(this: &'a T) -> ::windows_core::ScopedInterface<'a, Self> {
         let this = ::windows_core::ScopedHeap { vtable: &ID3D12FunctionReflection_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
@@ -1919,8 +1859,8 @@ impl ID3D12FunctionReflection {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12GraphicsCommandList_Impl: Sized + ID3D12CommandList_Impl {
     fn Close(&self) -> ::windows_core::Result<()>;
     fn Reset(&self, pallocator: ::core::option::Option<&ID3D12CommandAllocator>, pinitialstate: ::core::option::Option<&ID3D12PipelineState>) -> ::windows_core::Result<()>;
@@ -1974,9 +1914,9 @@ pub trait ID3D12GraphicsCommandList_Impl: Sized + ID3D12CommandList_Impl {
     fn EndEvent(&self);
     fn ExecuteIndirect(&self, pcommandsignature: ::core::option::Option<&ID3D12CommandSignature>, maxcommandcount: u32, pargumentbuffer: ::core::option::Option<&ID3D12Resource>, argumentbufferoffset: u64, pcountbuffer: ::core::option::Option<&ID3D12Resource>, countbufferoffset: u64);
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows_core::RuntimeName for ID3D12GraphicsCommandList {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12GraphicsCommandList_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>() -> ID3D12GraphicsCommandList_Vtbl {
         unsafe extern "system" fn Close<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2293,8 +2233,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
         *iid == <ID3D12GraphicsCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D12CommandList as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12GraphicsCommandList1_Impl: Sized + ID3D12GraphicsCommandList_Impl {
     fn AtomicCopyBufferUINT(&self, pdstbuffer: ::core::option::Option<&ID3D12Resource>, dstoffset: u64, psrcbuffer: ::core::option::Option<&ID3D12Resource>, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64);
     fn AtomicCopyBufferUINT64(&self, pdstbuffer: ::core::option::Option<&ID3D12Resource>, dstoffset: u64, psrcbuffer: ::core::option::Option<&ID3D12Resource>, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64);
@@ -2303,9 +2243,9 @@ pub trait ID3D12GraphicsCommandList1_Impl: Sized + ID3D12GraphicsCommandList_Imp
     fn ResolveSubresourceRegion(&self, pdstresource: ::core::option::Option<&ID3D12Resource>, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: ::core::option::Option<&ID3D12Resource>, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE);
     fn SetViewInstanceMask(&self, mask: u32);
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows_core::RuntimeName for ID3D12GraphicsCommandList1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12GraphicsCommandList1_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList1_Impl, const OFFSET: isize>() -> ID3D12GraphicsCommandList1_Vtbl {
         unsafe extern "system" fn AtomicCopyBufferUINT<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstbuffer: *mut ::core::ffi::c_void, dstoffset: u64, psrcbuffer: *mut ::core::ffi::c_void, srcoffset: u64, dependencies: u32, ppdependentresources: *const *mut ::core::ffi::c_void, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
@@ -2352,14 +2292,14 @@ impl ID3D12GraphicsCommandList1_Vtbl {
         *iid == <ID3D12GraphicsCommandList1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12GraphicsCommandList2_Impl: Sized + ID3D12GraphicsCommandList1_Impl {
     fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows_core::RuntimeName for ID3D12GraphicsCommandList2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12GraphicsCommandList2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList2_Impl, const OFFSET: isize>() -> ID3D12GraphicsCommandList2_Vtbl {
         unsafe extern "system" fn WriteBufferImmediate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE) {
@@ -2373,14 +2313,14 @@ impl ID3D12GraphicsCommandList2_Vtbl {
         *iid == <ID3D12GraphicsCommandList2 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList1 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12GraphicsCommandList3_Impl: Sized + ID3D12GraphicsCommandList2_Impl {
     fn SetProtectedResourceSession(&self, pprotectedresourcesession: ::core::option::Option<&ID3D12ProtectedResourceSession>);
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows_core::RuntimeName for ID3D12GraphicsCommandList3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12GraphicsCommandList3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList3_Impl, const OFFSET: isize>() -> ID3D12GraphicsCommandList3_Vtbl {
         unsafe extern "system" fn SetProtectedResourceSession<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprotectedresourcesession: *mut ::core::ffi::c_void) {
@@ -2397,8 +2337,8 @@ impl ID3D12GraphicsCommandList3_Vtbl {
         *iid == <ID3D12GraphicsCommandList3 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12GraphicsCommandList4_Impl: Sized + ID3D12GraphicsCommandList3_Impl {
     fn BeginRenderPass(&self, numrendertargets: u32, prendertargets: *const D3D12_RENDER_PASS_RENDER_TARGET_DESC, pdepthstencil: *const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC, flags: D3D12_RENDER_PASS_FLAGS);
     fn EndRenderPass(&self);
@@ -2410,9 +2350,9 @@ pub trait ID3D12GraphicsCommandList4_Impl: Sized + ID3D12GraphicsCommandList3_Im
     fn SetPipelineState1(&self, pstateobject: ::core::option::Option<&ID3D12StateObject>);
     fn DispatchRays(&self, pdesc: *const D3D12_DISPATCH_RAYS_DESC);
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows_core::RuntimeName for ID3D12GraphicsCommandList4 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12GraphicsCommandList4_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList4_Impl, const OFFSET: isize>() -> ID3D12GraphicsCommandList4_Vtbl {
         unsafe extern "system" fn BeginRenderPass<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numrendertargets: u32, prendertargets: *const D3D12_RENDER_PASS_RENDER_TARGET_DESC, pdepthstencil: *const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC, flags: D3D12_RENDER_PASS_FLAGS) {
@@ -2477,15 +2417,15 @@ impl ID3D12GraphicsCommandList4_Vtbl {
         *iid == <ID3D12GraphicsCommandList4 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList2 as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12GraphicsCommandList5_Impl: Sized + ID3D12GraphicsCommandList4_Impl {
     fn RSSetShadingRate(&self, baseshadingrate: D3D12_SHADING_RATE, combiners: *const D3D12_SHADING_RATE_COMBINER);
     fn RSSetShadingRateImage(&self, shadingrateimage: ::core::option::Option<&ID3D12Resource>);
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows_core::RuntimeName for ID3D12GraphicsCommandList5 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12GraphicsCommandList5_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList5_Impl, const OFFSET: isize>() -> ID3D12GraphicsCommandList5_Vtbl {
         unsafe extern "system" fn RSSetShadingRate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseshadingrate: D3D12_SHADING_RATE, combiners: *const D3D12_SHADING_RATE_COMBINER) {
@@ -2508,14 +2448,14 @@ impl ID3D12GraphicsCommandList5_Vtbl {
         *iid == <ID3D12GraphicsCommandList5 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList2 as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList3 as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12GraphicsCommandList6_Impl: Sized + ID3D12GraphicsCommandList5_Impl {
     fn DispatchMesh(&self, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32);
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows_core::RuntimeName for ID3D12GraphicsCommandList6 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12GraphicsCommandList6_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList6_Impl, const OFFSET: isize>() -> ID3D12GraphicsCommandList6_Vtbl {
         unsafe extern "system" fn DispatchMesh<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32) {
@@ -2529,14 +2469,14 @@ impl ID3D12GraphicsCommandList6_Vtbl {
         *iid == <ID3D12GraphicsCommandList6 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList2 as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList3 as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList4 as ::windows_core::ComInterface>::IID || *iid == <ID3D12GraphicsCommandList5 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12GraphicsCommandList7_Impl: Sized + ID3D12GraphicsCommandList6_Impl {
     fn Barrier(&self, numbarriergroups: u32, pbarriergroups: *const D3D12_BARRIER_GROUP);
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows_core::RuntimeName for ID3D12GraphicsCommandList7 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12GraphicsCommandList7_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList7_Impl, const OFFSET: isize>() -> ID3D12GraphicsCommandList7_Vtbl {
         unsafe extern "system" fn Barrier<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numbarriergroups: u32, pbarriergroups: *const D3D12_BARRIER_GROUP) {
@@ -2560,14 +2500,14 @@ impl ID3D12GraphicsCommandList7_Vtbl {
             || *iid == <ID3D12GraphicsCommandList6 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12GraphicsCommandList8_Impl: Sized + ID3D12GraphicsCommandList7_Impl {
     fn OMSetFrontAndBackStencilRef(&self, frontstencilref: u32, backstencilref: u32);
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows_core::RuntimeName for ID3D12GraphicsCommandList8 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12GraphicsCommandList8_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList8_Impl, const OFFSET: isize>() -> ID3D12GraphicsCommandList8_Vtbl {
         unsafe extern "system" fn OMSetFrontAndBackStencilRef<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frontstencilref: u32, backstencilref: u32) {
@@ -2595,15 +2535,15 @@ impl ID3D12GraphicsCommandList8_Vtbl {
             || *iid == <ID3D12GraphicsCommandList7 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12GraphicsCommandList9_Impl: Sized + ID3D12GraphicsCommandList8_Impl {
     fn RSSetDepthBias(&self, depthbias: f32, depthbiasclamp: f32, slopescaleddepthbias: f32);
     fn IASetIndexBufferStripCutValue(&self, ibstripcutvalue: D3D12_INDEX_BUFFER_STRIP_CUT_VALUE);
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows_core::RuntimeName for ID3D12GraphicsCommandList9 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12GraphicsCommandList9_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList9_Impl, const OFFSET: isize>() -> ID3D12GraphicsCommandList9_Vtbl {
         unsafe extern "system" fn RSSetDepthBias<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, depthbias: f32, depthbiasclamp: f32, slopescaleddepthbias: f32) {
@@ -2672,8 +2612,6 @@ impl ID3D12Heap1_Vtbl {
         *iid == <ID3D12Heap1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D12Pageable as ::windows_core::ComInterface>::IID || *iid == <ID3D12Heap as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12InfoQueue_Impl: Sized {
     fn SetMessageCountLimit(&self, messagecountlimit: u64) -> ::windows_core::Result<()>;
     fn ClearStoredMessages(&self);
@@ -2711,9 +2649,7 @@ pub trait ID3D12InfoQueue_Impl: Sized {
     fn SetMuteDebugOutput(&self, bmute: super::super::Foundation::BOOL);
     fn GetMuteDebugOutput(&self) -> super::super::Foundation::BOOL;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12InfoQueue {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12InfoQueue_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12InfoQueue_Impl, const OFFSET: isize>() -> ID3D12InfoQueue_Vtbl {
         unsafe extern "system" fn SetMessageCountLimit<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, messagecountlimit: u64) -> ::windows_core::HRESULT {
@@ -2934,15 +2870,11 @@ impl ID3D12InfoQueue_Vtbl {
         *iid == <ID3D12InfoQueue as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12InfoQueue1_Impl: Sized + ID3D12InfoQueue_Impl {
     fn RegisterMessageCallback(&self, callbackfunc: D3D12MessageFunc, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *mut ::core::ffi::c_void, pcallbackcookie: *mut u32) -> ::windows_core::Result<()>;
     fn UnregisterMessageCallback(&self, callbackcookie: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12InfoQueue1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12InfoQueue1_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12InfoQueue1_Impl, const OFFSET: isize>() -> ID3D12InfoQueue1_Vtbl {
         unsafe extern "system" fn RegisterMessageCallback<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12InfoQueue1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callbackfunc: D3D12MessageFunc, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *mut ::core::ffi::c_void, pcallbackcookie: *mut u32) -> ::windows_core::HRESULT {
@@ -3120,8 +3052,8 @@ impl ID3D12Pageable_Vtbl {
         *iid == <ID3D12Pageable as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12DeviceChild as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D12PipelineLibrary_Impl: Sized + ID3D12DeviceChild_Impl {
     fn StorePipeline(&self, pname: &::windows_core::PCWSTR, ppipeline: ::core::option::Option<&ID3D12PipelineState>) -> ::windows_core::Result<()>;
     fn LoadGraphicsPipeline(&self, pname: &::windows_core::PCWSTR, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const ::windows_core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -3129,9 +3061,9 @@ pub trait ID3D12PipelineLibrary_Impl: Sized + ID3D12DeviceChild_Impl {
     fn GetSerializedSize(&self) -> usize;
     fn Serialize(&self, pdata: *mut ::core::ffi::c_void, datasizeinbytes: usize) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::windows_core::RuntimeName for ID3D12PipelineLibrary {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D12PipelineLibrary_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12PipelineLibrary_Impl, const OFFSET: isize>() -> ID3D12PipelineLibrary_Vtbl {
         unsafe extern "system" fn StorePipeline<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12PipelineLibrary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: ::windows_core::PCWSTR, ppipeline: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3172,14 +3104,14 @@ impl ID3D12PipelineLibrary_Vtbl {
         *iid == <ID3D12PipelineLibrary as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12DeviceChild as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D12PipelineLibrary1_Impl: Sized + ID3D12PipelineLibrary_Impl {
     fn LoadPipeline(&self, pname: &::windows_core::PCWSTR, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const ::windows_core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::windows_core::RuntimeName for ID3D12PipelineLibrary1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D12PipelineLibrary1_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12PipelineLibrary1_Impl, const OFFSET: isize>() -> ID3D12PipelineLibrary1_Vtbl {
         unsafe extern "system" fn LoadPipeline<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12PipelineLibrary1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: ::windows_core::PCWSTR, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const ::windows_core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3511,8 +3443,8 @@ impl ID3D12ShaderCacheSession_Vtbl {
         *iid == <ID3D12ShaderCacheSession as ::windows_core::ComInterface>::IID || *iid == <ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <ID3D12DeviceChild as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D12ShaderReflection_Impl: Sized {
     fn GetDesc(&self, pdesc: *mut D3D12_SHADER_DESC) -> ::windows_core::Result<()>;
     fn GetConstantBufferByIndex(&self, index: u32) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer>;
@@ -3534,9 +3466,9 @@ pub trait ID3D12ShaderReflection_Impl: Sized {
     fn GetThreadGroupSize(&self, psizex: *mut u32, psizey: *mut u32, psizez: *mut u32) -> u32;
     fn GetRequiresFlags(&self) -> u64;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::windows_core::RuntimeName for ID3D12ShaderReflection {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D12ShaderReflection_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12ShaderReflection_Impl, const OFFSET: isize>() -> ID3D12ShaderReflection_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_SHADER_DESC) -> ::windows_core::HRESULT {
@@ -3856,17 +3788,13 @@ impl ID3D12ShaderReflectionVariable {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12SharingContract_Impl: Sized {
     fn Present(&self, presource: ::core::option::Option<&ID3D12Resource>, subresource: u32, window: super::super::Foundation::HWND);
     fn SharedFenceSignal(&self, pfence: ::core::option::Option<&ID3D12Fence>, fencevalue: u64);
     fn BeginCapturableWork(&self, guid: *const ::windows_core::GUID);
     fn EndCapturableWork(&self, guid: *const ::windows_core::GUID);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12SharingContract {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12SharingContract_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12SharingContract_Impl, const OFFSET: isize>() -> ID3D12SharingContract_Vtbl {
         unsafe extern "system" fn Present<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12SharingContract_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, subresource: u32, window: super::super::Foundation::HWND) {
@@ -3952,17 +3880,13 @@ impl ID3D12StateObjectProperties_Vtbl {
         *iid == <ID3D12StateObjectProperties as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12SwapChainAssistant_Impl: Sized {
     fn GetLUID(&self) -> super::super::Foundation::LUID;
     fn GetSwapChainObject(&self, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn GetCurrentResourceAndCommandQueue(&self, riidresource: *const ::windows_core::GUID, ppvresource: *mut *mut ::core::ffi::c_void, riidqueue: *const ::windows_core::GUID, ppvqueue: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn InsertImplicitSync(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12SwapChainAssistant {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12SwapChainAssistant_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12SwapChainAssistant_Impl, const OFFSET: isize>() -> ID3D12SwapChainAssistant_Vtbl {
         unsafe extern "system" fn GetLUID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12SwapChainAssistant_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::LUID) {
@@ -3997,15 +3921,11 @@ impl ID3D12SwapChainAssistant_Vtbl {
         *iid == <ID3D12SwapChainAssistant as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12Tools_Impl: Sized {
     fn EnableShaderInstrumentation(&self, benable: super::super::Foundation::BOOL);
     fn ShaderInstrumentationEnabled(&self) -> super::super::Foundation::BOOL;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12Tools {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12Tools_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Tools_Impl, const OFFSET: isize>() -> ID3D12Tools_Vtbl {
         unsafe extern "system" fn EnableShaderInstrumentation<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Tools_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, benable: super::super::Foundation::BOOL) {
@@ -4061,15 +3981,11 @@ impl ID3D12VersionedRootSignatureDeserializer_Vtbl {
         *iid == <ID3D12VersionedRootSignatureDeserializer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12VirtualizationGuestDevice_Impl: Sized {
     fn ShareWithHost(&self, pobject: ::core::option::Option<&ID3D12DeviceChild>) -> ::windows_core::Result<super::super::Foundation::HANDLE>;
     fn CreateFenceFd(&self, pfence: ::core::option::Option<&ID3D12Fence>, fencevalue: u64) -> ::windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ID3D12VirtualizationGuestDevice {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D12VirtualizationGuestDevice_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VirtualizationGuestDevice_Impl, const OFFSET: isize>() -> ID3D12VirtualizationGuestDevice_Vtbl {
         unsafe extern "system" fn ShareWithHost<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VirtualizationGuestDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, phandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT {

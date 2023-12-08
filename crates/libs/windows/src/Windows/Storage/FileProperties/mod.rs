@@ -13,14 +13,8 @@ unsafe impl ::windows_core::ComInterface for IBasicProperties {
 pub struct IBasicProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub DateModified: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DateModified: usize,
-    #[cfg(feature = "Foundation")]
     pub ItemDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ItemDate: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -63,17 +57,17 @@ unsafe impl ::windows_core::ComInterface for IGeotagHelperStatics {
 #[doc(hidden)]
 pub struct IGeotagHelperStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    #[cfg(feature = "Devices_Geolocation")]
     pub GetGeotagAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))]
+    #[cfg(not(feature = "Devices_Geolocation"))]
     GetGeotagAsync: usize,
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    #[cfg(feature = "Devices_Geolocation")]
     pub SetGeotagFromGeolocatorAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, geolocator: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))]
+    #[cfg(not(feature = "Devices_Geolocation"))]
     SetGeotagFromGeolocatorAsync: usize,
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    #[cfg(feature = "Devices_Geolocation")]
     pub SetGeotagAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, geopoint: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))]
+    #[cfg(not(feature = "Devices_Geolocation"))]
     SetGeotagAsync: usize,
 }
 #[doc(hidden)]
@@ -96,26 +90,14 @@ pub struct IImageProperties_Vtbl {
     pub Keywords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Keywords: usize,
-    #[cfg(feature = "Foundation")]
     pub DateTaken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DateTaken: usize,
-    #[cfg(feature = "Foundation")]
     pub SetDateTaken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetDateTaken: usize,
     pub Width: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub Height: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Latitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Latitude: usize,
-    #[cfg(feature = "Foundation")]
     pub Longitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Longitude: usize,
     pub CameraManufacturer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SetCameraManufacturer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub CameraModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -154,10 +136,7 @@ pub struct IMusicProperties_Vtbl {
     pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Rating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub SetRating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Duration: usize,
     pub Bitrate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub AlbumArtist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SetAlbumArtist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -198,22 +177,10 @@ unsafe impl ::windows_core::ComInterface for IStorageItemContentProperties {
 #[doc(hidden)]
 pub struct IStorageItemContentProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub GetMusicPropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetMusicPropertiesAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub GetVideoPropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetVideoPropertiesAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub GetImagePropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetImagePropertiesAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub GetDocumentPropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDocumentPropertiesAsync: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -243,8 +210,6 @@ impl IStorageItemExtraProperties {
             (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -275,10 +240,7 @@ pub struct IStorageItemExtraProperties_Vtbl {
     pub SavePropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertiestosave: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     SavePropertiesAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub SavePropertiesAsyncOverloadDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SavePropertiesAsyncOverloadDefault: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -321,18 +283,9 @@ pub struct IVideoProperties_Vtbl {
     Keywords: usize,
     pub Width: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub Height: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Duration: usize,
-    #[cfg(feature = "Foundation")]
     pub Latitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Latitude: usize,
-    #[cfg(feature = "Foundation")]
     pub Longitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Longitude: usize,
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Subtitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -367,8 +320,6 @@ impl BasicProperties {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn DateModified(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -376,8 +327,6 @@ impl BasicProperties {
             (::windows_core::Interface::vtable(this).DateModified)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ItemDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -409,8 +358,6 @@ impl BasicProperties {
             (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -501,8 +448,6 @@ impl DocumentProperties {
             (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -527,8 +472,8 @@ impl ::windows_core::RuntimeName for DocumentProperties {
 impl ::windows_core::CanTryInto<IStorageItemExtraProperties> for DocumentProperties {}
 pub struct GeotagHelper;
 impl GeotagHelper {
-    #[doc = "Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`"]
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    #[doc = "Required features: `\"Devices_Geolocation\"`"]
+    #[cfg(feature = "Devices_Geolocation")]
     pub fn GetGeotagAsync<P0>(file: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>>
     where
         P0: ::windows_core::TryIntoParam<super::IStorageFile>,
@@ -538,8 +483,8 @@ impl GeotagHelper {
             (::windows_core::Interface::vtable(this).GetGeotagAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`"]
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    #[doc = "Required features: `\"Devices_Geolocation\"`"]
+    #[cfg(feature = "Devices_Geolocation")]
     pub fn SetGeotagFromGeolocatorAsync<P0, P1>(file: P0, geolocator: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::TryIntoParam<super::IStorageFile>,
@@ -550,8 +495,8 @@ impl GeotagHelper {
             (::windows_core::Interface::vtable(this).SetGeotagFromGeolocatorAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), geolocator.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`"]
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    #[doc = "Required features: `\"Devices_Geolocation\"`"]
+    #[cfg(feature = "Devices_Geolocation")]
     pub fn SetGeotagAsync<P0, P1>(file: P0, geopoint: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::TryIntoParam<super::IStorageFile>,
@@ -595,8 +540,6 @@ impl ImageProperties {
             (::windows_core::Interface::vtable(this).Keywords)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn DateTaken(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -604,8 +547,6 @@ impl ImageProperties {
             (::windows_core::Interface::vtable(this).DateTaken)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetDateTaken(&self, value: super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDateTaken)(::windows_core::Interface::as_raw(this), value).ok() }
@@ -635,8 +576,6 @@ impl ImageProperties {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetTitle)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Latitude(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -644,8 +583,6 @@ impl ImageProperties {
             (::windows_core::Interface::vtable(this).Latitude)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Longitude(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -715,8 +652,6 @@ impl ImageProperties {
             (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -807,8 +742,6 @@ impl MusicProperties {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetRating)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -927,8 +860,6 @@ impl MusicProperties {
             (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -955,8 +886,6 @@ impl ::windows_core::CanTryInto<IStorageItemExtraProperties> for MusicProperties
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorageItemContentProperties(::windows_core::IUnknown);
 impl StorageItemContentProperties {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetMusicPropertiesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MusicProperties>> {
         let this = self;
         unsafe {
@@ -964,8 +893,6 @@ impl StorageItemContentProperties {
             (::windows_core::Interface::vtable(this).GetMusicPropertiesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetVideoPropertiesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VideoProperties>> {
         let this = self;
         unsafe {
@@ -973,8 +900,6 @@ impl StorageItemContentProperties {
             (::windows_core::Interface::vtable(this).GetVideoPropertiesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetImagePropertiesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ImageProperties>> {
         let this = self;
         unsafe {
@@ -982,8 +907,6 @@ impl StorageItemContentProperties {
             (::windows_core::Interface::vtable(this).GetImagePropertiesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetDocumentPropertiesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DocumentProperties>> {
         let this = self;
         unsafe {
@@ -1015,8 +938,6 @@ impl StorageItemContentProperties {
             (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -1046,8 +967,6 @@ impl ::windows_core::CanTryInto<IStorageItemExtraProperties> for StorageItemCont
 pub struct StorageItemThumbnail(::windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 impl StorageItemThumbnail {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -1061,8 +980,8 @@ impl StorageItemThumbnail {
             (::windows_core::Interface::vtable(this).ContentType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    #[cfg(feature = "Storage_Streams")]
     pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::Streams::InputStreamOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>
     where
         P0: ::windows_core::TryIntoParam<super::Streams::IBuffer>,
@@ -1073,8 +992,8 @@ impl StorageItemThumbnail {
             (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    #[cfg(feature = "Storage_Streams")]
     pub fn WriteAsync<P0>(&self, buffer: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
         P0: ::windows_core::TryIntoParam<super::Streams::IBuffer>,
@@ -1085,8 +1004,8 @@ impl StorageItemThumbnail {
             (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    #[cfg(feature = "Storage_Streams")]
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
@@ -1216,7 +1135,7 @@ impl ::windows_core::RuntimeName for StorageItemThumbnail {
 }
 #[cfg(feature = "Storage_Streams")]
 ::windows_core::imp::interface_hierarchy!(StorageItemThumbnail, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for StorageItemThumbnail {}
 #[cfg(feature = "Storage_Streams")]
 impl ::windows_core::CanTryInto<super::Streams::IContentTypeProvider> for StorageItemThumbnail {}
@@ -1256,8 +1175,6 @@ impl VideoProperties {
             (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -1299,8 +1216,6 @@ impl VideoProperties {
             (::windows_core::Interface::vtable(this).Height)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1308,8 +1223,6 @@ impl VideoProperties {
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Latitude(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -1317,8 +1230,6 @@ impl VideoProperties {
             (::windows_core::Interface::vtable(this).Latitude)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Longitude(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {

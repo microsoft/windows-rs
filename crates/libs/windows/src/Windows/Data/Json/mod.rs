@@ -339,8 +339,6 @@ impl JsonArray {
             (::windows_core::Interface::vtable(this).GetObject)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -485,7 +483,6 @@ impl ::core::iter::IntoIterator for &JsonArray {
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::Foundation::Collections::IIterable<IJsonValue>> for JsonArray {}
 impl ::windows_core::CanTryInto<IJsonValue> for JsonArray {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IStringable> for JsonArray {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::Foundation::Collections::IVector<IJsonValue>> for JsonArray {}
@@ -749,8 +746,6 @@ impl JsonObject {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, IJsonValue>>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Clear)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -798,7 +793,6 @@ impl ::windows_core::CanTryInto<super::super::Foundation::Collections::IIterable
 impl ::windows_core::CanTryInto<IJsonValue> for JsonObject {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, IJsonValue>> for JsonObject {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IStringable> for JsonObject {}
 unsafe impl ::core::marker::Send for JsonObject {}
 unsafe impl ::core::marker::Sync for JsonObject {}
@@ -891,8 +885,6 @@ impl JsonValue {
             (::windows_core::Interface::vtable(this).CreateNullValue)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -925,7 +917,6 @@ impl ::windows_core::RuntimeName for JsonValue {
 }
 ::windows_core::imp::interface_hierarchy!(JsonValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IJsonValue> for JsonValue {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IStringable> for JsonValue {}
 unsafe impl ::core::marker::Send for JsonValue {}
 unsafe impl ::core::marker::Sync for JsonValue {}

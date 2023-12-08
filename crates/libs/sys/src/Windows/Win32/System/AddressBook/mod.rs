@@ -1,92 +1,81 @@
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn BuildDisplayTable(lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpmalloc : super::Com:: IMalloc, hinstance : super::super::Foundation:: HINSTANCE, cpages : u32, lppage : *mut DTPAGE, ulflags : u32, lpptable : *mut IMAPITable, lpptbldata : *mut ITableData) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ChangeIdleRoutine(ftg : *mut ::core::ffi::c_void, lpfnidle : PFNIDLE, lpvidleparam : *mut ::core::ffi::c_void, priidle : i16, csecidle : u32, iroidle : u16, ircidle : u16));
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn BuildDisplayTable(lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpmalloc : super::Com:: IMalloc, hinstance : super::super::Foundation:: HINSTANCE, cpages : u32, lppage : *mut DTPAGE, ulflags : u32, lpptable : *mut IMAPITable, lpptbldata : *mut ITableData) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mapi32.dll" "system" fn ChangeIdleRoutine(ftg : *mut ::core::ffi::c_void, lpfnidle : PFNIDLE, lpvidleparam : *mut ::core::ffi::c_void, priidle : i16, csecidle : u32, iroidle : u16, ircidle : u16));
 ::windows_targets::link!("mapi32.dll" "system" fn CreateIProp(lpinterface : *mut ::windows_sys::core::GUID, lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpvreserved : *mut ::core::ffi::c_void, lpppropdata : *mut IPropData) -> i32);
 ::windows_targets::link!("rtm.dll" "system" fn CreateTable(lpinterface : *mut ::windows_sys::core::GUID, lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpvreserved : *mut ::core::ffi::c_void, ultabletype : u32, ulproptagindexcolumn : u32, lpsproptagarraycolumns : *mut SPropTagArray, lpptabledata : *mut ITableData) -> i32);
 ::windows_targets::link!("mapi32.dll" "system" fn DeinitMapiUtil());
 ::windows_targets::link!("mapi32.dll" "system" fn DeregisterIdleRoutine(ftg : *mut ::core::ffi::c_void));
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EnableIdleRoutine(ftg : *mut ::core::ffi::c_void, fenable : super::super::Foundation:: BOOL));
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FEqualNames(lpname1 : *mut MAPINAMEID, lpname2 : *mut MAPINAMEID) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn FPropCompareProp(lpspropvalue1 : *mut SPropValue, ulrelop : u32, lpspropvalue2 : *mut SPropValue) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn FPropContainsProp(lpspropvaluedst : *mut SPropValue, lpspropvaluesrc : *mut SPropValue, ulfuzzylevel : u32) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FPropExists(lpmapiprop : IMAPIProp, ulproptag : u32) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn FreePadrlist(lpadrlist : *mut ADRLIST));
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn FreeProws(lprows : *mut SRowSet));
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FtAddFt(ftaddend1 : super::super::Foundation:: FILETIME, ftaddend2 : super::super::Foundation:: FILETIME) -> super::super::Foundation:: FILETIME);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FtMulDw(ftmultiplier : u32, ftmultiplicand : super::super::Foundation:: FILETIME) -> super::super::Foundation:: FILETIME);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FtMulDwDw(ftmultiplicand : u32, ftmultiplier : u32) -> super::super::Foundation:: FILETIME);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FtNegFt(ft : super::super::Foundation:: FILETIME) -> super::super::Foundation:: FILETIME);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FtSubFt(ftminuend : super::super::Foundation:: FILETIME, ftsubtrahend : super::super::Foundation:: FILETIME) -> super::super::Foundation:: FILETIME);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FtgRegisterIdleRoutine(lpfnidle : PFNIDLE, lpvidleparam : *mut ::core::ffi::c_void, priidle : i16, csecidle : u32, iroidle : u16) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("mapi32.dll" "system" fn EnableIdleRoutine(ftg : *mut ::core::ffi::c_void, fenable : super::super::Foundation:: BOOL));
+::windows_targets::link!("mapi32.dll" "system" fn FEqualNames(lpname1 : *mut MAPINAMEID, lpname2 : *mut MAPINAMEID) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn FPropCompareProp(lpspropvalue1 : *mut SPropValue, ulrelop : u32, lpspropvalue2 : *mut SPropValue) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn FPropContainsProp(lpspropvaluedst : *mut SPropValue, lpspropvaluesrc : *mut SPropValue, ulfuzzylevel : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mapi32.dll" "system" fn FPropExists(lpmapiprop : IMAPIProp, ulproptag : u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn FreePadrlist(lpadrlist : *mut ADRLIST));
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn FreeProws(lprows : *mut SRowSet));
+::windows_targets::link!("mapi32.dll" "system" fn FtAddFt(ftaddend1 : super::super::Foundation:: FILETIME, ftaddend2 : super::super::Foundation:: FILETIME) -> super::super::Foundation:: FILETIME);
+::windows_targets::link!("mapi32.dll" "system" fn FtMulDw(ftmultiplier : u32, ftmultiplicand : super::super::Foundation:: FILETIME) -> super::super::Foundation:: FILETIME);
+::windows_targets::link!("mapi32.dll" "system" fn FtMulDwDw(ftmultiplicand : u32, ftmultiplier : u32) -> super::super::Foundation:: FILETIME);
+::windows_targets::link!("mapi32.dll" "system" fn FtNegFt(ft : super::super::Foundation:: FILETIME) -> super::super::Foundation:: FILETIME);
+::windows_targets::link!("mapi32.dll" "system" fn FtSubFt(ftminuend : super::super::Foundation:: FILETIME, ftsubtrahend : super::super::Foundation:: FILETIME) -> super::super::Foundation:: FILETIME);
+::windows_targets::link!("mapi32.dll" "system" fn FtgRegisterIdleRoutine(lpfnidle : PFNIDLE, lpvidleparam : *mut ::core::ffi::c_void, priidle : i16, csecidle : u32, iroidle : u16) -> *mut ::core::ffi::c_void);
 ::windows_targets::link!("mapi32.dll" "system" fn HrAddColumns(lptbl : IMAPITable, lpproptagcolumnsnew : *mut SPropTagArray, lpallocatebuffer : LPALLOCATEBUFFER, lpfreebuffer : LPFREEBUFFER) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mapi32.dll" "system" fn HrAddColumnsEx(lptbl : IMAPITable, lpproptagcolumnsnew : *mut SPropTagArray, lpallocatebuffer : LPALLOCATEBUFFER, lpfreebuffer : LPFREEBUFFER, lpfnfiltercolumns : isize) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn HrAllocAdviseSink(lpfncallback : LPNOTIFCALLBACK, lpvcontext : *mut ::core::ffi::c_void, lppadvisesink : *mut IMAPIAdviseSink) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HrAllocAdviseSink(lpfncallback : LPNOTIFCALLBACK, lpvcontext : *mut ::core::ffi::c_void, lppadvisesink : *mut IMAPIAdviseSink) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mapi32.dll" "system" fn HrDispatchNotifications(ulflags : u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn HrGetOneProp(lpmapiprop : IMAPIProp, ulproptag : u32, lppprop : *mut *mut SPropValue) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HrGetOneProp(lpmapiprop : IMAPIProp, ulproptag : u32, lppprop : *mut *mut SPropValue) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"] fn HrIStorageFromStream(lpunkin : ::windows_sys::core::IUnknown, lpinterface : *mut ::windows_sys::core::GUID, ulflags : u32, lppstorageout : *mut super::Com::StructuredStorage:: IStorage) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn HrQueryAllRows(lptable : IMAPITable, lpproptags : *mut SPropTagArray, lprestriction : *mut SRestriction, lpsortorderset : *mut SSortOrderSet, crowsmax : i32, lpprows : *mut *mut SRowSet) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn HrSetOneProp(lpmapiprop : IMAPIProp, lpprop : *mut SPropValue) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HrQueryAllRows(lptable : IMAPITable, lpproptags : *mut SPropTagArray, lprestriction : *mut SRestriction, lpsortorderset : *mut SSortOrderSet, crowsmax : i32, lpprows : *mut *mut SRowSet) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HrSetOneProp(lpmapiprop : IMAPIProp, lpprop : *mut SPropValue) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mapi32.dll" "system" fn HrThisThreadAdviseSink(lpadvisesink : IMAPIAdviseSink, lppadvisesink : *mut IMAPIAdviseSink) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn LPropCompareProp(lpspropvaluea : *mut SPropValue, lpspropvalueb : *mut SPropValue) -> i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn LpValFindProp(ulproptag : u32, cvalues : u32, lpproparray : *mut SPropValue) -> *mut SPropValue);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn LPropCompareProp(lpspropvaluea : *mut SPropValue, lpspropvalueb : *mut SPropValue) -> i32);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn LpValFindProp(ulproptag : u32, cvalues : u32, lpproparray : *mut SPropValue) -> *mut SPropValue);
 ::windows_targets::link!("mapi32.dll" "system" fn MAPIDeinitIdle());
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn MAPIGetDefaultMalloc() -> super::Com:: IMalloc);
 ::windows_targets::link!("mapi32.dll" "system" fn MAPIInitIdle(lpvreserved : *mut ::core::ffi::c_void) -> i32);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn OpenStreamOnFile(lpallocatebuffer : LPALLOCATEBUFFER, lpfreebuffer : LPFREEBUFFER, ulflags : u32, lpszfilename : *const i8, lpszprefix : *const i8, lppstream : *mut super::Com:: IStream) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn PpropFindProp(lpproparray : *mut SPropValue, cvalues : u32, ulproptag : u32) -> *mut SPropValue);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn PropCopyMore(lpspropvaluedest : *mut SPropValue, lpspropvaluesrc : *mut SPropValue, lpfallocmore : LPALLOCATEMORE, lpvobject : *mut ::core::ffi::c_void) -> i32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RTFSync(lpmessage : IMessage, ulflags : u32, lpfmessageupdated : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn ScCopyNotifications(cnotification : i32, lpnotifications : *mut NOTIFICATION, lpvdst : *mut ::core::ffi::c_void, lpcb : *mut u32) -> i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn ScCopyProps(cvalues : i32, lpproparray : *mut SPropValue, lpvdst : *mut ::core::ffi::c_void, lpcb : *mut u32) -> i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn ScCountNotifications(cnotifications : i32, lpnotifications : *mut NOTIFICATION, lpcb : *mut u32) -> i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn ScCountProps(cvalues : i32, lpproparray : *mut SPropValue, lpcb : *mut u32) -> i32);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn PpropFindProp(lpproparray : *mut SPropValue, cvalues : u32, ulproptag : u32) -> *mut SPropValue);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn PropCopyMore(lpspropvaluedest : *mut SPropValue, lpspropvaluesrc : *mut SPropValue, lpfallocmore : LPALLOCATEMORE, lpvobject : *mut ::core::ffi::c_void) -> i32);
+::windows_targets::link!("mapi32.dll" "system" fn RTFSync(lpmessage : IMessage, ulflags : u32, lpfmessageupdated : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn ScCopyNotifications(cnotification : i32, lpnotifications : *mut NOTIFICATION, lpvdst : *mut ::core::ffi::c_void, lpcb : *mut u32) -> i32);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn ScCopyProps(cvalues : i32, lpproparray : *mut SPropValue, lpvdst : *mut ::core::ffi::c_void, lpcb : *mut u32) -> i32);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn ScCountNotifications(cnotifications : i32, lpnotifications : *mut NOTIFICATION, lpcb : *mut u32) -> i32);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn ScCountProps(cvalues : i32, lpproparray : *mut SPropValue, lpcb : *mut u32) -> i32);
 ::windows_targets::link!("mapi32.dll" "system" fn ScCreateConversationIndex(cbparent : u32, lpbparent : *mut u8, lpcbconvindex : *mut u32, lppbconvindex : *mut *mut u8) -> i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn ScDupPropset(cvalues : i32, lpproparray : *mut SPropValue, lpallocatebuffer : LPALLOCATEBUFFER, lppproparray : *mut *mut SPropValue) -> i32);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn ScDupPropset(cvalues : i32, lpproparray : *mut SPropValue, lpallocatebuffer : LPALLOCATEBUFFER, lppproparray : *mut *mut SPropValue) -> i32);
 ::windows_targets::link!("mapi32.dll" "system" fn ScInitMapiUtil(ulflags : u32) -> i32);
 ::windows_targets::link!("mapi32.dll" "system" fn ScLocalPathFromUNC(lpszunc : ::windows_sys::core::PCSTR, lpszlocal : ::windows_sys::core::PCSTR, cchlocal : u32) -> i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn ScRelocNotifications(cnotification : i32, lpnotifications : *mut NOTIFICATION, lpvbaseold : *mut ::core::ffi::c_void, lpvbasenew : *mut ::core::ffi::c_void, lpcb : *mut u32) -> i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn ScRelocProps(cvalues : i32, lpproparray : *mut SPropValue, lpvbaseold : *mut ::core::ffi::c_void, lpvbasenew : *mut ::core::ffi::c_void, lpcb : *mut u32) -> i32);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn ScRelocNotifications(cnotification : i32, lpnotifications : *mut NOTIFICATION, lpvbaseold : *mut ::core::ffi::c_void, lpvbasenew : *mut ::core::ffi::c_void, lpcb : *mut u32) -> i32);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn ScRelocProps(cvalues : i32, lpproparray : *mut SPropValue, lpvbaseold : *mut ::core::ffi::c_void, lpvbasenew : *mut ::core::ffi::c_void, lpcb : *mut u32) -> i32);
 ::windows_targets::link!("mapi32.dll" "system" fn ScUNCFromLocalPath(lpszlocal : ::windows_sys::core::PCSTR, lpszunc : ::windows_sys::core::PCSTR, cchunc : u32) -> i32);
 ::windows_targets::link!("mapi32.dll" "system" fn SzFindCh(lpsz : *mut i8, ch : u16) -> *mut i8);
 ::windows_targets::link!("mapi32.dll" "system" fn SzFindLastCh(lpsz : *mut i8, ch : u16) -> *mut i8);
 ::windows_targets::link!("mapi32.dll" "system" fn SzFindSz(lpsz : *mut i8, lpszkey : *mut i8) -> *mut i8);
 ::windows_targets::link!("mapi32.dll" "system" fn UFromSz(lpsz : *mut i8) -> u32);
 ::windows_targets::link!("mapi32.dll" "system" fn UlAddRef(lpunk : *mut ::core::ffi::c_void) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn UlPropSize(lpspropvalue : *mut SPropValue) -> u32);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn UlPropSize(lpspropvalue : *mut SPropValue) -> u32);
 ::windows_targets::link!("mapi32.dll" "system" fn UlRelease(lpunk : *mut ::core::ffi::c_void) -> u32);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn WrapCompressedRTFStream(lpcompressedrtfstream : super::Com:: IStream, ulflags : u32, lpuncompressedrtfstream : *mut super::Com:: IStream) -> ::windows_sys::core::HRESULT);
@@ -335,39 +324,39 @@ pub const szMAPINotificationMsg: ::windows_sys::core::PCSTR = ::windows_sys::cor
 pub const szScCreateConversationIndex: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ScCreateConversationIndex");
 pub type Gender = i32;
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct ADRENTRY {
     pub ulReserved1: u32,
     pub cValues: u32,
     pub rgPropVals: *mut SPropValue,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for ADRENTRY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ADRENTRY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct ADRLIST {
     pub cEntries: u32,
     pub aEntries: [ADRENTRY; 1],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for ADRLIST {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ADRLIST {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct ADRPARM {
     pub cbABContEntryID: u32,
     pub lpABContEntryID: *mut ENTRYID,
@@ -388,9 +377,9 @@ pub struct ADRPARM {
     pub lpContRestriction: *mut SRestriction,
     pub lpHierRestriction: *mut SRestriction,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for ADRPARM {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ADRPARM {
     fn clone(&self) -> Self {
         *self
@@ -764,24 +753,24 @@ impl ::core::clone::Clone for NEWMAIL_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct NOTIFICATION {
     pub ulEventType: u32,
     pub ulAlignPad: u32,
     pub info: NOTIFICATION_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for NOTIFICATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for NOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub union NOTIFICATION_0 {
     pub err: ERROR_NOTIFICATION,
     pub newmail: NEWMAIL_NOTIFICATION,
@@ -790,9 +779,9 @@ pub union NOTIFICATION_0 {
     pub ext: EXTENDED_NOTIFICATION,
     pub statobj: STATUS_OBJECT_NOTIFICATION,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for NOTIFICATION_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for NOTIFICATION_0 {
     fn clone(&self) -> Self {
         *self
@@ -829,15 +818,15 @@ impl ::core::clone::Clone for OBJECT_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct SAndRestriction {
     pub cRes: u32,
     pub lpRes: *mut SRestriction,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for SAndRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for SAndRestriction {
     fn clone(&self) -> Self {
         *self
@@ -889,16 +878,16 @@ impl ::core::clone::Clone for SBitMaskRestriction {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct SCommentRestriction {
     pub cValues: u32,
     pub lpRes: *mut SRestriction,
     pub lpProp: *mut SPropValue,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for SCommentRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for SCommentRestriction {
     fn clone(&self) -> Self {
         *self
@@ -917,16 +906,16 @@ impl ::core::clone::Clone for SComparePropsRestriction {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct SContentRestriction {
     pub ulFuzzyLevel: u32,
     pub ulPropTag: u32,
     pub lpProp: *mut SPropValue,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for SContentRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for SContentRestriction {
     fn clone(&self) -> Self {
         *self
@@ -948,15 +937,11 @@ impl ::core::clone::Clone for SCurrencyArray {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SDateTimeArray {
     pub cValues: u32,
     pub lpft: *mut super::super::Foundation::FILETIME,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SDateTimeArray {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SDateTimeArray {
     fn clone(&self) -> Self {
         *self
@@ -1030,30 +1015,30 @@ impl ::core::clone::Clone for SLongArray {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct SNotRestriction {
     pub ulReserved: u32,
     pub lpRes: *mut SRestriction,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for SNotRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for SNotRestriction {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct SOrRestriction {
     pub cRes: u32,
     pub lpRes: *mut SRestriction,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for SOrRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for SOrRestriction {
     fn clone(&self) -> Self {
         *self
@@ -1094,32 +1079,32 @@ impl ::core::clone::Clone for SPropTagArray {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct SPropValue {
     pub ulPropTag: u32,
     pub dwAlignPad: u32,
     pub Value: __UPV,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for SPropValue {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for SPropValue {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct SPropertyRestriction {
     pub relop: u32,
     pub ulPropTag: u32,
     pub lpProp: *mut SPropValue,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for SPropertyRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for SPropertyRestriction {
     fn clone(&self) -> Self {
         *self
@@ -1137,23 +1122,23 @@ impl ::core::clone::Clone for SRealArray {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct SRestriction {
     pub rt: u32,
     pub res: SRestriction_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for SRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for SRestriction {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub union SRestriction_0 {
     pub resCompareProps: SComparePropsRestriction,
     pub resAnd: SAndRestriction,
@@ -1167,40 +1152,40 @@ pub union SRestriction_0 {
     pub resSub: SSubRestriction,
     pub resComment: SCommentRestriction,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for SRestriction_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for SRestriction_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct SRow {
     pub ulAdrEntryPad: u32,
     pub cValues: u32,
     pub lpProps: *mut SPropValue,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for SRow {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for SRow {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct SRowSet {
     pub cRows: u32,
     pub aRow: [SRow; 1],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for SRowSet {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for SRowSet {
     fn clone(&self) -> Self {
         *self
@@ -1254,32 +1239,32 @@ impl ::core::clone::Clone for SSortOrderSet {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct SSubRestriction {
     pub ulSubObject: u32,
     pub lpRes: *mut SRestriction,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for SSubRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for SSubRestriction {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct STATUS_OBJECT_NOTIFICATION {
     pub cbEntryID: u32,
     pub lpEntryID: *mut ENTRYID,
     pub cValues: u32,
     pub lpPropVals: *mut SPropValue,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for STATUS_OBJECT_NOTIFICATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for STATUS_OBJECT_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
@@ -1297,8 +1282,8 @@ impl ::core::clone::Clone for SWStringArray {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct TABLE_NOTIFICATION {
     pub ulTableEvent: u32,
     pub hResult: ::windows_sys::core::HRESULT,
@@ -1307,17 +1292,15 @@ pub struct TABLE_NOTIFICATION {
     pub row: SRow,
     pub ulPad: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for TABLE_NOTIFICATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for TABLE_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WABEXTDISPLAY {
     pub cbSize: u32,
     pub lpWABObject: IWABObject,
@@ -1329,17 +1312,13 @@ pub struct WABEXTDISPLAY {
     pub lpv: *mut ::core::ffi::c_void,
     pub lpsz: *mut i8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WABEXTDISPLAY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WABEXTDISPLAY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WABIMPORTPARAM {
     pub cbSize: u32,
     pub lpAdrBook: IAddrBook,
@@ -1347,17 +1326,13 @@ pub struct WABIMPORTPARAM {
     pub ulFlags: u32,
     pub lpszFileName: ::windows_sys::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WABIMPORTPARAM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WABIMPORTPARAM {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WAB_PARAM {
     pub cbSize: u32,
     pub hwnd: super::super::Foundation::HWND,
@@ -1365,17 +1340,15 @@ pub struct WAB_PARAM {
     pub ulFlags: u32,
     pub guidPSExt: ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WAB_PARAM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WAB_PARAM {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub union __UPV {
     pub i: i16,
     pub l: i32,
@@ -1406,9 +1379,9 @@ pub union __UPV {
     pub err: i32,
     pub x: i32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for __UPV {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for __UPV {
     fn clone(&self) -> Self {
         *self
@@ -1419,14 +1392,12 @@ pub type LPALLOCATEBUFFER = ::core::option::Option<unsafe extern "system" fn(cbs
 pub type LPALLOCATEMORE = ::core::option::Option<unsafe extern "system" fn(cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
 pub type LPCREATECONVERSATIONINDEX = ::core::option::Option<unsafe extern "system" fn(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32>;
 pub type LPDISPATCHNOTIFICATIONS = ::core::option::Option<unsafe extern "system" fn(ulflags: u32) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type LPFNABSDI = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpvmsg: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type LPFNBUTTON = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::core::ffi::c_void, cbentryid: u32, lpselection: *mut ENTRYID, ulflags: u32) -> i32>;
 pub type LPFNDISMISS = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::core::ffi::c_void)>;
 pub type LPFREEBUFFER = ::core::option::Option<unsafe extern "system" fn(lpbuffer: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub type LPNOTIFCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpvcontext: *mut ::core::ffi::c_void, cnotification: u32, lpnotifications: *mut NOTIFICATION) -> i32>;
 #[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1434,12 +1405,6 @@ pub type LPOPENSTREAMONFILE = ::core::option::Option<unsafe extern "system" fn(l
 pub type LPWABALLOCATEBUFFER = ::core::option::Option<unsafe extern "system" fn(lpwabobject: IWABObject, cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
 pub type LPWABALLOCATEMORE = ::core::option::Option<unsafe extern "system" fn(lpwabobject: IWABObject, cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
 pub type LPWABFREEBUFFER = ::core::option::Option<unsafe extern "system" fn(lpwabobject: IWABObject, lpbuffer: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type LPWABOPEN = ::core::option::Option<unsafe extern "system" fn(lppadrbook: *mut IAddrBook, lppwabobject: *mut IWABObject, lpwp: *mut WAB_PARAM, reserved2: u32) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type LPWABOPENEX = ::core::option::Option<unsafe extern "system" fn(lppadrbook: *mut IAddrBook, lppwabobject: *mut IWABObject, lpwp: *mut WAB_PARAM, reserved: u32, fnallocatebuffer: LPALLOCATEBUFFER, fnallocatemore: LPALLOCATEMORE, fnfreebuffer: LPFREEBUFFER) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFNIDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;

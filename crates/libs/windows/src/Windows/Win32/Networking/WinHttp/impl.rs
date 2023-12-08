@@ -1,5 +1,5 @@
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWinHttpRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetProxy(&self, proxysetting: i32, proxyserver: &super::super::System::Variant::VARIANT, bypasslist: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn SetCredentials(&self, username: &::windows_core::BSTR, password: &::windows_core::BSTR, flags: i32) -> ::windows_core::Result<()>;
@@ -21,9 +21,9 @@ pub trait IWinHttpRequest_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn SetClientCertificate(&self, clientcertificate: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn SetAutoLogonPolicy(&self, autologonpolicy: WinHttpRequestAutoLogonPolicy) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IWinHttpRequest {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWinHttpRequest_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>() -> IWinHttpRequest_Vtbl {
         unsafe extern "system" fn SetProxy<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, proxysetting: i32, proxyserver: super::super::System::Variant::VARIANT, bypasslist: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {

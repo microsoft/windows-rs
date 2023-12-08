@@ -6,14 +6,12 @@ impl ICivicAddressReport {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSensorID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTimestamp(&self) -> ::windows_core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetTimestamp)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetValue)(::windows_core::Interface::as_raw(self), pkey, &mut result__).from_abi(result__)
@@ -282,14 +280,12 @@ impl ILatLongReport {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSensorID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTimestamp(&self) -> ::windows_core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetTimestamp)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetValue)(::windows_core::Interface::as_raw(self), pkey, &mut result__).from_abi(result__)
@@ -432,8 +428,6 @@ impl ILocation {
     pub unsafe fn SetDesiredAccuracy(&self, reporttype: *const ::windows_core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDesiredAccuracy)(::windows_core::Interface::as_raw(self), reporttype, desiredaccuracy).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestPermissions<P0, P1>(&self, hparent: P0, preporttypes: &[::windows_core::GUID], fmodal: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
@@ -467,10 +461,7 @@ pub struct ILocation_Vtbl {
     pub SetDesiredAccuracy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows_core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Devices_Sensors"))]
     SetDesiredAccuracy: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub RequestPermissions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hparent: super::super::Foundation::HWND, preporttypes: *const ::windows_core::GUID, count: u32, fmodal: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    RequestPermissions: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -533,14 +524,12 @@ impl ILocationReport {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSensorID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTimestamp(&self) -> ::windows_core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTimestamp)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), pkey, &mut result__).from_abi(result__)
@@ -558,13 +547,10 @@ unsafe impl ::windows_core::ComInterface for ILocationReport {
 pub struct ILocationReport_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetSensorID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensorid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcreationtime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetTimestamp: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem")))]
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem")))]
     GetValue: usize,
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1092,8 +1078,6 @@ impl ::core::fmt::Debug for LOCATION_REPORT_STATUS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_AGNSS_INJECT {
     pub Size: u32,
     pub Version: u32,
@@ -1103,45 +1087,35 @@ pub struct GNSS_AGNSS_INJECT {
     pub Unused: [u8; 512],
     pub Anonymous: GNSS_AGNSS_INJECT_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_AGNSS_INJECT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_AGNSS_INJECT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_AGNSS_INJECT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_AGNSS_INJECT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union GNSS_AGNSS_INJECT_0 {
     pub Time: GNSS_AGNSS_INJECTTIME,
     pub Position: GNSS_AGNSS_INJECTPOSITION,
     pub BlobData: GNSS_AGNSS_INJECTBLOB,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_AGNSS_INJECT_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_AGNSS_INJECT_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_AGNSS_INJECT_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_AGNSS_INJECT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1216,41 +1190,32 @@ impl ::core::default::Default for GNSS_AGNSS_INJECTPOSITION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_AGNSS_INJECTTIME {
     pub Size: u32,
     pub Version: u32,
     pub UtcTime: super::super::Foundation::FILETIME,
     pub TimeUncertainty: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_AGNSS_INJECTTIME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_AGNSS_INJECTTIME {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GNSS_AGNSS_INJECTTIME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GNSS_AGNSS_INJECTTIME").field("Size", &self.Size).field("Version", &self.Version).field("UtcTime", &self.UtcTime).field("TimeUncertainty", &self.TimeUncertainty).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_AGNSS_INJECTTIME {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_AGNSS_INJECTTIME {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Version == other.Version && self.UtcTime == other.UtcTime && self.TimeUncertainty == other.TimeUncertainty
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_AGNSS_INJECTTIME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_AGNSS_INJECTTIME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1354,59 +1319,45 @@ impl ::core::default::Default for GNSS_BREADCRUMBING_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_BREADCRUMB_LIST {
     pub Size: u32,
     pub Version: u32,
     pub NumCrumbs: u32,
     pub Anonymous: GNSS_BREADCRUMB_LIST_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_BREADCRUMB_LIST {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_BREADCRUMB_LIST {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_BREADCRUMB_LIST {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_BREADCRUMB_LIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union GNSS_BREADCRUMB_LIST_0 {
     pub v1: [GNSS_BREADCRUMB_V1; 50],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_BREADCRUMB_LIST_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_BREADCRUMB_LIST_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_BREADCRUMB_LIST_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_BREADCRUMB_LIST_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_BREADCRUMB_V1 {
     pub FixTimeStamp: super::super::Foundation::FILETIME,
     pub Latitude: f64,
@@ -1420,15 +1371,12 @@ pub struct GNSS_BREADCRUMB_V1 {
     pub HeadingAccuracy: u8,
     pub FixSuccess: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_BREADCRUMB_V1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_BREADCRUMB_V1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GNSS_BREADCRUMB_V1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GNSS_BREADCRUMB_V1")
@@ -1446,19 +1394,15 @@ impl ::core::fmt::Debug for GNSS_BREADCRUMB_V1 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_BREADCRUMB_V1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_BREADCRUMB_V1 {
     fn eq(&self, other: &Self) -> bool {
         self.FixTimeStamp == other.FixTimeStamp && self.Latitude == other.Latitude && self.Longitude == other.Longitude && self.HorizontalAccuracy == other.HorizontalAccuracy && self.Speed == other.Speed && self.SpeedAccuracy == other.SpeedAccuracy && self.Altitude == other.Altitude && self.AltitudeAccuracy == other.AltitudeAccuracy && self.Heading == other.Heading && self.HeadingAccuracy == other.HeadingAccuracy && self.FixSuccess == other.FixSuccess
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_BREADCRUMB_V1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_BREADCRUMB_V1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1562,8 +1506,6 @@ impl ::core::default::Default for GNSS_CP_NI_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_CWTESTDATA {
     pub Size: u32,
     pub Version: u32,
@@ -1572,41 +1514,32 @@ pub struct GNSS_CWTESTDATA {
     pub Frequency: f64,
     pub Unused: [u8; 512],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_CWTESTDATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_CWTESTDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GNSS_CWTESTDATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GNSS_CWTESTDATA").field("Size", &self.Size).field("Version", &self.Version).field("TestResultStatus", &self.TestResultStatus).field("SignalToNoiseRatio", &self.SignalToNoiseRatio).field("Frequency", &self.Frequency).field("Unused", &self.Unused).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_CWTESTDATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_CWTESTDATA {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Version == other.Version && self.TestResultStatus == other.TestResultStatus && self.SignalToNoiseRatio == other.SignalToNoiseRatio && self.Frequency == other.Frequency && self.Unused == other.Unused
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_CWTESTDATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_CWTESTDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_DEVICE_CAPABILITY {
     pub Size: u32,
     pub Version: u32,
@@ -1636,15 +1569,12 @@ pub struct GNSS_DEVICE_CAPABILITY {
     pub MaxGnssBreadCrumbFixes: u32,
     pub Unused: [u8; 496],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_DEVICE_CAPABILITY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_DEVICE_CAPABILITY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GNSS_DEVICE_CAPABILITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GNSS_DEVICE_CAPABILITY")
@@ -1678,11 +1608,9 @@ impl ::core::fmt::Debug for GNSS_DEVICE_CAPABILITY {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_DEVICE_CAPABILITY {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_DEVICE_CAPABILITY {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size
@@ -1714,9 +1642,7 @@ impl ::core::cmp::PartialEq for GNSS_DEVICE_CAPABILITY {
             && self.Unused == other.Unused
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_DEVICE_CAPABILITY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_DEVICE_CAPABILITY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1821,8 +1747,6 @@ impl ::core::default::Default for GNSS_DRIVER_REQUEST_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_ERRORINFO {
     pub Size: u32,
     pub Version: u32,
@@ -1831,41 +1755,32 @@ pub struct GNSS_ERRORINFO {
     pub ErrorDescription: [u16; 256],
     pub Unused: [u8; 512],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_ERRORINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_ERRORINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GNSS_ERRORINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GNSS_ERRORINFO").field("Size", &self.Size).field("Version", &self.Version).field("ErrorCode", &self.ErrorCode).field("IsRecoverable", &self.IsRecoverable).field("ErrorDescription", &self.ErrorDescription).field("Unused", &self.Unused).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_ERRORINFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_ERRORINFO {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Version == other.Version && self.ErrorCode == other.ErrorCode && self.IsRecoverable == other.IsRecoverable && self.ErrorDescription == other.ErrorDescription && self.Unused == other.Unused
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_ERRORINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_ERRORINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_EVENT {
     pub Size: u32,
     pub Version: u32,
@@ -1874,27 +1789,21 @@ pub struct GNSS_EVENT {
     pub Unused: [u8; 512],
     pub Anonymous: GNSS_EVENT_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_EVENT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_EVENT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_EVENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union GNSS_EVENT_0 {
     pub FixData: GNSS_FIXDATA,
     pub AgnssRequest: GNSS_AGNSS_REQUEST_PARAM,
@@ -1907,27 +1816,21 @@ pub union GNSS_EVENT_0 {
     pub DriverRequestData: GNSS_DRIVER_REQUEST_DATA,
     pub CustomData: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_EVENT_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_EVENT_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_EVENT_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_EVENT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_EVENT_2 {
     pub Size: u32,
     pub Version: u32,
@@ -1936,27 +1839,21 @@ pub struct GNSS_EVENT_2 {
     pub Unused: [u8; 512],
     pub Anonymous: GNSS_EVENT_2_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_EVENT_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_EVENT_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_EVENT_2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_EVENT_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union GNSS_EVENT_2_0 {
     pub FixData: GNSS_FIXDATA,
     pub FixData2: GNSS_FIXDATA_2,
@@ -1970,27 +1867,21 @@ pub union GNSS_EVENT_2_0 {
     pub DriverRequestData: GNSS_DRIVER_REQUEST_DATA,
     pub CustomData: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_EVENT_2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_EVENT_2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_EVENT_2_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_EVENT_2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_FIXDATA {
     pub Size: u32,
     pub Version: u32,
@@ -2003,41 +1894,32 @@ pub struct GNSS_FIXDATA {
     pub AccuracyData: GNSS_FIXDATA_ACCURACY,
     pub SatelliteData: GNSS_FIXDATA_SATELLITE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_FIXDATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_FIXDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GNSS_FIXDATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GNSS_FIXDATA").field("Size", &self.Size).field("Version", &self.Version).field("FixSessionID", &self.FixSessionID).field("FixTimeStamp", &self.FixTimeStamp).field("IsFinalFix", &self.IsFinalFix).field("FixStatus", &self.FixStatus).field("FixLevelOfDetails", &self.FixLevelOfDetails).field("BasicData", &self.BasicData).field("AccuracyData", &self.AccuracyData).field("SatelliteData", &self.SatelliteData).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_FIXDATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_FIXDATA {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Version == other.Version && self.FixSessionID == other.FixSessionID && self.FixTimeStamp == other.FixTimeStamp && self.IsFinalFix == other.IsFinalFix && self.FixStatus == other.FixStatus && self.FixLevelOfDetails == other.FixLevelOfDetails && self.BasicData == other.BasicData && self.AccuracyData == other.AccuracyData && self.SatelliteData == other.SatelliteData
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_FIXDATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_FIXDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_FIXDATA_2 {
     pub Size: u32,
     pub Version: u32,
@@ -2050,33 +1932,26 @@ pub struct GNSS_FIXDATA_2 {
     pub AccuracyData: GNSS_FIXDATA_ACCURACY_2,
     pub SatelliteData: GNSS_FIXDATA_SATELLITE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_FIXDATA_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_FIXDATA_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GNSS_FIXDATA_2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GNSS_FIXDATA_2").field("Size", &self.Size).field("Version", &self.Version).field("FixSessionID", &self.FixSessionID).field("FixTimeStamp", &self.FixTimeStamp).field("IsFinalFix", &self.IsFinalFix).field("FixStatus", &self.FixStatus).field("FixLevelOfDetails", &self.FixLevelOfDetails).field("BasicData", &self.BasicData).field("AccuracyData", &self.AccuracyData).field("SatelliteData", &self.SatelliteData).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_FIXDATA_2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_FIXDATA_2 {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Version == other.Version && self.FixSessionID == other.FixSessionID && self.FixTimeStamp == other.FixTimeStamp && self.IsFinalFix == other.IsFinalFix && self.FixStatus == other.FixStatus && self.FixLevelOfDetails == other.FixLevelOfDetails && self.BasicData == other.BasicData && self.AccuracyData == other.AccuracyData && self.SatelliteData == other.SatelliteData
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_FIXDATA_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_FIXDATA_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2312,41 +2187,32 @@ impl ::core::default::Default for GNSS_FIXDATA_BASIC_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_FIXDATA_SATELLITE {
     pub Size: u32,
     pub Version: u32,
     pub SatelliteCount: u32,
     pub SatelliteArray: [GNSS_SATELLITEINFO; 64],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_FIXDATA_SATELLITE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_FIXDATA_SATELLITE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GNSS_FIXDATA_SATELLITE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GNSS_FIXDATA_SATELLITE").field("Size", &self.Size).field("Version", &self.Version).field("SatelliteCount", &self.SatelliteCount).field("SatelliteArray", &self.SatelliteArray).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_FIXDATA_SATELLITE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_FIXDATA_SATELLITE {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Version == other.Version && self.SatelliteCount == other.SatelliteCount && self.SatelliteArray == other.SatelliteArray
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_FIXDATA_SATELLITE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_FIXDATA_SATELLITE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2402,8 +2268,6 @@ impl ::core::default::Default for GNSS_FIXSESSION_PARAM_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     pub Size: u32,
     pub Version: u32,
@@ -2411,33 +2275,26 @@ pub struct GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     pub StatusTimeStamp: super::super::Foundation::FILETIME,
     pub Unused: [u8; 512],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GNSS_GEOFENCES_TRACKINGSTATUS_DATA").field("Size", &self.Size).field("Version", &self.Version).field("Status", &self.Status).field("StatusTimeStamp", &self.StatusTimeStamp).field("Unused", &self.Unused).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Version == other.Version && self.Status == other.Status && self.StatusTimeStamp == other.StatusTimeStamp && self.Unused == other.Unused
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2502,8 +2359,6 @@ impl ::core::default::Default for GNSS_GEOFENCE_CREATE_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_GEOFENCE_CREATE_RESPONSE {
     pub Size: u32,
     pub Version: u32,
@@ -2511,33 +2366,26 @@ pub struct GNSS_GEOFENCE_CREATE_RESPONSE {
     pub GeofenceID: u32,
     pub Unused: [u8; 512],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_GEOFENCE_CREATE_RESPONSE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_GEOFENCE_CREATE_RESPONSE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GNSS_GEOFENCE_CREATE_RESPONSE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GNSS_GEOFENCE_CREATE_RESPONSE").field("Size", &self.Size).field("Version", &self.Version).field("CreationStatus", &self.CreationStatus).field("GeofenceID", &self.GeofenceID).field("Unused", &self.Unused).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_GEOFENCE_CREATE_RESPONSE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_GEOFENCE_CREATE_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Version == other.Version && self.CreationStatus == other.CreationStatus && self.GeofenceID == other.GeofenceID && self.Unused == other.Unused
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_GEOFENCE_CREATE_RESPONSE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_GEOFENCE_CREATE_RESPONSE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2677,8 +2525,6 @@ impl ::core::default::Default for GNSS_LKGFIX_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_NI_REQUEST_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -2690,45 +2536,35 @@ pub struct GNSS_NI_REQUEST_PARAM {
     pub ResponseTimeInSec: u32,
     pub EmergencyLocation: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_NI_REQUEST_PARAM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_NI_REQUEST_PARAM {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_NI_REQUEST_PARAM {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_NI_REQUEST_PARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union GNSS_NI_REQUEST_PARAM_0 {
     pub SuplNiInfo: GNSS_SUPL_NI_INFO,
     pub CpNiInfo: GNSS_CP_NI_INFO,
     pub V2UplNiInfo: GNSS_V2UPL_NI_INFO,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_NI_REQUEST_PARAM_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_NI_REQUEST_PARAM_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_NI_REQUEST_PARAM_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_NI_REQUEST_PARAM_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2798,8 +2634,6 @@ impl ::core::default::Default for GNSS_NMEA_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_PLATFORM_CAPABILITY {
     pub Size: u32,
     pub Version: u32,
@@ -2807,41 +2641,32 @@ pub struct GNSS_PLATFORM_CAPABILITY {
     pub AgnssFormatSupported: u32,
     pub Unused: [u8; 516],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_PLATFORM_CAPABILITY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_PLATFORM_CAPABILITY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GNSS_PLATFORM_CAPABILITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GNSS_PLATFORM_CAPABILITY").field("Size", &self.Size).field("Version", &self.Version).field("SupportAgnssInjection", &self.SupportAgnssInjection).field("AgnssFormatSupported", &self.AgnssFormatSupported).field("Unused", &self.Unused).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_PLATFORM_CAPABILITY {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_PLATFORM_CAPABILITY {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Version == other.Version && self.SupportAgnssInjection == other.SupportAgnssInjection && self.AgnssFormatSupported == other.AgnssFormatSupported && self.Unused == other.Unused
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_PLATFORM_CAPABILITY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_PLATFORM_CAPABILITY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_SATELLITEINFO {
     pub SatelliteId: u32,
     pub UsedInPositiong: super::super::Foundation::BOOL,
@@ -2849,33 +2674,26 @@ pub struct GNSS_SATELLITEINFO {
     pub Azimuth: f64,
     pub SignalToNoiseRatio: f64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_SATELLITEINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_SATELLITEINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GNSS_SATELLITEINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GNSS_SATELLITEINFO").field("SatelliteId", &self.SatelliteId).field("UsedInPositiong", &self.UsedInPositiong).field("Elevation", &self.Elevation).field("Azimuth", &self.Azimuth).field("SignalToNoiseRatio", &self.SignalToNoiseRatio).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_SATELLITEINFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_SATELLITEINFO {
     fn eq(&self, other: &Self) -> bool {
         self.SatelliteId == other.SatelliteId && self.UsedInPositiong == other.UsedInPositiong && self.Elevation == other.Elevation && self.Azimuth == other.Azimuth && self.SignalToNoiseRatio == other.SignalToNoiseRatio
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_SATELLITEINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_SATELLITEINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2916,8 +2734,6 @@ impl ::core::default::Default for GNSS_SELFTESTCONFIG {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_SELFTESTRESULT {
     pub Size: u32,
     pub Version: u32,
@@ -2928,33 +2744,26 @@ pub struct GNSS_SELFTESTRESULT {
     pub OutBufLen: u32,
     pub OutBuffer: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_SELFTESTRESULT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_SELFTESTRESULT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GNSS_SELFTESTRESULT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GNSS_SELFTESTRESULT").field("Size", &self.Size).field("Version", &self.Version).field("TestResultStatus", &self.TestResultStatus).field("Result", &self.Result).field("PinFailedBitMask", &self.PinFailedBitMask).field("Unused", &self.Unused).field("OutBufLen", &self.OutBufLen).field("OutBuffer", &self.OutBuffer).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GNSS_SELFTESTRESULT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_SELFTESTRESULT {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Version == other.Version && self.TestResultStatus == other.TestResultStatus && self.Result == other.Result && self.PinFailedBitMask == other.PinFailedBitMask && self.Unused == other.Unused && self.OutBufLen == other.OutBufLen && self.OutBuffer == other.OutBuffer
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_SELFTESTRESULT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_SELFTESTRESULT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

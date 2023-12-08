@@ -180,17 +180,17 @@ pub struct ICryptographicEngineStatics2_Vtbl {
     pub VerifySignatureWithHashInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, signature: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     VerifySignatureWithHashInput: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub DecryptAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, iv: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     DecryptAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub SignAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     SignAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub SignHashedDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     SignHashedDataAsync: usize,
 }
 #[doc(hidden)]
@@ -654,9 +654,9 @@ unsafe impl ::windows_core::ComInterface for IPersistedKeyProviderStatics {
 #[doc(hidden)]
 pub struct IPersistedKeyProviderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates"))]
+    #[cfg(feature = "Security_Cryptography_Certificates")]
     pub OpenKeyPairFromCertificateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: *mut ::core::ffi::c_void, hashalgorithmname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, padding: CryptographicPadding, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Cryptography_Certificates")))]
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     OpenKeyPairFromCertificateAsync: usize,
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub OpenPublicKeyFromCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: *mut ::core::ffi::c_void, hashalgorithmname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, padding: CryptographicPadding, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1102,8 +1102,8 @@ impl CryptographicEngine {
             (::windows_core::Interface::vtable(this).VerifySignatureWithHashInput)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), signature.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    #[cfg(feature = "Storage_Streams")]
     pub fn DecryptAsync<P0, P1, P2>(key: P0, data: P1, iv: P2) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: ::windows_core::IntoParam<CryptographicKey>,
@@ -1115,8 +1115,8 @@ impl CryptographicEngine {
             (::windows_core::Interface::vtable(this).DecryptAsync)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), iv.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    #[cfg(feature = "Storage_Streams")]
     pub fn SignAsync<P0, P1>(key: P0, data: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: ::windows_core::IntoParam<CryptographicKey>,
@@ -1127,8 +1127,8 @@ impl CryptographicEngine {
             (::windows_core::Interface::vtable(this).SignAsync)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    #[cfg(feature = "Storage_Streams")]
     pub fn SignHashedDataAsync<P0, P1>(key: P0, data: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: ::windows_core::IntoParam<CryptographicKey>,
@@ -2100,8 +2100,8 @@ unsafe impl ::core::marker::Send for MacAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for MacAlgorithmProvider {}
 pub struct PersistedKeyProvider;
 impl PersistedKeyProvider {
-    #[doc = "Required features: `\"Foundation\"`, `\"Security_Cryptography_Certificates\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates"))]
+    #[doc = "Required features: `\"Security_Cryptography_Certificates\"`"]
+    #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn OpenKeyPairFromCertificateAsync<P0>(certificate: P0, hashalgorithmname: &::windows_core::HSTRING, padding: CryptographicPadding) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<CryptographicKey>>
     where
         P0: ::windows_core::IntoParam<super::Certificates::Certificate>,

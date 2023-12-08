@@ -451,17 +451,13 @@ impl IMLangLineBreakConsole_Vtbl {
         *iid == <IMLangLineBreakConsole as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMLangString_Impl: Sized {
     fn Sync(&self, fnoaccess: super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn GetLength(&self, pllen: *mut i32) -> ::windows_core::Result<()>;
     fn SetMLStr(&self, ldestpos: i32, ldestlen: i32, psrcmlstr: ::core::option::Option<&::windows_core::IUnknown>, lsrcpos: i32, lsrclen: i32) -> ::windows_core::Result<()>;
     fn GetMLStr(&self, lsrcpos: i32, lsrclen: i32, punkouter: ::core::option::Option<&::windows_core::IUnknown>, dwclscontext: u32, piid: *const ::windows_core::GUID, ppdestmlstr: *mut ::core::option::Option<::windows_core::IUnknown>, pldestpos: *mut i32, pldestlen: *mut i32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IMLangString {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMLangString_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMLangString_Impl, const OFFSET: isize>() -> IMLangString_Vtbl {
         unsafe extern "system" fn Sync<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMLangString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fnoaccess: super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -496,8 +492,6 @@ impl IMLangString_Vtbl {
         *iid == <IMLangString as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMLangStringAStr_Impl: Sized + IMLangString_Impl {
     fn SetAStr(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, pszsrc: &::windows_core::PCSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows_core::Result<()>;
     fn SetStrBufA(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, psrcbuf: ::core::option::Option<&IMLangStringBufA>, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows_core::Result<()>;
@@ -508,9 +502,7 @@ pub trait IMLangStringAStr_Impl: Sized + IMLangString_Impl {
     fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: u32) -> ::windows_core::Result<()>;
     fn GetLocale(&self, lsrcpos: i32, lsrcmaxlen: i32, plocale: *mut u32, pllocalepos: *mut i32, pllocalelen: *mut i32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IMLangStringAStr {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMLangStringAStr_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMLangStringAStr_Impl, const OFFSET: isize>() -> IMLangStringAStr_Vtbl {
         unsafe extern "system" fn SetAStr<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMLangStringAStr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ldestpos: i32, ldestlen: i32, ucodepage: u32, pszsrc: ::windows_core::PCSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows_core::HRESULT {
@@ -665,8 +657,6 @@ impl IMLangStringBufW_Vtbl {
         *iid == <IMLangStringBufW as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMLangStringWStr_Impl: Sized + IMLangString_Impl {
     fn SetWStr(&self, ldestpos: i32, ldestlen: i32, pszsrc: &::windows_core::PCWSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows_core::Result<()>;
     fn SetStrBufW(&self, ldestpos: i32, ldestlen: i32, psrcbuf: ::core::option::Option<&IMLangStringBufW>, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows_core::Result<()>;
@@ -677,9 +667,7 @@ pub trait IMLangStringWStr_Impl: Sized + IMLangString_Impl {
     fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: u32) -> ::windows_core::Result<()>;
     fn GetLocale(&self, lsrcpos: i32, lsrcmaxlen: i32, plocale: *mut u32, pllocalepos: *mut i32, pllocalelen: *mut i32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IMLangStringWStr {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMLangStringWStr_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMLangStringWStr_Impl, const OFFSET: isize>() -> IMLangStringWStr_Vtbl {
         unsafe extern "system" fn SetWStr<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMLangStringWStr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ldestpos: i32, ldestlen: i32, pszsrc: ::windows_core::PCWSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows_core::HRESULT {
@@ -892,8 +880,8 @@ impl IMultiLanguage_Vtbl {
         *iid == <IMultiLanguage as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMultiLanguage2_Impl: Sized {
     fn GetNumberOfCodePageInfo(&self) -> ::windows_core::Result<u32>;
     fn GetCodePageInfo(&self, uicodepage: u32, langid: u16, pcodepageinfo: *mut MIMECPINFO) -> ::windows_core::Result<()>;
@@ -923,9 +911,9 @@ pub trait IMultiLanguage2_Impl: Sized {
     fn EnumScripts(&self, dwflags: u32, langid: u16) -> ::windows_core::Result<IEnumScript>;
     fn ValidateCodePageEx(&self, uicodepage: u32, hwnd: super::Foundation::HWND, dwfiodcontrol: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IMultiLanguage2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMultiLanguage2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage2_Impl, const OFFSET: isize>() -> IMultiLanguage2_Vtbl {
         unsafe extern "system" fn GetNumberOfCodePageInfo<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pccodepage: *mut u32) -> ::windows_core::HRESULT {
@@ -1146,15 +1134,15 @@ impl IMultiLanguage2_Vtbl {
         *iid == <IMultiLanguage2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMultiLanguage3_Impl: Sized + IMultiLanguage2_Impl {
     fn DetectOutboundCodePage(&self, dwflags: u32, lpwidecharstr: &::windows_core::PCWSTR, cchwidechar: u32, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn DetectOutboundCodePageInIStream(&self, dwflags: u32, pstrin: ::core::option::Option<&super::System::Com::IStream>, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IMultiLanguage3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMultiLanguage3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage3_Impl, const OFFSET: isize>() -> IMultiLanguage3_Vtbl {
         unsafe extern "system" fn DetectOutboundCodePage<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, lpwidecharstr: ::windows_core::PCWSTR, cchwidechar: u32, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: ::windows_core::PCWSTR) -> ::windows_core::HRESULT {
@@ -1381,16 +1369,16 @@ impl ISpellCheckProvider_Vtbl {
         *iid == <ISpellCheckProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISpellCheckProviderFactory_Impl: Sized {
     fn SupportedLanguages(&self) -> ::windows_core::Result<super::System::Com::IEnumString>;
     fn IsSupported(&self, languagetag: &::windows_core::PCWSTR) -> ::windows_core::Result<super::Foundation::BOOL>;
     fn CreateSpellCheckProvider(&self, languagetag: &::windows_core::PCWSTR) -> ::windows_core::Result<ISpellCheckProvider>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for ISpellCheckProviderFactory {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISpellCheckProviderFactory_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpellCheckProviderFactory_Impl, const OFFSET: isize>() -> ISpellCheckProviderFactory_Vtbl {
         unsafe extern "system" fn SupportedLanguages<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpellCheckProviderFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1650,16 +1638,16 @@ impl ISpellCheckerChangedEventHandler_Vtbl {
         *iid == <ISpellCheckerChangedEventHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISpellCheckerFactory_Impl: Sized {
     fn SupportedLanguages(&self) -> ::windows_core::Result<super::System::Com::IEnumString>;
     fn IsSupported(&self, languagetag: &::windows_core::PCWSTR) -> ::windows_core::Result<super::Foundation::BOOL>;
     fn CreateSpellChecker(&self, languagetag: &::windows_core::PCWSTR) -> ::windows_core::Result<ISpellChecker>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for ISpellCheckerFactory {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISpellCheckerFactory_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpellCheckerFactory_Impl, const OFFSET: isize>() -> ISpellCheckerFactory_Vtbl {
         unsafe extern "system" fn SupportedLanguages<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpellCheckerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

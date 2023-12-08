@@ -348,8 +348,6 @@ impl IStorageFolderQueryOperations_Vtbl {
         *iid == <IStorageFolderQueryOperations as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IStorageQueryResultBase_Impl: Sized {
     fn GetItemCountAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn Folder(&self) -> ::windows_core::Result<super::StorageFolder>;
@@ -361,11 +359,9 @@ pub trait IStorageQueryResultBase_Impl: Sized {
     fn GetCurrentQueryOptions(&self) -> ::windows_core::Result<QueryOptions>;
     fn ApplyNewQueryOptions(&self, newqueryoptions: ::core::option::Option<&QueryOptions>) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IStorageQueryResultBase {
     const NAME: &'static str = "Windows.Storage.Search.IStorageQueryResultBase";
 }
-#[cfg(feature = "Foundation")]
 impl IStorageQueryResultBase_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageQueryResultBase_Impl, const OFFSET: isize>() -> IStorageQueryResultBase_Vtbl {
         unsafe extern "system" fn GetItemCountAsync<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

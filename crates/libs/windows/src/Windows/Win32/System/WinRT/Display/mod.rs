@@ -2,8 +2,8 @@
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayDeviceInterop(::windows_core::IUnknown);
 impl IDisplayDeviceInterop {
-    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+    #[doc = "Required features: `\"Win32_Security\"`"]
+    #[cfg(feature = "Win32_Security")]
     pub unsafe fn CreateSharedHandle<P0>(&self, pobject: P0, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::HANDLE>
     where
         P0: ::windows_core::IntoParam<::windows_core::IInspectable>,
@@ -11,8 +11,6 @@ impl IDisplayDeviceInterop {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSharedHandle)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), psecurityattributes, access, ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenSharedHandle<P0>(&self, nthandle: P0, riid: ::windows_core::GUID) -> ::windows_core::Result<*mut ::core::ffi::c_void>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
@@ -32,21 +30,16 @@ unsafe impl ::windows_core::ComInterface for IDisplayDeviceInterop {
 #[doc(hidden)]
 pub struct IDisplayDeviceInterop_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+    #[cfg(feature = "Win32_Security")]
     pub CreateSharedHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, phandle: *mut super::super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security")))]
+    #[cfg(not(feature = "Win32_Security"))]
     CreateSharedHandle: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub OpenSharedHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nthandle: super::super::super::Foundation::HANDLE, riid: ::windows_core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    OpenSharedHandle: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayPathInterop(::windows_core::IUnknown);
 impl IDisplayPathInterop {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSourcePresentationHandle(&self) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSourcePresentationHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -67,10 +60,7 @@ unsafe impl ::windows_core::ComInterface for IDisplayPathInterop {
 #[doc(hidden)]
 pub struct IDisplayPathInterop_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub CreateSourcePresentationHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut super::super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    CreateSourcePresentationHandle: usize,
     pub GetSourceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psourceid: *mut u32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "implement")]

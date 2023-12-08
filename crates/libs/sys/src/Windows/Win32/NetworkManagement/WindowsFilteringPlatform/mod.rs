@@ -1,373 +1,276 @@
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmCalloutAdd0(enginehandle : super::super::Foundation:: HANDLE, callout : *const FWPM_CALLOUT0, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmCalloutCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_CALLOUT_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmCalloutDeleteById0(enginehandle : super::super::Foundation:: HANDLE, id : u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmCalloutDeleteByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmCalloutDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmCalloutEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_CALLOUT0, numentriesreturned : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmCalloutGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u32, callout : *mut *mut FWPM_CALLOUT0) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmCalloutGetByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, callout : *mut *mut FWPM_CALLOUT0) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmCalloutGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmCalloutSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmCalloutSubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_CALLOUT_SUBSCRIPTION0, callback : FWPM_CALLOUT_CHANGE_CALLBACK0, context : *const ::core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmCalloutSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut FWPM_CALLOUT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmCalloutUnsubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmConnectionCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_CONNECTION_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmConnectionDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmConnectionEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_CONNECTION0, numentriesreturned : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmConnectionGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u64, connection : *mut *mut FWPM_CONNECTION0) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmConnectionGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmConnectionSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmConnectionSubscribe0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_CONNECTION_SUBSCRIPTION0, callback : FWPM_CONNECTION_CALLBACK0, context : *const ::core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmConnectionUnsubscribe0(enginehandle : super::super::Foundation:: HANDLE, eventshandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmDynamicKeywordSubscribe0(flags : u32, callback : FWPM_DYNAMIC_KEYWORD_CALLBACK0, context : *const ::core::ffi::c_void, subscriptionhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmDynamicKeywordUnsubscribe0(subscriptionhandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmEngineClose0(enginehandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmEngineGetOption0(enginehandle : super::super::Foundation:: HANDLE, option : FWPM_ENGINE_OPTION, value : *mut *mut FWP_VALUE0) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmEngineGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Rpc"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Rpc\"`"] fn FwpmEngineOpen0(servername : ::windows_sys::core::PCWSTR, authnservice : u32, authidentity : *const super::super::System::Rpc:: SEC_WINNT_AUTH_IDENTITY_W, session : *const FWPM_SESSION0, enginehandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmEngineSetOption0(enginehandle : super::super::Foundation:: HANDLE, option : FWPM_ENGINE_OPTION, newvalue : *const FWP_VALUE0) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmEngineSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmFilterAdd0(enginehandle : super::super::Foundation:: HANDLE, filter : *const FWPM_FILTER0, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmFilterCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_FILTER_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmFilterDeleteById0(enginehandle : super::super::Foundation:: HANDLE, id : u64) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmFilterDeleteByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmFilterDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmFilterEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_FILTER0, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmFilterGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u64, filter : *mut *mut FWPM_FILTER0) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmFilterGetByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, filter : *mut *mut FWPM_FILTER0) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmFilterGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmFilterSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmFilterSubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_FILTER_SUBSCRIPTION0, callback : FWPM_FILTER_CHANGE_CALLBACK0, context : *const ::core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmFilterSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut FWPM_FILTER_SUBSCRIPTION0, numentries : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmFilterUnsubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmCalloutAdd0(enginehandle : super::super::Foundation:: HANDLE, callout : *const FWPM_CALLOUT0, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_CALLOUT_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutDeleteById0(enginehandle : super::super::Foundation:: HANDLE, id : u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutDeleteByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_CALLOUT0, numentriesreturned : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u32, callout : *mut *mut FWPM_CALLOUT0) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutGetByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, callout : *mut *mut FWPM_CALLOUT0) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmCalloutGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmCalloutSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutSubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_CALLOUT_SUBSCRIPTION0, callback : FWPM_CALLOUT_CHANGE_CALLBACK0, context : *const ::core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut FWPM_CALLOUT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutUnsubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmConnectionCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_CONNECTION_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmConnectionDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmConnectionEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_CONNECTION0, numentriesreturned : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmConnectionGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u64, connection : *mut *mut FWPM_CONNECTION0) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmConnectionGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmConnectionSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmConnectionSubscribe0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_CONNECTION_SUBSCRIPTION0, callback : FWPM_CONNECTION_CALLBACK0, context : *const ::core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmConnectionUnsubscribe0(enginehandle : super::super::Foundation:: HANDLE, eventshandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmDynamicKeywordSubscribe0(flags : u32, callback : FWPM_DYNAMIC_KEYWORD_CALLBACK0, context : *const ::core::ffi::c_void, subscriptionhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmDynamicKeywordUnsubscribe0(subscriptionhandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmEngineClose0(enginehandle : super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmEngineGetOption0(enginehandle : super::super::Foundation:: HANDLE, option : FWPM_ENGINE_OPTION, value : *mut *mut FWP_VALUE0) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmEngineGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Rpc"))]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_Rpc\"`"] fn FwpmEngineOpen0(servername : ::windows_sys::core::PCWSTR, authnservice : u32, authidentity : *const super::super::System::Rpc:: SEC_WINNT_AUTH_IDENTITY_W, session : *const FWPM_SESSION0, enginehandle : *mut super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmEngineSetOption0(enginehandle : super::super::Foundation:: HANDLE, option : FWPM_ENGINE_OPTION, newvalue : *const FWP_VALUE0) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmEngineSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmFilterAdd0(enginehandle : super::super::Foundation:: HANDLE, filter : *const FWPM_FILTER0, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmFilterCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_FILTER_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmFilterDeleteById0(enginehandle : super::super::Foundation:: HANDLE, id : u64) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmFilterDeleteByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmFilterDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmFilterEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_FILTER0, numentriesreturned : *mut u32) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmFilterGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u64, filter : *mut *mut FWPM_FILTER0) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmFilterGetByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, filter : *mut *mut FWPM_FILTER0) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmFilterGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmFilterSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmFilterSubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_FILTER_SUBSCRIPTION0, callback : FWPM_FILTER_CHANGE_CALLBACK0, context : *const ::core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmFilterSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut FWPM_FILTER_SUBSCRIPTION0, numentries : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmFilterUnsubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
 ::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmFreeMemory0(p : *mut *mut ::core::ffi::c_void));
 ::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmGetAppIdFromFileName0(filename : ::windows_sys::core::PCWSTR, appid : *mut *mut FWP_BYTE_BLOB) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmIPsecTunnelAdd0(enginehandle : super::super::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT0, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT0, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmIPsecTunnelAdd1(enginehandle : super::super::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT1, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT1, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, keymodkey : *const ::windows_sys::core::GUID, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmIPsecTunnelAdd2(enginehandle : super::super::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT2, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT2, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, keymodkey : *const ::windows_sys::core::GUID, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmIPsecTunnelAdd3(enginehandle : super::super::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT3, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT3, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, keymodkey : *const ::windows_sys::core::GUID, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmIPsecTunnelDeleteByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmLayerCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_LAYER_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmLayerDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmLayerEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_LAYER0, numentriesreturned : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmLayerGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u16, layer : *mut *mut FWPM_LAYER0) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmLayerGetByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, layer : *mut *mut FWPM_LAYER0) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmLayerGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmLayerSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmNetEventCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_NET_EVENT_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmNetEventDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmNetEventEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT0, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmNetEventEnum1(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT1, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmNetEventEnum2(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT2, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmNetEventEnum3(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT3, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmNetEventEnum4(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT4, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmNetEventEnum5(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT5, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmNetEventSubscribe0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK0, context : *const ::core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmNetEventSubscribe1(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK1, context : *const ::core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmNetEventSubscribe2(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK2, context : *const ::core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmNetEventSubscribe3(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK3, context : *const ::core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmNetEventSubscribe4(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK4, context : *const ::core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmNetEventSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut FWPM_NET_EVENT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmNetEventUnsubscribe0(enginehandle : super::super::Foundation:: HANDLE, eventshandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmNetEventsGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmNetEventsSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderAdd0(enginehandle : super::super::Foundation:: HANDLE, provider : *const FWPM_PROVIDER0, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderContextAdd0(enginehandle : super::super::Foundation:: HANDLE, providercontext : *const FWPM_PROVIDER_CONTEXT0, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderContextAdd1(enginehandle : super::super::Foundation:: HANDLE, providercontext : *const FWPM_PROVIDER_CONTEXT1, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderContextAdd2(enginehandle : super::super::Foundation:: HANDLE, providercontext : *const FWPM_PROVIDER_CONTEXT2, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderContextAdd3(enginehandle : super::super::Foundation:: HANDLE, providercontext : *const FWPM_PROVIDER_CONTEXT3, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmProviderContextCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmProviderContextDeleteById0(enginehandle : super::super::Foundation:: HANDLE, id : u64) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmProviderContextDeleteByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmProviderContextDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderContextEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT0, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderContextEnum1(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT1, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderContextEnum2(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT2, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderContextEnum3(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT3, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderContextGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u64, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderContextGetById1(enginehandle : super::super::Foundation:: HANDLE, id : u64, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderContextGetById2(enginehandle : super::super::Foundation:: HANDLE, id : u64, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderContextGetById3(enginehandle : super::super::Foundation:: HANDLE, id : u64, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT3) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderContextGetByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderContextGetByKey1(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderContextGetByKey2(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderContextGetByKey3(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT3) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderContextGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderContextSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmProviderContextSubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback : FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0, context : *const ::core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmProviderContextSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmProviderContextUnsubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmProviderCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_PROVIDER_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmProviderDeleteByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmProviderDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmProviderEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER0, numentriesreturned : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmProviderGetByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, provider : *mut *mut FWPM_PROVIDER0) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmProviderSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmProviderSubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_PROVIDER_SUBSCRIPTION0, callback : FWPM_PROVIDER_CHANGE_CALLBACK0, context : *const ::core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmProviderSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut FWPM_PROVIDER_SUBSCRIPTION0, numentries : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmProviderUnsubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmSessionCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_SESSION_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmSessionDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmSessionEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_SESSION0, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmSubLayerAdd0(enginehandle : super::super::Foundation:: HANDLE, sublayer : *const FWPM_SUBLAYER0, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmSubLayerCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_SUBLAYER_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmSubLayerDeleteByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmSubLayerDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmSubLayerEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_SUBLAYER0, numentriesreturned : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmSubLayerGetByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, sublayer : *mut *mut FWPM_SUBLAYER0) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmSubLayerGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmSubLayerSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmSubLayerSubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_SUBLAYER_SUBSCRIPTION0, callback : FWPM_SUBLAYER_CHANGE_CALLBACK0, context : *const ::core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmSubLayerSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut FWPM_SUBLAYER_SUBSCRIPTION0, numentries : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmSubLayerUnsubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmSystemPortsGet0(enginehandle : super::super::Foundation:: HANDLE, sysports : *mut *mut FWPM_SYSTEM_PORTS0) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmSystemPortsSubscribe0(enginehandle : super::super::Foundation:: HANDLE, reserved : *const ::core::ffi::c_void, callback : FWPM_SYSTEM_PORTS_CALLBACK0, context : *const ::core::ffi::c_void, sysportshandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmSystemPortsUnsubscribe0(enginehandle : super::super::Foundation:: HANDLE, sysportshandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmTransactionAbort0(enginehandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmTransactionBegin0(enginehandle : super::super::Foundation:: HANDLE, flags : u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmTransactionCommit0(enginehandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmvSwitchEventSubscribe0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback : FWPM_VSWITCH_EVENT_CALLBACK0, context : *const ::core::ffi::c_void, subscriptionhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FwpmvSwitchEventUnsubscribe0(enginehandle : super::super::Foundation:: HANDLE, subscriptionhandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmvSwitchEventsGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FwpmvSwitchEventsSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IPsecDospGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecDospGetStatistics0(enginehandle : super::super::Foundation:: HANDLE, idpstatistics : *mut IPSEC_DOSP_STATISTICS0) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IPsecDospSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecDospStateCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const IPSEC_DOSP_STATE_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecDospStateDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecDospStateEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_DOSP_STATE0, numentries : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecGetStatistics0(enginehandle : super::super::Foundation:: HANDLE, ipsecstatistics : *mut IPSEC_STATISTICS0) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecGetStatistics1(enginehandle : super::super::Foundation:: HANDLE, ipsecstatistics : *mut IPSEC_STATISTICS1) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IPsecKeyManagerAddAndRegister0(enginehandle : super::super::Foundation:: HANDLE, keymanager : *const IPSEC_KEY_MANAGER0, keymanagercallbacks : *const IPSEC_KEY_MANAGER_CALLBACKS0, keymgmthandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IPsecKeyManagerGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, reserved : *const ::core::ffi::c_void, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IPsecKeyManagerSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, reserved : *const ::core::ffi::c_void, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecKeyManagerUnregisterAndDelete0(enginehandle : super::super::Foundation:: HANDLE, keymgmthandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecKeyManagersGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut IPSEC_KEY_MANAGER0, numentries : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecSaContextAddInbound0(enginehandle : super::super::Foundation:: HANDLE, id : u64, inboundbundle : *const IPSEC_SA_BUNDLE0) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecSaContextAddInbound1(enginehandle : super::super::Foundation:: HANDLE, id : u64, inboundbundle : *const IPSEC_SA_BUNDLE1) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecSaContextAddOutbound0(enginehandle : super::super::Foundation:: HANDLE, id : u64, outboundbundle : *const IPSEC_SA_BUNDLE0) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecSaContextAddOutbound1(enginehandle : super::super::Foundation:: HANDLE, id : u64, outboundbundle : *const IPSEC_SA_BUNDLE1) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecSaContextCreate0(enginehandle : super::super::Foundation:: HANDLE, outboundtraffic : *const IPSEC_TRAFFIC0, inboundfilterid : *mut u64, id : *mut u64) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecSaContextCreate1(enginehandle : super::super::Foundation:: HANDLE, outboundtraffic : *const IPSEC_TRAFFIC1, virtualiftunnelinfo : *const IPSEC_VIRTUAL_IF_TUNNEL_INFO0, inboundfilterid : *mut u64, id : *mut u64) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IPsecSaContextCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const IPSEC_SA_CONTEXT_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecSaContextDeleteById0(enginehandle : super::super::Foundation:: HANDLE, id : u64) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecSaContextDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IPsecSaContextEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_SA_CONTEXT0, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IPsecSaContextEnum1(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_SA_CONTEXT1, numentriesreturned : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecSaContextExpire0(enginehandle : super::super::Foundation:: HANDLE, id : u64) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IPsecSaContextGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u64, sacontext : *mut *mut IPSEC_SA_CONTEXT0) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IPsecSaContextGetById1(enginehandle : super::super::Foundation:: HANDLE, id : u64, sacontext : *mut *mut IPSEC_SA_CONTEXT1) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecSaContextGetSpi0(enginehandle : super::super::Foundation:: HANDLE, id : u64, getspi : *const IPSEC_GETSPI0, inboundspi : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecSaContextGetSpi1(enginehandle : super::super::Foundation:: HANDLE, id : u64, getspi : *const IPSEC_GETSPI1, inboundspi : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecSaContextSetSpi0(enginehandle : super::super::Foundation:: HANDLE, id : u64, getspi : *const IPSEC_GETSPI1, inboundspi : u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IPsecSaContextSubscribe0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback : IPSEC_SA_CONTEXT_CALLBACK0, context : *const ::core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IPsecSaContextSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut IPSEC_SA_CONTEXT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecSaContextUnsubscribe0(enginehandle : super::super::Foundation:: HANDLE, eventshandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IPsecSaContextUpdate0(enginehandle : super::super::Foundation:: HANDLE, flags : u64, newvalues : *const IPSEC_SA_CONTEXT1) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecSaCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const IPSEC_SA_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IPsecSaDbGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IPsecSaDbSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IPsecSaDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IPsecSaEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_SA_DETAILS0, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IPsecSaEnum1(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_SA_DETAILS1, numentriesreturned : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IkeextGetStatistics0(enginehandle : super::super::Foundation:: HANDLE, ikeextstatistics : *mut IKEEXT_STATISTICS0) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IkeextGetStatistics1(enginehandle : super::super::Foundation:: HANDLE, ikeextstatistics : *mut IKEEXT_STATISTICS1) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IkeextSaCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const IKEEXT_SA_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IkeextSaDbGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn IkeextSaDbSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IkeextSaDeleteById0(enginehandle : super::super::Foundation:: HANDLE, id : u64) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IkeextSaDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IkeextSaEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IKEEXT_SA_DETAILS0, numentriesreturned : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IkeextSaEnum1(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IKEEXT_SA_DETAILS1, numentriesreturned : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IkeextSaEnum2(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IKEEXT_SA_DETAILS2, numentriesreturned : *mut u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IkeextSaGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u64, sa : *mut *mut IKEEXT_SA_DETAILS0) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IkeextSaGetById1(enginehandle : super::super::Foundation:: HANDLE, id : u64, salookupcontext : *const ::windows_sys::core::GUID, sa : *mut *mut IKEEXT_SA_DETAILS1) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IkeextSaGetById2(enginehandle : super::super::Foundation:: HANDLE, id : u64, salookupcontext : *const ::windows_sys::core::GUID, sa : *mut *mut IKEEXT_SA_DETAILS2) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmIPsecTunnelAdd0(enginehandle : super::super::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT0, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT0, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmIPsecTunnelAdd1(enginehandle : super::super::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT1, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT1, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, keymodkey : *const ::windows_sys::core::GUID, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmIPsecTunnelAdd2(enginehandle : super::super::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT2, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT2, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, keymodkey : *const ::windows_sys::core::GUID, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmIPsecTunnelAdd3(enginehandle : super::super::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT3, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT3, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, keymodkey : *const ::windows_sys::core::GUID, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelDeleteByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmLayerCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_LAYER_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmLayerDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmLayerEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_LAYER0, numentriesreturned : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmLayerGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u16, layer : *mut *mut FWPM_LAYER0) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmLayerGetByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, layer : *mut *mut FWPM_LAYER0) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmLayerGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmLayerSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmNetEventCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_NET_EVENT_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmNetEventDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmNetEventEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT0, numentriesreturned : *mut u32) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmNetEventEnum1(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT1, numentriesreturned : *mut u32) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmNetEventEnum2(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT2, numentriesreturned : *mut u32) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmNetEventEnum3(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT3, numentriesreturned : *mut u32) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmNetEventEnum4(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT4, numentriesreturned : *mut u32) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmNetEventEnum5(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT5, numentriesreturned : *mut u32) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmNetEventSubscribe0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK0, context : *const ::core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmNetEventSubscribe1(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK1, context : *const ::core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmNetEventSubscribe2(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK2, context : *const ::core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmNetEventSubscribe3(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK3, context : *const ::core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmNetEventSubscribe4(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK4, context : *const ::core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmNetEventSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut FWPM_NET_EVENT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmNetEventUnsubscribe0(enginehandle : super::super::Foundation:: HANDLE, eventshandle : super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmNetEventsGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmNetEventsSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderAdd0(enginehandle : super::super::Foundation:: HANDLE, provider : *const FWPM_PROVIDER0, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderContextAdd0(enginehandle : super::super::Foundation:: HANDLE, providercontext : *const FWPM_PROVIDER_CONTEXT0, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderContextAdd1(enginehandle : super::super::Foundation:: HANDLE, providercontext : *const FWPM_PROVIDER_CONTEXT1, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderContextAdd2(enginehandle : super::super::Foundation:: HANDLE, providercontext : *const FWPM_PROVIDER_CONTEXT2, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderContextAdd3(enginehandle : super::super::Foundation:: HANDLE, providercontext : *const FWPM_PROVIDER_CONTEXT3, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextDeleteById0(enginehandle : super::super::Foundation:: HANDLE, id : u64) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextDeleteByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderContextEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT0, numentriesreturned : *mut u32) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderContextEnum1(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT1, numentriesreturned : *mut u32) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderContextEnum2(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT2, numentriesreturned : *mut u32) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderContextEnum3(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT3, numentriesreturned : *mut u32) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderContextGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u64, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderContextGetById1(enginehandle : super::super::Foundation:: HANDLE, id : u64, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderContextGetById2(enginehandle : super::super::Foundation:: HANDLE, id : u64, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderContextGetById3(enginehandle : super::super::Foundation:: HANDLE, id : u64, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT3) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderContextGetByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderContextGetByKey1(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderContextGetByKey2(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderContextGetByKey3(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT3) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderContextGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderContextSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextSubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback : FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0, context : *const ::core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextUnsubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_PROVIDER_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderDeleteByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER0, numentriesreturned : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderGetByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, provider : *mut *mut FWPM_PROVIDER0) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmProviderSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderSubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_PROVIDER_SUBSCRIPTION0, callback : FWPM_PROVIDER_CHANGE_CALLBACK0, context : *const ::core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut FWPM_PROVIDER_SUBSCRIPTION0, numentries : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderUnsubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSessionCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_SESSION_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSessionDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmSessionEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_SESSION0, numentriesreturned : *mut u32) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmSubLayerAdd0(enginehandle : super::super::Foundation:: HANDLE, sublayer : *const FWPM_SUBLAYER0, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSubLayerCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_SUBLAYER_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSubLayerDeleteByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSubLayerDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSubLayerEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_SUBLAYER0, numentriesreturned : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSubLayerGetByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, sublayer : *mut *mut FWPM_SUBLAYER0) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmSubLayerGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmSubLayerSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const ::windows_sys::core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSubLayerSubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_SUBLAYER_SUBSCRIPTION0, callback : FWPM_SUBLAYER_CHANGE_CALLBACK0, context : *const ::core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSubLayerSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut FWPM_SUBLAYER_SUBSCRIPTION0, numentries : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSubLayerUnsubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSystemPortsGet0(enginehandle : super::super::Foundation:: HANDLE, sysports : *mut *mut FWPM_SYSTEM_PORTS0) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSystemPortsSubscribe0(enginehandle : super::super::Foundation:: HANDLE, reserved : *const ::core::ffi::c_void, callback : FWPM_SYSTEM_PORTS_CALLBACK0, context : *const ::core::ffi::c_void, sysportshandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSystemPortsUnsubscribe0(enginehandle : super::super::Foundation:: HANDLE, sysportshandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmTransactionAbort0(enginehandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmTransactionBegin0(enginehandle : super::super::Foundation:: HANDLE, flags : u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmTransactionCommit0(enginehandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmvSwitchEventSubscribe0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback : FWPM_VSWITCH_EVENT_CALLBACK0, context : *const ::core::ffi::c_void, subscriptionhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn FwpmvSwitchEventUnsubscribe0(enginehandle : super::super::Foundation:: HANDLE, subscriptionhandle : super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmvSwitchEventsGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FwpmvSwitchEventsSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IPsecDospGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecDospGetStatistics0(enginehandle : super::super::Foundation:: HANDLE, idpstatistics : *mut IPSEC_DOSP_STATISTICS0) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IPsecDospSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecDospStateCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const IPSEC_DOSP_STATE_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecDospStateDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecDospStateEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_DOSP_STATE0, numentries : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecGetStatistics0(enginehandle : super::super::Foundation:: HANDLE, ipsecstatistics : *mut IPSEC_STATISTICS0) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecGetStatistics1(enginehandle : super::super::Foundation:: HANDLE, ipsecstatistics : *mut IPSEC_STATISTICS1) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IPsecKeyManagerAddAndRegister0(enginehandle : super::super::Foundation:: HANDLE, keymanager : *const IPSEC_KEY_MANAGER0, keymanagercallbacks : *const IPSEC_KEY_MANAGER_CALLBACKS0, keymgmthandle : *mut super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IPsecKeyManagerGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, reserved : *const ::core::ffi::c_void, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IPsecKeyManagerSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, reserved : *const ::core::ffi::c_void, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecKeyManagerUnregisterAndDelete0(enginehandle : super::super::Foundation:: HANDLE, keymgmthandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecKeyManagersGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut IPSEC_KEY_MANAGER0, numentries : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddInbound0(enginehandle : super::super::Foundation:: HANDLE, id : u64, inboundbundle : *const IPSEC_SA_BUNDLE0) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddInbound1(enginehandle : super::super::Foundation:: HANDLE, id : u64, inboundbundle : *const IPSEC_SA_BUNDLE1) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddOutbound0(enginehandle : super::super::Foundation:: HANDLE, id : u64, outboundbundle : *const IPSEC_SA_BUNDLE0) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddOutbound1(enginehandle : super::super::Foundation:: HANDLE, id : u64, outboundbundle : *const IPSEC_SA_BUNDLE1) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextCreate0(enginehandle : super::super::Foundation:: HANDLE, outboundtraffic : *const IPSEC_TRAFFIC0, inboundfilterid : *mut u64, id : *mut u64) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextCreate1(enginehandle : super::super::Foundation:: HANDLE, outboundtraffic : *const IPSEC_TRAFFIC1, virtualiftunnelinfo : *const IPSEC_VIRTUAL_IF_TUNNEL_INFO0, inboundfilterid : *mut u64, id : *mut u64) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IPsecSaContextCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const IPSEC_SA_CONTEXT_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextDeleteById0(enginehandle : super::super::Foundation:: HANDLE, id : u64) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IPsecSaContextEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_SA_CONTEXT0, numentriesreturned : *mut u32) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IPsecSaContextEnum1(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_SA_CONTEXT1, numentriesreturned : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextExpire0(enginehandle : super::super::Foundation:: HANDLE, id : u64) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IPsecSaContextGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u64, sacontext : *mut *mut IPSEC_SA_CONTEXT0) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IPsecSaContextGetById1(enginehandle : super::super::Foundation:: HANDLE, id : u64, sacontext : *mut *mut IPSEC_SA_CONTEXT1) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextGetSpi0(enginehandle : super::super::Foundation:: HANDLE, id : u64, getspi : *const IPSEC_GETSPI0, inboundspi : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextGetSpi1(enginehandle : super::super::Foundation:: HANDLE, id : u64, getspi : *const IPSEC_GETSPI1, inboundspi : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextSetSpi0(enginehandle : super::super::Foundation:: HANDLE, id : u64, getspi : *const IPSEC_GETSPI1, inboundspi : u32) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IPsecSaContextSubscribe0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback : IPSEC_SA_CONTEXT_CALLBACK0, context : *const ::core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IPsecSaContextSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut IPSEC_SA_CONTEXT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextUnsubscribe0(enginehandle : super::super::Foundation:: HANDLE, eventshandle : super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IPsecSaContextUpdate0(enginehandle : super::super::Foundation:: HANDLE, flags : u64, newvalues : *const IPSEC_SA_CONTEXT1) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const IPSEC_SA_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IPsecSaDbGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IPsecSaDbSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IPsecSaEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_SA_DETAILS0, numentriesreturned : *mut u32) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IPsecSaEnum1(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_SA_DETAILS1, numentriesreturned : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IkeextGetStatistics0(enginehandle : super::super::Foundation:: HANDLE, ikeextstatistics : *mut IKEEXT_STATISTICS0) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IkeextGetStatistics1(enginehandle : super::super::Foundation:: HANDLE, ikeextstatistics : *mut IKEEXT_STATISTICS1) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IkeextSaCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const IKEEXT_SA_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IkeextSaDbGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Foundation:: PSID, sidgroup : *mut super::super::Foundation:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("fwpuclnt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn IkeextSaDbSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaDeleteById0(enginehandle : super::super::Foundation:: HANDLE, id : u64) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IKEEXT_SA_DETAILS0, numentriesreturned : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaEnum1(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IKEEXT_SA_DETAILS1, numentriesreturned : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaEnum2(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IKEEXT_SA_DETAILS2, numentriesreturned : *mut u32) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u64, sa : *mut *mut IKEEXT_SA_DETAILS0) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaGetById1(enginehandle : super::super::Foundation:: HANDLE, id : u64, salookupcontext : *const ::windows_sys::core::GUID, sa : *mut *mut IKEEXT_SA_DETAILS1) -> u32);
+::windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaGetById2(enginehandle : super::super::Foundation:: HANDLE, id : u64, salookupcontext : *const ::windows_sys::core::GUID, sa : *mut *mut IKEEXT_SA_DETAILS2) -> u32);
 pub const DlBroadcast: DL_ADDRESS_TYPE = 2i32;
 pub const DlMulticast: DL_ADDRESS_TYPE = 1i32;
 pub const DlUnicast: DL_ADDRESS_TYPE = 0i32;
@@ -1416,38 +1319,36 @@ impl ::core::clone::Clone for FWPM_CALLOUT_SUBSCRIPTION0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_CLASSIFY_OPTION0 {
     pub r#type: FWP_CLASSIFY_OPTION_TYPE,
     pub value: FWP_VALUE0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_CLASSIFY_OPTION0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_CLASSIFY_OPTION0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_CLASSIFY_OPTIONS0 {
     pub numOptions: u32,
     pub options: *mut FWPM_CLASSIFY_OPTION0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_CLASSIFY_OPTIONS0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_CLASSIFY_OPTIONS0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_CONNECTION0 {
     pub connectionId: u64,
     pub ipVersion: FWP_IP_VERSION,
@@ -1464,39 +1365,29 @@ pub struct FWPM_CONNECTION0 {
     pub bytesTransferredTotal: u64,
     pub startSysTime: super::super::Foundation::FILETIME,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_CONNECTION0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_CONNECTION0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union FWPM_CONNECTION0_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_CONNECTION0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_CONNECTION0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union FWPM_CONNECTION0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_CONNECTION0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_CONNECTION0_1 {
     fn clone(&self) -> Self {
         *self
@@ -1549,8 +1440,8 @@ impl ::core::clone::Clone for FWPM_FIELD0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_FILTER0 {
     pub filterKey: ::windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -1568,24 +1459,24 @@ pub struct FWPM_FILTER0 {
     pub filterId: u64,
     pub effectiveWeight: FWP_VALUE0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_FILTER0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_FILTER0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_FILTER0_0 {
     pub rawContext: u64,
     pub providerContextKey: ::windows_sys::core::GUID,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_FILTER0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_FILTER0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1604,24 +1495,24 @@ impl ::core::clone::Clone for FWPM_FILTER_CHANGE0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_FILTER_CONDITION0 {
     pub fieldKey: ::windows_sys::core::GUID,
     pub matchType: FWP_MATCH_TYPE,
     pub conditionValue: FWP_CONDITION_VALUE0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_FILTER_CONDITION0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_FILTER_CONDITION0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_FILTER_ENUM_TEMPLATE0 {
     pub providerKey: *mut ::windows_sys::core::GUID,
     pub layerKey: ::windows_sys::core::GUID,
@@ -1633,25 +1524,25 @@ pub struct FWPM_FILTER_ENUM_TEMPLATE0 {
     pub actionMask: u32,
     pub calloutKey: *mut ::windows_sys::core::GUID,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_FILTER_ENUM_TEMPLATE0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_FILTER_ENUM_TEMPLATE0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_FILTER_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_FILTER_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: ::windows_sys::core::GUID,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_FILTER_SUBSCRIPTION0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_FILTER_SUBSCRIPTION0 {
     fn clone(&self) -> Self {
         *self
@@ -1698,54 +1589,54 @@ impl ::core::clone::Clone for FWPM_LAYER_STATISTICS0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {
     pub r#type: FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE,
     pub value: FWP_VALUE0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {
     pub numSettings: u32,
     pub settings: *mut FWPM_NETWORK_CONNECTION_POLICY_SETTING0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_NET_EVENT0 {
     pub header: FWPM_NET_EVENT_HEADER0,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT0_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT0_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE0,
     pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE0,
@@ -1754,33 +1645,33 @@ pub union FWPM_NET_EVENT0_0 {
     pub ipsecDrop: *mut FWPM_NET_EVENT_IPSEC_KERNEL_DROP0,
     pub idpDrop: *mut FWPM_NET_EVENT_IPSEC_DOSP_DROP0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_NET_EVENT1 {
     pub header: FWPM_NET_EVENT_HEADER1,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT1_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT1_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE1,
     pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE0,
@@ -1789,33 +1680,33 @@ pub union FWPM_NET_EVENT1_0 {
     pub ipsecDrop: *mut FWPM_NET_EVENT_IPSEC_KERNEL_DROP0,
     pub idpDrop: *mut FWPM_NET_EVENT_IPSEC_DOSP_DROP0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT1_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_NET_EVENT2 {
     pub header: FWPM_NET_EVENT_HEADER2,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT2_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT2_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE1,
     pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE0,
@@ -1828,33 +1719,33 @@ pub union FWPM_NET_EVENT2_0 {
     pub capabilityAllow: *mut FWPM_NET_EVENT_CAPABILITY_ALLOW0,
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT2_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_NET_EVENT3 {
     pub header: FWPM_NET_EVENT_HEADER3,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT3_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT3_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE1,
     pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE0,
@@ -1867,33 +1758,33 @@ pub union FWPM_NET_EVENT3_0 {
     pub capabilityAllow: *mut FWPM_NET_EVENT_CAPABILITY_ALLOW0,
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT3_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT3_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_NET_EVENT4 {
     pub header: FWPM_NET_EVENT_HEADER3,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT4_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT4 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT4 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT4_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE2,
     pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE1,
@@ -1906,33 +1797,33 @@ pub union FWPM_NET_EVENT4_0 {
     pub capabilityAllow: *mut FWPM_NET_EVENT_CAPABILITY_ALLOW0,
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT4_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT4_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_NET_EVENT5 {
     pub header: FWPM_NET_EVENT_HEADER3,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT5_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT5 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT5 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT5_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE2,
     pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE1,
@@ -1946,49 +1837,39 @@ pub union FWPM_NET_EVENT5_0 {
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
     pub lpmPacketArrival: *mut FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT5_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT5_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
     pub networkCapabilityId: FWPM_APPC_NETWORK_CAPABILITY_TYPE,
     pub filterId: u64,
     pub isLoopback: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_CAPABILITY_DROP0 {
     pub networkCapabilityId: FWPM_APPC_NETWORK_CAPABILITY_TYPE,
     pub filterId: u64,
     pub isLoopback: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_CAPABILITY_DROP0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_CAPABILITY_DROP0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
     pub filterId: u64,
     pub layerId: u16,
@@ -1998,9 +1879,7 @@ pub struct FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
     pub msFwpDirection: u32,
     pub isLoopback: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
     fn clone(&self) -> Self {
         *self
@@ -2018,8 +1897,6 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_CLASSIFY_DROP0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP1 {
     pub filterId: u64,
     pub layerId: u16,
@@ -2029,17 +1906,13 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP1 {
     pub msFwpDirection: u32,
     pub isLoopback: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_CLASSIFY_DROP1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_CLASSIFY_DROP1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP2 {
     pub filterId: u64,
     pub layerId: u16,
@@ -2052,17 +1925,13 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP2 {
     pub vSwitchSourcePort: u32,
     pub vSwitchDestinationPort: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_CLASSIFY_DROP2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_CLASSIFY_DROP2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     pub localMacAddr: FWP_BYTE_ARRAY6,
     pub remoteMacAddr: FWP_BYTE_ARRAY6,
@@ -2084,34 +1953,32 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     pub vSwitchSourcePort: u32,
     pub vSwitchDestinationPort: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_NET_EVENT_ENUM_TEMPLATE0 {
     pub startTime: super::super::Foundation::FILETIME,
     pub endTime: super::super::Foundation::FILETIME,
     pub numFilterConditions: u32,
     pub filterCondition: *mut FWPM_FILTER_CONDITION0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_ENUM_TEMPLATE0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_NET_EVENT_HEADER0 {
     pub timeStamp: super::super::Foundation::FILETIME,
     pub flags: u32,
@@ -2125,47 +1992,47 @@ pub struct FWPM_NET_EVENT_HEADER0 {
     pub appId: FWP_BYTE_BLOB,
     pub userId: *mut super::super::Security::SID,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT_HEADER0_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT_HEADER0_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER0_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_NET_EVENT_HEADER1 {
     pub timeStamp: super::super::Foundation::FILETIME,
     pub flags: u32,
@@ -2180,90 +2047,90 @@ pub struct FWPM_NET_EVENT_HEADER1 {
     pub userId: *mut super::super::Security::SID,
     pub Anonymous3: FWPM_NET_EVENT_HEADER1_2,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT_HEADER1_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT_HEADER1_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT_HEADER1_2 {
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1_2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_NET_EVENT_HEADER1_2_0 {
     pub reserved1: FWP_AF,
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1_2_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT_HEADER1_2_0_0 {
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0_0_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1_2_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_2_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     pub reserved2: FWP_BYTE_ARRAY6,
     pub reserved3: FWP_BYTE_ARRAY6,
@@ -2275,17 +2142,17 @@ pub struct FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     pub reserved9: u16,
     pub reserved10: u64,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1_2_0_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_NET_EVENT_HEADER2 {
     pub timeStamp: super::super::Foundation::FILETIME,
     pub flags: u32,
@@ -2301,47 +2168,47 @@ pub struct FWPM_NET_EVENT_HEADER2 {
     pub addressFamily: FWP_AF,
     pub packageSid: *mut super::super::Security::SID,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT_HEADER2_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER2_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT_HEADER2_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER2_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER2_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_NET_EVENT_HEADER3 {
     pub timeStamp: super::super::Foundation::FILETIME,
     pub flags: u32,
@@ -2360,39 +2227,39 @@ pub struct FWPM_NET_EVENT_HEADER3 {
     pub policyFlags: u64,
     pub effectiveName: FWP_BYTE_BLOB,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT_HEADER3_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER3_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER3_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT_HEADER3_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER3_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER3_1 {
     fn clone(&self) -> Self {
         *self
@@ -2512,8 +2379,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -2525,45 +2392,45 @@ pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
     pub Anonymous2: FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1,
     pub qmFilterId: u64,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
     pub localSubNet: FWP_CONDITION_VALUE0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
     pub remoteSubNet: FWP_CONDITION_VALUE0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -2577,37 +2444,37 @@ pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
     pub mmSaLuid: u64,
     pub mmProviderContextKey: ::windows_sys::core::GUID,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
     pub localSubNet: FWP_CONDITION_VALUE0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
     pub remoteSubNet: FWP_CONDITION_VALUE0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
     fn clone(&self) -> Self {
         *self
@@ -2674,16 +2541,16 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_NET_EVENT_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_NET_EVENT_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: ::windows_sys::core::GUID,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_SUBSCRIPTION0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_SUBSCRIPTION0 {
     fn clone(&self) -> Self {
         *self
@@ -2715,8 +2582,8 @@ impl ::core::clone::Clone for FWPM_PROVIDER_CHANGE0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_PROVIDER_CONTEXT0 {
     pub providerContextKey: ::windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -2727,17 +2594,17 @@ pub struct FWPM_PROVIDER_CONTEXT0 {
     pub Anonymous: FWPM_PROVIDER_CONTEXT0_0,
     pub providerContextId: u64,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_PROVIDER_CONTEXT0_0 {
     pub keyingPolicy: *mut IPSEC_KEYING_POLICY0,
     pub ikeQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY0,
@@ -2749,17 +2616,17 @@ pub union FWPM_PROVIDER_CONTEXT0_0 {
     pub dataBuffer: *mut FWP_BYTE_BLOB,
     pub classifyOptions: *mut FWPM_CLASSIFY_OPTIONS0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_PROVIDER_CONTEXT1 {
     pub providerContextKey: ::windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -2770,17 +2637,17 @@ pub struct FWPM_PROVIDER_CONTEXT1 {
     pub Anonymous: FWPM_PROVIDER_CONTEXT1_0,
     pub providerContextId: u64,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_PROVIDER_CONTEXT1_0 {
     pub keyingPolicy: *mut IPSEC_KEYING_POLICY0,
     pub ikeQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY1,
@@ -2795,17 +2662,17 @@ pub union FWPM_PROVIDER_CONTEXT1_0 {
     pub ikeV2MmPolicy: *mut IKEEXT_POLICY1,
     pub idpOptions: *mut IPSEC_DOSP_OPTIONS0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT1_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_PROVIDER_CONTEXT2 {
     pub providerContextKey: ::windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -2816,17 +2683,17 @@ pub struct FWPM_PROVIDER_CONTEXT2 {
     pub Anonymous: FWPM_PROVIDER_CONTEXT2_0,
     pub providerContextId: u64,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_PROVIDER_CONTEXT2_0 {
     pub keyingPolicy: *mut IPSEC_KEYING_POLICY1,
     pub ikeQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY2,
@@ -2842,17 +2709,17 @@ pub union FWPM_PROVIDER_CONTEXT2_0 {
     pub ikeV2MmPolicy: *mut IKEEXT_POLICY2,
     pub idpOptions: *mut IPSEC_DOSP_OPTIONS0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT2_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_PROVIDER_CONTEXT3 {
     pub providerContextKey: ::windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -2863,17 +2730,17 @@ pub struct FWPM_PROVIDER_CONTEXT3 {
     pub Anonymous: FWPM_PROVIDER_CONTEXT3_0,
     pub providerContextId: u64,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWPM_PROVIDER_CONTEXT3_0 {
     pub keyingPolicy: *mut IPSEC_KEYING_POLICY1,
     pub ikeQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY2,
@@ -2890,9 +2757,9 @@ pub union FWPM_PROVIDER_CONTEXT3_0 {
     pub idpOptions: *mut IPSEC_DOSP_OPTIONS0,
     pub networkConnectionPolicy: *mut FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT3_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT3_0 {
     fn clone(&self) -> Self {
         *self
@@ -2956,8 +2823,8 @@ impl ::core::clone::Clone for FWPM_PROVIDER_SUBSCRIPTION0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWPM_SESSION0 {
     pub sessionKey: ::windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -2968,9 +2835,9 @@ pub struct FWPM_SESSION0 {
     pub username: ::windows_sys::core::PWSTR,
     pub kernelMode: super::super::Foundation::BOOL,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWPM_SESSION0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWPM_SESSION0 {
     fn clone(&self) -> Self {
         *self
@@ -3103,62 +2970,46 @@ impl ::core::clone::Clone for FWPM_SYSTEM_PORTS_BY_TYPE0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_VSWITCH_EVENT0 {
     pub eventType: FWPM_VSWITCH_EVENT_TYPE,
     pub vSwitchId: ::windows_sys::core::PWSTR,
     pub Anonymous: FWPM_VSWITCH_EVENT0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_VSWITCH_EVENT0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_VSWITCH_EVENT0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union FWPM_VSWITCH_EVENT0_0 {
     pub positionInfo: FWPM_VSWITCH_EVENT0_0_0,
     pub reorderInfo: FWPM_VSWITCH_EVENT0_0_1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_VSWITCH_EVENT0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_VSWITCH_EVENT0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_VSWITCH_EVENT0_0_0 {
     pub numvSwitchFilterExtensions: u32,
     pub vSwitchFilterExtensions: *mut ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_VSWITCH_EVENT0_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_VSWITCH_EVENT0_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_VSWITCH_EVENT0_0_1 {
     pub inRequiredPosition: super::super::Foundation::BOOL,
     pub numvSwitchFilterExtensions: u32,
     pub vSwitchFilterExtensions: *mut ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_VSWITCH_EVENT0_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_VSWITCH_EVENT0_0_1 {
     fn clone(&self) -> Self {
         *self
@@ -3207,23 +3058,23 @@ impl ::core::clone::Clone for FWP_BYTE_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWP_CONDITION_VALUE0 {
     pub r#type: FWP_DATA_TYPE,
     pub Anonymous: FWP_CONDITION_VALUE0_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWP_CONDITION_VALUE0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWP_CONDITION_VALUE0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWP_CONDITION_VALUE0_0 {
     pub uint8: u8,
     pub uint16: u16,
@@ -3247,41 +3098,41 @@ pub union FWP_CONDITION_VALUE0_0 {
     pub v6AddrMask: *mut FWP_V6_ADDR_AND_MASK,
     pub rangeValue: *mut FWP_RANGE0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWP_CONDITION_VALUE0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWP_CONDITION_VALUE0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWP_RANGE0 {
     pub valueLow: FWP_VALUE0,
     pub valueHigh: FWP_VALUE0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWP_RANGE0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWP_RANGE0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWP_TOKEN_INFORMATION {
     pub sidCount: u32,
     pub sids: *mut super::super::Security::SID_AND_ATTRIBUTES,
     pub restrictedSidCount: u32,
     pub restrictedSids: *mut super::super::Security::SID_AND_ATTRIBUTES,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWP_TOKEN_INFORMATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWP_TOKEN_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -3310,23 +3161,23 @@ impl ::core::clone::Clone for FWP_V6_ADDR_AND_MASK {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct FWP_VALUE0 {
     pub r#type: FWP_DATA_TYPE,
     pub Anonymous: FWP_VALUE0_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWP_VALUE0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWP_VALUE0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union FWP_VALUE0_0 {
     pub uint8: u8,
     pub uint16: u16,
@@ -3347,9 +3198,9 @@ pub union FWP_VALUE0_0 {
     pub unicodeString: ::windows_sys::core::PWSTR,
     pub byteArray6: *mut FWP_BYTE_ARRAY6,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for FWP_VALUE0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for FWP_VALUE0_0 {
     fn clone(&self) -> Self {
         *self
@@ -4328,16 +4179,16 @@ impl ::core::clone::Clone for IKEEXT_SA_DETAILS2_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct IKEEXT_SA_ENUM_TEMPLATE0 {
     pub localSubNet: FWP_CONDITION_VALUE0,
     pub remoteSubNet: FWP_CONDITION_VALUE0,
     pub localMainModeCertHash: FWP_BYTE_BLOB,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for IKEEXT_SA_ENUM_TEMPLATE0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for IKEEXT_SA_ENUM_TEMPLATE0 {
     fn clone(&self) -> Self {
         *self
@@ -4743,8 +4594,8 @@ impl ::core::clone::Clone for IPSEC_KEY_MANAGER0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct IPSEC_KEY_MANAGER_CALLBACKS0 {
     pub reserved: ::windows_sys::core::GUID,
     pub flags: u32,
@@ -4752,9 +4603,9 @@ pub struct IPSEC_KEY_MANAGER_CALLBACKS0 {
     pub keyDictation: IPSEC_KEY_MANAGER_DICTATE_KEY0,
     pub keyNotify: IPSEC_KEY_MANAGER_NOTIFY_KEY0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for IPSEC_KEY_MANAGER_CALLBACKS0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for IPSEC_KEY_MANAGER_CALLBACKS0 {
     fn clone(&self) -> Self {
         *self
@@ -4901,32 +4752,32 @@ impl ::core::clone::Clone for IPSEC_SA_CIPHER_INFORMATION0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct IPSEC_SA_CONTEXT0 {
     pub saContextId: u64,
     pub inboundSa: *mut IPSEC_SA_DETAILS0,
     pub outboundSa: *mut IPSEC_SA_DETAILS0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for IPSEC_SA_CONTEXT0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for IPSEC_SA_CONTEXT0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct IPSEC_SA_CONTEXT1 {
     pub saContextId: u64,
     pub inboundSa: *mut IPSEC_SA_DETAILS1,
     pub outboundSa: *mut IPSEC_SA_DETAILS1,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for IPSEC_SA_CONTEXT1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for IPSEC_SA_CONTEXT1 {
     fn clone(&self) -> Self {
         *self
@@ -4944,39 +4795,39 @@ impl ::core::clone::Clone for IPSEC_SA_CONTEXT_CHANGE0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
     pub localSubNet: FWP_CONDITION_VALUE0,
     pub remoteSubNet: FWP_CONDITION_VALUE0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
     pub enumTemplate: *mut IPSEC_SA_CONTEXT_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: ::windows_sys::core::GUID,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct IPSEC_SA_DETAILS0 {
     pub ipVersion: FWP_IP_VERSION,
     pub saDirection: FWP_DIRECTION,
@@ -4985,31 +4836,31 @@ pub struct IPSEC_SA_DETAILS0 {
     pub Anonymous: IPSEC_SA_DETAILS0_0,
     pub transportFilter: *mut FWPM_FILTER0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for IPSEC_SA_DETAILS0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for IPSEC_SA_DETAILS0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union IPSEC_SA_DETAILS0_0 {
     pub udpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for IPSEC_SA_DETAILS0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for IPSEC_SA_DETAILS0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub struct IPSEC_SA_DETAILS1 {
     pub ipVersion: FWP_IP_VERSION,
     pub saDirection: FWP_DIRECTION,
@@ -5019,23 +4870,23 @@ pub struct IPSEC_SA_DETAILS1 {
     pub transportFilter: *mut FWPM_FILTER0,
     pub virtualIfTunnelInfo: IPSEC_VIRTUAL_IF_TUNNEL_INFO0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for IPSEC_SA_DETAILS1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for IPSEC_SA_DETAILS1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub union IPSEC_SA_DETAILS1_0 {
     pub udpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for IPSEC_SA_DETAILS1_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for IPSEC_SA_DETAILS1_0 {
     fn clone(&self) -> Self {
         *self
@@ -5586,40 +5437,34 @@ impl ::core::clone::Clone for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
     }
 }
 pub type FWPM_CALLOUT_CHANGE_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_CALLOUT_CHANGE0)>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type FWPM_CONNECTION_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, eventtype: FWPM_CONNECTION_EVENT_TYPE, connection: *const FWPM_CONNECTION0)>;
 pub type FWPM_DYNAMIC_KEYWORD_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(notification: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void)>;
 pub type FWPM_FILTER_CHANGE_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_FILTER_CHANGE0)>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub type FWPM_NET_EVENT_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT1)>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub type FWPM_NET_EVENT_CALLBACK1 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT2)>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub type FWPM_NET_EVENT_CALLBACK2 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT3)>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub type FWPM_NET_EVENT_CALLBACK3 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT4)>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub type FWPM_NET_EVENT_CALLBACK4 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT5)>;
 pub type FWPM_PROVIDER_CHANGE_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_PROVIDER_CHANGE0)>;
 pub type FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_PROVIDER_CONTEXT_CHANGE0)>;
 pub type FWPM_SUBLAYER_CHANGE_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_SUBLAYER_CHANGE0)>;
 pub type FWPM_SYSTEM_PORTS_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, sysports: *const FWPM_SYSTEM_PORTS0)>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type FWPM_VSWITCH_EVENT_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, vswitchevent: *const FWPM_VSWITCH_EVENT0) -> u32>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub type IPSEC_KEY_MANAGER_DICTATE_KEY0 = ::core::option::Option<unsafe extern "system" fn(inboundsadetails: *mut IPSEC_SA_DETAILS1, outboundsadetails: *mut IPSEC_SA_DETAILS1, keyingmodulegenkey: *mut super::super::Foundation::BOOL) -> u32>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0 = ::core::option::Option<unsafe extern "system" fn(iketraffic: *const IKEEXT_TRAFFIC0, willdictatekey: *mut super::super::Foundation::BOOL, weight: *mut u32)>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub type IPSEC_KEY_MANAGER_NOTIFY_KEY0 = ::core::option::Option<unsafe extern "system" fn(inboundsa: *const IPSEC_SA_DETAILS1, outboundsa: *const IPSEC_SA_DETAILS1)>;
 pub type IPSEC_SA_CONTEXT_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const IPSEC_SA_CONTEXT_CHANGE0)>;

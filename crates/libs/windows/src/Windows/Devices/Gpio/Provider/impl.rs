@@ -40,8 +40,6 @@ impl IGpioControllerProvider_Vtbl {
         *iid == <IGpioControllerProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IGpioPinProvider_Impl: Sized {
     fn ValueChanged(&self, handler: ::core::option::Option<&super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveValueChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()>;
@@ -55,11 +53,9 @@ pub trait IGpioPinProvider_Impl: Sized {
     fn Write(&self, value: ProviderGpioPinValue) -> ::windows_core::Result<()>;
     fn Read(&self) -> ::windows_core::Result<ProviderGpioPinValue>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IGpioPinProvider {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.IGpioPinProvider";
 }
-#[cfg(feature = "Foundation")]
 impl IGpioPinProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGpioPinProvider_Impl, const OFFSET: isize>() -> IGpioPinProvider_Vtbl {
         unsafe extern "system" fn ValueChanged<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT {

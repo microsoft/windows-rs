@@ -147,8 +147,6 @@ impl ITraceEventCallback_Vtbl {
         *iid == <ITraceEventCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITraceRelogger_Impl: Sized {
     fn AddLogfileTraceStream(&self, logfilename: &::windows_core::BSTR, usercontext: *const ::core::ffi::c_void) -> ::windows_core::Result<RELOGSTREAM_HANDLE>;
     fn AddRealtimeTraceStream(&self, loggername: &::windows_core::BSTR, usercontext: *const ::core::ffi::c_void) -> ::windows_core::Result<RELOGSTREAM_HANDLE>;
@@ -160,9 +158,7 @@ pub trait ITraceRelogger_Impl: Sized {
     fn SetCompressionMode(&self, compressionmode: super::super::super::Foundation::BOOLEAN) -> ::windows_core::Result<()>;
     fn Cancel(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ITraceRelogger {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITraceRelogger_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>() -> ITraceRelogger_Vtbl {
         unsafe extern "system" fn AddLogfileTraceStream<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, logfilename: ::std::mem::MaybeUninit<::windows_core::BSTR>, usercontext: *const ::core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> ::windows_core::HRESULT {

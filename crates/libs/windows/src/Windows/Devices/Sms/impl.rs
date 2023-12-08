@@ -59,8 +59,8 @@ impl ISmsBinaryMessage_Vtbl {
         *iid == <ISmsBinaryMessage as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[doc = "Required features: `\"deprecated\"`"]
+#[cfg(feature = "deprecated")]
 pub trait ISmsDevice_Impl: Sized {
     fn SendMessageAsync(&self, message: ::core::option::Option<&ISmsMessage>) -> ::windows_core::Result<SendSmsMessageOperation>;
     fn CalculateLength(&self, message: ::core::option::Option<&SmsTextMessage>) -> ::windows_core::Result<SmsEncodedLength>;
@@ -73,11 +73,11 @@ pub trait ISmsDevice_Impl: Sized {
     fn SmsDeviceStatusChanged(&self, eventhandler: ::core::option::Option<&SmsDeviceStatusChangedEventHandler>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSmsDeviceStatusChanged(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeName for ISmsDevice {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsDevice";
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(feature = "deprecated")]
 impl ISmsDevice_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISmsDevice_Impl, const OFFSET: isize>() -> ISmsDevice_Vtbl {
         unsafe extern "system" fn SendMessageAsync<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

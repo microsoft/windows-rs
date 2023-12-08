@@ -10,7 +10,6 @@ array-init = "2.0.0"
 [dependencies.windows]
 path = "../../../libs/windows"
 features = [
-    "Win32_Foundation",
     "Win32_Graphics_Direct3D_Fxc",
     "Win32_Graphics_Direct3D12",
     "Win32_Graphics_Dxgi_Common",

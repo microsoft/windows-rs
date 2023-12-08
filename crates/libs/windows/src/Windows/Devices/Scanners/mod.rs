@@ -19,13 +19,13 @@ pub struct IImageScanner_Vtbl {
     pub FeederConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub AutoConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub IsPreviewSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scansource: ImageScannerScanSource, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub ScanPreviewToStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scansource: ImageScannerScanSource, targetstream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     ScanPreviewToStreamAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[cfg(feature = "Storage")]
     pub ScanFilesToFolderAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scansource: ImageScannerScanSource, storagefolder: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
+    #[cfg(not(feature = "Storage"))]
     ScanFilesToFolderAsync: usize,
 }
 #[doc(hidden)]
@@ -61,10 +61,7 @@ pub struct IImageScannerFeederConfiguration_Vtbl {
     pub SetPageOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Printing::PrintOrientation) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Printing"))]
     SetPageOrientation: usize,
-    #[cfg(feature = "Foundation")]
     pub PageSizeDimensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PageSizeDimensions: usize,
     #[cfg(feature = "Graphics_Printing")]
     pub IsPageSizeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pagesize: super::super::Graphics::Printing::PrintMediaSize, pageorientation: super::super::Graphics::Printing::PrintOrientation, result__: *mut bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Printing"))]
@@ -167,8 +164,6 @@ pub struct IImageScannerScanResult_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IImageScannerSourceConfiguration(::windows_core::IUnknown);
 impl IImageScannerSourceConfiguration {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn MinScanArea(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
@@ -176,8 +171,6 @@ impl IImageScannerSourceConfiguration {
             (::windows_core::Interface::vtable(this).MinScanArea)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn MaxScanArea(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
@@ -185,8 +178,6 @@ impl IImageScannerSourceConfiguration {
             (::windows_core::Interface::vtable(this).MaxScanArea)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SelectedScanRegion(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
@@ -194,8 +185,6 @@ impl IImageScannerSourceConfiguration {
             (::windows_core::Interface::vtable(this).SelectedScanRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetSelectedScanRegion(&self, value: super::super::Foundation::Rect) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSelectedScanRegion)(::windows_core::Interface::as_raw(this), value).ok() }
@@ -401,22 +390,10 @@ unsafe impl ::windows_core::ComInterface for IImageScannerSourceConfiguration {
 #[doc(hidden)]
 pub struct IImageScannerSourceConfiguration_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub MinScanArea: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MinScanArea: usize,
-    #[cfg(feature = "Foundation")]
     pub MaxScanArea: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MaxScanArea: usize,
-    #[cfg(feature = "Foundation")]
     pub SelectedScanRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SelectedScanRegion: usize,
-    #[cfg(feature = "Foundation")]
     pub SetSelectedScanRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetSelectedScanRegion: usize,
     pub AutoCroppingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerAutoCroppingMode) -> ::windows_core::HRESULT,
     pub SetAutoCroppingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ImageScannerAutoCroppingMode) -> ::windows_core::HRESULT,
     pub IsAutoCroppingModeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ImageScannerAutoCroppingMode, result__: *mut bool) -> ::windows_core::HRESULT,
@@ -457,10 +434,7 @@ unsafe impl ::windows_core::ComInterface for IImageScannerStatics {
 #[doc(hidden)]
 pub struct IImageScannerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FromIdAsync: usize,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -516,8 +490,8 @@ impl ImageScanner {
             (::windows_core::Interface::vtable(this).IsPreviewSupported)(::windows_core::Interface::as_raw(this), scansource, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    #[cfg(feature = "Storage_Streams")]
     pub fn ScanPreviewToStreamAsync<P0>(&self, scansource: ImageScannerScanSource, targetstream: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>>
     where
         P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
@@ -528,8 +502,8 @@ impl ImageScanner {
             (::windows_core::Interface::vtable(this).ScanPreviewToStreamAsync)(::windows_core::Interface::as_raw(this), scansource, targetstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "Required features: `\"Storage\"`"]
+    #[cfg(feature = "Storage")]
     pub fn ScanFilesToFolderAsync<P0>(&self, scansource: ImageScannerScanSource, storagefolder: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>>
     where
         P0: ::windows_core::IntoParam<super::super::Storage::StorageFolder>,
@@ -540,8 +514,6 @@ impl ImageScanner {
             (::windows_core::Interface::vtable(this).ScanFilesToFolderAsync)(::windows_core::Interface::as_raw(this), scansource, storagefolder.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ImageScanner>> {
         Self::IImageScannerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
@@ -673,8 +645,6 @@ impl ImageScannerFeederConfiguration {
         let this = &::windows_core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetPageOrientation)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PageSizeDimensions(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
@@ -763,8 +733,6 @@ impl ImageScannerFeederConfiguration {
             (::windows_core::Interface::vtable(this).IsFormatSupported)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn MinScanArea(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -772,8 +740,6 @@ impl ImageScannerFeederConfiguration {
             (::windows_core::Interface::vtable(this).MinScanArea)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn MaxScanArea(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -781,8 +747,6 @@ impl ImageScannerFeederConfiguration {
             (::windows_core::Interface::vtable(this).MaxScanArea)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SelectedScanRegion(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -790,8 +754,6 @@ impl ImageScannerFeederConfiguration {
             (::windows_core::Interface::vtable(this).SelectedScanRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetSelectedScanRegion(&self, value: super::super::Foundation::Rect) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSelectedScanRegion)(::windows_core::Interface::as_raw(this), value).ok() }
@@ -1003,8 +965,6 @@ impl ImageScannerFlatbedConfiguration {
             (::windows_core::Interface::vtable(this).IsFormatSupported)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn MinScanArea(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1012,8 +972,6 @@ impl ImageScannerFlatbedConfiguration {
             (::windows_core::Interface::vtable(this).MinScanArea)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn MaxScanArea(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1021,8 +979,6 @@ impl ImageScannerFlatbedConfiguration {
             (::windows_core::Interface::vtable(this).MaxScanArea)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SelectedScanRegion(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1030,8 +986,6 @@ impl ImageScannerFlatbedConfiguration {
             (::windows_core::Interface::vtable(this).SelectedScanRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetSelectedScanRegion(&self, value: super::super::Foundation::Rect) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSelectedScanRegion)(::windows_core::Interface::as_raw(this), value).ok() }

@@ -16,18 +16,9 @@ pub struct IOfflineMapPackage_Vtbl {
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub EnclosingRegionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub EstimatedSizeInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub RemoveStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveStatusChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub StatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StatusChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RequestStartDownloadAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestStartDownloadAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -79,17 +70,17 @@ unsafe impl ::windows_core::ComInterface for IOfflineMapPackageStatics {
 #[doc(hidden)]
 pub struct IOfflineMapPackageStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    #[cfg(feature = "Devices_Geolocation")]
     pub FindPackagesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, querypoint: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))]
+    #[cfg(not(feature = "Devices_Geolocation"))]
     FindPackagesAsync: usize,
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    #[cfg(feature = "Devices_Geolocation")]
     pub FindPackagesInBoundingBoxAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryboundingbox: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))]
+    #[cfg(not(feature = "Devices_Geolocation"))]
     FindPackagesInBoundingBoxAsync: usize,
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    #[cfg(feature = "Devices_Geolocation")]
     pub FindPackagesInGeocircleAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, querycircle: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))]
+    #[cfg(not(feature = "Devices_Geolocation"))]
     FindPackagesInGeocircleAsync: usize,
 }
 #[repr(transparent)]
@@ -124,14 +115,10 @@ impl OfflineMapPackage {
             (::windows_core::Interface::vtable(this).EstimatedSizeInBytes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStatusChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StatusChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<OfflineMapPackage, ::windows_core::IInspectable>>,
@@ -142,8 +129,6 @@ impl OfflineMapPackage {
             (::windows_core::Interface::vtable(this).StatusChanged)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RequestStartDownloadAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageStartDownloadResult>> {
         let this = self;
         unsafe {
@@ -151,8 +136,8 @@ impl OfflineMapPackage {
             (::windows_core::Interface::vtable(this).RequestStartDownloadAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`"]
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    #[doc = "Required features: `\"Devices_Geolocation\"`"]
+    #[cfg(feature = "Devices_Geolocation")]
     pub fn FindPackagesAsync<P0>(querypoint: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>
     where
         P0: ::windows_core::IntoParam<super::super::super::Devices::Geolocation::Geopoint>,
@@ -162,8 +147,8 @@ impl OfflineMapPackage {
             (::windows_core::Interface::vtable(this).FindPackagesAsync)(::windows_core::Interface::as_raw(this), querypoint.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`"]
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    #[doc = "Required features: `\"Devices_Geolocation\"`"]
+    #[cfg(feature = "Devices_Geolocation")]
     pub fn FindPackagesInBoundingBoxAsync<P0>(queryboundingbox: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>
     where
         P0: ::windows_core::IntoParam<super::super::super::Devices::Geolocation::GeoboundingBox>,
@@ -173,8 +158,8 @@ impl OfflineMapPackage {
             (::windows_core::Interface::vtable(this).FindPackagesInBoundingBoxAsync)(::windows_core::Interface::as_raw(this), queryboundingbox.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`"]
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    #[doc = "Required features: `\"Devices_Geolocation\"`"]
+    #[cfg(feature = "Devices_Geolocation")]
     pub fn FindPackagesInGeocircleAsync<P0>(querycircle: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>
     where
         P0: ::windows_core::IntoParam<super::super::super::Devices::Geolocation::Geocircle>,

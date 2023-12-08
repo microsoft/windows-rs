@@ -365,8 +365,6 @@ impl IUIAnimationManager_Vtbl {
         *iid == <IUIAnimationManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIAnimationManager2_Impl: Sized {
     fn CreateAnimationVectorVariable(&self, initialvalue: *const f64, cdimension: u32) -> ::windows_core::Result<IUIAnimationVariable2>;
     fn CreateAnimationVariable(&self, initialvalue: f64) -> ::windows_core::Result<IUIAnimationVariable2>;
@@ -390,9 +388,7 @@ pub trait IUIAnimationManager2_Impl: Sized {
     fn SetDefaultLongestAcceptableDelay(&self, delay: f64) -> ::windows_core::Result<()>;
     fn Shutdown(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IUIAnimationManager2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IUIAnimationManager2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAnimationManager2_Impl, const OFFSET: isize>() -> IUIAnimationManager2_Vtbl {
         unsafe extern "system" fn CreateAnimationVectorVariable<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAnimationManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initialvalue: *const f64, cdimension: u32, variable: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -822,8 +818,6 @@ impl IUIAnimationStoryboard_Vtbl {
         *iid == <IUIAnimationStoryboard as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIAnimationStoryboard2_Impl: Sized {
     fn AddTransition(&self, variable: ::core::option::Option<&IUIAnimationVariable2>, transition: ::core::option::Option<&IUIAnimationTransition2>) -> ::windows_core::Result<()>;
     fn AddKeyframeAtOffset(&self, existingkeyframe: UI_ANIMATION_KEYFRAME, offset: f64) -> ::windows_core::Result<UI_ANIMATION_KEYFRAME>;
@@ -844,9 +838,7 @@ pub trait IUIAnimationStoryboard2_Impl: Sized {
     fn GetElapsedTime(&self) -> ::windows_core::Result<f64>;
     fn SetStoryboardEventHandler(&self, handler: ::core::option::Option<&IUIAnimationStoryboardEventHandler2>, fregisterstatuschangefornextanimationevent: super::super::Foundation::BOOL, fregisterupdatefornextanimationevent: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IUIAnimationStoryboard2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IUIAnimationStoryboard2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAnimationStoryboard2_Impl, const OFFSET: isize>() -> IUIAnimationStoryboard2_Vtbl {
         unsafe extern "system" fn AddTransition<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAnimationStoryboard2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void, transition: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1954,8 +1946,8 @@ impl IUIAnimationVariable_Vtbl {
         *iid == <IUIAnimationVariable as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectComposition\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectComposition"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectComposition\"`"]
+#[cfg(feature = "Win32_Graphics_DirectComposition")]
 pub trait IUIAnimationVariable2_Impl: Sized {
     fn GetDimension(&self) -> ::windows_core::Result<u32>;
     fn GetValue(&self) -> ::windows_core::Result<f64>;
@@ -1984,9 +1976,9 @@ pub trait IUIAnimationVariable2_Impl: Sized {
     fn SetVariableIntegerChangeHandler(&self, handler: ::core::option::Option<&IUIAnimationVariableIntegerChangeHandler2>, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn SetVariableCurveChangeHandler(&self, handler: ::core::option::Option<&IUIAnimationVariableCurveChangeHandler2>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectComposition"))]
+#[cfg(feature = "Win32_Graphics_DirectComposition")]
 impl ::windows_core::RuntimeName for IUIAnimationVariable2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectComposition"))]
+#[cfg(feature = "Win32_Graphics_DirectComposition")]
 impl IUIAnimationVariable2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAnimationVariable2_Impl, const OFFSET: isize>() -> IUIAnimationVariable2_Vtbl {
         unsafe extern "system" fn GetDimension<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAnimationVariable2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dimension: *mut u32) -> ::windows_core::HRESULT {

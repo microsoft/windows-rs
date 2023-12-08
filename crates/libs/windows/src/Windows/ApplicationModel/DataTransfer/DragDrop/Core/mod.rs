@@ -12,14 +12,8 @@ unsafe impl ::windows_core::ComInterface for ICoreDragDropManager {
 #[doc(hidden)]
 pub struct ICoreDragDropManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub TargetRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TargetRequested: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveTargetRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveTargetRequested: usize,
     pub AreConcurrentOperationsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetAreConcurrentOperationsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
 }
@@ -55,10 +49,7 @@ pub struct ICoreDragInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Modifiers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::DragDropModifiers) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Position: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -96,16 +87,13 @@ pub struct ICoreDragOperation_Vtbl {
     pub SetDragUIContentFromSoftwareBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, softwarebitmap: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     SetDragUIContentFromSoftwareBitmap: usize,
-    #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
+    #[cfg(feature = "Graphics_Imaging")]
     pub SetDragUIContentFromSoftwareBitmapWithAnchorPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, softwarebitmap: *mut ::core::ffi::c_void, anchorpoint: super::super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics_Imaging")))]
+    #[cfg(not(feature = "Graphics_Imaging"))]
     SetDragUIContentFromSoftwareBitmapWithAnchorPoint: usize,
     pub DragUIContentMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreDragUIContentMode) -> ::windows_core::HRESULT,
     pub SetDragUIContentMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreDragUIContentMode) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub StartAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StartAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -142,9 +130,9 @@ pub struct ICoreDragUIOverride_Vtbl {
     pub SetContentFromSoftwareBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, softwarebitmap: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     SetContentFromSoftwareBitmap: usize,
-    #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
+    #[cfg(feature = "Graphics_Imaging")]
     pub SetContentFromSoftwareBitmapWithAnchorPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, softwarebitmap: *mut ::core::ffi::c_void, anchorpoint: super::super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics_Imaging")))]
+    #[cfg(not(feature = "Graphics_Imaging"))]
     SetContentFromSoftwareBitmapWithAnchorPoint: usize,
     pub IsContentVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetIsContentVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
@@ -160,8 +148,6 @@ pub struct ICoreDragUIOverride_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICoreDropOperationTarget(::windows_core::IUnknown);
 impl ICoreDropOperationTarget {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn EnterAsync<P0, P1>(&self, draginfo: P0, draguioverride: P1) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>
     where
         P0: ::windows_core::IntoParam<CoreDragInfo>,
@@ -173,8 +159,6 @@ impl ICoreDropOperationTarget {
             (::windows_core::Interface::vtable(this).EnterAsync)(::windows_core::Interface::as_raw(this), draginfo.into_param().abi(), draguioverride.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn OverAsync<P0, P1>(&self, draginfo: P0, draguioverride: P1) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>
     where
         P0: ::windows_core::IntoParam<CoreDragInfo>,
@@ -186,8 +170,6 @@ impl ICoreDropOperationTarget {
             (::windows_core::Interface::vtable(this).OverAsync)(::windows_core::Interface::as_raw(this), draginfo.into_param().abi(), draguioverride.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn LeaveAsync<P0>(&self, draginfo: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<CoreDragInfo>,
@@ -198,8 +180,6 @@ impl ICoreDropOperationTarget {
             (::windows_core::Interface::vtable(this).LeaveAsync)(::windows_core::Interface::as_raw(this), draginfo.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn DropAsync<P0>(&self, draginfo: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>
     where
         P0: ::windows_core::IntoParam<CoreDragInfo>,
@@ -225,22 +205,10 @@ unsafe impl ::windows_core::ComInterface for ICoreDropOperationTarget {
 #[doc(hidden)]
 pub struct ICoreDropOperationTarget_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub EnterAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, draginfo: *mut ::core::ffi::c_void, draguioverride: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    EnterAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub OverAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, draginfo: *mut ::core::ffi::c_void, draguioverride: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    OverAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub LeaveAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, draginfo: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    LeaveAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub DropAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, draginfo: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DropAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -262,8 +230,6 @@ pub struct ICoreDropOperationTargetRequestedEventArgs_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CoreDragDropManager(::windows_core::IUnknown);
 impl CoreDragDropManager {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn TargetRequested<P0>(&self, value: P0) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::super::Foundation::TypedEventHandler<CoreDragDropManager, CoreDropOperationTargetRequestedEventArgs>>,
@@ -274,8 +240,6 @@ impl CoreDragDropManager {
             (::windows_core::Interface::vtable(this).TargetRequested)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveTargetRequested(&self, value: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveTargetRequested)(::windows_core::Interface::as_raw(this), value).ok() }
@@ -336,8 +300,6 @@ impl CoreDragInfo {
             (::windows_core::Interface::vtable(this).Modifiers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
@@ -399,8 +361,8 @@ impl CoreDragOperation {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDragUIContentFromSoftwareBitmap)(::windows_core::Interface::as_raw(this), softwarebitmap.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Graphics_Imaging\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
+    #[doc = "Required features: `\"Graphics_Imaging\"`"]
+    #[cfg(feature = "Graphics_Imaging")]
     pub fn SetDragUIContentFromSoftwareBitmapWithAnchorPoint<P0>(&self, softwarebitmap: P0, anchorpoint: super::super::super::super::Foundation::Point) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::super::super::Graphics::Imaging::SoftwareBitmap>,
@@ -419,8 +381,6 @@ impl CoreDragOperation {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDragUIContentMode)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StartAsync(&self) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>> {
         let this = self;
         unsafe {
@@ -468,8 +428,8 @@ impl CoreDragUIOverride {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetContentFromSoftwareBitmap)(::windows_core::Interface::as_raw(this), softwarebitmap.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Graphics_Imaging\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
+    #[doc = "Required features: `\"Graphics_Imaging\"`"]
+    #[cfg(feature = "Graphics_Imaging")]
     pub fn SetContentFromSoftwareBitmapWithAnchorPoint<P0>(&self, softwarebitmap: P0, anchorpoint: super::super::super::super::Foundation::Point) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::super::super::Graphics::Imaging::SoftwareBitmap>,

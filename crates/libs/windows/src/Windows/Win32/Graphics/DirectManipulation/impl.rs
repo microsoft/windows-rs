@@ -76,8 +76,6 @@ impl IDirectManipulationCompositor2_Vtbl {
         *iid == <IDirectManipulationCompositor2 as ::windows_core::ComInterface>::IID || *iid == <IDirectManipulationCompositor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDirectManipulationContent_Impl: Sized {
     fn GetContentRect(&self) -> ::windows_core::Result<super::super::Foundation::RECT>;
     fn SetContentRect(&self, contentsize: *const super::super::Foundation::RECT) -> ::windows_core::Result<()>;
@@ -88,9 +86,7 @@ pub trait IDirectManipulationContent_Impl: Sized {
     fn GetContentTransform(&self, matrix: *mut f32, pointcount: u32) -> ::windows_core::Result<()>;
     fn SyncContentTransform(&self, matrix: *const f32, pointcount: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDirectManipulationContent {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDirectManipulationContent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationContent_Impl, const OFFSET: isize>() -> IDirectManipulationContent_Vtbl {
         unsafe extern "system" fn GetContentRect<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentsize: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT {
@@ -273,8 +269,8 @@ impl IDirectManipulationInteractionEventHandler_Vtbl {
         *iid == <IDirectManipulationInteractionEventHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IDirectManipulationManager_Impl: Sized {
     fn Activate(&self, window: super::super::Foundation::HWND) -> ::windows_core::Result<()>;
     fn Deactivate(&self, window: super::super::Foundation::HWND) -> ::windows_core::Result<()>;
@@ -284,9 +280,9 @@ pub trait IDirectManipulationManager_Impl: Sized {
     fn CreateViewport(&self, frameinfo: ::core::option::Option<&IDirectManipulationFrameInfoProvider>, window: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn CreateContent(&self, frameinfo: ::core::option::Option<&IDirectManipulationFrameInfoProvider>, clsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::windows_core::RuntimeName for IDirectManipulationManager {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IDirectManipulationManager_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationManager_Impl, const OFFSET: isize>() -> IDirectManipulationManager_Vtbl {
         unsafe extern "system" fn Activate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND) -> ::windows_core::HRESULT {
@@ -345,14 +341,14 @@ impl IDirectManipulationManager_Vtbl {
         *iid == <IDirectManipulationManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IDirectManipulationManager2_Impl: Sized + IDirectManipulationManager_Impl {
     fn CreateBehavior(&self, clsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::windows_core::RuntimeName for IDirectManipulationManager2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IDirectManipulationManager2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationManager2_Impl, const OFFSET: isize>() -> IDirectManipulationManager2_Vtbl {
         unsafe extern "system" fn CreateBehavior<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -366,14 +362,14 @@ impl IDirectManipulationManager2_Vtbl {
         *iid == <IDirectManipulationManager2 as ::windows_core::ComInterface>::IID || *iid == <IDirectManipulationManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IDirectManipulationManager3_Impl: Sized + IDirectManipulationManager2_Impl {
     fn GetService(&self, clsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::windows_core::RuntimeName for IDirectManipulationManager3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IDirectManipulationManager3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationManager3_Impl, const OFFSET: isize>() -> IDirectManipulationManager3_Vtbl {
         unsafe extern "system" fn GetService<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationManager3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -480,16 +476,12 @@ impl IDirectManipulationUpdateHandler_Vtbl {
         *iid == <IDirectManipulationUpdateHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDirectManipulationUpdateManager_Impl: Sized {
     fn RegisterWaitHandleCallback(&self, handle: super::super::Foundation::HANDLE, eventhandler: ::core::option::Option<&IDirectManipulationUpdateHandler>) -> ::windows_core::Result<u32>;
     fn UnregisterWaitHandleCallback(&self, cookie: u32) -> ::windows_core::Result<()>;
     fn Update(&self, frameinfo: ::core::option::Option<&IDirectManipulationFrameInfoProvider>) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDirectManipulationUpdateManager {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDirectManipulationUpdateManager_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationUpdateManager_Impl, const OFFSET: isize>() -> IDirectManipulationUpdateManager_Vtbl {
         unsafe extern "system" fn RegisterWaitHandleCallback<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationUpdateManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: super::super::Foundation::HANDLE, eventhandler: *mut ::core::ffi::c_void, cookie: *mut u32) -> ::windows_core::HRESULT {
@@ -524,8 +516,6 @@ impl IDirectManipulationUpdateManager_Vtbl {
         *iid == <IDirectManipulationUpdateManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDirectManipulationViewport_Impl: Sized {
     fn Enable(&self) -> ::windows_core::Result<()>;
     fn Disable(&self) -> ::windows_core::Result<()>;
@@ -556,9 +546,7 @@ pub trait IDirectManipulationViewport_Impl: Sized {
     fn Stop(&self) -> ::windows_core::Result<()>;
     fn Abandon(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDirectManipulationViewport {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDirectManipulationViewport_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationViewport_Impl, const OFFSET: isize>() -> IDirectManipulationViewport_Vtbl {
         unsafe extern "system" fn Enable<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationViewport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -755,16 +743,12 @@ impl IDirectManipulationViewport_Vtbl {
         *iid == <IDirectManipulationViewport as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDirectManipulationViewport2_Impl: Sized + IDirectManipulationViewport_Impl {
     fn AddBehavior(&self, behavior: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<u32>;
     fn RemoveBehavior(&self, cookie: u32) -> ::windows_core::Result<()>;
     fn RemoveAllBehaviors(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDirectManipulationViewport2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDirectManipulationViewport2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationViewport2_Impl, const OFFSET: isize>() -> IDirectManipulationViewport2_Vtbl {
         unsafe extern "system" fn AddBehavior<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationViewport2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, behavior: *mut ::core::ffi::c_void, cookie: *mut u32) -> ::windows_core::HRESULT {

@@ -119,14 +119,10 @@ pub struct IDirectManipulationCompositor2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectManipulationContent(::windows_core::IUnknown);
 impl IDirectManipulationContent {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContentRect(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetContentRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetContentRect(&self, contentsize: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetContentRect)(::windows_core::Interface::as_raw(self), contentsize).ok()
     }
@@ -170,14 +166,8 @@ unsafe impl ::windows_core::ComInterface for IDirectManipulationContent {
 #[doc(hidden)]
 pub struct IDirectManipulationContent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetContentRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentsize: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetContentRect: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetContentRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentsize: *const super::super::Foundation::RECT) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetContentRect: usize,
     pub GetViewport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void, id: *mut u32) -> ::windows_core::HRESULT,
     pub SetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32) -> ::windows_core::HRESULT,
@@ -313,24 +303,18 @@ pub struct IDirectManipulationInteractionEventHandler_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectManipulationManager(::windows_core::IUnknown);
 impl IDirectManipulationManager {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Activate<P0>(&self, window: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
         (::windows_core::Interface::vtable(self).Activate)(::windows_core::Interface::as_raw(self), window.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Deactivate<P0>(&self, window: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
         (::windows_core::Interface::vtable(self).Deactivate)(::windows_core::Interface::as_raw(self), window.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterHitTestTarget<P0, P1>(&self, window: P0, hittestwindow: P1, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
@@ -338,8 +322,8 @@ impl IDirectManipulationManager {
     {
         (::windows_core::Interface::vtable(self).RegisterHitTestTarget)(::windows_core::Interface::as_raw(self), window.into_param().abi(), hittestwindow.into_param().abi(), r#type).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ProcessInput)(::windows_core::Interface::as_raw(self), message, &mut result__).from_abi(result__)
@@ -351,8 +335,6 @@ impl IDirectManipulationManager {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).GetUpdateManager)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateViewport<P0, P1, T>(&self, frameinfo: P0, window: P1) -> ::windows_core::Result<T>
     where
         P0: ::windows_core::IntoParam<IDirectManipulationFrameInfoProvider>,
@@ -382,51 +364,33 @@ unsafe impl ::windows_core::ComInterface for IDirectManipulationManager {
 #[doc(hidden)]
 pub struct IDirectManipulationManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Activate: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub Deactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Deactivate: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub RegisterHitTestTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND, hittestwindow: super::super::Foundation::HWND, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    RegisterHitTestTarget: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub ProcessInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, message: *const super::super::UI::WindowsAndMessaging::MSG, handled: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
+    #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     ProcessInput: usize,
     pub GetUpdateManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub CreateViewport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frameinfo: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    CreateViewport: usize,
     pub CreateContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frameinfo: *mut ::core::ffi::c_void, clsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectManipulationManager2(::windows_core::IUnknown);
 impl IDirectManipulationManager2 {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Activate<P0>(&self, window: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
         (::windows_core::Interface::vtable(self).base__.Activate)(::windows_core::Interface::as_raw(self), window.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Deactivate<P0>(&self, window: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
         (::windows_core::Interface::vtable(self).base__.Deactivate)(::windows_core::Interface::as_raw(self), window.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterHitTestTarget<P0, P1>(&self, window: P0, hittestwindow: P1, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
@@ -434,8 +398,8 @@ impl IDirectManipulationManager2 {
     {
         (::windows_core::Interface::vtable(self).base__.RegisterHitTestTarget)(::windows_core::Interface::as_raw(self), window.into_param().abi(), hittestwindow.into_param().abi(), r#type).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ProcessInput)(::windows_core::Interface::as_raw(self), message, &mut result__).from_abi(result__)
@@ -447,8 +411,6 @@ impl IDirectManipulationManager2 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetUpdateManager)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateViewport<P0, P1, T>(&self, frameinfo: P0, window: P1) -> ::windows_core::Result<T>
     where
         P0: ::windows_core::IntoParam<IDirectManipulationFrameInfoProvider>,
@@ -491,24 +453,18 @@ pub struct IDirectManipulationManager2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectManipulationManager3(::windows_core::IUnknown);
 impl IDirectManipulationManager3 {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Activate<P0>(&self, window: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.Activate)(::windows_core::Interface::as_raw(self), window.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Deactivate<P0>(&self, window: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.Deactivate)(::windows_core::Interface::as_raw(self), window.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterHitTestTarget<P0, P1>(&self, window: P0, hittestwindow: P1, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
@@ -516,8 +472,8 @@ impl IDirectManipulationManager3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.RegisterHitTestTarget)(::windows_core::Interface::as_raw(self), window.into_param().abi(), hittestwindow.into_param().abi(), r#type).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ProcessInput)(::windows_core::Interface::as_raw(self), message, &mut result__).from_abi(result__)
@@ -529,8 +485,6 @@ impl IDirectManipulationManager3 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.base__.GetUpdateManager)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateViewport<P0, P1, T>(&self, frameinfo: P0, window: P1) -> ::windows_core::Result<T>
     where
         P0: ::windows_core::IntoParam<IDirectManipulationFrameInfoProvider>,
@@ -654,8 +608,6 @@ pub struct IDirectManipulationUpdateHandler_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectManipulationUpdateManager(::windows_core::IUnknown);
 impl IDirectManipulationUpdateManager {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterWaitHandleCallback<P0, P1>(&self, handle: P0, eventhandler: P1) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
@@ -685,10 +637,7 @@ unsafe impl ::windows_core::ComInterface for IDirectManipulationUpdateManager {
 #[doc(hidden)]
 pub struct IDirectManipulationUpdateManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub RegisterWaitHandleCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: super::super::Foundation::HANDLE, eventhandler: *mut ::core::ffi::c_void, cookie: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    RegisterWaitHandleCallback: usize,
     pub UnregisterWaitHandleCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: u32) -> ::windows_core::HRESULT,
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frameinfo: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -727,19 +676,13 @@ impl IDirectManipulationViewport {
     {
         (::windows_core::Interface::vtable(self).SetTag)(::windows_core::Interface::as_raw(self), object.into_param().abi(), id).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetViewportRect(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetViewportRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetViewportRect(&self, viewport: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetViewportRect)(::windows_core::Interface::as_raw(self), viewport).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ZoomToRect<P0>(&self, left: f32, top: f32, right: f32, bottom: f32, animate: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -789,8 +732,6 @@ impl IDirectManipulationViewport {
     pub unsafe fn SetChaining(&self, enabledtypes: DIRECTMANIPULATION_MOTION_TYPES) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetChaining)(::windows_core::Interface::as_raw(self), enabledtypes).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddEventHandler<P0, P1>(&self, window: P0, eventhandler: P1) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
@@ -834,18 +775,9 @@ pub struct IDirectManipulationViewport_Vtbl {
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut DIRECTMANIPULATION_STATUS) -> ::windows_core::HRESULT,
     pub GetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void, id: *mut u32) -> ::windows_core::HRESULT,
     pub SetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetViewportRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewport: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetViewportRect: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetViewportRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewport: *const super::super::Foundation::RECT) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetViewportRect: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub ZoomToRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: f32, top: f32, right: f32, bottom: f32, animate: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    ZoomToRect: usize,
     pub SetViewportTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const f32, pointcount: u32) -> ::windows_core::HRESULT,
     pub SyncDisplayTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const f32, pointcount: u32) -> ::windows_core::HRESULT,
     pub GetPrimaryContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -857,10 +789,7 @@ pub struct IDirectManipulationViewport_Vtbl {
     pub ActivateConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, configuration: DIRECTMANIPULATION_CONFIGURATION) -> ::windows_core::HRESULT,
     pub SetManualGesture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, configuration: DIRECTMANIPULATION_GESTURE_CONFIGURATION) -> ::windows_core::HRESULT,
     pub SetChaining: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabledtypes: DIRECTMANIPULATION_MOTION_TYPES) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub AddEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND, eventhandler: *mut ::core::ffi::c_void, cookie: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    AddEventHandler: usize,
     pub RemoveEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: u32) -> ::windows_core::HRESULT,
     pub SetInputMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: DIRECTMANIPULATION_INPUT_MODE) -> ::windows_core::HRESULT,
     pub SetUpdateMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: DIRECTMANIPULATION_INPUT_MODE) -> ::windows_core::HRESULT,
@@ -902,19 +831,13 @@ impl IDirectManipulationViewport2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetTag)(::windows_core::Interface::as_raw(self), object.into_param().abi(), id).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetViewportRect(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetViewportRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetViewportRect(&self, viewport: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetViewportRect)(::windows_core::Interface::as_raw(self), viewport).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ZoomToRect<P0>(&self, left: f32, top: f32, right: f32, bottom: f32, animate: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -964,8 +887,6 @@ impl IDirectManipulationViewport2 {
     pub unsafe fn SetChaining(&self, enabledtypes: DIRECTMANIPULATION_MOTION_TYPES) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetChaining)(::windows_core::Interface::as_raw(self), enabledtypes).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddEventHandler<P0, P1>(&self, window: P0, eventhandler: P1) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,

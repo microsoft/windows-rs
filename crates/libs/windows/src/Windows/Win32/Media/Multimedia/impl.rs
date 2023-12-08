@@ -1,5 +1,3 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAVIEditStream_Impl: Sized {
     fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows_core::Result<()>;
     fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows_core::Result<()>;
@@ -7,9 +5,7 @@ pub trait IAVIEditStream_Impl: Sized {
     fn Clone(&self) -> ::windows_core::Result<IAVIStream>;
     fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAVIEditStream {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAVIEditStream_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAVIEditStream_Impl, const OFFSET: isize>() -> IAVIEditStream_Vtbl {
         unsafe extern "system" fn Cut<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAVIEditStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -56,8 +52,6 @@ impl IAVIEditStream_Vtbl {
         *iid == <IAVIEditStream as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAVIFile_Impl: Sized {
     fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows_core::Result<()>;
     fn GetStream(&self, ppstream: *mut ::core::option::Option<IAVIStream>, fcctype: u32, lparam: i32) -> ::windows_core::Result<()>;
@@ -67,9 +61,7 @@ pub trait IAVIFile_Impl: Sized {
     fn EndRecord(&self) -> ::windows_core::Result<()>;
     fn DeleteStream(&self, fcctype: u32, lparam: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAVIFile {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAVIFile_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAVIFile_Impl, const OFFSET: isize>() -> IAVIFile_Vtbl {
         unsafe extern "system" fn Info<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAVIFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows_core::HRESULT {
@@ -122,14 +114,14 @@ impl IAVIFile_Vtbl {
         *iid == <IAVIFile as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IAVIPersistFile_Impl: Sized + super::super::System::Com::IPersistFile_Impl {
     fn Reserved1(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IAVIPersistFile {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IAVIPersistFile_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAVIPersistFile_Impl, const OFFSET: isize>() -> IAVIPersistFile_Vtbl {
         unsafe extern "system" fn Reserved1<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAVIPersistFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -143,8 +135,6 @@ impl IAVIPersistFile_Vtbl {
         *iid == <IAVIPersistFile as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IPersist as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IPersistFile as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAVIStream_Impl: Sized {
     fn Create(&self, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> ::windows_core::Result<()>;
     fn Info(&self, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows_core::Result<()>;
@@ -158,9 +148,7 @@ pub trait IAVIStream_Impl: Sized {
     fn WriteData(&self, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows_core::Result<()>;
     fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAVIStream {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAVIStream_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAVIStream_Impl, const OFFSET: isize>() -> IAVIStream_Vtbl {
         unsafe extern "system" fn Create<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAVIStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> ::windows_core::HRESULT {

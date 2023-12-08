@@ -43,23 +43,17 @@ pub unsafe fn GetManagementAppHyperlink(pszhyperlink: &mut [u16]) -> ::windows_c
     ::windows_targets::link!("mdmregistration.dll" "system" fn GetManagementAppHyperlink(cchhyperlink : u32, pszhyperlink : ::windows_core::PWSTR) -> ::windows_core::HRESULT);
     GetManagementAppHyperlink(pszhyperlink.len().try_into().unwrap(), ::core::mem::transmute(pszhyperlink.as_ptr())).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: *mut super::super::Foundation::BOOL, pszupn: ::core::option::Option<&mut [u16]>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mdmregistration.dll" "system" fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement : *mut super::super::Foundation:: BOOL, cchupn : u32, pszupn : ::windows_core::PWSTR) -> ::windows_core::HRESULT);
     IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement, pszupn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pszupn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsManagementRegistrationAllowed() -> ::windows_core::Result<super::super::Foundation::BOOL> {
     ::windows_targets::link!("mdmregistration.dll" "system" fn IsManagementRegistrationAllowed(pfismanagementregistrationallowed : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     IsManagementRegistrationAllowed(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsMdmUxWithoutAadAllowed() -> ::windows_core::Result<super::super::Foundation::BOOL> {
     ::windows_targets::link!("mdmregistration.dll" "system" fn IsMdmUxWithoutAadAllowed(isenrollmentallowed : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
@@ -71,8 +65,6 @@ pub unsafe fn RegisterDeviceDualEnrollMmpcUsingAADDeviceCredentials(pszenrollmen
     ::windows_targets::link!("mdmregistration.dll" "system" fn RegisterDeviceDualEnrollMmpcUsingAADDeviceCredentials(cchenrollmentid : u32, pszenrollmentid : ::windows_core::PWSTR) -> ::windows_core::HRESULT);
     RegisterDeviceDualEnrollMmpcUsingAADDeviceCredentials(pszenrollmentid.len().try_into().unwrap(), ::core::mem::transmute(pszenrollmentid.as_ptr())).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterDeviceWithLocalManagement(alreadyregistered: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mdmlocalmanagement.dll" "system" fn RegisterDeviceWithLocalManagement(alreadyregistered : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
@@ -88,8 +80,6 @@ where
     ::windows_targets::link!("mdmregistration.dll" "system" fn RegisterDeviceWithManagement(pszupn : ::windows_core::PCWSTR, ppszmdmserviceuri : ::windows_core::PCWSTR, ppzsaccesstoken : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     RegisterDeviceWithManagement(pszupn.into_param().abi(), ppszmdmserviceuri.into_param().abi(), ppzsaccesstoken.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterDeviceWithManagementUsingAADCredentials<P0>(usertoken: P0) -> ::windows_core::Result<()>
 where
@@ -120,8 +110,6 @@ where
     ::windows_targets::link!("mdmregistration.dll" "system" fn SetDeviceManagementConfigInfo(providerid : ::windows_core::PCWSTR, configstring : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     SetDeviceManagementConfigInfo(providerid.into_param().abi(), configstring.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetManagedExternally<P0>(ismanagedexternally: P0) -> ::windows_core::Result<()>
 where
@@ -233,41 +221,32 @@ impl ::core::fmt::Debug for REGISTRATION_INFORMATION_CLASS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct MANAGEMENT_REGISTRATION_INFO {
     pub fDeviceRegisteredWithManagement: super::super::Foundation::BOOL,
     pub dwDeviceRegistionKind: u32,
     pub pszUPN: ::windows_core::PWSTR,
     pub pszMDMServiceUri: ::windows_core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MANAGEMENT_REGISTRATION_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MANAGEMENT_REGISTRATION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MANAGEMENT_REGISTRATION_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("MANAGEMENT_REGISTRATION_INFO").field("fDeviceRegisteredWithManagement", &self.fDeviceRegisteredWithManagement).field("dwDeviceRegistionKind", &self.dwDeviceRegistionKind).field("pszUPN", &self.pszUPN).field("pszMDMServiceUri", &self.pszMDMServiceUri).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for MANAGEMENT_REGISTRATION_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MANAGEMENT_REGISTRATION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.fDeviceRegisteredWithManagement == other.fDeviceRegisteredWithManagement && self.dwDeviceRegistionKind == other.dwDeviceRegistionKind && self.pszUPN == other.pszUPN && self.pszMDMServiceUri == other.pszMDMServiceUri
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MANAGEMENT_REGISTRATION_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MANAGEMENT_REGISTRATION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

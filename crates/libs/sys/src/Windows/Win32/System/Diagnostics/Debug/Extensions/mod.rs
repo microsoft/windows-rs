@@ -2092,15 +2092,11 @@ impl ::core::clone::Clone for CKCL_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CKCL_LISTHEAD {
     pub LogEventListHead: *mut CKCL_DATA,
     pub Heap: super::super::super::super::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CKCL_LISTHEAD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CKCL_LISTHEAD {
     fn clone(&self) -> Self {
         *self
@@ -2359,8 +2355,6 @@ impl ::core::clone::Clone for DEBUG_CREATE_PROCESS_OPTIONS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_DECODE_ERROR {
     pub SizeOfStruct: u32,
     pub Code: u32,
@@ -2368,17 +2362,13 @@ pub struct DEBUG_DECODE_ERROR {
     pub Source: [u8; 64],
     pub Message: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_DECODE_ERROR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_DECODE_ERROR {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_DEVICE_OBJECT_INFO {
     pub SizeOfStruct: u32,
     pub DevObjAddress: u64,
@@ -2389,9 +2379,7 @@ pub struct DEBUG_DEVICE_OBJECT_INFO {
     pub DevExtension: u64,
     pub DevObjExtension: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_DEVICE_OBJECT_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_DEVICE_OBJECT_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2539,15 +2527,11 @@ impl ::core::clone::Clone for DEBUG_LAST_EVENT_INFO_BREAKPOINT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_LAST_EVENT_INFO_EXCEPTION {
     pub ExceptionRecord: super::EXCEPTION_RECORD64,
     pub FirstChance: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_LAST_EVENT_INFO_EXCEPTION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_LAST_EVENT_INFO_EXCEPTION {
     fn clone(&self) -> Self {
         *self
@@ -2897,8 +2881,6 @@ impl ::core::clone::Clone for DEBUG_SPECIFIC_FILTER_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_STACK_FRAME {
     pub InstructionOffset: u64,
     pub ReturnOffset: u64,
@@ -2910,17 +2892,13 @@ pub struct DEBUG_STACK_FRAME {
     pub Virtual: super::super::super::super::Foundation::BOOL,
     pub FrameNumber: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_STACK_FRAME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_STACK_FRAME {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_STACK_FRAME_EX {
     pub InstructionOffset: u64,
     pub ReturnOffset: u64,
@@ -2934,9 +2912,7 @@ pub struct DEBUG_STACK_FRAME_EX {
     pub InlineFrameContext: u32,
     pub Reserved1: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_STACK_FRAME_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_STACK_FRAME_EX {
     fn clone(&self) -> Self {
         *self
@@ -3065,24 +3041,18 @@ impl ::core::clone::Clone for DEBUG_TYPED_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_VALUE {
     pub Anonymous: DEBUG_VALUE_0,
     pub TailOfRawBytes: u32,
     pub Type: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_VALUE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_VALUE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union DEBUG_VALUE_0 {
     pub I8: u8,
     pub I16: u16,
@@ -3103,54 +3073,40 @@ pub union DEBUG_VALUE_0 {
     pub F128Parts64: DEBUG_VALUE_0_1,
     pub RawBytes: [u8; 24],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_VALUE_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_VALUE_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_VALUE_0_0 {
     pub I64: u64,
     pub Nat: super::super::super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_VALUE_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_VALUE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_VALUE_0_1 {
     pub LowPart: u64,
     pub HighPart: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_VALUE_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_VALUE_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_VALUE_0_2 {
     pub LowPart: u32,
     pub HighPart: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_VALUE_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_VALUE_0_2 {
     fn clone(&self) -> Self {
         *self
@@ -3237,8 +3193,6 @@ impl ::core::clone::Clone for EXT_CAB_XML_DATA_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct EXT_FIND_FILE {
     pub FileName: ::windows_sys::core::PCWSTR,
     pub IndexedSize: u64,
@@ -3253,9 +3207,7 @@ pub struct EXT_FIND_FILE {
     pub FoundFileName: ::windows_sys::core::PWSTR,
     pub FoundFileNameChars: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EXT_FIND_FILE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EXT_FIND_FILE {
     fn clone(&self) -> Self {
         *self
@@ -3806,8 +3758,6 @@ impl ::core::clone::Clone for KDDEBUGGER_DATA64 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct KDEXTS_LOCK_INFO {
     pub SizeOfStruct: u32,
     pub Address: u64,
@@ -3820,9 +3770,7 @@ pub struct KDEXTS_LOCK_INFO {
     pub pOwnerThreads: *mut u64,
     pub pWaiterThreads: *mut u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KDEXTS_LOCK_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KDEXTS_LOCK_INFO {
     fn clone(&self) -> Self {
         *self
@@ -3862,8 +3810,6 @@ impl ::core::clone::Clone for KDEXT_FILELOCK_OWNER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct KDEXT_HANDLE_INFORMATION {
     pub HandleTableEntry: u64,
     pub Handle: u64,
@@ -3873,9 +3819,7 @@ pub struct KDEXT_HANDLE_INFORMATION {
     pub HandleAttributes: u32,
     pub PagedOut: super::super::super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KDEXT_HANDLE_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KDEXT_HANDLE_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -4178,15 +4122,11 @@ impl ::core::clone::Clone for STACK_SRC_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STACK_SYM_FRAME_INFO {
     pub StackFrameEx: DEBUG_STACK_FRAME_EX,
     pub SrcInfo: STACK_SRC_INFO,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STACK_SYM_FRAME_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STACK_SYM_FRAME_INFO {
     fn clone(&self) -> Self {
         *self
@@ -4581,16 +4521,10 @@ pub type ENTRY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(entry
 pub type EXTDLL_ITERATERTLBALANCEDNODES = ::core::option::Option<unsafe extern "system" fn(rootnode: u64, entryoffset: u32, callback: ENTRY_CALLBACK, callbackcontext: *mut ::core::ffi::c_void)>;
 pub type EXTDLL_QUERYDATABYTAG = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient4, dwdatatag: u32, pqueryinfo: *const ::core::ffi::c_void, pdata: *mut u8, cbdata: u32) -> ::windows_sys::core::HRESULT>;
 pub type EXTDLL_QUERYDATABYTAGEX = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient4, dwdatatag: u32, pqueryinfo: *const ::core::ffi::c_void, pdata: *mut u8, cbdata: u32, pdataex: *mut u8, cbdataex: u32) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type EXTS_JOB_PROCESS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(job: u64, process: u64, context: *mut ::core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type EXTS_TABLE_ENTRY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(entry: u64, context: *mut ::core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
 pub type EXT_ANALYSIS_PLUGIN = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient4, callphase: FA_EXTENSION_PLUGIN_PHASE, panalysis: IDebugFailureAnalysis2) -> ::windows_sys::core::HRESULT>;
 pub type EXT_ANALYZER = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient, bucketsuffix: ::windows_sys::core::PSTR, cbbucketsuffix: u32, debugtext: ::windows_sys::core::PSTR, cbdebugtext: u32, flags: *const u32, panalysis: IDebugFailureAnalysis) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type EXT_DECODE_ERROR = ::core::option::Option<unsafe extern "system" fn(pdecodeerror: *mut DEBUG_DECODE_ERROR)>;
 pub type EXT_GET_DEBUG_FAILURE_ANALYSIS = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient4, flags: u32, classid: ::windows_sys::core::GUID, ppanalysis: *mut IDebugFailureAnalysis2) -> ::windows_sys::core::HRESULT>;
 pub type EXT_GET_ENVIRONMENT_VARIABLE = ::core::option::Option<unsafe extern "system" fn(peb: u64, variable: ::windows_sys::core::PCSTR, buffer: ::windows_sys::core::PCSTR, buffersize: u32) -> ::windows_sys::core::HRESULT>;
@@ -4601,11 +4535,7 @@ pub type EXT_RELOAD_TRIAGER = ::core::option::Option<unsafe extern "system" fn(c
 pub type EXT_TARGET_INFO = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient4, ptargetinfo: *mut TARGET_DEBUG_INFO) -> ::windows_sys::core::HRESULT>;
 pub type EXT_TRIAGE_FOLLOWUP = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient4, symbolname: ::windows_sys::core::PCSTR, ownerinfo: *mut DEBUG_TRIAGE_FOLLOWUP_INFO) -> u32>;
 pub type EXT_XML_DATA = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient4, pxmpdata: *mut EXT_CAB_XML_DATA) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type KDEXTS_LOCK_CALLBACKROUTINE = ::core::option::Option<unsafe extern "system" fn(plock: *mut KDEXTS_LOCK_INFO, context: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type KDEXT_DUMP_HANDLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(handleinfo: *const KDEXT_HANDLE_INFORMATION, flags: u32, context: *mut ::core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
 pub type PDEBUG_EXTENSION_CALL = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient, args: ::windows_sys::core::PCSTR) -> ::windows_sys::core::HRESULT>;
 pub type PDEBUG_EXTENSION_CANUNLOAD = ::core::option::Option<unsafe extern "system" fn() -> ::windows_sys::core::HRESULT>;
@@ -4619,31 +4549,17 @@ pub type PDEBUG_EXTENSION_UNINITIALIZE = ::core::option::Option<unsafe extern "s
 pub type PDEBUG_EXTENSION_UNLOAD = ::core::option::Option<unsafe extern "system" fn()>;
 pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = ::core::option::Option<unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows_sys::core::HRESULT>;
 pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = ::core::option::Option<unsafe extern "system" fn() -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = ::core::option::Option<unsafe extern "system" fn(stacksymframes: *const STACK_SYM_FRAME_INFO) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = ::core::option::Option<unsafe extern "system" fn(systemthreadid: u32, nativeframes: *const DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PENUMERATE_HANDLES = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient, process: u64, handletodump: u64, flags: u32, callback: KDEXT_DUMP_HANDLE_CALLBACK, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PENUMERATE_HASH_TABLE = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient, hashtable: u64, callback: EXTS_TABLE_ENTRY_CALLBACK, context: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PENUMERATE_JOB_PROCESSES = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient, job: u64, callback: EXTS_JOB_PROCESS_CALLBACK, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PENUMERATE_SYSTEM_LOCKS = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient, flags: u32, callback: KDEXTS_LOCK_CALLBACKROUTINE, context: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 pub type PFIND_FILELOCK_OWNERINFO = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient, pfilelockowner: *mut KDEXT_FILELOCK_OWNER) -> ::windows_sys::core::HRESULT>;
 pub type PFIND_MATCHING_PROCESS = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient, processinfo: *const KDEXT_PROCESS_FIND_PARAMS, process: *mut u64) -> ::windows_sys::core::HRESULT>;
 pub type PFIND_MATCHING_THREAD = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient, threadinfo: *mut KDEXT_THREAD_FIND_PARAMS) -> ::windows_sys::core::HRESULT>;
 pub type PGET_CPU_MICROCODE_VERSION = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient, pcpumicrocodeversion: *mut DEBUG_CPU_MICROCODE_VERSION) -> ::windows_sys::core::HRESULT>;
 pub type PGET_CPU_PSPEED_INFO = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient, pcpuspeedinfo: *mut DEBUG_CPU_SPEED_INFO) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PGET_DEVICE_OBJECT_INFO = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient, deviceobject: u64, pdevobjinfo: *mut DEBUG_DEVICE_OBJECT_INFO) -> ::windows_sys::core::HRESULT>;
 pub type PGET_DRIVER_OBJECT_INFO = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient, driverobject: u64, pdrvobjinfo: *mut DEBUG_DRIVER_OBJECT_INFO) -> ::windows_sys::core::HRESULT>;
 pub type PGET_FULL_IMAGE_NAME = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient, process: u64, fullimagename: *mut ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT>;
@@ -4671,14 +4587,8 @@ pub type PWINDBG_EXTENSION_DLL_INIT32 = ::core::option::Option<unsafe extern "sy
 #[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_EXTENSION_DLL_INIT64 = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS64, majorversion: u16, minorversion: u16)>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: ::windows_sys::core::PCSTR)>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_EXTENSION_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: ::windows_sys::core::PCSTR)>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_EXTENSION_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u64, dwprocessor: u32, lpargumentstring: ::windows_sys::core::PCSTR)>;
 pub type PWINDBG_GET_EXPRESSION = ::core::option::Option<unsafe extern "system" fn(lpexpression: ::windows_sys::core::PCSTR) -> usize>;
 pub type PWINDBG_GET_EXPRESSION32 = ::core::option::Option<unsafe extern "system" fn(lpexpression: ::windows_sys::core::PCSTR) -> u32>;

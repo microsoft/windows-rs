@@ -1,14 +1,10 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IGameExplorer_Impl: Sized {
     fn AddGame(&self, bstrgdfbinarypath: &::windows_core::BSTR, bstrgameinstalldirectory: &::windows_core::BSTR, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn RemoveGame(&self, guidinstanceid: &::windows_core::GUID) -> ::windows_core::Result<()>;
     fn UpdateGame(&self, guidinstanceid: &::windows_core::GUID) -> ::windows_core::Result<()>;
     fn VerifyAccess(&self, bstrgdfbinarypath: &::windows_core::BSTR) -> ::windows_core::Result<super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IGameExplorer {}
-#[cfg(feature = "Win32_Foundation")]
 impl IGameExplorer_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer_Impl, const OFFSET: isize>() -> IGameExplorer_Vtbl {
         unsafe extern "system" fn AddGame<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgdfbinarypath: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrgameinstalldirectory: ::std::mem::MaybeUninit<::windows_core::BSTR>, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT {
@@ -49,16 +45,12 @@ impl IGameExplorer_Vtbl {
         *iid == <IGameExplorer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IGameExplorer2_Impl: Sized {
     fn InstallGame(&self, binarygdfpath: &::windows_core::PCWSTR, installdirectory: &::windows_core::PCWSTR, installscope: GAME_INSTALL_SCOPE) -> ::windows_core::Result<()>;
     fn UninstallGame(&self, binarygdfpath: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn CheckAccess(&self, binarygdfpath: &::windows_core::PCWSTR) -> ::windows_core::Result<super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IGameExplorer2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IGameExplorer2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer2_Impl, const OFFSET: isize>() -> IGameExplorer2_Vtbl {
         unsafe extern "system" fn InstallGame<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, binarygdfpath: ::windows_core::PCWSTR, installdirectory: ::windows_core::PCWSTR, installscope: GAME_INSTALL_SCOPE) -> ::windows_core::HRESULT {
@@ -93,8 +85,6 @@ impl IGameExplorer2_Vtbl {
         *iid == <IGameExplorer2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IGameStatistics_Impl: Sized {
     fn GetMaxCategoryLength(&self) -> ::windows_core::Result<u32>;
     fn GetMaxNameLength(&self) -> ::windows_core::Result<u32>;
@@ -109,9 +99,7 @@ pub trait IGameStatistics_Impl: Sized {
     fn SetLastPlayedCategory(&self, categoryindex: u32) -> ::windows_core::Result<()>;
     fn GetLastPlayedCategory(&self) -> ::windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IGameStatistics {}
-#[cfg(feature = "Win32_Foundation")]
 impl IGameStatistics_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGameStatistics_Impl, const OFFSET: isize>() -> IGameStatistics_Vtbl {
         unsafe extern "system" fn GetMaxCategoryLength<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGameStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cch: *mut u32) -> ::windows_core::HRESULT {
@@ -263,8 +251,6 @@ impl IGameStatisticsMgr_Vtbl {
         *iid == <IGameStatisticsMgr as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXblIdpAuthManager_Impl: Sized {
     fn SetGamerAccount(&self, msaaccountid: &::windows_core::PCWSTR, xuid: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn GetGamerAccount(&self, msaaccountid: *mut ::windows_core::PWSTR, xuid: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>;
@@ -273,9 +259,7 @@ pub trait IXblIdpAuthManager_Impl: Sized {
     fn GetSandbox(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetTokenAndSignatureWithTokenResult(&self, msaaccountid: &::windows_core::PCWSTR, appsid: &::windows_core::PCWSTR, msatarget: &::windows_core::PCWSTR, msapolicy: &::windows_core::PCWSTR, httpmethod: &::windows_core::PCWSTR, uri: &::windows_core::PCWSTR, headers: &::windows_core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL) -> ::windows_core::Result<IXblIdpAuthTokenResult>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IXblIdpAuthManager {}
-#[cfg(feature = "Win32_Foundation")]
 impl IXblIdpAuthManager_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXblIdpAuthManager_Impl, const OFFSET: isize>() -> IXblIdpAuthManager_Vtbl {
         unsafe extern "system" fn SetGamerAccount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXblIdpAuthManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, msaaccountid: ::windows_core::PCWSTR, xuid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT {
@@ -340,14 +324,10 @@ impl IXblIdpAuthManager_Vtbl {
         *iid == <IXblIdpAuthManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXblIdpAuthManager2_Impl: Sized {
     fn GetUserlessTokenAndSignatureWithTokenResult(&self, appsid: &::windows_core::PCWSTR, msatarget: &::windows_core::PCWSTR, msapolicy: &::windows_core::PCWSTR, httpmethod: &::windows_core::PCWSTR, uri: &::windows_core::PCWSTR, headers: &::windows_core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL) -> ::windows_core::Result<IXblIdpAuthTokenResult>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IXblIdpAuthManager2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IXblIdpAuthManager2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXblIdpAuthManager2_Impl, const OFFSET: isize>() -> IXblIdpAuthManager2_Vtbl {
         unsafe extern "system" fn GetUserlessTokenAndSignatureWithTokenResult<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXblIdpAuthManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appsid: ::windows_core::PCWSTR, msatarget: ::windows_core::PCWSTR, msapolicy: ::windows_core::PCWSTR, httpmethod: ::windows_core::PCWSTR, uri: ::windows_core::PCWSTR, headers: ::windows_core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL, result: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

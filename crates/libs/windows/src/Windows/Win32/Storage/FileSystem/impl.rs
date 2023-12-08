@@ -1,5 +1,5 @@
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IDiskQuotaControl_Impl: Sized + super::super::System::Com::IConnectionPointContainer_Impl {
     fn Initialize(&self, pszpath: &::windows_core::PCWSTR, breadwrite: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn SetQuotaState(&self, dwstate: u32) -> ::windows_core::Result<()>;
@@ -23,9 +23,9 @@ pub trait IDiskQuotaControl_Impl: Sized + super::super::System::Com::IConnection
     fn GiveUserNameResolutionPriority(&self, puser: ::core::option::Option<&IDiskQuotaUser>) -> ::windows_core::Result<()>;
     fn ShutdownNameResolution(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IDiskQuotaControl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IDiskQuotaControl_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>() -> IDiskQuotaControl_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows_core::PCWSTR, breadwrite: super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -209,8 +209,6 @@ impl IDiskQuotaEvents_Vtbl {
         *iid == <IDiskQuotaEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDiskQuotaUser_Impl: Sized {
     fn GetID(&self, pulid: *mut u32) -> ::windows_core::Result<()>;
     fn GetName(&self, pszaccountcontainer: &::windows_core::PCWSTR, cchaccountcontainer: u32, pszlogonname: &::windows_core::PCWSTR, cchlogonname: u32, pszdisplayname: &::windows_core::PCWSTR, cchdisplayname: u32) -> ::windows_core::Result<()>;
@@ -228,9 +226,7 @@ pub trait IDiskQuotaUser_Impl: Sized {
     fn Invalidate(&self) -> ::windows_core::Result<()>;
     fn GetAccountStatus(&self, pdwstatus: *mut u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDiskQuotaUser {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDiskQuotaUser_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>() -> IDiskQuotaUser_Vtbl {
         unsafe extern "system" fn GetID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulid: *mut u32) -> ::windows_core::HRESULT {

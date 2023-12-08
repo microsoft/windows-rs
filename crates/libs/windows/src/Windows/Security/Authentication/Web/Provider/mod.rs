@@ -12,10 +12,7 @@ unsafe impl ::windows_core::ComInterface for IWebAccountClientView {
 #[doc(hidden)]
 pub struct IWebAccountClientView_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub ApplicationCallbackUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ApplicationCallbackUri: usize,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WebAccountClientViewType) -> ::windows_core::HRESULT,
     pub AccountPairwiseId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
@@ -33,14 +30,8 @@ unsafe impl ::windows_core::ComInterface for IWebAccountClientViewFactory {
 #[doc(hidden)]
 pub struct IWebAccountClientViewFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewtype: WebAccountClientViewType, applicationcallbackuri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Create: usize,
-    #[cfg(feature = "Foundation")]
     pub CreateWithPairwiseId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewtype: WebAccountClientViewType, applicationcallbackuri: *mut ::core::ffi::c_void, accountpairwiseid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateWithPairwiseId: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -64,9 +55,9 @@ pub struct IWebAccountManagerStatics_Vtbl {
     pub AddWebAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, webaccountusername: ::std::mem::MaybeUninit<::windows_core::HSTRING>, props: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Credentials")))]
     AddWebAccountAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[cfg(feature = "Security_Credentials")]
     pub DeleteWebAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))]
+    #[cfg(not(feature = "Security_Credentials"))]
     DeleteWebAccountAsync: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
     pub FindAllProviderWebAccountsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -76,25 +67,25 @@ pub struct IWebAccountManagerStatics_Vtbl {
     pub PushCookiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, cookies: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Web_Http")))]
     PushCookiesAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[cfg(feature = "Security_Credentials")]
     pub SetViewAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, view: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))]
+    #[cfg(not(feature = "Security_Credentials"))]
     SetViewAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[cfg(feature = "Security_Credentials")]
     pub ClearViewAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, applicationcallbackuri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))]
+    #[cfg(not(feature = "Security_Credentials"))]
     ClearViewAsync: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
     pub GetViewsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Credentials")))]
     GetViewsAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "Storage_Streams"))]
+    #[cfg(all(feature = "Security_Credentials", feature = "Storage_Streams"))]
     pub SetWebAccountPictureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, webaccountpicture: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials", feature = "Storage_Streams")))]
+    #[cfg(not(all(feature = "Security_Credentials", feature = "Storage_Streams")))]
     SetWebAccountPictureAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[cfg(feature = "Security_Credentials")]
     pub ClearWebAccountPictureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))]
+    #[cfg(not(feature = "Security_Credentials"))]
     ClearWebAccountPictureAsync: usize,
 }
 #[doc(hidden)]
@@ -111,10 +102,7 @@ unsafe impl ::windows_core::ComInterface for IWebAccountManagerStatics2 {
 #[doc(hidden)]
 pub struct IWebAccountManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub PullCookiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uristring: ::std::mem::MaybeUninit<::windows_core::HSTRING>, callerpfn: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PullCookiesAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -161,13 +149,10 @@ unsafe impl ::windows_core::ComInterface for IWebAccountManagerStatics4 {
 #[doc(hidden)]
 pub struct IWebAccountManagerStatics4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub InvalidateAppCacheForAllAccountsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    InvalidateAppCacheForAllAccountsAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[cfg(feature = "Security_Credentials")]
     pub InvalidateAppCacheForAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))]
+    #[cfg(not(feature = "Security_Credentials"))]
     InvalidateAppCacheForAccountAsync: usize,
 }
 #[doc(hidden)]
@@ -188,17 +173,17 @@ pub struct IWebAccountMapManagerStatics_Vtbl {
     pub AddWebAccountWithScopeAndMapAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, webaccountusername: ::std::mem::MaybeUninit<::windows_core::HSTRING>, props: *mut ::core::ffi::c_void, scope: WebAccountScope, peruserwebaccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Credentials")))]
     AddWebAccountWithScopeAndMapAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[cfg(feature = "Security_Credentials")]
     pub SetPerAppToPerUserAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perappaccount: *mut ::core::ffi::c_void, peruserwebaccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))]
+    #[cfg(not(feature = "Security_Credentials"))]
     SetPerAppToPerUserAccountAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[cfg(feature = "Security_Credentials")]
     pub GetPerUserFromPerAppAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perappaccount: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))]
+    #[cfg(not(feature = "Security_Credentials"))]
     GetPerUserFromPerAppAccountAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[cfg(feature = "Security_Credentials")]
     pub ClearPerUserFromPerAppAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perappaccount: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))]
+    #[cfg(not(feature = "Security_Credentials"))]
     ClearPerUserFromPerAppAccountAsync: usize,
 }
 #[doc(hidden)]
@@ -336,26 +321,14 @@ unsafe impl ::windows_core::ComInterface for IWebAccountProviderRetrieveCookiesO
 #[doc(hidden)]
 pub struct IWebAccountProviderRetrieveCookiesOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub Context: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Context: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http"))]
     pub Cookies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Web_Http")))]
     Cookies: usize,
-    #[cfg(feature = "Foundation")]
     pub SetUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetUri: usize,
-    #[cfg(feature = "Foundation")]
     pub Uri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Uri: usize,
-    #[cfg(feature = "Foundation")]
     pub ApplicationCallbackUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ApplicationCallbackUri: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -375,10 +348,7 @@ pub struct IWebAccountProviderSignOutAccountOperation_Vtbl {
     pub WebAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Security_Credentials"))]
     WebAccount: usize,
-    #[cfg(feature = "Foundation")]
     pub ApplicationCallbackUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ApplicationCallbackUri: usize,
     pub ClientId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -522,14 +492,10 @@ impl IWebAccountProviderTokenOperation {
             (::windows_core::Interface::vtable(this).ProviderResponses)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetCacheExpirationTime(&self, value: super::super::super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCacheExpirationTime)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CacheExpirationTime(&self) -> ::windows_core::Result<super::super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -565,14 +531,8 @@ pub struct IWebAccountProviderTokenOperation_Vtbl {
     pub ProviderResponses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ProviderResponses: usize,
-    #[cfg(feature = "Foundation")]
     pub SetCacheExpirationTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetCacheExpirationTime: usize,
-    #[cfg(feature = "Foundation")]
     pub CacheExpirationTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CacheExpirationTime: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -631,9 +591,9 @@ pub struct IWebAccountScopeManagerStatics_Vtbl {
     pub AddWebAccountWithScopeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, webaccountusername: ::std::mem::MaybeUninit<::windows_core::HSTRING>, props: *mut ::core::ffi::c_void, scope: WebAccountScope, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Credentials")))]
     AddWebAccountWithScopeAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[cfg(feature = "Security_Credentials")]
     pub SetScopeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, scope: WebAccountScope, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))]
+    #[cfg(not(feature = "Security_Credentials"))]
     SetScopeAsync: usize,
     #[cfg(feature = "Security_Credentials")]
     pub GetScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, result__: *mut WebAccountScope) -> ::windows_core::HRESULT,
@@ -663,13 +623,10 @@ pub struct IWebProviderTokenRequest_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Credentials")))]
     WebAccounts: usize,
     pub WebAccountSelectionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WebAccountSelectionOptions) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub ApplicationCallbackUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ApplicationCallbackUri: usize,
-    #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Core"))]
+    #[cfg(feature = "Security_Cryptography_Core")]
     pub GetApplicationTokenBindingKeyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keytype: super::TokenBindingKeyType, target: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Cryptography_Core")))]
+    #[cfg(not(feature = "Security_Cryptography_Core"))]
     GetApplicationTokenBindingKeyAsync: usize,
 }
 #[doc(hidden)]
@@ -686,9 +643,9 @@ unsafe impl ::windows_core::ComInterface for IWebProviderTokenRequest2 {
 #[doc(hidden)]
 pub struct IWebProviderTokenRequest2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub GetApplicationTokenBindingKeyIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keytype: super::TokenBindingKeyType, target: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     GetApplicationTokenBindingKeyIdAsync: usize,
 }
 #[doc(hidden)]
@@ -707,10 +664,7 @@ pub struct IWebProviderTokenRequest3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ApplicationPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub ApplicationProcessName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub CheckApplicationForCapabilityAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilityname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CheckApplicationForCapabilityAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -754,8 +708,6 @@ pub struct IWebProviderTokenResponseFactory_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebAccountClientView(::windows_core::IUnknown);
 impl WebAccountClientView {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ApplicationCallbackUri(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -777,8 +729,6 @@ impl WebAccountClientView {
             (::windows_core::Interface::vtable(this).AccountPairwiseId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Create<P0>(viewtype: WebAccountClientViewType, applicationcallbackuri: P0) -> ::windows_core::Result<WebAccountClientView>
     where
         P0: ::windows_core::IntoParam<super::super::super::super::Foundation::Uri>,
@@ -788,8 +738,6 @@ impl WebAccountClientView {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), viewtype, applicationcallbackuri.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateWithPairwiseId<P0>(viewtype: WebAccountClientViewType, applicationcallbackuri: P0, accountpairwiseid: &::windows_core::HSTRING) -> ::windows_core::Result<WebAccountClientView>
     where
         P0: ::windows_core::IntoParam<super::super::super::super::Foundation::Uri>,
@@ -845,8 +793,8 @@ impl WebAccountManager {
             (::windows_core::Interface::vtable(this).AddWebAccountAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(webaccountid), ::core::mem::transmute_copy(webaccountusername), props.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Security_Credentials\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
+    #[cfg(feature = "Security_Credentials")]
     pub fn DeleteWebAccountAsync<P0>(webaccount: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<super::super::super::Credentials::WebAccount>,
@@ -876,8 +824,8 @@ impl WebAccountManager {
             (::windows_core::Interface::vtable(this).PushCookiesAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), cookies.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Security_Credentials\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
+    #[cfg(feature = "Security_Credentials")]
     pub fn SetViewAsync<P0, P1>(webaccount: P0, view: P1) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<super::super::super::Credentials::WebAccount>,
@@ -888,8 +836,8 @@ impl WebAccountManager {
             (::windows_core::Interface::vtable(this).SetViewAsync)(::windows_core::Interface::as_raw(this), webaccount.into_param().abi(), view.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Security_Credentials\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
+    #[cfg(feature = "Security_Credentials")]
     pub fn ClearViewAsync<P0, P1>(webaccount: P0, applicationcallbackuri: P1) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<super::super::super::Credentials::WebAccount>,
@@ -911,8 +859,8 @@ impl WebAccountManager {
             (::windows_core::Interface::vtable(this).GetViewsAsync)(::windows_core::Interface::as_raw(this), webaccount.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Security_Credentials\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Security_Credentials\"`, `\"Storage_Streams\"`"]
+    #[cfg(all(feature = "Security_Credentials", feature = "Storage_Streams"))]
     pub fn SetWebAccountPictureAsync<P0, P1>(webaccount: P0, webaccountpicture: P1) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<super::super::super::Credentials::WebAccount>,
@@ -923,8 +871,8 @@ impl WebAccountManager {
             (::windows_core::Interface::vtable(this).SetWebAccountPictureAsync)(::windows_core::Interface::as_raw(this), webaccount.into_param().abi(), webaccountpicture.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Security_Credentials\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
+    #[cfg(feature = "Security_Credentials")]
     pub fn ClearWebAccountPictureAsync<P0>(webaccount: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<super::super::super::Credentials::WebAccount>,
@@ -934,8 +882,6 @@ impl WebAccountManager {
             (::windows_core::Interface::vtable(this).ClearWebAccountPictureAsync)(::windows_core::Interface::as_raw(this), webaccount.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PullCookiesAsync(uristring: &::windows_core::HSTRING, callerpfn: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncAction> {
         Self::IWebAccountManagerStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
@@ -989,16 +935,14 @@ impl WebAccountManager {
             (::windows_core::Interface::vtable(this).AddWebAccountWithScopeAndMapForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(webaccountid), ::core::mem::transmute_copy(webaccountusername), props.try_into_param()?.abi(), scope, ::core::mem::transmute_copy(peruserwebaccountid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn InvalidateAppCacheForAllAccountsAsync() -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncAction> {
         Self::IWebAccountManagerStatics4(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InvalidateAppCacheForAllAccountsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Security_Credentials\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
+    #[cfg(feature = "Security_Credentials")]
     pub fn InvalidateAppCacheForAccountAsync<P0>(webaccount: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<super::super::super::Credentials::WebAccount>,
@@ -1019,8 +963,8 @@ impl WebAccountManager {
             (::windows_core::Interface::vtable(this).AddWebAccountWithScopeAndMapAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(webaccountid), ::core::mem::transmute_copy(webaccountusername), props.try_into_param()?.abi(), scope, ::core::mem::transmute_copy(peruserwebaccountid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Security_Credentials\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
+    #[cfg(feature = "Security_Credentials")]
     pub fn SetPerAppToPerUserAccountAsync<P0>(perappaccount: P0, peruserwebaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<super::super::super::Credentials::WebAccount>,
@@ -1030,8 +974,8 @@ impl WebAccountManager {
             (::windows_core::Interface::vtable(this).SetPerAppToPerUserAccountAsync)(::windows_core::Interface::as_raw(this), perappaccount.into_param().abi(), ::core::mem::transmute_copy(peruserwebaccountid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Security_Credentials\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
+    #[cfg(feature = "Security_Credentials")]
     pub fn GetPerUserFromPerAppAccountAsync<P0>(perappaccount: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
     where
         P0: ::windows_core::IntoParam<super::super::super::Credentials::WebAccount>,
@@ -1041,8 +985,8 @@ impl WebAccountManager {
             (::windows_core::Interface::vtable(this).GetPerUserFromPerAppAccountAsync)(::windows_core::Interface::as_raw(this), perappaccount.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Security_Credentials\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
+    #[cfg(feature = "Security_Credentials")]
     pub fn ClearPerUserFromPerAppAccountAsync<P0>(perappaccount: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<super::super::super::Credentials::WebAccount>,
@@ -1063,8 +1007,8 @@ impl WebAccountManager {
             (::windows_core::Interface::vtable(this).AddWebAccountWithScopeAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(webaccountid), ::core::mem::transmute_copy(webaccountusername), props.try_into_param()?.abi(), scope, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Security_Credentials\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
+    #[cfg(feature = "Security_Credentials")]
     pub fn SetScopeAsync<P0>(webaccount: P0, scope: WebAccountScope) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<super::super::super::Credentials::WebAccount>,
@@ -1255,14 +1199,10 @@ impl WebAccountProviderGetTokenSilentOperation {
             (::windows_core::Interface::vtable(this).ProviderResponses)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetCacheExpirationTime(&self, value: super::super::super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCacheExpirationTime)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CacheExpirationTime(&self) -> ::windows_core::Result<super::super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1371,14 +1311,10 @@ impl WebAccountProviderRequestTokenOperation {
             (::windows_core::Interface::vtable(this).ProviderResponses)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetCacheExpirationTime(&self, value: super::super::super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCacheExpirationTime)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CacheExpirationTime(&self) -> ::windows_core::Result<super::super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1434,8 +1370,6 @@ impl WebAccountProviderRetrieveCookiesOperation {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Context(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -1452,8 +1386,6 @@ impl WebAccountProviderRetrieveCookiesOperation {
             (::windows_core::Interface::vtable(this).Cookies)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetUri<P0>(&self, uri: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::super::super::Foundation::Uri>,
@@ -1461,8 +1393,6 @@ impl WebAccountProviderRetrieveCookiesOperation {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetUri)(::windows_core::Interface::as_raw(this), uri.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -1470,8 +1400,6 @@ impl WebAccountProviderRetrieveCookiesOperation {
             (::windows_core::Interface::vtable(this).Uri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ApplicationCallbackUri(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -1530,8 +1458,6 @@ impl WebAccountProviderSignOutAccountOperation {
             (::windows_core::Interface::vtable(this).WebAccount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ApplicationCallbackUri(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -1631,8 +1557,6 @@ impl WebProviderTokenRequest {
             (::windows_core::Interface::vtable(this).WebAccountSelectionOptions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ApplicationCallbackUri(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -1640,8 +1564,8 @@ impl WebProviderTokenRequest {
             (::windows_core::Interface::vtable(this).ApplicationCallbackUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Security_Cryptography_Core\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Core"))]
+    #[doc = "Required features: `\"Security_Cryptography_Core\"`"]
+    #[cfg(feature = "Security_Cryptography_Core")]
     pub fn GetApplicationTokenBindingKeyAsync<P0>(&self, keytype: super::TokenBindingKeyType, target: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Cryptography::Core::CryptographicKey>>
     where
         P0: ::windows_core::IntoParam<super::super::super::super::Foundation::Uri>,
@@ -1652,8 +1576,8 @@ impl WebProviderTokenRequest {
             (::windows_core::Interface::vtable(this).GetApplicationTokenBindingKeyAsync)(::windows_core::Interface::as_raw(this), keytype, target.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    #[cfg(feature = "Storage_Streams")]
     pub fn GetApplicationTokenBindingKeyIdAsync<P0>(&self, keytype: super::TokenBindingKeyType, target: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Storage::Streams::IBuffer>>
     where
         P0: ::windows_core::IntoParam<super::super::super::super::Foundation::Uri>,
@@ -1678,8 +1602,6 @@ impl WebProviderTokenRequest {
             (::windows_core::Interface::vtable(this).ApplicationProcessName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CheckApplicationForCapabilityAsync(&self, capabilityname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<IWebProviderTokenRequest3>(self)?;
         unsafe {

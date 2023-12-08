@@ -10,16 +10,12 @@ impl IPrintDocumentSource_Vtbl {
         *iid == <IPrintDocumentSource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IPrintTaskOptionsCore_Impl: Sized {
     fn GetPageDescription(&self, jobpagenumber: u32) -> ::windows_core::Result<PrintPageDescription>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IPrintTaskOptionsCore {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskOptionsCore";
 }
-#[cfg(feature = "Foundation")]
 impl IPrintTaskOptionsCore_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCore_Impl, const OFFSET: isize>() -> IPrintTaskOptionsCore_Vtbl {
         unsafe extern "system" fn GetPageDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, jobpagenumber: u32, result__: *mut PrintPageDescription) -> ::windows_core::HRESULT {

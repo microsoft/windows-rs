@@ -85,17 +85,13 @@ impl IAudioDeviceModulesClient_Vtbl {
         *iid == <IAudioDeviceModulesClient as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAudioMediaType_Impl: Sized {
     fn IsCompressedFormat(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn IsEqual(&self, piaudiotype: ::core::option::Option<&IAudioMediaType>) -> ::windows_core::Result<u32>;
     fn GetAudioFormat(&self) -> *mut super::WAVEFORMATEX;
     fn GetUncompressedAudioFormat(&self, puncompressedaudioformat: *mut UNCOMPRESSEDAUDIOFORMAT) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAudioMediaType {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAudioMediaType_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioMediaType_Impl, const OFFSET: isize>() -> IAudioMediaType_Vtbl {
         unsafe extern "system" fn IsCompressedFormat<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioMediaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfcompressed: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -278,15 +274,15 @@ impl IAudioProcessingObjectLoggingService_Vtbl {
         *iid == <IAudioProcessingObjectLoggingService as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IAudioProcessingObjectNotifications_Impl: Sized {
     fn GetApoNotificationRegistrationInfo(&self, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows_core::Result<()>;
     fn HandleNotification(&self, aponotification: *const APO_NOTIFICATION);
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::windows_core::RuntimeName for IAudioProcessingObjectNotifications {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IAudioProcessingObjectNotifications_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectNotifications_Impl, const OFFSET: isize>() -> IAudioProcessingObjectNotifications_Vtbl {
         unsafe extern "system" fn GetApoNotificationRegistrationInfo<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectNotifications_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows_core::HRESULT {
@@ -309,14 +305,14 @@ impl IAudioProcessingObjectNotifications_Vtbl {
         *iid == <IAudioProcessingObjectNotifications as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IAudioProcessingObjectNotifications2_Impl: Sized + IAudioProcessingObjectNotifications_Impl {
     fn GetApoNotificationRegistrationInfo2(&self, maxaponotificationtypesupported: APO_NOTIFICATION_TYPE, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::windows_core::RuntimeName for IAudioProcessingObjectNotifications2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IAudioProcessingObjectNotifications2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectNotifications2_Impl, const OFFSET: isize>() -> IAudioProcessingObjectNotifications2_Vtbl {
         unsafe extern "system" fn GetApoNotificationRegistrationInfo2<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectNotifications2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxaponotificationtypesupported: APO_NOTIFICATION_TYPE, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows_core::HRESULT {
@@ -439,14 +435,10 @@ impl IAudioSystemEffects_Vtbl {
         *iid == <IAudioSystemEffects as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAudioSystemEffects2_Impl: Sized + IAudioSystemEffects_Impl {
     fn GetEffectsList(&self, ppeffectsids: *mut *mut ::windows_core::GUID, pceffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAudioSystemEffects2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAudioSystemEffects2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioSystemEffects2_Impl, const OFFSET: isize>() -> IAudioSystemEffects2_Vtbl {
         unsafe extern "system" fn GetEffectsList<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioSystemEffects2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppeffectsids: *mut *mut ::windows_core::GUID, pceffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> ::windows_core::HRESULT {
@@ -460,15 +452,11 @@ impl IAudioSystemEffects2_Vtbl {
         *iid == <IAudioSystemEffects2 as ::windows_core::ComInterface>::IID || *iid == <IAudioSystemEffects as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAudioSystemEffects3_Impl: Sized + IAudioSystemEffects2_Impl {
     fn GetControllableSystemEffectsList(&self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
     fn SetAudioSystemEffectState(&self, effectid: &::windows_core::GUID, state: AUDIO_SYSTEMEFFECT_STATE) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAudioSystemEffects3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAudioSystemEffects3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioSystemEffects3_Impl, const OFFSET: isize>() -> IAudioSystemEffects3_Vtbl {
         unsafe extern "system" fn GetControllableSystemEffectsList<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioSystemEffects3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> ::windows_core::HRESULT {

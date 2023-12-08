@@ -12,15 +12,10 @@ unsafe impl ::windows_core::ComInterface for ICorePerceptionAutomationStatics {
 #[doc(hidden)]
 pub struct ICorePerceptionAutomationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub SetActivationFactoryProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetActivationFactoryProvider: usize,
 }
 pub struct CorePerceptionAutomation;
 impl CorePerceptionAutomation {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetActivationFactoryProvider<P0>(provider: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IGetActivationFactory>,

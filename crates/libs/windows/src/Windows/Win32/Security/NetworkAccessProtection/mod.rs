@@ -193,39 +193,30 @@ impl ::core::fmt::Debug for RemoteConfigurationType {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CorrelationId {
     pub connId: ::windows_core::GUID,
     pub timeStamp: super::super::Foundation::FILETIME,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CorrelationId {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CorrelationId {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CorrelationId {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CorrelationId").field("connId", &self.connId).field("timeStamp", &self.timeStamp).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for CorrelationId {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CorrelationId {
     fn eq(&self, other: &Self) -> bool {
         self.connId == other.connId && self.timeStamp == other.timeStamp
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CorrelationId {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CorrelationId {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -262,38 +253,29 @@ impl ::core::default::Default for CountedString {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FailureCategoryMapping {
     pub mappingCompliance: [super::super::Foundation::BOOL; 5],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FailureCategoryMapping {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FailureCategoryMapping {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FailureCategoryMapping {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FailureCategoryMapping").field("mappingCompliance", &self.mappingCompliance).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for FailureCategoryMapping {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FailureCategoryMapping {
     fn eq(&self, other: &Self) -> bool {
         self.mappingCompliance == other.mappingCompliance
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FailureCategoryMapping {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FailureCategoryMapping {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -390,89 +372,69 @@ impl ::core::default::Default for Ipv6Address {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct IsolationInfo {
     pub isolationState: IsolationState,
     pub probEndTime: super::super::Foundation::FILETIME,
     pub failureUrl: CountedString,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IsolationInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IsolationInfo {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IsolationInfo {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IsolationInfo").field("isolationState", &self.isolationState).field("probEndTime", &self.probEndTime).field("failureUrl", &self.failureUrl).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for IsolationInfo {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IsolationInfo {
     fn eq(&self, other: &Self) -> bool {
         self.isolationState == other.isolationState && self.probEndTime == other.probEndTime && self.failureUrl == other.failureUrl
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IsolationInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IsolationInfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct IsolationInfoEx {
     pub isolationState: IsolationState,
     pub extendedIsolationState: ExtendedIsolationState,
     pub probEndTime: super::super::Foundation::FILETIME,
     pub failureUrl: CountedString,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IsolationInfoEx {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IsolationInfoEx {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IsolationInfoEx {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IsolationInfoEx").field("isolationState", &self.isolationState).field("extendedIsolationState", &self.extendedIsolationState).field("probEndTime", &self.probEndTime).field("failureUrl", &self.failureUrl).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for IsolationInfoEx {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IsolationInfoEx {
     fn eq(&self, other: &Self) -> bool {
         self.isolationState == other.isolationState && self.extendedIsolationState == other.extendedIsolationState && self.probEndTime == other.probEndTime && self.failureUrl == other.failureUrl
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IsolationInfoEx {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IsolationInfoEx {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct NapComponentRegistrationInfo {
     pub id: u32,
     pub friendlyName: CountedString,
@@ -484,33 +446,26 @@ pub struct NapComponentRegistrationInfo {
     pub registrationDate: super::super::Foundation::FILETIME,
     pub componentType: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NapComponentRegistrationInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NapComponentRegistrationInfo {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NapComponentRegistrationInfo {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("NapComponentRegistrationInfo").field("id", &self.id).field("friendlyName", &self.friendlyName).field("description", &self.description).field("version", &self.version).field("vendorName", &self.vendorName).field("infoClsid", &self.infoClsid).field("configClsid", &self.configClsid).field("registrationDate", &self.registrationDate).field("componentType", &self.componentType).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for NapComponentRegistrationInfo {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NapComponentRegistrationInfo {
     fn eq(&self, other: &Self) -> bool {
         self.id == other.id && self.friendlyName == other.friendlyName && self.description == other.description && self.version == other.version && self.vendorName == other.vendorName && self.infoClsid == other.infoClsid && self.configClsid == other.configClsid && self.registrationDate == other.registrationDate && self.componentType == other.componentType
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NapComponentRegistrationInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NapComponentRegistrationInfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

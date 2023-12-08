@@ -1,5 +1,5 @@
-#[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[doc = "Required features: `\"Storage_Streams\"`"]
+#[cfg(feature = "Storage_Streams")]
 pub trait IBitmapFrame_Impl: Sized {
     fn GetThumbnailAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ImageStream>>;
     fn BitmapProperties(&self) -> ::windows_core::Result<BitmapPropertiesView>;
@@ -14,11 +14,11 @@ pub trait IBitmapFrame_Impl: Sized {
     fn GetPixelDataAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>;
     fn GetPixelDataTransformedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: ::core::option::Option<&BitmapTransform>, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>;
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl ::windows_core::RuntimeName for IBitmapFrame {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapFrame";
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl IBitmapFrame_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBitmapFrame_Impl, const OFFSET: isize>() -> IBitmapFrame_Vtbl {
         unsafe extern "system" fn GetThumbnailAsync<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBitmapFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -177,18 +177,18 @@ impl IBitmapFrame_Vtbl {
         *iid == <IBitmapFrame as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[doc = "Required features: `\"Storage_Streams\"`"]
+#[cfg(feature = "Storage_Streams")]
 pub trait IBitmapFrameWithSoftwareBitmap_Impl: Sized + IBitmapFrame_Impl {
     fn GetSoftwareBitmapAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
     fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
     fn GetSoftwareBitmapTransformedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: ::core::option::Option<&BitmapTransform>, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl ::windows_core::RuntimeName for IBitmapFrameWithSoftwareBitmap {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapFrameWithSoftwareBitmap";
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl IBitmapFrameWithSoftwareBitmap_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBitmapFrameWithSoftwareBitmap_Impl, const OFFSET: isize>() -> IBitmapFrameWithSoftwareBitmap_Vtbl {
         unsafe extern "system" fn GetSoftwareBitmapAsync<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBitmapFrameWithSoftwareBitmap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

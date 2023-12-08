@@ -34,9 +34,9 @@ unsafe impl ::windows_core::ComInterface for IEyesPoseStatics {
 pub struct IEyesPoseStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "UI_Input"))]
+    #[cfg(feature = "UI_Input")]
     pub RequestAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Input")))]
+    #[cfg(not(feature = "UI_Input"))]
     RequestAccessAsync: usize,
 }
 #[doc(hidden)]
@@ -180,8 +180,8 @@ impl EyesPose {
             (::windows_core::Interface::vtable(this).IsSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"UI_Input\"`"]
-    #[cfg(all(feature = "Foundation", feature = "UI_Input"))]
+    #[doc = "Required features: `\"UI_Input\"`"]
+    #[cfg(feature = "UI_Input")]
     pub fn RequestAccessAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::UI::Input::GazeInputAccessStatus>> {
         Self::IEyesPoseStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();

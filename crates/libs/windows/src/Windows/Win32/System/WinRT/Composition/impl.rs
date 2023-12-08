@@ -1,11 +1,11 @@
-#[doc = "Required features: `\"UI_Composition\"`, `\"Win32_Foundation\"`"]
-#[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
+#[doc = "Required features: `\"UI_Composition\"`"]
+#[cfg(feature = "UI_Composition")]
 pub trait ICompositionCapabilitiesInteropFactory_Impl: Sized {
     fn GetForWindow(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows_core::Result<super::super::super::super::UI::Composition::CompositionCapabilities>;
 }
-#[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
+#[cfg(feature = "UI_Composition")]
 impl ::windows_core::RuntimeName for ICompositionCapabilitiesInteropFactory {}
-#[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
+#[cfg(feature = "UI_Composition")]
 impl ICompositionCapabilitiesInteropFactory_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositionCapabilitiesInteropFactory_Impl, const OFFSET: isize>() -> ICompositionCapabilitiesInteropFactory_Vtbl {
         unsafe extern "system" fn GetForWindow<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositionCapabilitiesInteropFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, result: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -28,8 +28,6 @@ impl ICompositionCapabilitiesInteropFactory_Vtbl {
         *iid == <ICompositionCapabilitiesInteropFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ICompositionDrawingSurfaceInterop_Impl: Sized {
     fn BeginDraw(&self, updaterect: *const super::super::super::Foundation::RECT, iid: *const ::windows_core::GUID, updateobject: *mut *mut ::core::ffi::c_void, updateoffset: *mut super::super::super::Foundation::POINT) -> ::windows_core::Result<()>;
     fn EndDraw(&self) -> ::windows_core::Result<()>;
@@ -38,9 +36,7 @@ pub trait ICompositionDrawingSurfaceInterop_Impl: Sized {
     fn ResumeDraw(&self) -> ::windows_core::Result<()>;
     fn SuspendDraw(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ICompositionDrawingSurfaceInterop {}
-#[cfg(feature = "Win32_Foundation")]
 impl ICompositionDrawingSurfaceInterop_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>() -> ICompositionDrawingSurfaceInterop_Vtbl {
         unsafe extern "system" fn BeginDraw<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, updaterect: *const super::super::super::Foundation::RECT, iid: *const ::windows_core::GUID, updateobject: *mut *mut ::core::ffi::c_void, updateoffset: *mut super::super::super::Foundation::POINT) -> ::windows_core::HRESULT {
@@ -87,14 +83,10 @@ impl ICompositionDrawingSurfaceInterop_Vtbl {
         *iid == <ICompositionDrawingSurfaceInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ICompositionDrawingSurfaceInterop2_Impl: Sized + ICompositionDrawingSurfaceInterop_Impl {
     fn CopySurface(&self, destinationresource: ::core::option::Option<&::windows_core::IUnknown>, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ICompositionDrawingSurfaceInterop2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ICompositionDrawingSurfaceInterop2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositionDrawingSurfaceInterop2_Impl, const OFFSET: isize>() -> ICompositionDrawingSurfaceInterop2_Vtbl {
         unsafe extern "system" fn CopySurface<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositionDrawingSurfaceInterop2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destinationresource: *mut ::core::ffi::c_void, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> ::windows_core::HRESULT {
@@ -141,15 +133,15 @@ impl ICompositionGraphicsDeviceInterop_Vtbl {
         *iid == <ICompositionGraphicsDeviceInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"UI_Composition_Desktop\"`, `\"Win32_Foundation\"`"]
-#[cfg(all(feature = "UI_Composition_Desktop", feature = "Win32_Foundation"))]
+#[doc = "Required features: `\"UI_Composition_Desktop\"`"]
+#[cfg(feature = "UI_Composition_Desktop")]
 pub trait ICompositorDesktopInterop_Impl: Sized {
     fn CreateDesktopWindowTarget(&self, hwndtarget: super::super::super::Foundation::HWND, istopmost: super::super::super::Foundation::BOOL) -> ::windows_core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>;
     fn EnsureOnThread(&self, threadid: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "UI_Composition_Desktop", feature = "Win32_Foundation"))]
+#[cfg(feature = "UI_Composition_Desktop")]
 impl ::windows_core::RuntimeName for ICompositorDesktopInterop {}
-#[cfg(all(feature = "UI_Composition_Desktop", feature = "Win32_Foundation"))]
+#[cfg(feature = "UI_Composition_Desktop")]
 impl ICompositorDesktopInterop_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositorDesktopInterop_Impl, const OFFSET: isize>() -> ICompositorDesktopInterop_Vtbl {
         unsafe extern "system" fn CreateDesktopWindowTarget<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositorDesktopInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndtarget: super::super::super::Foundation::HWND, istopmost: super::super::super::Foundation::BOOL, result: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -178,16 +170,16 @@ impl ICompositorDesktopInterop_Vtbl {
         *iid == <ICompositorDesktopInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"UI_Composition\"`, `\"Win32_Foundation\"`"]
-#[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
+#[doc = "Required features: `\"UI_Composition\"`"]
+#[cfg(feature = "UI_Composition")]
 pub trait ICompositorInterop_Impl: Sized {
     fn CreateCompositionSurfaceForHandle(&self, swapchain: super::super::super::Foundation::HANDLE) -> ::windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>;
     fn CreateCompositionSurfaceForSwapChain(&self, swapchain: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>;
     fn CreateGraphicsDevice(&self, renderingdevice: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice>;
 }
-#[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
+#[cfg(feature = "UI_Composition")]
 impl ::windows_core::RuntimeName for ICompositorInterop {}
-#[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
+#[cfg(feature = "UI_Composition")]
 impl ICompositorInterop_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositorInterop_Impl, const OFFSET: isize>() -> ICompositorInterop_Vtbl {
         unsafe extern "system" fn CreateCompositionSurfaceForHandle<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositorInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, swapchain: super::super::super::Foundation::HANDLE, result: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -234,14 +226,10 @@ impl ICompositorInterop_Vtbl {
         *iid == <ICompositorInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDesktopWindowTargetInterop_Impl: Sized {
     fn Hwnd(&self) -> ::windows_core::Result<super::super::super::Foundation::HWND>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDesktopWindowTargetInterop {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDesktopWindowTargetInterop_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDesktopWindowTargetInterop_Impl, const OFFSET: isize>() -> IDesktopWindowTargetInterop_Vtbl {
         unsafe extern "system" fn Hwnd<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDesktopWindowTargetInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::super::Foundation::HWND) -> ::windows_core::HRESULT {
@@ -261,14 +249,14 @@ impl IDesktopWindowTargetInterop_Vtbl {
         *iid == <IDesktopWindowTargetInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
+#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IVisualInteractionSourceInterop_Impl: Sized {
     fn TryRedirectForManipulation(&self, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows_core::RuntimeName for IVisualInteractionSourceInterop {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IVisualInteractionSourceInterop_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVisualInteractionSourceInterop_Impl, const OFFSET: isize>() -> IVisualInteractionSourceInterop_Vtbl {
         unsafe extern "system" fn TryRedirectForManipulation<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVisualInteractionSourceInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> ::windows_core::HRESULT {

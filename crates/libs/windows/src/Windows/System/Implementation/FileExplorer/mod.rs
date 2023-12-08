@@ -34,8 +34,6 @@ pub struct ISysStorageProviderEventReceivedEventArgsFactory_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISysStorageProviderEventSource(::windows_core::IUnknown);
 impl ISysStorageProviderEventSource {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn EventReceived<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>,
@@ -46,8 +44,6 @@ impl ISysStorageProviderEventSource {
             (::windows_core::Interface::vtable(this).EventReceived)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveEventReceived(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveEventReceived)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -67,14 +63,8 @@ unsafe impl ::windows_core::ComInterface for ISysStorageProviderEventSource {
 #[doc(hidden)]
 pub struct ISysStorageProviderEventSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub EventReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    EventReceived: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveEventReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveEventReceived: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -116,8 +106,8 @@ pub struct ISysStorageProviderHandlerFactory_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISysStorageProviderHttpRequestProvider(::windows_core::IUnknown);
 impl ISysStorageProviderHttpRequestProvider {
-    #[doc = "Required features: `\"Foundation\"`, `\"Web_Http\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
+    #[doc = "Required features: `\"Web_Http\"`"]
+    #[cfg(feature = "Web_Http")]
     pub fn SendRequestAsync<P0>(&self, request: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>
     where
         P0: ::windows_core::IntoParam<super::super::super::Web::Http::HttpRequestMessage>,
@@ -143,9 +133,9 @@ unsafe impl ::windows_core::ComInterface for ISysStorageProviderHttpRequestProvi
 #[doc(hidden)]
 pub struct ISysStorageProviderHttpRequestProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
+    #[cfg(feature = "Web_Http")]
     pub SendRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Web_Http")))]
+    #[cfg(not(feature = "Web_Http"))]
     SendRequestAsync: usize,
 }
 #[repr(transparent)]

@@ -242,8 +242,6 @@ where
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDAddress(::windows_core::IUnknown);
 impl IWSDAddress {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Serialize<P0>(&self, pszbuffer: &mut [u16], fsafe: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -268,10 +266,7 @@ unsafe impl ::windows_core::ComInterface for IWSDAddress {
 #[doc(hidden)]
 pub struct IWSDAddress_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub Serialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszbuffer: ::windows_core::PWSTR, cchlength: u32, fsafe: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Serialize: usize,
     pub Deserialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszbuffer: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -310,8 +305,6 @@ impl IWSDAsyncResult {
     {
         (::windows_core::Interface::vtable(self).SetCallback)(::windows_core::Interface::as_raw(self), pcallback.into_param().abi(), pasyncstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWaitHandle<P0>(&self, hwaithandle: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
@@ -348,10 +341,7 @@ unsafe impl ::windows_core::ComInterface for IWSDAsyncResult {
 pub struct IWSDAsyncResult_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, pasyncstate: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetWaitHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwaithandle: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetWaitHandle: usize,
     pub HasCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetAsyncState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppasyncstate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -430,8 +420,6 @@ impl IWSDDeviceHost {
     {
         (::windows_core::Interface::vtable(self).RemoveDynamicService)(::windows_core::Interface::as_raw(self), pszserviceid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetServiceDiscoverable<P0, P1>(&self, pszserviceid: P0, fdiscoverable: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -467,10 +455,7 @@ pub struct IWSDDeviceHost_Vtbl {
     pub RetireService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserviceid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub AddDynamicService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserviceid: ::windows_core::PCWSTR, pszendpointaddress: ::windows_core::PCWSTR, pporttype: *const WSD_PORT_TYPE, pportname: *const WSDXML_NAME, pany: *const WSDXML_ELEMENT, pservice: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RemoveDynamicService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserviceid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetServiceDiscoverable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserviceid: ::windows_core::PCWSTR, fdiscoverable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetServiceDiscoverable: usize,
     pub SignalEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserviceid: ::windows_core::PCWSTR, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -583,8 +568,6 @@ impl IWSDEndpointProxy {
     pub unsafe fn SendOneWayRequest(&self, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SendOneWayRequest)(::windows_core::Interface::as_raw(self), pbody, poperation).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SendTwoWayRequest(&self, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, presponsecontext: ::core::option::Option<*const WSD_SYNCHRONOUS_RESPONSE_CONTEXT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SendTwoWayRequest)(::windows_core::Interface::as_raw(self), pbody, poperation, ::core::mem::transmute(presponsecontext.unwrap_or(::std::ptr::null()))).ok()
     }
@@ -626,10 +609,7 @@ unsafe impl ::windows_core::ComInterface for IWSDEndpointProxy {
 pub struct IWSDEndpointProxy_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SendOneWayRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub SendTwoWayRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, presponsecontext: *const WSD_SYNCHRONOUS_RESPONSE_CONTEXT) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SendTwoWayRequest: usize,
     pub SendTwoWayRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, pasyncstate: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, presult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub AbortAsyncOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pasyncresult: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ProcessFault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfault: *const WSD_SOAP_FAULT) -> ::windows_core::HRESULT,
@@ -678,8 +658,6 @@ pub struct IWSDEventingStatus_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDHttpAddress(::windows_core::IUnknown);
 impl IWSDHttpAddress {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Serialize<P0>(&self, pszbuffer: &mut [u16], fsafe: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -703,8 +681,6 @@ impl IWSDHttpAddress {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetTransportAddress)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTransportAddressEx<P0>(&self, fsafe: P0) -> ::windows_core::Result<::windows_core::PCWSTR>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -721,8 +697,6 @@ impl IWSDHttpAddress {
     pub unsafe fn GetSecure(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSecure)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSecure<P0>(&self, fsecure: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -752,10 +726,7 @@ unsafe impl ::windows_core::ComInterface for IWSDHttpAddress {
 pub struct IWSDHttpAddress_Vtbl {
     pub base__: IWSDTransportAddress_Vtbl,
     pub GetSecure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetSecure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fsecure: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetSecure: usize,
     pub GetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszpath: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub SetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
@@ -763,8 +734,6 @@ pub struct IWSDHttpAddress_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDHttpAuthParameters(::windows_core::IUnknown);
 impl IWSDHttpAuthParameters {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClientAccessToken(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetClientAccessToken)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -785,10 +754,7 @@ unsafe impl ::windows_core::ComInterface for IWSDHttpAuthParameters {
 #[doc(hidden)]
 pub struct IWSDHttpAuthParameters_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetClientAccessToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phtoken: *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetClientAccessToken: usize,
     pub GetAuthType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pauthtype: *mut u32) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -1011,14 +977,12 @@ pub struct IWSDOutboundAttachment_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDSSLClientCertificate(::windows_core::IUnknown);
 impl IWSDSSLClientCertificate {
-    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+    #[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
+    #[cfg(feature = "Win32_Security_Cryptography")]
     pub unsafe fn GetClientCertificate(&self) -> ::windows_core::Result<*mut super::super::Security::Cryptography::CERT_CONTEXT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetClientCertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMappedAccessToken(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMappedAccessToken)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -1035,14 +999,11 @@ unsafe impl ::windows_core::ComInterface for IWSDSSLClientCertificate {
 #[doc(hidden)]
 pub struct IWSDSSLClientCertificate_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+    #[cfg(feature = "Win32_Security_Cryptography")]
     pub GetClientCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography")))]
+    #[cfg(not(feature = "Win32_Security_Cryptography"))]
     GetClientCertificate: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetMappedAccessToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phtoken: *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetMappedAccessToken: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1052,8 +1013,6 @@ impl IWSDScopeMatchingRule {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetScopeRule)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MatchScopes<P0, P1>(&self, pszscope1: P0, pszscope2: P1) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -1075,10 +1034,7 @@ unsafe impl ::windows_core::ComInterface for IWSDScopeMatchingRule {
 pub struct IWSDScopeMatchingRule_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetScopeRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszscopematchingrule: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub MatchScopes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszscope1: ::windows_core::PCWSTR, pszscope2: ::windows_core::PCWSTR, pfmatch: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    MatchScopes: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1215,16 +1171,12 @@ impl IWSDServiceProxyEventing {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEndpointProxy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubscribeToMultipleOperations<P0>(&self, poperations: &[WSD_OPERATION], punknown: P0, pexpires: ::core::option::Option<*const WSD_EVENTING_EXPIRES>, pany: ::core::option::Option<*const WSDXML_ELEMENT>, ppexpires: ::core::option::Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: ::core::option::Option<*mut *mut WSDXML_ELEMENT>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
         (::windows_core::Interface::vtable(self).SubscribeToMultipleOperations)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), punknown.into_param().abi(), ::core::mem::transmute(pexpires.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pany.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppexpires.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppany.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginSubscribeToMultipleOperations<P0, P1, P2>(&self, poperations: &[WSD_OPERATION], punknown: P0, pexpires: ::core::option::Option<*const WSD_EVENTING_EXPIRES>, pany: ::core::option::Option<*const WSDXML_ELEMENT>, pasyncstate: P1, pasynccallback: P2) -> ::windows_core::Result<IWSDAsyncResult>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
@@ -1234,8 +1186,6 @@ impl IWSDServiceProxyEventing {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BeginSubscribeToMultipleOperations)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), punknown.into_param().abi(), ::core::mem::transmute(pexpires.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pany.unwrap_or(::std::ptr::null())), pasyncstate.into_param().abi(), pasynccallback.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndSubscribeToMultipleOperations<P0>(&self, poperations: &[WSD_OPERATION], presult: P0, ppexpires: ::core::option::Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: ::core::option::Option<*mut *mut WSDXML_ELEMENT>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IWSDAsyncResult>,
@@ -1259,13 +1209,9 @@ impl IWSDServiceProxyEventing {
     {
         (::windows_core::Interface::vtable(self).EndUnsubscribeToMultipleOperations)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), presult.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RenewMultipleOperations(&self, poperations: &[WSD_OPERATION], pexpires: ::core::option::Option<*const WSD_EVENTING_EXPIRES>, pany: ::core::option::Option<*const WSDXML_ELEMENT>, ppexpires: ::core::option::Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: ::core::option::Option<*mut *mut WSDXML_ELEMENT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RenewMultipleOperations)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), ::core::mem::transmute(pexpires.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pany.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppexpires.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppany.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginRenewMultipleOperations<P0, P1>(&self, poperations: &[WSD_OPERATION], pexpires: ::core::option::Option<*const WSD_EVENTING_EXPIRES>, pany: ::core::option::Option<*const WSDXML_ELEMENT>, pasyncstate: P0, pasynccallback: P1) -> ::windows_core::Result<IWSDAsyncResult>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
@@ -1274,16 +1220,12 @@ impl IWSDServiceProxyEventing {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BeginRenewMultipleOperations)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), ::core::mem::transmute(pexpires.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pany.unwrap_or(::std::ptr::null())), pasyncstate.into_param().abi(), pasynccallback.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndRenewMultipleOperations<P0>(&self, poperations: &[WSD_OPERATION], presult: P0, ppexpires: ::core::option::Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: ::core::option::Option<*mut *mut WSDXML_ELEMENT>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IWSDAsyncResult>,
     {
         (::windows_core::Interface::vtable(self).EndRenewMultipleOperations)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), presult.into_param().abi(), ::core::mem::transmute(ppexpires.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppany.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStatusForMultipleOperations(&self, poperations: &[WSD_OPERATION], pany: ::core::option::Option<*const WSDXML_ELEMENT>, ppexpires: ::core::option::Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: ::core::option::Option<*mut *mut WSDXML_ELEMENT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStatusForMultipleOperations)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), ::core::mem::transmute(pany.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppexpires.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppany.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -1295,8 +1237,6 @@ impl IWSDServiceProxyEventing {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BeginGetStatusForMultipleOperations)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), ::core::mem::transmute(pany.unwrap_or(::std::ptr::null())), pasyncstate.into_param().abi(), pasynccallback.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndGetStatusForMultipleOperations<P0>(&self, poperations: &[WSD_OPERATION], presult: P0, ppexpires: ::core::option::Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: ::core::option::Option<*mut *mut WSDXML_ELEMENT>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IWSDAsyncResult>,
@@ -1315,55 +1255,27 @@ unsafe impl ::windows_core::ComInterface for IWSDServiceProxyEventing {
 #[doc(hidden)]
 pub struct IWSDServiceProxyEventing_Vtbl {
     pub base__: IWSDServiceProxy_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub SubscribeToMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, punknown: *mut ::core::ffi::c_void, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SubscribeToMultipleOperations: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub BeginSubscribeToMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, punknown: *mut ::core::ffi::c_void, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, pasyncstate: *mut ::core::ffi::c_void, pasynccallback: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    BeginSubscribeToMultipleOperations: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub EndSubscribeToMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: *mut ::core::ffi::c_void, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    EndSubscribeToMultipleOperations: usize,
     pub UnsubscribeToMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT) -> ::windows_core::HRESULT,
     pub BeginUnsubscribeToMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, pasyncstate: *mut ::core::ffi::c_void, pasynccallback: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub EndUnsubscribeToMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub RenewMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    RenewMultipleOperations: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub BeginRenewMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, pasyncstate: *mut ::core::ffi::c_void, pasynccallback: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    BeginRenewMultipleOperations: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub EndRenewMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: *mut ::core::ffi::c_void, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    EndRenewMultipleOperations: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetStatusForMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetStatusForMultipleOperations: usize,
     pub BeginGetStatusForMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, pasyncstate: *mut ::core::ffi::c_void, pasynccallback: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub EndGetStatusForMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: *mut ::core::ffi::c_void, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    EndGetStatusForMultipleOperations: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDSignatureProperty(::windows_core::IUnknown);
 impl IWSDSignatureProperty {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsMessageSigned(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsMessageSigned)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsMessageSignatureTrusted(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsMessageSignatureTrusted)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -1389,14 +1301,8 @@ unsafe impl ::windows_core::ComInterface for IWSDSignatureProperty {
 #[doc(hidden)]
 pub struct IWSDSignatureProperty_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsMessageSigned: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsigned: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsMessageSigned: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsMessageSignatureTrusted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsignaturetrusted: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsMessageSignatureTrusted: usize,
     pub GetKeyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbkeyinfo: *mut u8, pdwkeyinfosize: *mut u32) -> ::windows_core::HRESULT,
     pub GetSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsignature: *mut u8, pdwsignaturesize: *mut u32) -> ::windows_core::HRESULT,
     pub GetSignedInfoHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsignedinfohash: *mut u8, pdwhashsize: *mut u32) -> ::windows_core::HRESULT,
@@ -1405,8 +1311,6 @@ pub struct IWSDSignatureProperty_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDTransportAddress(::windows_core::IUnknown);
 impl IWSDTransportAddress {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Serialize<P0>(&self, pszbuffer: &mut [u16], fsafe: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -1430,8 +1334,6 @@ impl IWSDTransportAddress {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTransportAddress)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTransportAddressEx<P0>(&self, fsafe: P0) -> ::windows_core::Result<::windows_core::PCWSTR>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -1460,18 +1362,13 @@ pub struct IWSDTransportAddress_Vtbl {
     pub GetPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwport: *mut u16) -> ::windows_core::HRESULT,
     pub SetPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wport: u16) -> ::windows_core::HRESULT,
     pub GetTransportAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszaddress: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetTransportAddressEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fsafe: super::super::Foundation::BOOL, ppszaddress: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetTransportAddressEx: usize,
     pub SetTransportAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszaddress: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDUdpAddress(::windows_core::IUnknown);
 impl IWSDUdpAddress {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Serialize<P0>(&self, pszbuffer: &mut [u16], fsafe: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -1495,8 +1392,6 @@ impl IWSDUdpAddress {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetTransportAddress)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTransportAddressEx<P0>(&self, fsafe: P0) -> ::windows_core::Result<::windows_core::PCWSTR>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -1520,8 +1415,6 @@ impl IWSDUdpAddress {
     pub unsafe fn GetSockaddr(&self, psockaddr: *mut super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSockaddr)(::windows_core::Interface::as_raw(self), psockaddr).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExclusive<P0>(&self, fexclusive: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -1572,10 +1465,7 @@ pub struct IWSDUdpAddress_Vtbl {
     pub GetSockaddr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psockaddr: *mut super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Networking_WinSock"))]
     GetSockaddr: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetExclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fexclusive: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetExclusive: usize,
     pub GetExclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetMessageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, messagetype: WSDUdpMessageType) -> ::windows_core::HRESULT,
     pub GetMessageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmessagetype: *mut WSDUdpMessageType) -> ::windows_core::HRESULT,
@@ -2302,47 +2192,36 @@ impl ::core::default::Default for REQUESTBODY_GetStatus {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct REQUESTBODY_Renew {
     pub Expires: *mut WSD_EVENTING_EXPIRES,
     pub Any: *mut WSDXML_ELEMENT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for REQUESTBODY_Renew {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for REQUESTBODY_Renew {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for REQUESTBODY_Renew {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("REQUESTBODY_Renew").field("Expires", &self.Expires).field("Any", &self.Any).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for REQUESTBODY_Renew {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for REQUESTBODY_Renew {
     fn eq(&self, other: &Self) -> bool {
         self.Expires == other.Expires && self.Any == other.Any
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for REQUESTBODY_Renew {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for REQUESTBODY_Renew {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct REQUESTBODY_Subscribe {
     pub EndTo: *mut WSD_ENDPOINT_REFERENCE,
     pub Delivery: *mut WSD_EVENTING_DELIVERY_MODE,
@@ -2350,33 +2229,26 @@ pub struct REQUESTBODY_Subscribe {
     pub Filter: *mut WSD_EVENTING_FILTER,
     pub Any: *mut WSDXML_ELEMENT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for REQUESTBODY_Subscribe {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for REQUESTBODY_Subscribe {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for REQUESTBODY_Subscribe {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("REQUESTBODY_Subscribe").field("EndTo", &self.EndTo).field("Delivery", &self.Delivery).field("Expires", &self.Expires).field("Filter", &self.Filter).field("Any", &self.Any).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for REQUESTBODY_Subscribe {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for REQUESTBODY_Subscribe {
     fn eq(&self, other: &Self) -> bool {
         self.EndTo == other.EndTo && self.Delivery == other.Delivery && self.Expires == other.Expires && self.Filter == other.Filter && self.Any == other.Any
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for REQUESTBODY_Subscribe {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for REQUESTBODY_Subscribe {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2441,118 +2313,91 @@ impl ::core::default::Default for RESPONSEBODY_GetMetadata {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct RESPONSEBODY_GetStatus {
     pub expires: *mut WSD_EVENTING_EXPIRES,
     pub any: *mut WSDXML_ELEMENT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RESPONSEBODY_GetStatus {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RESPONSEBODY_GetStatus {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for RESPONSEBODY_GetStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("RESPONSEBODY_GetStatus").field("expires", &self.expires).field("any", &self.any).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for RESPONSEBODY_GetStatus {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RESPONSEBODY_GetStatus {
     fn eq(&self, other: &Self) -> bool {
         self.expires == other.expires && self.any == other.any
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RESPONSEBODY_GetStatus {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RESPONSEBODY_GetStatus {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct RESPONSEBODY_Renew {
     pub expires: *mut WSD_EVENTING_EXPIRES,
     pub any: *mut WSDXML_ELEMENT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RESPONSEBODY_Renew {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RESPONSEBODY_Renew {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for RESPONSEBODY_Renew {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("RESPONSEBODY_Renew").field("expires", &self.expires).field("any", &self.any).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for RESPONSEBODY_Renew {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RESPONSEBODY_Renew {
     fn eq(&self, other: &Self) -> bool {
         self.expires == other.expires && self.any == other.any
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RESPONSEBODY_Renew {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RESPONSEBODY_Renew {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct RESPONSEBODY_Subscribe {
     pub SubscriptionManager: *mut WSD_ENDPOINT_REFERENCE,
     pub expires: *mut WSD_EVENTING_EXPIRES,
     pub any: *mut WSDXML_ELEMENT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RESPONSEBODY_Subscribe {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RESPONSEBODY_Subscribe {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for RESPONSEBODY_Subscribe {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("RESPONSEBODY_Subscribe").field("SubscriptionManager", &self.SubscriptionManager).field("expires", &self.expires).field("any", &self.any).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for RESPONSEBODY_Subscribe {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RESPONSEBODY_Subscribe {
     fn eq(&self, other: &Self) -> bool {
         self.SubscriptionManager == other.SubscriptionManager && self.expires == other.expires && self.any == other.any
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RESPONSEBODY_Subscribe {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RESPONSEBODY_Subscribe {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3031,8 +2876,6 @@ impl ::core::default::Default for WSD_CONFIG_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WSD_DATETIME {
     pub isPositive: super::super::Foundation::BOOL,
     pub year: u32,
@@ -3047,41 +2890,32 @@ pub struct WSD_DATETIME {
     pub TZHour: u8,
     pub TZMinute: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WSD_DATETIME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WSD_DATETIME {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WSD_DATETIME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WSD_DATETIME").field("isPositive", &self.isPositive).field("year", &self.year).field("month", &self.month).field("day", &self.day).field("hour", &self.hour).field("minute", &self.minute).field("second", &self.second).field("millisecond", &self.millisecond).field("TZIsLocal", &self.TZIsLocal).field("TZIsPositive", &self.TZIsPositive).field("TZHour", &self.TZHour).field("TZMinute", &self.TZMinute).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for WSD_DATETIME {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSD_DATETIME {
     fn eq(&self, other: &Self) -> bool {
         self.isPositive == other.isPositive && self.year == other.year && self.month == other.month && self.day == other.day && self.hour == other.hour && self.minute == other.minute && self.second == other.second && self.millisecond == other.millisecond && self.TZIsLocal == other.TZIsLocal && self.TZIsPositive == other.TZIsPositive && self.TZHour == other.TZHour && self.TZMinute == other.TZMinute
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WSD_DATETIME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WSD_DATETIME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WSD_DURATION {
     pub isPositive: super::super::Foundation::BOOL,
     pub year: u32,
@@ -3092,33 +2926,26 @@ pub struct WSD_DURATION {
     pub second: u32,
     pub millisecond: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WSD_DURATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WSD_DURATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WSD_DURATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WSD_DURATION").field("isPositive", &self.isPositive).field("year", &self.year).field("month", &self.month).field("day", &self.day).field("hour", &self.hour).field("minute", &self.minute).field("second", &self.second).field("millisecond", &self.millisecond).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for WSD_DURATION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSD_DURATION {
     fn eq(&self, other: &Self) -> bool {
         self.isPositive == other.isPositive && self.year == other.year && self.month == other.month && self.day == other.day && self.hour == other.hour && self.minute == other.minute && self.second == other.second && self.millisecond == other.millisecond
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WSD_DURATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WSD_DURATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3277,39 +3104,30 @@ impl ::core::default::Default for WSD_EVENTING_DELIVERY_MODE_PUSH {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WSD_EVENTING_EXPIRES {
     pub Duration: *mut WSD_DURATION,
     pub DateTime: *mut WSD_DATETIME,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WSD_EVENTING_EXPIRES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WSD_EVENTING_EXPIRES {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WSD_EVENTING_EXPIRES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WSD_EVENTING_EXPIRES").field("Duration", &self.Duration).field("DateTime", &self.DateTime).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for WSD_EVENTING_EXPIRES {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSD_EVENTING_EXPIRES {
     fn eq(&self, other: &Self) -> bool {
         self.Duration == other.Duration && self.DateTime == other.DateTime
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WSD_EVENTING_EXPIRES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WSD_EVENTING_EXPIRES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4043,8 +3861,8 @@ impl ::core::default::Default for WSD_SCOPES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct WSD_SECURITY_CERT_VALIDATION {
     pub certMatchArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub dwCertMatchArrayCount: u32,
@@ -4055,41 +3873,41 @@ pub struct WSD_SECURITY_CERT_VALIDATION {
     pub pbCertHash: *mut u8,
     pub dwCertHashSize: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for WSD_SECURITY_CERT_VALIDATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for WSD_SECURITY_CERT_VALIDATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for WSD_SECURITY_CERT_VALIDATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WSD_SECURITY_CERT_VALIDATION").field("certMatchArray", &self.certMatchArray).field("dwCertMatchArrayCount", &self.dwCertMatchArrayCount).field("hCertMatchStore", &self.hCertMatchStore).field("hCertIssuerStore", &self.hCertIssuerStore).field("dwCertCheckOptions", &self.dwCertCheckOptions).field("pszCNGHashAlgId", &self.pszCNGHashAlgId).field("pbCertHash", &self.pbCertHash).field("dwCertHashSize", &self.dwCertHashSize).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::windows_core::TypeKind for WSD_SECURITY_CERT_VALIDATION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for WSD_SECURITY_CERT_VALIDATION {
     fn eq(&self, other: &Self) -> bool {
         self.certMatchArray == other.certMatchArray && self.dwCertMatchArrayCount == other.dwCertMatchArrayCount && self.hCertMatchStore == other.hCertMatchStore && self.hCertIssuerStore == other.hCertIssuerStore && self.dwCertCheckOptions == other.dwCertCheckOptions && self.pszCNGHashAlgId == other.pszCNGHashAlgId && self.pbCertHash == other.pbCertHash && self.dwCertHashSize == other.dwCertHashSize
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for WSD_SECURITY_CERT_VALIDATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for WSD_SECURITY_CERT_VALIDATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
     pub certMatchArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub dwCertMatchArrayCount: u32,
@@ -4097,74 +3915,74 @@ pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
     pub hCertIssuerStore: super::super::Security::Cryptography::HCERTSTORE,
     pub dwCertCheckOptions: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for WSD_SECURITY_CERT_VALIDATION_V1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for WSD_SECURITY_CERT_VALIDATION_V1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for WSD_SECURITY_CERT_VALIDATION_V1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WSD_SECURITY_CERT_VALIDATION_V1").field("certMatchArray", &self.certMatchArray).field("dwCertMatchArrayCount", &self.dwCertMatchArrayCount).field("hCertMatchStore", &self.hCertMatchStore).field("hCertIssuerStore", &self.hCertIssuerStore).field("dwCertCheckOptions", &self.dwCertCheckOptions).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::windows_core::TypeKind for WSD_SECURITY_CERT_VALIDATION_V1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for WSD_SECURITY_CERT_VALIDATION_V1 {
     fn eq(&self, other: &Self) -> bool {
         self.certMatchArray == other.certMatchArray && self.dwCertMatchArrayCount == other.dwCertMatchArrayCount && self.hCertMatchStore == other.hCertMatchStore && self.hCertIssuerStore == other.hCertIssuerStore && self.dwCertCheckOptions == other.dwCertCheckOptions
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for WSD_SECURITY_CERT_VALIDATION_V1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for WSD_SECURITY_CERT_VALIDATION_V1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct WSD_SECURITY_SIGNATURE_VALIDATION {
     pub signingCertArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub dwSigningCertArrayCount: u32,
     pub hSigningCertStore: super::super::Security::Cryptography::HCERTSTORE,
     pub dwFlags: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for WSD_SECURITY_SIGNATURE_VALIDATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for WSD_SECURITY_SIGNATURE_VALIDATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for WSD_SECURITY_SIGNATURE_VALIDATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WSD_SECURITY_SIGNATURE_VALIDATION").field("signingCertArray", &self.signingCertArray).field("dwSigningCertArrayCount", &self.dwSigningCertArrayCount).field("hSigningCertStore", &self.hSigningCertStore).field("dwFlags", &self.dwFlags).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::windows_core::TypeKind for WSD_SECURITY_SIGNATURE_VALIDATION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for WSD_SECURITY_SIGNATURE_VALIDATION {
     fn eq(&self, other: &Self) -> bool {
         self.signingCertArray == other.signingCertArray && self.dwSigningCertArrayCount == other.dwSigningCertArrayCount && self.hSigningCertStore == other.hSigningCertStore && self.dwFlags == other.dwFlags
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for WSD_SECURITY_SIGNATURE_VALIDATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for WSD_SECURITY_SIGNATURE_VALIDATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4423,39 +4241,31 @@ impl ::core::default::Default for WSD_SOAP_MESSAGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     pub hr: ::windows_core::HRESULT,
     pub eventHandle: super::super::Foundation::HANDLE,
     pub messageParameters: ::std::mem::ManuallyDrop<::core::option::Option<IWSDMessageParameters>>,
     pub results: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WSD_SYNCHRONOUS_RESPONSE_CONTEXT").field("hr", &self.hr).field("eventHandle", &self.eventHandle).field("messageParameters", &self.messageParameters).field("results", &self.results).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         self.hr == other.hr && self.eventHandle == other.eventHandle && self.messageParameters == other.messageParameters && self.results == other.results
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

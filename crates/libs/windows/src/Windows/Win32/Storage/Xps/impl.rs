@@ -130,8 +130,8 @@ impl IXpsOMBrush_Vtbl {
         *iid == <IXpsOMBrush as ::windows_core::ComInterface>::IID || *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IXpsOMCanvas_Impl: Sized + IXpsOMVisual_Impl {
     fn GetVisuals(&self) -> ::windows_core::Result<IXpsOMVisualCollection>;
     fn GetUseAliasedEdgeMode(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -147,9 +147,9 @@ pub trait IXpsOMCanvas_Impl: Sized + IXpsOMVisual_Impl {
     fn SetDictionaryResource(&self, remotedictionaryresource: ::core::option::Option<&IXpsOMRemoteDictionaryResource>) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IXpsOMCanvas>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IXpsOMCanvas {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IXpsOMCanvas_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCanvas_Impl, const OFFSET: isize>() -> IXpsOMCanvas_Vtbl {
         unsafe extern "system" fn GetVisuals<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visuals: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -407,8 +407,8 @@ impl IXpsOMColorProfileResourceCollection_Vtbl {
         *iid == <IXpsOMColorProfileResourceCollection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMCoreProperties_Impl: Sized + IXpsOMPart_Impl {
     fn GetOwner(&self) -> ::windows_core::Result<IXpsOMPackage>;
     fn GetCategory(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -445,9 +445,9 @@ pub trait IXpsOMCoreProperties_Impl: Sized + IXpsOMPart_Impl {
     fn SetVersion(&self, version: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IXpsOMCoreProperties>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl ::windows_core::RuntimeName for IXpsOMCoreProperties {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMCoreProperties_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>() -> IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn GetOwner<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, package: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1485,8 +1485,6 @@ impl IXpsOMGeometry_Vtbl {
         *iid == <IXpsOMGeometry as ::windows_core::ComInterface>::IID || *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXpsOMGeometryFigure_Impl: Sized {
     fn GetOwner(&self) -> ::windows_core::Result<IXpsOMGeometry>;
     fn GetSegmentData(&self, datacount: *mut u32, segmentdata: *mut f32) -> ::windows_core::Result<()>;
@@ -1504,9 +1502,7 @@ pub trait IXpsOMGeometryFigure_Impl: Sized {
     fn GetSegmentStrokePattern(&self) -> ::windows_core::Result<XPS_SEGMENT_STROKE_PATTERN>;
     fn Clone(&self) -> ::windows_core::Result<IXpsOMGeometryFigure>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IXpsOMGeometryFigure {}
-#[cfg(feature = "Win32_Foundation")]
 impl IXpsOMGeometryFigure_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigure_Impl, const OFFSET: isize>() -> IXpsOMGeometryFigure_Vtbl {
         unsafe extern "system" fn GetOwner<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1722,8 +1718,8 @@ impl IXpsOMGeometryFigureCollection_Vtbl {
         *iid == <IXpsOMGeometryFigureCollection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IXpsOMGlyphs_Impl: Sized + IXpsOMVisual_Impl {
     fn GetUnicodeString(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetGlyphIndexCount(&self) -> ::windows_core::Result<u32>;
@@ -1753,9 +1749,9 @@ pub trait IXpsOMGlyphs_Impl: Sized + IXpsOMVisual_Impl {
     fn GetGlyphsEditor(&self) -> ::windows_core::Result<IXpsOMGlyphsEditor>;
     fn Clone(&self) -> ::windows_core::Result<IXpsOMGlyphs>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IXpsOMGlyphs {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IXpsOMGlyphs_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>() -> IXpsOMGlyphs_Vtbl {
         unsafe extern "system" fn GetUnicodeString<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unicodestring: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
@@ -2030,8 +2026,6 @@ impl IXpsOMGlyphs_Vtbl {
         *iid == <IXpsOMGlyphs as ::windows_core::ComInterface>::IID || *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID || *iid == <IXpsOMVisual as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXpsOMGlyphsEditor_Impl: Sized {
     fn ApplyEdits(&self) -> ::windows_core::Result<()>;
     fn GetUnicodeString(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -2052,9 +2046,7 @@ pub trait IXpsOMGlyphsEditor_Impl: Sized {
     fn GetDeviceFontName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn SetDeviceFontName(&self, devicefontname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IXpsOMGlyphsEditor {}
-#[cfg(feature = "Win32_Foundation")]
 impl IXpsOMGlyphsEditor_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>() -> IXpsOMGlyphsEditor_Vtbl {
         unsafe extern "system" fn ApplyEdits<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2825,8 +2817,8 @@ impl IXpsOMNameCollection_Vtbl {
         *iid == <IXpsOMNameCollection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMObjectFactory_Impl: Sized {
     fn CreatePackage(&self) -> ::windows_core::Result<IXpsOMPackage>;
     fn CreatePackageFromFile(&self, filename: &::windows_core::PCWSTR, reuseobjects: super::super::Foundation::BOOL) -> ::windows_core::Result<IXpsOMPackage>;
@@ -2866,9 +2858,9 @@ pub trait IXpsOMObjectFactory_Impl: Sized {
     fn CreatePartUri(&self, uri: &::windows_core::PCWSTR) -> ::windows_core::Result<super::Packaging::Opc::IOpcPartUri>;
     fn CreateReadOnlyStreamOnFile(&self, filename: &::windows_core::PCWSTR) -> ::windows_core::Result<super::super::System::Com::IStream>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl ::windows_core::RuntimeName for IXpsOMObjectFactory {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMObjectFactory_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>() -> IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreatePackage<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, package: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3334,8 +3326,8 @@ impl IXpsOMObjectFactory_Vtbl {
         *iid == <IXpsOMObjectFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMObjectFactory1_Impl: Sized + IXpsOMObjectFactory_Impl {
     fn GetDocumentTypeFromFile(&self, filename: &::windows_core::PCWSTR) -> ::windows_core::Result<XPS_DOCUMENT_TYPE>;
     fn GetDocumentTypeFromStream(&self, xpsdocumentstream: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows_core::Result<XPS_DOCUMENT_TYPE>;
@@ -3350,9 +3342,9 @@ pub trait IXpsOMObjectFactory1_Impl: Sized + IXpsOMObjectFactory_Impl {
     fn CreatePageFromStream1(&self, pagemarkupstream: ::core::option::Option<&super::super::System::Com::IStream>, parturi: ::core::option::Option<&super::Packaging::Opc::IOpcPartUri>, resources: ::core::option::Option<&IXpsOMPartResources>, reuseobjects: super::super::Foundation::BOOL) -> ::windows_core::Result<IXpsOMPage1>;
     fn CreateRemoteDictionaryResourceFromStream1(&self, dictionarymarkupstream: ::core::option::Option<&super::super::System::Com::IStream>, parturi: ::core::option::Option<&super::Packaging::Opc::IOpcPartUri>, resources: ::core::option::Option<&IXpsOMPartResources>) -> ::windows_core::Result<IXpsOMRemoteDictionaryResource>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl ::windows_core::RuntimeName for IXpsOMObjectFactory1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMObjectFactory1_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory1_Impl, const OFFSET: isize>() -> IXpsOMObjectFactory1_Vtbl {
         unsafe extern "system" fn GetDocumentTypeFromFile<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::windows_core::PCWSTR, documenttype: *mut XPS_DOCUMENT_TYPE) -> ::windows_core::HRESULT {
@@ -3507,8 +3499,8 @@ impl IXpsOMObjectFactory1_Vtbl {
         *iid == <IXpsOMObjectFactory1 as ::windows_core::ComInterface>::IID || *iid == <IXpsOMObjectFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPackage_Impl: Sized {
     fn GetDocumentSequence(&self) -> ::windows_core::Result<IXpsOMDocumentSequence>;
     fn SetDocumentSequence(&self, documentsequence: ::core::option::Option<&IXpsOMDocumentSequence>) -> ::windows_core::Result<()>;
@@ -3521,9 +3513,9 @@ pub trait IXpsOMPackage_Impl: Sized {
     fn WriteToFile(&self, filename: &::windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn WriteToStream(&self, stream: ::core::option::Option<&super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl ::windows_core::RuntimeName for IXpsOMPackage {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPackage_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackage_Impl, const OFFSET: isize>() -> IXpsOMPackage_Vtbl {
         unsafe extern "system" fn GetDocumentSequence<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, documentsequence: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3618,16 +3610,16 @@ impl IXpsOMPackage_Vtbl {
         *iid == <IXpsOMPackage as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPackage1_Impl: Sized + IXpsOMPackage_Impl {
     fn GetDocumentType(&self) -> ::windows_core::Result<XPS_DOCUMENT_TYPE>;
     fn WriteToFile1(&self, filename: &::windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> ::windows_core::Result<()>;
     fn WriteToStream1(&self, outputstream: ::core::option::Option<&super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl ::windows_core::RuntimeName for IXpsOMPackage1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPackage1_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackage1_Impl, const OFFSET: isize>() -> IXpsOMPackage1_Vtbl {
         unsafe extern "system" fn GetDocumentType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackage1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, documenttype: *mut XPS_DOCUMENT_TYPE) -> ::windows_core::HRESULT {
@@ -3689,8 +3681,8 @@ impl IXpsOMPackageTarget_Vtbl {
         *iid == <IXpsOMPackageTarget as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPackageWriter_Impl: Sized {
     fn StartNewDocument(&self, documentpartname: ::core::option::Option<&super::Packaging::Opc::IOpcPartUri>, documentprintticket: ::core::option::Option<&IXpsOMPrintTicketResource>, documentstructure: ::core::option::Option<&IXpsOMDocumentStructureResource>, signatureblockresources: ::core::option::Option<&IXpsOMSignatureBlockResourceCollection>, restrictedfonts: ::core::option::Option<&IXpsOMPartUriCollection>) -> ::windows_core::Result<()>;
     fn AddPage(&self, page: ::core::option::Option<&IXpsOMPage>, advisorypagedimensions: *const XPS_SIZE, discardableresourceparts: ::core::option::Option<&IXpsOMPartUriCollection>, storyfragments: ::core::option::Option<&IXpsOMStoryFragmentsResource>, pageprintticket: ::core::option::Option<&IXpsOMPrintTicketResource>, pagethumbnail: ::core::option::Option<&IXpsOMImageResource>) -> ::windows_core::Result<()>;
@@ -3698,9 +3690,9 @@ pub trait IXpsOMPackageWriter_Impl: Sized {
     fn Close(&self) -> ::windows_core::Result<()>;
     fn IsClosed(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl ::windows_core::RuntimeName for IXpsOMPackageWriter {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPackageWriter_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackageWriter_Impl, const OFFSET: isize>() -> IXpsOMPackageWriter_Vtbl {
         unsafe extern "system" fn StartNewDocument<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackageWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, documentpartname: *mut ::core::ffi::c_void, documentprintticket: *mut ::core::ffi::c_void, documentstructure: *mut ::core::ffi::c_void, signatureblockresources: *mut ::core::ffi::c_void, restrictedfonts: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3747,15 +3739,15 @@ impl IXpsOMPackageWriter_Vtbl {
         *iid == <IXpsOMPackageWriter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPackageWriter3D_Impl: Sized + IXpsOMPackageWriter_Impl {
     fn AddModelTexture(&self, texturepartname: ::core::option::Option<&super::Packaging::Opc::IOpcPartUri>, texturedata: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows_core::Result<()>;
     fn SetModelPrintTicket(&self, printticketpartname: ::core::option::Option<&super::Packaging::Opc::IOpcPartUri>, printticketdata: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl ::windows_core::RuntimeName for IXpsOMPackageWriter3D {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPackageWriter3D_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackageWriter3D_Impl, const OFFSET: isize>() -> IXpsOMPackageWriter3D_Vtbl {
         unsafe extern "system" fn AddModelTexture<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackageWriter3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, texturepartname: *mut ::core::ffi::c_void, texturedata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3778,8 +3770,8 @@ impl IXpsOMPackageWriter3D_Vtbl {
         *iid == <IXpsOMPackageWriter3D as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPackageWriter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPage_Impl: Sized + IXpsOMPart_Impl {
     fn GetOwner(&self) -> ::windows_core::Result<IXpsOMPageReference>;
     fn GetVisuals(&self) -> ::windows_core::Result<IXpsOMVisualCollection>;
@@ -3804,9 +3796,9 @@ pub trait IXpsOMPage_Impl: Sized + IXpsOMPart_Impl {
     fn GenerateUnusedLookupKey(&self, r#type: XPS_OBJECT_TYPE) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn Clone(&self) -> ::windows_core::Result<IXpsOMPage>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl ::windows_core::RuntimeName for IXpsOMPage {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPage_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>() -> IXpsOMPage_Vtbl {
         unsafe extern "system" fn GetOwner<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pagereference: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -4027,15 +4019,15 @@ impl IXpsOMPage_Vtbl {
         *iid == <IXpsOMPage as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPart as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPage1_Impl: Sized + IXpsOMPage_Impl {
     fn GetDocumentType(&self) -> ::windows_core::Result<XPS_DOCUMENT_TYPE>;
     fn Write1(&self, stream: ::core::option::Option<&super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl ::windows_core::RuntimeName for IXpsOMPage1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPage1_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage1_Impl, const OFFSET: isize>() -> IXpsOMPage1_Vtbl {
         unsafe extern "system" fn GetDocumentType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, documenttype: *mut XPS_DOCUMENT_TYPE) -> ::windows_core::HRESULT {
@@ -4064,8 +4056,6 @@ impl IXpsOMPage1_Vtbl {
         *iid == <IXpsOMPage1 as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPart as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPage as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXpsOMPageReference_Impl: Sized {
     fn GetOwner(&self) -> ::windows_core::Result<IXpsOMDocument>;
     fn GetPage(&self) -> ::windows_core::Result<IXpsOMPage>;
@@ -4085,9 +4075,7 @@ pub trait IXpsOMPageReference_Impl: Sized {
     fn HasRestrictedFonts(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn Clone(&self) -> ::windows_core::Result<IXpsOMPageReference>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IXpsOMPageReference {}
-#[cfg(feature = "Win32_Foundation")]
 impl IXpsOMPageReference_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>() -> IXpsOMPageReference_Vtbl {
         unsafe extern "system" fn GetOwner<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, document: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -4506,8 +4494,8 @@ impl IXpsOMPartUriCollection_Vtbl {
         *iid == <IXpsOMPartUriCollection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IXpsOMPath_Impl: Sized + IXpsOMVisual_Impl {
     fn GetGeometry(&self) -> ::windows_core::Result<IXpsOMGeometry>;
     fn GetGeometryLocal(&self) -> ::windows_core::Result<IXpsOMGeometry>;
@@ -4547,9 +4535,9 @@ pub trait IXpsOMPath_Impl: Sized + IXpsOMVisual_Impl {
     fn SetFillBrushLookup(&self, lookup: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IXpsOMPath>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IXpsOMPath {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IXpsOMPath_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>() -> IXpsOMPath_Vtbl {
         unsafe extern "system" fn GetGeometry<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, geometry: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -5619,8 +5607,8 @@ impl IXpsOMTileBrush_Vtbl {
         *iid == <IXpsOMTileBrush as ::windows_core::ComInterface>::IID || *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID || *iid == <IXpsOMBrush as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IXpsOMVisual_Impl: Sized + IXpsOMShareable_Impl {
     fn GetTransform(&self) -> ::windows_core::Result<IXpsOMMatrixTransform>;
     fn GetTransformLocal(&self) -> ::windows_core::Result<IXpsOMMatrixTransform>;
@@ -5648,9 +5636,9 @@ pub trait IXpsOMVisual_Impl: Sized + IXpsOMShareable_Impl {
     fn GetLanguage(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn SetLanguage(&self, language: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IXpsOMVisual {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IXpsOMVisual_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>() -> IXpsOMVisual_Vtbl {
         unsafe extern "system" fn GetTransform<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, matrixtransform: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -6041,8 +6029,8 @@ impl IXpsOMVisualCollection_Vtbl {
         *iid == <IXpsOMVisualCollection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
+#[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsSignature_Impl: Sized {
     fn GetSignatureId(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetSignatureValue(&self, signaturehashvalue: *mut *mut u8, count: *mut u32) -> ::windows_core::Result<()>;
@@ -6057,9 +6045,9 @@ pub trait IXpsSignature_Impl: Sized {
     fn GetSignatureXml(&self, signaturexml: *mut *mut u8, count: *mut u32) -> ::windows_core::Result<()>;
     fn SetSignatureXml(&self, signaturexml: *const u8, count: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl ::windows_core::RuntimeName for IXpsSignature {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsSignature_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignature_Impl, const OFFSET: isize>() -> IXpsSignature_Vtbl {
         unsafe extern "system" fn GetSignatureId<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sigid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
@@ -6370,8 +6358,8 @@ impl IXpsSignatureCollection_Vtbl {
         *iid == <IXpsSignatureCollection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
+#[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsSignatureManager_Impl: Sized {
     fn LoadPackageFile(&self, filename: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn LoadPackageStream(&self, stream: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows_core::Result<()>;
@@ -6385,9 +6373,9 @@ pub trait IXpsSignatureManager_Impl: Sized {
     fn SavePackageToFile(&self, filename: &::windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32) -> ::windows_core::Result<()>;
     fn SavePackageToStream(&self, stream: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl ::windows_core::RuntimeName for IXpsSignatureManager {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsSignatureManager_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureManager_Impl, const OFFSET: isize>() -> IXpsSignatureManager_Vtbl {
         unsafe extern "system" fn LoadPackageFile<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::windows_core::PCWSTR) -> ::windows_core::HRESULT {

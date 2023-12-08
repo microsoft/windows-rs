@@ -1,12 +1,10 @@
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ApplyGuestMemoryFix(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, virtualaddress : u64, fixbuffer : *const ::core::ffi::c_void, fixbuffersize : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ApplyPendingSavedStateFileReplayLog(vmrsfile : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn CallStackUnwind(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, imageinfo : *const MODULE_INFO, imageinfocount : u32, framecount : u32, callstack : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FindSavedStateSymbolFieldInType(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, typename : ::windows_sys::core::PCSTR, fieldname : ::windows_sys::core::PCWSTR, offset : *mut u32, found : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn FindSavedStateSymbolFieldInType(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, typename : ::windows_sys::core::PCSTR, fieldname : ::windows_sys::core::PCWSTR, offset : *mut u32, found : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForceActiveVirtualTrustLevel(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, virtualtrustlevel : u8) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForceArchitecture(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, architecture : VIRTUAL_PROCESSOR_ARCH) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ForceNestedHostMode(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, hostmode : super::super::Foundation:: BOOL, oldmode : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForceNestedHostMode(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, hostmode : super::super::Foundation:: BOOL, oldmode : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForcePagingMode(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, pagingmode : PAGING_MODE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetActiveVirtualTrustLevel(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, virtualtrustlevel : *mut u8) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetArchitecture(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, architecture : *mut VIRTUAL_PROCESSOR_ARCH) -> ::windows_sys::core::HRESULT);
@@ -16,22 +14,18 @@
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetGuestPhysicalMemoryChunks(vmsavedstatedumphandle : *mut ::core::ffi::c_void, memorychunkpagesize : *mut u64, memorychunks : *mut GPA_MEMORY_CHUNK, memorychunkcount : *mut u64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetGuestRawSavedMemorySize(vmsavedstatedumphandle : *mut ::core::ffi::c_void, guestrawsavedmemorysize : *mut u64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle : *mut ::core::ffi::c_void, memoryblockcachelimit : *mut u64) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetNestedVirtualizationMode(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, enabled : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetNestedVirtualizationMode(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, enabled : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetPagingMode(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, pagingmode : *mut PAGING_MODE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetRegisterValue(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, registerid : u32, registervalue : *mut VIRTUAL_PROCESSOR_REGISTER) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetSavedStateSymbolFieldInfo(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, typename : ::windows_sys::core::PCSTR, typefieldinfomap : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle : *mut ::core::ffi::c_void) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle : *mut ::core::ffi::c_void) -> super::super::Foundation:: HANDLE);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetSavedStateSymbolTypeSize(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, typename : ::windows_sys::core::PCSTR, size : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetVpCount(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpcount : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GuestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle : *mut ::core::ffi::c_void, physicaladdress : u64, rawsavedmemoryoffset : *mut u64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, virtualaddress : u64, physicaladdress : *mut u64, unmappedregionsize : *mut u64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvCreateDeviceInstance(devicehosthandle : *const ::core::ffi::c_void, devicetype : HDV_DEVICE_TYPE, deviceclassid : *const ::windows_sys::core::GUID, deviceinstanceid : *const ::windows_sys::core::GUID, deviceinterface : *const ::core::ffi::c_void, devicecontext : *const ::core::ffi::c_void, devicehandle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("vmdevicehost.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn HdvCreateGuestMemoryAperture(requestor : *const ::core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, writeprotected : super::super::Foundation:: BOOL, mappedaddress : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("vmdevicehost.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn HdvCreateSectionBackedMmioRange(requestor : *const ::core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, offsetinpages : u64, lengthinpages : u64, mappingflags : HDV_MMIO_MAPPING_FLAGS, sectionhandle : super::super::Foundation:: HANDLE, sectionoffsetinpages : u64) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("vmdevicehost.dll" "system" fn HdvCreateGuestMemoryAperture(requestor : *const ::core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, writeprotected : super::super::Foundation:: BOOL, mappedaddress : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("vmdevicehost.dll" "system" fn HdvCreateSectionBackedMmioRange(requestor : *const ::core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, offsetinpages : u64, lengthinpages : u64, mappingflags : HDV_MMIO_MAPPING_FLAGS, sectionhandle : super::super::Foundation:: HANDLE, sectionoffsetinpages : u64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvDeliverGuestInterrupt(requestor : *const ::core::ffi::c_void, msiaddress : u64, msidata : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvDestroyGuestMemoryAperture(requestor : *const ::core::ffi::c_void, mappedaddress : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvDestroySectionBackedMmioRange(requestor : *const ::core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, offsetinpages : u64) -> ::windows_sys::core::HRESULT);
@@ -40,23 +34,18 @@
 #[cfg(feature = "Win32_System_HostComputeSystem")]
 ::windows_targets::link!("vmdevicehost.dll" "system" #[doc = "Required features: `\"Win32_System_HostComputeSystem\"`"] fn HdvInitializeDeviceHostEx(computesystem : super::HostComputeSystem:: HCS_SYSTEM, flags : HDV_DEVICE_HOST_FLAGS, devicehosthandle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvReadGuestMemory(requestor : *const ::core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, buffer : *mut u8) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("vmdevicehost.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn HdvRegisterDoorbell(requestor : *const ::core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, baroffset : u64, triggervalue : u64, flags : u64, doorbellevent : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("vmdevicehost.dll" "system" fn HdvRegisterDoorbell(requestor : *const ::core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, baroffset : u64, triggervalue : u64, flags : u64, doorbellevent : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvTeardownDeviceHost(devicehosthandle : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvUnregisterDoorbell(requestor : *const ::core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, baroffset : u64, triggervalue : u64, flags : u64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvWriteGuestMemory(requestor : *const ::core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, buffer : *const u8) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn InKernelSpace(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, inkernelspace : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, activevirtualtrustlevelenabled : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle : *mut ::core::ffi::c_void, enabled : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn InKernelSpace(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, inkernelspace : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, activevirtualtrustlevelenabled : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle : *mut ::core::ffi::c_void, enabled : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateFile(vmrsfile : ::windows_sys::core::PCWSTR, vmsavedstatedumphandle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateFiles(binfile : ::windows_sys::core::PCWSTR, vsvfile : ::windows_sys::core::PCWSTR, vmsavedstatedumphandle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateModuleSymbols(vmsavedstatedumphandle : *mut ::core::ffi::c_void, imagename : ::windows_sys::core::PCSTR, modulename : ::windows_sys::core::PCSTR, baseaddress : u64, sizeofbase : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateModuleSymbolsEx(vmsavedstatedumphandle : *mut ::core::ffi::c_void, imagename : ::windows_sys::core::PCSTR, imagetimestamp : u32, modulename : ::windows_sys::core::PCSTR, baseaddress : u64, sizeofbase : u32) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn LoadSavedStateSymbolProvider(vmsavedstatedumphandle : *mut ::core::ffi::c_void, usersymbols : ::windows_sys::core::PCWSTR, force : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateSymbolProvider(vmsavedstatedumphandle : *mut ::core::ffi::c_void, usersymbols : ::windows_sys::core::PCWSTR, force : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LocateSavedStateFiles(vmname : ::windows_sys::core::PCWSTR, snapshotname : ::windows_sys::core::PCWSTR, binpath : *mut ::windows_sys::core::PWSTR, vsvpath : *mut ::windows_sys::core::PWSTR, vmrspath : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ReadGuestPhysicalAddress(vmsavedstatedumphandle : *mut ::core::ffi::c_void, physicaladdress : u64, buffer : *mut ::core::ffi::c_void, buffersize : u32, bytesread : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ReadGuestRawSavedMemory(vmsavedstatedumphandle : *mut ::core::ffi::c_void, rawsavedmemoryoffset : u64, buffer : *mut ::core::ffi::c_void, buffersize : u32, bytesread : *mut u32) -> ::windows_sys::core::HRESULT);
@@ -64,27 +53,21 @@
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ReleaseSavedStateFiles(vmsavedstatedumphandle : *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle : *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, globalname : ::windows_sys::core::PCSTR, virtualaddress : *mut u64, size : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ScanMemoryForDosImages(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, startaddress : u64, endaddress : u64, callbackcontext : *mut ::core::ffi::c_void, foundimagecallback : FOUND_IMAGE_CALLBACK, standaloneaddress : *const u64, standaloneaddresscount : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ScanMemoryForDosImages(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, startaddress : u64, endaddress : u64, callbackcontext : *mut ::core::ffi::c_void, foundimagecallback : FOUND_IMAGE_CALLBACK, standaloneaddress : *const u64, standaloneaddresscount : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn SetMemoryBlockCacheLimit(vmsavedstatedumphandle : *mut ::core::ffi::c_void, memoryblockcachelimit : u64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle : *mut ::core::ffi::c_void, callback : GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winhvplatform.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WHvAcceptPartitionMigration(migrationhandle : super::super::Foundation:: HANDLE, partition : *mut WHV_PARTITION_HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("winhvplatform.dll" "system" fn WHvAcceptPartitionMigration(migrationhandle : super::super::Foundation:: HANDLE, partition : *mut WHV_PARTITION_HANDLE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvAdviseGpaRange(partition : WHV_PARTITION_HANDLE, gparanges : *const WHV_MEMORY_RANGE_ENTRY, gparangescount : u32, advice : WHV_ADVISE_GPA_RANGE_CODE, advicebuffer : *const ::core::ffi::c_void, advicebuffersizeinbytes : u32) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winhvplatform.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WHvAllocateVpciResource(providerid : *const ::windows_sys::core::GUID, flags : WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor : *const ::core::ffi::c_void, resourcedescriptorsizeinbytes : u32, vpciresource : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("winhvplatform.dll" "system" fn WHvAllocateVpciResource(providerid : *const ::windows_sys::core::GUID, flags : WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor : *const ::core::ffi::c_void, resourcedescriptorsizeinbytes : u32, vpciresource : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCancelPartitionMigration(partition : WHV_PARTITION_HANDLE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCancelRunVirtualProcessor(partition : WHV_PARTITION_HANDLE, vpindex : u32, flags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCompletePartitionMigration(partition : WHV_PARTITION_HANDLE) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winhvplatform.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WHvCreateNotificationPort(partition : WHV_PARTITION_HANDLE, parameters : *const WHV_NOTIFICATION_PORT_PARAMETERS, eventhandle : super::super::Foundation:: HANDLE, porthandle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreateNotificationPort(partition : WHV_PARTITION_HANDLE, parameters : *const WHV_NOTIFICATION_PORT_PARAMETERS, eventhandle : super::super::Foundation:: HANDLE, porthandle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreatePartition(partition : *mut WHV_PARTITION_HANDLE) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winhvplatform.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WHvCreateTrigger(partition : WHV_PARTITION_HANDLE, parameters : *const WHV_TRIGGER_PARAMETERS, triggerhandle : *mut *mut ::core::ffi::c_void, eventhandle : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreateTrigger(partition : WHV_PARTITION_HANDLE, parameters : *const WHV_TRIGGER_PARAMETERS, triggerhandle : *mut *mut ::core::ffi::c_void, eventhandle : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreateVirtualProcessor(partition : WHV_PARTITION_HANDLE, vpindex : u32, flags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreateVirtualProcessor2(partition : WHV_PARTITION_HANDLE, vpindex : u32, properties : *const WHV_VIRTUAL_PROCESSOR_PROPERTY, propertycount : u32) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winhvplatform.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WHvCreateVpciDevice(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, vpciresource : super::super::Foundation:: HANDLE, flags : WHV_CREATE_VPCI_DEVICE_FLAGS, notificationeventhandle : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreateVpciDevice(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, vpciresource : super::super::Foundation:: HANDLE, flags : WHV_CREATE_VPCI_DEVICE_FLAGS, notificationeventhandle : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvDeleteNotificationPort(partition : WHV_PARTITION_HANDLE, porthandle : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvDeletePartition(partition : WHV_PARTITION_HANDLE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvDeleteTrigger(partition : WHV_PARTITION_HANDLE, triggerhandle : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
@@ -109,16 +92,14 @@
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVpciDeviceNotification(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, notification : *mut WHV_VPCI_DEVICE_NOTIFICATION, notificationsizeinbytes : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVpciDeviceProperty(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, propertycode : WHV_VPCI_DEVICE_PROPERTY_CODE, propertybuffer : *mut ::core::ffi::c_void, propertybuffersizeinbytes : u32, writtensizeinbytes : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvMapGpaRange(partition : WHV_PARTITION_HANDLE, sourceaddress : *const ::core::ffi::c_void, guestaddress : u64, sizeinbytes : u64, flags : WHV_MAP_GPA_RANGE_FLAGS) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winhvplatform.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WHvMapGpaRange2(partition : WHV_PARTITION_HANDLE, process : super::super::Foundation:: HANDLE, sourceaddress : *const ::core::ffi::c_void, guestaddress : u64, sizeinbytes : u64, flags : WHV_MAP_GPA_RANGE_FLAGS) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("winhvplatform.dll" "system" fn WHvMapGpaRange2(partition : WHV_PARTITION_HANDLE, process : super::super::Foundation:: HANDLE, sourceaddress : *const ::core::ffi::c_void, guestaddress : u64, sizeinbytes : u64, flags : WHV_MAP_GPA_RANGE_FLAGS) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvMapVpciDeviceInterrupt(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, index : u32, messagecount : u32, target : *const WHV_VPCI_INTERRUPT_TARGET, msiaddress : *mut u64, msidata : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvMapVpciDeviceMmioRanges(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, mappingcount : *mut u32, mappings : *mut *mut WHV_VPCI_MMIO_MAPPING) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvPostVirtualProcessorSynicMessage(partition : WHV_PARTITION_HANDLE, vpindex : u32, sintindex : u32, message : *const ::core::ffi::c_void, messagesizeinbytes : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvQueryGpaRangeDirtyBitmap(partition : WHV_PARTITION_HANDLE, guestaddress : u64, rangesizeinbytes : u64, bitmap : *mut u64, bitmapsizeinbytes : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvReadGpaRange(partition : WHV_PARTITION_HANDLE, vpindex : u32, guestaddress : u64, controls : WHV_ACCESS_GPA_CONTROLS, data : *mut ::core::ffi::c_void, datasizeinbytes : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvReadVpciDeviceRegister(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, register : *const WHV_VPCI_DEVICE_REGISTER, data : *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winhvplatform.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WHvRegisterPartitionDoorbellEvent(partition : WHV_PARTITION_HANDLE, matchdata : *const WHV_DOORBELL_MATCH_DATA, eventhandle : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("winhvplatform.dll" "system" fn WHvRegisterPartitionDoorbellEvent(partition : WHV_PARTITION_HANDLE, matchdata : *const WHV_DOORBELL_MATCH_DATA, eventhandle : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvRequestInterrupt(partition : WHV_PARTITION_HANDLE, interrupt : *const WHV_INTERRUPT_CONTROL, interruptcontrolsize : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvRequestVpciDeviceInterrupt(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, msiaddress : u64, msidata : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvResetPartition(partition : WHV_PARTITION_HANDLE) -> ::windows_sys::core::HRESULT);
@@ -135,10 +116,8 @@
 #[cfg(feature = "Win32_System_Power")]
 ::windows_targets::link!("winhvplatform.dll" "system" #[doc = "Required features: `\"Win32_System_Power\"`"] fn WHvSetVpciDevicePowerState(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, powerstate : super::Power:: DEVICE_POWER_STATE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetupPartition(partition : WHV_PARTITION_HANDLE) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winhvplatform.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WHvSignalVirtualProcessorSynicEvent(partition : WHV_PARTITION_HANDLE, synicevent : WHV_SYNIC_EVENT_PARAMETERS, newlysignaled : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winhvplatform.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WHvStartPartitionMigration(partition : WHV_PARTITION_HANDLE, migrationhandle : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("winhvplatform.dll" "system" fn WHvSignalVirtualProcessorSynicEvent(partition : WHV_PARTITION_HANDLE, synicevent : WHV_SYNIC_EVENT_PARAMETERS, newlysignaled : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("winhvplatform.dll" "system" fn WHvStartPartitionMigration(partition : WHV_PARTITION_HANDLE, migrationhandle : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSuspendPartitionTime(partition : WHV_PARTITION_HANDLE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvTranslateGva(partition : WHV_PARTITION_HANDLE, vpindex : u32, gva : u64, translateflags : WHV_TRANSLATE_GVA_FLAGS, translationresult : *mut WHV_TRANSLATE_GVA_RESULT, gpa : *mut u64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winhvplatform.dll" "system" fn WHvUnmapGpaRange(partition : WHV_PARTITION_HANDLE, guestaddress : u64, sizeinbytes : u64) -> ::windows_sys::core::HRESULT);
@@ -1214,8 +1193,6 @@ impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union WHV_CAPABILITY {
     pub HypervisorPresent: super::super::Foundation::BOOL,
     pub Features: WHV_CAPABILITY_FEATURES,
@@ -1235,9 +1212,7 @@ pub union WHV_CAPABILITY {
     pub ProcessorPerfmonFeatures: WHV_PROCESSOR_PERFMON_FEATURES,
     pub SchedulerFeatures: WHV_SCHEDULER_FEATURES,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WHV_CAPABILITY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WHV_CAPABILITY {
     fn clone(&self) -> Self {
         *self
@@ -1547,8 +1522,6 @@ impl ::core::clone::Clone for WHV_PARTITION_MEMORY_COUNTERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union WHV_PARTITION_PROPERTY {
     pub ExtendedVmExits: WHV_EXTENDED_VM_EXITS,
     pub ProcessorFeatures: WHV_PROCESSOR_FEATURES,
@@ -1581,9 +1554,7 @@ pub union WHV_PARTITION_PROPERTY {
     pub ProcessorPerfmonFeatures: WHV_PROCESSOR_PERFMON_FEATURES,
     pub DisableSmt: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WHV_PARTITION_PROPERTY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WHV_PARTITION_PROPERTY {
     fn clone(&self) -> Self {
         *self
@@ -1888,17 +1859,13 @@ impl ::core::clone::Clone for WHV_SCHEDULER_FEATURES_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WHV_SRIOV_RESOURCE_DESCRIPTOR {
     pub PnpInstanceId: [u16; 200],
     pub VirtualFunctionId: super::super::Foundation::LUID,
     pub VirtualFunctionIndex: u16,
     pub Reserved: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WHV_SRIOV_RESOURCE_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WHV_SRIOV_RESOURCE_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -2775,8 +2742,6 @@ impl ::core::clone::Clone for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
         *self
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type FOUND_IMAGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, imageinfo: *const DOS_IMAGE_INFO) -> super::super::Foundation::BOOL>;
 pub type GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK = ::core::option::Option<unsafe extern "system" fn(infomessage: ::windows_sys::core::PCSTR)>;
 pub type HDV_PCI_DEVICE_GET_DETAILS = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, pnpid: *mut HDV_PCI_PNP_ID, probedbarscount: u32, probedbars: *mut u32) -> ::windows_sys::core::HRESULT>;

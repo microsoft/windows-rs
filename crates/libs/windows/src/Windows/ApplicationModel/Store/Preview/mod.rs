@@ -48,10 +48,7 @@ unsafe impl ::windows_core::ComInterface for IStoreConfigurationStatics {
 #[doc(hidden)]
 pub struct IStoreConfigurationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub SetSystemConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cataloghardwaremanufacturerid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, catalogstorecontentmodifierid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, systemconfigurationexpiration: super::super::super::Foundation::DateTime, cataloghardwaredescriptor: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetSystemConfiguration: usize,
     pub SetMobileOperatorConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mobileoperatorid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, appdownloadlimitinmegabytes: u32, updatedownloadlimitinmegabytes: u32) -> ::windows_core::HRESULT,
     pub SetStoreWebAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub IsStoreWebAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut bool) -> ::windows_core::HRESULT,
@@ -75,14 +72,8 @@ unsafe impl ::windows_core::ComInterface for IStoreConfigurationStatics2 {
 #[doc(hidden)]
 pub struct IStoreConfigurationStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub PurchasePromptingPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PurchasePromptingPolicy: usize,
-    #[cfg(feature = "Foundation")]
     pub SetPurchasePromptingPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetPurchasePromptingPolicy: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -103,9 +94,9 @@ pub struct IStoreConfigurationStatics3_Vtbl {
     pub HasStoreWebAccountForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     HasStoreWebAccountForUser: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub GetStoreLogDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: StoreLogOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     GetStoreLogDataAsync: usize,
     #[cfg(feature = "System")]
     pub SetStoreWebAccountIdForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, webaccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -115,13 +106,13 @@ pub struct IStoreConfigurationStatics3_Vtbl {
     pub IsStoreWebAccountIdForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, webaccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     IsStoreWebAccountIdForUser: usize,
-    #[cfg(all(feature = "Foundation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub GetPurchasePromptingPolicyForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "System")))]
+    #[cfg(not(feature = "System"))]
     GetPurchasePromptingPolicyForUser: usize,
-    #[cfg(all(feature = "Foundation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub SetPurchasePromptingPolicyForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "System")))]
+    #[cfg(not(feature = "System"))]
     SetPurchasePromptingPolicyForUser: usize,
 }
 #[doc(hidden)]
@@ -215,10 +206,7 @@ unsafe impl ::windows_core::ComInterface for IStorePreview {
 #[doc(hidden)]
 pub struct IStorePreview_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub RequestProductPurchaseByProductIdAndSkuIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, skuid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestProductPurchaseByProductIdAndSkuIdAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
     pub LoadAddOnProductInfosAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -301,13 +289,13 @@ unsafe impl ::windows_core::ComInterface for IWebAuthenticationCoreManagerHelper
 #[doc(hidden)]
 pub struct IWebAuthenticationCoreManagerHelper_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "UI_Xaml"))]
+    #[cfg(all(feature = "Security_Authentication_Web_Core", feature = "UI_Xaml"))]
     pub RequestTokenWithUIElementHostingAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, uielement: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "UI_Xaml")))]
+    #[cfg(not(all(feature = "Security_Authentication_Web_Core", feature = "UI_Xaml")))]
     RequestTokenWithUIElementHostingAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml"))]
+    #[cfg(all(feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml"))]
     pub RequestTokenWithUIElementHostingAndWebAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, uielement: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml")))]
+    #[cfg(not(all(feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml")))]
     RequestTokenWithUIElementHostingAndWebAccountAsync: usize,
 }
 #[repr(transparent)]
@@ -357,8 +345,6 @@ unsafe impl ::core::marker::Send for DeliveryOptimizationSettings {}
 unsafe impl ::core::marker::Sync for DeliveryOptimizationSettings {}
 pub struct StoreConfiguration;
 impl StoreConfiguration {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetSystemConfiguration(cataloghardwaremanufacturerid: &::windows_core::HSTRING, catalogstorecontentmodifierid: &::windows_core::HSTRING, systemconfigurationexpiration: super::super::super::Foundation::DateTime, cataloghardwaredescriptor: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         Self::IStoreConfigurationStatics(|this| unsafe { (::windows_core::Interface::vtable(this).SetSystemConfiguration)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(cataloghardwaremanufacturerid), ::core::mem::transmute_copy(catalogstorecontentmodifierid), systemconfigurationexpiration, ::core::mem::transmute_copy(cataloghardwaredescriptor)).ok() })
     }
@@ -391,16 +377,12 @@ impl StoreConfiguration {
             (::windows_core::Interface::vtable(this).FilterUnsupportedSystemFeaturesAsync)(::windows_core::Interface::as_raw(this), systemfeatures.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PurchasePromptingPolicy() -> ::windows_core::Result<super::super::super::Foundation::IReference<u32>> {
         Self::IStoreConfigurationStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PurchasePromptingPolicy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetPurchasePromptingPolicy<P0>(value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<u32>>,
@@ -424,8 +406,8 @@ impl StoreConfiguration {
             (::windows_core::Interface::vtable(this).HasStoreWebAccountForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    #[cfg(feature = "Storage_Streams")]
     pub fn GetStoreLogDataAsync(options: StoreLogOptions) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamReference>> {
         Self::IStoreConfigurationStatics3(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
@@ -451,8 +433,8 @@ impl StoreConfiguration {
             (::windows_core::Interface::vtable(this).IsStoreWebAccountIdForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(webaccountid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"System\"`"]
-    #[cfg(all(feature = "Foundation", feature = "System"))]
+    #[doc = "Required features: `\"System\"`"]
+    #[cfg(feature = "System")]
     pub fn GetPurchasePromptingPolicyForUser<P0>(user: P0) -> ::windows_core::Result<super::super::super::Foundation::IReference<u32>>
     where
         P0: ::windows_core::IntoParam<super::super::super::System::User>,
@@ -462,8 +444,8 @@ impl StoreConfiguration {
             (::windows_core::Interface::vtable(this).GetPurchasePromptingPolicyForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"System\"`"]
-    #[cfg(all(feature = "Foundation", feature = "System"))]
+    #[doc = "Required features: `\"System\"`"]
+    #[cfg(feature = "System")]
     pub fn SetPurchasePromptingPolicyForUser<P0, P1>(user: P0, value: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::super::System::User>,
@@ -641,8 +623,6 @@ unsafe impl ::core::marker::Send for StoreHardwareManufacturerInfo {}
 unsafe impl ::core::marker::Sync for StoreHardwareManufacturerInfo {}
 pub struct StorePreview;
 impl StorePreview {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RequestProductPurchaseByProductIdAndSkuIdAsync(productid: &::windows_core::HSTRING, skuid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<StorePreviewPurchaseResults>> {
         Self::IStorePreview(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
@@ -835,8 +815,8 @@ unsafe impl ::core::marker::Send for StorePreviewSkuInfo {}
 unsafe impl ::core::marker::Sync for StorePreviewSkuInfo {}
 pub struct WebAuthenticationCoreManagerHelper;
 impl WebAuthenticationCoreManagerHelper {
-    #[doc = "Required features: `\"Foundation\"`, `\"Security_Authentication_Web_Core\"`, `\"UI_Xaml\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "UI_Xaml"))]
+    #[doc = "Required features: `\"Security_Authentication_Web_Core\"`, `\"UI_Xaml\"`"]
+    #[cfg(all(feature = "Security_Authentication_Web_Core", feature = "UI_Xaml"))]
     pub fn RequestTokenWithUIElementHostingAsync<P0, P1>(request: P0, uielement: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
     where
         P0: ::windows_core::IntoParam<super::super::super::Security::Authentication::Web::Core::WebTokenRequest>,
@@ -847,8 +827,8 @@ impl WebAuthenticationCoreManagerHelper {
             (::windows_core::Interface::vtable(this).RequestTokenWithUIElementHostingAsync)(::windows_core::Interface::as_raw(this), request.into_param().abi(), uielement.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Security_Authentication_Web_Core\"`, `\"Security_Credentials\"`, `\"UI_Xaml\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml"))]
+    #[doc = "Required features: `\"Security_Authentication_Web_Core\"`, `\"Security_Credentials\"`, `\"UI_Xaml\"`"]
+    #[cfg(all(feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml"))]
     pub fn RequestTokenWithUIElementHostingAndWebAccountAsync<P0, P1, P2>(request: P0, webaccount: P1, uielement: P2) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
     where
         P0: ::windows_core::IntoParam<super::super::super::Security::Authentication::Web::Core::WebTokenRequest>,

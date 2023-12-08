@@ -175,8 +175,6 @@ pub unsafe fn D3DStripShader(pshaderbytecode: *const ::core::ffi::c_void, byteco
     let mut result__ = ::std::mem::zeroed();
     D3DStripShader(pshaderbytecode, bytecodelength, ustripflags, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DWriteBlobToFile<P0, P1, P2>(pblob: P0, pfilename: P1, boverwrite: P2) -> ::windows_core::Result<()>
 where

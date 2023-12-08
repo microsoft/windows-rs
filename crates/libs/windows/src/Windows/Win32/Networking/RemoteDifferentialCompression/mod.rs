@@ -28,8 +28,6 @@ pub struct IFindSimilarResults_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRdcComparator(::windows_core::IUnknown);
 impl IRdcComparator {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Process<P0>(&self, endofinput: P0, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffer: *mut RdcNeedPointer, rdc_errorcode: *mut RDC_ErrorCode) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -48,10 +46,7 @@ unsafe impl ::windows_core::ComInterface for IRdcComparator {
 #[doc(hidden)]
 pub struct IRdcComparator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub Process: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endofinput: super::super::Foundation::BOOL, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffer: *mut RdcNeedPointer, rdc_errorcode: *mut RDC_ErrorCode) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Process: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -61,8 +56,6 @@ impl IRdcFileReader {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFileSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Read(&self, offsetfilestart: u64, bytestoread: u32, bytesactuallyread: *mut u32, buffer: *mut u8, eof: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Read)(::windows_core::Interface::as_raw(self), offsetfilestart, bytestoread, bytesactuallyread, buffer, eof).ok()
     }
@@ -83,10 +76,7 @@ unsafe impl ::windows_core::ComInterface for IRdcFileReader {
 pub struct IRdcFileReader_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetFileSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filesize: *mut u64) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetfilestart: u64, bytestoread: u32, bytesactuallyread: *mut u32, buffer: *mut u8, eof: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Read: usize,
     pub GetFilePosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetfromstart: *mut u64) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -97,8 +87,6 @@ impl IRdcFileWriter {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetFileSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Read(&self, offsetfilestart: u64, bytestoread: u32, bytesactuallyread: *mut u32, buffer: *mut u8, eof: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Read)(::windows_core::Interface::as_raw(self), offsetfilestart, bytestoread, bytesactuallyread, buffer, eof).ok()
     }
@@ -140,8 +128,6 @@ impl IRdcGenerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetGeneratorParameters)(::windows_core::Interface::as_raw(self), level, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Process<P0>(&self, endofinput: P0, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffers: &mut [*mut RdcBufferPointer], rdc_errorcode: *mut RDC_ErrorCode) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -161,10 +147,7 @@ unsafe impl ::windows_core::ComInterface for IRdcGenerator {
 pub struct IRdcGenerator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetGeneratorParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: u32, igeneratorparameters: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub Process: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endofinput: super::super::Foundation::BOOL, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, depth: u32, outputbuffers: *mut *mut RdcBufferPointer, rdc_errorcode: *mut RDC_ErrorCode) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Process: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -301,8 +284,6 @@ impl IRdcSignatureReader {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReadHeader)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReadSignatures(&self, rdcsignaturepointer: *mut RdcSignaturePointer, endofoutput: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReadSignatures)(::windows_core::Interface::as_raw(self), rdcsignaturepointer, endofoutput).ok()
     }
@@ -319,10 +300,7 @@ unsafe impl ::windows_core::ComInterface for IRdcSignatureReader {
 pub struct IRdcSignatureReader_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ReadHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rdc_errorcode: *mut RDC_ErrorCode) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub ReadSignatures: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rdcsignaturepointer: *mut RdcSignaturePointer, endofoutput: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    ReadSignatures: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -354,8 +332,6 @@ pub struct IRdcSimilarityGenerator_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISimilarity(::windows_core::IUnknown);
 impl ISimilarity {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTable<P0, P1>(&self, path: P0, truncate: P1, securitydescriptor: *const u8, recordsize: u32) -> ::windows_core::Result<RdcCreatedTables>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -364,8 +340,6 @@ impl ISimilarity {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTable)(::windows_core::Interface::as_raw(self), path.into_param().abi(), truncate.into_param().abi(), securitydescriptor, recordsize, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTableIndirect<P0, P1, P2>(&self, mapping: P0, fileidfile: P1, truncate: P2, recordsize: u32) -> ::windows_core::Result<RdcCreatedTables>
     where
         P0: ::windows_core::IntoParam<ISimilarityTraitsMapping>,
@@ -375,8 +349,6 @@ impl ISimilarity {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTableIndirect)(::windows_core::Interface::as_raw(self), mapping.into_param().abi(), fileidfile.into_param().abi(), truncate.into_param().abi(), recordsize, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CloseTable<P0>(&self, isvalid: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -413,18 +385,9 @@ unsafe impl ::windows_core::ComInterface for ISimilarity {
 #[doc(hidden)]
 pub struct ISimilarity_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub CreateTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::windows_core::PCWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, recordsize: u32, isnew: *mut RdcCreatedTables) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    CreateTable: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub CreateTableIndirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mapping: *mut ::core::ffi::c_void, fileidfile: *mut ::core::ffi::c_void, truncate: super::super::Foundation::BOOL, recordsize: u32, isnew: *mut RdcCreatedTables) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    CreateTableIndirect: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub CloseTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isvalid: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    CloseTable: usize,
     pub Append: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, similarityfileid: *const SimilarityFileId, similaritydata: *const SimilarityData) -> ::windows_core::HRESULT,
     pub FindSimilarFileId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, similaritydata: *const SimilarityData, numberofmatchesrequired: u16, resultssize: u32, findsimilarresults: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CopyAndSwap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newsimilaritytables: *mut ::core::ffi::c_void, reportprogress: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -434,8 +397,6 @@ pub struct ISimilarity_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISimilarityFileIdTable(::windows_core::IUnknown);
 impl ISimilarityFileIdTable {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTable<P0, P1>(&self, path: P0, truncate: P1, securitydescriptor: *const u8, recordsize: u32) -> ::windows_core::Result<RdcCreatedTables>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -444,8 +405,6 @@ impl ISimilarityFileIdTable {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTable)(::windows_core::Interface::as_raw(self), path.into_param().abi(), truncate.into_param().abi(), securitydescriptor, recordsize, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTableIndirect<P0, P1>(&self, fileidfile: P0, truncate: P1, recordsize: u32) -> ::windows_core::Result<RdcCreatedTables>
     where
         P0: ::windows_core::IntoParam<IRdcFileWriter>,
@@ -454,8 +413,6 @@ impl ISimilarityFileIdTable {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTableIndirect)(::windows_core::Interface::as_raw(self), fileidfile.into_param().abi(), truncate.into_param().abi(), recordsize, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CloseTable<P0>(&self, isvalid: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -488,18 +445,9 @@ unsafe impl ::windows_core::ComInterface for ISimilarityFileIdTable {
 #[doc(hidden)]
 pub struct ISimilarityFileIdTable_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub CreateTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::windows_core::PCWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, recordsize: u32, isnew: *mut RdcCreatedTables) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    CreateTable: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub CreateTableIndirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileidfile: *mut ::core::ffi::c_void, truncate: super::super::Foundation::BOOL, recordsize: u32, isnew: *mut RdcCreatedTables) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    CreateTableIndirect: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub CloseTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isvalid: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    CloseTable: usize,
     pub Append: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, similarityfileid: *const SimilarityFileId, similarityfileindex: *mut u32) -> ::windows_core::HRESULT,
     pub Lookup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, similarityfileindex: u32, similarityfileid: *mut SimilarityFileId) -> ::windows_core::HRESULT,
     pub Invalidate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, similarityfileindex: u32) -> ::windows_core::HRESULT,
@@ -530,8 +478,6 @@ pub struct ISimilarityReportProgress_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISimilarityTableDumpState(::windows_core::IUnknown);
 impl ISimilarityTableDumpState {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNextData(&self, resultssize: u32, resultsused: *mut u32, eof: *mut super::super::Foundation::BOOL, results: *mut SimilarityDumpData) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetNextData)(::windows_core::Interface::as_raw(self), resultssize, resultsused, eof, results).ok()
     }
@@ -547,10 +493,7 @@ unsafe impl ::windows_core::ComInterface for ISimilarityTableDumpState {
 #[doc(hidden)]
 pub struct ISimilarityTableDumpState_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetNextData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resultssize: u32, resultsused: *mut u32, eof: *mut super::super::Foundation::BOOL, results: *mut SimilarityDumpData) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetNextData: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -562,8 +505,6 @@ impl ISimilarityTraitsMappedView {
     pub unsafe fn Unmap(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Unmap)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Get<P0>(&self, index: u64, dirty: P0, numelements: u32) -> ::windows_core::Result<SimilarityMappedViewInfo>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -588,10 +529,7 @@ pub struct ISimilarityTraitsMappedView_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Flush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Unmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u64, dirty: super::super::Foundation::BOOL, numelements: u32, viewinfo: *mut SimilarityMappedViewInfo) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Get: usize,
     pub GetView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mappedpagebegin: *mut *mut u8, mappedpageend: *mut *mut u8),
 }
 #[repr(transparent)]
@@ -649,8 +587,6 @@ pub struct ISimilarityTraitsMapping_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISimilarityTraitsTable(::windows_core::IUnknown);
 impl ISimilarityTraitsTable {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTable<P0, P1>(&self, path: P0, truncate: P1, securitydescriptor: *const u8) -> ::windows_core::Result<RdcCreatedTables>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -659,8 +595,6 @@ impl ISimilarityTraitsTable {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTable)(::windows_core::Interface::as_raw(self), path.into_param().abi(), truncate.into_param().abi(), securitydescriptor, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTableIndirect<P0, P1>(&self, mapping: P0, truncate: P1) -> ::windows_core::Result<RdcCreatedTables>
     where
         P0: ::windows_core::IntoParam<ISimilarityTraitsMapping>,
@@ -669,8 +603,6 @@ impl ISimilarityTraitsTable {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTableIndirect)(::windows_core::Interface::as_raw(self), mapping.into_param().abi(), truncate.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CloseTable<P0>(&self, isvalid: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -703,18 +635,9 @@ unsafe impl ::windows_core::ComInterface for ISimilarityTraitsTable {
 #[doc(hidden)]
 pub struct ISimilarityTraitsTable_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub CreateTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::windows_core::PCWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, isnew: *mut RdcCreatedTables) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    CreateTable: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub CreateTableIndirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mapping: *mut ::core::ffi::c_void, truncate: super::super::Foundation::BOOL, isnew: *mut RdcCreatedTables) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    CreateTableIndirect: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub CloseTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isvalid: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    CloseTable: usize,
     pub Append: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *const SimilarityData, fileindex: u32) -> ::windows_core::HRESULT,
     pub FindSimilarFileIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, similaritydata: *const SimilarityData, numberofmatchesrequired: u16, findsimilarfileindexresults: *mut FindSimilarFileIndexResults, resultssize: u32, resultsused: *mut u32) -> ::windows_core::HRESULT,
     pub BeginDump: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, similaritytabledumpstate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

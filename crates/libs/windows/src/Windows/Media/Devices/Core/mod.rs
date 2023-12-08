@@ -65,22 +65,10 @@ pub struct ICameraIntrinsics2_Vtbl {
     pub UndistortedProjectionTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     UndistortedProjectionTransform: usize,
-    #[cfg(feature = "Foundation")]
     pub DistortPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: super::super::super::Foundation::Point, result__: *mut super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DistortPoint: usize,
-    #[cfg(feature = "Foundation")]
     pub DistortPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputs_array_size: u32, inputs: *const super::super::super::Foundation::Point, results_array_size: u32, results: *mut super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DistortPoints: usize,
-    #[cfg(feature = "Foundation")]
     pub UndistortPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: super::super::super::Foundation::Point, result__: *mut super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    UndistortPoint: usize,
-    #[cfg(feature = "Foundation")]
     pub UndistortPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputs_array_size: u32, inputs: *const super::super::super::Foundation::Point, results_array_size: u32, results: *mut super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    UndistortPoints: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -123,13 +111,13 @@ pub struct IDepthCorrelatedCoordinateMapper_Vtbl {
     pub UnprojectPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcePoints_array_size: u32, sourcepoints: *const super::super::super::Foundation::Point, targetcoordinatesystem: *mut ::core::ffi::c_void, results_array_size: u32, results: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
     UnprojectPoints: usize,
-    #[cfg(all(feature = "Foundation", feature = "Perception_Spatial"))]
+    #[cfg(feature = "Perception_Spatial")]
     pub MapPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: *mut ::core::ffi::c_void, targetcameraintrinsics: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Perception_Spatial")))]
+    #[cfg(not(feature = "Perception_Spatial"))]
     MapPoint: usize,
-    #[cfg(all(feature = "Foundation", feature = "Perception_Spatial"))]
+    #[cfg(feature = "Perception_Spatial")]
     pub MapPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcePoints_array_size: u32, sourcepoints: *const super::super::super::Foundation::Point, targetcoordinatesystem: *mut ::core::ffi::c_void, targetcameraintrinsics: *mut ::core::ffi::c_void, results_array_size: u32, results: *mut super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Perception_Spatial")))]
+    #[cfg(not(feature = "Perception_Spatial"))]
     MapPoints: usize,
 }
 #[doc(hidden)]
@@ -186,14 +174,8 @@ pub struct IFrameController_Vtbl {
     pub ExposureCompensationControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub IsoSpeedControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub FocusControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub PhotoConfirmationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PhotoConfirmationEnabled: usize,
-    #[cfg(feature = "Foundation")]
     pub SetPhotoConfirmationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetPhotoConfirmationEnabled: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -226,18 +208,9 @@ unsafe impl ::windows_core::ComInterface for IFrameExposureCapabilities {
 pub struct IFrameExposureCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Min: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Min: usize,
-    #[cfg(feature = "Foundation")]
     pub Max: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Max: usize,
-    #[cfg(feature = "Foundation")]
     pub Step: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Step: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -272,14 +245,8 @@ unsafe impl ::windows_core::ComInterface for IFrameExposureCompensationControl {
 #[doc(hidden)]
 pub struct IFrameExposureCompensationControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Value: usize,
-    #[cfg(feature = "Foundation")]
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetValue: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -297,14 +264,8 @@ pub struct IFrameExposureControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Auto: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetAuto: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Value: usize,
-    #[cfg(feature = "Foundation")]
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetValue: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -380,14 +341,8 @@ unsafe impl ::windows_core::ComInterface for IFrameFocusControl {
 #[doc(hidden)]
 pub struct IFrameFocusControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Value: usize,
-    #[cfg(feature = "Foundation")]
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetValue: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -424,14 +379,8 @@ pub struct IFrameIsoSpeedControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Auto: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetAuto: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Value: usize,
-    #[cfg(feature = "Foundation")]
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetValue: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -558,8 +507,6 @@ impl CameraIntrinsics {
             (::windows_core::Interface::vtable(this).UndistortedProjectionTransform)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn DistortPoint(&self, input: super::super::super::Foundation::Point) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = &::windows_core::ComInterface::cast::<ICameraIntrinsics2>(self)?;
         unsafe {
@@ -567,14 +514,10 @@ impl CameraIntrinsics {
             (::windows_core::Interface::vtable(this).DistortPoint)(::windows_core::Interface::as_raw(this), input, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn DistortPoints(&self, inputs: &[super::super::super::Foundation::Point], results: &mut [super::super::super::Foundation::Point]) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ICameraIntrinsics2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).DistortPoints)(::windows_core::Interface::as_raw(this), inputs.len().try_into().unwrap(), inputs.as_ptr(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn UndistortPoint(&self, input: super::super::super::Foundation::Point) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = &::windows_core::ComInterface::cast::<ICameraIntrinsics2>(self)?;
         unsafe {
@@ -582,8 +525,6 @@ impl CameraIntrinsics {
             (::windows_core::Interface::vtable(this).UndistortPoint)(::windows_core::Interface::as_raw(this), input, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn UndistortPoints(&self, inputs: &[super::super::super::Foundation::Point], results: &mut [super::super::super::Foundation::Point]) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ICameraIntrinsics2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).UndistortPoints)(::windows_core::Interface::as_raw(this), inputs.len().try_into().unwrap(), inputs.as_ptr(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
@@ -621,8 +562,6 @@ unsafe impl ::core::marker::Sync for CameraIntrinsics {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DepthCorrelatedCoordinateMapper(::windows_core::IUnknown);
 impl DepthCorrelatedCoordinateMapper {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -648,8 +587,8 @@ impl DepthCorrelatedCoordinateMapper {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).UnprojectPoints)(::windows_core::Interface::as_raw(this), sourcepoints.len().try_into().unwrap(), sourcepoints.as_ptr(), targetcoordinatesystem.into_param().abi(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Perception_Spatial\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Perception_Spatial"))]
+    #[doc = "Required features: `\"Perception_Spatial\"`"]
+    #[cfg(feature = "Perception_Spatial")]
     pub fn MapPoint<P0, P1>(&self, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: P0, targetcameraintrinsics: P1) -> ::windows_core::Result<super::super::super::Foundation::Point>
     where
         P0: ::windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
@@ -661,8 +600,8 @@ impl DepthCorrelatedCoordinateMapper {
             (::windows_core::Interface::vtable(this).MapPoint)(::windows_core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.into_param().abi(), targetcameraintrinsics.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Perception_Spatial\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Perception_Spatial"))]
+    #[doc = "Required features: `\"Perception_Spatial\"`"]
+    #[cfg(feature = "Perception_Spatial")]
     pub fn MapPoints<P0, P1>(&self, sourcepoints: &[super::super::super::Foundation::Point], targetcoordinatesystem: P0, targetcameraintrinsics: P1, results: &mut [super::super::super::Foundation::Point]) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
@@ -685,7 +624,6 @@ impl ::windows_core::RuntimeName for DepthCorrelatedCoordinateMapper {
     const NAME: &'static str = "Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper";
 }
 ::windows_core::imp::interface_hierarchy!(DepthCorrelatedCoordinateMapper, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for DepthCorrelatedCoordinateMapper {}
 unsafe impl ::core::marker::Send for DepthCorrelatedCoordinateMapper {}
 unsafe impl ::core::marker::Sync for DepthCorrelatedCoordinateMapper {}
@@ -788,8 +726,6 @@ impl FrameController {
             (::windows_core::Interface::vtable(this).FocusControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PhotoConfirmationEnabled(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<bool>> {
         let this = self;
         unsafe {
@@ -797,8 +733,6 @@ impl FrameController {
             (::windows_core::Interface::vtable(this).PhotoConfirmationEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetPhotoConfirmationEnabled<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<bool>>,
@@ -840,8 +774,6 @@ impl FrameExposureCapabilities {
             (::windows_core::Interface::vtable(this).Supported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Min(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -849,8 +781,6 @@ impl FrameExposureCapabilities {
             (::windows_core::Interface::vtable(this).Min)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Max(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -858,8 +788,6 @@ impl FrameExposureCapabilities {
             (::windows_core::Interface::vtable(this).Max)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Step(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -931,8 +859,6 @@ impl ::windows_core::RuntimeName for FrameExposureCompensationCapabilities {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FrameExposureCompensationControl(::windows_core::IUnknown);
 impl FrameExposureCompensationControl {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Value(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
@@ -940,8 +866,6 @@ impl FrameExposureCompensationControl {
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetValue<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<f32>>,
@@ -978,8 +902,6 @@ impl FrameExposureControl {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAuto)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Value(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -987,8 +909,6 @@ impl FrameExposureControl {
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetValue<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
@@ -1161,8 +1081,6 @@ impl ::windows_core::RuntimeName for FrameFocusCapabilities {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FrameFocusControl(::windows_core::IUnknown);
 impl FrameFocusControl {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Value(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
@@ -1170,8 +1088,6 @@ impl FrameFocusControl {
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetValue<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<u32>>,
@@ -1254,8 +1170,6 @@ impl FrameIsoSpeedControl {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAuto)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Value(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
@@ -1263,8 +1177,6 @@ impl FrameIsoSpeedControl {
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetValue<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<u32>>,

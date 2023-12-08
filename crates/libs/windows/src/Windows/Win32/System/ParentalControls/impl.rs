@@ -1,11 +1,7 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWPCGamesSettings_Impl: Sized + IWPCSettings_Impl {
     fn IsBlocked(&self, guidappid: &::windows_core::GUID) -> ::windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IWPCGamesSettings {}
-#[cfg(feature = "Win32_Foundation")]
 impl IWPCGamesSettings_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCGamesSettings_Impl, const OFFSET: isize>() -> IWPCGamesSettings_Vtbl {
         unsafe extern "system" fn IsBlocked<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCGamesSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidappid: ::windows_core::GUID, pdwreasons: *mut u32) -> ::windows_core::HRESULT {
@@ -25,16 +21,12 @@ impl IWPCGamesSettings_Vtbl {
         *iid == <IWPCGamesSettings as ::windows_core::ComInterface>::IID || *iid == <IWPCSettings as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWPCProviderConfig_Impl: Sized {
     fn GetUserSummary(&self, bstrsid: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Configure(&self, hwnd: super::super::Foundation::HWND, bstrsid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn RequestOverride(&self, hwnd: super::super::Foundation::HWND, bstrpath: &::windows_core::BSTR, dwflags: &WPCFLAG_RESTRICTION) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IWPCProviderConfig {}
-#[cfg(feature = "Win32_Foundation")]
 impl IWPCProviderConfig_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCProviderConfig_Impl, const OFFSET: isize>() -> IWPCProviderConfig_Vtbl {
         unsafe extern "system" fn GetUserSummary<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCProviderConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsid: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrusersummary: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -119,16 +111,12 @@ impl IWPCProviderSupport_Vtbl {
         *iid == <IWPCProviderSupport as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWPCSettings_Impl: Sized {
     fn IsLoggingRequired(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn GetLastSettingsChangeTime(&self) -> ::windows_core::Result<super::super::Foundation::SYSTEMTIME>;
     fn GetRestrictions(&self) -> ::windows_core::Result<WPCFLAG_RESTRICTION>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IWPCSettings {}
-#[cfg(feature = "Win32_Foundation")]
 impl IWPCSettings_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCSettings_Impl, const OFFSET: isize>() -> IWPCSettings_Vtbl {
         unsafe extern "system" fn IsLoggingRequired<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfrequired: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -175,15 +163,11 @@ impl IWPCSettings_Vtbl {
         *iid == <IWPCSettings as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWPCWebSettings_Impl: Sized + IWPCSettings_Impl {
     fn GetSettings(&self) -> ::windows_core::Result<WPCFLAG_WEB_SETTING>;
     fn RequestURLOverride(&self, hwnd: super::super::Foundation::HWND, pcszurl: &::windows_core::PCWSTR, curls: u32, ppcszsuburls: *const ::windows_core::PCWSTR) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IWPCWebSettings {}
-#[cfg(feature = "Win32_Foundation")]
 impl IWPCWebSettings_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCWebSettings_Impl, const OFFSET: isize>() -> IWPCWebSettings_Vtbl {
         unsafe extern "system" fn GetSettings<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCWebSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwsettings: *mut WPCFLAG_WEB_SETTING) -> ::windows_core::HRESULT {

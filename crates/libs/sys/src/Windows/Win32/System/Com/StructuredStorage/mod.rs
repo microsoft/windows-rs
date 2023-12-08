@@ -1,198 +1,193 @@
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn ClearPropVariantArray(rgpropvar : *mut PROPVARIANT, cvars : u32));
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn ClearPropVariantArray(rgpropvar : *mut PROPVARIANT, cvars : u32));
 ::windows_targets::link!("ole32.dll" "system" fn CoGetInstanceFromFile(pserverinfo : *const super:: COSERVERINFO, pclsid : *const ::windows_sys::core::GUID, punkouter : ::windows_sys::core::IUnknown, dwclsctx : super:: CLSCTX, grfmode : u32, pwszname : ::windows_sys::core::PCWSTR, dwcount : u32, presults : *mut super:: MULTI_QI) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoGetInstanceFromIStorage(pserverinfo : *const super:: COSERVERINFO, pclsid : *const ::windows_sys::core::GUID, punkouter : ::windows_sys::core::IUnknown, dwclsctx : super:: CLSCTX, pstg : IStorage, dwcount : u32, presults : *mut super:: MULTI_QI) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoGetInterfaceAndReleaseStream(pstm : super:: IStream, iid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CreateILockBytesOnHGlobal(hglobal : super::super::super::Foundation:: HGLOBAL, fdeleteonrelease : super::super::super::Foundation:: BOOL, pplkbyt : *mut ILockBytes) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CreateStreamOnHGlobal(hglobal : super::super::super::Foundation:: HGLOBAL, fdeleteonrelease : super::super::super::Foundation:: BOOL, ppstm : *mut super:: IStream) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CreateILockBytesOnHGlobal(hglobal : super::super::super::Foundation:: HGLOBAL, fdeleteonrelease : super::super::super::Foundation:: BOOL, pplkbyt : *mut ILockBytes) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CreateStreamOnHGlobal(hglobal : super::super::super::Foundation:: HGLOBAL, fdeleteonrelease : super::super::super::Foundation:: BOOL, ppstm : *mut super:: IStream) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn FmtIdToPropStgName(pfmtid : *const ::windows_sys::core::GUID, oszname : ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn FreePropVariantArray(cvariants : u32, rgvars : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn FreePropVariantArray(cvariants : u32, rgvars : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn GetConvertStg(pstg : IStorage) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetHGlobalFromILockBytes(plkbyt : ILockBytes, phglobal : *mut super::super::super::Foundation:: HGLOBAL) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetHGlobalFromStream(pstm : super:: IStream, phglobal : *mut super::super::super::Foundation:: HGLOBAL) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn InitPropVariantFromBooleanVector(prgf : *const super::super::super::Foundation:: BOOL, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn InitPropVariantFromBuffer(pv : *const ::core::ffi::c_void, cb : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn InitPropVariantFromCLSID(clsid : *const ::windows_sys::core::GUID, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn InitPropVariantFromDoubleVector(prgn : *const f64, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn InitPropVariantFromFileTime(pftin : *const super::super::super::Foundation:: FILETIME, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn InitPropVariantFromFileTimeVector(prgft : *const super::super::super::Foundation:: FILETIME, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn InitPropVariantFromGUIDAsString(guid : *const ::windows_sys::core::GUID, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn InitPropVariantFromInt16Vector(prgn : *const i16, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn InitPropVariantFromInt32Vector(prgn : *const i32, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn InitPropVariantFromInt64Vector(prgn : *const i64, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn InitPropVariantFromPropVariantVectorElem(propvarin : *const PROPVARIANT, ielem : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn InitPropVariantFromResource(hinst : super::super::super::Foundation:: HINSTANCE, id : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn InitPropVariantFromStringAsVector(psz : ::windows_sys::core::PCWSTR, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn InitPropVariantFromStringVector(prgsz : *const ::windows_sys::core::PCWSTR, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn InitPropVariantFromUInt16Vector(prgn : *const u16, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn InitPropVariantFromUInt32Vector(prgn : *const u32, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn InitPropVariantFromUInt64Vector(prgn : *const u64, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn InitPropVariantVectorFromPropVariant(propvarsingle : *const PROPVARIANT, ppropvarvector : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn GetHGlobalFromILockBytes(plkbyt : ILockBytes, phglobal : *mut super::super::super::Foundation:: HGLOBAL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn GetHGlobalFromStream(pstm : super:: IStream, phglobal : *mut super::super::super::Foundation:: HGLOBAL) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromBooleanVector(prgf : *const super::super::super::Foundation:: BOOL, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromBuffer(pv : *const ::core::ffi::c_void, cb : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromCLSID(clsid : *const ::windows_sys::core::GUID, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromDoubleVector(prgn : *const f64, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromFileTime(pftin : *const super::super::super::Foundation:: FILETIME, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromFileTimeVector(prgft : *const super::super::super::Foundation:: FILETIME, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromGUIDAsString(guid : *const ::windows_sys::core::GUID, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromInt16Vector(prgn : *const i16, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromInt32Vector(prgn : *const i32, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromInt64Vector(prgn : *const i64, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromPropVariantVectorElem(propvarin : *const PROPVARIANT, ielem : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromResource(hinst : super::super::super::Foundation:: HINSTANCE, id : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromStringAsVector(psz : ::windows_sys::core::PCWSTR, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromStringVector(prgsz : *const ::windows_sys::core::PCWSTR, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromUInt16Vector(prgn : *const u16, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromUInt32Vector(prgn : *const u32, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromUInt64Vector(prgn : *const u64, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantVectorFromPropVariant(propvarsingle : *const PROPVARIANT, ppropvarvector : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn OleConvertIStorageToOLESTREAM(pstg : IStorage, lpolestream : *mut OLESTREAM) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn OleConvertIStorageToOLESTREAMEx(pstg : IStorage, cfformat : u16, lwidth : i32, lheight : i32, dwsize : u32, pmedium : *const super:: STGMEDIUM, polestm : *mut OLESTREAM) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn OleConvertIStorageToOLESTREAMEx(pstg : IStorage, cfformat : u16, lwidth : i32, lheight : i32, dwsize : u32, pmedium : *const super:: STGMEDIUM, polestm : *mut OLESTREAM) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorage(lpolestream : *const OLESTREAM, pstg : IStorage, ptd : *const super:: DVTARGETDEVICE) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn OleConvertOLESTREAMToIStorageEx(polestm : *const OLESTREAM, pstg : IStorage, pcfformat : *mut u16, plwwidth : *mut i32, plheight : *mut i32, pdwsize : *mut u32, pmedium : *mut super:: STGMEDIUM) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn OleConvertOLESTREAMToIStorageEx(polestm : *const OLESTREAM, pstg : IStorage, pcfformat : *mut u16, plwwidth : *mut i32, plheight : *mut i32, pdwsize : *mut u32, pmedium : *mut super:: STGMEDIUM) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn PropStgNameToFmtId(oszname : ::windows_sys::core::PCWSTR, pfmtid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantChangeType(ppropvardest : *mut PROPVARIANT, propvarsrc : *const PROPVARIANT, flags : PROPVAR_CHANGE_FLAGS, vt : super::super::Variant:: VARENUM) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantClear(pvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantCompareEx(propvar1 : *const PROPVARIANT, propvar2 : *const PROPVARIANT, unit : PROPVAR_COMPARE_UNIT, flags : PROPVAR_COMPARE_FLAGS) -> i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantCopy(pvardest : *mut PROPVARIANT, pvarsrc : *const PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantGetBooleanElem(propvar : *const PROPVARIANT, ielem : u32, pfval : *mut super::super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantGetDoubleElem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut f64) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantGetElementCount(propvar : *const PROPVARIANT) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantGetFileTimeElem(propvar : *const PROPVARIANT, ielem : u32, pftval : *mut super::super::super::Foundation:: FILETIME) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantGetInt16Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut i16) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantGetInt32Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut i32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantGetInt64Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut i64) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantGetStringElem(propvar : *const PROPVARIANT, ielem : u32, ppszval : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantGetUInt16Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut u16) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantGetUInt32Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantGetUInt64Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut u64) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToBSTR(propvar : *const PROPVARIANT, pbstrout : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToBoolean(propvarin : *const PROPVARIANT, pfret : *mut super::super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToBooleanVector(propvar : *const PROPVARIANT, prgf : *mut super::super::super::Foundation:: BOOL, crgf : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToBooleanVectorAlloc(propvar : *const PROPVARIANT, pprgf : *mut *mut super::super::super::Foundation:: BOOL, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToBooleanWithDefault(propvarin : *const PROPVARIANT, fdefault : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToBuffer(propvar : *const PROPVARIANT, pv : *mut ::core::ffi::c_void, cb : u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToDouble(propvarin : *const PROPVARIANT, pdblret : *mut f64) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToDoubleVector(propvar : *const PROPVARIANT, prgn : *mut f64, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToDoubleVectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut f64, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToDoubleWithDefault(propvarin : *const PROPVARIANT, dbldefault : f64) -> f64);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToFileTime(propvar : *const PROPVARIANT, pstfout : super::super::Variant:: PSTIME_FLAGS, pftout : *mut super::super::super::Foundation:: FILETIME) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToFileTimeVector(propvar : *const PROPVARIANT, prgft : *mut super::super::super::Foundation:: FILETIME, crgft : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToFileTimeVectorAlloc(propvar : *const PROPVARIANT, pprgft : *mut *mut super::super::super::Foundation:: FILETIME, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToGUID(propvar : *const PROPVARIANT, pguid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToInt16(propvarin : *const PROPVARIANT, piret : *mut i16) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToInt16Vector(propvar : *const PROPVARIANT, prgn : *mut i16, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToInt16VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut i16, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToInt16WithDefault(propvarin : *const PROPVARIANT, idefault : i16) -> i16);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToInt32(propvarin : *const PROPVARIANT, plret : *mut i32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToInt32Vector(propvar : *const PROPVARIANT, prgn : *mut i32, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToInt32VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut i32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToInt32WithDefault(propvarin : *const PROPVARIANT, ldefault : i32) -> i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToInt64(propvarin : *const PROPVARIANT, pllret : *mut i64) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToInt64Vector(propvar : *const PROPVARIANT, prgn : *mut i64, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToInt64VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut i64, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToInt64WithDefault(propvarin : *const PROPVARIANT, lldefault : i64) -> i64);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToString(propvar : *const PROPVARIANT, psz : ::windows_sys::core::PWSTR, cch : u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToStringAlloc(propvar : *const PROPVARIANT, ppszout : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToStringVector(propvar : *const PROPVARIANT, prgsz : *mut ::windows_sys::core::PWSTR, crgsz : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToStringVectorAlloc(propvar : *const PROPVARIANT, pprgsz : *mut *mut ::windows_sys::core::PWSTR, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToStringWithDefault(propvarin : *const PROPVARIANT, pszdefault : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PCWSTR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToUInt16(propvarin : *const PROPVARIANT, puiret : *mut u16) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToUInt16Vector(propvar : *const PROPVARIANT, prgn : *mut u16, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToUInt16VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut u16, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToUInt16WithDefault(propvarin : *const PROPVARIANT, uidefault : u16) -> u16);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToUInt32(propvarin : *const PROPVARIANT, pulret : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToUInt32Vector(propvar : *const PROPVARIANT, prgn : *mut u32, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToUInt32VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToUInt32WithDefault(propvarin : *const PROPVARIANT, uldefault : u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToUInt64(propvarin : *const PROPVARIANT, pullret : *mut u64) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToUInt64Vector(propvar : *const PROPVARIANT, prgn : *mut u64, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToUInt64VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut u64, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToUInt64WithDefault(propvarin : *const PROPVARIANT, ulldefault : u64) -> u64);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn PropVariantToVariant(ppropvar : *const PROPVARIANT, pvar : *mut super::super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn PropVariantToWinRTPropertyValue(propvar : *const PROPVARIANT, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantChangeType(ppropvardest : *mut PROPVARIANT, propvarsrc : *const PROPVARIANT, flags : PROPVAR_CHANGE_FLAGS, vt : super::super::Variant:: VARENUM) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantClear(pvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantCompareEx(propvar1 : *const PROPVARIANT, propvar2 : *const PROPVARIANT, unit : PROPVAR_COMPARE_UNIT, flags : PROPVAR_COMPARE_FLAGS) -> i32);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantCopy(pvardest : *mut PROPVARIANT, pvarsrc : *const PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantGetBooleanElem(propvar : *const PROPVARIANT, ielem : u32, pfval : *mut super::super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantGetDoubleElem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut f64) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantGetElementCount(propvar : *const PROPVARIANT) -> u32);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantGetFileTimeElem(propvar : *const PROPVARIANT, ielem : u32, pftval : *mut super::super::super::Foundation:: FILETIME) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantGetInt16Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut i16) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantGetInt32Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut i32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantGetInt64Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut i64) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantGetStringElem(propvar : *const PROPVARIANT, ielem : u32, ppszval : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantGetUInt16Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut u16) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantGetUInt32Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantGetUInt64Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut u64) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToBSTR(propvar : *const PROPVARIANT, pbstrout : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToBoolean(propvarin : *const PROPVARIANT, pfret : *mut super::super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToBooleanVector(propvar : *const PROPVARIANT, prgf : *mut super::super::super::Foundation:: BOOL, crgf : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToBooleanVectorAlloc(propvar : *const PROPVARIANT, pprgf : *mut *mut super::super::super::Foundation:: BOOL, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToBooleanWithDefault(propvarin : *const PROPVARIANT, fdefault : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToBuffer(propvar : *const PROPVARIANT, pv : *mut ::core::ffi::c_void, cb : u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToDouble(propvarin : *const PROPVARIANT, pdblret : *mut f64) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToDoubleVector(propvar : *const PROPVARIANT, prgn : *mut f64, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToDoubleVectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut f64, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToDoubleWithDefault(propvarin : *const PROPVARIANT, dbldefault : f64) -> f64);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToFileTime(propvar : *const PROPVARIANT, pstfout : super::super::Variant:: PSTIME_FLAGS, pftout : *mut super::super::super::Foundation:: FILETIME) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToFileTimeVector(propvar : *const PROPVARIANT, prgft : *mut super::super::super::Foundation:: FILETIME, crgft : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToFileTimeVectorAlloc(propvar : *const PROPVARIANT, pprgft : *mut *mut super::super::super::Foundation:: FILETIME, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToGUID(propvar : *const PROPVARIANT, pguid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToInt16(propvarin : *const PROPVARIANT, piret : *mut i16) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToInt16Vector(propvar : *const PROPVARIANT, prgn : *mut i16, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToInt16VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut i16, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToInt16WithDefault(propvarin : *const PROPVARIANT, idefault : i16) -> i16);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToInt32(propvarin : *const PROPVARIANT, plret : *mut i32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToInt32Vector(propvar : *const PROPVARIANT, prgn : *mut i32, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToInt32VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut i32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToInt32WithDefault(propvarin : *const PROPVARIANT, ldefault : i32) -> i32);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToInt64(propvarin : *const PROPVARIANT, pllret : *mut i64) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToInt64Vector(propvar : *const PROPVARIANT, prgn : *mut i64, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToInt64VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut i64, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToInt64WithDefault(propvarin : *const PROPVARIANT, lldefault : i64) -> i64);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToString(propvar : *const PROPVARIANT, psz : ::windows_sys::core::PWSTR, cch : u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToStringAlloc(propvar : *const PROPVARIANT, ppszout : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToStringVector(propvar : *const PROPVARIANT, prgsz : *mut ::windows_sys::core::PWSTR, crgsz : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToStringVectorAlloc(propvar : *const PROPVARIANT, pprgsz : *mut *mut ::windows_sys::core::PWSTR, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToStringWithDefault(propvarin : *const PROPVARIANT, pszdefault : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PCWSTR);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToUInt16(propvarin : *const PROPVARIANT, puiret : *mut u16) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToUInt16Vector(propvar : *const PROPVARIANT, prgn : *mut u16, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToUInt16VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut u16, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToUInt16WithDefault(propvarin : *const PROPVARIANT, uidefault : u16) -> u16);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToUInt32(propvarin : *const PROPVARIANT, pulret : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToUInt32Vector(propvar : *const PROPVARIANT, prgn : *mut u32, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToUInt32VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToUInt32WithDefault(propvarin : *const PROPVARIANT, uldefault : u32) -> u32);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToUInt64(propvarin : *const PROPVARIANT, pullret : *mut u64) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToUInt64Vector(propvar : *const PROPVARIANT, prgn : *mut u64, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToUInt64VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut u64, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToUInt64WithDefault(propvarin : *const PROPVARIANT, ulldefault : u64) -> u64);
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn PropVariantToVariant(ppropvar : *const PROPVARIANT, pvar : *mut super::super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToWinRTPropertyValue(propvar : *const PROPVARIANT, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn ReadClassStg(pstg : IStorage, pclsid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn ReadClassStm(pstm : super:: IStream, pclsid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn ReadFmtUserTypeStg(pstg : IStorage, pcf : *mut u16, lplpszusertype : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetConvertStg(pstg : IStorage, fconvert : super::super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn StgConvertVariantToProperty(pvar : *const PROPVARIANT, codepage : u16, pprop : *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32, pid : u32, freserved : super::super::super::Foundation:: BOOLEAN, pcindirect : *mut u32) -> *mut SERIALIZEDPROPERTYVALUE);
+::windows_targets::link!("ole32.dll" "system" fn SetConvertStg(pstg : IStorage, fconvert : super::super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn StgConvertVariantToProperty(pvar : *const PROPVARIANT, codepage : u16, pprop : *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32, pid : u32, freserved : super::super::super::Foundation:: BOOLEAN, pcindirect : *mut u32) -> *mut SERIALIZEDPROPERTYVALUE);
 ::windows_targets::link!("ole32.dll" "system" fn StgCreateDocfile(pwcsname : ::windows_sys::core::PCWSTR, grfmode : super:: STGM, reserved : u32, ppstgopen : *mut IStorage) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn StgCreateDocfileOnILockBytes(plkbyt : ILockBytes, grfmode : super:: STGM, reserved : u32, ppstgopen : *mut IStorage) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn StgCreatePropSetStg(pstorage : IStorage, dwreserved : u32, pppropsetstg : *mut IPropertySetStorage) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn StgCreatePropStg(punk : ::windows_sys::core::IUnknown, fmtid : *const ::windows_sys::core::GUID, pclsid : *const ::windows_sys::core::GUID, grfflags : u32, dwreserved : u32, pppropstg : *mut IPropertyStorage) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security")]
 ::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn StgCreateStorageEx(pwcsname : ::windows_sys::core::PCWSTR, grfmode : super:: STGM, stgfmt : STGFMT, grfattrs : u32, pstgoptions : *mut STGOPTIONS, psecuritydescriptor : super::super::super::Security:: PSECURITY_DESCRIPTOR, riid : *const ::windows_sys::core::GUID, ppobjectopen : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn StgDeserializePropVariant(pprop : *const SERIALIZEDPROPERTYVALUE, cbmax : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn StgDeserializePropVariant(pprop : *const SERIALIZEDPROPERTYVALUE, cbmax : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn StgGetIFillLockBytesOnFile(pwcsname : ::windows_sys::core::PCWSTR, ppflb : *mut IFillLockBytes) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn StgGetIFillLockBytesOnILockBytes(pilb : ILockBytes, ppflb : *mut IFillLockBytes) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn StgIsStorageFile(pwcsname : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
@@ -205,14 +200,13 @@
 ::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn StgOpenStorageEx(pwcsname : ::windows_sys::core::PCWSTR, grfmode : super:: STGM, stgfmt : STGFMT, grfattrs : u32, pstgoptions : *mut STGOPTIONS, psecuritydescriptor : super::super::super::Security:: PSECURITY_DESCRIPTOR, riid : *const ::windows_sys::core::GUID, ppobjectopen : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn StgOpenStorageOnILockBytes(plkbyt : ILockBytes, pstgpriority : IStorage, grfmode : super:: STGM, snbexclude : *const *const u16, reserved : u32, ppstgopen : *mut IStorage) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn StgPropertyLengthAsVariant(pprop : *const SERIALIZEDPROPERTYVALUE, cbprop : u32, codepage : u16, breserved : u8) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn StgSerializePropVariant(ppropvar : *const PROPVARIANT, ppprop : *mut *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn StgSetTimes(lpszname : ::windows_sys::core::PCWSTR, pctime : *const super::super::super::Foundation:: FILETIME, patime : *const super::super::super::Foundation:: FILETIME, pmtime : *const super::super::super::Foundation:: FILETIME) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn VariantToPropVariant(pvar : *const super::super::Variant:: VARIANT, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"] fn WinRTPropertyValueToPropVariant(punkpropertyvalue : ::windows_sys::core::IUnknown, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn StgSerializePropVariant(ppropvar : *const PROPVARIANT, ppprop : *mut *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn StgSetTimes(lpszname : ::windows_sys::core::PCWSTR, pctime : *const super::super::super::Foundation:: FILETIME, patime : *const super::super::super::Foundation:: FILETIME, pmtime : *const super::super::super::Foundation:: FILETIME) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn VariantToPropVariant(pvar : *const super::super::Variant:: VARIANT, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn WinRTPropertyValueToPropVariant(punkpropertyvalue : ::windows_sys::core::IUnknown, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn WriteClassStg(pstg : IStorage, rclsid : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn WriteClassStm(pstm : super:: IStream, rclsid : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn WriteFmtUserTypeStg(pstg : IStorage, cf : u16, lpszusertype : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
@@ -356,15 +350,11 @@ impl ::core::clone::Clone for BSTRBLOB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CABOOL {
     pub cElems: u32,
     pub pElems: *mut super::super::super::Foundation::VARIANT_BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CABOOL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CABOOL {
     fn clone(&self) -> Self {
         *self
@@ -459,15 +449,11 @@ impl ::core::clone::Clone for CADBL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CAFILETIME {
     pub cElems: u32,
     pub pElems: *mut super::super::super::Foundation::FILETIME,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CAFILETIME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CAFILETIME {
     fn clone(&self) -> Self {
         *self
@@ -540,15 +526,15 @@ impl ::core::clone::Clone for CALPWSTR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
+#[cfg(feature = "Win32_System_Variant")]
 pub struct CAPROPVARIANT {
     pub cElems: u32,
     pub pElems: *mut PROPVARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::marker::Copy for CAPROPVARIANT {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for CAPROPVARIANT {
     fn clone(&self) -> Self {
         *self
@@ -684,37 +670,37 @@ impl ::core::clone::Clone for PROPSPEC_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
+#[cfg(feature = "Win32_System_Variant")]
 pub struct PROPVARIANT {
     pub Anonymous: PROPVARIANT_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::marker::Copy for PROPVARIANT {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for PROPVARIANT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
+#[cfg(feature = "Win32_System_Variant")]
 pub union PROPVARIANT_0 {
     pub Anonymous: PROPVARIANT_0_0,
     pub decVal: super::super::super::Foundation::DECIMAL,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::marker::Copy for PROPVARIANT_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for PROPVARIANT_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
+#[cfg(feature = "Win32_System_Variant")]
 pub struct PROPVARIANT_0_0 {
     pub vt: super::super::Variant::VARENUM,
     pub wReserved1: u16,
@@ -722,17 +708,17 @@ pub struct PROPVARIANT_0_0 {
     pub wReserved3: u16,
     pub Anonymous: PROPVARIANT_0_0_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::marker::Copy for PROPVARIANT_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for PROPVARIANT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
+#[cfg(feature = "Win32_System_Variant")]
 pub union PROPVARIANT_0_0_0 {
     pub cVal: u8,
     pub bVal: u8,
@@ -808,9 +794,9 @@ pub union PROPVARIANT_0_0_0 {
     pub pparray: *mut *mut super::SAFEARRAY,
     pub pvarVal: *mut PROPVARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::marker::Copy for PROPVARIANT_0_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for PROPVARIANT_0_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -840,8 +826,6 @@ impl ::core::clone::Clone for SERIALIZEDPROPERTYVALUE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STATPROPSETSTG {
     pub fmtid: ::windows_sys::core::GUID,
     pub clsid: ::windows_sys::core::GUID,
@@ -851,9 +835,7 @@ pub struct STATPROPSETSTG {
     pub atime: super::super::super::Foundation::FILETIME,
     pub dwOSVersion: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STATPROPSETSTG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STATPROPSETSTG {
     fn clone(&self) -> Self {
         *self

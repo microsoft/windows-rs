@@ -4311,8 +4311,6 @@ impl ::core::default::Default for CHANGER_ELEMENT_STATUS_EX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CHANGER_EXCHANGE_MEDIUM {
     pub Transport: CHANGER_ELEMENT,
     pub Source: CHANGER_ELEMENT,
@@ -4321,113 +4319,88 @@ pub struct CHANGER_EXCHANGE_MEDIUM {
     pub Flip1: super::super::Foundation::BOOLEAN,
     pub Flip2: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHANGER_EXCHANGE_MEDIUM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHANGER_EXCHANGE_MEDIUM {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CHANGER_EXCHANGE_MEDIUM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CHANGER_EXCHANGE_MEDIUM").field("Transport", &self.Transport).field("Source", &self.Source).field("Destination1", &self.Destination1).field("Destination2", &self.Destination2).field("Flip1", &self.Flip1).field("Flip2", &self.Flip2).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for CHANGER_EXCHANGE_MEDIUM {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CHANGER_EXCHANGE_MEDIUM {
     fn eq(&self, other: &Self) -> bool {
         self.Transport == other.Transport && self.Source == other.Source && self.Destination1 == other.Destination1 && self.Destination2 == other.Destination2 && self.Flip1 == other.Flip1 && self.Flip2 == other.Flip2
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CHANGER_EXCHANGE_MEDIUM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHANGER_EXCHANGE_MEDIUM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CHANGER_INITIALIZE_ELEMENT_STATUS {
     pub ElementList: CHANGER_ELEMENT_LIST,
     pub BarCodeScan: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHANGER_INITIALIZE_ELEMENT_STATUS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHANGER_INITIALIZE_ELEMENT_STATUS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CHANGER_INITIALIZE_ELEMENT_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CHANGER_INITIALIZE_ELEMENT_STATUS").field("ElementList", &self.ElementList).field("BarCodeScan", &self.BarCodeScan).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for CHANGER_INITIALIZE_ELEMENT_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CHANGER_INITIALIZE_ELEMENT_STATUS {
     fn eq(&self, other: &Self) -> bool {
         self.ElementList == other.ElementList && self.BarCodeScan == other.BarCodeScan
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CHANGER_INITIALIZE_ELEMENT_STATUS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHANGER_INITIALIZE_ELEMENT_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CHANGER_MOVE_MEDIUM {
     pub Transport: CHANGER_ELEMENT,
     pub Source: CHANGER_ELEMENT,
     pub Destination: CHANGER_ELEMENT,
     pub Flip: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHANGER_MOVE_MEDIUM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHANGER_MOVE_MEDIUM {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CHANGER_MOVE_MEDIUM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CHANGER_MOVE_MEDIUM").field("Transport", &self.Transport).field("Source", &self.Source).field("Destination", &self.Destination).field("Flip", &self.Flip).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for CHANGER_MOVE_MEDIUM {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CHANGER_MOVE_MEDIUM {
     fn eq(&self, other: &Self) -> bool {
         self.Transport == other.Transport && self.Source == other.Source && self.Destination == other.Destination && self.Flip == other.Flip
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CHANGER_MOVE_MEDIUM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHANGER_MOVE_MEDIUM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4467,39 +4440,30 @@ impl ::core::default::Default for CHANGER_PRODUCT_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CHANGER_READ_ELEMENT_STATUS {
     pub ElementList: CHANGER_ELEMENT_LIST,
     pub VolumeTagInfo: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHANGER_READ_ELEMENT_STATUS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHANGER_READ_ELEMENT_STATUS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CHANGER_READ_ELEMENT_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CHANGER_READ_ELEMENT_STATUS").field("ElementList", &self.ElementList).field("VolumeTagInfo", &self.VolumeTagInfo).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for CHANGER_READ_ELEMENT_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CHANGER_READ_ELEMENT_STATUS {
     fn eq(&self, other: &Self) -> bool {
         self.ElementList == other.ElementList && self.VolumeTagInfo == other.VolumeTagInfo
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CHANGER_READ_ELEMENT_STATUS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHANGER_READ_ELEMENT_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4567,40 +4531,31 @@ impl ::core::default::Default for CHANGER_SET_ACCESS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CHANGER_SET_POSITION {
     pub Transport: CHANGER_ELEMENT,
     pub Destination: CHANGER_ELEMENT,
     pub Flip: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHANGER_SET_POSITION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHANGER_SET_POSITION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CHANGER_SET_POSITION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CHANGER_SET_POSITION").field("Transport", &self.Transport).field("Destination", &self.Destination).field("Flip", &self.Flip).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for CHANGER_SET_POSITION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CHANGER_SET_POSITION {
     fn eq(&self, other: &Self) -> bool {
         self.Transport == other.Transport && self.Destination == other.Destination && self.Flip == other.Flip
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CHANGER_SET_POSITION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHANGER_SET_POSITION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4912,38 +4867,29 @@ impl ::core::default::Default for CSV_CONTROL_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CSV_IS_OWNED_BY_CSVFS {
     pub OwnedByCSVFS: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CSV_IS_OWNED_BY_CSVFS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CSV_IS_OWNED_BY_CSVFS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CSV_IS_OWNED_BY_CSVFS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CSV_IS_OWNED_BY_CSVFS").field("OwnedByCSVFS", &self.OwnedByCSVFS).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for CSV_IS_OWNED_BY_CSVFS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CSV_IS_OWNED_BY_CSVFS {
     fn eq(&self, other: &Self) -> bool {
         self.OwnedByCSVFS == other.OwnedByCSVFS
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CSV_IS_OWNED_BY_CSVFS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CSV_IS_OWNED_BY_CSVFS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5151,40 +5097,31 @@ impl ::core::default::Default for CSV_QUERY_MDS_PATH_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CSV_QUERY_REDIRECT_STATE {
     pub MdsNodeId: u32,
     pub DsNodeId: u32,
     pub FileRedirected: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CSV_QUERY_REDIRECT_STATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CSV_QUERY_REDIRECT_STATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CSV_QUERY_REDIRECT_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CSV_QUERY_REDIRECT_STATE").field("MdsNodeId", &self.MdsNodeId).field("DsNodeId", &self.DsNodeId).field("FileRedirected", &self.FileRedirected).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for CSV_QUERY_REDIRECT_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CSV_QUERY_REDIRECT_STATE {
     fn eq(&self, other: &Self) -> bool {
         self.MdsNodeId == other.MdsNodeId && self.DsNodeId == other.DsNodeId && self.FileRedirected == other.FileRedirected
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CSV_QUERY_REDIRECT_STATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CSV_QUERY_REDIRECT_STATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5251,8 +5188,6 @@ impl ::core::default::Default for CSV_QUERY_VOLUME_ID {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CSV_QUERY_VOLUME_REDIRECT_STATE {
     pub MdsNodeId: u32,
     pub DsNodeId: u32,
@@ -5260,33 +5195,26 @@ pub struct CSV_QUERY_VOLUME_REDIRECT_STATE {
     pub ClusterEnableDirectIo: super::super::Foundation::BOOLEAN,
     pub DiskConnectivity: CSVFS_DISK_CONNECTIVITY,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CSV_QUERY_VOLUME_REDIRECT_STATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CSV_QUERY_VOLUME_REDIRECT_STATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CSV_QUERY_VOLUME_REDIRECT_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CSV_QUERY_VOLUME_REDIRECT_STATE").field("MdsNodeId", &self.MdsNodeId).field("DsNodeId", &self.DsNodeId).field("IsDiskConnected", &self.IsDiskConnected).field("ClusterEnableDirectIo", &self.ClusterEnableDirectIo).field("DiskConnectivity", &self.DiskConnectivity).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for CSV_QUERY_VOLUME_REDIRECT_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CSV_QUERY_VOLUME_REDIRECT_STATE {
     fn eq(&self, other: &Self) -> bool {
         self.MdsNodeId == other.MdsNodeId && self.DsNodeId == other.DsNodeId && self.IsDiskConnected == other.IsDiskConnected && self.ClusterEnableDirectIo == other.ClusterEnableDirectIo && self.DiskConnectivity == other.DiskConnectivity
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CSV_QUERY_VOLUME_REDIRECT_STATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CSV_QUERY_VOLUME_REDIRECT_STATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5322,38 +5250,29 @@ impl ::core::default::Default for CSV_SET_VOLUME_ID {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DECRYPTION_STATUS_BUFFER {
     pub NoEncryptedStreams: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DECRYPTION_STATUS_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DECRYPTION_STATUS_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DECRYPTION_STATUS_BUFFER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DECRYPTION_STATUS_BUFFER").field("NoEncryptedStreams", &self.NoEncryptedStreams).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DECRYPTION_STATUS_BUFFER {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DECRYPTION_STATUS_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         self.NoEncryptedStreams == other.NoEncryptedStreams
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DECRYPTION_STATUS_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DECRYPTION_STATUS_BUFFER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6037,8 +5956,6 @@ impl ::core::default::Default for DEVICE_DSM_CONVERSION_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_DSM_DEFINITION {
     pub Action: u32,
     pub SingleRange: super::super::Foundation::BOOLEAN,
@@ -6048,33 +5965,26 @@ pub struct DEVICE_DSM_DEFINITION {
     pub OutputBlockAlignment: u32,
     pub OutputBlockLength: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVICE_DSM_DEFINITION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVICE_DSM_DEFINITION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DEVICE_DSM_DEFINITION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DEVICE_DSM_DEFINITION").field("Action", &self.Action).field("SingleRange", &self.SingleRange).field("ParameterBlockAlignment", &self.ParameterBlockAlignment).field("ParameterBlockLength", &self.ParameterBlockLength).field("HasOutput", &self.HasOutput).field("OutputBlockAlignment", &self.OutputBlockAlignment).field("OutputBlockLength", &self.OutputBlockLength).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DEVICE_DSM_DEFINITION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEVICE_DSM_DEFINITION {
     fn eq(&self, other: &Self) -> bool {
         self.Action == other.Action && self.SingleRange == other.SingleRange && self.ParameterBlockAlignment == other.ParameterBlockAlignment && self.ParameterBlockLength == other.ParameterBlockLength && self.HasOutput == other.HasOutput && self.OutputBlockAlignment == other.OutputBlockAlignment && self.OutputBlockLength == other.OutputBlockLength
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEVICE_DSM_DEFINITION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEVICE_DSM_DEFINITION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6344,8 +6254,6 @@ impl ::core::default::Default for DEVICE_DSM_RANGE_ERROR_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_DSM_REPORT_ZONES_DATA {
     pub Size: u32,
     pub ZoneCount: u32,
@@ -6353,33 +6261,26 @@ pub struct DEVICE_DSM_REPORT_ZONES_DATA {
     pub Reserved0: u32,
     pub ZoneDescriptors: [STORAGE_ZONE_DESCRIPTOR; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVICE_DSM_REPORT_ZONES_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVICE_DSM_REPORT_ZONES_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DEVICE_DSM_REPORT_ZONES_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DEVICE_DSM_REPORT_ZONES_DATA").field("Size", &self.Size).field("ZoneCount", &self.ZoneCount).field("Attributes", &self.Attributes).field("Reserved0", &self.Reserved0).field("ZoneDescriptors", &self.ZoneDescriptors).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DEVICE_DSM_REPORT_ZONES_DATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEVICE_DSM_REPORT_ZONES_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.ZoneCount == other.ZoneCount && self.Attributes == other.Attributes && self.Reserved0 == other.Reserved0 && self.ZoneDescriptors == other.ZoneDescriptors
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEVICE_DSM_REPORT_ZONES_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEVICE_DSM_REPORT_ZONES_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6978,8 +6879,6 @@ impl ::core::default::Default for DEVICE_MEDIA_INFO_0_2_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_POWER_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -6992,15 +6891,12 @@ pub struct DEVICE_POWER_DESCRIPTOR {
     pub Reserved: [u8; 2],
     pub IdleTimeoutInMS: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVICE_POWER_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVICE_POWER_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DEVICE_POWER_DESCRIPTOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DEVICE_POWER_DESCRIPTOR")
@@ -7017,59 +6913,46 @@ impl ::core::fmt::Debug for DEVICE_POWER_DESCRIPTOR {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DEVICE_POWER_DESCRIPTOR {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEVICE_POWER_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Size == other.Size && self.DeviceAttentionSupported == other.DeviceAttentionSupported && self.AsynchronousNotificationSupported == other.AsynchronousNotificationSupported && self.IdlePowerManagementEnabled == other.IdlePowerManagementEnabled && self.D3ColdEnabled == other.D3ColdEnabled && self.D3ColdSupported == other.D3ColdSupported && self.NoVerifyDuringIdlePower == other.NoVerifyDuringIdlePower && self.Reserved == other.Reserved && self.IdleTimeoutInMS == other.IdleTimeoutInMS
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEVICE_POWER_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEVICE_POWER_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_SEEK_PENALTY_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
     pub IncursSeekPenalty: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVICE_SEEK_PENALTY_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVICE_SEEK_PENALTY_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DEVICE_SEEK_PENALTY_DESCRIPTOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DEVICE_SEEK_PENALTY_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("IncursSeekPenalty", &self.IncursSeekPenalty).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DEVICE_SEEK_PENALTY_DESCRIPTOR {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEVICE_SEEK_PENALTY_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Size == other.Size && self.IncursSeekPenalty == other.IncursSeekPenalty
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEVICE_SEEK_PENALTY_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEVICE_SEEK_PENALTY_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7174,88 +7057,68 @@ impl ::core::default::Default for DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_TRIM_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
     pub TrimEnabled: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVICE_TRIM_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVICE_TRIM_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DEVICE_TRIM_DESCRIPTOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DEVICE_TRIM_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("TrimEnabled", &self.TrimEnabled).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DEVICE_TRIM_DESCRIPTOR {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEVICE_TRIM_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Size == other.Size && self.TrimEnabled == other.TrimEnabled
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEVICE_TRIM_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEVICE_TRIM_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
     pub BenefitsFromWriteAggregation: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DEVICE_WRITE_AGGREGATION_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("BenefitsFromWriteAggregation", &self.BenefitsFromWriteAggregation).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Size == other.Size && self.BenefitsFromWriteAggregation == other.BenefitsFromWriteAggregation
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DISK_CACHE_INFORMATION {
     pub ParametersSavable: super::super::Foundation::BOOLEAN,
     pub ReadCacheEnabled: super::super::Foundation::BOOLEAN,
@@ -7266,123 +7129,95 @@ pub struct DISK_CACHE_INFORMATION {
     pub PrefetchScalar: super::super::Foundation::BOOLEAN,
     pub Anonymous: DISK_CACHE_INFORMATION_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISK_CACHE_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISK_CACHE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DISK_CACHE_INFORMATION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISK_CACHE_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union DISK_CACHE_INFORMATION_0 {
     pub ScalarPrefetch: DISK_CACHE_INFORMATION_0_1,
     pub BlockPrefetch: DISK_CACHE_INFORMATION_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISK_CACHE_INFORMATION_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISK_CACHE_INFORMATION_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DISK_CACHE_INFORMATION_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISK_CACHE_INFORMATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DISK_CACHE_INFORMATION_0_0 {
     pub Minimum: u16,
     pub Maximum: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISK_CACHE_INFORMATION_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISK_CACHE_INFORMATION_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DISK_CACHE_INFORMATION_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DISK_CACHE_INFORMATION_0_0").field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DISK_CACHE_INFORMATION_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISK_CACHE_INFORMATION_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Minimum == other.Minimum && self.Maximum == other.Maximum
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISK_CACHE_INFORMATION_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISK_CACHE_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DISK_CACHE_INFORMATION_0_1 {
     pub Minimum: u16,
     pub Maximum: u16,
     pub MaximumBlocks: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISK_CACHE_INFORMATION_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISK_CACHE_INFORMATION_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DISK_CACHE_INFORMATION_0_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DISK_CACHE_INFORMATION_0_1").field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).field("MaximumBlocks", &self.MaximumBlocks).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DISK_CACHE_INFORMATION_0_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISK_CACHE_INFORMATION_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.Minimum == other.Minimum && self.Maximum == other.Maximum && self.MaximumBlocks == other.MaximumBlocks
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISK_CACHE_INFORMATION_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISK_CACHE_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7902,8 +7737,6 @@ impl ::core::default::Default for DISK_PERFORMANCE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DISK_RECORD {
     pub ByteOffset: i64,
     pub StartTime: i64,
@@ -7913,33 +7746,26 @@ pub struct DISK_RECORD {
     pub DeviceNumber: u8,
     pub ReadRequest: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISK_RECORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISK_RECORD {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DISK_RECORD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DISK_RECORD").field("ByteOffset", &self.ByteOffset).field("StartTime", &self.StartTime).field("EndTime", &self.EndTime).field("VirtualAddress", &self.VirtualAddress).field("NumberOfBytes", &self.NumberOfBytes).field("DeviceNumber", &self.DeviceNumber).field("ReadRequest", &self.ReadRequest).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DISK_RECORD {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISK_RECORD {
     fn eq(&self, other: &Self) -> bool {
         self.ByteOffset == other.ByteOffset && self.StartTime == other.StartTime && self.EndTime == other.EndTime && self.VirtualAddress == other.VirtualAddress && self.NumberOfBytes == other.NumberOfBytes && self.DeviceNumber == other.DeviceNumber && self.ReadRequest == other.ReadRequest
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISK_RECORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISK_RECORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7967,92 +7793,71 @@ impl ::core::default::Default for DRIVERSTATUS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DRIVE_LAYOUT_INFORMATION {
     pub PartitionCount: u32,
     pub Signature: u32,
     pub PartitionEntry: [PARTITION_INFORMATION; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DRIVE_LAYOUT_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DRIVE_LAYOUT_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DRIVE_LAYOUT_INFORMATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DRIVE_LAYOUT_INFORMATION").field("PartitionCount", &self.PartitionCount).field("Signature", &self.Signature).field("PartitionEntry", &self.PartitionEntry).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DRIVE_LAYOUT_INFORMATION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DRIVE_LAYOUT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.PartitionCount == other.PartitionCount && self.Signature == other.Signature && self.PartitionEntry == other.PartitionEntry
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DRIVE_LAYOUT_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DRIVE_LAYOUT_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DRIVE_LAYOUT_INFORMATION_EX {
     pub PartitionStyle: u32,
     pub PartitionCount: u32,
     pub Anonymous: DRIVE_LAYOUT_INFORMATION_EX_0,
     pub PartitionEntry: [PARTITION_INFORMATION_EX; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DRIVE_LAYOUT_INFORMATION_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DRIVE_LAYOUT_INFORMATION_EX {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DRIVE_LAYOUT_INFORMATION_EX {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DRIVE_LAYOUT_INFORMATION_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union DRIVE_LAYOUT_INFORMATION_EX_0 {
     pub Mbr: DRIVE_LAYOUT_INFORMATION_MBR,
     pub Gpt: DRIVE_LAYOUT_INFORMATION_GPT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DRIVE_LAYOUT_INFORMATION_EX_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DRIVE_LAYOUT_INFORMATION_EX_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DRIVE_LAYOUT_INFORMATION_EX_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DRIVE_LAYOUT_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8121,41 +7926,32 @@ impl ::core::default::Default for DRIVE_LAYOUT_INFORMATION_MBR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DUPLICATE_EXTENTS_DATA {
     pub FileHandle: super::super::Foundation::HANDLE,
     pub SourceFileOffset: i64,
     pub TargetFileOffset: i64,
     pub ByteCount: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DUPLICATE_EXTENTS_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DUPLICATE_EXTENTS_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DUPLICATE_EXTENTS_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DUPLICATE_EXTENTS_DATA").field("FileHandle", &self.FileHandle).field("SourceFileOffset", &self.SourceFileOffset).field("TargetFileOffset", &self.TargetFileOffset).field("ByteCount", &self.ByteCount).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DUPLICATE_EXTENTS_DATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DUPLICATE_EXTENTS_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.FileHandle == other.FileHandle && self.SourceFileOffset == other.SourceFileOffset && self.TargetFileOffset == other.TargetFileOffset && self.ByteCount == other.ByteCount
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DUPLICATE_EXTENTS_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DUPLICATE_EXTENTS_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8202,8 +7998,6 @@ impl ::core::default::Default for DUPLICATE_EXTENTS_DATA32 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DUPLICATE_EXTENTS_DATA_EX {
     pub Size: usize,
     pub FileHandle: super::super::Foundation::HANDLE,
@@ -8212,33 +8006,26 @@ pub struct DUPLICATE_EXTENTS_DATA_EX {
     pub ByteCount: i64,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DUPLICATE_EXTENTS_DATA_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DUPLICATE_EXTENTS_DATA_EX {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DUPLICATE_EXTENTS_DATA_EX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DUPLICATE_EXTENTS_DATA_EX").field("Size", &self.Size).field("FileHandle", &self.FileHandle).field("SourceFileOffset", &self.SourceFileOffset).field("TargetFileOffset", &self.TargetFileOffset).field("ByteCount", &self.ByteCount).field("Flags", &self.Flags).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DUPLICATE_EXTENTS_DATA_EX {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DUPLICATE_EXTENTS_DATA_EX {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.FileHandle == other.FileHandle && self.SourceFileOffset == other.SourceFileOffset && self.TargetFileOffset == other.TargetFileOffset && self.ByteCount == other.ByteCount && self.Flags == other.Flags
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DUPLICATE_EXTENTS_DATA_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DUPLICATE_EXTENTS_DATA_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8998,38 +8785,29 @@ impl ::core::default::Default for FILE_LEVEL_TRIM_RANGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FILE_MAKE_COMPATIBLE_BUFFER {
     pub CloseDisc: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FILE_MAKE_COMPATIBLE_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FILE_MAKE_COMPATIBLE_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FILE_MAKE_COMPATIBLE_BUFFER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FILE_MAKE_COMPATIBLE_BUFFER").field("CloseDisc", &self.CloseDisc).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for FILE_MAKE_COMPATIBLE_BUFFER {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILE_MAKE_COMPATIBLE_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         self.CloseDisc == other.CloseDisc
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FILE_MAKE_COMPATIBLE_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FILE_MAKE_COMPATIBLE_BUFFER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9280,41 +9058,32 @@ impl ::core::default::Default for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FILE_QUERY_SPARING_BUFFER {
     pub SparingUnitBytes: u32,
     pub SoftwareSparing: super::super::Foundation::BOOLEAN,
     pub TotalSpareBlocks: u32,
     pub FreeSpareBlocks: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FILE_QUERY_SPARING_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FILE_QUERY_SPARING_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FILE_QUERY_SPARING_BUFFER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FILE_QUERY_SPARING_BUFFER").field("SparingUnitBytes", &self.SparingUnitBytes).field("SoftwareSparing", &self.SoftwareSparing).field("TotalSpareBlocks", &self.TotalSpareBlocks).field("FreeSpareBlocks", &self.FreeSpareBlocks).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for FILE_QUERY_SPARING_BUFFER {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILE_QUERY_SPARING_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         self.SparingUnitBytes == other.SparingUnitBytes && self.SoftwareSparing == other.SoftwareSparing && self.TotalSpareBlocks == other.TotalSpareBlocks && self.FreeSpareBlocks == other.FreeSpareBlocks
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FILE_QUERY_SPARING_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FILE_QUERY_SPARING_BUFFER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9447,76 +9216,58 @@ impl ::core::default::Default for FILE_REGION_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FILE_SET_DEFECT_MGMT_BUFFER {
     pub Disable: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FILE_SET_DEFECT_MGMT_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FILE_SET_DEFECT_MGMT_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FILE_SET_DEFECT_MGMT_BUFFER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FILE_SET_DEFECT_MGMT_BUFFER").field("Disable", &self.Disable).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for FILE_SET_DEFECT_MGMT_BUFFER {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILE_SET_DEFECT_MGMT_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         self.Disable == other.Disable
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FILE_SET_DEFECT_MGMT_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FILE_SET_DEFECT_MGMT_BUFFER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FILE_SET_SPARSE_BUFFER {
     pub SetSparse: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FILE_SET_SPARSE_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FILE_SET_SPARSE_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FILE_SET_SPARSE_BUFFER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FILE_SET_SPARSE_BUFFER").field("SetSparse", &self.SetSparse).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for FILE_SET_SPARSE_BUFFER {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILE_SET_SPARSE_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         self.SetSparse == other.SetSparse
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FILE_SET_SPARSE_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FILE_SET_SPARSE_BUFFER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10927,51 +10678,39 @@ impl ::core::default::Default for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct MARK_HANDLE_INFO {
     pub Anonymous: MARK_HANDLE_INFO_0,
     pub VolumeHandle: super::super::Foundation::HANDLE,
     pub HandleInfo: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MARK_HANDLE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MARK_HANDLE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for MARK_HANDLE_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MARK_HANDLE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union MARK_HANDLE_INFO_0 {
     pub UsnSourceInfo: u32,
     pub CopyNumber: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MARK_HANDLE_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MARK_HANDLE_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for MARK_HANDLE_INFO_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MARK_HANDLE_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11091,41 +10830,32 @@ impl ::core::default::Default for MFT_ENUM_DATA_V1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct MOVE_FILE_DATA {
     pub FileHandle: super::super::Foundation::HANDLE,
     pub StartingVcn: i64,
     pub StartingLcn: i64,
     pub ClusterCount: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MOVE_FILE_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MOVE_FILE_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MOVE_FILE_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("MOVE_FILE_DATA").field("FileHandle", &self.FileHandle).field("StartingVcn", &self.StartingVcn).field("StartingLcn", &self.StartingLcn).field("ClusterCount", &self.ClusterCount).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for MOVE_FILE_DATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MOVE_FILE_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.FileHandle == other.FileHandle && self.StartingVcn == other.StartingVcn && self.StartingLcn == other.StartingLcn && self.ClusterCount == other.ClusterCount
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MOVE_FILE_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MOVE_FILE_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11172,40 +10902,31 @@ impl ::core::default::Default for MOVE_FILE_DATA32 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct MOVE_FILE_RECORD_DATA {
     pub FileHandle: super::super::Foundation::HANDLE,
     pub SourceFileRecord: i64,
     pub TargetFileRecord: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MOVE_FILE_RECORD_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MOVE_FILE_RECORD_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MOVE_FILE_RECORD_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("MOVE_FILE_RECORD_DATA").field("FileHandle", &self.FileHandle).field("SourceFileRecord", &self.SourceFileRecord).field("TargetFileRecord", &self.TargetFileRecord).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for MOVE_FILE_RECORD_DATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MOVE_FILE_RECORD_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.FileHandle == other.FileHandle && self.SourceFileRecord == other.SourceFileRecord && self.TargetFileRecord == other.TargetFileRecord
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MOVE_FILE_RECORD_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MOVE_FILE_RECORD_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12074,8 +11795,6 @@ impl ::core::default::Default for NTFS_VOLUME_DATA_BUFFER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PARTITION_INFORMATION {
     pub StartingOffset: i64,
     pub PartitionLength: i64,
@@ -12086,41 +11805,32 @@ pub struct PARTITION_INFORMATION {
     pub RecognizedPartition: super::super::Foundation::BOOLEAN,
     pub RewritePartition: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PARTITION_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PARTITION_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PARTITION_INFORMATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PARTITION_INFORMATION").field("StartingOffset", &self.StartingOffset).field("PartitionLength", &self.PartitionLength).field("HiddenSectors", &self.HiddenSectors).field("PartitionNumber", &self.PartitionNumber).field("PartitionType", &self.PartitionType).field("BootIndicator", &self.BootIndicator).field("RecognizedPartition", &self.RecognizedPartition).field("RewritePartition", &self.RewritePartition).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for PARTITION_INFORMATION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PARTITION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.StartingOffset == other.StartingOffset && self.PartitionLength == other.PartitionLength && self.HiddenSectors == other.HiddenSectors && self.PartitionNumber == other.PartitionNumber && self.PartitionType == other.PartitionType && self.BootIndicator == other.BootIndicator && self.RecognizedPartition == other.RecognizedPartition && self.RewritePartition == other.RewritePartition
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PARTITION_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PARTITION_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PARTITION_INFORMATION_EX {
     pub PartitionStyle: PARTITION_STYLE,
     pub StartingOffset: i64,
@@ -12130,44 +11840,34 @@ pub struct PARTITION_INFORMATION_EX {
     pub IsServicePartition: super::super::Foundation::BOOLEAN,
     pub Anonymous: PARTITION_INFORMATION_EX_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PARTITION_INFORMATION_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PARTITION_INFORMATION_EX {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for PARTITION_INFORMATION_EX {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PARTITION_INFORMATION_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union PARTITION_INFORMATION_EX_0 {
     pub Mbr: PARTITION_INFORMATION_MBR,
     pub Gpt: PARTITION_INFORMATION_GPT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PARTITION_INFORMATION_EX_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PARTITION_INFORMATION_EX_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for PARTITION_INFORMATION_EX_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PARTITION_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12206,8 +11906,6 @@ impl ::core::default::Default for PARTITION_INFORMATION_GPT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PARTITION_INFORMATION_MBR {
     pub PartitionType: u8,
     pub BootIndicator: super::super::Foundation::BOOLEAN,
@@ -12215,33 +11913,26 @@ pub struct PARTITION_INFORMATION_MBR {
     pub HiddenSectors: u32,
     pub PartitionId: ::windows_core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PARTITION_INFORMATION_MBR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PARTITION_INFORMATION_MBR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PARTITION_INFORMATION_MBR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PARTITION_INFORMATION_MBR").field("PartitionType", &self.PartitionType).field("BootIndicator", &self.BootIndicator).field("RecognizedPartition", &self.RecognizedPartition).field("HiddenSectors", &self.HiddenSectors).field("PartitionId", &self.PartitionId).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for PARTITION_INFORMATION_MBR {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PARTITION_INFORMATION_MBR {
     fn eq(&self, other: &Self) -> bool {
         self.PartitionType == other.PartitionType && self.BootIndicator == other.BootIndicator && self.RecognizedPartition == other.RecognizedPartition && self.HiddenSectors == other.HiddenSectors && self.PartitionId == other.PartitionId
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PARTITION_INFORMATION_MBR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PARTITION_INFORMATION_MBR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12545,38 +12236,29 @@ impl ::core::default::Default for PLEX_READ_DATA_REQUEST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PREVENT_MEDIA_REMOVAL {
     pub PreventMediaRemoval: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PREVENT_MEDIA_REMOVAL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PREVENT_MEDIA_REMOVAL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PREVENT_MEDIA_REMOVAL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PREVENT_MEDIA_REMOVAL").field("PreventMediaRemoval", &self.PreventMediaRemoval).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for PREVENT_MEDIA_REMOVAL {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PREVENT_MEDIA_REMOVAL {
     fn eq(&self, other: &Self) -> bool {
         self.PreventMediaRemoval == other.PreventMediaRemoval
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PREVENT_MEDIA_REMOVAL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PREVENT_MEDIA_REMOVAL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13614,38 +13296,29 @@ impl ::core::default::Default for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SCM_BUS_DEDICATED_MEMORY_STATE {
     pub ActivateState: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SCM_BUS_DEDICATED_MEMORY_STATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SCM_BUS_DEDICATED_MEMORY_STATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SCM_BUS_DEDICATED_MEMORY_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SCM_BUS_DEDICATED_MEMORY_STATE").field("ActivateState", &self.ActivateState).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for SCM_BUS_DEDICATED_MEMORY_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SCM_BUS_DEDICATED_MEMORY_STATE {
     fn eq(&self, other: &Self) -> bool {
         self.ActivateState == other.ActivateState
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SCM_BUS_DEDICATED_MEMORY_STATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SCM_BUS_DEDICATED_MEMORY_STATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13718,8 +13391,6 @@ impl ::core::default::Default for SCM_BUS_PROPERTY_SET {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -13731,15 +13402,12 @@ pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     pub EstimatedIOAccessQuiesceTimeInUSecs: u64,
     pub PlatformSupportedMaxIOAccessQuiesceTimeInUSecs: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SCM_BUS_RUNTIME_FW_ACTIVATION_INFO")
@@ -13755,57 +13423,44 @@ impl ::core::fmt::Debug for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Size == other.Size && self.RuntimeFwActivationSupported == other.RuntimeFwActivationSupported && self.FirmwareActivationState == other.FirmwareActivationState && self.FirmwareActivationCapability == other.FirmwareActivationCapability && self.EstimatedFirmwareActivationTimeInUSecs == other.EstimatedFirmwareActivationTimeInUSecs && self.EstimatedProcessorAccessQuiesceTimeInUSecs == other.EstimatedProcessorAccessQuiesceTimeInUSecs && self.EstimatedIOAccessQuiesceTimeInUSecs == other.EstimatedIOAccessQuiesceTimeInUSecs && self.PlatformSupportedMaxIOAccessQuiesceTimeInUSecs == other.PlatformSupportedMaxIOAccessQuiesceTimeInUSecs
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14705,38 +14360,29 @@ impl ::core::default::Default for SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
     pub ArmState: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE").field("ArmState", &self.ArmState).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
     fn eq(&self, other: &Self) -> bool {
         self.ArmState == other.ArmState
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15306,8 +14952,6 @@ impl ::core::default::Default for SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SET_DISK_ATTRIBUTES {
     pub Version: u32,
     pub Persist: super::super::Foundation::BOOLEAN,
@@ -15316,33 +14960,26 @@ pub struct SET_DISK_ATTRIBUTES {
     pub AttributesMask: u64,
     pub Reserved2: [u32; 4],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SET_DISK_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SET_DISK_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SET_DISK_ATTRIBUTES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SET_DISK_ATTRIBUTES").field("Version", &self.Version).field("Persist", &self.Persist).field("Reserved1", &self.Reserved1).field("Attributes", &self.Attributes).field("AttributesMask", &self.AttributesMask).field("Reserved2", &self.Reserved2).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for SET_DISK_ATTRIBUTES {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SET_DISK_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Persist == other.Persist && self.Reserved1 == other.Reserved1 && self.Attributes == other.Attributes && self.AttributesMask == other.AttributesMask && self.Reserved2 == other.Reserved2
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SET_DISK_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SET_DISK_ATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15689,8 +15326,6 @@ impl ::core::default::Default for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ADAPTER_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -15707,15 +15342,12 @@ pub struct STORAGE_ADAPTER_DESCRIPTOR {
     pub SrbType: u8,
     pub AddressType: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_ADAPTER_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_ADAPTER_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_ADAPTER_DESCRIPTOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("STORAGE_ADAPTER_DESCRIPTOR")
@@ -15736,19 +15368,15 @@ impl ::core::fmt::Debug for STORAGE_ADAPTER_DESCRIPTOR {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_ADAPTER_DESCRIPTOR {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_ADAPTER_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Size == other.Size && self.MaximumTransferLength == other.MaximumTransferLength && self.MaximumPhysicalPages == other.MaximumPhysicalPages && self.AlignmentMask == other.AlignmentMask && self.AdapterUsesPio == other.AdapterUsesPio && self.AdapterScansDown == other.AdapterScansDown && self.CommandQueueing == other.CommandQueueing && self.AcceleratedTransfer == other.AcceleratedTransfer && self.BusType == other.BusType && self.BusMajorVersion == other.BusMajorVersion && self.BusMinorVersion == other.BusMinorVersion && self.SrbType == other.SrbType && self.AddressType == other.AddressType
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_ADAPTER_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_ADAPTER_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15786,8 +15414,6 @@ impl ::core::default::Default for STORAGE_ADAPTER_SERIAL_NUMBER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ALLOCATE_BC_STREAM_INPUT {
     pub Version: u32,
     pub RequestsPerPeriod: u32,
@@ -15798,33 +15424,26 @@ pub struct STORAGE_ALLOCATE_BC_STREAM_INPUT {
     pub AccessType: u32,
     pub AccessMode: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_ALLOCATE_BC_STREAM_INPUT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_ALLOCATE_BC_STREAM_INPUT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_ALLOCATE_BC_STREAM_INPUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("STORAGE_ALLOCATE_BC_STREAM_INPUT").field("Version", &self.Version).field("RequestsPerPeriod", &self.RequestsPerPeriod).field("Period", &self.Period).field("RetryFailures", &self.RetryFailures).field("Discardable", &self.Discardable).field("Reserved1", &self.Reserved1).field("AccessType", &self.AccessType).field("AccessMode", &self.AccessMode).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_ALLOCATE_BC_STREAM_INPUT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_ALLOCATE_BC_STREAM_INPUT {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.RequestsPerPeriod == other.RequestsPerPeriod && self.Period == other.Period && self.RetryFailures == other.RetryFailures && self.Discardable == other.Discardable && self.Reserved1 == other.Reserved1 && self.AccessType == other.AccessType && self.AccessMode == other.AccessMode
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_ALLOCATE_BC_STREAM_INPUT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_ALLOCATE_BC_STREAM_INPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16172,8 +15791,8 @@ impl ::core::default::Default for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct STORAGE_DEVICE_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -16189,15 +15808,15 @@ pub struct STORAGE_DEVICE_DESCRIPTOR {
     pub RawPropertiesLength: u32,
     pub RawDeviceProperties: [u8; 1],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::marker::Copy for STORAGE_DEVICE_DESCRIPTOR {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for STORAGE_DEVICE_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::fmt::Debug for STORAGE_DEVICE_DESCRIPTOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("STORAGE_DEVICE_DESCRIPTOR")
@@ -16217,19 +15836,19 @@ impl ::core::fmt::Debug for STORAGE_DEVICE_DESCRIPTOR {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::windows_core::TypeKind for STORAGE_DEVICE_DESCRIPTOR {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::PartialEq for STORAGE_DEVICE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Size == other.Size && self.DeviceType == other.DeviceType && self.DeviceTypeModifier == other.DeviceTypeModifier && self.RemovableMedia == other.RemovableMedia && self.CommandQueueing == other.CommandQueueing && self.VendorIdOffset == other.VendorIdOffset && self.ProductIdOffset == other.ProductIdOffset && self.ProductRevisionOffset == other.ProductRevisionOffset && self.SerialNumberOffset == other.SerialNumberOffset && self.BusType == other.BusType && self.RawPropertiesLength == other.RawPropertiesLength && self.RawDeviceProperties == other.RawDeviceProperties
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for STORAGE_DEVICE_DESCRIPTOR {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::default::Default for STORAGE_DEVICE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16605,81 +16224,63 @@ impl ::core::default::Default for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     pub Version: u32,
     pub Size: u32,
     pub SupportsSelfEncryption: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY").field("Version", &self.Version).field("Size", &self.Size).field("SupportsSelfEncryption", &self.SupportsSelfEncryption).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Size == other.Size && self.SupportsSelfEncryption == other.SupportsSelfEncryption
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
     pub Version: u32,
     pub Size: u32,
     pub SupportsSelfEncryption: super::super::Foundation::BOOLEAN,
     pub EncryptionType: STORAGE_ENCRYPTION_TYPE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2").field("Version", &self.Version).field("Size", &self.Size).field("SupportsSelfEncryption", &self.SupportsSelfEncryption).field("EncryptionType", &self.EncryptionType).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Size == other.Size && self.SupportsSelfEncryption == other.SupportsSelfEncryption && self.EncryptionType == other.EncryptionType
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16849,8 +16450,6 @@ impl ::core::default::Default for STORAGE_EVENT_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_FAILURE_PREDICTION_CONFIG {
     pub Version: u32,
     pub Size: u32,
@@ -16858,33 +16457,26 @@ pub struct STORAGE_FAILURE_PREDICTION_CONFIG {
     pub Enabled: super::super::Foundation::BOOLEAN,
     pub Reserved: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_FAILURE_PREDICTION_CONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_FAILURE_PREDICTION_CONFIG {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_FAILURE_PREDICTION_CONFIG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("STORAGE_FAILURE_PREDICTION_CONFIG").field("Version", &self.Version).field("Size", &self.Size).field("Set", &self.Set).field("Enabled", &self.Enabled).field("Reserved", &self.Reserved).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_FAILURE_PREDICTION_CONFIG {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_FAILURE_PREDICTION_CONFIG {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Size == other.Size && self.Set == other.Set && self.Enabled == other.Enabled && self.Reserved == other.Reserved
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_FAILURE_PREDICTION_CONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_FAILURE_PREDICTION_CONFIG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16957,8 +16549,6 @@ impl ::core::default::Default for STORAGE_GET_BC_PROPERTIES_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_HOTPLUG_INFO {
     pub Size: u32,
     pub MediaRemovable: super::super::Foundation::BOOLEAN,
@@ -16966,33 +16556,26 @@ pub struct STORAGE_HOTPLUG_INFO {
     pub DeviceHotplug: super::super::Foundation::BOOLEAN,
     pub WriteCacheEnableOverride: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_HOTPLUG_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_HOTPLUG_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_HOTPLUG_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("STORAGE_HOTPLUG_INFO").field("Size", &self.Size).field("MediaRemovable", &self.MediaRemovable).field("MediaHotplug", &self.MediaHotplug).field("DeviceHotplug", &self.DeviceHotplug).field("WriteCacheEnableOverride", &self.WriteCacheEnableOverride).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_HOTPLUG_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_HOTPLUG_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.MediaRemovable == other.MediaRemovable && self.MediaHotplug == other.MediaHotplug && self.DeviceHotplug == other.DeviceHotplug && self.WriteCacheEnableOverride == other.WriteCacheEnableOverride
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_HOTPLUG_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_HOTPLUG_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17200,8 +16783,6 @@ impl ::core::default::Default for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_HW_FIRMWARE_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -17215,15 +16796,12 @@ pub struct STORAGE_HW_FIRMWARE_INFO {
     pub ImagePayloadMaxSize: u32,
     pub Slot: [STORAGE_HW_FIRMWARE_SLOT_INFO; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_HW_FIRMWARE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_HW_FIRMWARE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_HW_FIRMWARE_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("STORAGE_HW_FIRMWARE_INFO")
@@ -17241,19 +16819,15 @@ impl ::core::fmt::Debug for STORAGE_HW_FIRMWARE_INFO {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_HW_FIRMWARE_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_HW_FIRMWARE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Size == other.Size && self._bitfield == other._bitfield && self.SlotCount == other.SlotCount && self.ActiveSlot == other.ActiveSlot && self.PendingActivateSlot == other.PendingActivateSlot && self.FirmwareShared == other.FirmwareShared && self.Reserved == other.Reserved && self.ImagePayloadAlignment == other.ImagePayloadAlignment && self.ImagePayloadMaxSize == other.ImagePayloadMaxSize && self.Slot == other.Slot
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_HW_FIRMWARE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_HW_FIRMWARE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17521,8 +17095,6 @@ impl ::core::default::Default for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_MINIPORT_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -17535,82 +17107,63 @@ pub struct STORAGE_MINIPORT_DESCRIPTOR {
     pub Reserved0: [u8; 2],
     pub Reserved1: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_MINIPORT_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_MINIPORT_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_MINIPORT_DESCRIPTOR {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_MINIPORT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union STORAGE_MINIPORT_DESCRIPTOR_0 {
     pub Anonymous: STORAGE_MINIPORT_DESCRIPTOR_0_0,
     pub AsBYTE: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_MINIPORT_DESCRIPTOR_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_MINIPORT_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_MINIPORT_DESCRIPTOR_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_MINIPORT_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_MINIPORT_DESCRIPTOR_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("STORAGE_MINIPORT_DESCRIPTOR_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_MINIPORT_DESCRIPTOR_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17843,8 +17396,6 @@ impl ::core::default::Default for STORAGE_OPERATIONAL_REASON_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_PHYSICAL_ADAPTER_DATA {
     pub AdapterId: u32,
     pub HealthStatus: STORAGE_COMPONENT_HEALTH_STATUS,
@@ -17858,19 +17409,15 @@ pub struct STORAGE_PHYSICAL_ADAPTER_DATA {
     pub Reserved0: [u8; 3],
     pub Reserved1: [u32; 3],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_PHYSICAL_ADAPTER_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_PHYSICAL_ADAPTER_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_PHYSICAL_ADAPTER_DATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_PHYSICAL_ADAPTER_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18830,8 +18377,6 @@ impl ::core::default::Default for STORAGE_SPEC_VERSION_0_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -18842,41 +18387,32 @@ pub struct STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     pub Reserved1: [u32; 2],
     pub TemperatureInfo: [STORAGE_TEMPERATURE_INFO; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("STORAGE_TEMPERATURE_DATA_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("CriticalTemperature", &self.CriticalTemperature).field("WarningTemperature", &self.WarningTemperature).field("InfoCount", &self.InfoCount).field("Reserved0", &self.Reserved0).field("Reserved1", &self.Reserved1).field("TemperatureInfo", &self.TemperatureInfo).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Size == other.Size && self.CriticalTemperature == other.CriticalTemperature && self.WarningTemperature == other.WarningTemperature && self.InfoCount == other.InfoCount && self.Reserved0 == other.Reserved0 && self.Reserved1 == other.Reserved1 && self.TemperatureInfo == other.TemperatureInfo
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_TEMPERATURE_INFO {
     pub Index: u16,
     pub Temperature: i16,
@@ -18888,41 +18424,32 @@ pub struct STORAGE_TEMPERATURE_INFO {
     pub Reserved0: u8,
     pub Reserved1: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_TEMPERATURE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_TEMPERATURE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_TEMPERATURE_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("STORAGE_TEMPERATURE_INFO").field("Index", &self.Index).field("Temperature", &self.Temperature).field("OverThreshold", &self.OverThreshold).field("UnderThreshold", &self.UnderThreshold).field("OverThresholdChangable", &self.OverThresholdChangable).field("UnderThresholdChangable", &self.UnderThresholdChangable).field("EventGenerated", &self.EventGenerated).field("Reserved0", &self.Reserved0).field("Reserved1", &self.Reserved1).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_TEMPERATURE_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_TEMPERATURE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.Index == other.Index && self.Temperature == other.Temperature && self.OverThreshold == other.OverThreshold && self.UnderThreshold == other.UnderThreshold && self.OverThresholdChangable == other.OverThresholdChangable && self.UnderThresholdChangable == other.UnderThresholdChangable && self.EventGenerated == other.EventGenerated && self.Reserved0 == other.Reserved0 && self.Reserved1 == other.Reserved1
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_TEMPERATURE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_TEMPERATURE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_TEMPERATURE_THRESHOLD {
     pub Version: u32,
     pub Size: u32,
@@ -18932,33 +18459,26 @@ pub struct STORAGE_TEMPERATURE_THRESHOLD {
     pub OverThreshold: super::super::Foundation::BOOLEAN,
     pub Reserved: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_TEMPERATURE_THRESHOLD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_TEMPERATURE_THRESHOLD {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_TEMPERATURE_THRESHOLD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("STORAGE_TEMPERATURE_THRESHOLD").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Index", &self.Index).field("Threshold", &self.Threshold).field("OverThreshold", &self.OverThreshold).field("Reserved", &self.Reserved).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_TEMPERATURE_THRESHOLD {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_TEMPERATURE_THRESHOLD {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Size == other.Size && self.Flags == other.Flags && self.Index == other.Index && self.Threshold == other.Threshold && self.OverThreshold == other.OverThreshold && self.Reserved == other.Reserved
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_TEMPERATURE_THRESHOLD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_TEMPERATURE_THRESHOLD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -19031,8 +18551,6 @@ impl ::core::default::Default for STORAGE_TIER_REGION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_WRITE_CACHE_PROPERTY {
     pub Version: u32,
     pub Size: u32,
@@ -19044,15 +18562,12 @@ pub struct STORAGE_WRITE_CACHE_PROPERTY {
     pub UserDefinedPowerProtection: super::super::Foundation::BOOLEAN,
     pub NVCacheEnabled: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_WRITE_CACHE_PROPERTY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_WRITE_CACHE_PROPERTY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_WRITE_CACHE_PROPERTY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("STORAGE_WRITE_CACHE_PROPERTY")
@@ -19068,27 +18583,21 @@ impl ::core::fmt::Debug for STORAGE_WRITE_CACHE_PROPERTY {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_WRITE_CACHE_PROPERTY {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_WRITE_CACHE_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Size == other.Size && self.WriteCacheType == other.WriteCacheType && self.WriteCacheEnabled == other.WriteCacheEnabled && self.WriteCacheChangeable == other.WriteCacheChangeable && self.WriteThroughSupported == other.WriteThroughSupported && self.FlushCacheSupported == other.FlushCacheSupported && self.UserDefinedPowerProtection == other.UserDefinedPowerProtection && self.NVCacheEnabled == other.NVCacheEnabled
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_WRITE_CACHE_PROPERTY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_WRITE_CACHE_PROPERTY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -19098,131 +18607,101 @@ pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR {
     pub ZoneGroupCount: u32,
     pub ZoneGroup: [STORAGE_ZONE_GROUP; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_ZONED_DEVICE_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_ZONED_DEVICE_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_ZONED_DEVICE_DESCRIPTOR {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_ZONED_DEVICE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     pub SequentialRequiredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1,
     pub SequentialPreferredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     pub OptimalOpenZoneCount: u32,
     pub Reserved: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0").field("OptimalOpenZoneCount", &self.OptimalOpenZoneCount).field("Reserved", &self.Reserved).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.OptimalOpenZoneCount == other.OptimalOpenZoneCount && self.Reserved == other.Reserved
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     pub MaxOpenZoneCount: u32,
     pub UnrestrictedRead: super::super::Foundation::BOOLEAN,
     pub Reserved: [u8; 3],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1").field("MaxOpenZoneCount", &self.MaxOpenZoneCount).field("UnrestrictedRead", &self.UnrestrictedRead).field("Reserved", &self.Reserved).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.MaxOpenZoneCount == other.MaxOpenZoneCount && self.UnrestrictedRead == other.UnrestrictedRead && self.Reserved == other.Reserved
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ZONE_DESCRIPTOR {
     pub Size: u32,
     pub ZoneType: STORAGE_ZONE_TYPES,
@@ -19232,33 +18711,26 @@ pub struct STORAGE_ZONE_DESCRIPTOR {
     pub ZoneSize: u64,
     pub WritePointerOffset: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_ZONE_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_ZONE_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_ZONE_DESCRIPTOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("STORAGE_ZONE_DESCRIPTOR").field("Size", &self.Size).field("ZoneType", &self.ZoneType).field("ZoneCondition", &self.ZoneCondition).field("ResetWritePointerRecommend", &self.ResetWritePointerRecommend).field("Reserved0", &self.Reserved0).field("ZoneSize", &self.ZoneSize).field("WritePointerOffset", &self.WritePointerOffset).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STORAGE_ZONE_DESCRIPTOR {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_ZONE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.ZoneType == other.ZoneType && self.ZoneCondition == other.ZoneCondition && self.ResetWritePointerRecommend == other.ResetWritePointerRecommend && self.Reserved0 == other.Reserved0 && self.ZoneSize == other.ZoneSize && self.WritePointerOffset == other.WritePointerOffset
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_ZONE_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_ZONE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -20175,40 +19647,31 @@ impl ::core::default::Default for TXFS_ROLLFORWARD_REDO_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct TXFS_SAVEPOINT_INFORMATION {
     pub KtmTransaction: super::super::Foundation::HANDLE,
     pub ActionCode: u32,
     pub SavepointId: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TXFS_SAVEPOINT_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TXFS_SAVEPOINT_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for TXFS_SAVEPOINT_INFORMATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("TXFS_SAVEPOINT_INFORMATION").field("KtmTransaction", &self.KtmTransaction).field("ActionCode", &self.ActionCode).field("SavepointId", &self.SavepointId).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for TXFS_SAVEPOINT_INFORMATION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TXFS_SAVEPOINT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.KtmTransaction == other.KtmTransaction && self.ActionCode == other.ActionCode && self.SavepointId == other.SavepointId
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TXFS_SAVEPOINT_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TXFS_SAVEPOINT_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -20268,38 +19731,29 @@ impl ::core::default::Default for TXFS_START_RM_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct TXFS_TRANSACTION_ACTIVE_INFO {
     pub TransactionsActiveAtSnapshot: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TXFS_TRANSACTION_ACTIVE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TXFS_TRANSACTION_ACTIVE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for TXFS_TRANSACTION_ACTIVE_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("TXFS_TRANSACTION_ACTIVE_INFO").field("TransactionsActiveAtSnapshot", &self.TransactionsActiveAtSnapshot).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for TXFS_TRANSACTION_ACTIVE_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TXFS_TRANSACTION_ACTIVE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.TransactionsActiveAtSnapshot == other.TransactionsActiveAtSnapshot
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TXFS_TRANSACTION_ACTIVE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TXFS_TRANSACTION_ACTIVE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

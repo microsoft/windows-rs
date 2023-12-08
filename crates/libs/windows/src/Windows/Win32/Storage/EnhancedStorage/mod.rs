@@ -71,8 +71,6 @@ impl IEnhancedStorageACT2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDeviceName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDeviceRemovable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsDeviceRemovable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -90,10 +88,7 @@ unsafe impl ::windows_core::ComInterface for IEnhancedStorageACT2 {
 pub struct IEnhancedStorageACT2_Vtbl {
     pub base__: IEnhancedStorageACT_Vtbl,
     pub GetDeviceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszdevicename: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsDeviceRemovable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisdeviceremovable: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsDeviceRemovable: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -124,8 +119,6 @@ impl IEnhancedStorageACT3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDeviceName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDeviceRemovable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsDeviceRemovable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -133,14 +126,10 @@ impl IEnhancedStorageACT3 {
     pub unsafe fn UnauthorizeEx(&self, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UnauthorizeEx)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsQueueFrozen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsQueueFrozen)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetShellExtSupport(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetShellExtSupport)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -158,14 +147,8 @@ unsafe impl ::windows_core::ComInterface for IEnhancedStorageACT3 {
 pub struct IEnhancedStorageACT3_Vtbl {
     pub base__: IEnhancedStorageACT2_Vtbl,
     pub UnauthorizeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsQueueFrozen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisqueuefrozen: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsQueueFrozen: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetShellExtSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshellextsupport: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetShellExtSupport: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3918,8 +3901,6 @@ impl ::core::default::Default for ACT_AUTHORIZATION_STATE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     pub CurrentAdminFailures: u8,
     pub CurrentUserFailures: u8,
@@ -3948,15 +3929,12 @@ pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     pub MaxSiloNameSize: u8,
     pub MaxChallengeSize: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION")
@@ -3989,11 +3967,9 @@ impl ::core::fmt::Debug for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.CurrentAdminFailures == other.CurrentAdminFailures
@@ -4024,9 +4000,7 @@ impl ::core::cmp::PartialEq for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
             && self.MaxChallengeSize == other.MaxChallengeSize
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

@@ -1,13 +1,13 @@
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ICompositionFramePresentStatistics_Impl: Sized + IPresentStatistics_Impl {
     fn GetContentTag(&self) -> usize;
     fn GetCompositionFrameId(&self) -> u64;
     fn GetDisplayInstanceArray(&self, displayinstancearraycount: *mut u32, displayinstancearray: *mut *mut CompositionFrameDisplayInstance);
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::windows_core::RuntimeName for ICompositionFramePresentStatistics {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ICompositionFramePresentStatistics_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositionFramePresentStatistics_Impl, const OFFSET: isize>() -> ICompositionFramePresentStatistics_Vtbl {
         unsafe extern "system" fn GetContentTag<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositionFramePresentStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> usize {
@@ -36,8 +36,6 @@ impl ICompositionFramePresentStatistics_Vtbl {
         *iid == <ICompositionFramePresentStatistics as ::windows_core::ComInterface>::IID || *iid == <IPresentStatistics as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IIndependentFlipFramePresentStatistics_Impl: Sized + IPresentStatistics_Impl {
     fn GetOutputAdapterLUID(&self) -> super::super::Foundation::LUID;
     fn GetOutputVidPnSourceId(&self) -> u32;
@@ -45,9 +43,7 @@ pub trait IIndependentFlipFramePresentStatistics_Impl: Sized + IPresentStatistic
     fn GetDisplayedTime(&self) -> SystemInterruptTime;
     fn GetPresentDuration(&self) -> SystemInterruptTime;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IIndependentFlipFramePresentStatistics {}
-#[cfg(feature = "Win32_Foundation")]
 impl IIndependentFlipFramePresentStatistics_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IIndependentFlipFramePresentStatistics_Impl, const OFFSET: isize>() -> IIndependentFlipFramePresentStatistics_Vtbl {
         unsafe extern "system" fn GetOutputAdapterLUID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IIndependentFlipFramePresentStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::LUID) {
@@ -142,15 +138,11 @@ impl IPresentStatusPresentStatistics_Vtbl {
         *iid == <IPresentStatusPresentStatistics as ::windows_core::ComInterface>::IID || *iid == <IPresentStatistics as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IPresentationBuffer_Impl: Sized {
     fn GetAvailableEvent(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE>;
     fn IsAvailable(&self) -> ::windows_core::Result<u8>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IPresentationBuffer {}
-#[cfg(feature = "Win32_Foundation")]
 impl IPresentationBuffer_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPresentationBuffer_Impl, const OFFSET: isize>() -> IPresentationBuffer_Vtbl {
         unsafe extern "system" fn GetAvailableEvent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPresentationBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, availableeventhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT {
@@ -242,8 +234,6 @@ impl IPresentationFactory_Vtbl {
         *iid == <IPresentationFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IPresentationManager_Impl: Sized {
     fn AddBufferFromResource(&self, resource: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<IPresentationBuffer>;
     fn CreatePresentationSurface(&self, compositionsurfacehandle: super::super::Foundation::HANDLE) -> ::windows_core::Result<IPresentationSurface>;
@@ -259,9 +249,7 @@ pub trait IPresentationManager_Impl: Sized {
     fn EnablePresentStatisticsKind(&self, presentstatisticskind: PresentStatisticsKind, enabled: u8) -> ::windows_core::Result<()>;
     fn GetNextPresentStatistics(&self) -> ::windows_core::Result<IPresentStatistics>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IPresentationManager {}
-#[cfg(feature = "Win32_Foundation")]
 impl IPresentationManager_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPresentationManager_Impl, const OFFSET: isize>() -> IPresentationManager_Vtbl {
         unsafe extern "system" fn AddBufferFromResource<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPresentationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resource: *mut ::core::ffi::c_void, presentationbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -386,8 +374,8 @@ impl IPresentationManager_Vtbl {
         *iid == <IPresentationManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IPresentationSurface_Impl: Sized + IPresentationContent_Impl {
     fn SetBuffer(&self, presentationbuffer: ::core::option::Option<&IPresentationBuffer>) -> ::windows_core::Result<()>;
     fn SetColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows_core::Result<()>;
@@ -398,9 +386,9 @@ pub trait IPresentationSurface_Impl: Sized + IPresentationContent_Impl {
     fn SetDisableReadback(&self, value: u8) -> ::windows_core::Result<()>;
     fn SetLetterboxingMargins(&self, leftletterboxsize: f32, topletterboxsize: f32, rightletterboxsize: f32, bottomletterboxsize: f32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::windows_core::RuntimeName for IPresentationSurface {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IPresentationSurface_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPresentationSurface_Impl, const OFFSET: isize>() -> IPresentationSurface_Vtbl {
         unsafe extern "system" fn SetBuffer<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPresentationSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presentationbuffer: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

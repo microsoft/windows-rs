@@ -39,16 +39,12 @@ impl ISceSvcAttachmentData_Vtbl {
         *iid == <ISceSvcAttachmentData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ISceSvcAttachmentPersistInfo_Impl: Sized {
     fn Save(&self, lptemplatename: *mut i8, scesvchandle: *mut *mut ::core::ffi::c_void, ppvdata: *mut *mut ::core::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn IsDirty(&self, lptemplatename: *mut i8) -> ::windows_core::HRESULT;
     fn FreeBuffer(&self, pvdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ISceSvcAttachmentPersistInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ISceSvcAttachmentPersistInfo_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISceSvcAttachmentPersistInfo_Impl, const OFFSET: isize>() -> ISceSvcAttachmentPersistInfo_Vtbl {
         unsafe extern "system" fn Save<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISceSvcAttachmentPersistInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lptemplatename: *mut i8, scesvchandle: *mut *mut ::core::ffi::c_void, ppvdata: *mut *mut ::core::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {

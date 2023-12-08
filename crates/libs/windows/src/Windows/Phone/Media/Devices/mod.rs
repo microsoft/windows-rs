@@ -14,14 +14,8 @@ pub struct IAudioRoutingManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetAudioEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioRoutingEndpoint) -> ::windows_core::HRESULT,
     pub SetAudioEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpoint: AudioRoutingEndpoint) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub AudioEndpointChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpointchangehandler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AudioEndpointChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveAudioEndpointChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveAudioEndpointChanged: usize,
     pub AvailableAudioEndpoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AvailableAudioRoutingEndpoints) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
@@ -55,8 +49,6 @@ impl AudioRoutingManager {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAudioEndpoint)(::windows_core::Interface::as_raw(this), endpoint).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AudioEndpointChanged<P0>(&self, endpointchangehandler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<AudioRoutingManager, ::windows_core::IInspectable>>,
@@ -67,8 +59,6 @@ impl AudioRoutingManager {
             (::windows_core::Interface::vtable(this).AudioEndpointChanged)(::windows_core::Interface::as_raw(this), endpointchangehandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveAudioEndpointChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAudioEndpointChanged)(::windows_core::Interface::as_raw(this), token).ok() }

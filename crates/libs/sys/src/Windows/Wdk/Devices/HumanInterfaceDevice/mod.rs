@@ -1,13 +1,8 @@
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("vhfum.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn VhfAsyncOperationComplete(vhfoperationhandle : *const ::core::ffi::c_void, completionstatus : super::super::super::Win32::Foundation:: NTSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("vhfum.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn VhfCreate(vhfconfig : *const VHF_CONFIG, vhfhandle : *mut *mut ::core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("vhfum.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn VhfDelete(vhfhandle : *const ::core::ffi::c_void, wait : super::super::super::Win32::Foundation:: BOOLEAN));
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("vhfum.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn VhfReadReportSubmit(vhfhandle : *const ::core::ffi::c_void, hidtransferpacket : *const HID_XFER_PACKET) -> super::super::super::Win32::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("vhfum.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn VhfStart(vhfhandle : *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
+::windows_targets::link!("vhfum.dll" "system" fn VhfAsyncOperationComplete(vhfoperationhandle : *const ::core::ffi::c_void, completionstatus : super::super::super::Win32::Foundation:: NTSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
+::windows_targets::link!("vhfum.dll" "system" fn VhfCreate(vhfconfig : *const VHF_CONFIG, vhfhandle : *mut *mut ::core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
+::windows_targets::link!("vhfum.dll" "system" fn VhfDelete(vhfhandle : *const ::core::ffi::c_void, wait : super::super::super::Win32::Foundation:: BOOLEAN));
+::windows_targets::link!("vhfum.dll" "system" fn VhfReadReportSubmit(vhfhandle : *const ::core::ffi::c_void, hidtransferpacket : *const HID_XFER_PACKET) -> super::super::super::Win32::Foundation:: NTSTATUS);
+::windows_targets::link!("vhfum.dll" "system" fn VhfStart(vhfhandle : *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[repr(C)]
 pub struct HID_XFER_PACKET {
     pub reportBuffer: *mut u8,
@@ -21,8 +16,6 @@ impl ::core::clone::Clone for HID_XFER_PACKET {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct VHF_CONFIG {
     pub Size: u32,
     pub VhfClientContext: *mut ::core::ffi::c_void,
@@ -45,9 +38,7 @@ pub struct VHF_CONFIG {
     pub HardwareIDsLength: u16,
     pub HardwareIDs: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VHF_CONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VHF_CONFIG {
     fn clone(&self) -> Self {
         *self

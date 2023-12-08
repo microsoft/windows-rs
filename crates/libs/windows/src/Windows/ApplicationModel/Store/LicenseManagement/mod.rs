@@ -12,9 +12,9 @@ unsafe impl ::windows_core::ComInterface for ILicenseManagerStatics {
 #[doc(hidden)]
 pub struct ILicenseManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub AddLicenseAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, license: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     AddLicenseAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
     pub GetSatisfactionInfosAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentids: *mut ::core::ffi::c_void, keyids: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -35,10 +35,7 @@ unsafe impl ::windows_core::ComInterface for ILicenseManagerStatics2 {
 #[doc(hidden)]
 pub struct ILicenseManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub RefreshLicensesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, refreshoption: LicenseRefreshOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RefreshLicensesAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -84,8 +81,8 @@ pub struct ILicenseSatisfactionResult_Vtbl {
 }
 pub struct LicenseManager;
 impl LicenseManager {
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    #[cfg(feature = "Storage_Streams")]
     pub fn AddLicenseAsync<P0>(license: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
@@ -107,8 +104,6 @@ impl LicenseManager {
             (::windows_core::Interface::vtable(this).GetSatisfactionInfosAsync)(::windows_core::Interface::as_raw(this), contentids.try_into_param()?.abi(), keyids.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RefreshLicensesAsync(refreshoption: LicenseRefreshOption) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ILicenseManagerStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();

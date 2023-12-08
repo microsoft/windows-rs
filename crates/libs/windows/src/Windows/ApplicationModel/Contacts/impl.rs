@@ -124,18 +124,14 @@ impl IContactFieldFactory_Vtbl {
         *iid == <IContactFieldFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IContactInstantMessageFieldFactory_Impl: Sized {
     fn CreateInstantMessage_Default(&self, username: &::windows_core::HSTRING) -> ::windows_core::Result<ContactInstantMessageField>;
     fn CreateInstantMessage_Category(&self, username: &::windows_core::HSTRING, category: ContactFieldCategory) -> ::windows_core::Result<ContactInstantMessageField>;
     fn CreateInstantMessage_All(&self, username: &::windows_core::HSTRING, category: ContactFieldCategory, service: &::windows_core::HSTRING, displaytext: &::windows_core::HSTRING, verb: ::core::option::Option<&super::super::Foundation::Uri>) -> ::windows_core::Result<ContactInstantMessageField>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IContactInstantMessageFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactInstantMessageFieldFactory";
 }
-#[cfg(feature = "Foundation")]
 impl IContactInstantMessageFieldFactory_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInstantMessageFieldFactory_Impl, const OFFSET: isize>() -> IContactInstantMessageFieldFactory_Vtbl {
         unsafe extern "system" fn CreateInstantMessage_Default<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactInstantMessageFieldFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, username: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

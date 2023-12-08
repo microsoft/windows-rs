@@ -18,8 +18,8 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceClosePipe(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_core::HRESULT);
     FhServiceClosePipe(pipe.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
+#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceOpenPipe<P0>(startserviceifstopped: P0) -> ::windows_core::Result<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>
 where
@@ -39,8 +39,8 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceReloadConfiguration(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_core::HRESULT);
     FhServiceReloadConfiguration(pipe.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
+#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceStartBackup<P0, P1>(pipe: P0, lowpriorityio: P1) -> ::windows_core::Result<()>
 where
@@ -50,8 +50,8 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStartBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE, lowpriorityio : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     FhServiceStartBackup(pipe.into_param().abi(), lowpriorityio.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
+#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceStopBackup<P0, P1>(pipe: P0, stoptracking: P1) -> ::windows_core::Result<()>
 where
@@ -78,8 +78,6 @@ impl IFhConfigMgr {
     pub unsafe fn LoadConfiguration(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LoadConfiguration)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDefaultConfiguration<P0>(&self, overwriteifexists: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -89,8 +87,6 @@ impl IFhConfigMgr {
     pub unsafe fn SaveConfiguration(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SaveConfiguration)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddRemoveExcludeRule<P0, P1>(&self, add: P0, category: FH_PROTECTED_ITEM_CATEGORY, item: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -98,8 +94,6 @@ impl IFhConfigMgr {
     {
         (::windows_core::Interface::vtable(self).AddRemoveExcludeRule)(::windows_core::Interface::as_raw(self), add.into_param().abi(), category, item.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIncludeExcludeRules<P0>(&self, include: P0, category: FH_PROTECTED_ITEM_CATEGORY) -> ::windows_core::Result<IFhScopeIterator>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -139,8 +133,6 @@ impl IFhConfigMgr {
     {
         (::windows_core::Interface::vtable(self).ProvisionAndSetNewTarget)(::windows_core::Interface::as_raw(self), targeturl.into_param().abi(), targetname.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeDefaultTargetRecommendation<P0>(&self, recommend: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -163,19 +155,10 @@ unsafe impl ::windows_core::ComInterface for IFhConfigMgr {
 pub struct IFhConfigMgr_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub LoadConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub CreateDefaultConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overwriteifexists: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    CreateDefaultConfiguration: usize,
     pub SaveConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub AddRemoveExcludeRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, add: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    AddRemoveExcludeRule: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetIncludeExcludeRules: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, include: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, iterator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetIncludeExcludeRules: usize,
     pub GetLocalPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: *mut u64) -> ::windows_core::HRESULT,
     pub SetLocalPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: u64) -> ::windows_core::HRESULT,
     pub GetBackupStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, backupstatus: *mut FH_BACKUP_STATUS) -> ::windows_core::HRESULT,
@@ -183,10 +166,7 @@ pub struct IFhConfigMgr_Vtbl {
     pub GetDefaultTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, defaulttarget: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ValidateTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: ::std::mem::MaybeUninit<::windows_core::BSTR>, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows_core::HRESULT,
     pub ProvisionAndSetNewTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: ::std::mem::MaybeUninit<::windows_core::BSTR>, targetname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub ChangeDefaultTargetRecommendation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recommend: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    ChangeDefaultTargetRecommendation: usize,
     pub QueryProtectionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protectionstate: *mut u32, protecteduntiltime: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -206,16 +186,12 @@ impl IFhReassociation {
     {
         (::windows_core::Interface::vtable(self).ScanTargetForConfigurations)(::windows_core::Interface::as_raw(self), targeturl.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetConfigurationDetails(&self, index: u32, username: *mut ::windows_core::BSTR, pcname: *mut ::windows_core::BSTR, backuptime: *mut super::super::Foundation::FILETIME) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetConfigurationDetails)(::windows_core::Interface::as_raw(self), index, ::core::mem::transmute(username), ::core::mem::transmute(pcname), backuptime).ok()
     }
     pub unsafe fn SelectConfiguration(&self, index: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SelectConfiguration)(::windows_core::Interface::as_raw(self), index).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PerformReassociation<P0>(&self, overwriteifexists: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -236,15 +212,9 @@ pub struct IFhReassociation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ValidateTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: ::std::mem::MaybeUninit<::windows_core::BSTR>, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows_core::HRESULT,
     pub ScanTargetForConfigurations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetConfigurationDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, username: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pcname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, backuptime: *mut super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetConfigurationDetails: usize,
     pub SelectConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub PerformReassociation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overwriteifexists: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    PerformReassociation: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

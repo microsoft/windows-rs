@@ -12,22 +12,10 @@ unsafe impl ::windows_core::ComInterface for ICoreFrameworkInputView {
 #[doc(hidden)]
 pub struct ICoreFrameworkInputView_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub PrimaryViewAnimationStarting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PrimaryViewAnimationStarting: usize,
-    #[cfg(feature = "Foundation")]
     pub RemovePrimaryViewAnimationStarting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePrimaryViewAnimationStarting: usize,
-    #[cfg(feature = "Foundation")]
     pub OcclusionsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    OcclusionsChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveOcclusionsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveOcclusionsChanged: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -48,10 +36,7 @@ pub struct ICoreFrameworkInputViewAnimationStartingEventArgs_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Occlusions: usize,
     pub FrameworkAnimationRecommended: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub AnimationDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AnimationDuration: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -104,14 +89,8 @@ unsafe impl ::windows_core::ComInterface for ICoreInputView {
 #[doc(hidden)]
 pub struct ICoreInputView_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub OcclusionsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    OcclusionsChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveOcclusionsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveOcclusionsChanged: usize,
     #[cfg(feature = "Foundation_Collections")]
     pub GetCoreInputViewOcclusions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -133,26 +112,11 @@ unsafe impl ::windows_core::ComInterface for ICoreInputView2 {
 #[doc(hidden)]
 pub struct ICoreInputView2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub XYFocusTransferringFromPrimaryView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    XYFocusTransferringFromPrimaryView: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveXYFocusTransferringFromPrimaryView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveXYFocusTransferringFromPrimaryView: usize,
-    #[cfg(feature = "Foundation")]
     pub XYFocusTransferredToPrimaryView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    XYFocusTransferredToPrimaryView: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveXYFocusTransferredToPrimaryView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveXYFocusTransferredToPrimaryView: usize,
-    #[cfg(feature = "Foundation")]
     pub TryTransferXYFocusToPrimaryView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, origin: super::super::super::Foundation::Rect, direction: CoreInputViewXYFocusTransferDirection, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryTransferXYFocusToPrimaryView: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -186,22 +150,10 @@ unsafe impl ::windows_core::ComInterface for ICoreInputView4 {
 #[doc(hidden)]
 pub struct ICoreInputView4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub PrimaryViewShowing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PrimaryViewShowing: usize,
-    #[cfg(feature = "Foundation")]
     pub RemovePrimaryViewShowing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePrimaryViewShowing: usize,
-    #[cfg(feature = "Foundation")]
     pub PrimaryViewHiding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PrimaryViewHiding: usize,
-    #[cfg(feature = "Foundation")]
     pub RemovePrimaryViewHiding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePrimaryViewHiding: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -218,22 +170,10 @@ unsafe impl ::windows_core::ComInterface for ICoreInputView5 {
 pub struct ICoreInputView5_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsKindSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: CoreInputViewKind, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub SupportedKindsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SupportedKindsChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveSupportedKindsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveSupportedKindsChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub PrimaryViewAnimationStarting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PrimaryViewAnimationStarting: usize,
-    #[cfg(feature = "Foundation")]
     pub RemovePrimaryViewAnimationStarting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePrimaryViewAnimationStarting: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -255,10 +195,7 @@ pub struct ICoreInputViewAnimationStartingEventArgs_Vtbl {
     Occlusions: usize,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub AnimationDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AnimationDuration: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -290,10 +227,7 @@ unsafe impl ::windows_core::ComInterface for ICoreInputViewOcclusion {
 #[doc(hidden)]
 pub struct ICoreInputViewOcclusion_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub OccludingRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    OccludingRect: usize,
     pub OcclusionKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreInputViewOcclusionKind) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
@@ -379,10 +313,7 @@ unsafe impl ::windows_core::ComInterface for ICoreInputViewTransferringXYFocusEv
 #[doc(hidden)]
 pub struct ICoreInputViewTransferringXYFocusEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub Origin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Origin: usize,
     pub Direction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreInputViewXYFocusTransferDirection) -> ::windows_core::HRESULT,
     pub SetTransferHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
     pub TransferHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
@@ -423,17 +354,12 @@ unsafe impl ::windows_core::ComInterface for IUISettingsControllerStatics {
 #[doc(hidden)]
 pub struct IUISettingsControllerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub RequestDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestDefaultAsync: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CoreFrameworkInputView(::windows_core::IUnknown);
 impl CoreFrameworkInputView {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PrimaryViewAnimationStarting<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreFrameworkInputView, CoreFrameworkInputViewAnimationStartingEventArgs>>,
@@ -444,14 +370,10 @@ impl CoreFrameworkInputView {
             (::windows_core::Interface::vtable(this).PrimaryViewAnimationStarting)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemovePrimaryViewAnimationStarting(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePrimaryViewAnimationStarting)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn OcclusionsChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreFrameworkInputView, CoreFrameworkInputViewOcclusionsChangedEventArgs>>,
@@ -462,8 +384,6 @@ impl CoreFrameworkInputView {
             (::windows_core::Interface::vtable(this).OcclusionsChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveOcclusionsChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveOcclusionsChanged)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -524,8 +444,6 @@ impl CoreFrameworkInputViewAnimationStartingEventArgs {
             (::windows_core::Interface::vtable(this).FrameworkAnimationRecommended)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AnimationDuration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -589,8 +507,6 @@ unsafe impl ::core::marker::Sync for CoreFrameworkInputViewOcclusionsChangedEven
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CoreInputView(::windows_core::IUnknown);
 impl CoreInputView {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn OcclusionsChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewOcclusionsChangedEventArgs>>,
@@ -601,8 +517,6 @@ impl CoreInputView {
             (::windows_core::Interface::vtable(this).OcclusionsChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveOcclusionsChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveOcclusionsChanged)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -630,8 +544,6 @@ impl CoreInputView {
             (::windows_core::Interface::vtable(this).TryHidePrimaryView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn XYFocusTransferringFromPrimaryView<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewTransferringXYFocusEventArgs>>,
@@ -642,14 +554,10 @@ impl CoreInputView {
             (::windows_core::Interface::vtable(this).XYFocusTransferringFromPrimaryView)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveXYFocusTransferringFromPrimaryView(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ICoreInputView2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveXYFocusTransferringFromPrimaryView)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn XYFocusTransferredToPrimaryView<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreInputView, ::windows_core::IInspectable>>,
@@ -660,14 +568,10 @@ impl CoreInputView {
             (::windows_core::Interface::vtable(this).XYFocusTransferredToPrimaryView)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveXYFocusTransferredToPrimaryView(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ICoreInputView2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveXYFocusTransferredToPrimaryView)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn TryTransferXYFocusToPrimaryView(&self, origin: super::super::super::Foundation::Rect, direction: CoreInputViewXYFocusTransferDirection) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<ICoreInputView2>(self)?;
         unsafe {
@@ -696,8 +600,6 @@ impl CoreInputView {
             (::windows_core::Interface::vtable(this).TryHide)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PrimaryViewShowing<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewShowingEventArgs>>,
@@ -708,14 +610,10 @@ impl CoreInputView {
             (::windows_core::Interface::vtable(this).PrimaryViewShowing)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemovePrimaryViewShowing(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ICoreInputView4>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemovePrimaryViewShowing)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PrimaryViewHiding<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewHidingEventArgs>>,
@@ -726,8 +624,6 @@ impl CoreInputView {
             (::windows_core::Interface::vtable(this).PrimaryViewHiding)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemovePrimaryViewHiding(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ICoreInputView4>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemovePrimaryViewHiding)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -739,8 +635,6 @@ impl CoreInputView {
             (::windows_core::Interface::vtable(this).IsKindSupported)(::windows_core::Interface::as_raw(this), r#type, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SupportedKindsChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreInputView, ::windows_core::IInspectable>>,
@@ -751,14 +645,10 @@ impl CoreInputView {
             (::windows_core::Interface::vtable(this).SupportedKindsChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveSupportedKindsChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ICoreInputView5>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSupportedKindsChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PrimaryViewAnimationStarting<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewAnimationStartingEventArgs>>,
@@ -769,8 +659,6 @@ impl CoreInputView {
             (::windows_core::Interface::vtable(this).PrimaryViewAnimationStarting)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemovePrimaryViewAnimationStarting(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ICoreInputView5>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemovePrimaryViewAnimationStarting)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -840,8 +728,6 @@ impl CoreInputViewAnimationStartingEventArgs {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetHandled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AnimationDuration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -896,8 +782,6 @@ unsafe impl ::core::marker::Sync for CoreInputViewHidingEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CoreInputViewOcclusion(::windows_core::IUnknown);
 impl CoreInputViewOcclusion {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn OccludingRect(&self) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
@@ -999,8 +883,6 @@ unsafe impl ::core::marker::Sync for CoreInputViewShowingEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CoreInputViewTransferringXYFocusEventArgs(::windows_core::IUnknown);
 impl CoreInputViewTransferringXYFocusEventArgs {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Origin(&self) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
@@ -1077,8 +959,6 @@ impl UISettingsController {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetTextScaleFactor)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RequestDefaultAsync() -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<UISettingsController>> {
         Self::IUISettingsControllerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();

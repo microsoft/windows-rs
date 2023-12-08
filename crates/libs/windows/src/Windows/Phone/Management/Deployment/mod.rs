@@ -15,14 +15,8 @@ pub struct IEnterprise_Vtbl {
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub WorkplaceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub EnrollmentValidFrom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    EnrollmentValidFrom: usize,
-    #[cfg(feature = "Foundation")]
     pub EnrollmentValidTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    EnrollmentValidTo: usize,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EnterpriseStatus) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
@@ -44,18 +38,9 @@ pub struct IEnterpriseEnrollmentManager_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     EnrolledEnterprises: usize,
     pub CurrentEnterprise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub ValidateEnterprisesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ValidateEnterprisesAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub RequestEnrollmentAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enrollmenttoken: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestEnrollmentAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub RequestUnenrollmentAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enterprise: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestUnenrollmentAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -88,14 +73,8 @@ unsafe impl ::windows_core::ComInterface for IInstallationManagerStatics {
 #[doc(hidden)]
 pub struct IInstallationManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub AddPackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: ::std::mem::MaybeUninit<::windows_core::HSTRING>, sourcelocation: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AddPackageAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub AddPackagePreloadedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: ::std::mem::MaybeUninit<::windows_core::HSTRING>, sourcelocation: *mut ::core::ffi::c_void, instanceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, offerid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, license: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AddPackagePreloadedAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
     pub GetPendingPackageInstalls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -123,9 +102,9 @@ unsafe impl ::windows_core::ComInterface for IInstallationManagerStatics2 {
 #[doc(hidden)]
 pub struct IInstallationManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation", feature = "Management_Deployment"))]
+    #[cfg(feature = "Management_Deployment")]
     pub RemovePackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, removaloptions: super::super::super::Management::Deployment::RemovalOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Management_Deployment")))]
+    #[cfg(not(feature = "Management_Deployment"))]
     RemovePackageAsync: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Management_Deployment"))]
     pub RegisterPackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manifesturi: *mut ::core::ffi::c_void, dependencypackageuris: *mut ::core::ffi::c_void, deploymentoptions: super::super::super::Management::Deployment::DeploymentOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -197,8 +176,6 @@ impl Enterprise {
             (::windows_core::Interface::vtable(this).WorkplaceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn EnrollmentValidFrom(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -206,8 +183,6 @@ impl Enterprise {
             (::windows_core::Interface::vtable(this).EnrollmentValidFrom)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn EnrollmentValidTo(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -254,24 +229,18 @@ impl EnterpriseEnrollmentManager {
             (::windows_core::Interface::vtable(this).CurrentEnterprise)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ValidateEnterprisesAsync() -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IEnterpriseEnrollmentManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ValidateEnterprisesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RequestEnrollmentAsync(enrollmenttoken: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<EnterpriseEnrollmentResult>> {
         Self::IEnterpriseEnrollmentManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestEnrollmentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(enrollmenttoken), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RequestUnenrollmentAsync<P0>(enterprise: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
         P0: ::windows_core::IntoParam<Enterprise>,
@@ -324,8 +293,6 @@ impl ::windows_core::RuntimeName for EnterpriseEnrollmentResult {
 ::windows_core::imp::interface_hierarchy!(EnterpriseEnrollmentResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 pub struct InstallationManager;
 impl InstallationManager {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AddPackageAsync<P0>(title: &::windows_core::HSTRING, sourcelocation: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::Uri>,
@@ -335,8 +302,6 @@ impl InstallationManager {
             (::windows_core::Interface::vtable(this).AddPackageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(title), sourcelocation.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AddPackagePreloadedAsync<P0, P1>(title: &::windows_core::HSTRING, sourcelocation: P0, instanceid: &::windows_core::HSTRING, offerid: &::windows_core::HSTRING, license: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::Uri>,
@@ -371,8 +336,8 @@ impl InstallationManager {
             (::windows_core::Interface::vtable(this).FindPackages)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Management_Deployment\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Management_Deployment"))]
+    #[doc = "Required features: `\"Management_Deployment\"`"]
+    #[cfg(feature = "Management_Deployment")]
     pub fn RemovePackageAsync(packagefullname: &::windows_core::HSTRING, removaloptions: super::super::super::Management::Deployment::RemovalOptions) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>> {
         Self::IInstallationManagerStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();

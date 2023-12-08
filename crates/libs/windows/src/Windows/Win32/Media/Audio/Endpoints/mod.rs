@@ -23,8 +23,6 @@ pub struct IAudioEndpointFormatControl_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioEndpointLastBufferControl(::windows_core::IUnknown);
 impl IAudioEndpointLastBufferControl {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsLastBufferControlSupported(&self) -> super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsLastBufferControlSupported)(::windows_core::Interface::as_raw(self))
     }
@@ -45,10 +43,7 @@ unsafe impl ::windows_core::ComInterface for IAudioEndpointLastBufferControl {
 #[doc(hidden)]
 pub struct IAudioEndpointLastBufferControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsLastBufferControlSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsLastBufferControlSupported: usize,
     #[cfg(feature = "Win32_Media_Audio_Apo")]
     pub ReleaseOutputDataPointerForLastBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnectionproperty: *const super::Apo::APO_CONNECTION_PROPERTY),
     #[cfg(not(feature = "Win32_Media_Audio_Apo"))]
@@ -191,16 +186,12 @@ impl IAudioEndpointVolume {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetChannelVolumeLevelScalar)(::windows_core::Interface::as_raw(self), nchannel, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMute<P0>(&self, bmute: P0, pguideventcontext: *const ::windows_core::GUID) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetMute)(::windows_core::Interface::as_raw(self), bmute.into_param().abi(), pguideventcontext).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMute(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMute)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -244,14 +235,8 @@ pub struct IAudioEndpointVolume_Vtbl {
     pub SetChannelVolumeLevelScalar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nchannel: u32, flevel: f32, pguideventcontext: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub GetChannelVolumeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nchannel: u32, pfleveldb: *mut f32) -> ::windows_core::HRESULT,
     pub GetChannelVolumeLevelScalar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nchannel: u32, pflevel: *mut f32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetMute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bmute: super::super::super::Foundation::BOOL, pguideventcontext: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetMute: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetMute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbmute: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetMute: usize,
     pub GetVolumeStepInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnstep: *mut u32, pnstepcount: *mut u32) -> ::windows_core::HRESULT,
     pub VolumeStepUp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguideventcontext: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub VolumeStepDown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguideventcontext: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -262,8 +247,6 @@ pub struct IAudioEndpointVolume_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioEndpointVolumeCallback(::windows_core::IUnknown);
 impl IAudioEndpointVolumeCallback {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnNotify(&self, pnotify: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnNotify)(::windows_core::Interface::as_raw(self), pnotify).ok()
     }
@@ -279,10 +262,7 @@ unsafe impl ::windows_core::ComInterface for IAudioEndpointVolumeCallback {
 #[doc(hidden)]
 pub struct IAudioEndpointVolumeCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub OnNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnotify: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    OnNotify: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -332,16 +312,12 @@ impl IAudioEndpointVolumeEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetChannelVolumeLevelScalar)(::windows_core::Interface::as_raw(self), nchannel, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMute<P0>(&self, bmute: P0, pguideventcontext: *const ::windows_core::GUID) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).base__.SetMute)(::windows_core::Interface::as_raw(self), bmute.into_param().abi(), pguideventcontext).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMute(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetMute)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -383,16 +359,12 @@ pub struct IAudioEndpointVolumeEx_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioLfxControl(::windows_core::IUnknown);
 impl IAudioLfxControl {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLocalEffectsState<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         (::windows_core::Interface::vtable(self).SetLocalEffectsState)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLocalEffectsState(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLocalEffectsState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -409,14 +381,8 @@ unsafe impl ::windows_core::ComInterface for IAudioLfxControl {
 #[doc(hidden)]
 pub struct IAudioLfxControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetLocalEffectsState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benabled: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetLocalEffectsState: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetLocalEffectsState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbenabled: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetLocalEffectsState: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -465,8 +431,6 @@ impl IHardwareAudioEngineBase {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAvailableOffloadConnectorCount)(::windows_core::Interface::as_raw(self), _pwstrdeviceid.into_param().abi(), _uconnectorid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEngineFormat<P0, P1>(&self, pdevice: P0, _brequestdeviceformat: P1, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::IMMDevice>,
@@ -480,8 +444,6 @@ impl IHardwareAudioEngineBase {
     {
         (::windows_core::Interface::vtable(self).SetEngineDeviceFormat)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), _pwfxformat).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetGfxState<P0, P1>(&self, pdevice: P0, _benable: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::IMMDevice>,
@@ -489,8 +451,6 @@ impl IHardwareAudioEngineBase {
     {
         (::windows_core::Interface::vtable(self).SetGfxState)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), _benable.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGfxState<P0>(&self, pdevice: P0) -> ::windows_core::Result<super::super::super::Foundation::BOOL>
     where
         P0: ::windows_core::IntoParam<super::IMMDevice>,
@@ -511,19 +471,10 @@ unsafe impl ::windows_core::ComInterface for IHardwareAudioEngineBase {
 pub struct IHardwareAudioEngineBase_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetAvailableOffloadConnectorCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _pwstrdeviceid: ::windows_core::PCWSTR, _uconnectorid: u32, _pavailableconnectorinstancecount: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetEngineFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: *mut ::core::ffi::c_void, _brequestdeviceformat: super::super::super::Foundation::BOOL, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetEngineFormat: usize,
     pub SetEngineDeviceFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: *mut ::core::ffi::c_void, _pwfxformat: *mut super::WAVEFORMATEX) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetGfxState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: *mut ::core::ffi::c_void, _benable: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetGfxState: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetGfxState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: *mut ::core::ffi::c_void, _pbenable: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetGfxState: usize,
 }
 pub const DEVINTERFACE_AUDIOENDPOINTPLUGIN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f2f7b66_65ac_4fa6_8ae4_123c78b89313);
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]

@@ -88,8 +88,6 @@ impl IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl {
         *iid == <IDtcLuRecoveryInitiatedByDtcStatusWork as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDtcLuRecoveryInitiatedByDtcTransWork_Impl: Sized {
     fn GetLogNameSizes(&self, pcbourlogname: *mut u32, pcbremotelogname: *mut u32) -> ::windows_core::Result<()>;
     fn GetOurXln(&self, pxln: *mut DTCLUXLN, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut u32) -> ::windows_core::Result<()>;
@@ -105,9 +103,7 @@ pub trait IDtcLuRecoveryInitiatedByDtcTransWork_Impl: Sized {
     fn GetRecoverySeqNum(&self, plrecoveryseqnum: *mut i32) -> ::windows_core::Result<()>;
     fn ObsoleteRecoverySeqNum(&self, lnewrecoveryseqnum: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDtcLuRecoveryInitiatedByDtcTransWork {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>() -> IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
         unsafe extern "system" fn GetLogNameSizes<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbourlogname: *mut u32, pcbremotelogname: *mut u32) -> ::windows_core::HRESULT {
@@ -291,8 +287,6 @@ impl IDtcLuRecoveryInitiatedByLuWork_Vtbl {
         *iid == <IDtcLuRecoveryInitiatedByLuWork as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDtcLuRmEnlistment_Impl: Sized {
     fn Unplug(&self, fconversationlost: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn BackedOut(&self) -> ::windows_core::Result<()>;
@@ -301,9 +295,7 @@ pub trait IDtcLuRmEnlistment_Impl: Sized {
     fn Forget(&self) -> ::windows_core::Result<()>;
     fn RequestCommit(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDtcLuRmEnlistment {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDtcLuRmEnlistment_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRmEnlistment_Impl, const OFFSET: isize>() -> IDtcLuRmEnlistment_Vtbl {
         unsafe extern "system" fn Unplug<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRmEnlistment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fconversationlost: super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -443,8 +435,6 @@ impl IDtcLuRmEnlistmentSink_Vtbl {
         *iid == <IDtcLuRmEnlistmentSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDtcLuSubordinateDtc_Impl: Sized {
     fn Unplug(&self, fconversationlost: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn BackedOut(&self) -> ::windows_core::Result<()>;
@@ -454,9 +444,7 @@ pub trait IDtcLuSubordinateDtc_Impl: Sized {
     fn Prepare(&self) -> ::windows_core::Result<()>;
     fn RequestCommit(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDtcLuSubordinateDtc {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDtcLuSubordinateDtc_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuSubordinateDtc_Impl, const OFFSET: isize>() -> IDtcLuSubordinateDtc_Vtbl {
         unsafe extern "system" fn Unplug<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuSubordinateDtc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fconversationlost: super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -608,8 +596,6 @@ impl IDtcLuSubordinateDtcSink_Vtbl {
         *iid == <IDtcLuSubordinateDtcSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDtcNetworkAccessConfig_Impl: Sized {
     fn GetAnyNetworkAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn SetAnyNetworkAccess(&self, banynetworkaccess: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -625,9 +611,7 @@ pub trait IDtcNetworkAccessConfig_Impl: Sized {
     fn SetXAAccess(&self, bxaaccess: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn RestartDtcService(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDtcNetworkAccessConfig {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDtcNetworkAccessConfig_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>() -> IDtcNetworkAccessConfig_Vtbl {
         unsafe extern "system" fn GetAnyNetworkAccess<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbanynetworkaccess: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -752,8 +736,6 @@ impl IDtcNetworkAccessConfig_Vtbl {
         *iid == <IDtcNetworkAccessConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDtcNetworkAccessConfig2_Impl: Sized + IDtcNetworkAccessConfig_Impl {
     fn GetNetworkInboundAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn GetNetworkOutboundAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -762,9 +744,7 @@ pub trait IDtcNetworkAccessConfig2_Impl: Sized + IDtcNetworkAccessConfig_Impl {
     fn GetAuthenticationLevel(&self) -> ::windows_core::Result<AUTHENTICATION_LEVEL>;
     fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDtcNetworkAccessConfig2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDtcNetworkAccessConfig2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDtcNetworkAccessConfig2_Impl, const OFFSET: isize>() -> IDtcNetworkAccessConfig2_Vtbl {
         unsafe extern "system" fn GetNetworkInboundAccess<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDtcNetworkAccessConfig2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbinbound: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -829,15 +809,11 @@ impl IDtcNetworkAccessConfig2_Vtbl {
         *iid == <IDtcNetworkAccessConfig2 as ::windows_core::ComInterface>::IID || *iid == <IDtcNetworkAccessConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDtcNetworkAccessConfig3_Impl: Sized + IDtcNetworkAccessConfig2_Impl {
     fn GetLUAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn SetLUAccess(&self, bluaccess: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDtcNetworkAccessConfig3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDtcNetworkAccessConfig3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDtcNetworkAccessConfig3_Impl, const OFFSET: isize>() -> IDtcNetworkAccessConfig3_Vtbl {
         unsafe extern "system" fn GetLUAccess<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDtcNetworkAccessConfig3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbluaccess: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -866,15 +842,11 @@ impl IDtcNetworkAccessConfig3_Vtbl {
         *iid == <IDtcNetworkAccessConfig3 as ::windows_core::ComInterface>::IID || *iid == <IDtcNetworkAccessConfig as ::windows_core::ComInterface>::IID || *iid == <IDtcNetworkAccessConfig2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDtcToXaHelper_Impl: Sized {
     fn Close(&self, i_fdorecovery: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn TranslateTridToXid(&self, pitransaction: ::core::option::Option<&ITransaction>, pguidbqual: *const ::windows_core::GUID, pxid: *mut XID) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDtcToXaHelper {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDtcToXaHelper_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDtcToXaHelper_Impl, const OFFSET: isize>() -> IDtcToXaHelper_Vtbl {
         unsafe extern "system" fn Close<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDtcToXaHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i_fdorecovery: super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -914,17 +886,13 @@ impl IDtcToXaHelperFactory_Vtbl {
         *iid == <IDtcToXaHelperFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDtcToXaHelperSinglePipe_Impl: Sized {
     fn XARMCreate(&self, pszdsn: &::windows_core::PCSTR, pszclientdll: &::windows_core::PCSTR, pdwrmcookie: *mut u32) -> ::windows_core::Result<()>;
     fn ConvertTridToXID(&self, pdwitrans: *mut u32, dwrmcookie: u32, pxid: *mut XID) -> ::windows_core::Result<()>;
     fn EnlistWithRM(&self, dwrmcookie: u32, i_pitransaction: ::core::option::Option<&ITransaction>, i_pitransres: ::core::option::Option<&ITransactionResourceAsync>) -> ::windows_core::Result<ITransactionEnlistmentAsync>;
     fn ReleaseRMCookie(&self, i_dwrmcookie: u32, i_fnormal: super::super::Foundation::BOOL);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDtcToXaHelperSinglePipe {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDtcToXaHelperSinglePipe_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDtcToXaHelperSinglePipe_Impl, const OFFSET: isize>() -> IDtcToXaHelperSinglePipe_Vtbl {
         unsafe extern "system" fn XARMCreate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDtcToXaHelperSinglePipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdsn: ::windows_core::PCSTR, pszclientdll: ::windows_core::PCSTR, pdwrmcookie: *mut u32) -> ::windows_core::HRESULT {
@@ -1023,14 +991,10 @@ impl IGetDispenser_Vtbl {
         *iid == <IGetDispenser as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IKernelTransaction_Impl: Sized {
     fn GetHandle(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IKernelTransaction {}
-#[cfg(feature = "Win32_Foundation")]
 impl IKernelTransaction_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKernelTransaction_Impl, const OFFSET: isize>() -> IKernelTransaction_Vtbl {
         unsafe extern "system" fn GetHandle<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKernelTransaction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT {
@@ -1137,15 +1101,11 @@ impl IPrepareInfo2_Vtbl {
         *iid == <IPrepareInfo2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IRMHelper_Impl: Sized {
     fn RMCount(&self, dwctotalnumberofrms: u32) -> ::windows_core::Result<()>;
     fn RMInfo(&self, pxa_switch: *mut xa_switch_t, fcdeclcallingconv: super::super::Foundation::BOOL, pszopenstring: &::windows_core::PCSTR, pszclosestring: &::windows_core::PCSTR, guidrmrecovery: &::windows_core::GUID) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IRMHelper {}
-#[cfg(feature = "Win32_Foundation")]
 impl IRMHelper_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IRMHelper_Impl, const OFFSET: isize>() -> IRMHelper_Vtbl {
         unsafe extern "system" fn RMCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IRMHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwctotalnumberofrms: u32) -> ::windows_core::HRESULT {
@@ -1469,16 +1429,12 @@ impl ITmNodeName_Vtbl {
         *iid == <ITmNodeName as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITransaction_Impl: Sized {
     fn Commit(&self, fretaining: super::super::Foundation::BOOL, grftc: u32, grfrm: u32) -> ::windows_core::Result<()>;
     fn Abort(&self, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, fasync: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn GetTransactionInfo(&self, pinfo: *mut XACTTRANSINFO) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ITransaction {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITransaction_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransaction_Impl, const OFFSET: isize>() -> ITransaction_Vtbl {
         unsafe extern "system" fn Commit<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransaction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fretaining: super::super::Foundation::BOOL, grftc: u32, grfrm: u32) -> ::windows_core::HRESULT {
@@ -1507,14 +1463,10 @@ impl ITransaction_Vtbl {
         *iid == <ITransaction as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITransaction2_Impl: Sized + ITransactionCloner_Impl {
     fn GetTransactionInfo2(&self, pinfo: *mut XACTTRANSINFO) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ITransaction2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITransaction2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransaction2_Impl, const OFFSET: isize>() -> ITransaction2_Vtbl {
         unsafe extern "system" fn GetTransactionInfo2<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransaction2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *mut XACTTRANSINFO) -> ::windows_core::HRESULT {
@@ -1528,14 +1480,10 @@ impl ITransaction2_Vtbl {
         *iid == <ITransaction2 as ::windows_core::ComInterface>::IID || *iid == <ITransaction as ::windows_core::ComInterface>::IID || *iid == <ITransactionCloner as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITransactionCloner_Impl: Sized + ITransaction_Impl {
     fn CloneWithCommitDisabled(&self) -> ::windows_core::Result<ITransaction>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ITransactionCloner {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITransactionCloner_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransactionCloner_Impl, const OFFSET: isize>() -> ITransactionCloner_Vtbl {
         unsafe extern "system" fn CloneWithCommitDisabled<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransactionCloner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitransaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1825,17 +1773,13 @@ impl ITransactionOptions_Vtbl {
         *iid == <ITransactionOptions as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITransactionOutcomeEvents_Impl: Sized {
     fn Committed(&self, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID, hr: ::windows_core::HRESULT) -> ::windows_core::Result<()>;
     fn Aborted(&self, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID, hr: ::windows_core::HRESULT) -> ::windows_core::Result<()>;
     fn HeuristicDecision(&self, dwdecision: u32, pboidreason: *const BOID, hr: ::windows_core::HRESULT) -> ::windows_core::Result<()>;
     fn Indoubt(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ITransactionOutcomeEvents {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITransactionOutcomeEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransactionOutcomeEvents_Impl, const OFFSET: isize>() -> ITransactionOutcomeEvents_Vtbl {
         unsafe extern "system" fn Committed<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransactionOutcomeEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID, hr: ::windows_core::HRESULT) -> ::windows_core::HRESULT {
@@ -1947,15 +1891,11 @@ impl ITransactionPhase0Factory_Vtbl {
         *iid == <ITransactionPhase0Factory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITransactionPhase0NotifyAsync_Impl: Sized {
     fn Phase0Request(&self, fabortinghint: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn EnlistCompleted(&self, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ITransactionPhase0NotifyAsync {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITransactionPhase0NotifyAsync_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransactionPhase0NotifyAsync_Impl, const OFFSET: isize>() -> ITransactionPhase0NotifyAsync_Vtbl {
         unsafe extern "system" fn Phase0Request<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransactionPhase0NotifyAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fabortinghint: super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -2054,17 +1994,13 @@ impl ITransactionReceiverFactory_Vtbl {
         *iid == <ITransactionReceiverFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITransactionResource_Impl: Sized {
     fn PrepareRequest(&self, fretaining: super::super::Foundation::BOOL, grfrm: u32, fwantmoniker: super::super::Foundation::BOOL, fsinglephase: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn CommitRequest(&self, grfrm: u32, pnewuow: *const BOID) -> ::windows_core::Result<()>;
     fn AbortRequest(&self, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID) -> ::windows_core::Result<()>;
     fn TMDown(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ITransactionResource {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITransactionResource_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransactionResource_Impl, const OFFSET: isize>() -> ITransactionResource_Vtbl {
         unsafe extern "system" fn PrepareRequest<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransactionResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fretaining: super::super::Foundation::BOOL, grfrm: u32, fwantmoniker: super::super::Foundation::BOOL, fsinglephase: super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -2099,17 +2035,13 @@ impl ITransactionResource_Vtbl {
         *iid == <ITransactionResource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITransactionResourceAsync_Impl: Sized {
     fn PrepareRequest(&self, fretaining: super::super::Foundation::BOOL, grfrm: u32, fwantmoniker: super::super::Foundation::BOOL, fsinglephase: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn CommitRequest(&self, grfrm: u32, pnewuow: *const BOID) -> ::windows_core::Result<()>;
     fn AbortRequest(&self, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID) -> ::windows_core::Result<()>;
     fn TMDown(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ITransactionResourceAsync {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITransactionResourceAsync_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransactionResourceAsync_Impl, const OFFSET: isize>() -> ITransactionResourceAsync_Vtbl {
         unsafe extern "system" fn PrepareRequest<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransactionResourceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fretaining: super::super::Foundation::BOOL, grfrm: u32, fwantmoniker: super::super::Foundation::BOOL, fsinglephase: super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -2261,14 +2193,10 @@ impl ITransactionVoterFactory2_Vtbl {
         *iid == <ITransactionVoterFactory2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITransactionVoterNotifyAsync2_Impl: Sized + ITransactionOutcomeEvents_Impl {
     fn VoteRequest(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ITransactionVoterNotifyAsync2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITransactionVoterNotifyAsync2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransactionVoterNotifyAsync2_Impl, const OFFSET: isize>() -> ITransactionVoterNotifyAsync2_Vtbl {
         unsafe extern "system" fn VoteRequest<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransactionVoterNotifyAsync2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

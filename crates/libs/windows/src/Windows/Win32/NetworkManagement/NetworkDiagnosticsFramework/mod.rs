@@ -35,8 +35,6 @@ where
     ::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateGroupingIncident(cloudname : ::windows_core::PCWSTR, groupname : ::windows_core::PCWSTR, identity : ::windows_core::PCWSTR, invitation : ::windows_core::PCWSTR, addresses : *const super::super::Networking::WinSock:: SOCKET_ADDRESS_LIST, appid : ::windows_core::PCWSTR, handle : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     NdfCreateGroupingIncident(cloudname.into_param().abi(), groupname.into_param().abi(), identity.into_param().abi(), invitation.into_param().abi(), ::core::mem::transmute(addresses.unwrap_or(::std::ptr::null())), appid.into_param().abi(), handle).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfCreateIncident<P0>(helperclassname: P0, attributes: &[HELPER_ATTRIBUTE], handle: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -50,8 +48,6 @@ pub unsafe fn NdfCreateNetConnectionIncident(handle: *mut *mut ::core::ffi::c_vo
     ::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateNetConnectionIncident(handle : *mut *mut ::core::ffi::c_void, id : ::windows_core::GUID) -> ::windows_core::HRESULT);
     NdfCreateNetConnectionIncident(handle, ::core::mem::transmute(id)).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfCreatePnrpIncident<P0, P1, P2, P3>(cloudname: P0, peername: P1, diagnosepublish: P2, appid: P3, handle: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -79,8 +75,6 @@ where
     ::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWebIncident(url : ::windows_core::PCWSTR, handle : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     NdfCreateWebIncident(url.into_param().abi(), handle).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfCreateWebIncidentEx<P0, P1, P2>(url: P0, usewinhttp: P1, modulename: P2, handle: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -108,8 +102,6 @@ pub unsafe fn NdfDiagnoseIncident(handle: *const ::core::ffi::c_void, rootcausec
     ::windows_targets::link!("ndfapi.dll" "system" fn NdfDiagnoseIncident(handle : *const ::core::ffi::c_void, rootcausecount : *mut u32, rootcauses : *mut *mut RootCauseInfo, dwwait : u32, dwflags : u32) -> ::windows_core::HRESULT);
     NdfDiagnoseIncident(handle, rootcausecount, rootcauses, dwwait, dwflags).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfExecuteDiagnosis<P0>(handle: *const ::core::ffi::c_void, hwnd: P0) -> ::windows_core::Result<()>
 where
@@ -133,8 +125,6 @@ pub unsafe fn NdfRepairIncident(handle: *const ::core::ffi::c_void, repairex: *c
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetDiagExtensibleHelper(::windows_core::IUnknown);
 impl INetDiagExtensibleHelper {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ResolveAttributes(&self, rgkeyattributes: &[HELPER_ATTRIBUTE], pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ResolveAttributes)(::windows_core::Interface::as_raw(self), rgkeyattributes.len().try_into().unwrap(), ::core::mem::transmute(rgkeyattributes.as_ptr()), pcelt, prgmatchvalues).ok()
     }
@@ -150,17 +140,12 @@ unsafe impl ::windows_core::ComInterface for INetDiagExtensibleHelper {
 #[doc(hidden)]
 pub struct INetDiagExtensibleHelper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub ResolveAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    ResolveAttributes: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetDiagHelper(::windows_core::IUnknown);
 impl INetDiagHelper {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize(&self, rgattributes: &[HELPER_ATTRIBUTE]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), rgattributes.len().try_into().unwrap(), ::core::mem::transmute(rgattributes.as_ptr())).ok()
     }
@@ -168,8 +153,6 @@ impl INetDiagHelper {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDiagnosticsInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetKeyAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetKeyAttributes)(::windows_core::Interface::as_raw(self), pcelt, pprgattributes).ok()
     }
@@ -185,23 +168,15 @@ impl INetDiagHelper {
     {
         (::windows_core::Interface::vtable(self).HighUtilization)(::windows_core::Interface::as_raw(self), pwszinstancedescription.into_param().abi(), ppwszdescription, pdeferredtime, pstatus).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLowerHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLowerHypotheses)(::windows_core::Interface::as_raw(self), pcelt, pprghypotheses).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDownStreamHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDownStreamHypotheses)(::windows_core::Interface::as_raw(self), pcelt, pprghypotheses).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHigherHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetHigherHypotheses)(::windows_core::Interface::as_raw(self), pcelt, pprghypotheses).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUpStreamHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetUpStreamHypotheses)(::windows_core::Interface::as_raw(self), pcelt, pprghypotheses).ok()
     }
@@ -214,25 +189,17 @@ impl INetDiagHelper {
     pub unsafe fn GetRepairInfo(&self, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRepairInfo)(::windows_core::Interface::as_raw(self), problem, pcelt, ppinfo).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLifeTime(&self) -> ::windows_core::Result<LIFE_TIME> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLifeTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLifeTime(&self, lifetime: LIFE_TIME) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetLifeTime)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lifetime)).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCacheTime(&self) -> ::windows_core::Result<super::super::Foundation::FILETIME> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCacheTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAttributes)(::windows_core::Interface::as_raw(self), pcelt, pprgattributes).ok()
     }
@@ -254,52 +221,22 @@ unsafe impl ::windows_core::ComInterface for INetDiagHelper {
 #[doc(hidden)]
 pub struct INetDiagHelper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Initialize: usize,
     pub GetDiagnosticsInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppinfo: *mut *mut DiagnosticsInfo) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetKeyAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetKeyAttributes: usize,
     pub LowHealth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszinstancedescription: ::windows_core::PCWSTR, ppwszdescription: *mut ::windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows_core::HRESULT,
     pub HighUtilization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszinstancedescription: ::windows_core::PCWSTR, ppwszdescription: *mut ::windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetLowerHypotheses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetLowerHypotheses: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetDownStreamHypotheses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetDownStreamHypotheses: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetHigherHypotheses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetHigherHypotheses: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetUpStreamHypotheses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetUpStreamHypotheses: usize,
     pub Repair: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const RepairInfo, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows_core::HRESULT,
     pub Validate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows_core::HRESULT,
     pub GetRepairInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetLifeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plifetime: *mut LIFE_TIME) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetLifeTime: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub SetLifeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lifetime: LIFE_TIME) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetLifeTime: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetCacheTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcachetime: *mut super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetCacheTime: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetAttributes: usize,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Cleanup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -307,8 +244,6 @@ pub struct INetDiagHelper_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetDiagHelperEx(::windows_core::IUnknown);
 impl INetDiagHelperEx {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReconfirmLowHealth(&self, presults: &[HypothesisResult], ppwszupdateddescription: *mut ::windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReconfirmLowHealth)(::windows_core::Interface::as_raw(self), presults.len().try_into().unwrap(), ::core::mem::transmute(presults.as_ptr()), ppwszupdateddescription, pupdatedstatus).ok()
     }
@@ -333,10 +268,7 @@ unsafe impl ::windows_core::ComInterface for INetDiagHelperEx {
 #[doc(hidden)]
 pub struct INetDiagHelperEx_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub ReconfirmLowHealth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut ::windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    ReconfirmLowHealth: usize,
     pub SetUtilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, putilities: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ReproduceFailure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -676,34 +608,26 @@ impl ::core::default::Default for DiagnosticsInfo {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct HELPER_ATTRIBUTE {
     pub pwszName: ::windows_core::PWSTR,
     pub r#type: ATTRIBUTE_TYPE,
     pub Anonymous: HELPER_ATTRIBUTE_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HELPER_ATTRIBUTE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HELPER_ATTRIBUTE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for HELPER_ATTRIBUTE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HELPER_ATTRIBUTE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union HELPER_ATTRIBUTE_0 {
     pub Boolean: super::super::Foundation::BOOL,
     pub Char: u8,
@@ -720,60 +644,47 @@ pub union HELPER_ATTRIBUTE_0 {
     pub Address: DIAG_SOCKADDR,
     pub OctetString: OCTET_STRING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HELPER_ATTRIBUTE_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HELPER_ATTRIBUTE_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for HELPER_ATTRIBUTE_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HELPER_ATTRIBUTE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct HYPOTHESIS {
     pub pwszClassName: ::windows_core::PWSTR,
     pub pwszDescription: ::windows_core::PWSTR,
     pub celt: u32,
     pub rgAttributes: *mut HELPER_ATTRIBUTE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HYPOTHESIS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HYPOTHESIS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HYPOTHESIS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HYPOTHESIS").field("pwszClassName", &self.pwszClassName).field("pwszDescription", &self.pwszDescription).field("celt", &self.celt).field("rgAttributes", &self.rgAttributes).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for HYPOTHESIS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HYPOTHESIS {
     fn eq(&self, other: &Self) -> bool {
         self.pwszClassName == other.pwszClassName && self.pwszDescription == other.pwszDescription && self.celt == other.celt && self.rgAttributes == other.rgAttributes
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HYPOTHESIS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HYPOTHESIS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -810,78 +721,60 @@ impl ::core::default::Default for HelperAttributeInfo {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct HypothesisResult {
     pub hypothesis: HYPOTHESIS,
     pub pathStatus: DIAGNOSIS_STATUS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HypothesisResult {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HypothesisResult {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HypothesisResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HypothesisResult").field("hypothesis", &self.hypothesis).field("pathStatus", &self.pathStatus).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for HypothesisResult {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HypothesisResult {
     fn eq(&self, other: &Self) -> bool {
         self.hypothesis == other.hypothesis && self.pathStatus == other.pathStatus
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HypothesisResult {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HypothesisResult {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct LIFE_TIME {
     pub startTime: super::super::Foundation::FILETIME,
     pub endTime: super::super::Foundation::FILETIME,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LIFE_TIME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LIFE_TIME {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LIFE_TIME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("LIFE_TIME").field("startTime", &self.startTime).field("endTime", &self.endTime).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for LIFE_TIME {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LIFE_TIME {
     fn eq(&self, other: &Self) -> bool {
         self.startTime == other.startTime && self.endTime == other.endTime
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LIFE_TIME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LIFE_TIME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

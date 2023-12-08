@@ -1,14 +1,10 @@
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait ICoreAcceleratorKeys_Impl: Sized {
     fn AcceleratorKeyActivated(&self, handler: ::core::option::Option<&super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveAcceleratorKeyActivated(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for ICoreAcceleratorKeys {
     const NAME: &'static str = "Windows.UI.Core.ICoreAcceleratorKeys";
 }
-#[cfg(feature = "Foundation")]
 impl ICoreAcceleratorKeys_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICoreAcceleratorKeys_Impl, const OFFSET: isize>() -> ICoreAcceleratorKeys_Vtbl {
         unsafe extern "system" fn AcceleratorKeyActivated<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICoreAcceleratorKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT {
@@ -37,8 +33,6 @@ impl ICoreAcceleratorKeys_Vtbl {
         *iid == <ICoreAcceleratorKeys as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait ICoreInputSourceBase_Impl: Sized {
     fn Dispatcher(&self) -> ::windows_core::Result<CoreDispatcher>;
     fn IsInputEnabled(&self) -> ::windows_core::Result<bool>;
@@ -46,11 +40,9 @@ pub trait ICoreInputSourceBase_Impl: Sized {
     fn InputEnabled(&self, handler: ::core::option::Option<&super::super::Foundation::TypedEventHandler<::windows_core::IInspectable, InputEnabledEventArgs>>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveInputEnabled(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for ICoreInputSourceBase {
     const NAME: &'static str = "Windows.UI.Core.ICoreInputSourceBase";
 }
-#[cfg(feature = "Foundation")]
 impl ICoreInputSourceBase_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICoreInputSourceBase_Impl, const OFFSET: isize>() -> ICoreInputSourceBase_Vtbl {
         unsafe extern "system" fn Dispatcher<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICoreInputSourceBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -110,8 +102,6 @@ impl ICoreInputSourceBase_Vtbl {
         *iid == <ICoreInputSourceBase as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait ICorePointerInputSource_Impl: Sized {
     fn ReleasePointerCapture(&self) -> ::windows_core::Result<()>;
     fn SetPointerCapture(&self) -> ::windows_core::Result<()>;
@@ -134,11 +124,9 @@ pub trait ICorePointerInputSource_Impl: Sized {
     fn PointerWheelChanged(&self, handler: ::core::option::Option<&super::super::Foundation::TypedEventHandler<::windows_core::IInspectable, PointerEventArgs>>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemovePointerWheelChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for ICorePointerInputSource {
     const NAME: &'static str = "Windows.UI.Core.ICorePointerInputSource";
 }
-#[cfg(feature = "Foundation")]
 impl ICorePointerInputSource_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICorePointerInputSource_Impl, const OFFSET: isize>() -> ICorePointerInputSource_Vtbl {
         unsafe extern "system" fn ReleasePointerCapture<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -330,16 +318,16 @@ impl ICorePointerInputSource_Vtbl {
         *iid == <ICorePointerInputSource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`, `\"System\"`"]
-#[cfg(all(feature = "Foundation", feature = "System"))]
+#[doc = "Required features: `\"System\"`"]
+#[cfg(feature = "System")]
 pub trait ICorePointerInputSource2_Impl: Sized + ICorePointerInputSource_Impl {
     fn DispatcherQueue(&self) -> ::windows_core::Result<super::super::System::DispatcherQueue>;
 }
-#[cfg(all(feature = "Foundation", feature = "System"))]
+#[cfg(feature = "System")]
 impl ::windows_core::RuntimeName for ICorePointerInputSource2 {
     const NAME: &'static str = "Windows.UI.Core.ICorePointerInputSource2";
 }
-#[cfg(all(feature = "Foundation", feature = "System"))]
+#[cfg(feature = "System")]
 impl ICorePointerInputSource2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICorePointerInputSource2_Impl, const OFFSET: isize>() -> ICorePointerInputSource2_Vtbl {
         unsafe extern "system" fn DispatcherQueue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICorePointerInputSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -363,8 +351,6 @@ impl ICorePointerInputSource2_Vtbl {
         *iid == <ICorePointerInputSource2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait ICorePointerRedirector_Impl: Sized {
     fn PointerRoutedAway(&self, handler: ::core::option::Option<&super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemovePointerRoutedAway(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()>;
@@ -373,11 +359,9 @@ pub trait ICorePointerRedirector_Impl: Sized {
     fn PointerRoutedReleased(&self, handler: ::core::option::Option<&super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemovePointerRoutedReleased(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for ICorePointerRedirector {
     const NAME: &'static str = "Windows.UI.Core.ICorePointerRedirector";
 }
-#[cfg(feature = "Foundation")]
 impl ICorePointerRedirector_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICorePointerRedirector_Impl, const OFFSET: isize>() -> ICorePointerRedirector_Vtbl {
         unsafe extern "system" fn PointerRoutedAway<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICorePointerRedirector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT {

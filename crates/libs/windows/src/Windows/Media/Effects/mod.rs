@@ -12,14 +12,8 @@ unsafe impl ::windows_core::ComInterface for IAudioCaptureEffectsManager {
 #[doc(hidden)]
 pub struct IAudioCaptureEffectsManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub AudioCaptureEffectsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AudioCaptureEffectsChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveAudioCaptureEffectsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveAudioCaptureEffectsChanged: usize,
     #[cfg(feature = "Foundation_Collections")]
     pub GetAudioCaptureEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -147,14 +141,8 @@ unsafe impl ::windows_core::ComInterface for IAudioRenderEffectsManager {
 #[doc(hidden)]
 pub struct IAudioRenderEffectsManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub AudioRenderEffectsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AudioRenderEffectsChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveAudioRenderEffectsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveAudioRenderEffectsChanged: usize,
     #[cfg(feature = "Foundation_Collections")]
     pub GetAudioRenderEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -662,22 +650,10 @@ pub struct IVideoTransformEffectDefinition_Vtbl {
     pub SetPaddingColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "UI"))]
     SetPaddingColor: usize,
-    #[cfg(feature = "Foundation")]
     pub OutputSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    OutputSize: usize,
-    #[cfg(feature = "Foundation")]
     pub SetOutputSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Size) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetOutputSize: usize,
-    #[cfg(feature = "Foundation")]
     pub CropRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CropRectangle: usize,
-    #[cfg(feature = "Foundation")]
     pub SetCropRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetCropRectangle: usize,
     #[cfg(feature = "Media_MediaProperties")]
     pub Rotation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::MediaProperties::MediaRotation) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
@@ -766,8 +742,6 @@ pub struct IVideoTransformSphericalProjection_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AudioCaptureEffectsManager(::windows_core::IUnknown);
 impl AudioCaptureEffectsManager {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AudioCaptureEffectsChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, ::windows_core::IInspectable>>,
@@ -778,8 +752,6 @@ impl AudioCaptureEffectsManager {
             (::windows_core::Interface::vtable(this).AudioCaptureEffectsChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveAudioCaptureEffectsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAudioCaptureEffectsChanged)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -942,8 +914,6 @@ impl ::windows_core::RuntimeName for AudioEffectsManager {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AudioRenderEffectsManager(::windows_core::IUnknown);
 impl AudioRenderEffectsManager {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AudioRenderEffectsChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, ::windows_core::IInspectable>>,
@@ -954,8 +924,6 @@ impl AudioRenderEffectsManager {
             (::windows_core::Interface::vtable(this).AudioRenderEffectsChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveAudioRenderEffectsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAudioRenderEffectsChanged)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -1347,8 +1315,6 @@ impl VideoTransformEffectDefinition {
         let this = &::windows_core::ComInterface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetPaddingColor)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn OutputSize(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = &::windows_core::ComInterface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
@@ -1356,14 +1322,10 @@ impl VideoTransformEffectDefinition {
             (::windows_core::Interface::vtable(this).OutputSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetOutputSize(&self, value: super::super::Foundation::Size) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetOutputSize)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CropRectangle(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
@@ -1371,8 +1333,6 @@ impl VideoTransformEffectDefinition {
             (::windows_core::Interface::vtable(this).CropRectangle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetCropRectangle(&self, value: super::super::Foundation::Rect) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetCropRectangle)(::windows_core::Interface::as_raw(this), value).ok() }

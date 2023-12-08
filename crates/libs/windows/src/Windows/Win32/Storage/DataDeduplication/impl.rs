@@ -15,17 +15,17 @@ impl IDedupBackupSupport_Vtbl {
         *iid == <IDedupBackupSupport as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDedupChunkLibrary_Impl: Sized {
     fn InitializeForPushBuffers(&self) -> ::windows_core::Result<()>;
     fn Uninitialize(&self) -> ::windows_core::Result<()>;
     fn SetParameter(&self, dwparamtype: u32, vparamvalue: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn StartChunking(&self, iiditeratorinterfaceid: &::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDedupChunkLibrary {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDedupChunkLibrary_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDedupChunkLibrary_Impl, const OFFSET: isize>() -> IDedupChunkLibrary_Vtbl {
         unsafe extern "system" fn InitializeForPushBuffers<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDedupChunkLibrary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

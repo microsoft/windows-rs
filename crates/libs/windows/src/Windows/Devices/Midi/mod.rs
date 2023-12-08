@@ -79,14 +79,8 @@ unsafe impl ::windows_core::ComInterface for IMidiInPort {
 #[doc(hidden)]
 pub struct IMidiInPort_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub MessageReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MessageReceived: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveMessageReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveMessageReceived: usize,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
@@ -103,18 +97,13 @@ unsafe impl ::windows_core::ComInterface for IMidiInPortStatics {
 #[doc(hidden)]
 pub struct IMidiInPortStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FromIdAsync: usize,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMidiMessage(::windows_core::IUnknown);
 impl IMidiMessage {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -153,10 +142,7 @@ unsafe impl ::windows_core::ComInterface for IMidiMessage {
 #[doc(hidden)]
 pub struct IMidiMessage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Timestamp: usize,
     #[cfg(feature = "Storage_Streams")]
     pub RawData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -274,15 +260,12 @@ impl IMidiOutPort {
             (::windows_core::Interface::vtable(this).DeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMidiOutPort, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for IMidiOutPort {}
 impl ::windows_core::RuntimeType for IMidiOutPort {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -318,10 +301,7 @@ unsafe impl ::windows_core::ComInterface for IMidiOutPortStatics {
 #[doc(hidden)]
 pub struct IMidiOutPortStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FromIdAsync: usize,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
@@ -523,13 +503,10 @@ unsafe impl ::windows_core::ComInterface for IMidiSynthesizerStatics {
 #[doc(hidden)]
 pub struct IMidiSynthesizerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub CreateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateAsync: usize,
-    #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
+    #[cfg(feature = "Devices_Enumeration")]
     pub CreateFromAudioDeviceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audiodevice: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Enumeration", feature = "Foundation")))]
+    #[cfg(not(feature = "Devices_Enumeration"))]
     CreateFromAudioDeviceAsync: usize,
     #[cfg(feature = "Devices_Enumeration")]
     pub IsSynthesizer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mididevice: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
@@ -599,8 +576,6 @@ impl MidiActiveSensingMessage {
         static SHARED: ::windows_core::imp::FactoryCache<MidiActiveSensingMessage, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -665,8 +640,6 @@ impl MidiChannelPressureMessage {
             (::windows_core::Interface::vtable(this).CreateMidiChannelPressureMessage)(::windows_core::Interface::as_raw(this), channel, pressure, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -723,8 +696,6 @@ impl MidiContinueMessage {
         static SHARED: ::windows_core::imp::FactoryCache<MidiContinueMessage, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -796,8 +767,6 @@ impl MidiControlChangeMessage {
             (::windows_core::Interface::vtable(this).CreateMidiControlChangeMessage)(::windows_core::Interface::as_raw(this), channel, controller, controlvalue, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -847,14 +816,10 @@ unsafe impl ::core::marker::Sync for MidiControlChangeMessage {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MidiInPort(::windows_core::IUnknown);
 impl MidiInPort {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn MessageReceived<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs>>,
@@ -865,8 +830,6 @@ impl MidiInPort {
             (::windows_core::Interface::vtable(this).MessageReceived)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveMessageReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveMessageReceived)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -878,8 +841,6 @@ impl MidiInPort {
             (::windows_core::Interface::vtable(this).DeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MidiInPort>> {
         Self::IMidiInPortStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
@@ -911,7 +872,6 @@ impl ::windows_core::RuntimeName for MidiInPort {
     const NAME: &'static str = "Windows.Devices.Midi.MidiInPort";
 }
 ::windows_core::imp::interface_hierarchy!(MidiInPort, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for MidiInPort {}
 unsafe impl ::core::marker::Send for MidiInPort {}
 unsafe impl ::core::marker::Sync for MidiInPort {}
@@ -946,8 +906,6 @@ unsafe impl ::core::marker::Sync for MidiMessageReceivedEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MidiNoteOffMessage(::windows_core::IUnknown);
 impl MidiNoteOffMessage {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1024,8 +982,6 @@ unsafe impl ::core::marker::Sync for MidiNoteOffMessage {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MidiNoteOnMessage(::windows_core::IUnknown);
 impl MidiNoteOnMessage {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1102,8 +1058,6 @@ unsafe impl ::core::marker::Sync for MidiNoteOnMessage {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MidiOutPort(::windows_core::IUnknown);
 impl MidiOutPort {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -1131,8 +1085,6 @@ impl MidiOutPort {
             (::windows_core::Interface::vtable(this).DeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IMidiOutPort>> {
         Self::IMidiOutPortStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
@@ -1164,7 +1116,6 @@ impl ::windows_core::RuntimeName for MidiOutPort {
     const NAME: &'static str = "Windows.Devices.Midi.MidiOutPort";
 }
 ::windows_core::imp::interface_hierarchy!(MidiOutPort, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for MidiOutPort {}
 impl ::windows_core::CanTryInto<IMidiOutPort> for MidiOutPort {}
 unsafe impl ::core::marker::Send for MidiOutPort {}
@@ -1173,8 +1124,6 @@ unsafe impl ::core::marker::Sync for MidiOutPort {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MidiPitchBendChangeMessage(::windows_core::IUnknown);
 impl MidiPitchBendChangeMessage {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1244,8 +1193,6 @@ unsafe impl ::core::marker::Sync for MidiPitchBendChangeMessage {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MidiPolyphonicKeyPressureMessage(::windows_core::IUnknown);
 impl MidiPolyphonicKeyPressureMessage {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1322,8 +1269,6 @@ unsafe impl ::core::marker::Sync for MidiPolyphonicKeyPressureMessage {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MidiProgramChangeMessage(::windows_core::IUnknown);
 impl MidiProgramChangeMessage {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1393,8 +1338,6 @@ unsafe impl ::core::marker::Sync for MidiProgramChangeMessage {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MidiSongPositionPointerMessage(::windows_core::IUnknown);
 impl MidiSongPositionPointerMessage {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1457,8 +1400,6 @@ unsafe impl ::core::marker::Sync for MidiSongPositionPointerMessage {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MidiSongSelectMessage(::windows_core::IUnknown);
 impl MidiSongSelectMessage {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1528,8 +1469,6 @@ impl MidiStartMessage {
         static SHARED: ::windows_core::imp::FactoryCache<MidiStartMessage, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1581,8 +1520,6 @@ impl MidiStopMessage {
         static SHARED: ::windows_core::imp::FactoryCache<MidiStopMessage, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1627,8 +1564,6 @@ unsafe impl ::core::marker::Sync for MidiStopMessage {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MidiSynthesizer(::windows_core::IUnknown);
 impl MidiSynthesizer {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -1676,16 +1611,14 @@ impl MidiSynthesizer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetVolume)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>> {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`"]
-    #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
+    #[doc = "Required features: `\"Devices_Enumeration\"`"]
+    #[cfg(feature = "Devices_Enumeration")]
     pub fn CreateFromAudioDeviceAsync<P0>(audiodevice: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>
     where
         P0: ::windows_core::IntoParam<super::Enumeration::DeviceInformation>,
@@ -1725,7 +1658,6 @@ impl ::windows_core::RuntimeName for MidiSynthesizer {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSynthesizer";
 }
 ::windows_core::imp::interface_hierarchy!(MidiSynthesizer, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for MidiSynthesizer {}
 impl ::windows_core::CanTryInto<IMidiOutPort> for MidiSynthesizer {}
 unsafe impl ::core::marker::Send for MidiSynthesizer {}
@@ -1734,8 +1666,6 @@ unsafe impl ::core::marker::Sync for MidiSynthesizer {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MidiSystemExclusiveMessage(::windows_core::IUnknown);
 impl MidiSystemExclusiveMessage {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1803,8 +1733,6 @@ impl MidiSystemResetMessage {
         static SHARED: ::windows_core::imp::FactoryCache<MidiSystemResetMessage, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1849,8 +1777,6 @@ unsafe impl ::core::marker::Sync for MidiSystemResetMessage {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MidiTimeCodeMessage(::windows_core::IUnknown);
 impl MidiTimeCodeMessage {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1927,8 +1853,6 @@ impl MidiTimingClockMessage {
         static SHARED: ::windows_core::imp::FactoryCache<MidiTimingClockMessage, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1980,8 +1904,6 @@ impl MidiTuneRequestMessage {
         static SHARED: ::windows_core::imp::FactoryCache<MidiTuneRequestMessage, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {

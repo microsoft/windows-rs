@@ -1,12 +1,8 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDeviceID(pbwindowsaik: ::core::option::Option<&mut [u8]>, pcbresult: *mut u32, pfprotectedbytpm: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("tbs.dll" "system" fn GetDeviceID(pbwindowsaik : *mut u8, cbwindowsaik : u32, pcbresult : *mut u32, pfprotectedbytpm : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     GetDeviceID(::core::mem::transmute(pbwindowsaik.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbwindowsaik.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult, ::core::mem::transmute(pfprotectedbytpm.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDeviceIDString(pszwindowsaik: ::core::option::Option<&mut [u16]>, pcchresult: *mut u32, pfprotectedbytpm: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("tbs.dll" "system" fn GetDeviceIDString(pszwindowsaik : ::windows_core::PWSTR, cchwindowsaik : u32, pcchresult : *mut u32, pfprotectedbytpm : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
@@ -42,8 +38,6 @@ pub unsafe fn Tbsi_Get_TCG_Log_Ex(logtype: u32, pboutput: ::core::option::Option
     ::windows_targets::link!("tbs.dll" "system" fn Tbsi_Get_TCG_Log_Ex(logtype : u32, pboutput : *mut u8, pcboutput : *mut u32) -> u32);
     Tbsi_Get_TCG_Log_Ex(logtype, ::core::mem::transmute(pboutput.unwrap_or(::std::ptr::null_mut())), pcboutput)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Tbsi_Is_Tpm_Present() -> super::super::Foundation::BOOL {
     ::windows_targets::link!("tbs.dll" "system" fn Tbsi_Is_Tpm_Present() -> super::super::Foundation:: BOOL);

@@ -1,14 +1,10 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ICloneViewHelper_Impl: Sized {
     fn GetConnectedIDs(&self, wszadaptorname: &::windows_core::PCWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows_core::Result<()>;
     fn GetActiveTopology(&self, wszadaptorname: &::windows_core::PCWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows_core::Result<()>;
     fn SetActiveTopology(&self, wszadaptorname: &::windows_core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows_core::Result<()>;
     fn Commit(&self, ffinalcall: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ICloneViewHelper {}
-#[cfg(feature = "Win32_Foundation")]
 impl ICloneViewHelper_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICloneViewHelper_Impl, const OFFSET: isize>() -> ICloneViewHelper_Vtbl {
         unsafe extern "system" fn GetConnectedIDs<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICloneViewHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszadaptorname: ::windows_core::PCWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows_core::HRESULT {

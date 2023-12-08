@@ -94,10 +94,7 @@ unsafe impl ::windows_core::ComInterface for ISpiControllerStatics {
 #[doc(hidden)]
 pub struct ISpiControllerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDefaultAsync: usize,
     #[cfg(all(feature = "Devices_Spi_Provider", feature = "Foundation_Collections"))]
     pub GetControllersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Devices_Spi_Provider", feature = "Foundation_Collections")))]
@@ -149,8 +146,6 @@ impl ISpiDeviceStatics {
             (::windows_core::Interface::vtable(this).GetBusInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(busid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<P0>(&self, busid: &::windows_core::HSTRING, settings: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>
     where
         P0: ::windows_core::IntoParam<SpiConnectionSettings>,
@@ -179,10 +174,7 @@ pub struct ISpiDeviceStatics_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub GetDeviceSelectorFromFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, friendlyname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub GetBusInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, busid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, busid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, settings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FromIdAsync: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -334,8 +326,6 @@ impl SpiController {
             (::windows_core::Interface::vtable(this).GetDevice)(::windows_core::Interface::as_raw(this), settings.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpiController>> {
         Self::ISpiControllerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
@@ -378,8 +368,6 @@ unsafe impl ::core::marker::Sync for SpiController {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpiDevice(::windows_core::IUnknown);
 impl SpiDevice {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -432,8 +420,6 @@ impl SpiDevice {
             (::windows_core::Interface::vtable(this).GetBusInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(busid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<P0>(busid: &::windows_core::HSTRING, settings: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>
     where
         P0: ::windows_core::IntoParam<SpiConnectionSettings>,
@@ -462,7 +448,6 @@ impl ::windows_core::RuntimeName for SpiDevice {
     const NAME: &'static str = "Windows.Devices.Spi.SpiDevice";
 }
 ::windows_core::imp::interface_hierarchy!(SpiDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for SpiDevice {}
 unsafe impl ::core::marker::Send for SpiDevice {}
 unsafe impl ::core::marker::Sync for SpiDevice {}

@@ -1923,8 +1923,6 @@ impl ::core::clone::Clone for CHANGER_ELEMENT_STATUS_EX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CHANGER_EXCHANGE_MEDIUM {
     pub Transport: CHANGER_ELEMENT,
     pub Source: CHANGER_ELEMENT,
@@ -1933,41 +1931,31 @@ pub struct CHANGER_EXCHANGE_MEDIUM {
     pub Flip1: super::super::Foundation::BOOLEAN,
     pub Flip2: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHANGER_EXCHANGE_MEDIUM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHANGER_EXCHANGE_MEDIUM {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CHANGER_INITIALIZE_ELEMENT_STATUS {
     pub ElementList: CHANGER_ELEMENT_LIST,
     pub BarCodeScan: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHANGER_INITIALIZE_ELEMENT_STATUS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHANGER_INITIALIZE_ELEMENT_STATUS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CHANGER_MOVE_MEDIUM {
     pub Transport: CHANGER_ELEMENT,
     pub Source: CHANGER_ELEMENT,
     pub Destination: CHANGER_ELEMENT,
     pub Flip: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHANGER_MOVE_MEDIUM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHANGER_MOVE_MEDIUM {
     fn clone(&self) -> Self {
         *self
@@ -1988,15 +1976,11 @@ impl ::core::clone::Clone for CHANGER_PRODUCT_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CHANGER_READ_ELEMENT_STATUS {
     pub ElementList: CHANGER_ELEMENT_LIST,
     pub VolumeTagInfo: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHANGER_READ_ELEMENT_STATUS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHANGER_READ_ELEMENT_STATUS {
     fn clone(&self) -> Self {
         *self
@@ -2026,16 +2010,12 @@ impl ::core::clone::Clone for CHANGER_SET_ACCESS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CHANGER_SET_POSITION {
     pub Transport: CHANGER_ELEMENT,
     pub Destination: CHANGER_ELEMENT,
     pub Flip: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHANGER_SET_POSITION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHANGER_SET_POSITION {
     fn clone(&self) -> Self {
         *self
@@ -2160,14 +2140,10 @@ impl ::core::clone::Clone for CSV_CONTROL_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CSV_IS_OWNED_BY_CSVFS {
     pub OwnedByCSVFS: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CSV_IS_OWNED_BY_CSVFS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CSV_IS_OWNED_BY_CSVFS {
     fn clone(&self) -> Self {
         *self
@@ -2256,16 +2232,12 @@ impl ::core::clone::Clone for CSV_QUERY_MDS_PATH_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CSV_QUERY_REDIRECT_STATE {
     pub MdsNodeId: u32,
     pub DsNodeId: u32,
     pub FileRedirected: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CSV_QUERY_REDIRECT_STATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CSV_QUERY_REDIRECT_STATE {
     fn clone(&self) -> Self {
         *self
@@ -2294,8 +2266,6 @@ impl ::core::clone::Clone for CSV_QUERY_VOLUME_ID {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CSV_QUERY_VOLUME_REDIRECT_STATE {
     pub MdsNodeId: u32,
     pub DsNodeId: u32,
@@ -2303,9 +2273,7 @@ pub struct CSV_QUERY_VOLUME_REDIRECT_STATE {
     pub ClusterEnableDirectIo: super::super::Foundation::BOOLEAN,
     pub DiskConnectivity: CSVFS_DISK_CONNECTIVITY,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CSV_QUERY_VOLUME_REDIRECT_STATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CSV_QUERY_VOLUME_REDIRECT_STATE {
     fn clone(&self) -> Self {
         *self
@@ -2322,14 +2290,10 @@ impl ::core::clone::Clone for CSV_SET_VOLUME_ID {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DECRYPTION_STATUS_BUFFER {
     pub NoEncryptedStreams: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DECRYPTION_STATUS_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DECRYPTION_STATUS_BUFFER {
     fn clone(&self) -> Self {
         *self
@@ -2658,8 +2622,6 @@ impl ::core::clone::Clone for DEVICE_DSM_CONVERSION_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_DSM_DEFINITION {
     pub Action: u32,
     pub SingleRange: super::super::Foundation::BOOLEAN,
@@ -2669,9 +2631,7 @@ pub struct DEVICE_DSM_DEFINITION {
     pub OutputBlockAlignment: u32,
     pub OutputBlockLength: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVICE_DSM_DEFINITION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVICE_DSM_DEFINITION {
     fn clone(&self) -> Self {
         *self
@@ -2792,8 +2752,6 @@ impl ::core::clone::Clone for DEVICE_DSM_RANGE_ERROR_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_DSM_REPORT_ZONES_DATA {
     pub Size: u32,
     pub ZoneCount: u32,
@@ -2801,9 +2759,7 @@ pub struct DEVICE_DSM_REPORT_ZONES_DATA {
     pub Reserved0: u32,
     pub ZoneDescriptors: [STORAGE_ZONE_DESCRIPTOR; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVICE_DSM_REPORT_ZONES_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVICE_DSM_REPORT_ZONES_DATA {
     fn clone(&self) -> Self {
         *self
@@ -3090,8 +3046,6 @@ impl ::core::clone::Clone for DEVICE_MEDIA_INFO_0_2_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_POWER_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -3104,25 +3058,19 @@ pub struct DEVICE_POWER_DESCRIPTOR {
     pub Reserved: [u8; 2],
     pub IdleTimeoutInMS: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVICE_POWER_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVICE_POWER_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_SEEK_PENALTY_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
     pub IncursSeekPenalty: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVICE_SEEK_PENALTY_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVICE_SEEK_PENALTY_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -3173,40 +3121,30 @@ impl ::core::clone::Clone for DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_TRIM_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
     pub TrimEnabled: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVICE_TRIM_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVICE_TRIM_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
     pub BenefitsFromWriteAggregation: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DISK_CACHE_INFORMATION {
     pub ParametersSavable: super::super::Foundation::BOOLEAN,
     pub ReadCacheEnabled: super::super::Foundation::BOOLEAN,
@@ -3217,55 +3155,41 @@ pub struct DISK_CACHE_INFORMATION {
     pub PrefetchScalar: super::super::Foundation::BOOLEAN,
     pub Anonymous: DISK_CACHE_INFORMATION_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISK_CACHE_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISK_CACHE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union DISK_CACHE_INFORMATION_0 {
     pub ScalarPrefetch: DISK_CACHE_INFORMATION_0_1,
     pub BlockPrefetch: DISK_CACHE_INFORMATION_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISK_CACHE_INFORMATION_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISK_CACHE_INFORMATION_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DISK_CACHE_INFORMATION_0_0 {
     pub Minimum: u16,
     pub Maximum: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISK_CACHE_INFORMATION_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISK_CACHE_INFORMATION_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DISK_CACHE_INFORMATION_0_1 {
     pub Minimum: u16,
     pub Maximum: u16,
     pub MaximumBlocks: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISK_CACHE_INFORMATION_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISK_CACHE_INFORMATION_0_1 {
     fn clone(&self) -> Self {
         *self
@@ -3493,8 +3417,6 @@ impl ::core::clone::Clone for DISK_PERFORMANCE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DISK_RECORD {
     pub ByteOffset: i64,
     pub StartTime: i64,
@@ -3504,9 +3426,7 @@ pub struct DISK_RECORD {
     pub DeviceNumber: u8,
     pub ReadRequest: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISK_RECORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISK_RECORD {
     fn clone(&self) -> Self {
         *self
@@ -3526,48 +3446,36 @@ impl ::core::clone::Clone for DRIVERSTATUS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DRIVE_LAYOUT_INFORMATION {
     pub PartitionCount: u32,
     pub Signature: u32,
     pub PartitionEntry: [PARTITION_INFORMATION; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DRIVE_LAYOUT_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DRIVE_LAYOUT_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DRIVE_LAYOUT_INFORMATION_EX {
     pub PartitionStyle: u32,
     pub PartitionCount: u32,
     pub Anonymous: DRIVE_LAYOUT_INFORMATION_EX_0,
     pub PartitionEntry: [PARTITION_INFORMATION_EX; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DRIVE_LAYOUT_INFORMATION_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DRIVE_LAYOUT_INFORMATION_EX {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union DRIVE_LAYOUT_INFORMATION_EX_0 {
     pub Mbr: DRIVE_LAYOUT_INFORMATION_MBR,
     pub Gpt: DRIVE_LAYOUT_INFORMATION_GPT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DRIVE_LAYOUT_INFORMATION_EX_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DRIVE_LAYOUT_INFORMATION_EX_0 {
     fn clone(&self) -> Self {
         *self
@@ -3598,17 +3506,13 @@ impl ::core::clone::Clone for DRIVE_LAYOUT_INFORMATION_MBR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DUPLICATE_EXTENTS_DATA {
     pub FileHandle: super::super::Foundation::HANDLE,
     pub SourceFileOffset: i64,
     pub TargetFileOffset: i64,
     pub ByteCount: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DUPLICATE_EXTENTS_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DUPLICATE_EXTENTS_DATA {
     fn clone(&self) -> Self {
         *self
@@ -3631,8 +3535,6 @@ impl ::core::clone::Clone for DUPLICATE_EXTENTS_DATA32 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DUPLICATE_EXTENTS_DATA_EX {
     pub Size: usize,
     pub FileHandle: super::super::Foundation::HANDLE,
@@ -3641,9 +3543,7 @@ pub struct DUPLICATE_EXTENTS_DATA_EX {
     pub ByteCount: i64,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DUPLICATE_EXTENTS_DATA_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DUPLICATE_EXTENTS_DATA_EX {
     fn clone(&self) -> Self {
         *self
@@ -3954,14 +3854,10 @@ impl ::core::clone::Clone for FILE_LEVEL_TRIM_RANGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FILE_MAKE_COMPATIBLE_BUFFER {
     pub CloseDisc: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FILE_MAKE_COMPATIBLE_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FILE_MAKE_COMPATIBLE_BUFFER {
     fn clone(&self) -> Self {
         *self
@@ -4070,17 +3966,13 @@ impl ::core::clone::Clone for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FILE_QUERY_SPARING_BUFFER {
     pub SparingUnitBytes: u32,
     pub SoftwareSparing: super::super::Foundation::BOOLEAN,
     pub TotalSpareBlocks: u32,
     pub FreeSpareBlocks: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FILE_QUERY_SPARING_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FILE_QUERY_SPARING_BUFFER {
     fn clone(&self) -> Self {
         *self
@@ -4137,28 +4029,20 @@ impl ::core::clone::Clone for FILE_REGION_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FILE_SET_DEFECT_MGMT_BUFFER {
     pub Disable: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FILE_SET_DEFECT_MGMT_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FILE_SET_DEFECT_MGMT_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FILE_SET_SPARSE_BUFFER {
     pub SetSparse: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FILE_SET_SPARSE_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FILE_SET_SPARSE_BUFFER {
     fn clone(&self) -> Self {
         *self
@@ -4750,31 +4634,23 @@ impl ::core::clone::Clone for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct MARK_HANDLE_INFO {
     pub Anonymous: MARK_HANDLE_INFO_0,
     pub VolumeHandle: super::super::Foundation::HANDLE,
     pub HandleInfo: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MARK_HANDLE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MARK_HANDLE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union MARK_HANDLE_INFO_0 {
     pub UsnSourceInfo: u32,
     pub CopyNumber: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MARK_HANDLE_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MARK_HANDLE_INFO_0 {
     fn clone(&self) -> Self {
         *self
@@ -4836,17 +4712,13 @@ impl ::core::clone::Clone for MFT_ENUM_DATA_V1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct MOVE_FILE_DATA {
     pub FileHandle: super::super::Foundation::HANDLE,
     pub StartingVcn: i64,
     pub StartingLcn: i64,
     pub ClusterCount: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MOVE_FILE_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MOVE_FILE_DATA {
     fn clone(&self) -> Self {
         *self
@@ -4869,16 +4741,12 @@ impl ::core::clone::Clone for MOVE_FILE_DATA32 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct MOVE_FILE_RECORD_DATA {
     pub FileHandle: super::super::Foundation::HANDLE,
     pub SourceFileRecord: i64,
     pub TargetFileRecord: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MOVE_FILE_RECORD_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MOVE_FILE_RECORD_DATA {
     fn clone(&self) -> Self {
         *self
@@ -5211,8 +5079,6 @@ impl ::core::clone::Clone for NTFS_VOLUME_DATA_BUFFER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PARTITION_INFORMATION {
     pub StartingOffset: i64,
     pub PartitionLength: i64,
@@ -5223,17 +5089,13 @@ pub struct PARTITION_INFORMATION {
     pub RecognizedPartition: super::super::Foundation::BOOLEAN,
     pub RewritePartition: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PARTITION_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PARTITION_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PARTITION_INFORMATION_EX {
     pub PartitionStyle: PARTITION_STYLE,
     pub StartingOffset: i64,
@@ -5243,24 +5105,18 @@ pub struct PARTITION_INFORMATION_EX {
     pub IsServicePartition: super::super::Foundation::BOOLEAN,
     pub Anonymous: PARTITION_INFORMATION_EX_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PARTITION_INFORMATION_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PARTITION_INFORMATION_EX {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union PARTITION_INFORMATION_EX_0 {
     pub Mbr: PARTITION_INFORMATION_MBR,
     pub Gpt: PARTITION_INFORMATION_GPT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PARTITION_INFORMATION_EX_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PARTITION_INFORMATION_EX_0 {
     fn clone(&self) -> Self {
         *self
@@ -5280,8 +5136,6 @@ impl ::core::clone::Clone for PARTITION_INFORMATION_GPT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PARTITION_INFORMATION_MBR {
     pub PartitionType: u8,
     pub BootIndicator: super::super::Foundation::BOOLEAN,
@@ -5289,9 +5143,7 @@ pub struct PARTITION_INFORMATION_MBR {
     pub HiddenSectors: u32,
     pub PartitionId: ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PARTITION_INFORMATION_MBR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PARTITION_INFORMATION_MBR {
     fn clone(&self) -> Self {
         *self
@@ -5427,14 +5279,10 @@ impl ::core::clone::Clone for PLEX_READ_DATA_REQUEST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PREVENT_MEDIA_REMOVAL {
     pub PreventMediaRemoval: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PREVENT_MEDIA_REMOVAL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PREVENT_MEDIA_REMOVAL {
     fn clone(&self) -> Self {
         *self
@@ -5864,14 +5712,10 @@ impl ::core::clone::Clone for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SCM_BUS_DEDICATED_MEMORY_STATE {
     pub ActivateState: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SCM_BUS_DEDICATED_MEMORY_STATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SCM_BUS_DEDICATED_MEMORY_STATE {
     fn clone(&self) -> Self {
         *self
@@ -5906,8 +5750,6 @@ impl ::core::clone::Clone for SCM_BUS_PROPERTY_SET {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -5919,23 +5761,17 @@ pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     pub EstimatedIOAccessQuiesceTimeInUSecs: u64,
     pub PlatformSupportedMaxIOAccessQuiesceTimeInUSecs: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     fn clone(&self) -> Self {
         *self
@@ -6297,14 +6133,10 @@ impl ::core::clone::Clone for SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
     pub ArmState: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
     fn clone(&self) -> Self {
         *self
@@ -6566,8 +6398,6 @@ impl ::core::clone::Clone for SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SET_DISK_ATTRIBUTES {
     pub Version: u32,
     pub Persist: super::super::Foundation::BOOLEAN,
@@ -6576,9 +6406,7 @@ pub struct SET_DISK_ATTRIBUTES {
     pub AttributesMask: u64,
     pub Reserved2: [u32; 4],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SET_DISK_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SET_DISK_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
@@ -6719,8 +6547,6 @@ impl ::core::clone::Clone for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ADAPTER_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -6737,9 +6563,7 @@ pub struct STORAGE_ADAPTER_DESCRIPTOR {
     pub SrbType: u8,
     pub AddressType: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_ADAPTER_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_ADAPTER_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -6758,8 +6582,6 @@ impl ::core::clone::Clone for STORAGE_ADAPTER_SERIAL_NUMBER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ALLOCATE_BC_STREAM_INPUT {
     pub Version: u32,
     pub RequestsPerPeriod: u32,
@@ -6770,9 +6592,7 @@ pub struct STORAGE_ALLOCATE_BC_STREAM_INPUT {
     pub AccessType: u32,
     pub AccessMode: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_ALLOCATE_BC_STREAM_INPUT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_ALLOCATE_BC_STREAM_INPUT {
     fn clone(&self) -> Self {
         *self
@@ -6925,8 +6745,8 @@ impl ::core::clone::Clone for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct STORAGE_DEVICE_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -6942,9 +6762,9 @@ pub struct STORAGE_DEVICE_DESCRIPTOR {
     pub RawPropertiesLength: u32,
     pub RawDeviceProperties: [u8; 1],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::marker::Copy for STORAGE_DEVICE_DESCRIPTOR {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for STORAGE_DEVICE_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -7114,33 +6934,25 @@ impl ::core::clone::Clone for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     pub Version: u32,
     pub Size: u32,
     pub SupportsSelfEncryption: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
     pub Version: u32,
     pub Size: u32,
     pub SupportsSelfEncryption: super::super::Foundation::BOOLEAN,
     pub EncryptionType: STORAGE_ENCRYPTION_TYPE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
     fn clone(&self) -> Self {
         *self
@@ -7215,8 +7027,6 @@ impl ::core::clone::Clone for STORAGE_EVENT_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_FAILURE_PREDICTION_CONFIG {
     pub Version: u32,
     pub Size: u32,
@@ -7224,9 +7034,7 @@ pub struct STORAGE_FAILURE_PREDICTION_CONFIG {
     pub Enabled: super::super::Foundation::BOOLEAN,
     pub Reserved: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_FAILURE_PREDICTION_CONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_FAILURE_PREDICTION_CONFIG {
     fn clone(&self) -> Self {
         *self
@@ -7261,8 +7069,6 @@ impl ::core::clone::Clone for STORAGE_GET_BC_PROPERTIES_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_HOTPLUG_INFO {
     pub Size: u32,
     pub MediaRemovable: super::super::Foundation::BOOLEAN,
@@ -7270,9 +7076,7 @@ pub struct STORAGE_HOTPLUG_INFO {
     pub DeviceHotplug: super::super::Foundation::BOOLEAN,
     pub WriteCacheEnableOverride: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_HOTPLUG_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_HOTPLUG_INFO {
     fn clone(&self) -> Self {
         *self
@@ -7366,8 +7170,6 @@ impl ::core::clone::Clone for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_HW_FIRMWARE_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -7381,9 +7183,7 @@ pub struct STORAGE_HW_FIRMWARE_INFO {
     pub ImagePayloadMaxSize: u32,
     pub Slot: [STORAGE_HW_FIRMWARE_SLOT_INFO; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_HW_FIRMWARE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_HW_FIRMWARE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -7499,8 +7299,6 @@ impl ::core::clone::Clone for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_MINIPORT_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -7513,38 +7311,28 @@ pub struct STORAGE_MINIPORT_DESCRIPTOR {
     pub Reserved0: [u8; 2],
     pub Reserved1: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_MINIPORT_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_MINIPORT_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union STORAGE_MINIPORT_DESCRIPTOR_0 {
     pub Anonymous: STORAGE_MINIPORT_DESCRIPTOR_0_0,
     pub AsBYTE: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_MINIPORT_DESCRIPTOR_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_MINIPORT_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_MINIPORT_DESCRIPTOR_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -7661,8 +7449,6 @@ impl ::core::clone::Clone for STORAGE_OPERATIONAL_REASON_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_PHYSICAL_ADAPTER_DATA {
     pub AdapterId: u32,
     pub HealthStatus: STORAGE_COMPONENT_HEALTH_STATUS,
@@ -7676,9 +7462,7 @@ pub struct STORAGE_PHYSICAL_ADAPTER_DATA {
     pub Reserved0: [u8; 3],
     pub Reserved1: [u32; 3],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_PHYSICAL_ADAPTER_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_PHYSICAL_ADAPTER_DATA {
     fn clone(&self) -> Self {
         *self
@@ -8093,8 +7877,6 @@ impl ::core::clone::Clone for STORAGE_SPEC_VERSION_0_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -8105,17 +7887,13 @@ pub struct STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     pub Reserved1: [u32; 2],
     pub TemperatureInfo: [STORAGE_TEMPERATURE_INFO; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_TEMPERATURE_INFO {
     pub Index: u16,
     pub Temperature: i16,
@@ -8127,17 +7905,13 @@ pub struct STORAGE_TEMPERATURE_INFO {
     pub Reserved0: u8,
     pub Reserved1: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_TEMPERATURE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_TEMPERATURE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_TEMPERATURE_THRESHOLD {
     pub Version: u32,
     pub Size: u32,
@@ -8147,9 +7921,7 @@ pub struct STORAGE_TEMPERATURE_THRESHOLD {
     pub OverThreshold: super::super::Foundation::BOOLEAN,
     pub Reserved: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_TEMPERATURE_THRESHOLD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_TEMPERATURE_THRESHOLD {
     fn clone(&self) -> Self {
         *self
@@ -8184,8 +7956,6 @@ impl ::core::clone::Clone for STORAGE_TIER_REGION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_WRITE_CACHE_PROPERTY {
     pub Version: u32,
     pub Size: u32,
@@ -8197,17 +7967,13 @@ pub struct STORAGE_WRITE_CACHE_PROPERTY {
     pub UserDefinedPowerProtection: super::super::Foundation::BOOLEAN,
     pub NVCacheEnabled: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_WRITE_CACHE_PROPERTY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_WRITE_CACHE_PROPERTY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -8217,63 +7983,47 @@ pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR {
     pub ZoneGroupCount: u32,
     pub ZoneGroup: [STORAGE_ZONE_GROUP; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_ZONED_DEVICE_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_ZONED_DEVICE_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     pub SequentialRequiredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1,
     pub SequentialPreferredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     pub OptimalOpenZoneCount: u32,
     pub Reserved: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     pub MaxOpenZoneCount: u32,
     pub UnrestrictedRead: super::super::Foundation::BOOLEAN,
     pub Reserved: [u8; 3],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ZONE_DESCRIPTOR {
     pub Size: u32,
     pub ZoneType: STORAGE_ZONE_TYPES,
@@ -8283,9 +8033,7 @@ pub struct STORAGE_ZONE_DESCRIPTOR {
     pub ZoneSize: u64,
     pub WritePointerOffset: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_ZONE_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_ZONE_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -8672,16 +8420,12 @@ impl ::core::clone::Clone for TXFS_ROLLFORWARD_REDO_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct TXFS_SAVEPOINT_INFORMATION {
     pub KtmTransaction: super::super::Foundation::HANDLE,
     pub ActionCode: u32,
     pub SavepointId: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TXFS_SAVEPOINT_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TXFS_SAVEPOINT_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -8709,14 +8453,10 @@ impl ::core::clone::Clone for TXFS_START_RM_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct TXFS_TRANSACTION_ACTIVE_INFO {
     pub TransactionsActiveAtSnapshot: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TXFS_TRANSACTION_ACTIVE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TXFS_TRANSACTION_ACTIVE_INFO {
     fn clone(&self) -> Self {
         *self

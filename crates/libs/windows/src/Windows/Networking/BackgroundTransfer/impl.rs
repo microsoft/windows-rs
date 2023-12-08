@@ -171,8 +171,8 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
         *iid == <IBackgroundTransferContentPartFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[doc = "Required features: `\"Storage_Streams\"`"]
+#[cfg(feature = "Storage_Streams")]
 pub trait IBackgroundTransferOperation_Impl: Sized {
     fn Guid(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn RequestedUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri>;
@@ -183,11 +183,11 @@ pub trait IBackgroundTransferOperation_Impl: Sized {
     fn GetResultStreamAt(&self, position: u64) -> ::windows_core::Result<super::super::Storage::Streams::IInputStream>;
     fn GetResponseInformation(&self) -> ::windows_core::Result<ResponseInformation>;
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl ::windows_core::RuntimeName for IBackgroundTransferOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferOperation";
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl IBackgroundTransferOperation_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTransferOperation_Impl, const OFFSET: isize>() -> IBackgroundTransferOperation_Vtbl {
         unsafe extern "system" fn Guid<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTransferOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT {

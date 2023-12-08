@@ -31,14 +31,8 @@ pub struct ICertificate_Vtbl {
     pub Issuer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub HasPrivateKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub IsStronglyProtected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub ValidFrom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ValidFrom: usize,
-    #[cfg(feature = "Foundation")]
     pub ValidTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ValidTo: usize,
     #[cfg(feature = "Foundation_Collections")]
     pub EnhancedKeyUsages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -120,18 +114,9 @@ unsafe impl ::windows_core::ComInterface for ICertificateEnrollmentManagerStatic
 #[doc(hidden)]
 pub struct ICertificateEnrollmentManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub CreateRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateRequestAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub InstallCertificateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: ::std::mem::MaybeUninit<::windows_core::HSTRING>, installoption: InstallOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    InstallCertificateAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub ImportPfxDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfxdata: ::std::mem::MaybeUninit<::windows_core::HSTRING>, password: ::std::mem::MaybeUninit<::windows_core::HSTRING>, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ImportPfxDataAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -148,10 +133,7 @@ unsafe impl ::windows_core::ComInterface for ICertificateEnrollmentManagerStatic
 pub struct ICertificateEnrollmentManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UserCertificateEnrollmentManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub ImportPfxDataToKspAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfxdata: ::std::mem::MaybeUninit<::windows_core::HSTRING>, password: ::std::mem::MaybeUninit<::windows_core::HSTRING>, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, keystorageprovider: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ImportPfxDataToKspAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -167,10 +149,7 @@ unsafe impl ::windows_core::ComInterface for ICertificateEnrollmentManagerStatic
 #[doc(hidden)]
 pub struct ICertificateEnrollmentManagerStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub ImportPfxDataToKspWithParametersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfxdata: ::std::mem::MaybeUninit<::windows_core::HSTRING>, password: ::std::mem::MaybeUninit<::windows_core::HSTRING>, pfximportparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ImportPfxDataToKspWithParametersAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -488,14 +467,8 @@ pub struct IChainBuildingParameters_Vtbl {
     pub EnhancedKeyUsages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     EnhancedKeyUsages: usize,
-    #[cfg(feature = "Foundation")]
     pub ValidationTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ValidationTimestamp: usize,
-    #[cfg(feature = "Foundation")]
     pub SetValidationTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetValidationTimestamp: usize,
     pub RevocationCheckEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetRevocationCheckEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
     pub NetworkRetrievalEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
@@ -619,9 +592,9 @@ pub struct ICmsDetachedSignature_Vtbl {
     pub Signers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Signers: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub VerifySignatureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     VerifySignatureAsync: usize,
 }
 #[doc(hidden)]
@@ -701,10 +674,7 @@ pub struct ICmsTimestampInfo_Vtbl {
     pub Certificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Certificates: usize,
-    #[cfg(feature = "Foundation")]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Timestamp: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -760,10 +730,7 @@ unsafe impl ::windows_core::ComInterface for IKeyAttestationHelperStatics {
 #[doc(hidden)]
 pub struct IKeyAttestationHelperStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub DecryptTpmAttestationCredentialAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credential: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DecryptTpmAttestationCredentialAsync: usize,
     pub GetTpmAttestationCredentialId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credential: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
@@ -780,10 +747,7 @@ unsafe impl ::windows_core::ComInterface for IKeyAttestationHelperStatics2 {
 #[doc(hidden)]
 pub struct IKeyAttestationHelperStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub DecryptTpmAttestationCredentialWithContainerNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credential: ::std::mem::MaybeUninit<::windows_core::HSTRING>, containername: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DecryptTpmAttestationCredentialWithContainerNameAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -959,22 +923,10 @@ unsafe impl ::windows_core::ComInterface for IUserCertificateEnrollmentManager {
 #[doc(hidden)]
 pub struct IUserCertificateEnrollmentManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub CreateRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateRequestAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub InstallCertificateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: ::std::mem::MaybeUninit<::windows_core::HSTRING>, installoption: InstallOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    InstallCertificateAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub ImportPfxDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfxdata: ::std::mem::MaybeUninit<::windows_core::HSTRING>, password: ::std::mem::MaybeUninit<::windows_core::HSTRING>, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ImportPfxDataAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub ImportPfxDataToKspAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfxdata: ::std::mem::MaybeUninit<::windows_core::HSTRING>, password: ::std::mem::MaybeUninit<::windows_core::HSTRING>, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, keystorageprovider: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ImportPfxDataToKspAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -990,10 +942,7 @@ unsafe impl ::windows_core::ComInterface for IUserCertificateEnrollmentManager2 
 #[doc(hidden)]
 pub struct IUserCertificateEnrollmentManager2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub ImportPfxDataToKspWithParametersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfxdata: ::std::mem::MaybeUninit<::windows_core::HSTRING>, password: ::std::mem::MaybeUninit<::windows_core::HSTRING>, pfximportparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ImportPfxDataToKspWithParametersAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1009,14 +958,8 @@ unsafe impl ::windows_core::ComInterface for IUserCertificateStore {
 #[doc(hidden)]
 pub struct IUserCertificateStore_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub RequestAddAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestAddAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub RequestDeleteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestDeleteAsync: usize,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -1106,8 +1049,6 @@ impl Certificate {
             (::windows_core::Interface::vtable(this).IsStronglyProtected)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ValidFrom(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1115,8 +1056,6 @@ impl Certificate {
             (::windows_core::Interface::vtable(this).ValidFrom)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ValidTo(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1287,8 +1226,6 @@ unsafe impl ::core::marker::Send for CertificateChain {}
 unsafe impl ::core::marker::Sync for CertificateChain {}
 pub struct CertificateEnrollmentManager;
 impl CertificateEnrollmentManager {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateRequestAsync<P0>(request: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
         P0: ::windows_core::IntoParam<CertificateRequestProperties>,
@@ -1298,16 +1235,12 @@ impl CertificateEnrollmentManager {
             (::windows_core::Interface::vtable(this).CreateRequestAsync)(::windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn InstallCertificateAsync(certificate: &::windows_core::HSTRING, installoption: InstallOptions) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InstallCertificateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(certificate), installoption, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ImportPfxDataAsync(pfxdata: &::windows_core::HSTRING, password: &::windows_core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
@@ -1320,16 +1253,12 @@ impl CertificateEnrollmentManager {
             (::windows_core::Interface::vtable(this).UserCertificateEnrollmentManager)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ImportPfxDataToKspAsync(pfxdata: &::windows_core::HSTRING, password: &::windows_core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &::windows_core::HSTRING, keystorageprovider: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICertificateEnrollmentManagerStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ImportPfxDataToKspAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(pfxdata), ::core::mem::transmute_copy(password), exportable, keyprotectionlevel, installoption, ::core::mem::transmute_copy(friendlyname), ::core::mem::transmute_copy(keystorageprovider), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ImportPfxDataToKspWithParametersAsync<P0>(pfxdata: &::windows_core::HSTRING, password: &::windows_core::HSTRING, pfximportparameters: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<PfxImportParameters>,
@@ -2015,8 +1944,6 @@ impl ChainBuildingParameters {
             (::windows_core::Interface::vtable(this).EnhancedKeyUsages)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ValidationTimestamp(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -2024,8 +1951,6 @@ impl ChainBuildingParameters {
             (::windows_core::Interface::vtable(this).ValidationTimestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetValidationTimestamp(&self, value: super::super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetValidationTimestamp)(::windows_core::Interface::as_raw(this), value).ok() }
@@ -2263,8 +2188,8 @@ impl CmsDetachedSignature {
             (::windows_core::Interface::vtable(this).Signers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    #[cfg(feature = "Storage_Streams")]
     pub fn VerifySignatureAsync<P0>(&self, data: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<SignatureValidationResult>>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IInputStream>,
@@ -2404,8 +2329,6 @@ impl CmsTimestampInfo {
             (::windows_core::Interface::vtable(this).Certificates)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -2507,8 +2430,6 @@ impl ::windows_core::RuntimeName for KeyAlgorithmNames {
 }
 pub struct KeyAttestationHelper;
 impl KeyAttestationHelper {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn DecryptTpmAttestationCredentialAsync(credential: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         Self::IKeyAttestationHelperStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
@@ -2521,8 +2442,6 @@ impl KeyAttestationHelper {
             (::windows_core::Interface::vtable(this).GetTpmAttestationCredentialId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(credential), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn DecryptTpmAttestationCredentialWithContainerNameAsync(credential: &::windows_core::HSTRING, containername: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         Self::IKeyAttestationHelperStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
@@ -2862,8 +2781,6 @@ unsafe impl ::core::marker::Sync for SubjectAlternativeNameInfo {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserCertificateEnrollmentManager(::windows_core::IUnknown);
 impl UserCertificateEnrollmentManager {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateRequestAsync<P0>(&self, request: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
         P0: ::windows_core::IntoParam<CertificateRequestProperties>,
@@ -2874,8 +2791,6 @@ impl UserCertificateEnrollmentManager {
             (::windows_core::Interface::vtable(this).CreateRequestAsync)(::windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn InstallCertificateAsync(&self, certificate: &::windows_core::HSTRING, installoption: InstallOptions) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2883,8 +2798,6 @@ impl UserCertificateEnrollmentManager {
             (::windows_core::Interface::vtable(this).InstallCertificateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(certificate), installoption, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ImportPfxDataAsync(&self, pfxdata: &::windows_core::HSTRING, password: &::windows_core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2892,8 +2805,6 @@ impl UserCertificateEnrollmentManager {
             (::windows_core::Interface::vtable(this).ImportPfxDataAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(pfxdata), ::core::mem::transmute_copy(password), exportable, keyprotectionlevel, installoption, ::core::mem::transmute_copy(friendlyname), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ImportPfxDataToKspAsync(&self, pfxdata: &::windows_core::HSTRING, password: &::windows_core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &::windows_core::HSTRING, keystorageprovider: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2901,8 +2812,6 @@ impl UserCertificateEnrollmentManager {
             (::windows_core::Interface::vtable(this).ImportPfxDataToKspAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(pfxdata), ::core::mem::transmute_copy(password), exportable, keyprotectionlevel, installoption, ::core::mem::transmute_copy(friendlyname), ::core::mem::transmute_copy(keystorageprovider), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ImportPfxDataToKspWithParametersAsync<P0>(&self, pfxdata: &::windows_core::HSTRING, password: &::windows_core::HSTRING, pfximportparameters: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<PfxImportParameters>,
@@ -2933,8 +2842,6 @@ unsafe impl ::core::marker::Sync for UserCertificateEnrollmentManager {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserCertificateStore(::windows_core::IUnknown);
 impl UserCertificateStore {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RequestAddAsync<P0>(&self, certificate: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
         P0: ::windows_core::IntoParam<Certificate>,
@@ -2945,8 +2852,6 @@ impl UserCertificateStore {
             (::windows_core::Interface::vtable(this).RequestAddAsync)(::windows_core::Interface::as_raw(this), certificate.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RequestDeleteAsync<P0>(&self, certificate: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
         P0: ::windows_core::IntoParam<Certificate>,

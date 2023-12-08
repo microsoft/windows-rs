@@ -13,14 +13,8 @@ unsafe impl ::windows_core::ComInterface for IContentRestrictionsBrowsePolicy {
 pub struct IContentRestrictionsBrowsePolicy_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GeographicRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub MaxBrowsableAgeRating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MaxBrowsableAgeRating: usize,
-    #[cfg(feature = "Foundation")]
     pub PreferredAgeRating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PreferredAgeRating: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -89,26 +83,11 @@ unsafe impl ::windows_core::ComInterface for IRatedContentRestrictions {
 #[doc(hidden)]
 pub struct IRatedContentRestrictions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub GetBrowsePolicyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetBrowsePolicyAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub GetRestrictionLevelAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ratedcontentdescription: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetRestrictionLevelAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub RequestContentAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ratedcontentdescription: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestContentAccessAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub RestrictionsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RestrictionsChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveRestrictionsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveRestrictionsChanged: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -137,8 +116,6 @@ impl ContentRestrictionsBrowsePolicy {
             (::windows_core::Interface::vtable(this).GeographicRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn MaxBrowsableAgeRating(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
@@ -146,8 +123,6 @@ impl ContentRestrictionsBrowsePolicy {
             (::windows_core::Interface::vtable(this).MaxBrowsableAgeRating)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PreferredAgeRating(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
@@ -282,8 +257,6 @@ impl RatedContentRestrictions {
         static SHARED: ::windows_core::imp::FactoryCache<RatedContentRestrictions, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetBrowsePolicyAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ContentRestrictionsBrowsePolicy>> {
         let this = self;
         unsafe {
@@ -291,8 +264,6 @@ impl RatedContentRestrictions {
             (::windows_core::Interface::vtable(this).GetBrowsePolicyAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetRestrictionLevelAsync<P0>(&self, ratedcontentdescription: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ContentAccessRestrictionLevel>>
     where
         P0: ::windows_core::IntoParam<RatedContentDescription>,
@@ -303,8 +274,6 @@ impl RatedContentRestrictions {
             (::windows_core::Interface::vtable(this).GetRestrictionLevelAsync)(::windows_core::Interface::as_raw(this), ratedcontentdescription.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RequestContentAccessAsync<P0>(&self, ratedcontentdescription: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
         P0: ::windows_core::IntoParam<RatedContentDescription>,
@@ -315,8 +284,6 @@ impl RatedContentRestrictions {
             (::windows_core::Interface::vtable(this).RequestContentAccessAsync)(::windows_core::Interface::as_raw(this), ratedcontentdescription.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RestrictionsChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::EventHandler<::windows_core::IInspectable>>,
@@ -327,8 +294,6 @@ impl RatedContentRestrictions {
             (::windows_core::Interface::vtable(this).RestrictionsChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveRestrictionsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRestrictionsChanged)(::windows_core::Interface::as_raw(this), token).ok() }

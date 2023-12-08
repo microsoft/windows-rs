@@ -184,8 +184,6 @@ impl IMediaBuffer_Vtbl {
         *iid == <IMediaBuffer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMediaObject_Impl: Sized {
     fn GetStreamCount(&self, pcinputstreams: *mut u32, pcoutputstreams: *mut u32) -> ::windows_core::Result<()>;
     fn GetInputStreamInfo(&self, dwinputstreamindex: u32) -> ::windows_core::Result<u32>;
@@ -209,9 +207,7 @@ pub trait IMediaObject_Impl: Sized {
     fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputbuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> ::windows_core::Result<()>;
     fn Lock(&self, block: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IMediaObject {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMediaObject_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaObject_Impl, const OFFSET: isize>() -> IMediaObject_Vtbl {
         unsafe extern "system" fn GetStreamCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcinputstreams: *mut u32, pcoutputstreams: *mut u32) -> ::windows_core::HRESULT {

@@ -115,8 +115,6 @@ impl IDot11AdHocInterfaceNotificationSink_Vtbl {
         *iid == <IDot11AdHocInterfaceNotificationSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDot11AdHocManager_Impl: Sized {
     fn CreateNetwork(&self, name: &::windows_core::PCWSTR, password: &::windows_core::PCWSTR, geographicalid: i32, pinterface: ::core::option::Option<&IDot11AdHocInterface>, psecurity: ::core::option::Option<&IDot11AdHocSecuritySettings>, pcontextguid: *const ::windows_core::GUID) -> ::windows_core::Result<IDot11AdHocNetwork>;
     fn CommitCreatedNetwork(&self, piadhoc: ::core::option::Option<&IDot11AdHocNetwork>, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows_core::Result<()>;
@@ -124,9 +122,7 @@ pub trait IDot11AdHocManager_Impl: Sized {
     fn GetIEnumDot11AdHocInterfaces(&self) -> ::windows_core::Result<IEnumDot11AdHocInterfaces>;
     fn GetNetwork(&self, networksignature: *const ::windows_core::GUID) -> ::windows_core::Result<IDot11AdHocNetwork>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDot11AdHocManager {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDot11AdHocManager_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocManager_Impl, const OFFSET: isize>() -> IDot11AdHocManager_Vtbl {
         unsafe extern "system" fn CreateNetwork<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows_core::PCWSTR, password: ::windows_core::PCWSTR, geographicalid: i32, pinterface: *mut ::core::ffi::c_void, psecurity: *mut ::core::ffi::c_void, pcontextguid: *const ::windows_core::GUID, piadhoc: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -232,8 +228,6 @@ impl IDot11AdHocManagerNotificationSink_Vtbl {
         *iid == <IDot11AdHocManagerNotificationSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDot11AdHocNetwork_Impl: Sized {
     fn GetStatus(&self, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows_core::Result<()>;
     fn GetSSID(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -248,9 +242,7 @@ pub trait IDot11AdHocNetwork_Impl: Sized {
     fn Connect(&self, passphrase: &::windows_core::PCWSTR, geographicalid: i32, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows_core::Result<()>;
     fn Disconnect(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDot11AdHocNetwork {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDot11AdHocNetwork_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>() -> IDot11AdHocNetwork_Vtbl {
         unsafe extern "system" fn GetStatus<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows_core::HRESULT {

@@ -58,16 +58,12 @@ impl IAppxBlockMapBlock_Vtbl {
         *iid == <IAppxBlockMapBlock as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBlockMapBlocksEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<IAppxBlockMapBlock>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxBlockMapBlocksEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxBlockMapBlocksEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxBlockMapBlocksEnumerator_Impl, const OFFSET: isize>() -> IAppxBlockMapBlocksEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxBlockMapBlocksEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, block: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -114,8 +110,8 @@ impl IAppxBlockMapBlocksEnumerator_Vtbl {
         *iid == <IAppxBlockMapBlocksEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBlockMapFile_Impl: Sized {
     fn GetBlocks(&self) -> ::windows_core::Result<IAppxBlockMapBlocksEnumerator>;
     fn GetLocalFileHeaderSize(&self) -> ::windows_core::Result<u32>;
@@ -123,9 +119,9 @@ pub trait IAppxBlockMapFile_Impl: Sized {
     fn GetUncompressedSize(&self) -> ::windows_core::Result<u64>;
     fn ValidateFileHash(&self, filestream: ::core::option::Option<&super::super::super::System::Com::IStream>) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IAppxBlockMapFile {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IAppxBlockMapFile_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxBlockMapFile_Impl, const OFFSET: isize>() -> IAppxBlockMapFile_Vtbl {
         unsafe extern "system" fn GetBlocks<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxBlockMapFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blocks: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -196,16 +192,12 @@ impl IAppxBlockMapFile_Vtbl {
         *iid == <IAppxBlockMapFile as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBlockMapFilesEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<IAppxBlockMapFile>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxBlockMapFilesEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxBlockMapFilesEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxBlockMapFilesEnumerator_Impl, const OFFSET: isize>() -> IAppxBlockMapFilesEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxBlockMapFilesEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -456,16 +448,12 @@ impl IAppxBundleManifestOptionalBundleInfo_Vtbl {
         *iid == <IAppxBundleManifestOptionalBundleInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBundleManifestOptionalBundleInfoEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<IAppxBundleManifestOptionalBundleInfo>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxBundleManifestOptionalBundleInfoEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxBundleManifestOptionalBundleInfoEnumerator_Impl, const OFFSET: isize>() -> IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxBundleManifestOptionalBundleInfoEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionalbundle: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -603,16 +591,12 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
         *iid == <IAppxBundleManifestPackageInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBundleManifestPackageInfo2_Impl: Sized {
     fn GetIsPackageReference(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn GetIsNonQualifiedResourcePackage(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn GetIsDefaultApplicablePackage(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxBundleManifestPackageInfo2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxBundleManifestPackageInfo2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxBundleManifestPackageInfo2_Impl, const OFFSET: isize>() -> IAppxBundleManifestPackageInfo2_Vtbl {
         unsafe extern "system" fn GetIsPackageReference<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxBundleManifestPackageInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ispackagereference: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -682,14 +666,10 @@ impl IAppxBundleManifestPackageInfo3_Vtbl {
         *iid == <IAppxBundleManifestPackageInfo3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBundleManifestPackageInfo4_Impl: Sized {
     fn GetIsStub(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxBundleManifestPackageInfo4 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxBundleManifestPackageInfo4_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxBundleManifestPackageInfo4_Impl, const OFFSET: isize>() -> IAppxBundleManifestPackageInfo4_Vtbl {
         unsafe extern "system" fn GetIsStub<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxBundleManifestPackageInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isstub: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -709,16 +689,12 @@ impl IAppxBundleManifestPackageInfo4_Vtbl {
         *iid == <IAppxBundleManifestPackageInfo4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBundleManifestPackageInfoEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<IAppxBundleManifestPackageInfo>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxBundleManifestPackageInfoEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxBundleManifestPackageInfoEnumerator_Impl, const OFFSET: isize>() -> IAppxBundleManifestPackageInfoEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxBundleManifestPackageInfoEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packageinfo: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1008,16 +984,16 @@ impl IAppxBundleWriter3_Vtbl {
         *iid == <IAppxBundleWriter3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBundleWriter4_Impl: Sized {
     fn AddPayloadPackage(&self, filename: &::windows_core::PCWSTR, packagestream: ::core::option::Option<&super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn AddPackageReference(&self, filename: &::windows_core::PCWSTR, inputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn AddExternalPackageReference(&self, filename: &::windows_core::PCWSTR, inputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IAppxBundleWriter4 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleWriter4_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxBundleWriter4_Impl, const OFFSET: isize>() -> IAppxBundleWriter4_Vtbl {
         unsafe extern "system" fn AddPayloadPackage<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxBundleWriter4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::windows_core::PCWSTR, packagestream: *mut ::core::ffi::c_void, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -1085,16 +1061,12 @@ impl IAppxContentGroup_Vtbl {
         *iid == <IAppxContentGroup as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxContentGroupFilesEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxContentGroupFilesEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxContentGroupFilesEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxContentGroupFilesEnumerator_Impl, const OFFSET: isize>() -> IAppxContentGroupFilesEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxContentGroupFilesEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
@@ -1214,16 +1186,12 @@ impl IAppxContentGroupMapWriter_Vtbl {
         *iid == <IAppxContentGroupMapWriter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxContentGroupsEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<IAppxContentGroup>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxContentGroupsEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxContentGroupsEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxContentGroupsEnumerator_Impl, const OFFSET: isize>() -> IAppxContentGroupsEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxContentGroupsEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1348,15 +1316,15 @@ impl IAppxEncryptedBundleWriter2_Vtbl {
         *iid == <IAppxEncryptedBundleWriter2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptedBundleWriter3_Impl: Sized {
     fn AddPayloadPackageEncrypted(&self, filename: &::windows_core::PCWSTR, packagestream: ::core::option::Option<&super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn AddExternalPackageReference(&self, filename: &::windows_core::PCWSTR, inputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IAppxEncryptedBundleWriter3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptedBundleWriter3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxEncryptedBundleWriter3_Impl, const OFFSET: isize>() -> IAppxEncryptedBundleWriter3_Vtbl {
         unsafe extern "system" fn AddPayloadPackageEncrypted<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxEncryptedBundleWriter3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::windows_core::PCWSTR, packagestream: *mut ::core::ffi::c_void, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -1431,8 +1399,8 @@ impl IAppxEncryptedPackageWriter2_Vtbl {
         *iid == <IAppxEncryptedPackageWriter2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptionFactory_Impl: Sized {
     fn EncryptPackage(&self, inputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, outputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows_core::Result<()>;
     fn DecryptPackage(&self, inputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, outputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> ::windows_core::Result<()>;
@@ -1443,9 +1411,9 @@ pub trait IAppxEncryptionFactory_Impl: Sized {
     fn CreateEncryptedBundleWriter(&self, outputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows_core::Result<IAppxEncryptedBundleWriter>;
     fn CreateEncryptedBundleReader(&self, inputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> ::windows_core::Result<IAppxBundleReader>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IAppxEncryptionFactory {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptionFactory_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxEncryptionFactory_Impl, const OFFSET: isize>() -> IAppxEncryptionFactory_Vtbl {
         unsafe extern "system" fn EncryptPackage<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, outputstream: *mut ::core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows_core::HRESULT {
@@ -1528,14 +1496,14 @@ impl IAppxEncryptionFactory_Vtbl {
         *iid == <IAppxEncryptionFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptionFactory2_Impl: Sized {
     fn CreateEncryptedPackageWriter(&self, outputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, manifeststream: ::core::option::Option<&super::super::super::System::Com::IStream>, contentgroupmapstream: ::core::option::Option<&super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows_core::Result<IAppxEncryptedPackageWriter>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IAppxEncryptionFactory2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptionFactory2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxEncryptionFactory2_Impl, const OFFSET: isize>() -> IAppxEncryptionFactory2_Vtbl {
         unsafe extern "system" fn CreateEncryptedPackageWriter<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxEncryptionFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputstream: *mut ::core::ffi::c_void, manifeststream: *mut ::core::ffi::c_void, contentgroupmapstream: *mut ::core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1679,8 +1647,8 @@ impl IAppxEncryptionFactory5_Vtbl {
         *iid == <IAppxEncryptionFactory5 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IAppxFactory_Impl: Sized {
     fn CreatePackageWriter(&self, outputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, settings: *const APPX_PACKAGE_SETTINGS) -> ::windows_core::Result<IAppxPackageWriter>;
     fn CreatePackageReader(&self, inputstream: ::core::option::Option<&super::super::super::System::Com::IStream>) -> ::windows_core::Result<IAppxPackageReader>;
@@ -1688,9 +1656,9 @@ pub trait IAppxFactory_Impl: Sized {
     fn CreateBlockMapReader(&self, inputstream: ::core::option::Option<&super::super::super::System::Com::IStream>) -> ::windows_core::Result<IAppxBlockMapReader>;
     fn CreateValidatedBlockMapReader(&self, blockmapstream: ::core::option::Option<&super::super::super::System::Com::IStream>, signaturefilename: &::windows_core::PCWSTR) -> ::windows_core::Result<IAppxBlockMapReader>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IAppxFactory {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IAppxFactory_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxFactory_Impl, const OFFSET: isize>() -> IAppxFactory_Vtbl {
         unsafe extern "system" fn CreatePackageWriter<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputstream: *mut ::core::ffi::c_void, settings: *const APPX_PACKAGE_SETTINGS, packagewriter: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1955,16 +1923,12 @@ impl IAppxFile_Vtbl {
         *iid == <IAppxFile as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxFilesEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<IAppxFile>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxFilesEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxFilesEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxFilesEnumerator_Impl, const OFFSET: isize>() -> IAppxFilesEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxFilesEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2050,16 +2014,12 @@ impl IAppxManifestApplication_Vtbl {
         *iid == <IAppxManifestApplication as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestApplicationsEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<IAppxManifestApplication>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxManifestApplicationsEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestApplicationsEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestApplicationsEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestApplicationsEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestApplicationsEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, application: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2106,16 +2066,12 @@ impl IAppxManifestApplicationsEnumerator_Vtbl {
         *iid == <IAppxManifestApplicationsEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestCapabilitiesEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxManifestCapabilitiesEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestCapabilitiesEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestCapabilitiesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestCapabilitiesEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, capability: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
@@ -2162,16 +2118,12 @@ impl IAppxManifestCapabilitiesEnumerator_Vtbl {
         *iid == <IAppxManifestCapabilitiesEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestDeviceCapabilitiesEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxManifestDeviceCapabilitiesEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestDeviceCapabilitiesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestDeviceCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, devicecapability: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
@@ -2270,16 +2222,12 @@ impl IAppxManifestDriverConstraint_Vtbl {
         *iid == <IAppxManifestDriverConstraint as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestDriverConstraintsEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<IAppxManifestDriverConstraint>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxManifestDriverConstraintsEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestDriverConstraintsEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestDriverConstraintsEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestDriverConstraintsEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, driverconstraint: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2326,16 +2274,12 @@ impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
         *iid == <IAppxManifestDriverConstraintsEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestDriverDependenciesEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<IAppxManifestDriverDependency>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxManifestDriverDependenciesEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestDriverDependenciesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestDriverDependenciesEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestDriverDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, driverdependency: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2405,16 +2349,12 @@ impl IAppxManifestDriverDependency_Vtbl {
         *iid == <IAppxManifestDriverDependency as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestHostRuntimeDependenciesEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<IAppxManifestHostRuntimeDependency>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxManifestHostRuntimeDependenciesEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestHostRuntimeDependenciesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestHostRuntimeDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hostruntimedependency: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2536,16 +2476,12 @@ impl IAppxManifestHostRuntimeDependency2_Vtbl {
         *iid == <IAppxManifestHostRuntimeDependency2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestMainPackageDependenciesEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<IAppxManifestMainPackageDependency>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxManifestMainPackageDependenciesEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestMainPackageDependenciesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestMainPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mainpackagedependency: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2644,16 +2580,12 @@ impl IAppxManifestMainPackageDependency_Vtbl {
         *iid == <IAppxManifestMainPackageDependency as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestOSPackageDependenciesEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<IAppxManifestOSPackageDependency>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxManifestOSPackageDependenciesEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestOSPackageDependenciesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestOSPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ospackagedependency: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2739,15 +2671,11 @@ impl IAppxManifestOSPackageDependency_Vtbl {
         *iid == <IAppxManifestOSPackageDependency as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestOptionalPackageInfo_Impl: Sized {
     fn GetIsOptionalPackage(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn GetMainPackageName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxManifestOptionalPackageInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestOptionalPackageInfo_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestOptionalPackageInfo_Impl, const OFFSET: isize>() -> IAppxManifestOptionalPackageInfo_Vtbl {
         unsafe extern "system" fn GetIsOptionalPackage<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestOptionalPackageInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isoptionalpackage: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -2782,16 +2710,12 @@ impl IAppxManifestOptionalPackageInfo_Vtbl {
         *iid == <IAppxManifestOptionalPackageInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestPackageDependenciesEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<IAppxManifestPackageDependency>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxManifestPackageDependenciesEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestPackageDependenciesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestPackageDependenciesEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependency: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2916,14 +2840,10 @@ impl IAppxManifestPackageDependency2_Vtbl {
         *iid == <IAppxManifestPackageDependency2 as ::windows_core::ComInterface>::IID || *iid == <IAppxManifestPackageDependency as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestPackageDependency3_Impl: Sized {
     fn GetIsOptional(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxManifestPackageDependency3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestPackageDependency3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestPackageDependency3_Impl, const OFFSET: isize>() -> IAppxManifestPackageDependency3_Vtbl {
         unsafe extern "system" fn GetIsOptional<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestPackageDependency3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isoptional: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -2943,8 +2863,6 @@ impl IAppxManifestPackageDependency3_Vtbl {
         *iid == <IAppxManifestPackageDependency3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestPackageId_Impl: Sized {
     fn GetName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetArchitecture(&self) -> ::windows_core::Result<APPX_PACKAGE_ARCHITECTURE>;
@@ -2955,9 +2873,7 @@ pub trait IAppxManifestPackageId_Impl: Sized {
     fn GetPackageFullName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxManifestPackageId {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestPackageId_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestPackageId_Impl, const OFFSET: isize>() -> IAppxManifestPackageId_Vtbl {
         unsafe extern "system" fn GetName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
@@ -3064,14 +2980,10 @@ impl IAppxManifestPackageId_Vtbl {
         *iid == <IAppxManifestPackageId as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestPackageId2_Impl: Sized + IAppxManifestPackageId_Impl {
     fn GetArchitecture2(&self) -> ::windows_core::Result<APPX_PACKAGE_ARCHITECTURE2>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxManifestPackageId2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestPackageId2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestPackageId2_Impl, const OFFSET: isize>() -> IAppxManifestPackageId2_Vtbl {
         unsafe extern "system" fn GetArchitecture2<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestPackageId2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, architecture: *mut APPX_PACKAGE_ARCHITECTURE2) -> ::windows_core::HRESULT {
@@ -3091,15 +3003,11 @@ impl IAppxManifestPackageId2_Vtbl {
         *iid == <IAppxManifestPackageId2 as ::windows_core::ComInterface>::IID || *iid == <IAppxManifestPackageId as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestProperties_Impl: Sized {
     fn GetBoolValue(&self, name: &::windows_core::PCWSTR) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn GetStringValue(&self, name: &::windows_core::PCWSTR) -> ::windows_core::Result<::windows_core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxManifestProperties {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestProperties_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestProperties_Impl, const OFFSET: isize>() -> IAppxManifestProperties_Vtbl {
         unsafe extern "system" fn GetBoolValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows_core::PCWSTR, value: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -3186,16 +3094,12 @@ impl IAppxManifestQualifiedResource_Vtbl {
         *iid == <IAppxManifestQualifiedResource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestQualifiedResourcesEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<IAppxManifestQualifiedResource>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxManifestQualifiedResourcesEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestQualifiedResourcesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestQualifiedResourcesEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestQualifiedResourcesEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resource: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3499,14 +3403,10 @@ impl IAppxManifestReader5_Vtbl {
         *iid == <IAppxManifestReader5 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestReader6_Impl: Sized {
     fn GetIsNonQualifiedResourcePackage(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxManifestReader6 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestReader6_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestReader6_Impl, const OFFSET: isize>() -> IAppxManifestReader6_Vtbl {
         unsafe extern "system" fn GetIsNonQualifiedResourcePackage<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestReader6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isnonqualifiedresourcepackage: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -3581,16 +3481,12 @@ impl IAppxManifestReader7_Vtbl {
         *iid == <IAppxManifestReader7 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestResourcesEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxManifestResourcesEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestResourcesEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestResourcesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestResourcesEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestResourcesEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resource: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
@@ -3637,16 +3533,12 @@ impl IAppxManifestResourcesEnumerator_Vtbl {
         *iid == <IAppxManifestResourcesEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestTargetDeviceFamiliesEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<IAppxManifestTargetDeviceFamily>;
     fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAppxManifestTargetDeviceFamiliesEnumerator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestTargetDeviceFamiliesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxManifestTargetDeviceFamiliesEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetdevicefamily: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3745,8 +3637,8 @@ impl IAppxManifestTargetDeviceFamily_Vtbl {
         *iid == <IAppxManifestTargetDeviceFamily as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IAppxPackageEditor_Impl: Sized {
     fn SetWorkingDirectory(&self, workingdirectory: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn CreateDeltaPackage(&self, updatedpackagestream: ::core::option::Option<&super::super::super::System::Com::IStream>, baselinepackagestream: ::core::option::Option<&super::super::super::System::Com::IStream>, deltapackagestream: ::core::option::Option<&super::super::super::System::Com::IStream>) -> ::windows_core::Result<()>;
@@ -3755,9 +3647,9 @@ pub trait IAppxPackageEditor_Impl: Sized {
     fn UpdateEncryptedPackage(&self, baselineencryptedpackagestream: ::core::option::Option<&super::super::super::System::Com::IStream>, deltapackagestream: ::core::option::Option<&super::super::super::System::Com::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> ::windows_core::Result<()>;
     fn UpdatePackageManifest(&self, packagestream: ::core::option::Option<&super::super::super::System::Com::IStream>, updatedmanifeststream: ::core::option::Option<&super::super::super::System::Com::IStream>, ispackageencrypted: super::super::super::Foundation::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IAppxPackageEditor {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IAppxPackageEditor_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxPackageEditor_Impl, const OFFSET: isize>() -> IAppxPackageEditor_Vtbl {
         unsafe extern "system" fn SetWorkingDirectory<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxPackageEditor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, workingdirectory: ::windows_core::PCWSTR) -> ::windows_core::HRESULT {

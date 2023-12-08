@@ -7,6 +7,5 @@ publish = false
 [dependencies.windows-sys]
 path = "../../../libs/sys"
 features = [
-    "Win32_Foundation",
     "Win32_System_Threading",
 ]

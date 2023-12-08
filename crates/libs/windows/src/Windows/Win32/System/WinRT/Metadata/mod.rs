@@ -43,8 +43,6 @@ where
     ::windows_targets::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoGetParameterizedTypeInstanceIID(nameelementcount : u32, nameelements : *const ::windows_core::PCWSTR, metadatalocator : * mut::core::ffi::c_void, iid : *mut ::windows_core::GUID, pextra : *mut super:: ROPARAMIIDHANDLE) -> ::windows_core::HRESULT);
     RoGetParameterizedTypeInstanceIID(nameelements.len().try_into().unwrap(), ::core::mem::transmute(nameelements.as_ptr()), metadatalocator.into_param().abi(), iid, ::core::mem::transmute(pextra.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoIsApiContractMajorVersionPresent<P0>(name: P0, majorversion: u16) -> ::windows_core::Result<super::super::super::Foundation::BOOL>
 where
@@ -54,8 +52,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     RoIsApiContractMajorVersionPresent(name.into_param().abi(), majorversion, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoIsApiContractPresent<P0>(name: P0, majorversion: u16, minorversion: u16) -> ::windows_core::Result<super::super::super::Foundation::BOOL>
 where
@@ -435,13 +431,13 @@ impl IMetaDataDispenserEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.OpenScopeOnMemory)(::windows_core::Interface::as_raw(self), pdata, cbdata, dwopenflags, riid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetOption(&self, optionid: *const ::windows_core::GUID, value: *const super::super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOption)(::windows_core::Interface::as_raw(self), optionid, value).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetOption(&self, optionid: *const ::windows_core::GUID, pvalue: *mut super::super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetOption)(::windows_core::Interface::as_raw(self), optionid, pvalue).ok()
     }
@@ -489,13 +485,13 @@ unsafe impl ::windows_core::ComInterface for IMetaDataDispenserEx {
 #[doc(hidden)]
 pub struct IMetaDataDispenserEx_Vtbl {
     pub base__: IMetaDataDispenser_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub SetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionid: *const ::windows_core::GUID, value: *const super::super::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetOption: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionid: *const ::windows_core::GUID, pvalue: *mut super::super::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetOption: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub OpenScopeOnITypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piti: *mut ::core::ffi::c_void, dwopenflags: u32, riid: *const ::windows_core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1125,8 +1121,6 @@ impl IMetaDataFilter {
     pub unsafe fn MarkToken(&self, tk: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).MarkToken)(::windows_core::Interface::as_raw(self), tk).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsTokenMarked(&self, tk: u32, pismarked: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsTokenMarked)(::windows_core::Interface::as_raw(self), tk, pismarked).ok()
     }
@@ -1144,10 +1138,7 @@ pub struct IMetaDataFilter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub UnmarkAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub MarkToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tk: u32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsTokenMarked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tk: u32, pismarked: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsTokenMarked: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1363,8 +1354,6 @@ impl IMetaDataImport {
     {
         (::windows_core::Interface::vtable(self).GetCustomAttributeByName)(::windows_core::Interface::as_raw(self), tkobj, szname.into_param().abi(), ppdata, pcbdata).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsValidToken(&self, tk: u32) -> super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsValidToken)(::windows_core::Interface::as_raw(self), tk)
     }
@@ -1447,10 +1436,7 @@ pub struct IMetaDataImport_Vtbl {
     pub GetPropertyProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prop: u32, pclass: *mut u32, szproperty: ::windows_core::PCWSTR, cchproperty: u32, pchproperty: *mut u32, pdwpropflags: *mut u32, ppvsig: *mut *mut u8, pbsig: *mut u32, pdwcplustypeflag: *mut u32, ppdefaultvalue: *mut *mut ::core::ffi::c_void, pcchdefaultvalue: *mut u32, pmdsetter: *mut u32, pmdgetter: *mut u32, rmdothermethod: *mut u32, cmax: u32, pcothermethod: *mut u32) -> ::windows_core::HRESULT,
     pub GetParamProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tk: u32, pmd: *mut u32, pulsequence: *mut u32, szname: ::windows_core::PWSTR, cchname: u32, pchname: *mut u32, pdwattr: *mut u32, pdwcplustypeflag: *mut u32, ppvalue: *mut *mut ::core::ffi::c_void, pcchvalue: *mut u32) -> ::windows_core::HRESULT,
     pub GetCustomAttributeByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tkobj: u32, szname: ::windows_core::PCWSTR, ppdata: *const *const ::core::ffi::c_void, pcbdata: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsValidToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tk: u32) -> super::super::super::Foundation::BOOL,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsValidToken: usize,
     pub GetNestedClassProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tdnestedclass: u32, ptdenclosingclass: *mut u32) -> ::windows_core::HRESULT,
     pub GetNativeCallConvFromSig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvsig: *const ::core::ffi::c_void, cbsig: u32, pcallconv: *mut u32) -> ::windows_core::HRESULT,
     pub IsGlobal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pd: u32, pbglobal: *mut i32) -> ::windows_core::HRESULT,
@@ -1669,8 +1655,6 @@ impl IMetaDataImport2 {
     {
         (::windows_core::Interface::vtable(self).base__.GetCustomAttributeByName)(::windows_core::Interface::as_raw(self), tkobj, szname.into_param().abi(), ppdata, pcbdata).ok()
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsValidToken(&self, tk: u32) -> super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.IsValidToken)(::windows_core::Interface::as_raw(self), tk)
     }

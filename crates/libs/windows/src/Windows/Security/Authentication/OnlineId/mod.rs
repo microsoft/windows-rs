@@ -12,18 +12,12 @@ unsafe impl ::windows_core::ComInterface for IOnlineIdAuthenticator {
 #[doc(hidden)]
 pub struct IOnlineIdAuthenticator_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub AuthenticateUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AuthenticateUserAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
     pub AuthenticateUserAsyncAdvanced: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requests: *mut ::core::ffi::c_void, credentialprompttype: CredentialPromptType, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     AuthenticateUserAsyncAdvanced: usize,
-    #[cfg(feature = "Foundation")]
     pub SignOutUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SignOutUserAsync: usize,
     pub SetApplicationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub ApplicationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub CanSignOut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
@@ -95,10 +89,7 @@ unsafe impl ::windows_core::ComInterface for IOnlineIdSystemAuthenticatorForUser
 #[doc(hidden)]
 pub struct IOnlineIdSystemAuthenticatorForUser_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub GetTicketAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetTicketAsync: usize,
     pub SetApplicationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub ApplicationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     #[cfg(feature = "System")]
@@ -198,8 +189,6 @@ impl OnlineIdAuthenticator {
         static SHARED: ::windows_core::imp::FactoryCache<OnlineIdAuthenticator, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AuthenticateUserAsync<P0>(&self, request: P0) -> ::windows_core::Result<UserAuthenticationOperation>
     where
         P0: ::windows_core::IntoParam<OnlineIdServiceTicketRequest>,
@@ -222,8 +211,6 @@ impl OnlineIdAuthenticator {
             (::windows_core::Interface::vtable(this).AuthenticateUserAsyncAdvanced)(::windows_core::Interface::as_raw(this), requests.try_into_param()?.abi(), credentialprompttype, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SignOutUserAsync(&self) -> ::windows_core::Result<SignOutUserOperation> {
         let this = self;
         unsafe {
@@ -396,8 +383,6 @@ impl ::windows_core::RuntimeName for OnlineIdSystemAuthenticator {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct OnlineIdSystemAuthenticatorForUser(::windows_core::IUnknown);
 impl OnlineIdSystemAuthenticatorForUser {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetTicketAsync<P0>(&self, request: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>>
     where
         P0: ::windows_core::IntoParam<OnlineIdServiceTicketRequest>,
@@ -519,15 +504,10 @@ impl ::windows_core::RuntimeName for OnlineIdSystemTicketResult {
 ::windows_core::imp::interface_hierarchy!(OnlineIdSystemTicketResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for OnlineIdSystemTicketResult {}
 unsafe impl ::core::marker::Sync for OnlineIdSystemTicketResult {}
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SignOutUserOperation(::windows_core::IUnknown);
-#[cfg(feature = "Foundation")]
 impl SignOutUserOperation {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::AsyncActionCompletedHandler>,
@@ -535,8 +515,6 @@ impl SignOutUserOperation {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Completed(&self) -> ::windows_core::Result<super::super::super::Foundation::AsyncActionCompletedHandler> {
         let this = self;
         unsafe {
@@ -544,14 +522,10 @@ impl SignOutUserOperation {
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetResults(&self) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).GetResults)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Id(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -559,8 +533,6 @@ impl SignOutUserOperation {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Status(&self) -> ::windows_core::Result<super::super::super::Foundation::AsyncStatus> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -568,8 +540,6 @@ impl SignOutUserOperation {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ErrorCode(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -577,36 +547,27 @@ impl SignOutUserOperation {
             (::windows_core::Interface::vtable(this).ErrorCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Cancel(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Cancel)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeType for SignOutUserOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
-#[cfg(feature = "Foundation")]
 unsafe impl ::windows_core::Interface for SignOutUserOperation {
     type Vtable = super::super::super::Foundation::IAsyncAction_Vtbl;
 }
-#[cfg(feature = "Foundation")]
 unsafe impl ::windows_core::ComInterface for SignOutUserOperation {
     const IID: ::windows_core::GUID = <super::super::super::Foundation::IAsyncAction as ::windows_core::ComInterface>::IID;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for SignOutUserOperation {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.SignOutUserOperation";
 }
-#[cfg(feature = "Foundation")]
 impl SignOutUserOperation {
     pub fn get(&self) -> ::windows_core::Result<()> {
         if self.Status()? == super::super::super::Foundation::AsyncStatus::Started {
@@ -621,7 +582,6 @@ impl SignOutUserOperation {
         self.GetResults()
     }
 }
-#[cfg(feature = "Foundation")]
 impl ::std::future::Future for SignOutUserOperation {
     type Output = ::windows_core::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -637,25 +597,15 @@ impl ::std::future::Future for SignOutUserOperation {
         }
     }
 }
-#[cfg(feature = "Foundation")]
 ::windows_core::imp::interface_hierarchy!(SignOutUserOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IAsyncAction> for SignOutUserOperation {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IAsyncInfo> for SignOutUserOperation {}
-#[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Send for SignOutUserOperation {}
-#[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Sync for SignOutUserOperation {}
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserAuthenticationOperation(::windows_core::IUnknown);
-#[cfg(feature = "Foundation")]
 impl UserAuthenticationOperation {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Id(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -663,8 +613,6 @@ impl UserAuthenticationOperation {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Status(&self) -> ::windows_core::Result<super::super::super::Foundation::AsyncStatus> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -672,8 +620,6 @@ impl UserAuthenticationOperation {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ErrorCode(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -681,20 +627,14 @@ impl UserAuthenticationOperation {
             (::windows_core::Interface::vtable(this).ErrorCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Cancel(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Cancel)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::AsyncOperationCompletedHandler<UserIdentity>>,
@@ -702,8 +642,6 @@ impl UserAuthenticationOperation {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Completed(&self) -> ::windows_core::Result<super::super::super::Foundation::AsyncOperationCompletedHandler<UserIdentity>> {
         let this = self;
         unsafe {
@@ -711,8 +649,6 @@ impl UserAuthenticationOperation {
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetResults(&self) -> ::windows_core::Result<UserIdentity> {
         let this = self;
         unsafe {
@@ -721,23 +657,18 @@ impl UserAuthenticationOperation {
         }
     }
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeType for UserAuthenticationOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
-#[cfg(feature = "Foundation")]
 unsafe impl ::windows_core::Interface for UserAuthenticationOperation {
     type Vtable = super::super::super::Foundation::IAsyncOperation_Vtbl<UserIdentity>;
 }
-#[cfg(feature = "Foundation")]
 unsafe impl ::windows_core::ComInterface for UserAuthenticationOperation {
     const IID: ::windows_core::GUID = <super::super::super::Foundation::IAsyncOperation<UserIdentity> as ::windows_core::ComInterface>::IID;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for UserAuthenticationOperation {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.UserAuthenticationOperation";
 }
-#[cfg(feature = "Foundation")]
 impl UserAuthenticationOperation {
     pub fn get(&self) -> ::windows_core::Result<UserIdentity> {
         if self.Status()? == super::super::super::Foundation::AsyncStatus::Started {
@@ -752,7 +683,6 @@ impl UserAuthenticationOperation {
         self.GetResults()
     }
 }
-#[cfg(feature = "Foundation")]
 impl ::std::future::Future for UserAuthenticationOperation {
     type Output = ::windows_core::Result<UserIdentity>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -768,15 +698,10 @@ impl ::std::future::Future for UserAuthenticationOperation {
         }
     }
 }
-#[cfg(feature = "Foundation")]
 ::windows_core::imp::interface_hierarchy!(UserAuthenticationOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IAsyncInfo> for UserAuthenticationOperation {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IAsyncOperation<UserIdentity>> for UserAuthenticationOperation {}
-#[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Send for UserAuthenticationOperation {}
-#[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Sync for UserAuthenticationOperation {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

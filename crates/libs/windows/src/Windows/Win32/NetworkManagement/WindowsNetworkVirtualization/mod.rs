@@ -1,12 +1,10 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
     ::windows_targets::link!("wnvapi.dll" "system" fn WnvOpen() -> super::super::Foundation:: HANDLE);
     WnvOpen()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WnvRequestNotification<P0>(wnvhandle: P0, notificationparam: *mut WNV_NOTIFICATION_PARAM, overlapped: *mut super::super::System::IO::OVERLAPPED, bytestransferred: *mut u32) -> u32
 where

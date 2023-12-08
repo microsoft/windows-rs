@@ -63,10 +63,7 @@ pub struct IDisplayDevice_Vtbl {
     pub CreateScanoutSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreatePrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: *mut ::core::ffi::c_void, desc: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateTaskPool: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub CreatePeriodicFence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: *mut ::core::ffi::c_void, offsetfromvblank: super::super::super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreatePeriodicFence: usize,
     pub WaitForVBlank: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateSimpleScanout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psource: *mut ::core::ffi::c_void, psurface: *mut ::core::ffi::c_void, subresourceindex: u32, syncinterval: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub IsCapabilitySupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capability: DisplayDeviceCapability, result__: *mut bool) -> ::windows_core::HRESULT,
@@ -143,38 +140,14 @@ pub struct IDisplayManager_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     TryAcquireTargetsAndCreateSubstate: usize,
     pub CreateDisplayDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapter: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Enabled: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveEnabled: usize,
-    #[cfg(feature = "Foundation")]
     pub Disabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Disabled: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveDisabled: usize,
-    #[cfg(feature = "Foundation")]
     pub Changed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Changed: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub PathsFailedOrInvalidated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PathsFailedOrInvalidated: usize,
-    #[cfg(feature = "Foundation")]
     pub RemovePathsFailedOrInvalidated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePathsFailedOrInvalidated: usize,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -194,10 +167,7 @@ pub struct IDisplayManagerChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -215,10 +185,7 @@ pub struct IDisplayManagerDisabledEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -236,10 +203,7 @@ pub struct IDisplayManagerEnabledEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -257,10 +221,7 @@ pub struct IDisplayManagerPathsFailedOrInvalidatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -371,13 +332,13 @@ pub struct IDisplayPath_Vtbl {
     pub View: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Target: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayPathStatus) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Graphics"))]
+    #[cfg(feature = "Graphics")]
     pub SourceResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics")))]
+    #[cfg(not(feature = "Graphics"))]
     SourceResolution: usize,
-    #[cfg(all(feature = "Foundation", feature = "Graphics"))]
+    #[cfg(feature = "Graphics")]
     pub SetSourceResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics")))]
+    #[cfg(not(feature = "Graphics"))]
     SetSourceResolution: usize,
     #[cfg(feature = "Graphics_DirectX")]
     pub SourcePixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows_core::HRESULT,
@@ -389,13 +350,13 @@ pub struct IDisplayPath_Vtbl {
     SetSourcePixelFormat: usize,
     pub IsStereo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetIsStereo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Graphics"))]
+    #[cfg(feature = "Graphics")]
     pub TargetResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics")))]
+    #[cfg(not(feature = "Graphics"))]
     TargetResolution: usize,
-    #[cfg(all(feature = "Foundation", feature = "Graphics"))]
+    #[cfg(feature = "Graphics")]
     pub SetTargetResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics")))]
+    #[cfg(not(feature = "Graphics"))]
     SetTargetResolution: usize,
     #[cfg(feature = "Foundation_Numerics")]
     pub PresentationRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -405,14 +366,8 @@ pub struct IDisplayPath_Vtbl {
     pub SetPresentationRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetPresentationRate: usize,
-    #[cfg(feature = "Foundation")]
     pub IsInterlaced: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IsInterlaced: usize,
-    #[cfg(feature = "Foundation")]
     pub SetIsInterlaced: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetIsInterlaced: usize,
     pub WireFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetWireFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Rotation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayRotation) -> ::windows_core::HRESULT,
@@ -578,14 +533,8 @@ unsafe impl ::windows_core::ComInterface for IDisplaySource2 {
 pub struct IDisplaySource2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplaySourceStatus) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub StatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StatusChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveStatusChanged: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -794,13 +743,13 @@ pub struct IDisplayView_Vtbl {
     pub Paths: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Paths: usize,
-    #[cfg(all(feature = "Foundation", feature = "Graphics"))]
+    #[cfg(feature = "Graphics")]
     pub ContentResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics")))]
+    #[cfg(not(feature = "Graphics"))]
     ContentResolution: usize,
-    #[cfg(all(feature = "Foundation", feature = "Graphics"))]
+    #[cfg(feature = "Graphics")]
     pub SetContentResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics")))]
+    #[cfg(not(feature = "Graphics"))]
     SetContentResolution: usize,
     pub SetPrimaryPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -992,8 +941,6 @@ impl DisplayDevice {
             (::windows_core::Interface::vtable(this).CreateTaskPool)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreatePeriodicFence<P0>(&self, target: P0, offsetfromvblank: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<DisplayFence>
     where
         P0: ::windows_core::IntoParam<DisplayTarget>,
@@ -1082,8 +1029,6 @@ unsafe impl ::core::marker::Sync for DisplayFence {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DisplayManager(::windows_core::IUnknown);
 impl DisplayManager {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -1177,8 +1122,6 @@ impl DisplayManager {
             (::windows_core::Interface::vtable(this).CreateDisplayDevice)(::windows_core::Interface::as_raw(this), adapter.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Enabled<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerEnabledEventArgs>>,
@@ -1189,14 +1132,10 @@ impl DisplayManager {
             (::windows_core::Interface::vtable(this).Enabled)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveEnabled(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveEnabled)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Disabled<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerDisabledEventArgs>>,
@@ -1207,14 +1146,10 @@ impl DisplayManager {
             (::windows_core::Interface::vtable(this).Disabled)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveDisabled(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveDisabled)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Changed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerChangedEventArgs>>,
@@ -1225,14 +1160,10 @@ impl DisplayManager {
             (::windows_core::Interface::vtable(this).Changed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PathsFailedOrInvalidated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerPathsFailedOrInvalidatedEventArgs>>,
@@ -1243,8 +1174,6 @@ impl DisplayManager {
             (::windows_core::Interface::vtable(this).PathsFailedOrInvalidated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemovePathsFailedOrInvalidated(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePathsFailedOrInvalidated)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -1282,7 +1211,6 @@ impl ::windows_core::RuntimeName for DisplayManager {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManager";
 }
 ::windows_core::imp::interface_hierarchy!(DisplayManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for DisplayManager {}
 unsafe impl ::core::marker::Send for DisplayManager {}
 unsafe impl ::core::marker::Sync for DisplayManager {}
@@ -1301,8 +1229,6 @@ impl DisplayManagerChangedEventArgs {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetHandled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1341,8 +1267,6 @@ impl DisplayManagerDisabledEventArgs {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetHandled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1381,8 +1305,6 @@ impl DisplayManagerEnabledEventArgs {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetHandled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1421,8 +1343,6 @@ impl DisplayManagerPathsFailedOrInvalidatedEventArgs {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetHandled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1617,8 +1537,8 @@ impl DisplayPath {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Graphics\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Graphics"))]
+    #[doc = "Required features: `\"Graphics\"`"]
+    #[cfg(feature = "Graphics")]
     pub fn SourceResolution(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>> {
         let this = self;
         unsafe {
@@ -1626,8 +1546,8 @@ impl DisplayPath {
             (::windows_core::Interface::vtable(this).SourceResolution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Graphics\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Graphics"))]
+    #[doc = "Required features: `\"Graphics\"`"]
+    #[cfg(feature = "Graphics")]
     pub fn SetSourceResolution<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>,
@@ -1661,8 +1581,8 @@ impl DisplayPath {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIsStereo)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Graphics\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Graphics"))]
+    #[doc = "Required features: `\"Graphics\"`"]
+    #[cfg(feature = "Graphics")]
     pub fn TargetResolution(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>> {
         let this = self;
         unsafe {
@@ -1670,8 +1590,8 @@ impl DisplayPath {
             (::windows_core::Interface::vtable(this).TargetResolution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Graphics\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Graphics"))]
+    #[doc = "Required features: `\"Graphics\"`"]
+    #[cfg(feature = "Graphics")]
     pub fn SetTargetResolution<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>,
@@ -1697,8 +1617,6 @@ impl DisplayPath {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPresentationRate)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn IsInterlaced(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<bool>> {
         let this = self;
         unsafe {
@@ -1706,8 +1624,6 @@ impl DisplayPath {
             (::windows_core::Interface::vtable(this).IsInterlaced)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetIsInterlaced<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<bool>>,
@@ -1971,8 +1887,6 @@ impl DisplaySource {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<DisplaySource, ::windows_core::IInspectable>>,
@@ -1983,8 +1897,6 @@ impl DisplaySource {
             (::windows_core::Interface::vtable(this).StatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IDisplaySource2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStatusChanged)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -2466,8 +2378,8 @@ impl DisplayView {
             (::windows_core::Interface::vtable(this).Paths)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Graphics\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Graphics"))]
+    #[doc = "Required features: `\"Graphics\"`"]
+    #[cfg(feature = "Graphics")]
     pub fn ContentResolution(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>> {
         let this = self;
         unsafe {
@@ -2475,8 +2387,8 @@ impl DisplayView {
             (::windows_core::Interface::vtable(this).ContentResolution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Graphics\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Graphics"))]
+    #[doc = "Required features: `\"Graphics\"`"]
+    #[cfg(feature = "Graphics")]
     pub fn SetContentResolution<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>,

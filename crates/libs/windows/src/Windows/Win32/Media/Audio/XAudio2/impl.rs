@@ -1,5 +1,3 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXAPO_Impl: Sized {
     fn GetRegistrationProperties(&self) -> ::windows_core::Result<*mut XAPO_REGISTRATION_PROPERTIES>;
     fn IsInputFormatSupported(&self, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX, ppsupportedinputformat: *mut *mut super::WAVEFORMATEX) -> ::windows_core::Result<()>;
@@ -12,9 +10,7 @@ pub trait IXAPO_Impl: Sized {
     fn CalcInputFrames(&self, outputframecount: u32) -> u32;
     fn CalcOutputFrames(&self, inputframecount: u32) -> u32;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IXAPO {}
-#[cfg(feature = "Win32_Foundation")]
 impl IXAPO_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXAPO_Impl, const OFFSET: isize>() -> IXAPO_Vtbl {
         unsafe extern "system" fn GetRegistrationProperties<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXAPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppregistrationproperties: *mut *mut XAPO_REGISTRATION_PROPERTIES) -> ::windows_core::HRESULT {
@@ -159,8 +155,6 @@ impl IXAPOParameters_Vtbl {
         *iid == <IXAPOParameters as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXAudio2_Impl: Sized {
     fn RegisterForCallbacks(&self, pcallback: ::core::option::Option<&IXAudio2EngineCallback>) -> ::windows_core::Result<()>;
     fn UnregisterForCallbacks(&self, pcallback: ::core::option::Option<&IXAudio2EngineCallback>);
@@ -173,9 +167,7 @@ pub trait IXAudio2_Impl: Sized {
     fn GetPerformanceData(&self, pperfdata: *mut XAUDIO2_PERFORMANCE_DATA);
     fn SetDebugConfiguration(&self, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *const ::core::ffi::c_void);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IXAudio2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IXAudio2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2_Impl, const OFFSET: isize>() -> IXAudio2_Vtbl {
         unsafe extern "system" fn RegisterForCallbacks<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -310,12 +302,9 @@ impl IXAudio2Extension_Vtbl {
         *iid == <IXAudio2Extension as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXAudio2MasteringVoice_Impl: Sized + IXAudio2Voice_Impl {
     fn GetChannelMask(&self) -> ::windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IXAudio2MasteringVoice_Vtbl {
     pub const fn new<Impl: IXAudio2MasteringVoice_Impl>() -> IXAudio2MasteringVoice_Vtbl {
         unsafe extern "system" fn GetChannelMask<Impl: IXAudio2MasteringVoice_Impl>(this: *mut ::core::ffi::c_void, pchannelmask: *mut u32) -> ::windows_core::HRESULT {
@@ -333,13 +322,10 @@ impl IXAudio2MasteringVoice_Vtbl {
     }
 }
 #[doc(hidden)]
-#[cfg(feature = "Win32_Foundation")]
 struct IXAudio2MasteringVoice_ImplVtbl<T: IXAudio2MasteringVoice_Impl>(::std::marker::PhantomData<T>);
-#[cfg(feature = "Win32_Foundation")]
 impl<T: IXAudio2MasteringVoice_Impl> IXAudio2MasteringVoice_ImplVtbl<T> {
     const VTABLE: IXAudio2MasteringVoice_Vtbl = IXAudio2MasteringVoice_Vtbl::new::<T>();
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IXAudio2MasteringVoice {
     pub fn new<'a, T: IXAudio2MasteringVoice_Impl>(this: &'a T) -> ::windows_core::ScopedInterface<'a, Self> {
         let this = ::windows_core::ScopedHeap { vtable: &IXAudio2MasteringVoice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
@@ -347,8 +333,6 @@ impl IXAudio2MasteringVoice {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXAudio2SourceVoice_Impl: Sized + IXAudio2Voice_Impl {
     fn Start(&self, flags: u32, operationset: u32) -> ::windows_core::Result<()>;
     fn Stop(&self, flags: u32, operationset: u32) -> ::windows_core::Result<()>;
@@ -361,7 +345,6 @@ pub trait IXAudio2SourceVoice_Impl: Sized + IXAudio2Voice_Impl {
     fn GetFrequencyRatio(&self, pratio: *mut f32);
     fn SetSourceSampleRate(&self, newsourcesamplerate: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IXAudio2SourceVoice_Vtbl {
     pub const fn new<Impl: IXAudio2SourceVoice_Impl>() -> IXAudio2SourceVoice_Vtbl {
         unsafe extern "system" fn Start<Impl: IXAudio2SourceVoice_Impl>(this: *mut ::core::ffi::c_void, flags: u32, operationset: u32) -> ::windows_core::HRESULT {
@@ -430,13 +413,10 @@ impl IXAudio2SourceVoice_Vtbl {
     }
 }
 #[doc(hidden)]
-#[cfg(feature = "Win32_Foundation")]
 struct IXAudio2SourceVoice_ImplVtbl<T: IXAudio2SourceVoice_Impl>(::std::marker::PhantomData<T>);
-#[cfg(feature = "Win32_Foundation")]
 impl<T: IXAudio2SourceVoice_Impl> IXAudio2SourceVoice_ImplVtbl<T> {
     const VTABLE: IXAudio2SourceVoice_Vtbl = IXAudio2SourceVoice_Vtbl::new::<T>();
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IXAudio2SourceVoice {
     pub fn new<'a, T: IXAudio2SourceVoice_Impl>(this: &'a T) -> ::windows_core::ScopedInterface<'a, Self> {
         let this = ::windows_core::ScopedHeap { vtable: &IXAudio2SourceVoice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
@@ -444,23 +424,17 @@ impl IXAudio2SourceVoice {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXAudio2SubmixVoice_Impl: Sized + IXAudio2Voice_Impl {}
-#[cfg(feature = "Win32_Foundation")]
 impl IXAudio2SubmixVoice_Vtbl {
     pub const fn new<Impl: IXAudio2SubmixVoice_Impl>() -> IXAudio2SubmixVoice_Vtbl {
         Self { base__: IXAudio2Voice_Vtbl::new::<Impl>() }
     }
 }
 #[doc(hidden)]
-#[cfg(feature = "Win32_Foundation")]
 struct IXAudio2SubmixVoice_ImplVtbl<T: IXAudio2SubmixVoice_Impl>(::std::marker::PhantomData<T>);
-#[cfg(feature = "Win32_Foundation")]
 impl<T: IXAudio2SubmixVoice_Impl> IXAudio2SubmixVoice_ImplVtbl<T> {
     const VTABLE: IXAudio2SubmixVoice_Vtbl = IXAudio2SubmixVoice_Vtbl::new::<T>();
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IXAudio2SubmixVoice {
     pub fn new<'a, T: IXAudio2SubmixVoice_Impl>(this: &'a T) -> ::windows_core::ScopedInterface<'a, Self> {
         let this = ::windows_core::ScopedHeap { vtable: &IXAudio2SubmixVoice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
@@ -468,8 +442,6 @@ impl IXAudio2SubmixVoice {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXAudio2Voice_Impl: Sized {
     fn GetVoiceDetails(&self, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS);
     fn SetOutputVoices(&self, psendlist: *const XAUDIO2_VOICE_SENDS) -> ::windows_core::Result<()>;
@@ -491,7 +463,6 @@ pub trait IXAudio2Voice_Impl: Sized {
     fn GetOutputMatrix(&self, pdestinationvoice: ::core::option::Option<&IXAudio2Voice>, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *mut f32);
     fn DestroyVoice(&self);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IXAudio2Voice_Vtbl {
     pub const fn new<Impl: IXAudio2Voice_Impl>() -> IXAudio2Voice_Vtbl {
         unsafe extern "system" fn GetVoiceDetails<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS) {
@@ -613,13 +584,10 @@ impl IXAudio2Voice_Vtbl {
     }
 }
 #[doc(hidden)]
-#[cfg(feature = "Win32_Foundation")]
 struct IXAudio2Voice_ImplVtbl<T: IXAudio2Voice_Impl>(::std::marker::PhantomData<T>);
-#[cfg(feature = "Win32_Foundation")]
 impl<T: IXAudio2Voice_Impl> IXAudio2Voice_ImplVtbl<T> {
     const VTABLE: IXAudio2Voice_Vtbl = IXAudio2Voice_Vtbl::new::<T>();
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IXAudio2Voice {
     pub fn new<'a, T: IXAudio2Voice_Impl>(this: &'a T) -> ::windows_core::ScopedInterface<'a, Self> {
         let this = ::windows_core::ScopedHeap { vtable: &IXAudio2Voice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };

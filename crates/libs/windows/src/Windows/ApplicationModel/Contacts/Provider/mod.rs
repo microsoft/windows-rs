@@ -23,14 +23,8 @@ pub struct IContactPickerUI_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     DesiredFields: usize,
     pub SelectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::ContactSelectionMode) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub ContactRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ContactRemoved: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveContactRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveContactRemoved: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -111,8 +105,6 @@ impl ContactPickerUI {
             (::windows_core::Interface::vtable(this).SelectionMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ContactRemoved<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<ContactPickerUI, ContactRemovedEventArgs>>,
@@ -123,8 +115,6 @@ impl ContactPickerUI {
             (::windows_core::Interface::vtable(this).ContactRemoved)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveContactRemoved(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveContactRemoved)(::windows_core::Interface::as_raw(this), token).ok() }

@@ -1,14 +1,10 @@
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("faultrep.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AddERExcludedApplicationA(szapplication : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("faultrep.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AddERExcludedApplicationW(wszapplication : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-::windows_targets::link!("faultrep.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"] fn ReportFault(pep : *const super::Diagnostics::Debug:: EXCEPTION_POINTERS, dwopt : u32) -> EFaultRepRetVal);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wer.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WerAddExcludedApplication(pwzexename : ::windows_sys::core::PCWSTR, ballusers : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("faultrep.dll" "system" fn AddERExcludedApplicationA(szapplication : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("faultrep.dll" "system" fn AddERExcludedApplicationW(wszapplication : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+::windows_targets::link!("faultrep.dll" "system" #[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"] fn ReportFault(pep : *const super::Diagnostics::Debug:: EXCEPTION_POINTERS, dwopt : u32) -> EFaultRepRetVal);
+::windows_targets::link!("wer.dll" "system" fn WerAddExcludedApplication(pwzexename : ::windows_sys::core::PCWSTR, ballusers : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wer.dll" "system" fn WerFreeString(pwszstr : ::windows_sys::core::PCWSTR));
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WerGetFlags(hprocess : super::super::Foundation:: HANDLE, pdwflags : *mut WER_FAULT_REPORTING) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("kernel32.dll" "system" fn WerGetFlags(hprocess : super::super::Foundation:: HANDLE, pdwflags : *mut WER_FAULT_REPORTING) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("kernel32.dll" "system" fn WerRegisterAdditionalProcess(processid : u32, captureextrainfoforthreadid : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("kernel32.dll" "system" fn WerRegisterAppLocalDump(localappdatarelativepath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("kernel32.dll" "system" fn WerRegisterCustomMetadata(key : ::windows_sys::core::PCWSTR, value : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
@@ -16,16 +12,13 @@
 ::windows_targets::link!("kernel32.dll" "system" fn WerRegisterFile(pwzfile : ::windows_sys::core::PCWSTR, regfiletype : WER_REGISTER_FILE_TYPE, dwflags : WER_FILE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("kernel32.dll" "system" fn WerRegisterMemoryBlock(pvaddress : *const ::core::ffi::c_void, dwsize : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("kernel32.dll" "system" fn WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll : ::windows_sys::core::PCWSTR, pcontext : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wer.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WerRemoveExcludedApplication(pwzexename : ::windows_sys::core::PCWSTR, ballusers : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-::windows_targets::link!("wer.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"] fn WerReportAddDump(hreporthandle : HREPORT, hprocess : super::super::Foundation:: HANDLE, hthread : super::super::Foundation:: HANDLE, dumptype : WER_DUMP_TYPE, pexceptionparam : *const WER_EXCEPTION_INFORMATION, pdumpcustomoptions : *const WER_DUMP_CUSTOM_OPTIONS, dwflags : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wer.dll" "system" fn WerRemoveExcludedApplication(pwzexename : ::windows_sys::core::PCWSTR, ballusers : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+::windows_targets::link!("wer.dll" "system" #[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"] fn WerReportAddDump(hreporthandle : HREPORT, hprocess : super::super::Foundation:: HANDLE, hthread : super::super::Foundation:: HANDLE, dumptype : WER_DUMP_TYPE, pexceptionparam : *const WER_EXCEPTION_INFORMATION, pdumpcustomoptions : *const WER_DUMP_CUSTOM_OPTIONS, dwflags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wer.dll" "system" fn WerReportAddFile(hreporthandle : HREPORT, pwzpath : ::windows_sys::core::PCWSTR, repfiletype : WER_FILE_TYPE, dwfileflags : WER_FILE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wer.dll" "system" fn WerReportCloseHandle(hreporthandle : HREPORT) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wer.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WerReportCreate(pwzeventtype : ::windows_sys::core::PCWSTR, reptype : WER_REPORT_TYPE, preportinformation : *const WER_REPORT_INFORMATION, phreporthandle : *mut HREPORT) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("faultrep.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WerReportHang(hwndhungapp : super::super::Foundation:: HWND, pwzhungapplicationname : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wer.dll" "system" fn WerReportCreate(pwzeventtype : ::windows_sys::core::PCWSTR, reptype : WER_REPORT_TYPE, preportinformation : *const WER_REPORT_INFORMATION, phreporthandle : *mut HREPORT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("faultrep.dll" "system" fn WerReportHang(hwndhungapp : super::super::Foundation:: HWND, pwzhungapplicationname : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wer.dll" "system" fn WerReportSetParameter(hreporthandle : HREPORT, dwparamid : u32, pwzname : ::windows_sys::core::PCWSTR, pwzvalue : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wer.dll" "system" fn WerReportSetUIOption(hreporthandle : HREPORT, repuitypeid : WER_REPORT_UI, pwzvalue : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wer.dll" "system" fn WerReportSubmit(hreporthandle : HREPORT, consent : WER_CONSENT, dwflags : WER_SUBMIT_FLAGS, psubmitresult : *mut WER_SUBMIT_RESULT) -> ::windows_sys::core::HRESULT);
@@ -37,12 +30,9 @@
 ::windows_targets::link!("wer.dll" "system" fn WerStoreGetSizeOnDisk(hreportstore : HREPORTSTORE, pqwsizeinbytes : *mut u64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wer.dll" "system" fn WerStoreOpen(repstoretype : REPORT_STORE_TYPES, phreportstore : *mut HREPORTSTORE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wer.dll" "system" fn WerStorePurge() -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wer.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WerStoreQueryReportMetadataV1(hreportstore : HREPORTSTORE, pszreportkey : ::windows_sys::core::PCWSTR, preportmetadata : *mut WER_REPORT_METADATA_V1) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wer.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WerStoreQueryReportMetadataV2(hreportstore : HREPORTSTORE, pszreportkey : ::windows_sys::core::PCWSTR, preportmetadata : *mut WER_REPORT_METADATA_V2) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wer.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WerStoreQueryReportMetadataV3(hreportstore : HREPORTSTORE, pszreportkey : ::windows_sys::core::PCWSTR, preportmetadata : *mut WER_REPORT_METADATA_V3) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wer.dll" "system" fn WerStoreQueryReportMetadataV1(hreportstore : HREPORTSTORE, pszreportkey : ::windows_sys::core::PCWSTR, preportmetadata : *mut WER_REPORT_METADATA_V1) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wer.dll" "system" fn WerStoreQueryReportMetadataV2(hreportstore : HREPORTSTORE, pszreportkey : ::windows_sys::core::PCWSTR, preportmetadata : *mut WER_REPORT_METADATA_V2) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wer.dll" "system" fn WerStoreQueryReportMetadataV3(hreportstore : HREPORTSTORE, pszreportkey : ::windows_sys::core::PCWSTR, preportmetadata : *mut WER_REPORT_METADATA_V3) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wer.dll" "system" fn WerStoreUploadReport(hreportstore : HREPORTSTORE, pszreportkey : ::windows_sys::core::PCWSTR, dwflags : u32, psubmitresult : *mut WER_SUBMIT_RESULT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("kernel32.dll" "system" fn WerUnregisterAdditionalProcess(processid : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("kernel32.dll" "system" fn WerUnregisterAppLocalDump() -> ::windows_sys::core::HRESULT);
@@ -202,8 +192,6 @@ pub type WER_SUBMIT_RESULT = i32;
 pub type HREPORT = isize;
 pub type HREPORTSTORE = isize;
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WER_DUMP_CUSTOM_OPTIONS {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -217,17 +205,13 @@ pub struct WER_DUMP_CUSTOM_OPTIONS {
     pub dwOtherModuleFlags: u32,
     pub wzPreferredModuleList: [u16; 256],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WER_DUMP_CUSTOM_OPTIONS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WER_DUMP_CUSTOM_OPTIONS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WER_DUMP_CUSTOM_OPTIONS_V2 {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -243,17 +227,13 @@ pub struct WER_DUMP_CUSTOM_OPTIONS_V2 {
     pub dwPreferredModuleResetFlags: u32,
     pub dwOtherModuleResetFlags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WER_DUMP_CUSTOM_OPTIONS_V2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WER_DUMP_CUSTOM_OPTIONS_V2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WER_DUMP_CUSTOM_OPTIONS_V3 {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -272,32 +252,28 @@ pub struct WER_DUMP_CUSTOM_OPTIONS_V3 {
     pub hSnapshot: super::super::Foundation::HANDLE,
     pub dwThreadID: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WER_DUMP_CUSTOM_OPTIONS_V3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WER_DUMP_CUSTOM_OPTIONS_V3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct WER_EXCEPTION_INFORMATION {
     pub pExceptionPointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,
     pub bClientPointers: super::super::Foundation::BOOL,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for WER_EXCEPTION_INFORMATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for WER_EXCEPTION_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WER_REPORT_INFORMATION {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -308,17 +284,13 @@ pub struct WER_REPORT_INFORMATION {
     pub wzDescription: [u16; 512],
     pub hwndParent: super::super::Foundation::HWND,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WER_REPORT_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WER_REPORT_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WER_REPORT_INFORMATION_V3 {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -331,17 +303,13 @@ pub struct WER_REPORT_INFORMATION_V3 {
     pub wzNamespacePartner: [u16; 64],
     pub wzNamespaceGroup: [u16; 64],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WER_REPORT_INFORMATION_V3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WER_REPORT_INFORMATION_V3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WER_REPORT_INFORMATION_V4 {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -357,17 +325,13 @@ pub struct WER_REPORT_INFORMATION_V4 {
     pub hSnapshot: super::super::Foundation::HANDLE,
     pub hDeleteFilesImpersonationToken: super::super::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WER_REPORT_INFORMATION_V4 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WER_REPORT_INFORMATION_V4 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WER_REPORT_INFORMATION_V5 {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -384,17 +348,13 @@ pub struct WER_REPORT_INFORMATION_V5 {
     pub hDeleteFilesImpersonationToken: super::super::Foundation::HANDLE,
     pub submitResultMax: WER_SUBMIT_RESULT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WER_REPORT_INFORMATION_V5 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WER_REPORT_INFORMATION_V5 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WER_REPORT_METADATA_V1 {
     pub Signature: WER_REPORT_SIGNATURE,
     pub BucketId: ::windows_sys::core::GUID,
@@ -402,17 +362,13 @@ pub struct WER_REPORT_METADATA_V1 {
     pub CreationTime: super::super::Foundation::FILETIME,
     pub SizeInBytes: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WER_REPORT_METADATA_V1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WER_REPORT_METADATA_V1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WER_REPORT_METADATA_V2 {
     pub Signature: WER_REPORT_SIGNATURE,
     pub BucketId: ::windows_sys::core::GUID,
@@ -426,17 +382,13 @@ pub struct WER_REPORT_METADATA_V2 {
     pub SizeOfFileNames: u32,
     pub FileNames: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WER_REPORT_METADATA_V2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WER_REPORT_METADATA_V2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct WER_REPORT_METADATA_V3 {
     pub Signature: WER_REPORT_SIGNATURE,
     pub BucketId: ::windows_sys::core::GUID,
@@ -456,9 +408,7 @@ pub struct WER_REPORT_METADATA_V3 {
     pub BucketIdString: [u16; 260],
     pub LegacyBucketId: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WER_REPORT_METADATA_V3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WER_REPORT_METADATA_V3 {
     fn clone(&self) -> Self {
         *self
@@ -487,8 +437,8 @@ impl ::core::clone::Clone for WER_REPORT_SIGNATURE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -499,25 +449,25 @@ pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
     pub bIsFatal: super::super::Foundation::BOOL,
     pub dwReserved: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for WER_RUNTIME_EXCEPTION_INFORMATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for WER_RUNTIME_EXCEPTION_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut super::super::Foundation::BOOL, pwszdebuggerlaunch: ::windows_sys::core::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbownershipclaimed: *mut super::super::Foundation::BOOL, pwszeventname: ::windows_sys::core::PWSTR, pchsize: *mut u32, pdwsignaturecount: *mut u32) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, dwindex: u32, pwszname: ::windows_sys::core::PWSTR, pchname: *mut u32, pwszvalue: ::windows_sys::core::PWSTR, pchvalue: *mut u32) -> ::windows_sys::core::HRESULT>;
 pub type pfn_ADDEREXCLUDEDAPPLICATIONA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCSTR) -> EFaultRepRetVal>;
 pub type pfn_ADDEREXCLUDEDAPPLICATIONW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR) -> EFaultRepRetVal>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type pfn_REPORTFAULT = ::core::option::Option<unsafe extern "system" fn(param0: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, param1: u32) -> EFaultRepRetVal>;

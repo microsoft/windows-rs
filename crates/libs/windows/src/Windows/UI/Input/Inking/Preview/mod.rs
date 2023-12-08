@@ -27,27 +27,25 @@ unsafe impl ::windows_core::ComInterface for IPalmRejectionDelayZonePreviewStati
 #[doc(hidden)]
 pub struct IPalmRejectionDelayZonePreviewStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
+    #[cfg(feature = "UI_Composition")]
     pub CreateForVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputpanelvisual: *mut ::core::ffi::c_void, inputpanelrect: super::super::super::super::Foundation::Rect, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Composition")))]
+    #[cfg(not(feature = "UI_Composition"))]
     CreateForVisual: usize,
-    #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
+    #[cfg(feature = "UI_Composition")]
     pub CreateForVisualWithViewportClip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputpanelvisual: *mut ::core::ffi::c_void, inputpanelrect: super::super::super::super::Foundation::Rect, viewportvisual: *mut ::core::ffi::c_void, viewportrect: super::super::super::super::Foundation::Rect, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Composition")))]
+    #[cfg(not(feature = "UI_Composition"))]
     CreateForVisualWithViewportClip: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PalmRejectionDelayZonePreview(::windows_core::IUnknown);
 impl PalmRejectionDelayZonePreview {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"UI_Composition\"`"]
-    #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
+    #[doc = "Required features: `\"UI_Composition\"`"]
+    #[cfg(feature = "UI_Composition")]
     pub fn CreateForVisual<P0>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect) -> ::windows_core::Result<PalmRejectionDelayZonePreview>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Composition::Visual>,
@@ -57,8 +55,8 @@ impl PalmRejectionDelayZonePreview {
             (::windows_core::Interface::vtable(this).CreateForVisual)(::windows_core::Interface::as_raw(this), inputpanelvisual.try_into_param()?.abi(), inputpanelrect, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"UI_Composition\"`"]
-    #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
+    #[doc = "Required features: `\"UI_Composition\"`"]
+    #[cfg(feature = "UI_Composition")]
     pub fn CreateForVisualWithViewportClip<P0, P1>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect, viewportvisual: P1, viewportrect: super::super::super::super::Foundation::Rect) -> ::windows_core::Result<PalmRejectionDelayZonePreview>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Composition::Visual>,
@@ -88,7 +86,6 @@ impl ::windows_core::RuntimeName for PalmRejectionDelayZonePreview {
     const NAME: &'static str = "Windows.UI.Input.Inking.Preview.PalmRejectionDelayZonePreview";
 }
 ::windows_core::imp::interface_hierarchy!(PalmRejectionDelayZonePreview, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::super::Foundation::IClosable> for PalmRejectionDelayZonePreview {}
 unsafe impl ::core::marker::Send for PalmRejectionDelayZonePreview {}
 unsafe impl ::core::marker::Sync for PalmRejectionDelayZonePreview {}

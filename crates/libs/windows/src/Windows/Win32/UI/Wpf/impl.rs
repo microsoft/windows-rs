@@ -152,15 +152,11 @@ impl IMILBitmapEffectConnectionsInfo_Vtbl {
         *iid == <IMILBitmapEffectConnectionsInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMILBitmapEffectConnector_Impl: Sized + IMILBitmapEffectConnectorInfo_Impl {
     fn IsConnected(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetBitmapEffect(&self) -> ::windows_core::Result<IMILBitmapEffect>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IMILBitmapEffectConnector {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMILBitmapEffectConnector_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectConnector_Impl, const OFFSET: isize>() -> IMILBitmapEffectConnector_Vtbl {
         unsafe extern "system" fn IsConnected<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -431,8 +427,8 @@ impl IMILBitmapEffectGroupImpl_Vtbl {
         *iid == <IMILBitmapEffectGroupImpl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Imaging\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging"))]
+#[doc = "Required features: `\"Win32_Graphics_Imaging\"`"]
+#[cfg(feature = "Win32_Graphics_Imaging")]
 pub trait IMILBitmapEffectImpl_Impl: Sized {
     fn IsInPlaceModificationAllowed(&self, poutputconnector: ::core::option::Option<&IMILBitmapEffectOutputConnector>) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetParentEffect(&self, pparenteffect: ::core::option::Option<&IMILBitmapEffectGroup>) -> ::windows_core::Result<()>;
@@ -442,9 +438,9 @@ pub trait IMILBitmapEffectImpl_Impl: Sized {
     fn GetOutputBitmapSource(&self, uiindex: u32, prendercontext: ::core::option::Option<&IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows_core::Result<()>;
     fn Initialize(&self, pinner: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging"))]
+#[cfg(feature = "Win32_Graphics_Imaging")]
 impl ::windows_core::RuntimeName for IMILBitmapEffectImpl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging"))]
+#[cfg(feature = "Win32_Graphics_Imaging")]
 impl IMILBitmapEffectImpl_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>() -> IMILBitmapEffectImpl_Vtbl {
         unsafe extern "system" fn IsInPlaceModificationAllowed<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutputconnector: *mut ::core::ffi::c_void, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -509,15 +505,11 @@ impl IMILBitmapEffectImpl_Vtbl {
         *iid == <IMILBitmapEffectImpl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMILBitmapEffectInputConnector_Impl: Sized + IMILBitmapEffectConnector_Impl {
     fn ConnectTo(&self, pconnector: ::core::option::Option<&IMILBitmapEffectOutputConnector>) -> ::windows_core::Result<()>;
     fn GetConnection(&self) -> ::windows_core::Result<IMILBitmapEffectOutputConnector>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IMILBitmapEffectInputConnector {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMILBitmapEffectInputConnector_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectInputConnector_Impl, const OFFSET: isize>() -> IMILBitmapEffectInputConnector_Vtbl {
         unsafe extern "system" fn ConnectTo<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectInputConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnector: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -592,15 +584,11 @@ impl IMILBitmapEffectInteriorOutputConnector_Vtbl {
         *iid == <IMILBitmapEffectInteriorOutputConnector as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMILBitmapEffectOutputConnector_Impl: Sized + IMILBitmapEffectConnector_Impl {
     fn GetNumberConnections(&self) -> ::windows_core::Result<u32>;
     fn GetConnection(&self, uiindex: u32) -> ::windows_core::Result<IMILBitmapEffectInputConnector>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IMILBitmapEffectOutputConnector {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMILBitmapEffectOutputConnector_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectOutputConnector_Impl, const OFFSET: isize>() -> IMILBitmapEffectOutputConnector_Vtbl {
         unsafe extern "system" fn GetNumberConnections<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectOutputConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puinumberconnections: *mut u32) -> ::windows_core::HRESULT {
@@ -662,8 +650,8 @@ impl IMILBitmapEffectOutputConnectorImpl_Vtbl {
         *iid == <IMILBitmapEffectOutputConnectorImpl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dwm\"`, `\"Win32_Graphics_Imaging\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dwm", feature = "Win32_Graphics_Imaging"))]
+#[doc = "Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Graphics_Imaging\"`"]
+#[cfg(all(feature = "Win32_Graphics_Dwm", feature = "Win32_Graphics_Imaging"))]
 pub trait IMILBitmapEffectPrimitive_Impl: Sized {
     fn GetOutput(&self, uiindex: u32, pcontext: ::core::option::Option<&IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows_core::Result<()>;
     fn TransformPoint(&self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: ::core::option::Option<&IMILBitmapEffectRenderContext>, pfpointtransformed: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -672,9 +660,9 @@ pub trait IMILBitmapEffectPrimitive_Impl: Sized {
     fn HasInverseTransform(&self, uiindex: u32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetAffineMatrix(&self, uiindex: u32, pmatrix: *mut super::super::Graphics::Dwm::MilMatrix3x2D) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dwm", feature = "Win32_Graphics_Imaging"))]
+#[cfg(all(feature = "Win32_Graphics_Dwm", feature = "Win32_Graphics_Imaging"))]
 impl ::windows_core::RuntimeName for IMILBitmapEffectPrimitive {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dwm", feature = "Win32_Graphics_Imaging"))]
+#[cfg(all(feature = "Win32_Graphics_Dwm", feature = "Win32_Graphics_Imaging"))]
 impl IMILBitmapEffectPrimitive_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>() -> IMILBitmapEffectPrimitive_Vtbl {
         unsafe extern "system" fn GetOutput<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, pcontext: *mut ::core::ffi::c_void, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -733,15 +721,11 @@ impl IMILBitmapEffectPrimitive_Vtbl {
         *iid == <IMILBitmapEffectPrimitive as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMILBitmapEffectPrimitiveImpl_Impl: Sized {
     fn IsDirty(&self, uioutputindex: u32, pfdirty: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT;
     fn IsVolatile(&self, uioutputindex: u32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IMILBitmapEffectPrimitiveImpl {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMILBitmapEffectPrimitiveImpl_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectPrimitiveImpl_Impl, const OFFSET: isize>() -> IMILBitmapEffectPrimitiveImpl_Vtbl {
         unsafe extern "system" fn IsDirty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectPrimitiveImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uioutputindex: u32, pfdirty: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -770,8 +754,6 @@ impl IMILBitmapEffectPrimitiveImpl_Vtbl {
         *iid == <IMILBitmapEffectPrimitiveImpl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMILBitmapEffectRenderContext_Impl: Sized {
     fn SetOutputPixelFormat(&self, format: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn GetOutputPixelFormat(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -782,9 +764,7 @@ pub trait IMILBitmapEffectRenderContext_Impl: Sized {
     fn GetOutputDPI(&self, pdbldpix: *mut f64, pdbldpiy: *mut f64) -> ::windows_core::Result<()>;
     fn SetRegionOfInterest(&self, prect: *const MilRectD) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IMILBitmapEffectRenderContext {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMILBitmapEffectRenderContext_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>() -> IMILBitmapEffectRenderContext_Vtbl {
         unsafe extern "system" fn SetOutputPixelFormat<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: *const ::windows_core::GUID) -> ::windows_core::HRESULT {
@@ -849,8 +829,6 @@ impl IMILBitmapEffectRenderContext_Vtbl {
         *iid == <IMILBitmapEffectRenderContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMILBitmapEffectRenderContextImpl_Impl: Sized {
     fn GetUseSoftwareRenderer(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetTransform(&self, pmatrix: *mut MILMatrixF) -> ::windows_core::Result<()>;
@@ -858,9 +836,7 @@ pub trait IMILBitmapEffectRenderContextImpl_Impl: Sized {
     fn GetOutputBounds(&self, prect: *mut MilRectD) -> ::windows_core::Result<()>;
     fn UpdateOutputBounds(&self, prect: *const MilRectD) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IMILBitmapEffectRenderContextImpl {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMILBitmapEffectRenderContextImpl_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContextImpl_Impl, const OFFSET: isize>() -> IMILBitmapEffectRenderContextImpl_Vtbl {
         unsafe extern "system" fn GetUseSoftwareRenderer<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContextImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfsoftware: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {

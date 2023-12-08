@@ -55,8 +55,8 @@ impl IEnumEventObject_Vtbl {
         *iid == <IEnumEventObject as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventClass_Impl: Sized + super::IDispatch_Impl {
     fn EventClassID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetEventClassID(&self, bstreventclassid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -73,9 +73,9 @@ pub trait IEventClass_Impl: Sized + super::IDispatch_Impl {
     fn TypeLib(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetTypeLib(&self, bstrtypelib: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IEventClass {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEventClass_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEventClass_Impl, const OFFSET: isize>() -> IEventClass_Vtbl {
         unsafe extern "system" fn EventClassID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEventClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstreventclassid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -212,8 +212,8 @@ impl IEventClass_Vtbl {
         *iid == <IEventClass as ::windows_core::ComInterface>::IID || *iid == <super::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventClass2_Impl: Sized + IEventClass_Impl {
     fn PublisherID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetPublisherID(&self, bstrpublisherid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -224,9 +224,9 @@ pub trait IEventClass2_Impl: Sized + IEventClass_Impl {
     fn FireInParallel(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn SetFireInParallel(&self, ffireinparallel: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IEventClass2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEventClass2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEventClass2_Impl, const OFFSET: isize>() -> IEventClass2_Vtbl {
         unsafe extern "system" fn PublisherID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEventClass2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpublisherid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -309,8 +309,8 @@ impl IEventClass2_Vtbl {
         *iid == <IEventClass2 as ::windows_core::ComInterface>::IID || *iid == <super::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IEventClass as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventControl_Impl: Sized + super::IDispatch_Impl {
     fn SetPublisherFilter(&self, methodname: &::windows_core::BSTR, ppublisherfilter: ::core::option::Option<&IPublisherFilter>) -> ::windows_core::Result<()>;
     fn AllowInprocActivation(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
@@ -318,9 +318,9 @@ pub trait IEventControl_Impl: Sized + super::IDispatch_Impl {
     fn GetSubscriptions(&self, methodname: &::windows_core::BSTR, optionalcriteria: &::windows_core::BSTR, optionalerrorindex: *const i32) -> ::windows_core::Result<IEventObjectCollection>;
     fn SetDefaultQuery(&self, methodname: &::windows_core::BSTR, criteria: &::windows_core::BSTR) -> ::windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IEventControl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEventControl_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEventControl_Impl, const OFFSET: isize>() -> IEventControl_Vtbl {
         unsafe extern "system" fn SetPublisherFilter<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEventControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, methodname: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppublisherfilter: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -440,8 +440,8 @@ impl IEventObjectChange2_Vtbl {
         *iid == <IEventObjectChange2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventObjectCollection_Impl: Sized + super::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn get_Item(&self, objectid: &::windows_core::BSTR) -> ::windows_core::Result<super::super::Variant::VARIANT>;
@@ -450,9 +450,9 @@ pub trait IEventObjectCollection_Impl: Sized + super::IDispatch_Impl {
     fn Add(&self, item: *const super::super::Variant::VARIANT, objectid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn Remove(&self, objectid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IEventObjectCollection {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEventObjectCollection_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEventObjectCollection_Impl, const OFFSET: isize>() -> IEventObjectCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEventObjectCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunkenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -523,17 +523,17 @@ impl IEventObjectCollection_Vtbl {
         *iid == <IEventObjectCollection as ::windows_core::ComInterface>::IID || *iid == <super::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventProperty_Impl: Sized + super::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetName(&self, propertyname: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn Value(&self) -> ::windows_core::Result<super::super::Variant::VARIANT>;
     fn SetValue(&self, propertyvalue: *const super::super::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IEventProperty {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEventProperty_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEventProperty_Impl, const OFFSET: isize>() -> IEventProperty_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEventProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -580,8 +580,8 @@ impl IEventProperty_Vtbl {
         *iid == <IEventProperty as ::windows_core::ComInterface>::IID || *iid == <super::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventPublisher_Impl: Sized + super::IDispatch_Impl {
     fn PublisherID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetPublisherID(&self, bstrpublisherid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -598,9 +598,9 @@ pub trait IEventPublisher_Impl: Sized + super::IDispatch_Impl {
     fn RemoveDefaultProperty(&self, bstrpropertyname: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn GetDefaultPropertyCollection(&self) -> ::windows_core::Result<IEventObjectCollection>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IEventPublisher {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEventPublisher_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEventPublisher_Impl, const OFFSET: isize>() -> IEventPublisher_Vtbl {
         unsafe extern "system" fn PublisherID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpublisherid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -737,8 +737,8 @@ impl IEventPublisher_Vtbl {
         *iid == <IEventPublisher as ::windows_core::ComInterface>::IID || *iid == <super::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventSubscription_Impl: Sized + super::IDispatch_Impl {
     fn SubscriptionID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetSubscriptionID(&self, bstrsubscriptionid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -775,9 +775,9 @@ pub trait IEventSubscription_Impl: Sized + super::IDispatch_Impl {
     fn InterfaceID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetInterfaceID(&self, bstrinterfaceid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IEventSubscription {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEventSubscription_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEventSubscription_Impl, const OFFSET: isize>() -> IEventSubscription_Vtbl {
         unsafe extern "system" fn SubscriptionID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubscriptionid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -1094,8 +1094,8 @@ impl IEventSubscription_Vtbl {
         *iid == <IEventSubscription as ::windows_core::ComInterface>::IID || *iid == <super::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventSystem_Impl: Sized + super::IDispatch_Impl {
     fn Query(&self, progid: &::windows_core::BSTR, querycriteria: &::windows_core::BSTR, errorindex: *mut i32, ppinterface: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn Store(&self, progid: &::windows_core::BSTR, pinterface: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -1104,9 +1104,9 @@ pub trait IEventSystem_Impl: Sized + super::IDispatch_Impl {
     fn QueryS(&self, progid: &::windows_core::BSTR, querycriteria: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn RemoveS(&self, progid: &::windows_core::BSTR, querycriteria: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IEventSystem {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEventSystem_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEventSystem_Impl, const OFFSET: isize>() -> IEventSystem_Vtbl {
         unsafe extern "system" fn Query<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEventSystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, progid: ::std::mem::MaybeUninit<::windows_core::BSTR>, querycriteria: ::std::mem::MaybeUninit<::windows_core::BSTR>, errorindex: *mut i32, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1171,14 +1171,14 @@ impl IEventSystem_Vtbl {
         *iid == <IEventSystem as ::windows_core::ComInterface>::IID || *iid == <super::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFiringControl_Impl: Sized + super::IDispatch_Impl {
     fn FireSubscription(&self, subscription: ::core::option::Option<&IEventSubscription>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IFiringControl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFiringControl_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFiringControl_Impl, const OFFSET: isize>() -> IFiringControl_Vtbl {
         unsafe extern "system" fn FireSubscription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFiringControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subscription: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1192,8 +1192,6 @@ impl IFiringControl_Vtbl {
         *iid == <IFiringControl as ::windows_core::ComInterface>::IID || *iid == <super::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMultiInterfaceEventControl_Impl: Sized {
     fn SetMultiInterfacePublisherFilter(&self, classfilter: ::core::option::Option<&IMultiInterfacePublisherFilter>) -> ::windows_core::Result<()>;
     fn GetSubscriptions(&self, eventiid: *const ::windows_core::GUID, bstrmethodname: &::windows_core::BSTR, optionalcriteria: &::windows_core::BSTR, optionalerrorindex: *const i32) -> ::windows_core::Result<IEventObjectCollection>;
@@ -1203,9 +1201,7 @@ pub trait IMultiInterfaceEventControl_Impl: Sized {
     fn FireInParallel(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn SetFireInParallel(&self, ffireinparallel: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IMultiInterfaceEventControl {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMultiInterfaceEventControl_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultiInterfaceEventControl_Impl, const OFFSET: isize>() -> IMultiInterfaceEventControl_Vtbl {
         unsafe extern "system" fn SetMultiInterfacePublisherFilter<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classfilter: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

@@ -1,5 +1,4 @@
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("xinput1_4.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn XInputEnable(enable : super::super::super::Foundation:: BOOL));
+::windows_targets::link!("xinput1_4.dll" "system" fn XInputEnable(enable : super::super::super::Foundation:: BOOL));
 ::windows_targets::link!("xinput1_4.dll" "system" fn XInputGetAudioDeviceIds(dwuserindex : u32, prenderdeviceid : ::windows_sys::core::PWSTR, prendercount : *mut u32, pcapturedeviceid : ::windows_sys::core::PWSTR, pcapturecount : *mut u32) -> u32);
 ::windows_targets::link!("xinput1_4.dll" "system" fn XInputGetBatteryInformation(dwuserindex : u32, devtype : BATTERY_DEVTYPE, pbatteryinformation : *mut XINPUT_BATTERY_INFORMATION) -> u32);
 ::windows_targets::link!("xinput1_4.dll" "system" fn XInputGetCapabilities(dwuserindex : u32, dwflags : XINPUT_FLAG, pcapabilities : *mut XINPUT_CAPABILITIES) -> u32);

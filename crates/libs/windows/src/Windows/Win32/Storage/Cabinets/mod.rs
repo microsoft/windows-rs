@@ -1,5 +1,3 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCIAddFile<P0, P1, P2>(hfci: *const ::core::ffi::c_void, pszsourcefile: P0, pszfilename: P1, fexecute: P2, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS, pfnfcigoi: PFNFCIGETOPENINFO, typecompress: u16) -> super::super::Foundation::BOOL
 where
@@ -10,22 +8,16 @@ where
     ::windows_targets::link!("cabinet.dll" "cdecl" fn FCIAddFile(hfci : *const ::core::ffi::c_void, pszsourcefile : ::windows_core::PCSTR, pszfilename : ::windows_core::PCSTR, fexecute : super::super::Foundation:: BOOL, pfnfcignc : PFNFCIGETNEXTCABINET, pfnfcis : PFNFCISTATUS, pfnfcigoi : PFNFCIGETOPENINFO, typecompress : u16) -> super::super::Foundation:: BOOL);
     FCIAddFile(hfci, pszsourcefile.into_param().abi(), pszfilename.into_param().abi(), fexecute.into_param().abi(), pfnfcignc, pfnfcis, pfnfcigoi, typecompress)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCICreate(perf: *const ERF, pfnfcifp: PFNFCIFILEPLACED, pfna: PFNFCIALLOC, pfnf: PFNFCIFREE, pfnopen: PFNFCIOPEN, pfnread: PFNFCIREAD, pfnwrite: PFNFCIWRITE, pfnclose: PFNFCICLOSE, pfnseek: PFNFCISEEK, pfndelete: PFNFCIDELETE, pfnfcigtf: PFNFCIGETTEMPFILE, pccab: *const CCAB, pv: ::core::option::Option<*const ::core::ffi::c_void>) -> *mut ::core::ffi::c_void {
     ::windows_targets::link!("cabinet.dll" "cdecl" fn FCICreate(perf : *const ERF, pfnfcifp : PFNFCIFILEPLACED, pfna : PFNFCIALLOC, pfnf : PFNFCIFREE, pfnopen : PFNFCIOPEN, pfnread : PFNFCIREAD, pfnwrite : PFNFCIWRITE, pfnclose : PFNFCICLOSE, pfnseek : PFNFCISEEK, pfndelete : PFNFCIDELETE, pfnfcigtf : PFNFCIGETTEMPFILE, pccab : *const CCAB, pv : *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void);
     FCICreate(perf, pfnfcifp, pfna, pfnf, pfnopen, pfnread, pfnwrite, pfnclose, pfnseek, pfndelete, pfnfcigtf, pccab, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCIDestroy(hfci: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("cabinet.dll" "cdecl" fn FCIDestroy(hfci : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     FCIDestroy(hfci)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCIFlushCabinet<P0>(hfci: *const ::core::ffi::c_void, fgetnextcab: P0, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS) -> super::super::Foundation::BOOL
 where
@@ -34,15 +26,11 @@ where
     ::windows_targets::link!("cabinet.dll" "cdecl" fn FCIFlushCabinet(hfci : *const ::core::ffi::c_void, fgetnextcab : super::super::Foundation:: BOOL, pfnfcignc : PFNFCIGETNEXTCABINET, pfnfcis : PFNFCISTATUS) -> super::super::Foundation:: BOOL);
     FCIFlushCabinet(hfci, fgetnextcab.into_param().abi(), pfnfcignc, pfnfcis)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCIFlushFolder(hfci: *const ::core::ffi::c_void, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("cabinet.dll" "cdecl" fn FCIFlushFolder(hfci : *const ::core::ffi::c_void, pfnfcignc : PFNFCIGETNEXTCABINET, pfnfcis : PFNFCISTATUS) -> super::super::Foundation:: BOOL);
     FCIFlushFolder(hfci, pfnfcignc, pfnfcis)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FDICopy<P0, P1>(hfdi: *const ::core::ffi::c_void, pszcabinet: P0, pszcabpath: P1, flags: i32, pfnfdin: PFNFDINOTIFY, pfnfdid: PFNFDIDECRYPT, pvuser: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
@@ -52,29 +40,21 @@ where
     ::windows_targets::link!("cabinet.dll" "cdecl" fn FDICopy(hfdi : *const ::core::ffi::c_void, pszcabinet : ::windows_core::PCSTR, pszcabpath : ::windows_core::PCSTR, flags : i32, pfnfdin : PFNFDINOTIFY, pfnfdid : PFNFDIDECRYPT, pvuser : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     FDICopy(hfdi, pszcabinet.into_param().abi(), pszcabpath.into_param().abi(), flags, pfnfdin, pfnfdid, ::core::mem::transmute(pvuser.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FDICreate(pfnalloc: PFNALLOC, pfnfree: PFNFREE, pfnopen: PFNOPEN, pfnread: PFNREAD, pfnwrite: PFNWRITE, pfnclose: PFNCLOSE, pfnseek: PFNSEEK, cputype: FDICREATE_CPU_TYPE, perf: *mut ERF) -> *mut ::core::ffi::c_void {
     ::windows_targets::link!("cabinet.dll" "cdecl" fn FDICreate(pfnalloc : PFNALLOC, pfnfree : PFNFREE, pfnopen : PFNOPEN, pfnread : PFNREAD, pfnwrite : PFNWRITE, pfnclose : PFNCLOSE, pfnseek : PFNSEEK, cputype : FDICREATE_CPU_TYPE, perf : *mut ERF) -> *mut ::core::ffi::c_void);
     FDICreate(pfnalloc, pfnfree, pfnopen, pfnread, pfnwrite, pfnclose, pfnseek, cputype, perf)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FDIDestroy(hfdi: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("cabinet.dll" "cdecl" fn FDIDestroy(hfdi : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     FDIDestroy(hfdi)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FDIIsCabinet(hfdi: *const ::core::ffi::c_void, hf: isize, pfdici: ::core::option::Option<*mut FDICABINETINFO>) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("cabinet.dll" "cdecl" fn FDIIsCabinet(hfdi : *const ::core::ffi::c_void, hf : isize, pfdici : *mut FDICABINETINFO) -> super::super::Foundation:: BOOL);
     FDIIsCabinet(hfdi, hf, ::core::mem::transmute(pfdici.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FDITruncateCabinet<P0>(hfdi: *const ::core::ffi::c_void, pszcabinetname: P0, ifoldertodelete: u16) -> super::super::Foundation::BOOL
 where
@@ -314,48 +294,37 @@ impl ::core::default::Default for CCAB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct ERF {
     pub erfOper: i32,
     pub erfType: i32,
     pub fError: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ERF {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ERF {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ERF {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ERF").field("erfOper", &self.erfOper).field("erfType", &self.erfType).field("fError", &self.fError).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for ERF {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ERF {
     fn eq(&self, other: &Self) -> bool {
         self.erfOper == other.erfOper && self.erfType == other.erfType && self.fError == other.fError
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ERF {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ERF {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FDICABINETINFO {
     pub cbCabinet: i32,
     pub cFolders: u16,
@@ -366,134 +335,104 @@ pub struct FDICABINETINFO {
     pub hasprev: super::super::Foundation::BOOL,
     pub hasnext: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FDICABINETINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FDICABINETINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FDICABINETINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FDICABINETINFO").field("cbCabinet", &self.cbCabinet).field("cFolders", &self.cFolders).field("cFiles", &self.cFiles).field("setID", &self.setID).field("iCabinet", &self.iCabinet).field("fReserve", &self.fReserve).field("hasprev", &self.hasprev).field("hasnext", &self.hasnext).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for FDICABINETINFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FDICABINETINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbCabinet == other.cbCabinet && self.cFolders == other.cFolders && self.cFiles == other.cFiles && self.setID == other.setID && self.iCabinet == other.iCabinet && self.fReserve == other.fReserve && self.hasprev == other.hasprev && self.hasnext == other.hasnext
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FDICABINETINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDICABINETINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FDIDECRYPT {
     pub fdidt: FDIDECRYPTTYPE,
     pub pvUser: *mut ::core::ffi::c_void,
     pub Anonymous: FDIDECRYPT_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FDIDECRYPT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FDIDECRYPT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for FDIDECRYPT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDIDECRYPT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union FDIDECRYPT_0 {
     pub cabinet: FDIDECRYPT_0_0,
     pub folder: FDIDECRYPT_0_2,
     pub decrypt: FDIDECRYPT_0_1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FDIDECRYPT_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FDIDECRYPT_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for FDIDECRYPT_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDIDECRYPT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FDIDECRYPT_0_0 {
     pub pHeaderReserve: *mut ::core::ffi::c_void,
     pub cbHeaderReserve: u16,
     pub setID: u16,
     pub iCabinet: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FDIDECRYPT_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FDIDECRYPT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FDIDECRYPT_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FDIDECRYPT_0_0").field("pHeaderReserve", &self.pHeaderReserve).field("cbHeaderReserve", &self.cbHeaderReserve).field("setID", &self.setID).field("iCabinet", &self.iCabinet).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for FDIDECRYPT_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FDIDECRYPT_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.pHeaderReserve == other.pHeaderReserve && self.cbHeaderReserve == other.cbHeaderReserve && self.setID == other.setID && self.iCabinet == other.iCabinet
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FDIDECRYPT_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDIDECRYPT_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FDIDECRYPT_0_1 {
     pub pDataReserve: *mut ::core::ffi::c_void,
     pub cbDataReserve: u16,
@@ -502,73 +441,57 @@ pub struct FDIDECRYPT_0_1 {
     pub fSplit: super::super::Foundation::BOOL,
     pub cbPartial: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FDIDECRYPT_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FDIDECRYPT_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FDIDECRYPT_0_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FDIDECRYPT_0_1").field("pDataReserve", &self.pDataReserve).field("cbDataReserve", &self.cbDataReserve).field("pbData", &self.pbData).field("cbData", &self.cbData).field("fSplit", &self.fSplit).field("cbPartial", &self.cbPartial).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for FDIDECRYPT_0_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FDIDECRYPT_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.pDataReserve == other.pDataReserve && self.cbDataReserve == other.cbDataReserve && self.pbData == other.pbData && self.cbData == other.cbData && self.fSplit == other.fSplit && self.cbPartial == other.cbPartial
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FDIDECRYPT_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDIDECRYPT_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FDIDECRYPT_0_2 {
     pub pFolderReserve: *mut ::core::ffi::c_void,
     pub cbFolderReserve: u16,
     pub iFolder: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FDIDECRYPT_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FDIDECRYPT_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FDIDECRYPT_0_2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FDIDECRYPT_0_2").field("pFolderReserve", &self.pFolderReserve).field("cbFolderReserve", &self.cbFolderReserve).field("iFolder", &self.iFolder).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for FDIDECRYPT_0_2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FDIDECRYPT_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.pFolderReserve == other.pFolderReserve && self.cbFolderReserve == other.cbFolderReserve && self.iFolder == other.iFolder
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FDIDECRYPT_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDIDECRYPT_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -668,24 +591,16 @@ pub type PFNCLOSE = ::core::option::Option<unsafe extern "system" fn(hf: isize) 
 pub type PFNFCIALLOC = ::core::option::Option<unsafe extern "system" fn(cb: u32) -> *mut ::core::ffi::c_void>;
 pub type PFNFCICLOSE = ::core::option::Option<unsafe extern "system" fn(hf: isize, err: *mut i32, pv: *mut ::core::ffi::c_void) -> i32>;
 pub type PFNFCIDELETE = ::core::option::Option<unsafe extern "system" fn(pszfile: ::windows_core::PCSTR, err: *mut i32, pv: *mut ::core::ffi::c_void) -> i32>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFNFCIFILEPLACED = ::core::option::Option<unsafe extern "system" fn(pccab: *mut CCAB, pszfile: ::windows_core::PCSTR, cbfile: i32, fcontinuation: super::super::Foundation::BOOL, pv: *mut ::core::ffi::c_void) -> i32>;
 pub type PFNFCIFREE = ::core::option::Option<unsafe extern "system" fn(memory: *mut ::core::ffi::c_void)>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFNFCIGETNEXTCABINET = ::core::option::Option<unsafe extern "system" fn(pccab: *mut CCAB, cbprevcab: u32, pv: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type PFNFCIGETOPENINFO = ::core::option::Option<unsafe extern "system" fn(pszname: ::windows_core::PCSTR, pdate: *mut u16, ptime: *mut u16, pattribs: *mut u16, err: *mut i32, pv: *mut ::core::ffi::c_void) -> isize>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFNFCIGETTEMPFILE = ::core::option::Option<unsafe extern "system" fn(psztempname: ::windows_core::PSTR, cbtempname: i32, pv: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type PFNFCIOPEN = ::core::option::Option<unsafe extern "system" fn(pszfile: ::windows_core::PCSTR, oflag: i32, pmode: i32, err: *mut i32, pv: *mut ::core::ffi::c_void) -> isize>;
 pub type PFNFCIREAD = ::core::option::Option<unsafe extern "system" fn(hf: isize, memory: *mut ::core::ffi::c_void, cb: u32, err: *mut i32, pv: *mut ::core::ffi::c_void) -> u32>;
 pub type PFNFCISEEK = ::core::option::Option<unsafe extern "system" fn(hf: isize, dist: i32, seektype: i32, err: *mut i32, pv: *mut ::core::ffi::c_void) -> i32>;
 pub type PFNFCISTATUS = ::core::option::Option<unsafe extern "system" fn(typestatus: u32, cb1: u32, cb2: u32, pv: *mut ::core::ffi::c_void) -> i32>;
 pub type PFNFCIWRITE = ::core::option::Option<unsafe extern "system" fn(hf: isize, memory: *mut ::core::ffi::c_void, cb: u32, err: *mut i32, pv: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFNFDIDECRYPT = ::core::option::Option<unsafe extern "system" fn(pfdid: *mut FDIDECRYPT) -> i32>;
 pub type PFNFDINOTIFY = ::core::option::Option<unsafe extern "system" fn(fdint: FDINOTIFICATIONTYPE, pfdin: *mut FDINOTIFICATION) -> isize>;
 pub type PFNFREE = ::core::option::Option<unsafe extern "system" fn(pv: *const ::core::ffi::c_void)>;

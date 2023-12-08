@@ -1,5 +1,3 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MatchEnumTag<P0, P1>(hmodule: P0, pwcarg: P1, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32
 where
@@ -9,8 +7,6 @@ where
     ::windows_targets::link!("netsh.dll" "system" fn MatchEnumTag(hmodule : super::super::Foundation:: HANDLE, pwcarg : ::windows_core::PCWSTR, dwnumarg : u32, penumtable : *const TOKEN_VALUE, pdwvalue : *mut u32) -> u32);
     MatchEnumTag(hmodule.into_param().abi(), pwcarg.into_param().abi(), dwnumarg, penumtable, pdwvalue)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MatchToken<P0, P1>(pwszusertoken: P0, pwszcmdtoken: P1) -> super::super::Foundation::BOOL
 where
@@ -20,8 +16,6 @@ where
     ::windows_targets::link!("netsh.dll" "system" fn MatchToken(pwszusertoken : ::windows_core::PCWSTR, pwszcmdtoken : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     MatchToken(pwszusertoken.into_param().abi(), pwszcmdtoken.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PreprocessCommand<P0>(hmodule: P0, ppwcarguments: &mut [::windows_core::PWSTR], dwcurrentindex: u32, ptttags: ::core::option::Option<&mut [TAG_TYPE]>, dwminargs: u32, dwmaxargs: u32, pdwtagtype: ::core::option::Option<*mut u32>) -> u32
 where
@@ -30,8 +24,6 @@ where
     ::windows_targets::link!("netsh.dll" "system" fn PreprocessCommand(hmodule : super::super::Foundation:: HANDLE, ppwcarguments : *mut ::windows_core::PWSTR, dwcurrentindex : u32, dwargcount : u32, ptttags : *mut TAG_TYPE, dwtagcount : u32, dwminargs : u32, dwmaxargs : u32, pdwtagtype : *mut u32) -> u32);
     PreprocessCommand(hmodule.into_param().abi(), ::core::mem::transmute(ppwcarguments.as_ptr()), dwcurrentindex, ppwcarguments.len().try_into().unwrap(), ::core::mem::transmute(ptttags.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ptttags.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwminargs, dwmaxargs, ::core::mem::transmute(pdwtagtype.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrintError<P0>(hmodule: P0, dwerrid: u32) -> u32
 where
@@ -48,8 +40,6 @@ where
     ::windows_targets::link!("netsh.dll" "cdecl" fn PrintMessage(pwszformat : ::windows_core::PCWSTR) -> u32);
     PrintMessage(pwszformat.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrintMessageFromModule<P0>(hmodule: P0, dwmsgid: u32) -> u32
 where
@@ -58,8 +48,6 @@ where
     ::windows_targets::link!("netsh.dll" "cdecl" fn PrintMessageFromModule(hmodule : super::super::Foundation:: HANDLE, dwmsgid : u32) -> u32);
     PrintMessageFromModule(hmodule.into_param().abi(), dwmsgid)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32 {
     ::windows_targets::link!("netsh.dll" "system" fn RegisterContext(pchildcontext : *const NS_CONTEXT_ATTRIBUTES) -> u32);
@@ -212,8 +200,6 @@ impl ::core::fmt::Debug for NS_REQS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CMD_ENTRY {
     pub pwszCmdToken: ::windows_core::PCWSTR,
     pub pfnCmdHandler: PFN_HANDLE_CMD,
@@ -223,33 +209,26 @@ pub struct CMD_ENTRY {
     pub pOsVersionCheck: PNS_OSVERSIONCHECK,
     pub pfnCustomHelpFn: PFN_CUSTOM_HELP,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CMD_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMD_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CMD_ENTRY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CMD_ENTRY").field("pwszCmdToken", &self.pwszCmdToken).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("dwCmdHlpToken", &self.dwCmdHlpToken).field("dwFlags", &self.dwFlags).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for CMD_ENTRY {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMD_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CMD_GROUP_ENTRY {
     pub pwszCmdGroupToken: ::windows_core::PCWSTR,
     pub dwShortCmdHelpToken: u32,
@@ -258,33 +237,26 @@ pub struct CMD_GROUP_ENTRY {
     pub pCmdGroup: *mut CMD_ENTRY,
     pub pOsVersionCheck: PNS_OSVERSIONCHECK,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CMD_GROUP_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMD_GROUP_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CMD_GROUP_ENTRY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CMD_GROUP_ENTRY").field("pwszCmdGroupToken", &self.pwszCmdGroupToken).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("ulCmdGroupSize", &self.ulCmdGroupSize).field("dwFlags", &self.dwFlags).field("pCmdGroup", &self.pCmdGroup).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for CMD_GROUP_ENTRY {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMD_GROUP_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct NS_CONTEXT_ATTRIBUTES {
     pub Anonymous: NS_CONTEXT_ATTRIBUTES_0,
     pub pwszContext: ::windows_core::PWSTR,
@@ -301,83 +273,64 @@ pub struct NS_CONTEXT_ATTRIBUTES {
     pub pReserved: *mut ::core::ffi::c_void,
     pub pfnOsVersionCheck: PNS_OSVERSIONCHECK,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NS_CONTEXT_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for NS_CONTEXT_ATTRIBUTES {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union NS_CONTEXT_ATTRIBUTES_0 {
     pub Anonymous: NS_CONTEXT_ATTRIBUTES_0_0,
     pub _ullAlign: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NS_CONTEXT_ATTRIBUTES_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for NS_CONTEXT_ATTRIBUTES_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct NS_CONTEXT_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NS_CONTEXT_ATTRIBUTES_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NS_CONTEXT_ATTRIBUTES_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("NS_CONTEXT_ATTRIBUTES_0_0").field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for NS_CONTEXT_ATTRIBUTES_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.dwVersion == other.dwVersion && self.dwReserved == other.dwReserved
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NS_CONTEXT_ATTRIBUTES_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -454,40 +407,31 @@ impl ::core::default::Default for NS_HELPER_ATTRIBUTES_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct TAG_TYPE {
     pub pwszTag: ::windows_core::PCWSTR,
     pub dwRequired: u32,
     pub bPresent: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TAG_TYPE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TAG_TYPE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for TAG_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("TAG_TYPE").field("pwszTag", &self.pwszTag).field("dwRequired", &self.dwRequired).field("bPresent", &self.bPresent).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for TAG_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TAG_TYPE {
     fn eq(&self, other: &Self) -> bool {
         self.pwszTag == other.pwszTag && self.dwRequired == other.dwRequired && self.bPresent == other.bPresent
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TAG_TYPE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TAG_TYPE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -523,11 +467,7 @@ impl ::core::default::Default for TOKEN_VALUE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFN_CUSTOM_HELP = ::core::option::Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HANDLE, pwszcmdtoken: ::windows_core::PCWSTR)>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFN_HANDLE_CMD = ::core::option::Option<unsafe extern "system" fn(pwszmachine: ::windows_core::PCWSTR, ppwcarguments: *mut ::windows_core::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const ::core::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32>;
 pub type PGET_RESOURCE_STRING_FN = ::core::option::Option<unsafe extern "system" fn(dwmsgid: u32, lpbuffer: ::windows_core::PCWSTR, nbuffermax: u32) -> u32>;
 pub type PNS_CONTEXT_COMMIT_FN = ::core::option::Option<unsafe extern "system" fn(dwaction: u32) -> u32>;
@@ -537,6 +477,4 @@ pub type PNS_DLL_INIT_FN = ::core::option::Option<unsafe extern "system" fn(dwne
 pub type PNS_DLL_STOP_FN = ::core::option::Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
 pub type PNS_HELPER_START_FN = ::core::option::Option<unsafe extern "system" fn(pguidparent: *const ::windows_core::GUID, dwversion: u32) -> u32>;
 pub type PNS_HELPER_STOP_FN = ::core::option::Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PNS_OSVERSIONCHECK = ::core::option::Option<unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: ::windows_core::PCWSTR, cimosbuildnumber: ::windows_core::PCWSTR, cimservicepackmajorversion: ::windows_core::PCWSTR, cimservicepackminorversion: ::windows_core::PCWSTR, uireserved: u32, dwreserved: u32) -> super::super::Foundation::BOOL>;

@@ -1,9 +1,9 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn AbortDoc(hdc : super::super::Graphics::Gdi:: HDC) -> i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("winspool.drv" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn DeviceCapabilitiesA(pdevice : ::windows_sys::core::PCSTR, pport : ::windows_sys::core::PCSTR, fwcapability : PRINTER_DEVICE_CAPABILITIES, poutput : ::windows_sys::core::PSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA) -> i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("winspool.drv" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn DeviceCapabilitiesW(pdevice : ::windows_sys::core::PCWSTR, pport : ::windows_sys::core::PCWSTR, fwcapability : PRINTER_DEVICE_CAPABILITIES, poutput : ::windows_sys::core::PWSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW) -> i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("winspool.drv" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn DeviceCapabilitiesA(pdevice : ::windows_sys::core::PCSTR, pport : ::windows_sys::core::PCSTR, fwcapability : PRINTER_DEVICE_CAPABILITIES, poutput : ::windows_sys::core::PSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA) -> i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("winspool.drv" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn DeviceCapabilitiesW(pdevice : ::windows_sys::core::PCWSTR, pport : ::windows_sys::core::PCWSTR, fwcapability : PRINTER_DEVICE_CAPABILITIES, poutput : ::windows_sys::core::PWSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn EndDoc(hdc : super::super::Graphics::Gdi:: HDC) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -12,10 +12,10 @@
 ::windows_targets::link!("gdi32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn Escape(hdc : super::super::Graphics::Gdi:: HDC, iescape : i32, cjin : i32, pvin : ::windows_sys::core::PCSTR, pvout : *mut ::core::ffi::c_void) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn ExtEscape(hdc : super::super::Graphics::Gdi:: HDC, iescape : i32, cjinput : i32, lpindata : ::windows_sys::core::PCSTR, cjoutput : i32, lpoutdata : ::windows_sys::core::PSTR) -> i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn PrintWindow(hwnd : super::super::Foundation:: HWND, hdcblt : super::super::Graphics::Gdi:: HDC, nflags : PRINT_WINDOW_FLAGS) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("gdi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn SetAbortProc(hdc : super::super::Graphics::Gdi:: HDC, proc : ABORTPROC) -> i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn PrintWindow(hwnd : super::super::Foundation:: HWND, hdcblt : super::super::Graphics::Gdi:: HDC, nflags : PRINT_WINDOW_FLAGS) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("gdi32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn SetAbortProc(hdc : super::super::Graphics::Gdi:: HDC, proc : ABORTPROC) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn StartDocA(hdc : super::super::Graphics::Gdi:: HDC, lpdi : *const DOCINFOA) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -373,17 +373,13 @@ impl ::core::clone::Clone for DOCINFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DRAWPATRECT {
     pub ptPosition: super::super::Foundation::POINT,
     pub ptSize: super::super::Foundation::POINT,
     pub wStyle: u16,
     pub wPattern: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DRAWPATRECT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DRAWPATRECT {
     fn clone(&self) -> Self {
         *self
@@ -405,15 +401,11 @@ impl ::core::clone::Clone for PSFEATURE_CUSTPAPER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSFEATURE_OUTPUT {
     pub bPageIndependent: super::super::Foundation::BOOL,
     pub bSetPageDevice: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PSFEATURE_OUTPUT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PSFEATURE_OUTPUT {
     fn clone(&self) -> Self {
         *self
@@ -578,6 +570,6 @@ impl ::core::clone::Clone for XPS_SIZE {
         *self
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub type ABORTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Graphics::Gdi::HDC, param1: i32) -> super::super::Foundation::BOOL>;

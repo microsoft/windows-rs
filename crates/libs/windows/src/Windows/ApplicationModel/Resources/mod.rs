@@ -34,10 +34,7 @@ unsafe impl ::windows_core::ComInterface for IResourceLoader2 {
 #[doc(hidden)]
 pub struct IResourceLoader2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub GetStringForUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetStringForUri: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -69,10 +66,7 @@ unsafe impl ::windows_core::ComInterface for IResourceLoaderStatics {
 #[doc(hidden)]
 pub struct IResourceLoaderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub GetStringForReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetStringForReference: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -146,8 +140,6 @@ impl ResourceLoader {
             (::windows_core::Interface::vtable(this).GetString)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(resource), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetStringForUri<P0>(&self, uri: P0) -> ::windows_core::Result<::windows_core::HSTRING>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
@@ -164,8 +156,6 @@ impl ResourceLoader {
             (::windows_core::Interface::vtable(this).CreateResourceLoaderByName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetStringForReference<P0>(uri: P0) -> ::windows_core::Result<::windows_core::HSTRING>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,

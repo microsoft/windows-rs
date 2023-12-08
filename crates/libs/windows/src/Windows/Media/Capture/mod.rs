@@ -39,10 +39,7 @@ unsafe impl ::windows_core::ComInterface for IAdvancedCapturedPhoto2 {
 #[doc(hidden)]
 pub struct IAdvancedCapturedPhoto2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub FrameBoundsRelativeToReferencePhoto: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FrameBoundsRelativeToReferencePhoto: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -58,34 +55,13 @@ unsafe impl ::windows_core::ComInterface for IAdvancedPhotoCapture {
 #[doc(hidden)]
 pub struct IAdvancedPhotoCapture_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub CaptureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CaptureAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub CaptureWithContextAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CaptureWithContextAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub OptionalReferencePhotoCaptured: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    OptionalReferencePhotoCaptured: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveOptionalReferencePhotoCaptured: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveOptionalReferencePhotoCaptured: usize,
-    #[cfg(feature = "Foundation")]
     pub AllPhotosCaptured: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AllPhotosCaptured: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveAllPhotosCaptured: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveAllPhotosCaptured: usize,
-    #[cfg(feature = "Foundation")]
     pub FinishAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FinishAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -112,14 +88,8 @@ pub struct IAppBroadcastBackgroundService_Vtbl {
     pub SetViewerCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
     pub ViewerCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub TerminateBroadcast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: AppBroadcastTerminationReason, providerspecificreason: u32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub HeartbeatRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    HeartbeatRequested: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveHeartbeatRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveHeartbeatRequested: usize,
     pub TitleId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
@@ -141,30 +111,12 @@ pub struct IAppBroadcastBackgroundService2_Vtbl {
     pub SetBroadcastLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub BroadcastChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SetBroadcastChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub BroadcastTitleChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    BroadcastTitleChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveBroadcastTitleChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveBroadcastTitleChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub BroadcastLanguageChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    BroadcastLanguageChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveBroadcastLanguageChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveBroadcastLanguageChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub BroadcastChannelChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    BroadcastChannelChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveBroadcastChannelChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveBroadcastChannelChanged: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -181,36 +133,18 @@ unsafe impl ::windows_core::ComInterface for IAppBroadcastBackgroundServiceSignI
 pub struct IAppBroadcastBackgroundServiceSignInInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SignInState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastSignInState) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub SetOAuthRequestUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetOAuthRequestUri: usize,
-    #[cfg(feature = "Foundation")]
     pub OAuthRequestUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    OAuthRequestUri: usize,
-    #[cfg(feature = "Foundation")]
     pub SetOAuthCallbackUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetOAuthCallbackUri: usize,
-    #[cfg(feature = "Foundation")]
     pub OAuthCallbackUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    OAuthCallbackUri: usize,
     #[cfg(feature = "Security_Authentication_Web")]
     pub AuthenticationResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Security_Authentication_Web"))]
     AuthenticationResult: usize,
     pub SetUserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub UserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub SignInStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SignInStateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveSignInStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveSignInStateChanged: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -226,14 +160,8 @@ unsafe impl ::windows_core::ComInterface for IAppBroadcastBackgroundServiceSignI
 #[doc(hidden)]
 pub struct IAppBroadcastBackgroundServiceSignInInfo2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub UserNameChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    UserNameChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveUserNameChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveUserNameChanged: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -257,30 +185,12 @@ pub struct IAppBroadcastBackgroundServiceStreamInfo_Vtbl {
     pub SetAudioCodec: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub AudioCodec: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub BroadcastStreamReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub StreamStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StreamStateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveStreamStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveStreamStateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub VideoEncodingResolutionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    VideoEncodingResolutionChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveVideoEncodingResolutionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveVideoEncodingResolutionChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub VideoEncodingBitrateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    VideoEncodingBitrateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveVideoEncodingBitrateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveVideoEncodingBitrateChanged: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -503,18 +413,9 @@ pub struct IAppBroadcastPreview_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StopPreview: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub PreviewState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastPreviewState) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub ErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ErrorCode: usize,
-    #[cfg(feature = "Foundation")]
     pub PreviewStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PreviewStateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemovePreviewStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePreviewStateChanged: usize,
     pub PreviewStreamReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
@@ -560,14 +461,8 @@ pub struct IAppBroadcastPreviewStreamReader_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     VideoBitmapAlphaMode: usize,
     pub TryGetNextVideoFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub VideoFrameArrived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    VideoFrameArrived: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveVideoFrameArrived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveVideoFrameArrived: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -603,18 +498,9 @@ unsafe impl ::windows_core::ComInterface for IAppBroadcastPreviewStreamVideoHead
 #[doc(hidden)]
 pub struct IAppBroadcastPreviewStreamVideoHeader_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub AbsoluteTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AbsoluteTimestamp: usize,
-    #[cfg(feature = "Foundation")]
     pub RelativeTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RelativeTimestamp: usize,
-    #[cfg(feature = "Foundation")]
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Duration: usize,
     pub FrameId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
@@ -668,18 +554,12 @@ pub struct IAppBroadcastServices_Vtbl {
     pub SetBroadcastLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub UserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub CanCapture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub EnterBroadcastModeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugin: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    EnterBroadcastModeAsync: usize,
     pub ExitBroadcastMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: AppBroadcastExitBroadcastModeReason) -> ::windows_core::HRESULT,
     pub StartBroadcast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub PauseBroadcast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ResumeBroadcast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub StartPreview: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desiredsize: super::super::Foundation::Size, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StartPreview: usize,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
@@ -721,24 +601,15 @@ pub struct IAppBroadcastState_Vtbl {
     pub ShouldCaptureCamera: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetShouldCaptureCamera: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
     pub RestartCameraCapture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub EncodedVideoSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    EncodedVideoSize: usize,
     pub MicrophoneCaptureState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastMicrophoneCaptureState) -> ::windows_core::HRESULT,
     pub MicrophoneCaptureError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub CameraCaptureState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastCameraCaptureState) -> ::windows_core::HRESULT,
     pub CameraCaptureError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub StreamState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastStreamState) -> ::windows_core::HRESULT,
     pub PlugInState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastPlugInState) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub OAuthRequestUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    OAuthRequestUri: usize,
-    #[cfg(feature = "Foundation")]
     pub OAuthCallbackUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    OAuthCallbackUri: usize,
     #[cfg(feature = "Security_Authentication_Web")]
     pub AuthenticationResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Security_Authentication_Web"))]
@@ -751,54 +622,18 @@ pub struct IAppBroadcastState_Vtbl {
     pub SignInState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastSignInState) -> ::windows_core::HRESULT,
     pub TerminationReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastTerminationReason) -> ::windows_core::HRESULT,
     pub TerminationReasonPlugInSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub ViewerCountChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ViewerCountChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveViewerCountChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveViewerCountChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub MicrophoneCaptureStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MicrophoneCaptureStateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveMicrophoneCaptureStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveMicrophoneCaptureStateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub CameraCaptureStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CameraCaptureStateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveCameraCaptureStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveCameraCaptureStateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub PlugInStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PlugInStateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemovePlugInStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePlugInStateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub StreamStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StreamStateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveStreamStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveStreamStateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub CaptureTargetClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CaptureTargetClosed: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveCaptureTargetClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveCaptureTargetClosed: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -834,18 +669,9 @@ unsafe impl ::windows_core::ComInterface for IAppBroadcastStreamAudioHeader {
 #[doc(hidden)]
 pub struct IAppBroadcastStreamAudioHeader_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub AbsoluteTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AbsoluteTimestamp: usize,
-    #[cfg(feature = "Foundation")]
     pub RelativeTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RelativeTimestamp: usize,
-    #[cfg(feature = "Foundation")]
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Duration: usize,
     pub HasDiscontinuity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub FrameId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows_core::HRESULT,
 }
@@ -875,22 +701,10 @@ pub struct IAppBroadcastStreamReader_Vtbl {
     pub VideoHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub VideoBitrate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub TryGetNextVideoFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub AudioFrameArrived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AudioFrameArrived: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveAudioFrameArrived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveAudioFrameArrived: usize,
-    #[cfg(feature = "Foundation")]
     pub VideoFrameArrived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    VideoFrameArrived: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveVideoFrameArrived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveVideoFrameArrived: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -942,18 +756,9 @@ unsafe impl ::windows_core::ComInterface for IAppBroadcastStreamVideoHeader {
 #[doc(hidden)]
 pub struct IAppBroadcastStreamVideoHeader_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub AbsoluteTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AbsoluteTimestamp: usize,
-    #[cfg(feature = "Foundation")]
     pub RelativeTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RelativeTimestamp: usize,
-    #[cfg(feature = "Foundation")]
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Duration: usize,
     pub IsKeyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub HasDiscontinuity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub FrameId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows_core::HRESULT,
@@ -1006,14 +811,8 @@ pub struct IAppCapture_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsCapturingAudio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub IsCapturingVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub CapturingChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CapturingChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveCapturingChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveCapturingChanged: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1202,10 +1001,7 @@ unsafe impl ::windows_core::ComInterface for IAppCaptureDurationGeneratedEventAr
 #[doc(hidden)]
 pub struct IAppCaptureDurationGeneratedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Duration: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1266,14 +1062,8 @@ pub struct IAppCaptureMetadataWriter_Vtbl {
     pub StopState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub StopAllStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RemainingStorageBytesAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub MetadataPurged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MetadataPurged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveMetadataPurged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveMetadataPurged: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1308,46 +1098,19 @@ pub struct IAppCaptureRecordOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StopRecording: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureRecordingState) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub ErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ErrorCode: usize,
-    #[cfg(feature = "Foundation")]
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Duration: usize,
     #[cfg(feature = "Storage")]
     pub File: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage"))]
     File: usize,
-    #[cfg(feature = "Foundation")]
     pub IsFileTruncated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IsFileTruncated: usize,
-    #[cfg(feature = "Foundation")]
     pub StateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveStateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub DurationGenerated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DurationGenerated: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveDurationGenerated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveDurationGenerated: usize,
-    #[cfg(feature = "Foundation")]
     pub FileGenerated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FileGenerated: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveFileGenerated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveFileGenerated: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1381,10 +1144,7 @@ unsafe impl ::windows_core::ComInterface for IAppCaptureServices {
 pub struct IAppCaptureServices_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Record: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub RecordTimeSpan: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RecordTimeSpan: usize,
     pub CanCapture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -1430,14 +1190,8 @@ pub struct IAppCaptureSettings_Vtbl {
     pub IsHistoricalCaptureOnBatteryAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetIsHistoricalCaptureOnWirelessDisplayAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
     pub IsHistoricalCaptureOnWirelessDisplayAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub SetMaximumRecordLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetMaximumRecordLength: usize,
-    #[cfg(feature = "Foundation")]
     pub MaximumRecordLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MaximumRecordLength: usize,
     #[cfg(feature = "Storage")]
     pub SetScreenshotDestinationFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage"))]
@@ -1554,22 +1308,10 @@ pub struct IAppCaptureState_Vtbl {
     pub RestartMicrophoneCapture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub MicrophoneCaptureState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureMicrophoneCaptureState) -> ::windows_core::HRESULT,
     pub MicrophoneCaptureError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub MicrophoneCaptureStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MicrophoneCaptureStateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveMicrophoneCaptureStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveMicrophoneCaptureStateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub CaptureTargetClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CaptureTargetClosed: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveCaptureTargetClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveCaptureTargetClosed: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1601,10 +1343,7 @@ unsafe impl ::windows_core::ComInterface for IAppCaptureStatics2 {
 #[doc(hidden)]
 pub struct IAppCaptureStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub SetAllowedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allowed: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetAllowedAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1622,9 +1361,9 @@ pub struct ICameraCaptureUI_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PhotoSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub VideoSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[cfg(feature = "Storage")]
     pub CaptureFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: CameraCaptureUIMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
+    #[cfg(not(feature = "Storage"))]
     CaptureFileAsync: usize,
 }
 #[doc(hidden)]
@@ -1645,22 +1384,10 @@ pub struct ICameraCaptureUIPhotoCaptureSettings_Vtbl {
     pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CameraCaptureUIPhotoFormat) -> ::windows_core::HRESULT,
     pub MaxResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CameraCaptureUIMaxPhotoResolution) -> ::windows_core::HRESULT,
     pub SetMaxResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CameraCaptureUIMaxPhotoResolution) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub CroppedSizeInPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CroppedSizeInPixels: usize,
-    #[cfg(feature = "Foundation")]
     pub SetCroppedSizeInPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Size) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetCroppedSizeInPixels: usize,
-    #[cfg(feature = "Foundation")]
     pub CroppedAspectRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CroppedAspectRatio: usize,
-    #[cfg(feature = "Foundation")]
     pub SetCroppedAspectRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Size) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetCroppedAspectRatio: usize,
     pub AllowCropping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetAllowCropping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
 }
@@ -1754,42 +1481,18 @@ unsafe impl ::windows_core::ComInterface for ICapturedFrameControlValues {
 #[doc(hidden)]
 pub struct ICapturedFrameControlValues_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub Exposure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Exposure: usize,
-    #[cfg(feature = "Foundation")]
     pub ExposureCompensation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ExposureCompensation: usize,
-    #[cfg(feature = "Foundation")]
     pub IsoSpeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IsoSpeed: usize,
-    #[cfg(feature = "Foundation")]
     pub Focus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Focus: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_Devices"))]
+    #[cfg(feature = "Media_Devices")]
     pub SceneMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Devices")))]
+    #[cfg(not(feature = "Media_Devices"))]
     SceneMode: usize,
-    #[cfg(feature = "Foundation")]
     pub Flashed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Flashed: usize,
-    #[cfg(feature = "Foundation")]
     pub FlashPowerPercent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FlashPowerPercent: usize,
-    #[cfg(feature = "Foundation")]
     pub WhiteBalance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    WhiteBalance: usize,
-    #[cfg(feature = "Foundation")]
     pub ZoomFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ZoomFactor: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1805,26 +1508,17 @@ unsafe impl ::windows_core::ComInterface for ICapturedFrameControlValues2 {
 #[doc(hidden)]
 pub struct ICapturedFrameControlValues2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation", feature = "Media_Devices"))]
+    #[cfg(feature = "Media_Devices")]
     pub FocusState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Devices")))]
+    #[cfg(not(feature = "Media_Devices"))]
     FocusState: usize,
-    #[cfg(feature = "Foundation")]
     pub IsoDigitalGain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IsoDigitalGain: usize,
-    #[cfg(feature = "Foundation")]
     pub IsoAnalogGain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IsoAnalogGain: usize,
     #[cfg(feature = "Media_MediaProperties")]
     pub SensorFrameRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
     SensorFrameRate: usize,
-    #[cfg(feature = "Foundation")]
     pub WhiteBalanceGain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    WhiteBalanceGain: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1883,14 +1577,8 @@ pub struct IGameBarServices_Vtbl {
     pub SessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub AppBroadcastServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub AppCaptureServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub CommandReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CommandReceived: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveCommandReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveCommandReceived: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1923,14 +1611,8 @@ unsafe impl ::windows_core::ComInterface for IGameBarServicesManager {
 #[doc(hidden)]
 pub struct IGameBarServicesManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub GameBarServicesCreated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GameBarServicesCreated: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveGameBarServicesCreated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveGameBarServicesCreated: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1997,18 +1679,9 @@ unsafe impl ::windows_core::ComInterface for ILowLagMediaRecording {
 #[doc(hidden)]
 pub struct ILowLagMediaRecording_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub StartAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StartAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub StopAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StopAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub FinishAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FinishAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2024,14 +1697,11 @@ unsafe impl ::windows_core::ComInterface for ILowLagMediaRecording2 {
 #[doc(hidden)]
 pub struct ILowLagMediaRecording2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation", feature = "Media_Devices"))]
+    #[cfg(feature = "Media_Devices")]
     pub PauseAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, behavior: super::Devices::MediaCapturePauseBehavior, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Devices")))]
+    #[cfg(not(feature = "Media_Devices"))]
     PauseAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub ResumeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ResumeAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2047,14 +1717,11 @@ unsafe impl ::windows_core::ComInterface for ILowLagMediaRecording3 {
 #[doc(hidden)]
 pub struct ILowLagMediaRecording3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation", feature = "Media_Devices"))]
+    #[cfg(feature = "Media_Devices")]
     pub PauseWithResultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, behavior: super::Devices::MediaCapturePauseBehavior, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Devices")))]
+    #[cfg(not(feature = "Media_Devices"))]
     PauseWithResultAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub StopWithResultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StopWithResultAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2070,14 +1737,8 @@ unsafe impl ::windows_core::ComInterface for ILowLagPhotoCapture {
 #[doc(hidden)]
 pub struct ILowLagPhotoCapture_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub CaptureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CaptureAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub FinishAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FinishAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2093,26 +1754,11 @@ unsafe impl ::windows_core::ComInterface for ILowLagPhotoSequenceCapture {
 #[doc(hidden)]
 pub struct ILowLagPhotoSequenceCapture_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub StartAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StartAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub StopAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StopAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub FinishAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FinishAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub PhotoCaptured: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PhotoCaptured: usize,
-    #[cfg(feature = "Foundation")]
     pub RemovePhotoCaptured: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePhotoCaptured: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2128,68 +1774,44 @@ unsafe impl ::windows_core::ComInterface for IMediaCapture {
 #[doc(hidden)]
 pub struct IMediaCapture_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub InitializeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    InitializeAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub InitializeWithSettingsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediacaptureinitializationsettings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    InitializeWithSettingsAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage"))]
+    #[cfg(all(feature = "Media_MediaProperties", feature = "Storage"))]
     pub StartRecordToStorageFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingprofile: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage")))]
+    #[cfg(not(all(feature = "Media_MediaProperties", feature = "Storage")))]
     StartRecordToStorageFileAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
+    #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
     pub StartRecordToStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingprofile: *mut ::core::ffi::c_void, stream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage_Streams")))]
+    #[cfg(not(all(feature = "Media_MediaProperties", feature = "Storage_Streams")))]
     StartRecordToStreamAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties"))]
+    #[cfg(feature = "Media_MediaProperties")]
     pub StartRecordToCustomSinkAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingprofile: *mut ::core::ffi::c_void, custommediasink: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_MediaProperties")))]
+    #[cfg(not(feature = "Media_MediaProperties"))]
     StartRecordToCustomSinkAsync: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
     pub StartRecordToCustomSinkIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingprofile: *mut ::core::ffi::c_void, customsinkactivationid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, customsinksettings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_MediaProperties")))]
     StartRecordToCustomSinkIdAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub StopRecordAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StopRecordAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage"))]
+    #[cfg(all(feature = "Media_MediaProperties", feature = "Storage"))]
     pub CapturePhotoToStorageFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage")))]
+    #[cfg(not(all(feature = "Media_MediaProperties", feature = "Storage")))]
     CapturePhotoToStorageFileAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
+    #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
     pub CapturePhotoToStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut ::core::ffi::c_void, stream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage_Streams")))]
+    #[cfg(not(all(feature = "Media_MediaProperties", feature = "Storage_Streams")))]
     CapturePhotoToStreamAsync: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub AddEffectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediastreamtype: MediaStreamType, effectactivationid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, effectsettings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     AddEffectAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub ClearEffectsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediastreamtype: MediaStreamType, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ClearEffectsAsync: usize,
     pub SetEncoderProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediastreamtype: MediaStreamType, propertyid: ::windows_core::GUID, propertyvalue: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetEncoderProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediastreamtype: MediaStreamType, propertyid: ::windows_core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Failed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, erroreventhandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Failed: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveFailed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveFailed: usize,
-    #[cfg(feature = "Foundation")]
     pub RecordLimitationExceeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recordlimitationexceededeventhandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RecordLimitationExceeded: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveRecordLimitationExceeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveRecordLimitationExceeded: usize,
     pub MediaCaptureSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Media_Devices")]
     pub AudioDeviceController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2220,29 +1842,29 @@ unsafe impl ::windows_core::ComInterface for IMediaCapture2 {
 #[doc(hidden)]
 pub struct IMediaCapture2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage"))]
+    #[cfg(all(feature = "Media_MediaProperties", feature = "Storage"))]
     pub PrepareLowLagRecordToStorageFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingprofile: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage")))]
+    #[cfg(not(all(feature = "Media_MediaProperties", feature = "Storage")))]
     PrepareLowLagRecordToStorageFileAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
+    #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
     pub PrepareLowLagRecordToStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingprofile: *mut ::core::ffi::c_void, stream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage_Streams")))]
+    #[cfg(not(all(feature = "Media_MediaProperties", feature = "Storage_Streams")))]
     PrepareLowLagRecordToStreamAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties"))]
+    #[cfg(feature = "Media_MediaProperties")]
     pub PrepareLowLagRecordToCustomSinkAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingprofile: *mut ::core::ffi::c_void, custommediasink: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_MediaProperties")))]
+    #[cfg(not(feature = "Media_MediaProperties"))]
     PrepareLowLagRecordToCustomSinkAsync: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
     pub PrepareLowLagRecordToCustomSinkIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingprofile: *mut ::core::ffi::c_void, customsinkactivationid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, customsinksettings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_MediaProperties")))]
     PrepareLowLagRecordToCustomSinkIdAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties"))]
+    #[cfg(feature = "Media_MediaProperties")]
     pub PrepareLowLagPhotoCaptureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_MediaProperties")))]
+    #[cfg(not(feature = "Media_MediaProperties"))]
     PrepareLowLagPhotoCaptureAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties"))]
+    #[cfg(feature = "Media_MediaProperties")]
     pub PrepareLowLagPhotoSequenceCaptureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_MediaProperties")))]
+    #[cfg(not(feature = "Media_MediaProperties"))]
     PrepareLowLagPhotoSequenceCaptureAsync: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
     pub SetEncodingPropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediastreamtype: MediaStreamType, mediaencodingproperties: *mut ::core::ffi::c_void, encoderproperties: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2263,26 +1885,14 @@ unsafe impl ::windows_core::ComInterface for IMediaCapture3 {
 #[doc(hidden)]
 pub struct IMediaCapture3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation", feature = "Media_Capture_Core", feature = "Media_MediaProperties"))]
+    #[cfg(all(feature = "Media_Capture_Core", feature = "Media_MediaProperties"))]
     pub PrepareVariablePhotoSequenceCaptureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Capture_Core", feature = "Media_MediaProperties")))]
+    #[cfg(not(all(feature = "Media_Capture_Core", feature = "Media_MediaProperties")))]
     PrepareVariablePhotoSequenceCaptureAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub FocusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FocusChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveFocusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveFocusChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub PhotoConfirmationCaptured: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PhotoConfirmationCaptured: usize,
-    #[cfg(feature = "Foundation")]
     pub RemovePhotoConfirmationCaptured: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePhotoConfirmationCaptured: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2298,54 +1908,33 @@ unsafe impl ::windows_core::ComInterface for IMediaCapture4 {
 #[doc(hidden)]
 pub struct IMediaCapture4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation", feature = "Media_Effects"))]
+    #[cfg(feature = "Media_Effects")]
     pub AddAudioEffectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, definition: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Effects")))]
+    #[cfg(not(feature = "Media_Effects"))]
     AddAudioEffectAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_Effects"))]
+    #[cfg(feature = "Media_Effects")]
     pub AddVideoEffectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, definition: *mut ::core::ffi::c_void, mediastreamtype: MediaStreamType, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Effects")))]
+    #[cfg(not(feature = "Media_Effects"))]
     AddVideoEffectAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_Devices"))]
+    #[cfg(feature = "Media_Devices")]
     pub PauseRecordAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, behavior: super::Devices::MediaCapturePauseBehavior, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Devices")))]
+    #[cfg(not(feature = "Media_Devices"))]
     PauseRecordAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub ResumeRecordAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ResumeRecordAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub CameraStreamStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CameraStreamStateChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveCameraStreamStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveCameraStreamStateChanged: usize,
     #[cfg(feature = "Media_Devices")]
     pub CameraStreamState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Devices::CameraStreamState) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_Devices"))]
     CameraStreamState: usize,
-    #[cfg(feature = "Foundation")]
     pub GetPreviewFrameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetPreviewFrameAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub GetPreviewFrameCopyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destination: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetPreviewFrameCopyAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub ThermalStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ThermalStatusChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveThermalStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveThermalStatusChanged: usize,
     pub ThermalStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaCaptureThermalStatus) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties"))]
+    #[cfg(feature = "Media_MediaProperties")]
     pub PrepareAdvancedPhotoCaptureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingproperties: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_MediaProperties")))]
+    #[cfg(not(feature = "Media_MediaProperties"))]
     PrepareAdvancedPhotoCaptureAsync: usize,
 }
 #[doc(hidden)]
@@ -2362,33 +1951,27 @@ unsafe impl ::windows_core::ComInterface for IMediaCapture5 {
 #[doc(hidden)]
 pub struct IMediaCapture5_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub RemoveEffectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effect: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveEffectAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_Devices"))]
+    #[cfg(feature = "Media_Devices")]
     pub PauseRecordWithResultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, behavior: super::Devices::MediaCapturePauseBehavior, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Devices")))]
+    #[cfg(not(feature = "Media_Devices"))]
     PauseRecordWithResultAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub StopRecordWithResultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StopRecordWithResultAsync: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames"))]
     pub FrameSources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames")))]
     FrameSources: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_Capture_Frames"))]
+    #[cfg(feature = "Media_Capture_Frames")]
     pub CreateFrameReaderAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputsource: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Capture_Frames")))]
+    #[cfg(not(feature = "Media_Capture_Frames"))]
     CreateFrameReaderAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_Capture_Frames"))]
+    #[cfg(feature = "Media_Capture_Frames")]
     pub CreateFrameReaderWithSubtypeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputsource: *mut ::core::ffi::c_void, outputsubtype: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Capture_Frames")))]
+    #[cfg(not(feature = "Media_Capture_Frames"))]
     CreateFrameReaderWithSubtypeAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "Media_Capture_Frames"))]
+    #[cfg(all(feature = "Graphics_Imaging", feature = "Media_Capture_Frames"))]
     pub CreateFrameReaderWithSubtypeAndSizeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputsource: *mut ::core::ffi::c_void, outputsubtype: ::std::mem::MaybeUninit<::windows_core::HSTRING>, outputsize: super::super::Graphics::Imaging::BitmapSize, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "Media_Capture_Frames")))]
+    #[cfg(not(all(feature = "Graphics_Imaging", feature = "Media_Capture_Frames")))]
     CreateFrameReaderWithSubtypeAndSizeAsync: usize,
 }
 #[doc(hidden)]
@@ -2405,14 +1988,8 @@ unsafe impl ::windows_core::ComInterface for IMediaCapture6 {
 #[doc(hidden)]
 pub struct IMediaCapture6_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub CaptureDeviceExclusiveControlStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CaptureDeviceExclusiveControlStatusChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveCaptureDeviceExclusiveControlStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveCaptureDeviceExclusiveControlStatusChanged: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames"))]
     pub CreateMultiSourceFrameReaderAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputsources: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames")))]
@@ -2652,14 +2229,8 @@ pub struct IMediaCaptureInitializationSettings7_Vtbl {
     pub SetDeviceUriPasswordCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Security_Credentials"))]
     SetDeviceUriPasswordCredential: usize,
-    #[cfg(feature = "Foundation")]
     pub DeviceUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DeviceUri: usize,
-    #[cfg(feature = "Foundation")]
     pub SetDeviceUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetDeviceUri: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2676,10 +2247,7 @@ unsafe impl ::windows_core::ComInterface for IMediaCapturePauseResult {
 pub struct IMediaCapturePauseResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LastFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub RecordDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RecordDuration: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2699,14 +2267,8 @@ pub struct IMediaCaptureRelativePanelWatcher_Vtbl {
     pub RelativePanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Enumeration::Panel) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Enumeration"))]
     RelativePanel: usize,
-    #[cfg(feature = "Foundation")]
     pub Changed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Changed: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveChanged: usize,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -2747,18 +2309,9 @@ pub struct IMediaCaptureSettings2_Vtbl {
     pub ConcurrentRecordAndPhotoSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub ConcurrentRecordAndPhotoSequenceSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub CameraSoundRequiredForRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub Horizontal35mmEquivalentFocalLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Horizontal35mmEquivalentFocalLength: usize,
-    #[cfg(feature = "Foundation")]
     pub PitchOffsetDegrees: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PitchOffsetDegrees: usize,
-    #[cfg(feature = "Foundation")]
     pub Vertical35mmEquivalentFocalLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Vertical35mmEquivalentFocalLength: usize,
     pub MediaCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaCategory) -> ::windows_core::HRESULT,
     pub AudioProcessing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::AudioProcessing) -> ::windows_core::HRESULT,
 }
@@ -2824,10 +2377,7 @@ unsafe impl ::windows_core::ComInterface for IMediaCaptureStopResult {
 pub struct IMediaCaptureStopResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LastFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub RecordDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RecordDuration: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2843,22 +2393,16 @@ unsafe impl ::windows_core::ComInterface for IMediaCaptureVideoPreview {
 #[doc(hidden)]
 pub struct IMediaCaptureVideoPreview_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub StartPreviewAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StartPreviewAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties"))]
+    #[cfg(feature = "Media_MediaProperties")]
     pub StartPreviewToCustomSinkAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingprofile: *mut ::core::ffi::c_void, custommediasink: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_MediaProperties")))]
+    #[cfg(not(feature = "Media_MediaProperties"))]
     StartPreviewToCustomSinkAsync: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
     pub StartPreviewToCustomSinkIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingprofile: *mut ::core::ffi::c_void, customsinkactivationid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, customsinksettings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_MediaProperties")))]
     StartPreviewToCustomSinkIdAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub StopPreviewAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StopPreviewAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2995,10 +2539,7 @@ pub struct IPhotoCapturedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Frame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Thumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub CaptureTimeOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CaptureTimeOffset: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3015,10 +2556,7 @@ unsafe impl ::windows_core::ComInterface for IPhotoConfirmationCapturedEventArgs
 pub struct IPhotoConfirmationCapturedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Frame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub CaptureTimeOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CaptureTimeOffset: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3044,14 +2582,8 @@ pub struct IScreenCapture_Vtbl {
     VideoSource: usize,
     pub IsAudioSuspended: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub IsVideoSuspended: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub SourceSuspensionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SourceSuspensionChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveSourceSuspensionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveSourceSuspensionChanged: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3136,8 +2668,6 @@ impl AdvancedCapturedPhoto {
             (::windows_core::Interface::vtable(this).Context)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FrameBoundsRelativeToReferencePhoto(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Rect>> {
         let this = &::windows_core::ComInterface::cast::<IAdvancedCapturedPhoto2>(self)?;
         unsafe {
@@ -3165,8 +2695,6 @@ unsafe impl ::core::marker::Sync for AdvancedCapturedPhoto {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdvancedPhotoCapture(::windows_core::IUnknown);
 impl AdvancedPhotoCapture {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CaptureAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>> {
         let this = self;
         unsafe {
@@ -3174,8 +2702,6 @@ impl AdvancedPhotoCapture {
             (::windows_core::Interface::vtable(this).CaptureAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CaptureWithContextAsync<P0>(&self, context: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>>
     where
         P0: ::windows_core::IntoParam<::windows_core::IInspectable>,
@@ -3186,8 +2712,6 @@ impl AdvancedPhotoCapture {
             (::windows_core::Interface::vtable(this).CaptureWithContextAsync)(::windows_core::Interface::as_raw(this), context.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn OptionalReferencePhotoCaptured<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, OptionalReferencePhotoCapturedEventArgs>>,
@@ -3198,14 +2722,10 @@ impl AdvancedPhotoCapture {
             (::windows_core::Interface::vtable(this).OptionalReferencePhotoCaptured)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveOptionalReferencePhotoCaptured(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveOptionalReferencePhotoCaptured)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AllPhotosCaptured<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, ::windows_core::IInspectable>>,
@@ -3216,14 +2736,10 @@ impl AdvancedPhotoCapture {
             (::windows_core::Interface::vtable(this).AllPhotosCaptured)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveAllPhotosCaptured(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAllPhotosCaptured)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FinishAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3319,8 +2835,6 @@ impl AppBroadcastBackgroundService {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).TerminateBroadcast)(::windows_core::Interface::as_raw(this), reason, providerspecificreason).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn HeartbeatRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, AppBroadcastHeartbeatRequestedEventArgs>>,
@@ -3331,8 +2845,6 @@ impl AppBroadcastBackgroundService {
             (::windows_core::Interface::vtable(this).HeartbeatRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveHeartbeatRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveHeartbeatRequested)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -3370,8 +2882,6 @@ impl AppBroadcastBackgroundService {
         let this = &::windows_core::ComInterface::cast::<IAppBroadcastBackgroundService2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetBroadcastChannel)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn BroadcastTitleChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, ::windows_core::IInspectable>>,
@@ -3382,14 +2892,10 @@ impl AppBroadcastBackgroundService {
             (::windows_core::Interface::vtable(this).BroadcastTitleChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveBroadcastTitleChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IAppBroadcastBackgroundService2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveBroadcastTitleChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn BroadcastLanguageChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, ::windows_core::IInspectable>>,
@@ -3400,14 +2906,10 @@ impl AppBroadcastBackgroundService {
             (::windows_core::Interface::vtable(this).BroadcastLanguageChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveBroadcastLanguageChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IAppBroadcastBackgroundService2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveBroadcastLanguageChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn BroadcastChannelChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, ::windows_core::IInspectable>>,
@@ -3418,8 +2920,6 @@ impl AppBroadcastBackgroundService {
             (::windows_core::Interface::vtable(this).BroadcastChannelChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveBroadcastChannelChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IAppBroadcastBackgroundService2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveBroadcastChannelChanged)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -3449,8 +2949,6 @@ impl AppBroadcastBackgroundServiceSignInInfo {
             (::windows_core::Interface::vtable(this).SignInState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetOAuthRequestUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
@@ -3458,8 +2956,6 @@ impl AppBroadcastBackgroundServiceSignInInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetOAuthRequestUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn OAuthRequestUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -3467,8 +2963,6 @@ impl AppBroadcastBackgroundServiceSignInInfo {
             (::windows_core::Interface::vtable(this).OAuthRequestUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetOAuthCallbackUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
@@ -3476,8 +2970,6 @@ impl AppBroadcastBackgroundServiceSignInInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetOAuthCallbackUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn OAuthCallbackUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -3505,8 +2997,6 @@ impl AppBroadcastBackgroundServiceSignInInfo {
             (::windows_core::Interface::vtable(this).UserName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SignInStateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceSignInInfo, AppBroadcastSignInStateChangedEventArgs>>,
@@ -3517,14 +3007,10 @@ impl AppBroadcastBackgroundServiceSignInInfo {
             (::windows_core::Interface::vtable(this).SignInStateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveSignInStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSignInStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn UserNameChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceSignInInfo, ::windows_core::IInspectable>>,
@@ -3535,8 +3021,6 @@ impl AppBroadcastBackgroundServiceSignInInfo {
             (::windows_core::Interface::vtable(this).UserNameChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveUserNameChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IAppBroadcastBackgroundServiceSignInInfo2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveUserNameChanged)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -3606,8 +3090,6 @@ impl AppBroadcastBackgroundServiceStreamInfo {
             (::windows_core::Interface::vtable(this).BroadcastStreamReader)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StreamStateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, AppBroadcastStreamStateChangedEventArgs>>,
@@ -3618,14 +3100,10 @@ impl AppBroadcastBackgroundServiceStreamInfo {
             (::windows_core::Interface::vtable(this).StreamStateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveStreamStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStreamStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn VideoEncodingResolutionChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, ::windows_core::IInspectable>>,
@@ -3636,14 +3114,10 @@ impl AppBroadcastBackgroundServiceStreamInfo {
             (::windows_core::Interface::vtable(this).VideoEncodingResolutionChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveVideoEncodingResolutionChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveVideoEncodingResolutionChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn VideoEncodingBitrateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, ::windows_core::IInspectable>>,
@@ -3654,8 +3128,6 @@ impl AppBroadcastBackgroundServiceStreamInfo {
             (::windows_core::Interface::vtable(this).VideoEncodingBitrateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveVideoEncodingBitrateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveVideoEncodingBitrateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -4130,8 +3602,6 @@ impl AppBroadcastPreview {
             (::windows_core::Interface::vtable(this).PreviewState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ErrorCode(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
@@ -4139,8 +3609,6 @@ impl AppBroadcastPreview {
             (::windows_core::Interface::vtable(this).ErrorCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PreviewStateChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastPreview, AppBroadcastPreviewStateChangedEventArgs>>,
@@ -4151,8 +3619,6 @@ impl AppBroadcastPreview {
             (::windows_core::Interface::vtable(this).PreviewStateChanged)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemovePreviewStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePreviewStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -4264,8 +3730,6 @@ impl AppBroadcastPreviewStreamReader {
             (::windows_core::Interface::vtable(this).TryGetNextVideoFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn VideoFrameArrived<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastPreviewStreamReader, ::windows_core::IInspectable>>,
@@ -4276,8 +3740,6 @@ impl AppBroadcastPreviewStreamReader {
             (::windows_core::Interface::vtable(this).VideoFrameArrived)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveVideoFrameArrived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveVideoFrameArrived)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -4338,8 +3800,6 @@ unsafe impl ::core::marker::Sync for AppBroadcastPreviewStreamVideoFrame {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppBroadcastPreviewStreamVideoHeader(::windows_core::IUnknown);
 impl AppBroadcastPreviewStreamVideoHeader {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AbsoluteTimestamp(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -4347,8 +3807,6 @@ impl AppBroadcastPreviewStreamVideoHeader {
             (::windows_core::Interface::vtable(this).AbsoluteTimestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RelativeTimestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -4356,8 +3814,6 @@ impl AppBroadcastPreviewStreamVideoHeader {
             (::windows_core::Interface::vtable(this).RelativeTimestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -4534,8 +3990,6 @@ impl AppBroadcastServices {
             (::windows_core::Interface::vtable(this).CanCapture)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn EnterBroadcastModeAsync<P0>(&self, plugin: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>
     where
         P0: ::windows_core::IntoParam<AppBroadcastPlugIn>,
@@ -4562,8 +4016,6 @@ impl AppBroadcastServices {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).ResumeBroadcast)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StartPreview(&self, desiredsize: super::super::Foundation::Size) -> ::windows_core::Result<AppBroadcastPreview> {
         let this = self;
         unsafe {
@@ -4674,8 +4126,6 @@ impl AppBroadcastState {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RestartCameraCapture)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn EncodedVideoSize(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
@@ -4725,8 +4175,6 @@ impl AppBroadcastState {
             (::windows_core::Interface::vtable(this).PlugInState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn OAuthRequestUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -4734,8 +4182,6 @@ impl AppBroadcastState {
             (::windows_core::Interface::vtable(this).OAuthRequestUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn OAuthCallbackUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -4786,8 +4232,6 @@ impl AppBroadcastState {
             (::windows_core::Interface::vtable(this).TerminationReasonPlugInSpecific)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ViewerCountChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastViewerCountChangedEventArgs>>,
@@ -4798,14 +4242,10 @@ impl AppBroadcastState {
             (::windows_core::Interface::vtable(this).ViewerCountChanged)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveViewerCountChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveViewerCountChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn MicrophoneCaptureStateChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastMicrophoneCaptureStateChangedEventArgs>>,
@@ -4816,14 +4256,10 @@ impl AppBroadcastState {
             (::windows_core::Interface::vtable(this).MicrophoneCaptureStateChanged)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveMicrophoneCaptureStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveMicrophoneCaptureStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CameraCaptureStateChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastCameraCaptureStateChangedEventArgs>>,
@@ -4834,14 +4270,10 @@ impl AppBroadcastState {
             (::windows_core::Interface::vtable(this).CameraCaptureStateChanged)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveCameraCaptureStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCameraCaptureStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PlugInStateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastPlugInStateChangedEventArgs>>,
@@ -4852,14 +4284,10 @@ impl AppBroadcastState {
             (::windows_core::Interface::vtable(this).PlugInStateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemovePlugInStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePlugInStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StreamStateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastStreamStateChangedEventArgs>>,
@@ -4870,14 +4298,10 @@ impl AppBroadcastState {
             (::windows_core::Interface::vtable(this).StreamStateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveStreamStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStreamStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CaptureTargetClosed<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastState, ::windows_core::IInspectable>>,
@@ -4888,8 +4312,6 @@ impl AppBroadcastState {
             (::windows_core::Interface::vtable(this).CaptureTargetClosed)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveCaptureTargetClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCaptureTargetClosed)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -4948,8 +4370,6 @@ impl ::windows_core::RuntimeName for AppBroadcastStreamAudioFrame {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppBroadcastStreamAudioHeader(::windows_core::IUnknown);
 impl AppBroadcastStreamAudioHeader {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AbsoluteTimestamp(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -4957,8 +4377,6 @@ impl AppBroadcastStreamAudioHeader {
             (::windows_core::Interface::vtable(this).AbsoluteTimestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RelativeTimestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -4966,8 +4384,6 @@ impl AppBroadcastStreamAudioHeader {
             (::windows_core::Interface::vtable(this).RelativeTimestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -5072,8 +4488,6 @@ impl AppBroadcastStreamReader {
             (::windows_core::Interface::vtable(this).TryGetNextVideoFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AudioFrameArrived<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastStreamReader, ::windows_core::IInspectable>>,
@@ -5084,14 +4498,10 @@ impl AppBroadcastStreamReader {
             (::windows_core::Interface::vtable(this).AudioFrameArrived)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveAudioFrameArrived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAudioFrameArrived)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn VideoFrameArrived<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastStreamReader, ::windows_core::IInspectable>>,
@@ -5102,8 +4512,6 @@ impl AppBroadcastStreamReader {
             (::windows_core::Interface::vtable(this).VideoFrameArrived)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveVideoFrameArrived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveVideoFrameArrived)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -5185,8 +4593,6 @@ impl ::windows_core::RuntimeName for AppBroadcastStreamVideoFrame {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppBroadcastStreamVideoHeader(::windows_core::IUnknown);
 impl AppBroadcastStreamVideoHeader {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AbsoluteTimestamp(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -5194,8 +4600,6 @@ impl AppBroadcastStreamVideoHeader {
             (::windows_core::Interface::vtable(this).AbsoluteTimestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RelativeTimestamp(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -5203,8 +4607,6 @@ impl AppBroadcastStreamVideoHeader {
             (::windows_core::Interface::vtable(this).RelativeTimestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -5317,8 +4719,6 @@ impl AppCapture {
             (::windows_core::Interface::vtable(this).IsCapturingVideo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CapturingChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppCapture, ::windows_core::IInspectable>>,
@@ -5329,8 +4729,6 @@ impl AppCapture {
             (::windows_core::Interface::vtable(this).CapturingChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveCapturingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCapturingChanged)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -5341,8 +4739,6 @@ impl AppCapture {
             (::windows_core::Interface::vtable(this).GetForCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetAllowedAsync(allowed: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::IAppCaptureStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
@@ -5635,8 +5031,6 @@ impl ::windows_core::RuntimeName for AppCaptureAlternateShortcutKeys {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppCaptureDurationGeneratedEventArgs(::windows_core::IUnknown);
 impl AppCaptureDurationGeneratedEventArgs {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -5762,8 +5156,6 @@ impl AppCaptureMetadataWriter {
             (::windows_core::Interface::vtable(this).RemainingStorageBytesAvailable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn MetadataPurged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppCaptureMetadataWriter, ::windows_core::IInspectable>>,
@@ -5774,14 +5166,10 @@ impl AppCaptureMetadataWriter {
             (::windows_core::Interface::vtable(this).MetadataPurged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveMetadataPurged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveMetadataPurged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -5800,7 +5188,6 @@ impl ::windows_core::RuntimeName for AppCaptureMetadataWriter {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureMetadataWriter";
 }
 ::windows_core::imp::interface_hierarchy!(AppCaptureMetadataWriter, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for AppCaptureMetadataWriter {}
 unsafe impl ::core::marker::Send for AppCaptureMetadataWriter {}
 unsafe impl ::core::marker::Sync for AppCaptureMetadataWriter {}
@@ -5853,8 +5240,6 @@ impl AppCaptureRecordOperation {
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ErrorCode(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
@@ -5862,8 +5247,6 @@ impl AppCaptureRecordOperation {
             (::windows_core::Interface::vtable(this).ErrorCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -5880,8 +5263,6 @@ impl AppCaptureRecordOperation {
             (::windows_core::Interface::vtable(this).File)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn IsFileTruncated(&self) -> ::windows_core::Result<super::super::Foundation::IReference<bool>> {
         let this = self;
         unsafe {
@@ -5889,8 +5270,6 @@ impl AppCaptureRecordOperation {
             (::windows_core::Interface::vtable(this).IsFileTruncated)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StateChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureRecordingStateChangedEventArgs>>,
@@ -5901,14 +5280,10 @@ impl AppCaptureRecordOperation {
             (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn DurationGenerated<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureDurationGeneratedEventArgs>>,
@@ -5919,14 +5294,10 @@ impl AppCaptureRecordOperation {
             (::windows_core::Interface::vtable(this).DurationGenerated)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveDurationGenerated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveDurationGenerated)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FileGenerated<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureFileGeneratedEventArgs>>,
@@ -5937,8 +5308,6 @@ impl AppCaptureRecordOperation {
             (::windows_core::Interface::vtable(this).FileGenerated)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveFileGenerated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveFileGenerated)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -6004,8 +5373,6 @@ impl AppCaptureServices {
             (::windows_core::Interface::vtable(this).Record)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RecordTimeSpan(&self, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> ::windows_core::Result<AppCaptureRecordOperation> {
         let this = self;
         unsafe {
@@ -6175,14 +5542,10 @@ impl AppCaptureSettings {
             (::windows_core::Interface::vtable(this).IsHistoricalCaptureOnWirelessDisplayAllowed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetMaximumRecordLength(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetMaximumRecordLength)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn MaximumRecordLength(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -6421,8 +5784,6 @@ impl AppCaptureState {
             (::windows_core::Interface::vtable(this).MicrophoneCaptureError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn MicrophoneCaptureStateChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppCaptureState, AppCaptureMicrophoneCaptureStateChangedEventArgs>>,
@@ -6433,14 +5794,10 @@ impl AppCaptureState {
             (::windows_core::Interface::vtable(this).MicrophoneCaptureStateChanged)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveMicrophoneCaptureStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveMicrophoneCaptureStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CaptureTargetClosed<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppCaptureState, ::windows_core::IInspectable>>,
@@ -6451,8 +5808,6 @@ impl AppCaptureState {
             (::windows_core::Interface::vtable(this).CaptureTargetClosed)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveCaptureTargetClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCaptureTargetClosed)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -6498,8 +5853,8 @@ impl CameraCaptureUI {
             (::windows_core::Interface::vtable(this).VideoSettings)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "Required features: `\"Storage\"`"]
+    #[cfg(feature = "Storage")]
     pub fn CaptureFileAsync(&self, mode: CameraCaptureUIMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
@@ -6547,8 +5902,6 @@ impl CameraCaptureUIPhotoCaptureSettings {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetMaxResolution)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CroppedSizeInPixels(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
@@ -6556,14 +5909,10 @@ impl CameraCaptureUIPhotoCaptureSettings {
             (::windows_core::Interface::vtable(this).CroppedSizeInPixels)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetCroppedSizeInPixels(&self, value: super::super::Foundation::Size) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCroppedSizeInPixels)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CroppedAspectRatio(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
@@ -6571,8 +5920,6 @@ impl CameraCaptureUIPhotoCaptureSettings {
             (::windows_core::Interface::vtable(this).CroppedAspectRatio)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetCroppedAspectRatio(&self, value: super::super::Foundation::Size) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCroppedAspectRatio)(::windows_core::Interface::as_raw(this), value).ok() }
@@ -6728,8 +6075,6 @@ impl CapturedFrame {
             (::windows_core::Interface::vtable(this).SoftwareBitmap)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -6743,8 +6088,8 @@ impl CapturedFrame {
             (::windows_core::Interface::vtable(this).ContentType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    #[cfg(feature = "Storage_Streams")]
     pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
     where
         P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
@@ -6755,8 +6100,8 @@ impl CapturedFrame {
             (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    #[cfg(feature = "Storage_Streams")]
     pub fn WriteAsync<P0>(&self, buffer: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
         P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
@@ -6767,8 +6112,8 @@ impl CapturedFrame {
             (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    #[cfg(feature = "Storage_Streams")]
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
@@ -6865,7 +6210,6 @@ impl ::windows_core::RuntimeName for CapturedFrame {
     const NAME: &'static str = "Windows.Media.Capture.CapturedFrame";
 }
 ::windows_core::imp::interface_hierarchy!(CapturedFrame, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for CapturedFrame {}
 #[cfg(feature = "Storage_Streams")]
 impl ::windows_core::CanTryInto<super::super::Storage::Streams::IContentTypeProvider> for CapturedFrame {}
@@ -6883,8 +6227,6 @@ unsafe impl ::core::marker::Sync for CapturedFrame {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CapturedFrameControlValues(::windows_core::IUnknown);
 impl CapturedFrameControlValues {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Exposure(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -6892,8 +6234,6 @@ impl CapturedFrameControlValues {
             (::windows_core::Interface::vtable(this).Exposure)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ExposureCompensation(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
@@ -6901,8 +6241,6 @@ impl CapturedFrameControlValues {
             (::windows_core::Interface::vtable(this).ExposureCompensation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn IsoSpeed(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
@@ -6910,8 +6248,6 @@ impl CapturedFrameControlValues {
             (::windows_core::Interface::vtable(this).IsoSpeed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Focus(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
@@ -6919,8 +6255,8 @@ impl CapturedFrameControlValues {
             (::windows_core::Interface::vtable(this).Focus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_Devices\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_Devices"))]
+    #[doc = "Required features: `\"Media_Devices\"`"]
+    #[cfg(feature = "Media_Devices")]
     pub fn SceneMode(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Devices::CaptureSceneMode>> {
         let this = self;
         unsafe {
@@ -6928,8 +6264,6 @@ impl CapturedFrameControlValues {
             (::windows_core::Interface::vtable(this).SceneMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Flashed(&self) -> ::windows_core::Result<super::super::Foundation::IReference<bool>> {
         let this = self;
         unsafe {
@@ -6937,8 +6271,6 @@ impl CapturedFrameControlValues {
             (::windows_core::Interface::vtable(this).Flashed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FlashPowerPercent(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
@@ -6946,8 +6278,6 @@ impl CapturedFrameControlValues {
             (::windows_core::Interface::vtable(this).FlashPowerPercent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn WhiteBalance(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
@@ -6955,8 +6285,6 @@ impl CapturedFrameControlValues {
             (::windows_core::Interface::vtable(this).WhiteBalance)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ZoomFactor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
@@ -6964,8 +6292,8 @@ impl CapturedFrameControlValues {
             (::windows_core::Interface::vtable(this).ZoomFactor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_Devices\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_Devices"))]
+    #[doc = "Required features: `\"Media_Devices\"`"]
+    #[cfg(feature = "Media_Devices")]
     pub fn FocusState(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Devices::MediaCaptureFocusState>> {
         let this = &::windows_core::ComInterface::cast::<ICapturedFrameControlValues2>(self)?;
         unsafe {
@@ -6973,8 +6301,6 @@ impl CapturedFrameControlValues {
             (::windows_core::Interface::vtable(this).FocusState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn IsoDigitalGain(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows_core::ComInterface::cast::<ICapturedFrameControlValues2>(self)?;
         unsafe {
@@ -6982,8 +6308,6 @@ impl CapturedFrameControlValues {
             (::windows_core::Interface::vtable(this).IsoDigitalGain)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn IsoAnalogGain(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows_core::ComInterface::cast::<ICapturedFrameControlValues2>(self)?;
         unsafe {
@@ -7000,8 +6324,6 @@ impl CapturedFrameControlValues {
             (::windows_core::Interface::vtable(this).SensorFrameRate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn WhiteBalanceGain(&self) -> ::windows_core::Result<super::super::Foundation::IReference<WhiteBalanceGain>> {
         let this = &::windows_core::ComInterface::cast::<ICapturedFrameControlValues2>(self)?;
         unsafe {
@@ -7106,8 +6428,6 @@ impl GameBarServices {
             (::windows_core::Interface::vtable(this).AppCaptureServices)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CommandReceived<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<GameBarServices, GameBarServicesCommandEventArgs>>,
@@ -7118,8 +6438,6 @@ impl GameBarServices {
             (::windows_core::Interface::vtable(this).CommandReceived)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveCommandReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCommandReceived)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -7178,8 +6496,6 @@ unsafe impl ::core::marker::Sync for GameBarServicesCommandEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GameBarServicesManager(::windows_core::IUnknown);
 impl GameBarServicesManager {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GameBarServicesCreated<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<GameBarServicesManager, GameBarServicesManagerGameBarServicesCreatedEventArgs>>,
@@ -7190,8 +6506,6 @@ impl GameBarServicesManager {
             (::windows_core::Interface::vtable(this).GameBarServicesCreated)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveGameBarServicesCreated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveGameBarServicesCreated)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -7302,8 +6616,6 @@ unsafe impl ::core::marker::Sync for GameBarServicesTargetInfo {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LowLagMediaRecording(::windows_core::IUnknown);
 impl LowLagMediaRecording {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StartAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -7311,8 +6623,6 @@ impl LowLagMediaRecording {
             (::windows_core::Interface::vtable(this).StartAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StopAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -7320,8 +6630,6 @@ impl LowLagMediaRecording {
             (::windows_core::Interface::vtable(this).StopAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FinishAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -7329,8 +6637,8 @@ impl LowLagMediaRecording {
             (::windows_core::Interface::vtable(this).FinishAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_Devices\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_Devices"))]
+    #[doc = "Required features: `\"Media_Devices\"`"]
+    #[cfg(feature = "Media_Devices")]
     pub fn PauseAsync(&self, behavior: super::Devices::MediaCapturePauseBehavior) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<ILowLagMediaRecording2>(self)?;
         unsafe {
@@ -7338,8 +6646,6 @@ impl LowLagMediaRecording {
             (::windows_core::Interface::vtable(this).PauseAsync)(::windows_core::Interface::as_raw(this), behavior, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ResumeAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<ILowLagMediaRecording2>(self)?;
         unsafe {
@@ -7347,8 +6653,8 @@ impl LowLagMediaRecording {
             (::windows_core::Interface::vtable(this).ResumeAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_Devices\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_Devices"))]
+    #[doc = "Required features: `\"Media_Devices\"`"]
+    #[cfg(feature = "Media_Devices")]
     pub fn PauseWithResultAsync(&self, behavior: super::Devices::MediaCapturePauseBehavior) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MediaCapturePauseResult>> {
         let this = &::windows_core::ComInterface::cast::<ILowLagMediaRecording3>(self)?;
         unsafe {
@@ -7356,8 +6662,6 @@ impl LowLagMediaRecording {
             (::windows_core::Interface::vtable(this).PauseWithResultAsync)(::windows_core::Interface::as_raw(this), behavior, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StopWithResultAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MediaCaptureStopResult>> {
         let this = &::windows_core::ComInterface::cast::<ILowLagMediaRecording3>(self)?;
         unsafe {
@@ -7383,8 +6687,6 @@ impl ::windows_core::RuntimeName for LowLagMediaRecording {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LowLagPhotoCapture(::windows_core::IUnknown);
 impl LowLagPhotoCapture {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CaptureAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CapturedPhoto>> {
         let this = self;
         unsafe {
@@ -7392,8 +6694,6 @@ impl LowLagPhotoCapture {
             (::windows_core::Interface::vtable(this).CaptureAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FinishAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -7419,8 +6719,6 @@ impl ::windows_core::RuntimeName for LowLagPhotoCapture {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LowLagPhotoSequenceCapture(::windows_core::IUnknown);
 impl LowLagPhotoSequenceCapture {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StartAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -7428,8 +6726,6 @@ impl LowLagPhotoSequenceCapture {
             (::windows_core::Interface::vtable(this).StartAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StopAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -7437,8 +6733,6 @@ impl LowLagPhotoSequenceCapture {
             (::windows_core::Interface::vtable(this).StopAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FinishAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -7446,8 +6740,6 @@ impl LowLagPhotoSequenceCapture {
             (::windows_core::Interface::vtable(this).FinishAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PhotoCaptured<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<LowLagPhotoSequenceCapture, PhotoCapturedEventArgs>>,
@@ -7458,8 +6750,6 @@ impl LowLagPhotoSequenceCapture {
             (::windows_core::Interface::vtable(this).PhotoCaptured)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemovePhotoCaptured(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePhotoCaptured)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -7489,14 +6779,10 @@ impl MediaCapture {
         static SHARED: ::windows_core::imp::FactoryCache<MediaCapture, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn InitializeAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -7504,8 +6790,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).InitializeAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn InitializeWithSettingsAsync<P0>(&self, mediacaptureinitializationsettings: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<MediaCaptureInitializationSettings>,
@@ -7516,8 +6800,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).InitializeWithSettingsAsync)(::windows_core::Interface::as_raw(this), mediacaptureinitializationsettings.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage"))]
+    #[doc = "Required features: `\"Media_MediaProperties\"`, `\"Storage\"`"]
+    #[cfg(all(feature = "Media_MediaProperties", feature = "Storage"))]
     pub fn StartRecordToStorageFileAsync<P0, P1>(&self, encodingprofile: P0, file: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
@@ -7529,8 +6813,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).StartRecordToStorageFileAsync)(::windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Media_MediaProperties\"`, `\"Storage_Streams\"`"]
+    #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
     pub fn StartRecordToStreamAsync<P0, P1>(&self, encodingprofile: P0, stream: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
@@ -7542,8 +6826,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).StartRecordToStreamAsync)(::windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), stream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties"))]
+    #[doc = "Required features: `\"Media_MediaProperties\"`"]
+    #[cfg(feature = "Media_MediaProperties")]
     pub fn StartRecordToCustomSinkAsync<P0, P1>(&self, encodingprofile: P0, custommediasink: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
@@ -7568,8 +6852,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).StartRecordToCustomSinkIdAsync)(::windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), ::core::mem::transmute_copy(customsinkactivationid), customsinksettings.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StopRecordAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -7577,8 +6859,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).StopRecordAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage"))]
+    #[doc = "Required features: `\"Media_MediaProperties\"`, `\"Storage\"`"]
+    #[cfg(all(feature = "Media_MediaProperties", feature = "Storage"))]
     pub fn CapturePhotoToStorageFileAsync<P0, P1>(&self, r#type: P0, file: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<super::MediaProperties::ImageEncodingProperties>,
@@ -7590,8 +6872,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).CapturePhotoToStorageFileAsync)(::windows_core::Interface::as_raw(this), r#type.into_param().abi(), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Media_MediaProperties\"`, `\"Storage_Streams\"`"]
+    #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
     pub fn CapturePhotoToStreamAsync<P0, P1>(&self, r#type: P0, stream: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<super::MediaProperties::ImageEncodingProperties>,
@@ -7615,8 +6897,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).AddEffectAsync)(::windows_core::Interface::as_raw(this), mediastreamtype, ::core::mem::transmute_copy(effectactivationid), effectsettings.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ClearEffectsAsync(&self, mediastreamtype: MediaStreamType) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -7638,8 +6918,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).GetEncoderProperty)(::windows_core::Interface::as_raw(this), mediastreamtype, propertyid, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Failed<P0>(&self, erroreventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<MediaCaptureFailedEventHandler>,
@@ -7650,14 +6928,10 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).Failed)(::windows_core::Interface::as_raw(this), erroreventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveFailed(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveFailed)(::windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RecordLimitationExceeded<P0>(&self, recordlimitationexceededeventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<RecordLimitationExceededEventHandler>,
@@ -7668,8 +6942,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).RecordLimitationExceeded)(::windows_core::Interface::as_raw(this), recordlimitationexceededeventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveRecordLimitationExceeded(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRecordLimitationExceeded)(::windows_core::Interface::as_raw(this), eventcookie).ok() }
@@ -7732,8 +7004,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).GetRecordRotation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage"))]
+    #[doc = "Required features: `\"Media_MediaProperties\"`, `\"Storage\"`"]
+    #[cfg(all(feature = "Media_MediaProperties", feature = "Storage"))]
     pub fn PrepareLowLagRecordToStorageFileAsync<P0, P1>(&self, encodingprofile: P0, file: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
     where
         P0: ::windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
@@ -7745,8 +7017,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).PrepareLowLagRecordToStorageFileAsync)(::windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Media_MediaProperties\"`, `\"Storage_Streams\"`"]
+    #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
     pub fn PrepareLowLagRecordToStreamAsync<P0, P1>(&self, encodingprofile: P0, stream: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
     where
         P0: ::windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
@@ -7758,8 +7030,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).PrepareLowLagRecordToStreamAsync)(::windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), stream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties"))]
+    #[doc = "Required features: `\"Media_MediaProperties\"`"]
+    #[cfg(feature = "Media_MediaProperties")]
     pub fn PrepareLowLagRecordToCustomSinkAsync<P0, P1>(&self, encodingprofile: P0, custommediasink: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
     where
         P0: ::windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
@@ -7784,8 +7056,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).PrepareLowLagRecordToCustomSinkIdAsync)(::windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), ::core::mem::transmute_copy(customsinkactivationid), customsinksettings.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties"))]
+    #[doc = "Required features: `\"Media_MediaProperties\"`"]
+    #[cfg(feature = "Media_MediaProperties")]
     pub fn PrepareLowLagPhotoCaptureAsync<P0>(&self, r#type: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LowLagPhotoCapture>>
     where
         P0: ::windows_core::IntoParam<super::MediaProperties::ImageEncodingProperties>,
@@ -7796,8 +7068,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).PrepareLowLagPhotoCaptureAsync)(::windows_core::Interface::as_raw(this), r#type.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties"))]
+    #[doc = "Required features: `\"Media_MediaProperties\"`"]
+    #[cfg(feature = "Media_MediaProperties")]
     pub fn PrepareLowLagPhotoSequenceCaptureAsync<P0>(&self, r#type: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LowLagPhotoSequenceCapture>>
     where
         P0: ::windows_core::IntoParam<super::MediaProperties::ImageEncodingProperties>,
@@ -7821,8 +7093,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).SetEncodingPropertiesAsync)(::windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.try_into_param()?.abi(), encoderproperties.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_Capture_Core\"`, `\"Media_MediaProperties\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_Capture_Core", feature = "Media_MediaProperties"))]
+    #[doc = "Required features: `\"Media_Capture_Core\"`, `\"Media_MediaProperties\"`"]
+    #[cfg(all(feature = "Media_Capture_Core", feature = "Media_MediaProperties"))]
     pub fn PrepareVariablePhotoSequenceCaptureAsync<P0>(&self, r#type: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Core::VariablePhotoSequenceCapture>>
     where
         P0: ::windows_core::IntoParam<super::MediaProperties::ImageEncodingProperties>,
@@ -7833,8 +7105,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).PrepareVariablePhotoSequenceCaptureAsync)(::windows_core::Interface::as_raw(this), r#type.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn FocusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MediaCapture, MediaCaptureFocusChangedEventArgs>>,
@@ -7845,14 +7115,10 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).FocusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveFocusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IMediaCapture3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveFocusChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PhotoConfirmationCaptured<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MediaCapture, PhotoConfirmationCapturedEventArgs>>,
@@ -7863,14 +7129,12 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).PhotoConfirmationCaptured)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemovePhotoConfirmationCaptured(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IMediaCapture3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemovePhotoConfirmationCaptured)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_Effects\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_Effects"))]
+    #[doc = "Required features: `\"Media_Effects\"`"]
+    #[cfg(feature = "Media_Effects")]
     pub fn AddAudioEffectAsync<P0>(&self, definition: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>
     where
         P0: ::windows_core::TryIntoParam<super::Effects::IAudioEffectDefinition>,
@@ -7881,8 +7145,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).AddAudioEffectAsync)(::windows_core::Interface::as_raw(this), definition.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_Effects\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_Effects"))]
+    #[doc = "Required features: `\"Media_Effects\"`"]
+    #[cfg(feature = "Media_Effects")]
     pub fn AddVideoEffectAsync<P0>(&self, definition: P0, mediastreamtype: MediaStreamType) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>
     where
         P0: ::windows_core::TryIntoParam<super::Effects::IVideoEffectDefinition>,
@@ -7893,8 +7157,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).AddVideoEffectAsync)(::windows_core::Interface::as_raw(this), definition.try_into_param()?.abi(), mediastreamtype, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_Devices\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_Devices"))]
+    #[doc = "Required features: `\"Media_Devices\"`"]
+    #[cfg(feature = "Media_Devices")]
     pub fn PauseRecordAsync(&self, behavior: super::Devices::MediaCapturePauseBehavior) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IMediaCapture4>(self)?;
         unsafe {
@@ -7902,8 +7166,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).PauseRecordAsync)(::windows_core::Interface::as_raw(this), behavior, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ResumeRecordAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IMediaCapture4>(self)?;
         unsafe {
@@ -7911,8 +7173,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).ResumeRecordAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CameraStreamStateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MediaCapture, ::windows_core::IInspectable>>,
@@ -7923,8 +7183,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).CameraStreamStateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveCameraStreamStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IMediaCapture4>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCameraStreamStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -7938,8 +7196,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).CameraStreamState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetPreviewFrameAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::VideoFrame>> {
         let this = &::windows_core::ComInterface::cast::<IMediaCapture4>(self)?;
         unsafe {
@@ -7947,8 +7203,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).GetPreviewFrameAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn GetPreviewFrameCopyAsync<P0>(&self, destination: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::VideoFrame>>
     where
         P0: ::windows_core::IntoParam<super::VideoFrame>,
@@ -7959,8 +7213,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).GetPreviewFrameCopyAsync)(::windows_core::Interface::as_raw(this), destination.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ThermalStatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MediaCapture, ::windows_core::IInspectable>>,
@@ -7971,8 +7223,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).ThermalStatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveThermalStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IMediaCapture4>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveThermalStatusChanged)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -7984,8 +7234,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).ThermalStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties"))]
+    #[doc = "Required features: `\"Media_MediaProperties\"`"]
+    #[cfg(feature = "Media_MediaProperties")]
     pub fn PrepareAdvancedPhotoCaptureAsync<P0>(&self, encodingproperties: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AdvancedPhotoCapture>>
     where
         P0: ::windows_core::IntoParam<super::MediaProperties::ImageEncodingProperties>,
@@ -7996,8 +7246,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).PrepareAdvancedPhotoCaptureAsync)(::windows_core::Interface::as_raw(this), encodingproperties.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveEffectAsync<P0>(&self, effect: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::TryIntoParam<super::IMediaExtension>,
@@ -8008,8 +7256,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).RemoveEffectAsync)(::windows_core::Interface::as_raw(this), effect.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_Devices\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_Devices"))]
+    #[doc = "Required features: `\"Media_Devices\"`"]
+    #[cfg(feature = "Media_Devices")]
     pub fn PauseRecordWithResultAsync(&self, behavior: super::Devices::MediaCapturePauseBehavior) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MediaCapturePauseResult>> {
         let this = &::windows_core::ComInterface::cast::<IMediaCapture5>(self)?;
         unsafe {
@@ -8017,8 +7265,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).PauseRecordWithResultAsync)(::windows_core::Interface::as_raw(this), behavior, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StopRecordWithResultAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MediaCaptureStopResult>> {
         let this = &::windows_core::ComInterface::cast::<IMediaCapture5>(self)?;
         unsafe {
@@ -8035,8 +7281,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).FrameSources)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_Capture_Frames\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_Capture_Frames"))]
+    #[doc = "Required features: `\"Media_Capture_Frames\"`"]
+    #[cfg(feature = "Media_Capture_Frames")]
     pub fn CreateFrameReaderAsync<P0>(&self, inputsource: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>
     where
         P0: ::windows_core::IntoParam<Frames::MediaFrameSource>,
@@ -8047,8 +7293,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).CreateFrameReaderAsync)(::windows_core::Interface::as_raw(this), inputsource.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_Capture_Frames\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_Capture_Frames"))]
+    #[doc = "Required features: `\"Media_Capture_Frames\"`"]
+    #[cfg(feature = "Media_Capture_Frames")]
     pub fn CreateFrameReaderWithSubtypeAsync<P0>(&self, inputsource: P0, outputsubtype: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>
     where
         P0: ::windows_core::IntoParam<Frames::MediaFrameSource>,
@@ -8059,8 +7305,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).CreateFrameReaderWithSubtypeAsync)(::windows_core::Interface::as_raw(this), inputsource.into_param().abi(), ::core::mem::transmute_copy(outputsubtype), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Graphics_Imaging\"`, `\"Media_Capture_Frames\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "Media_Capture_Frames"))]
+    #[doc = "Required features: `\"Graphics_Imaging\"`, `\"Media_Capture_Frames\"`"]
+    #[cfg(all(feature = "Graphics_Imaging", feature = "Media_Capture_Frames"))]
     pub fn CreateFrameReaderWithSubtypeAndSizeAsync<P0>(&self, inputsource: P0, outputsubtype: &::windows_core::HSTRING, outputsize: super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>
     where
         P0: ::windows_core::IntoParam<Frames::MediaFrameSource>,
@@ -8071,8 +7317,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).CreateFrameReaderWithSubtypeAndSizeAsync)(::windows_core::Interface::as_raw(this), inputsource.into_param().abi(), ::core::mem::transmute_copy(outputsubtype), outputsize, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CaptureDeviceExclusiveControlStatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MediaCapture, MediaCaptureDeviceExclusiveControlStatusChangedEventArgs>>,
@@ -8083,8 +7327,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).CaptureDeviceExclusiveControlStatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveCaptureDeviceExclusiveControlStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IMediaCapture6>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCaptureDeviceExclusiveControlStatusChanged)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -8143,8 +7385,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).FindKnownVideoProfiles)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(videodeviceid), name, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StartPreviewAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IMediaCaptureVideoPreview>(self)?;
         unsafe {
@@ -8152,8 +7392,8 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).StartPreviewAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties"))]
+    #[doc = "Required features: `\"Media_MediaProperties\"`"]
+    #[cfg(feature = "Media_MediaProperties")]
     pub fn StartPreviewToCustomSinkAsync<P0, P1>(&self, encodingprofile: P0, custommediasink: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
@@ -8178,8 +7418,6 @@ impl MediaCapture {
             (::windows_core::Interface::vtable(this).StartPreviewToCustomSinkIdAsync)(::windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), ::core::mem::transmute_copy(customsinkactivationid), customsinksettings.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StopPreviewAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IMediaCaptureVideoPreview>(self)?;
         unsafe {
@@ -8206,7 +7444,6 @@ impl ::windows_core::RuntimeName for MediaCapture {
     const NAME: &'static str = "Windows.Media.Capture.MediaCapture";
 }
 ::windows_core::imp::interface_hierarchy!(MediaCapture, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for MediaCapture {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -8541,8 +7778,6 @@ impl MediaCaptureInitializationSettings {
         let this = &::windows_core::ComInterface::cast::<IMediaCaptureInitializationSettings7>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetDeviceUriPasswordCredential)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn DeviceUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<IMediaCaptureInitializationSettings7>(self)?;
         unsafe {
@@ -8550,8 +7785,6 @@ impl MediaCaptureInitializationSettings {
             (::windows_core::Interface::vtable(this).DeviceUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetDeviceUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
@@ -8579,8 +7812,6 @@ unsafe impl ::core::marker::Sync for MediaCaptureInitializationSettings {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaCapturePauseResult(::windows_core::IUnknown);
 impl MediaCapturePauseResult {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -8592,8 +7823,6 @@ impl MediaCapturePauseResult {
             (::windows_core::Interface::vtable(this).LastFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RecordDuration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -8615,14 +7844,11 @@ impl ::windows_core::RuntimeName for MediaCapturePauseResult {
     const NAME: &'static str = "Windows.Media.Capture.MediaCapturePauseResult";
 }
 ::windows_core::imp::interface_hierarchy!(MediaCapturePauseResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for MediaCapturePauseResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaCaptureRelativePanelWatcher(::windows_core::IUnknown);
 impl MediaCaptureRelativePanelWatcher {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -8636,8 +7862,6 @@ impl MediaCaptureRelativePanelWatcher {
             (::windows_core::Interface::vtable(this).RelativePanel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Changed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MediaCaptureRelativePanelWatcher, ::windows_core::IInspectable>>,
@@ -8648,8 +7872,6 @@ impl MediaCaptureRelativePanelWatcher {
             (::windows_core::Interface::vtable(this).Changed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveChanged)(::windows_core::Interface::as_raw(this), token).ok() }
@@ -8676,7 +7898,6 @@ impl ::windows_core::RuntimeName for MediaCaptureRelativePanelWatcher {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureRelativePanelWatcher";
 }
 ::windows_core::imp::interface_hierarchy!(MediaCaptureRelativePanelWatcher, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for MediaCaptureRelativePanelWatcher {}
 unsafe impl ::core::marker::Send for MediaCaptureRelativePanelWatcher {}
 unsafe impl ::core::marker::Sync for MediaCaptureRelativePanelWatcher {}
@@ -8740,8 +7961,6 @@ impl MediaCaptureSettings {
             (::windows_core::Interface::vtable(this).CameraSoundRequiredForRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Horizontal35mmEquivalentFocalLength(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = &::windows_core::ComInterface::cast::<IMediaCaptureSettings2>(self)?;
         unsafe {
@@ -8749,8 +7968,6 @@ impl MediaCaptureSettings {
             (::windows_core::Interface::vtable(this).Horizontal35mmEquivalentFocalLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PitchOffsetDegrees(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = &::windows_core::ComInterface::cast::<IMediaCaptureSettings2>(self)?;
         unsafe {
@@ -8758,8 +7975,6 @@ impl MediaCaptureSettings {
             (::windows_core::Interface::vtable(this).PitchOffsetDegrees)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Vertical35mmEquivalentFocalLength(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = &::windows_core::ComInterface::cast::<IMediaCaptureSettings2>(self)?;
         unsafe {
@@ -8808,8 +8023,6 @@ impl ::windows_core::RuntimeName for MediaCaptureSettings {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaCaptureStopResult(::windows_core::IUnknown);
 impl MediaCaptureStopResult {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -8821,8 +8034,6 @@ impl MediaCaptureStopResult {
             (::windows_core::Interface::vtable(this).LastFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RecordDuration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -8844,7 +8055,6 @@ impl ::windows_core::RuntimeName for MediaCaptureStopResult {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureStopResult";
 }
 ::windows_core::imp::interface_hierarchy!(MediaCaptureStopResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for MediaCaptureStopResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -9061,8 +8271,6 @@ impl PhotoCapturedEventArgs {
             (::windows_core::Interface::vtable(this).Thumbnail)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CaptureTimeOffset(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -9097,8 +8305,6 @@ impl PhotoConfirmationCapturedEventArgs {
             (::windows_core::Interface::vtable(this).Frame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CaptureTimeOffset(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -9158,8 +8364,6 @@ impl ScreenCapture {
             (::windows_core::Interface::vtable(this).IsVideoSuspended)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SourceSuspensionChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ScreenCapture, SourceSuspensionChangedEventArgs>>,
@@ -9170,8 +8374,6 @@ impl ScreenCapture {
             (::windows_core::Interface::vtable(this).SourceSuspensionChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveSourceSuspensionChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSourceSuspensionChanged)(::windows_core::Interface::as_raw(this), token).ok() }

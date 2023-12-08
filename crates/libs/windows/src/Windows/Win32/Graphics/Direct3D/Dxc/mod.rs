@@ -79,8 +79,6 @@ impl IDxcBlobEncoding {
     pub unsafe fn GetBufferSize(&self) -> usize {
         (::windows_core::Interface::vtable(self).base__.GetBufferSize)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEncoding(&self, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetEncoding)(::windows_core::Interface::as_raw(self), pknown, pcodepage).ok()
     }
@@ -96,10 +94,7 @@ unsafe impl ::windows_core::ComInterface for IDxcBlobEncoding {
 #[doc(hidden)]
 pub struct IDxcBlobEncoding_Vtbl {
     pub base__: IDxcBlob_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetEncoding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetEncoding: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -111,8 +106,6 @@ impl IDxcBlobUtf16 {
     pub unsafe fn GetBufferSize(&self) -> usize {
         (::windows_core::Interface::vtable(self).base__.base__.GetBufferSize)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEncoding(&self, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetEncoding)(::windows_core::Interface::as_raw(self), pknown, pcodepage).ok()
     }
@@ -147,8 +140,6 @@ impl IDxcBlobUtf8 {
     pub unsafe fn GetBufferSize(&self) -> usize {
         (::windows_core::Interface::vtable(self).base__.base__.GetBufferSize)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEncoding(&self, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetEncoding)(::windows_core::Interface::as_raw(self), pknown, pcodepage).ok()
     }
@@ -819,8 +810,6 @@ impl IDxcPdbUtils {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFullPDB(&self) -> super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsFullPDB)(::windows_core::Interface::as_raw(self))
     }
@@ -880,10 +869,7 @@ pub struct IDxcPdbUtils_Vtbl {
     pub GetMainFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub IsFullPDB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsFullPDB: usize,
     pub GetFullPDB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppfullpdb: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetVersionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppversioninfo: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetCompiler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcompiler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -907,8 +893,6 @@ impl IDxcResult {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetErrorBuffer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasOutput(&self, dxcoutkind: DXC_OUT_KIND) -> super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).HasOutput)(::windows_core::Interface::as_raw(self), dxcoutkind)
     }
@@ -939,10 +923,7 @@ unsafe impl ::windows_core::ComInterface for IDxcResult {
 #[doc(hidden)]
 pub struct IDxcResult_Vtbl {
     pub base__: IDxcOperationResult_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub HasOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxcoutkind: DXC_OUT_KIND) -> super::super::super::Foundation::BOOL,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    HasOutput: usize,
     pub GetOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxcoutkind: DXC_OUT_KIND, iid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void, ppoutputname: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetNumOutputs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetOutputByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> DXC_OUT_KIND,
