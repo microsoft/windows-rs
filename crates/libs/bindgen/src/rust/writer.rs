@@ -407,7 +407,7 @@ impl Writer {
         let mut compact = Vec::<&'static str>::new();
         if self.package {
             for feature in cfg.types.keys() {
-                if !feature.is_empty() && !starts_with(namespace, feature) {
+                if !feature.is_empty() && !starts_with(namespace, feature) && !is_defaulted_foundation_feature(namespace, feature) {
                     for pos in 0..compact.len() {
                         if starts_with(feature, unsafe { compact.get_unchecked(pos) }) {
                             compact.remove(pos);
@@ -1179,6 +1179,16 @@ fn starts_with(namespace: &str, feature: &str) -> bool {
     }
 
     false
+}
+
+fn is_defaulted_foundation_feature(namespace: &str, feature: &str) -> bool {
+    let is_winrt = !starts_with(namespace, "Windows.Win32") && !starts_with(namespace, "Windows.Wdk");
+
+    if !is_winrt && feature == "Windows.Win32.Foundation" {
+        true
+    } else {
+        is_winrt && feature == "Windows.Foundation"
+    }
 }
 
 fn gen_mut_ptrs(pointers: usize) -> TokenStream {

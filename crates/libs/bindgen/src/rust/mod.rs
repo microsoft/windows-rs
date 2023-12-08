@@ -121,6 +121,10 @@ fn gen_package(writer: &Writer) -> Result<()> {
             let dependency = &feature[..pos];
 
             toml.push_str(&format!("{feature} = [\"{dependency}\"]\n"));
+        } else if tree.namespace.starts_with("Windows.Win32") || tree.namespace.starts_with("Windows.Wdk") {
+            toml.push_str(&format!("{feature} = [\"Win32_Foundation\"]\n"));
+        } else if tree.namespace != "Windows.Foundation" {
+            toml.push_str(&format!("{feature} = [\"Foundation\"]\n"));
         } else {
             toml.push_str(&format!("{feature} = []\n"));
         }
