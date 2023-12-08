@@ -1,11 +1,7 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait INetDiagExtensibleHelper_Impl: Sized {
     fn ResolveAttributes(&self, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for INetDiagExtensibleHelper {}
-#[cfg(feature = "Win32_Foundation")]
 impl INetDiagExtensibleHelper_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INetDiagExtensibleHelper_Impl, const OFFSET: isize>() -> INetDiagExtensibleHelper_Vtbl {
         unsafe extern "system" fn ResolveAttributes<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INetDiagExtensibleHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> ::windows_core::HRESULT {
@@ -19,8 +15,6 @@ impl INetDiagExtensibleHelper_Vtbl {
         *iid == <INetDiagExtensibleHelper as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait INetDiagHelper_Impl: Sized {
     fn Initialize(&self, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> ::windows_core::Result<()>;
     fn GetDiagnosticsInfo(&self) -> ::windows_core::Result<*mut DiagnosticsInfo>;
@@ -41,9 +35,7 @@ pub trait INetDiagHelper_Impl: Sized {
     fn Cancel(&self) -> ::windows_core::Result<()>;
     fn Cleanup(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for INetDiagHelper {}
-#[cfg(feature = "Win32_Foundation")]
 impl INetDiagHelper_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INetDiagHelper_Impl, const OFFSET: isize>() -> INetDiagHelper_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> ::windows_core::HRESULT {
@@ -180,16 +172,12 @@ impl INetDiagHelper_Vtbl {
         *iid == <INetDiagHelper as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait INetDiagHelperEx_Impl: Sized {
     fn ReconfirmLowHealth(&self, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut ::windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows_core::Result<()>;
     fn SetUtilities(&self, putilities: ::core::option::Option<&INetDiagHelperUtilFactory>) -> ::windows_core::Result<()>;
     fn ReproduceFailure(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for INetDiagHelperEx {}
-#[cfg(feature = "Win32_Foundation")]
 impl INetDiagHelperEx_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INetDiagHelperEx_Impl, const OFFSET: isize>() -> INetDiagHelperEx_Vtbl {
         unsafe extern "system" fn ReconfirmLowHealth<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INetDiagHelperEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut ::windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows_core::HRESULT {

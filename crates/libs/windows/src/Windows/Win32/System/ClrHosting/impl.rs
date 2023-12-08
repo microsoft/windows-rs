@@ -83,8 +83,8 @@ impl ICLRAppDomainResourceMonitor_Vtbl {
         *iid == <ICLRAppDomainResourceMonitor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ICLRAssemblyIdentityManager_Impl: Sized {
     fn GetCLRAssemblyReferenceList(&self, ppwzassemblyreferences: *const ::windows_core::PCWSTR, dwnumofreferences: u32) -> ::windows_core::Result<ICLRAssemblyReferenceList>;
     fn GetBindingIdentityFromFile(&self, pwzfilepath: &::windows_core::PCWSTR, dwflags: u32, pwzbuffer: ::windows_core::PWSTR, pcchbuffersize: *mut u32) -> ::windows_core::Result<()>;
@@ -94,9 +94,9 @@ pub trait ICLRAssemblyIdentityManager_Impl: Sized {
     fn GetProbingAssembliesFromReference(&self, dwmachinetype: u32, dwflags: u32, pwzreferenceidentity: &::windows_core::PCWSTR) -> ::windows_core::Result<ICLRProbingAssemblyEnum>;
     fn IsStronglyNamed(&self, pwzassemblyidentity: &::windows_core::PCWSTR) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for ICLRAssemblyIdentityManager {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ICLRAssemblyIdentityManager_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRAssemblyIdentityManager_Impl, const OFFSET: isize>() -> ICLRAssemblyIdentityManager_Vtbl {
         unsafe extern "system" fn GetCLRAssemblyReferenceList<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRAssemblyIdentityManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwzassemblyreferences: *const ::windows_core::PCWSTR, dwnumofreferences: u32, ppreferencelist: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -233,8 +233,8 @@ impl ICLRControl_Vtbl {
         *iid == <ICLRControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "Required features: `\"Win32_Security\"`"]
+#[cfg(feature = "Win32_Security")]
 pub trait ICLRDebugManager_Impl: Sized {
     fn BeginConnection(&self, dwconnectionid: u32, szconnectionname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn SetConnectionTasks(&self, id: u32, dwcount: u32, ppclrtask: *const ::core::option::Option<ICLRTask>) -> ::windows_core::Result<()>;
@@ -244,9 +244,9 @@ pub trait ICLRDebugManager_Impl: Sized {
     fn IsDebuggerAttached(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn SetSymbolReadingPolicy(&self, policy: ESymbolReadingPolicy) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::windows_core::RuntimeName for ICLRDebugManager {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ICLRDebugManager_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRDebugManager_Impl, const OFFSET: isize>() -> ICLRDebugManager_Vtbl {
         unsafe extern "system" fn BeginConnection<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRDebugManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwconnectionid: u32, szconnectionname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT {
@@ -311,15 +311,11 @@ impl ICLRDebugManager_Vtbl {
         *iid == <ICLRDebugManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ICLRDebugging_Impl: Sized {
     fn OpenVirtualProcess(&self, modulebaseaddress: u64, pdatatarget: ::core::option::Option<&::windows_core::IUnknown>, plibraryprovider: ::core::option::Option<&ICLRDebuggingLibraryProvider>, pmaxdebuggersupportedversion: *const CLR_DEBUGGING_VERSION, riidprocess: *const ::windows_core::GUID, ppprocess: *mut ::core::option::Option<::windows_core::IUnknown>, pversion: *mut CLR_DEBUGGING_VERSION, pdwflags: *mut CLR_DEBUGGING_PROCESS_FLAGS) -> ::windows_core::Result<()>;
     fn CanUnloadNow(&self, hmodule: super::super::Foundation::HMODULE) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ICLRDebugging {}
-#[cfg(feature = "Win32_Foundation")]
 impl ICLRDebugging_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRDebugging_Impl, const OFFSET: isize>() -> ICLRDebugging_Vtbl {
         unsafe extern "system" fn OpenVirtualProcess<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRDebugging_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, modulebaseaddress: u64, pdatatarget: *mut ::core::ffi::c_void, plibraryprovider: *mut ::core::ffi::c_void, pmaxdebuggersupportedversion: *const CLR_DEBUGGING_VERSION, riidprocess: *const ::windows_core::GUID, ppprocess: *mut *mut ::core::ffi::c_void, pversion: *mut CLR_DEBUGGING_VERSION, pdwflags: *mut CLR_DEBUGGING_PROCESS_FLAGS) -> ::windows_core::HRESULT {
@@ -342,14 +338,10 @@ impl ICLRDebugging_Vtbl {
         *iid == <ICLRDebugging as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ICLRDebuggingLibraryProvider_Impl: Sized {
     fn ProvideLibrary(&self, pwszfilename: &::windows_core::PCWSTR, dwtimestamp: u32, dwsizeofimage: u32) -> ::windows_core::Result<super::super::Foundation::HMODULE>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ICLRDebuggingLibraryProvider {}
-#[cfg(feature = "Win32_Foundation")]
 impl ICLRDebuggingLibraryProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRDebuggingLibraryProvider_Impl, const OFFSET: isize>() -> ICLRDebuggingLibraryProvider_Vtbl {
         unsafe extern "system" fn ProvideLibrary<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRDebuggingLibraryProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfilename: ::windows_core::PCWSTR, dwtimestamp: u32, dwsizeofimage: u32, phmodule: *mut super::super::Foundation::HMODULE) -> ::windows_core::HRESULT {
@@ -396,16 +388,12 @@ impl ICLRDomainManager_Vtbl {
         *iid == <ICLRDomainManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ICLRErrorReportingManager_Impl: Sized {
     fn GetBucketParametersForCurrentException(&self, pparams: *mut BucketParameters) -> ::windows_core::Result<()>;
     fn BeginCustomDump(&self, dwflavor: ECustomDumpFlavor, dwnumitems: u32, items: *const CustomDumpItem, dwreserved: u32) -> ::windows_core::Result<()>;
     fn EndCustomDump(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ICLRErrorReportingManager {}
-#[cfg(feature = "Win32_Foundation")]
 impl ICLRErrorReportingManager_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRErrorReportingManager_Impl, const OFFSET: isize>() -> ICLRErrorReportingManager_Vtbl {
         unsafe extern "system" fn GetBucketParametersForCurrentException<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRErrorReportingManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparams: *mut BucketParameters) -> ::windows_core::HRESULT {
@@ -573,8 +561,8 @@ impl ICLRMemoryNotificationCallback_Vtbl {
         *iid == <ICLRMemoryNotificationCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ICLRMetaHost_Impl: Sized {
     fn GetRuntime(&self, pwzversion: &::windows_core::PCWSTR, riid: *const ::windows_core::GUID, ppruntime: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn GetVersionFromFile(&self, pwzfilepath: &::windows_core::PCWSTR, pwzbuffer: ::windows_core::PWSTR, pcchbuffer: *mut u32) -> ::windows_core::Result<()>;
@@ -584,9 +572,9 @@ pub trait ICLRMetaHost_Impl: Sized {
     fn QueryLegacyV2RuntimeBinding(&self, riid: *const ::windows_core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn ExitProcess(&self, iexitcode: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for ICLRMetaHost {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ICLRMetaHost_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRMetaHost_Impl, const OFFSET: isize>() -> ICLRMetaHost_Vtbl {
         unsafe extern "system" fn GetRuntime<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRMetaHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwzversion: ::windows_core::PCWSTR, riid: *const ::windows_core::GUID, ppruntime: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -805,8 +793,6 @@ impl ICLRReferenceAssemblyEnum_Vtbl {
         *iid == <ICLRReferenceAssemblyEnum as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ICLRRuntimeHost_Impl: Sized {
     fn Start(&self) -> ::windows_core::Result<()>;
     fn Stop(&self) -> ::windows_core::Result<()>;
@@ -818,9 +804,7 @@ pub trait ICLRRuntimeHost_Impl: Sized {
     fn ExecuteApplication(&self, pwzappfullname: &::windows_core::PCWSTR, dwmanifestpaths: u32, ppwzmanifestpaths: *const ::windows_core::PCWSTR, dwactivationdata: u32, ppwzactivationdata: *const ::windows_core::PCWSTR) -> ::windows_core::Result<i32>;
     fn ExecuteInDefaultAppDomain(&self, pwzassemblypath: &::windows_core::PCWSTR, pwztypename: &::windows_core::PCWSTR, pwzmethodname: &::windows_core::PCWSTR, pwzargument: &::windows_core::PCWSTR) -> ::windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ICLRRuntimeHost {}
-#[cfg(feature = "Win32_Foundation")]
 impl ICLRRuntimeHost_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRRuntimeHost_Impl, const OFFSET: isize>() -> ICLRRuntimeHost_Vtbl {
         unsafe extern "system" fn Start<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRRuntimeHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -909,8 +893,6 @@ impl ICLRRuntimeHost_Vtbl {
         *iid == <ICLRRuntimeHost as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ICLRRuntimeInfo_Impl: Sized {
     fn GetVersionString(&self, pwzbuffer: ::windows_core::PWSTR, pcchbuffer: *mut u32) -> ::windows_core::Result<()>;
     fn GetRuntimeDirectory(&self, pwzbuffer: ::windows_core::PWSTR, pcchbuffer: *mut u32) -> ::windows_core::Result<()>;
@@ -925,9 +907,7 @@ pub trait ICLRRuntimeInfo_Impl: Sized {
     fn BindAsLegacyV2Runtime(&self) -> ::windows_core::Result<()>;
     fn IsStarted(&self, pbstarted: *mut super::super::Foundation::BOOL, pdwstartupflags: *mut u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ICLRRuntimeInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ICLRRuntimeInfo_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRRuntimeInfo_Impl, const OFFSET: isize>() -> ICLRRuntimeInfo_Vtbl {
         unsafe extern "system" fn GetVersionString<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRRuntimeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwzbuffer: ::windows_core::PWSTR, pcchbuffer: *mut u32) -> ::windows_core::HRESULT {
@@ -1034,8 +1014,6 @@ impl ICLRRuntimeInfo_Vtbl {
         *iid == <ICLRRuntimeInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ICLRStrongName_Impl: Sized {
     fn GetHashFromAssemblyFile(&self, pszfilepath: &::windows_core::PCSTR, pihashalg: *mut u32, pbhash: *mut u8, cchhash: u32, pchhash: *mut u32) -> ::windows_core::Result<()>;
     fn GetHashFromAssemblyFileW(&self, pwzfilepath: &::windows_core::PCWSTR, pihashalg: *mut u32, pbhash: *mut u8, cchhash: u32, pchhash: *mut u32) -> ::windows_core::Result<()>;
@@ -1063,9 +1041,7 @@ pub trait ICLRStrongName_Impl: Sized {
     fn StrongNameTokenFromAssemblyEx(&self, pwzfilepath: &::windows_core::PCWSTR, ppbstrongnametoken: *mut *mut u8, pcbstrongnametoken: *mut u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32) -> ::windows_core::Result<()>;
     fn StrongNameTokenFromPublicKey(&self, pbpublickeyblob: *const u8, cbpublickeyblob: u32, ppbstrongnametoken: *mut *mut u8, pcbstrongnametoken: *mut u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ICLRStrongName {}
-#[cfg(feature = "Win32_Foundation")]
 impl ICLRStrongName_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRStrongName_Impl, const OFFSET: isize>() -> ICLRStrongName_Vtbl {
         unsafe extern "system" fn GetHashFromAssemblyFile<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRStrongName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfilepath: ::windows_core::PCSTR, pihashalg: *mut u32, pbhash: *mut u8, cchhash: u32, pchhash: *mut u32) -> ::windows_core::HRESULT {
@@ -1256,15 +1232,11 @@ impl ICLRStrongName_Vtbl {
         *iid == <ICLRStrongName as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ICLRStrongName2_Impl: Sized {
     fn StrongNameGetPublicKeyEx(&self, pwzkeycontainer: &::windows_core::PCWSTR, pbkeyblob: *const u8, cbkeyblob: u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32, uhashalgid: u32, ureserved: u32) -> ::windows_core::Result<()>;
     fn StrongNameSignatureVerificationEx2(&self, wszfilepath: &::windows_core::PCWSTR, fforceverification: super::super::Foundation::BOOLEAN, pbecmapublickey: *const u8, cbecmapublickey: u32) -> ::windows_core::Result<u8>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ICLRStrongName2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ICLRStrongName2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRStrongName2_Impl, const OFFSET: isize>() -> ICLRStrongName2_Vtbl {
         unsafe extern "system" fn StrongNameGetPublicKeyEx<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRStrongName2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwzkeycontainer: ::windows_core::PCWSTR, pbkeyblob: *const u8, cbkeyblob: u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32, uhashalgid: u32, ureserved: u32) -> ::windows_core::HRESULT {
@@ -1386,8 +1358,6 @@ impl ICLRSyncManager_Vtbl {
         *iid == <ICLRSyncManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ICLRTask_Impl: Sized {
     fn SwitchIn(&self, threadhandle: super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
     fn SwitchOut(&self) -> ::windows_core::Result<()>;
@@ -1401,9 +1371,7 @@ pub trait ICLRTask_Impl: Sized {
     fn LocksHeld(&self) -> ::windows_core::Result<usize>;
     fn SetTaskIdentifier(&self, asked: u64) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ICLRTask {}
-#[cfg(feature = "Win32_Foundation")]
 impl ICLRTask_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRTask_Impl, const OFFSET: isize>() -> ICLRTask_Vtbl {
         unsafe extern "system" fn SwitchIn<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, threadhandle: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT {
@@ -1498,15 +1466,11 @@ impl ICLRTask_Vtbl {
         *iid == <ICLRTask as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ICLRTask2_Impl: Sized + ICLRTask_Impl {
     fn BeginPreventAsyncAbort(&self) -> ::windows_core::Result<()>;
     fn EndPreventAsyncAbort(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ICLRTask2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ICLRTask2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRTask2_Impl, const OFFSET: isize>() -> ICLRTask2_Vtbl {
         unsafe extern "system" fn BeginPreventAsyncAbort<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICLRTask2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1663,8 +1627,6 @@ impl ICorConfiguration_Vtbl {
         *iid == <ICorConfiguration as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ICorRuntimeHost_Impl: Sized {
     fn CreateLogicalThreadState(&self) -> ::windows_core::Result<()>;
     fn DeleteLogicalThreadState(&self) -> ::windows_core::Result<()>;
@@ -1686,9 +1648,7 @@ pub trait ICorRuntimeHost_Impl: Sized {
     fn UnloadDomain(&self, pappdomain: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn CurrentDomain(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ICorRuntimeHost {}
-#[cfg(feature = "Win32_Foundation")]
 impl ICorRuntimeHost_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICorRuntimeHost_Impl, const OFFSET: isize>() -> ICorRuntimeHost_Vtbl {
         unsafe extern "system" fn CreateLogicalThreadState<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICorRuntimeHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1879,8 +1839,8 @@ impl ICorRuntimeHost_Vtbl {
         *iid == <ICorRuntimeHost as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`, `\"Win32_System_Threading\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO", feature = "Win32_System_Threading"))]
+#[doc = "Required features: `\"Win32_System_IO\"`, `\"Win32_System_Threading\"`"]
+#[cfg(all(feature = "Win32_System_IO", feature = "Win32_System_Threading"))]
 pub trait ICorThreadpool_Impl: Sized {
     fn CorRegisterWaitForSingleObject(&self, phnewwaitobject: *const super::super::Foundation::HANDLE, hwaitobject: super::super::Foundation::HANDLE, callback: super::Threading::WAITORTIMERCALLBACK, context: *const ::core::ffi::c_void, timeout: u32, executeonlyonce: super::super::Foundation::BOOL) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn CorUnregisterWait(&self, hwaitobject: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -1894,9 +1854,9 @@ pub trait ICorThreadpool_Impl: Sized {
     fn CorGetMaxThreads(&self, maxworkerthreads: *mut u32, maxiocompletionthreads: *mut u32) -> ::windows_core::Result<()>;
     fn CorGetAvailableThreads(&self, availableworkerthreads: *mut u32, availableiocompletionthreads: *mut u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO", feature = "Win32_System_Threading"))]
+#[cfg(all(feature = "Win32_System_IO", feature = "Win32_System_Threading"))]
 impl ::windows_core::RuntimeName for ICorThreadpool {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO", feature = "Win32_System_Threading"))]
+#[cfg(all(feature = "Win32_System_IO", feature = "Win32_System_Threading"))]
 impl ICorThreadpool_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICorThreadpool_Impl, const OFFSET: isize>() -> ICorThreadpool_Vtbl {
         unsafe extern "system" fn CorRegisterWaitForSingleObject<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICorThreadpool_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phnewwaitobject: *const super::super::Foundation::HANDLE, hwaitobject: super::super::Foundation::HANDLE, callback: super::Threading::WAITORTIMERCALLBACK, context: *const ::core::ffi::c_void, timeout: u32, executeonlyonce: super::super::Foundation::BOOL, result: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -2015,14 +1975,10 @@ impl ICorThreadpool_Vtbl {
         *iid == <ICorThreadpool as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDebuggerInfo_Impl: Sized {
     fn IsDebuggerAttached(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDebuggerInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDebuggerInfo_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebuggerInfo_Impl, const OFFSET: isize>() -> IDebuggerInfo_Vtbl {
         unsafe extern "system" fn IsDebuggerAttached<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebuggerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbattached: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -2312,17 +2268,13 @@ impl IHostControl_Vtbl {
         *iid == <IHostControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IHostCrst_Impl: Sized {
     fn Enter(&self, option: u32) -> ::windows_core::Result<()>;
     fn Leave(&self) -> ::windows_core::Result<()>;
     fn TryEnter(&self, option: u32) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn SetSpinCount(&self, dwspincount: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IHostCrst {}
-#[cfg(feature = "Win32_Foundation")]
 impl IHostCrst_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IHostCrst_Impl, const OFFSET: isize>() -> IHostCrst_Vtbl {
         unsafe extern "system" fn Enter<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IHostCrst_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, option: u32) -> ::windows_core::HRESULT {
@@ -2397,8 +2349,6 @@ impl IHostGCManager_Vtbl {
         *iid == <IHostGCManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IHostIoCompletionManager_Impl: Sized {
     fn CreateIoCompletionPort(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE>;
     fn CloseIoCompletionPort(&self, hport: super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
@@ -2412,9 +2362,7 @@ pub trait IHostIoCompletionManager_Impl: Sized {
     fn SetMinThreads(&self, dwminiocompletionthreads: u32) -> ::windows_core::Result<()>;
     fn GetMinThreads(&self) -> ::windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IHostIoCompletionManager {}
-#[cfg(feature = "Win32_Foundation")]
 impl IHostIoCompletionManager_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IHostIoCompletionManager_Impl, const OFFSET: isize>() -> IHostIoCompletionManager_Vtbl {
         unsafe extern "system" fn CreateIoCompletionPort<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IHostIoCompletionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phport: *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT {
@@ -2741,8 +2689,6 @@ impl IHostSecurityContext_Vtbl {
         *iid == <IHostSecurityContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IHostSecurityManager_Impl: Sized {
     fn ImpersonateLoggedOnUser(&self, htoken: super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
     fn RevertToSelf(&self) -> ::windows_core::Result<()>;
@@ -2751,9 +2697,7 @@ pub trait IHostSecurityManager_Impl: Sized {
     fn GetSecurityContext(&self, econtexttype: EContextType) -> ::windows_core::Result<IHostSecurityContext>;
     fn SetSecurityContext(&self, econtexttype: EContextType, psecuritycontext: ::core::option::Option<&IHostSecurityContext>) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IHostSecurityManager {}
-#[cfg(feature = "Win32_Foundation")]
 impl IHostSecurityManager_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IHostSecurityManager_Impl, const OFFSET: isize>() -> IHostSecurityManager_Vtbl {
         unsafe extern "system" fn ImpersonateLoggedOnUser<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IHostSecurityManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htoken: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT {
@@ -2845,8 +2789,6 @@ impl IHostSemaphore_Vtbl {
         *iid == <IHostSemaphore as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IHostSyncManager_Impl: Sized {
     fn SetCLRSyncManager(&self, pmanager: ::core::option::Option<&ICLRSyncManager>) -> ::windows_core::Result<()>;
     fn CreateCrst(&self) -> ::windows_core::Result<IHostCrst>;
@@ -2858,9 +2800,7 @@ pub trait IHostSyncManager_Impl: Sized {
     fn CreateRWLockReaderEvent(&self, binitialstate: super::super::Foundation::BOOL, cookie: usize) -> ::windows_core::Result<IHostManualEvent>;
     fn CreateSemaphoreA(&self, dwinitial: u32, dwmax: u32) -> ::windows_core::Result<IHostSemaphore>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IHostSyncManager {}
-#[cfg(feature = "Win32_Foundation")]
 impl IHostSyncManager_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IHostSyncManager_Impl, const OFFSET: isize>() -> IHostSyncManager_Vtbl {
         unsafe extern "system" fn SetCLRSyncManager<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IHostSyncManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmanager: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3034,8 +2974,8 @@ impl IHostTask_Vtbl {
         *iid == <IHostTask as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
+#[doc = "Required features: `\"Win32_System_Threading\"`"]
+#[cfg(feature = "Win32_System_Threading")]
 pub trait IHostTaskManager_Impl: Sized {
     fn GetCurrentTask(&self) -> ::windows_core::Result<IHostTask>;
     fn CreateTask(&self, dwstacksize: u32, pstartaddress: super::Threading::LPTHREAD_START_ROUTINE, pparameter: *const ::core::ffi::c_void) -> ::windows_core::Result<IHostTask>;
@@ -3056,9 +2996,9 @@ pub trait IHostTaskManager_Impl: Sized {
     fn GetStackGuarantee(&self) -> ::windows_core::Result<u32>;
     fn SetCLRTaskManager(&self, ppmanager: ::core::option::Option<&ICLRTaskManager>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
+#[cfg(feature = "Win32_System_Threading")]
 impl ::windows_core::RuntimeName for IHostTaskManager {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
+#[cfg(feature = "Win32_System_Threading")]
 impl IHostTaskManager_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IHostTaskManager_Impl, const OFFSET: isize>() -> IHostTaskManager_Vtbl {
         unsafe extern "system" fn GetCurrentTask<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IHostTaskManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptask: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3311,14 +3251,14 @@ impl IManagedObject_Vtbl {
         *iid == <IManagedObject as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IObjectHandle_Impl: Sized {
     fn Unwrap(&self) -> ::windows_core::Result<super::Variant::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IObjectHandle {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IObjectHandle_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IObjectHandle_Impl, const OFFSET: isize>() -> IObjectHandle_Vtbl {
         unsafe extern "system" fn Unwrap<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IObjectHandle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppv: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {

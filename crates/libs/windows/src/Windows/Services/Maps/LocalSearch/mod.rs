@@ -101,9 +101,9 @@ unsafe impl ::windows_core::ComInterface for ILocalLocationFinderStatics {
 #[doc(hidden)]
 pub struct ILocalLocationFinderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    #[cfg(feature = "Devices_Geolocation")]
     pub FindLocalLocationsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, searchterm: ::std::mem::MaybeUninit<::windows_core::HSTRING>, searcharea: *mut ::core::ffi::c_void, localcategory: ::std::mem::MaybeUninit<::windows_core::HSTRING>, maxresults: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))]
+    #[cfg(not(feature = "Devices_Geolocation"))]
     FindLocalLocationsAsync: usize,
 }
 #[doc(hidden)]
@@ -124,14 +124,8 @@ pub struct ILocalLocationHoursOfOperationItem_Vtbl {
     pub Day: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Globalization::DayOfWeek) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Globalization"))]
     Day: usize,
-    #[cfg(feature = "Foundation")]
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Start: usize,
-    #[cfg(feature = "Foundation")]
     pub Span: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Span: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -147,14 +141,8 @@ unsafe impl ::windows_core::ComInterface for ILocalLocationRatingInfo {
 #[doc(hidden)]
 pub struct ILocalLocationRatingInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub AggregateRating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AggregateRating: usize,
-    #[cfg(feature = "Foundation")]
     pub RatingCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RatingCount: usize,
     pub ProviderIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
@@ -328,8 +316,8 @@ unsafe impl ::core::marker::Send for LocalLocation {}
 unsafe impl ::core::marker::Sync for LocalLocation {}
 pub struct LocalLocationFinder;
 impl LocalLocationFinder {
-    #[doc = "Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`"]
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    #[doc = "Required features: `\"Devices_Geolocation\"`"]
+    #[cfg(feature = "Devices_Geolocation")]
     pub fn FindLocalLocationsAsync<P0>(searchterm: &::windows_core::HSTRING, searcharea: P0, localcategory: &::windows_core::HSTRING, maxresults: u32) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>
     where
         P0: ::windows_core::IntoParam<super::super::super::Devices::Geolocation::Geocircle>,
@@ -397,8 +385,6 @@ impl LocalLocationHoursOfOperationItem {
             (::windows_core::Interface::vtable(this).Day)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Start(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -406,8 +392,6 @@ impl LocalLocationHoursOfOperationItem {
             (::windows_core::Interface::vtable(this).Start)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Span(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -435,8 +419,6 @@ unsafe impl ::core::marker::Sync for LocalLocationHoursOfOperationItem {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LocalLocationRatingInfo(::windows_core::IUnknown);
 impl LocalLocationRatingInfo {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AggregateRating(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -444,8 +426,6 @@ impl LocalLocationRatingInfo {
             (::windows_core::Interface::vtable(this).AggregateRating)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RatingCount(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {

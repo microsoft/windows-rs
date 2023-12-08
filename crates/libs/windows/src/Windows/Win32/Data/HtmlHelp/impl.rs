@@ -1,5 +1,3 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IITDatabase_Impl: Sized {
     fn Open(&self, lpszhost: &::windows_core::PCWSTR, lpszmoniker: &::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::Result<()>;
     fn Close(&self) -> ::windows_core::Result<()>;
@@ -7,9 +5,7 @@ pub trait IITDatabase_Impl: Sized {
     fn GetObject(&self, dwobjinstance: u32, riid: *const ::windows_core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn GetObjectPersistence(&self, lpwszobject: &::windows_core::PCWSTR, dwobjinstance: u32, ppvpersistence: *mut *mut ::core::ffi::c_void, fstream: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IITDatabase {}
-#[cfg(feature = "Win32_Foundation")]
 impl IITDatabase_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IITDatabase_Impl, const OFFSET: isize>() -> IITDatabase_Vtbl {
         unsafe extern "system" fn Open<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IITDatabase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpszhost: ::windows_core::PCWSTR, lpszmoniker: ::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::HRESULT {
@@ -50,8 +46,8 @@ impl IITDatabase_Vtbl {
         *iid == <IITDatabase as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IITPropList_Impl: Sized + super::super::System::Com::IPersistStreamInit_Impl {
     fn Set(&self, propid: u32, lpszwstring: &::windows_core::PCWSTR, dwoperation: u32) -> ::windows_core::Result<()>;
     fn Set2(&self, propid: u32, lpvdata: *mut ::core::ffi::c_void, cbdata: u32, dwoperation: u32) -> ::windows_core::Result<()>;
@@ -72,9 +68,9 @@ pub trait IITPropList_Impl: Sized + super::super::System::Com::IPersistStreamIni
     fn LoadFromMem(&self, lpvdata: *mut ::core::ffi::c_void, dwbufsize: u32) -> ::windows_core::Result<()>;
     fn SaveToMem(&self, lpvdata: *mut ::core::ffi::c_void, dwbufsize: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IITPropList {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IITPropList_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IITPropList_Impl, const OFFSET: isize>() -> IITPropList_Vtbl {
         unsafe extern "system" fn Set<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IITPropList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32, lpszwstring: ::windows_core::PCWSTR, dwoperation: u32) -> ::windows_core::HRESULT {
@@ -193,8 +189,6 @@ impl IITPropList_Vtbl {
         *iid == <IITPropList as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IPersist as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IPersistStreamInit as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IITResultSet_Impl: Sized {
     fn SetColumnPriority(&self, lcolumnindex: i32, columnpriority: PRIORITY) -> ::windows_core::Result<()>;
     fn SetColumnHeap(&self, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: PFNCOLHEAPFREE) -> ::windows_core::Result<()>;
@@ -227,9 +221,7 @@ pub trait IITResultSet_Impl: Sized {
     fn GetRowStatus(&self, lrowfirst: i32, crows: i32, lprowstatus: *mut ROWSTATUS) -> ::windows_core::Result<()>;
     fn GetColumnStatus(&self, lpcolstatus: *mut COLUMNSTATUS) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IITResultSet {}
-#[cfg(feature = "Win32_Foundation")]
 impl IITResultSet_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IITResultSet_Impl, const OFFSET: isize>() -> IITResultSet_Vtbl {
         unsafe extern "system" fn SetColumnPriority<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IITResultSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcolumnindex: i32, columnpriority: PRIORITY) -> ::windows_core::HRESULT {

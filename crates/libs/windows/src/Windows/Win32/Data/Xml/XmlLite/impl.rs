@@ -1,5 +1,3 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXmlReader_Impl: Sized {
     fn SetInput(&self, pinput: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn GetProperty(&self, nproperty: u32) -> ::windows_core::Result<isize>;
@@ -25,9 +23,7 @@ pub trait IXmlReader_Impl: Sized {
     fn GetDepth(&self) -> ::windows_core::Result<u32>;
     fn IsEOF(&self) -> super::super::super::Foundation::BOOL;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IXmlReader {}
-#[cfg(feature = "Win32_Foundation")]
 impl IXmlReader_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>() -> IXmlReader_Vtbl {
         unsafe extern "system" fn SetInput<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinput: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -235,8 +231,6 @@ impl IXmlResolver_Vtbl {
         *iid == <IXmlResolver as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXmlWriter_Impl: Sized {
     fn SetOutput(&self, poutput: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn GetProperty(&self, nproperty: u32) -> ::windows_core::Result<isize>;
@@ -268,9 +262,7 @@ pub trait IXmlWriter_Impl: Sized {
     fn WriteWhitespace(&self, pwszwhitespace: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn Flush(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IXmlWriter {}
-#[cfg(feature = "Win32_Foundation")]
 impl IXmlWriter_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>() -> IXmlWriter_Vtbl {
         unsafe extern "system" fn SetOutput<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutput: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -461,8 +453,6 @@ impl IXmlWriter_Vtbl {
         *iid == <IXmlWriter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXmlWriterLite_Impl: Sized {
     fn SetOutput(&self, poutput: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn GetProperty(&self, nproperty: u32) -> ::windows_core::Result<isize>;
@@ -493,9 +483,7 @@ pub trait IXmlWriterLite_Impl: Sized {
     fn WriteWhitespace(&self, pwszwhitespace: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn Flush(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IXmlWriterLite {}
-#[cfg(feature = "Win32_Foundation")]
 impl IXmlWriterLite_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>() -> IXmlWriterLite_Vtbl {
         unsafe extern "system" fn SetOutput<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutput: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

@@ -1,5 +1,3 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplicationRecoveryFinished<P0>(bsuccess: P0)
 where
@@ -8,16 +6,14 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn ApplicationRecoveryFinished(bsuccess : super::super::Foundation:: BOOL));
     ApplicationRecoveryFinished(bsuccess.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplicationRecoveryInProgress() -> ::windows_core::Result<super::super::Foundation::BOOL> {
     ::windows_targets::link!("kernel32.dll" "system" fn ApplicationRecoveryInProgress(pbcancelled : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     ApplicationRecoveryInProgress(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
+#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn GetApplicationRecoveryCallback<P0>(hprocess: P0, precoverycallback: *mut super::WindowsProgramming::APPLICATION_RECOVERY_CALLBACK, ppvparameter: ::core::option::Option<*mut *mut ::core::ffi::c_void>, pdwpinginterval: ::core::option::Option<*mut u32>, pdwflags: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
@@ -26,8 +22,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetApplicationRecoveryCallback(hprocess : super::super::Foundation:: HANDLE, precoverycallback : *mut super::WindowsProgramming:: APPLICATION_RECOVERY_CALLBACK, ppvparameter : *mut *mut ::core::ffi::c_void, pdwpinginterval : *mut u32, pdwflags : *mut u32) -> ::windows_core::HRESULT);
     GetApplicationRecoveryCallback(hprocess.into_param().abi(), precoverycallback, ::core::mem::transmute(ppvparameter.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwpinginterval.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwflags.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetApplicationRestartSettings<P0>(hprocess: P0, pwzcommandline: ::windows_core::PWSTR, pcchsize: *mut u32, pdwflags: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where

@@ -1,5 +1,3 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDeviceModelPlugIn_Impl: Sized {
     fn Initialize(&self, bstrxml: &::windows_core::BSTR, cnummodels: u32, imodelposition: u32) -> ::windows_core::Result<()>;
     fn GetNumChannels(&self) -> ::windows_core::Result<u32>;
@@ -13,9 +11,7 @@ pub trait IDeviceModelPlugIn_Impl: Sized {
     fn GetNeutralAxisSize(&self) -> ::windows_core::Result<u32>;
     fn GetNeutralAxis(&self, ccolors: u32, pxyzcolors: *mut XYZColorF) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDeviceModelPlugIn {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDeviceModelPlugIn_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDeviceModelPlugIn_Impl, const OFFSET: isize>() -> IDeviceModelPlugIn_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDeviceModelPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxml: ::std::mem::MaybeUninit<::windows_core::BSTR>, cnummodels: u32, imodelposition: u32) -> ::windows_core::HRESULT {

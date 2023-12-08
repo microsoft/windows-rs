@@ -203,8 +203,6 @@ impl IContactAggregationAggregateCollection_Vtbl {
         *iid == <IContactAggregationAggregateCollection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IContactAggregationContact_Impl: Sized {
     fn Delete(&self) -> ::windows_core::Result<()>;
     fn Save(&self) -> ::windows_core::Result<()>;
@@ -225,9 +223,7 @@ pub trait IContactAggregationContact_Impl: Sized {
     fn SyncIdentityHash(&self) -> ::windows_core::Result<*mut CONTACT_AGGREGATION_BLOB>;
     fn SetSyncIdentityHash(&self, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IContactAggregationContact {}
-#[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationContact_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactAggregationContact_Impl, const OFFSET: isize>() -> IContactAggregationContact_Vtbl {
         unsafe extern "system" fn Delete<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -650,8 +646,6 @@ impl IContactAggregationGroupCollection_Vtbl {
         *iid == <IContactAggregationGroupCollection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IContactAggregationLink_Impl: Sized {
     fn Delete(&self) -> ::windows_core::Result<()>;
     fn Save(&self) -> ::windows_core::Result<()>;
@@ -671,9 +665,7 @@ pub trait IContactAggregationLink_Impl: Sized {
     fn SyncIdentityHash(&self) -> ::windows_core::Result<*mut CONTACT_AGGREGATION_BLOB>;
     fn SetSyncIdentityHash(&self, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IContactAggregationLink {}
-#[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationLink_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactAggregationLink_Impl, const OFFSET: isize>() -> IContactAggregationLink_Vtbl {
         unsafe extern "system" fn Delete<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactAggregationLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -899,8 +891,6 @@ impl IContactAggregationLinkCollection_Vtbl {
         *iid == <IContactAggregationLinkCollection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IContactAggregationManager_Impl: Sized {
     fn GetVersionInfo(&self, plmajorversion: *mut i32, plminorversion: *mut i32) -> ::windows_core::Result<()>;
     fn CreateOrOpenGroup(&self, pgroupname: &::windows_core::PCWSTR, options: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS, pcreatedgroup: *mut super::super::Foundation::BOOL, ppgroup: *mut ::core::option::Option<IContactAggregationGroup>) -> ::windows_core::Result<()>;
@@ -918,9 +908,7 @@ pub trait IContactAggregationManager_Impl: Sized {
     fn ServerPersons(&self) -> ::windows_core::Result<IContactAggregationServerPersonCollection>;
     fn get_ServerContactLinks(&self, ppersonitemid: &::windows_core::PCWSTR) -> ::windows_core::Result<IContactAggregationLinkCollection>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IContactAggregationManager {}
-#[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationManager_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactAggregationManager_Impl, const OFFSET: isize>() -> IContactAggregationManager_Vtbl {
         unsafe extern "system" fn GetVersionInfo<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmajorversion: *mut i32, plminorversion: *mut i32) -> ::windows_core::HRESULT {
@@ -1093,8 +1081,6 @@ impl IContactAggregationManager_Vtbl {
         *iid == <IContactAggregationManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IContactAggregationServerPerson_Impl: Sized {
     fn Delete(&self) -> ::windows_core::Result<()>;
     fn Save(&self) -> ::windows_core::Result<()>;
@@ -1120,9 +1106,7 @@ pub trait IContactAggregationServerPerson_Impl: Sized {
     fn ObjectId(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn SetObjectId(&self, pobjectid: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IContactAggregationServerPerson {}
-#[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationServerPerson_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>() -> IContactAggregationServerPerson_Vtbl {
         unsafe extern "system" fn Delete<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1541,8 +1525,8 @@ impl IContactManager_Vtbl {
         *iid == <IContactManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IContactProperties_Impl: Sized {
     fn GetString(&self, pszpropertyname: &::windows_core::PCWSTR, dwflags: u32, pszvalue: &::windows_core::PWSTR, cchvalue: u32, pdwcchpropertyvaluerequired: *mut u32) -> ::windows_core::Result<()>;
     fn GetDate(&self, pszpropertyname: &::windows_core::PCWSTR, dwflags: u32, pftdatetime: *mut super::super::Foundation::FILETIME) -> ::windows_core::Result<()>;
@@ -1558,9 +1542,9 @@ pub trait IContactProperties_Impl: Sized {
     fn DeleteLabels(&self, pszarrayelementname: &::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::Result<()>;
     fn GetPropertyCollection(&self, pppropertycollection: *mut ::core::option::Option<IContactPropertyCollection>, dwflags: u32, pszmultivaluename: &::windows_core::PCWSTR, dwlabelcount: u32, ppszlabels: *const ::windows_core::PCWSTR, fanylabelmatches: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IContactProperties {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IContactProperties_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactProperties_Impl, const OFFSET: isize>() -> IContactProperties_Vtbl {
         unsafe extern "system" fn GetString<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: ::windows_core::PCWSTR, dwflags: u32, pszvalue: ::windows_core::PWSTR, cchvalue: u32, pdwcchpropertyvaluerequired: *mut u32) -> ::windows_core::HRESULT {
@@ -1649,8 +1633,6 @@ impl IContactProperties_Vtbl {
         *iid == <IContactProperties as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IContactPropertyCollection_Impl: Sized {
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn Next(&self) -> ::windows_core::Result<()>;
@@ -1660,9 +1642,7 @@ pub trait IContactPropertyCollection_Impl: Sized {
     fn GetPropertyModificationDate(&self, pftmodificationdate: *mut super::super::Foundation::FILETIME) -> ::windows_core::Result<()>;
     fn GetPropertyArrayElementID(&self, pszarrayelementid: &::windows_core::PWSTR, ccharrayelementid: u32, pdwccharrayelementidrequired: *mut u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IContactPropertyCollection {}
-#[cfg(feature = "Win32_Foundation")]
 impl IContactPropertyCollection_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactPropertyCollection_Impl, const OFFSET: isize>() -> IContactPropertyCollection_Vtbl {
         unsafe extern "system" fn Reset<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactPropertyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

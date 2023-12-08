@@ -298,15 +298,11 @@ impl IEnumWiaItem2_Vtbl {
         *iid == <IEnumWiaItem2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWiaAppErrorHandler_Impl: Sized {
     fn GetWindow(&self) -> ::windows_core::Result<super::super::Foundation::HWND>;
     fn ReportStatus(&self, lflags: i32, pwiaitem2: ::core::option::Option<&IWiaItem2>, hrstatus: ::windows_core::HRESULT, lpercentcomplete: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IWiaAppErrorHandler {}
-#[cfg(feature = "Win32_Foundation")]
 impl IWiaAppErrorHandler_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaAppErrorHandler_Impl, const OFFSET: isize>() -> IWiaAppErrorHandler_Vtbl {
         unsafe extern "system" fn GetWindow<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaAppErrorHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows_core::HRESULT {
@@ -352,8 +348,8 @@ impl IWiaDataCallback_Vtbl {
         *iid == <IWiaDataCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWiaDataTransfer_Impl: Sized {
     fn idtGetData(&self, pmedium: *mut super::super::System::Com::STGMEDIUM, piwiadatacallback: ::core::option::Option<&IWiaDataCallback>) -> ::windows_core::Result<()>;
     fn idtGetBandedData(&self, pwiadatatransinfo: *mut WIA_DATA_TRANSFER_INFO, piwiadatacallback: ::core::option::Option<&IWiaDataCallback>) -> ::windows_core::Result<()>;
@@ -361,9 +357,9 @@ pub trait IWiaDataTransfer_Impl: Sized {
     fn idtEnumWIA_FORMAT_INFO(&self) -> ::windows_core::Result<IEnumWIA_FORMAT_INFO>;
     fn idtGetExtendedTransferInfo(&self, pextendedtransferinfo: *mut WIA_EXTENDED_TRANSFER_INFO) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::windows_core::RuntimeName for IWiaDataTransfer {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl IWiaDataTransfer_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDataTransfer_Impl, const OFFSET: isize>() -> IWiaDataTransfer_Vtbl {
         unsafe extern "system" fn idtGetData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDataTransfer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmedium: *mut super::super::System::Com::STGMEDIUM, piwiadatacallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -410,8 +406,6 @@ impl IWiaDataTransfer_Vtbl {
         *iid == <IWiaDataTransfer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWiaDevMgr_Impl: Sized {
     fn EnumDeviceInfo(&self, lflag: i32) -> ::windows_core::Result<IEnumWIA_DEV_INFO>;
     fn CreateDevice(&self, bstrdeviceid: &::windows_core::BSTR) -> ::windows_core::Result<IWiaItem>;
@@ -423,9 +417,7 @@ pub trait IWiaDevMgr_Impl: Sized {
     fn RegisterEventCallbackCLSID(&self, lflags: i32, bstrdeviceid: &::windows_core::BSTR, peventguid: *const ::windows_core::GUID, pclsid: *const ::windows_core::GUID, bstrname: &::windows_core::BSTR, bstrdescription: &::windows_core::BSTR, bstricon: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn AddDeviceDlg(&self, hwndparent: super::super::Foundation::HWND, lflags: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IWiaDevMgr {}
-#[cfg(feature = "Win32_Foundation")]
 impl IWiaDevMgr_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr_Impl, const OFFSET: isize>() -> IWiaDevMgr_Vtbl {
         unsafe extern "system" fn EnumDeviceInfo<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflag: i32, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -508,8 +500,6 @@ impl IWiaDevMgr_Vtbl {
         *iid == <IWiaDevMgr as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWiaDevMgr2_Impl: Sized {
     fn EnumDeviceInfo(&self, lflags: i32) -> ::windows_core::Result<IEnumWIA_DEV_INFO>;
     fn CreateDevice(&self, lflags: i32, bstrdeviceid: &::windows_core::BSTR) -> ::windows_core::Result<IWiaItem2>;
@@ -520,9 +510,7 @@ pub trait IWiaDevMgr2_Impl: Sized {
     fn RegisterEventCallbackCLSID(&self, lflags: i32, bstrdeviceid: &::windows_core::BSTR, peventguid: *const ::windows_core::GUID, pclsid: *const ::windows_core::GUID, bstrname: &::windows_core::BSTR, bstrdescription: &::windows_core::BSTR, bstricon: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn GetImageDlg(&self, lflags: i32, bstrdeviceid: &::windows_core::BSTR, hwndparent: super::super::Foundation::HWND, bstrfoldername: &::windows_core::BSTR, bstrfilename: &::windows_core::BSTR, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut ::windows_core::BSTR, ppitem: *mut ::core::option::Option<IWiaItem2>) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IWiaDevMgr2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IWiaDevMgr2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr2_Impl, const OFFSET: isize>() -> IWiaDevMgr2_Vtbl {
         unsafe extern "system" fn EnumDeviceInfo<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -763,15 +751,11 @@ impl IWiaDrvItem_Vtbl {
         *iid == <IWiaDrvItem as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWiaErrorHandler_Impl: Sized {
     fn ReportStatus(&self, lflags: i32, hwndparent: super::super::Foundation::HWND, pwiaitem2: ::core::option::Option<&IWiaItem2>, hrstatus: ::windows_core::HRESULT, lpercentcomplete: i32) -> ::windows_core::Result<()>;
     fn GetStatusDescription(&self, lflags: i32, pwiaitem2: ::core::option::Option<&IWiaItem2>, hrstatus: ::windows_core::HRESULT) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IWiaErrorHandler {}
-#[cfg(feature = "Win32_Foundation")]
 impl IWiaErrorHandler_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaErrorHandler_Impl, const OFFSET: isize>() -> IWiaErrorHandler_Vtbl {
         unsafe extern "system" fn ReportStatus<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaErrorHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, hwndparent: super::super::Foundation::HWND, pwiaitem2: *mut ::core::ffi::c_void, hrstatus: ::windows_core::HRESULT, lpercentcomplete: i32) -> ::windows_core::HRESULT {
@@ -817,17 +801,17 @@ impl IWiaEventCallback_Vtbl {
         *iid == <IWiaEventCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IWiaImageFilter_Impl: Sized {
     fn InitializeFilter(&self, pwiaitem2: ::core::option::Option<&IWiaItem2>, pwiatransfercallback: ::core::option::Option<&IWiaTransferCallback>) -> ::windows_core::Result<()>;
     fn SetNewCallback(&self, pwiatransfercallback: ::core::option::Option<&IWiaTransferCallback>) -> ::windows_core::Result<()>;
     fn FilterPreviewImage(&self, lflags: i32, pwiachilditem2: ::core::option::Option<&IWiaItem2>, inputimageextents: &super::super::Foundation::RECT, pinputstream: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows_core::Result<()>;
     fn ApplyProperties(&self, pwiapropertystorage: ::core::option::Option<&IWiaPropertyStorage>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IWiaImageFilter {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IWiaImageFilter_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaImageFilter_Impl, const OFFSET: isize>() -> IWiaImageFilter_Vtbl {
         unsafe extern "system" fn InitializeFilter<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaImageFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwiaitem2: *mut ::core::ffi::c_void, pwiatransfercallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -862,8 +846,6 @@ impl IWiaImageFilter_Vtbl {
         *iid == <IWiaImageFilter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWiaItem_Impl: Sized {
     fn GetItemType(&self) -> ::windows_core::Result<i32>;
     fn AnalyzeItem(&self, lflags: i32) -> ::windows_core::Result<()>;
@@ -881,9 +863,7 @@ pub trait IWiaItem_Impl: Sized {
     fn DumpTreeItemData(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Diagnostic(&self, ulsize: u32, pbuffer: *const u8) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IWiaItem {}
-#[cfg(feature = "Win32_Foundation")]
 impl IWiaItem_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem_Impl, const OFFSET: isize>() -> IWiaItem_Vtbl {
         unsafe extern "system" fn GetItemType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitemtype: *mut i32) -> ::windows_core::HRESULT {
@@ -1044,8 +1024,6 @@ impl IWiaItem_Vtbl {
         *iid == <IWiaItem as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWiaItem2_Impl: Sized {
     fn CreateChildItem(&self, litemflags: i32, lcreationflags: i32, bstritemname: &::windows_core::BSTR) -> ::windows_core::Result<IWiaItem2>;
     fn DeleteItem(&self, lflags: i32) -> ::windows_core::Result<()>;
@@ -1064,9 +1042,7 @@ pub trait IWiaItem2_Impl: Sized {
     fn EnumRegisterEventInfo(&self, lflags: i32, peventguid: *const ::windows_core::GUID) -> ::windows_core::Result<IEnumWIA_DEV_CAPS>;
     fn Diagnostic(&self, ulsize: u32, pbuffer: *const u8) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IWiaItem2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IWiaItem2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem2_Impl, const OFFSET: isize>() -> IWiaItem2_Vtbl {
         unsafe extern "system" fn CreateChildItem<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, litemflags: i32, lcreationflags: i32, bstritemname: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppiwiaitem2: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1355,8 +1331,8 @@ impl IWiaLogEx_Vtbl {
         *iid == <IWiaLogEx as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IWiaMiniDrv_Impl: Sized {
     fn drvInitializeWia(&self, __midl__iwiaminidrv0000: *const u8, __midl__iwiaminidrv0001: i32, __midl__iwiaminidrv0002: &::windows_core::BSTR, __midl__iwiaminidrv0003: &::windows_core::BSTR, __midl__iwiaminidrv0004: ::core::option::Option<&::windows_core::IUnknown>, __midl__iwiaminidrv0005: ::core::option::Option<&::windows_core::IUnknown>, __midl__iwiaminidrv0006: *mut ::core::option::Option<IWiaDrvItem>, __midl__iwiaminidrv0007: *mut ::core::option::Option<::windows_core::IUnknown>, __midl__iwiaminidrv0008: *mut i32) -> ::windows_core::Result<()>;
     fn drvAcquireItemData(&self, __midl__iwiaminidrv0009: *const u8, __midl__iwiaminidrv0010: i32, __midl__iwiaminidrv0011: *mut MINIDRV_TRANSFER_CONTEXT, __midl__iwiaminidrv0012: *mut i32) -> ::windows_core::Result<()>;
@@ -1376,9 +1352,9 @@ pub trait IWiaMiniDrv_Impl: Sized {
     fn drvNotifyPnpEvent(&self, peventguid: *const ::windows_core::GUID, bstrdeviceid: &::windows_core::BSTR, ulreserved: u32) -> ::windows_core::Result<()>;
     fn drvUnInitializeWia(&self, __midl__iwiaminidrv0064: *const u8) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::windows_core::RuntimeName for IWiaMiniDrv {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IWiaMiniDrv_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrv_Impl, const OFFSET: isize>() -> IWiaMiniDrv_Vtbl {
         unsafe extern "system" fn drvInitializeWia<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrv_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0000: *const u8, __midl__iwiaminidrv0001: i32, __midl__iwiaminidrv0002: ::std::mem::MaybeUninit<::windows_core::BSTR>, __midl__iwiaminidrv0003: ::std::mem::MaybeUninit<::windows_core::BSTR>, __midl__iwiaminidrv0004: *mut ::core::ffi::c_void, __midl__iwiaminidrv0005: *mut ::core::ffi::c_void, __midl__iwiaminidrv0006: *mut *mut ::core::ffi::c_void, __midl__iwiaminidrv0007: *mut *mut ::core::ffi::c_void, __midl__iwiaminidrv0008: *mut i32) -> ::windows_core::HRESULT {
@@ -1550,14 +1526,10 @@ impl IWiaMiniDrv_Vtbl {
         *iid == <IWiaMiniDrv as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWiaMiniDrvCallBack_Impl: Sized {
     fn MiniDrvCallback(&self, lreason: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, ptranctx: *const MINIDRV_TRANSFER_CONTEXT, lreserved: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IWiaMiniDrvCallBack {}
-#[cfg(feature = "Win32_Foundation")]
 impl IWiaMiniDrvCallBack_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrvCallBack_Impl, const OFFSET: isize>() -> IWiaMiniDrvCallBack_Vtbl {
         unsafe extern "system" fn MiniDrvCallback<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrvCallBack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lreason: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, ptranctx: *const MINIDRV_TRANSFER_CONTEXT, lreserved: i32) -> ::windows_core::HRESULT {
@@ -1666,8 +1638,8 @@ impl IWiaPreview_Vtbl {
         *iid == <IWiaPreview as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IWiaPropertyStorage_Impl: Sized {
     fn ReadMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>;
     fn WriteMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows_core::Result<()>;
@@ -1686,9 +1658,9 @@ pub trait IWiaPropertyStorage_Impl: Sized {
     fn GetPropertyStream(&self, pcompatibilityid: *mut ::windows_core::GUID, ppistream: *mut ::core::option::Option<super::super::System::Com::IStream>) -> ::windows_core::Result<()>;
     fn SetPropertyStream(&self, pcompatibilityid: *mut ::windows_core::GUID, pistream: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IWiaPropertyStorage {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IWiaPropertyStorage_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaPropertyStorage_Impl, const OFFSET: isize>() -> IWiaPropertyStorage_Vtbl {
         unsafe extern "system" fn ReadMultiple<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
@@ -1916,16 +1888,16 @@ impl IWiaTransferCallback_Vtbl {
         *iid == <IWiaTransferCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWiaUIExtension_Impl: Sized {
     fn DeviceDialog(&self, pdevicedialogdata: *const DEVICEDIALOGDATA) -> ::windows_core::Result<()>;
     fn GetDeviceIcon(&self, bstrdeviceid: &::windows_core::BSTR, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows_core::Result<()>;
     fn GetDeviceBitmapLogo(&self, bstrdeviceid: &::windows_core::BSTR, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, nmaxwidth: u32, nmaxheight: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows_core::RuntimeName for IWiaUIExtension {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IWiaUIExtension_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaUIExtension_Impl, const OFFSET: isize>() -> IWiaUIExtension_Vtbl {
         unsafe extern "system" fn DeviceDialog<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaUIExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevicedialogdata: *const DEVICEDIALOGDATA) -> ::windows_core::HRESULT {
@@ -1954,15 +1926,15 @@ impl IWiaUIExtension_Vtbl {
         *iid == <IWiaUIExtension as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IWiaUIExtension2_Impl: Sized {
     fn DeviceDialog(&self, pdevicedialogdata: *const DEVICEDIALOGDATA2) -> ::windows_core::Result<()>;
     fn GetDeviceIcon(&self, bstrdeviceid: &::windows_core::BSTR, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::windows_core::RuntimeName for IWiaUIExtension2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IWiaUIExtension2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaUIExtension2_Impl, const OFFSET: isize>() -> IWiaUIExtension2_Vtbl {
         unsafe extern "system" fn DeviceDialog<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaUIExtension2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevicedialogdata: *const DEVICEDIALOGDATA2) -> ::windows_core::HRESULT {
@@ -1985,8 +1957,6 @@ impl IWiaUIExtension2_Vtbl {
         *iid == <IWiaUIExtension2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWiaVideo_Impl: Sized {
     fn PreviewVisible(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn SetPreviewVisible(&self, bpreviewvisible: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -2002,9 +1972,7 @@ pub trait IWiaVideo_Impl: Sized {
     fn ResizeVideo(&self, bstretchtofitparent: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn GetCurrentState(&self) -> ::windows_core::Result<WIAVIDEO_STATE>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IWiaVideo {}
-#[cfg(feature = "Win32_Foundation")]
 impl IWiaVideo_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaVideo_Impl, const OFFSET: isize>() -> IWiaVideo_Vtbl {
         unsafe extern "system" fn PreviewVisible<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWiaVideo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbpreviewvisible: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {

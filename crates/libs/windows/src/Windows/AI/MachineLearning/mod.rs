@@ -345,10 +345,7 @@ pub struct ILearningModelSession_Vtbl {
     pub EvaluationProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     EvaluationProperties: usize,
-    #[cfg(feature = "Foundation")]
     pub EvaluateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindings: *mut ::core::ffi::c_void, correlationid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    EvaluateAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
     pub EvaluateFeaturesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, features: *mut ::core::ffi::c_void, correlationid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -456,26 +453,26 @@ unsafe impl ::windows_core::ComInterface for ILearningModelStatics {
 #[doc(hidden)]
 pub struct ILearningModelStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[cfg(feature = "Storage")]
     pub LoadFromStorageFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelfile: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
+    #[cfg(not(feature = "Storage"))]
     LoadFromStorageFileAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub LoadFromStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelstream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     LoadFromStreamAsync: usize,
     pub LoadFromFilePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
     pub LoadFromStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelstream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     LoadFromStream: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[cfg(feature = "Storage")]
     pub LoadFromStorageFileWithOperatorProviderAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelfile: *mut ::core::ffi::c_void, operatorprovider: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
+    #[cfg(not(feature = "Storage"))]
     LoadFromStorageFileWithOperatorProviderAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub LoadFromStreamWithOperatorProviderAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelstream: *mut ::core::ffi::c_void, operatorprovider: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     LoadFromStreamWithOperatorProviderAsync: usize,
     pub LoadFromFilePathWithOperatorProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, operatorprovider: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -1597,8 +1594,6 @@ unsafe impl ::core::marker::Sync for ImageFeatureValue {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LearningModel(::windows_core::IUnknown);
 impl LearningModel {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -1665,8 +1660,8 @@ impl LearningModel {
             (::windows_core::Interface::vtable(this).OutputFeatures)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "Required features: `\"Storage\"`"]
+    #[cfg(feature = "Storage")]
     pub fn LoadFromStorageFileAsync<P0>(modelfile: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
     where
         P0: ::windows_core::TryIntoParam<super::super::Storage::IStorageFile>,
@@ -1676,8 +1671,8 @@ impl LearningModel {
             (::windows_core::Interface::vtable(this).LoadFromStorageFileAsync)(::windows_core::Interface::as_raw(this), modelfile.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStreamAsync<P0>(modelstream: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
     where
         P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
@@ -1704,8 +1699,8 @@ impl LearningModel {
             (::windows_core::Interface::vtable(this).LoadFromStream)(::windows_core::Interface::as_raw(this), modelstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "Required features: `\"Storage\"`"]
+    #[cfg(feature = "Storage")]
     pub fn LoadFromStorageFileWithOperatorProviderAsync<P0, P1>(modelfile: P0, operatorprovider: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
     where
         P0: ::windows_core::TryIntoParam<super::super::Storage::IStorageFile>,
@@ -1716,8 +1711,8 @@ impl LearningModel {
             (::windows_core::Interface::vtable(this).LoadFromStorageFileWithOperatorProviderAsync)(::windows_core::Interface::as_raw(this), modelfile.try_into_param()?.abi(), operatorprovider.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStreamWithOperatorProviderAsync<P0, P1>(modelstream: P0, operatorprovider: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
     where
         P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
@@ -1768,7 +1763,6 @@ impl ::windows_core::RuntimeName for LearningModel {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModel";
 }
 ::windows_core::imp::interface_hierarchy!(LearningModel, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for LearningModel {}
 unsafe impl ::core::marker::Send for LearningModel {}
 unsafe impl ::core::marker::Sync for LearningModel {}
@@ -2008,8 +2002,6 @@ unsafe impl ::core::marker::Sync for LearningModelEvaluationResult {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LearningModelSession(::windows_core::IUnknown);
 impl LearningModelSession {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2037,8 +2029,6 @@ impl LearningModelSession {
             (::windows_core::Interface::vtable(this).EvaluationProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn EvaluateAsync<P0>(&self, bindings: P0, correlationid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>
     where
         P0: ::windows_core::IntoParam<LearningModelBinding>,
@@ -2137,7 +2127,6 @@ impl ::windows_core::RuntimeName for LearningModelSession {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelSession";
 }
 ::windows_core::imp::interface_hierarchy!(LearningModelSession, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for LearningModelSession {}
 unsafe impl ::core::marker::Send for LearningModelSession {}
 unsafe impl ::core::marker::Sync for LearningModelSession {}
@@ -2317,8 +2306,6 @@ unsafe impl ::core::marker::Sync for SequenceFeatureDescriptor {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorBoolean(::windows_core::IUnknown);
 impl TensorBoolean {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2330,8 +2317,6 @@ impl TensorBoolean {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateReference(&self) -> ::windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -2445,10 +2430,8 @@ impl ::windows_core::RuntimeName for TensorBoolean {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorBoolean";
 }
 ::windows_core::imp::interface_hierarchy!(TensorBoolean, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for TensorBoolean {}
 impl ::windows_core::CanTryInto<ILearningModelFeatureValue> for TensorBoolean {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IMemoryBuffer> for TensorBoolean {}
 impl ::windows_core::CanTryInto<ITensor> for TensorBoolean {}
 unsafe impl ::core::marker::Send for TensorBoolean {}
@@ -2457,8 +2440,6 @@ unsafe impl ::core::marker::Sync for TensorBoolean {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorDouble(::windows_core::IUnknown);
 impl TensorDouble {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2470,8 +2451,6 @@ impl TensorDouble {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateReference(&self) -> ::windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -2585,10 +2564,8 @@ impl ::windows_core::RuntimeName for TensorDouble {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorDouble";
 }
 ::windows_core::imp::interface_hierarchy!(TensorDouble, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for TensorDouble {}
 impl ::windows_core::CanTryInto<ILearningModelFeatureValue> for TensorDouble {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IMemoryBuffer> for TensorDouble {}
 impl ::windows_core::CanTryInto<ITensor> for TensorDouble {}
 unsafe impl ::core::marker::Send for TensorDouble {}
@@ -2662,8 +2639,6 @@ unsafe impl ::core::marker::Sync for TensorFeatureDescriptor {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorFloat(::windows_core::IUnknown);
 impl TensorFloat {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2675,8 +2650,6 @@ impl TensorFloat {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateReference(&self) -> ::windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -2790,10 +2763,8 @@ impl ::windows_core::RuntimeName for TensorFloat {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorFloat";
 }
 ::windows_core::imp::interface_hierarchy!(TensorFloat, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for TensorFloat {}
 impl ::windows_core::CanTryInto<ILearningModelFeatureValue> for TensorFloat {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IMemoryBuffer> for TensorFloat {}
 impl ::windows_core::CanTryInto<ITensor> for TensorFloat {}
 unsafe impl ::core::marker::Send for TensorFloat {}
@@ -2802,8 +2773,6 @@ unsafe impl ::core::marker::Sync for TensorFloat {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorFloat16Bit(::windows_core::IUnknown);
 impl TensorFloat16Bit {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2815,8 +2784,6 @@ impl TensorFloat16Bit {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateReference(&self) -> ::windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -2930,10 +2897,8 @@ impl ::windows_core::RuntimeName for TensorFloat16Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorFloat16Bit";
 }
 ::windows_core::imp::interface_hierarchy!(TensorFloat16Bit, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for TensorFloat16Bit {}
 impl ::windows_core::CanTryInto<ILearningModelFeatureValue> for TensorFloat16Bit {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IMemoryBuffer> for TensorFloat16Bit {}
 impl ::windows_core::CanTryInto<ITensor> for TensorFloat16Bit {}
 unsafe impl ::core::marker::Send for TensorFloat16Bit {}
@@ -2942,8 +2907,6 @@ unsafe impl ::core::marker::Sync for TensorFloat16Bit {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorInt16Bit(::windows_core::IUnknown);
 impl TensorInt16Bit {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2955,8 +2918,6 @@ impl TensorInt16Bit {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateReference(&self) -> ::windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -3070,10 +3031,8 @@ impl ::windows_core::RuntimeName for TensorInt16Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt16Bit";
 }
 ::windows_core::imp::interface_hierarchy!(TensorInt16Bit, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for TensorInt16Bit {}
 impl ::windows_core::CanTryInto<ILearningModelFeatureValue> for TensorInt16Bit {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IMemoryBuffer> for TensorInt16Bit {}
 impl ::windows_core::CanTryInto<ITensor> for TensorInt16Bit {}
 unsafe impl ::core::marker::Send for TensorInt16Bit {}
@@ -3082,8 +3041,6 @@ unsafe impl ::core::marker::Sync for TensorInt16Bit {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorInt32Bit(::windows_core::IUnknown);
 impl TensorInt32Bit {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -3095,8 +3052,6 @@ impl TensorInt32Bit {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateReference(&self) -> ::windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -3210,10 +3165,8 @@ impl ::windows_core::RuntimeName for TensorInt32Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt32Bit";
 }
 ::windows_core::imp::interface_hierarchy!(TensorInt32Bit, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for TensorInt32Bit {}
 impl ::windows_core::CanTryInto<ILearningModelFeatureValue> for TensorInt32Bit {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IMemoryBuffer> for TensorInt32Bit {}
 impl ::windows_core::CanTryInto<ITensor> for TensorInt32Bit {}
 unsafe impl ::core::marker::Send for TensorInt32Bit {}
@@ -3222,8 +3175,6 @@ unsafe impl ::core::marker::Sync for TensorInt32Bit {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorInt64Bit(::windows_core::IUnknown);
 impl TensorInt64Bit {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -3235,8 +3186,6 @@ impl TensorInt64Bit {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateReference(&self) -> ::windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -3350,10 +3299,8 @@ impl ::windows_core::RuntimeName for TensorInt64Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt64Bit";
 }
 ::windows_core::imp::interface_hierarchy!(TensorInt64Bit, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for TensorInt64Bit {}
 impl ::windows_core::CanTryInto<ILearningModelFeatureValue> for TensorInt64Bit {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IMemoryBuffer> for TensorInt64Bit {}
 impl ::windows_core::CanTryInto<ITensor> for TensorInt64Bit {}
 unsafe impl ::core::marker::Send for TensorInt64Bit {}
@@ -3362,8 +3309,6 @@ unsafe impl ::core::marker::Sync for TensorInt64Bit {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorInt8Bit(::windows_core::IUnknown);
 impl TensorInt8Bit {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -3375,8 +3320,6 @@ impl TensorInt8Bit {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateReference(&self) -> ::windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -3490,10 +3433,8 @@ impl ::windows_core::RuntimeName for TensorInt8Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt8Bit";
 }
 ::windows_core::imp::interface_hierarchy!(TensorInt8Bit, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for TensorInt8Bit {}
 impl ::windows_core::CanTryInto<ILearningModelFeatureValue> for TensorInt8Bit {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IMemoryBuffer> for TensorInt8Bit {}
 impl ::windows_core::CanTryInto<ITensor> for TensorInt8Bit {}
 unsafe impl ::core::marker::Send for TensorInt8Bit {}
@@ -3502,8 +3443,6 @@ unsafe impl ::core::marker::Sync for TensorInt8Bit {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorString(::windows_core::IUnknown);
 impl TensorString {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -3515,8 +3454,6 @@ impl TensorString {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateReference(&self) -> ::windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -3619,10 +3556,8 @@ impl ::windows_core::RuntimeName for TensorString {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorString";
 }
 ::windows_core::imp::interface_hierarchy!(TensorString, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for TensorString {}
 impl ::windows_core::CanTryInto<ILearningModelFeatureValue> for TensorString {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IMemoryBuffer> for TensorString {}
 impl ::windows_core::CanTryInto<ITensor> for TensorString {}
 unsafe impl ::core::marker::Send for TensorString {}
@@ -3631,8 +3566,6 @@ unsafe impl ::core::marker::Sync for TensorString {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorUInt16Bit(::windows_core::IUnknown);
 impl TensorUInt16Bit {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -3644,8 +3577,6 @@ impl TensorUInt16Bit {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateReference(&self) -> ::windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -3759,10 +3690,8 @@ impl ::windows_core::RuntimeName for TensorUInt16Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt16Bit";
 }
 ::windows_core::imp::interface_hierarchy!(TensorUInt16Bit, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for TensorUInt16Bit {}
 impl ::windows_core::CanTryInto<ILearningModelFeatureValue> for TensorUInt16Bit {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IMemoryBuffer> for TensorUInt16Bit {}
 impl ::windows_core::CanTryInto<ITensor> for TensorUInt16Bit {}
 unsafe impl ::core::marker::Send for TensorUInt16Bit {}
@@ -3771,8 +3700,6 @@ unsafe impl ::core::marker::Sync for TensorUInt16Bit {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorUInt32Bit(::windows_core::IUnknown);
 impl TensorUInt32Bit {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -3784,8 +3711,6 @@ impl TensorUInt32Bit {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateReference(&self) -> ::windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -3899,10 +3824,8 @@ impl ::windows_core::RuntimeName for TensorUInt32Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt32Bit";
 }
 ::windows_core::imp::interface_hierarchy!(TensorUInt32Bit, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for TensorUInt32Bit {}
 impl ::windows_core::CanTryInto<ILearningModelFeatureValue> for TensorUInt32Bit {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IMemoryBuffer> for TensorUInt32Bit {}
 impl ::windows_core::CanTryInto<ITensor> for TensorUInt32Bit {}
 unsafe impl ::core::marker::Send for TensorUInt32Bit {}
@@ -3911,8 +3834,6 @@ unsafe impl ::core::marker::Sync for TensorUInt32Bit {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorUInt64Bit(::windows_core::IUnknown);
 impl TensorUInt64Bit {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -3924,8 +3845,6 @@ impl TensorUInt64Bit {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateReference(&self) -> ::windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -4039,10 +3958,8 @@ impl ::windows_core::RuntimeName for TensorUInt64Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt64Bit";
 }
 ::windows_core::imp::interface_hierarchy!(TensorUInt64Bit, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for TensorUInt64Bit {}
 impl ::windows_core::CanTryInto<ILearningModelFeatureValue> for TensorUInt64Bit {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IMemoryBuffer> for TensorUInt64Bit {}
 impl ::windows_core::CanTryInto<ITensor> for TensorUInt64Bit {}
 unsafe impl ::core::marker::Send for TensorUInt64Bit {}
@@ -4051,8 +3968,6 @@ unsafe impl ::core::marker::Sync for TensorUInt64Bit {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorUInt8Bit(::windows_core::IUnknown);
 impl TensorUInt8Bit {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -4064,8 +3979,6 @@ impl TensorUInt8Bit {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateReference(&self) -> ::windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -4179,10 +4092,8 @@ impl ::windows_core::RuntimeName for TensorUInt8Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt8Bit";
 }
 ::windows_core::imp::interface_hierarchy!(TensorUInt8Bit, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for TensorUInt8Bit {}
 impl ::windows_core::CanTryInto<ILearningModelFeatureValue> for TensorUInt8Bit {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IMemoryBuffer> for TensorUInt8Bit {}
 impl ::windows_core::CanTryInto<ITensor> for TensorUInt8Bit {}
 unsafe impl ::core::marker::Send for TensorUInt8Bit {}

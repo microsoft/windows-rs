@@ -13,14 +13,8 @@ unsafe impl ::windows_core::ComInterface for IPowerManagerStatics {
 pub struct IPowerManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PowerSavingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PowerSavingMode) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub PowerSavingModeChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changehandler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PowerSavingModeChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemovePowerSavingModeChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePowerSavingModeChanged: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -46,8 +40,6 @@ impl PowerManager {
             (::windows_core::Interface::vtable(this).PowerSavingMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn PowerSavingModeChanged<P0>(changehandler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::EventHandler<::windows_core::IInspectable>>,
@@ -57,8 +49,6 @@ impl PowerManager {
             (::windows_core::Interface::vtable(this).PowerSavingModeChanged)(::windows_core::Interface::as_raw(this), changehandler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemovePowerSavingModeChanged(token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemovePowerSavingModeChanged)(::windows_core::Interface::as_raw(this), token).ok() })
     }

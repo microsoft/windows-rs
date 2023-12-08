@@ -586,19 +586,15 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
         *iid == <ICommonReceiptSlipCapabilities as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IPosPrinterJob_Impl: Sized {
     fn Print(&self, data: &::windows_core::HSTRING) -> ::windows_core::Result<()>;
     fn PrintLine(&self, data: &::windows_core::HSTRING) -> ::windows_core::Result<()>;
     fn PrintNewline(&self) -> ::windows_core::Result<()>;
     fn ExecuteAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IPosPrinterJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinterJob";
 }
-#[cfg(feature = "Foundation")]
 impl IPosPrinterJob_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPosPrinterJob_Impl, const OFFSET: isize>() -> IPosPrinterJob_Vtbl {
         unsafe extern "system" fn Print<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT {
@@ -640,8 +636,8 @@ impl IPosPrinterJob_Vtbl {
         *iid == <IPosPrinterJob as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`, `\"Graphics_Imaging\"`"]
-#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
+#[doc = "Required features: `\"Graphics_Imaging\"`"]
+#[cfg(feature = "Graphics_Imaging")]
 pub trait IReceiptOrSlipJob_Impl: Sized + IPosPrinterJob_Impl {
     fn SetBarcodeRotation(&self, value: PosPrinterRotation) -> ::windows_core::Result<()>;
     fn SetPrintRotation(&self, value: PosPrinterRotation, includebitmaps: bool) -> ::windows_core::Result<()>;
@@ -659,11 +655,11 @@ pub trait IReceiptOrSlipJob_Impl: Sized + IPosPrinterJob_Impl {
     fn PrintCustomAlignedBitmap(&self, bitmap: ::core::option::Option<&super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32) -> ::windows_core::Result<()>;
     fn PrintBitmapCustomWidthCustomAlign(&self, bitmap: ::core::option::Option<&super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32, width: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
+#[cfg(feature = "Graphics_Imaging")]
 impl ::windows_core::RuntimeName for IReceiptOrSlipJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.IReceiptOrSlipJob";
 }
-#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
+#[cfg(feature = "Graphics_Imaging")]
 impl IReceiptOrSlipJob_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>() -> IReceiptOrSlipJob_Vtbl {
         unsafe extern "system" fn SetBarcodeRotation<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PosPrinterRotation) -> ::windows_core::HRESULT {

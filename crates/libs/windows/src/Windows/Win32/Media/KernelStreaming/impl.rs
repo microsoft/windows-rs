@@ -25,17 +25,13 @@ impl IKsAggregateControl_Vtbl {
         *iid == <IKsAggregateControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IKsAllocator_Impl: Sized {
     fn KsGetAllocatorHandle(&self) -> super::super::Foundation::HANDLE;
     fn KsGetAllocatorMode(&self) -> KSALLOCATORMODE;
     fn KsGetAllocatorStatus(&self, allocatorstatus: *mut KSSTREAMALLOCATOR_STATUS) -> ::windows_core::Result<()>;
     fn KsSetAllocatorMode(&self, mode: KSALLOCATORMODE);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IKsAllocator {}
-#[cfg(feature = "Win32_Foundation")]
 impl IKsAllocator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsAllocator_Impl, const OFFSET: isize>() -> IKsAllocator_Vtbl {
         unsafe extern "system" fn KsGetAllocatorHandle<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsAllocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
@@ -70,17 +66,13 @@ impl IKsAllocator_Vtbl {
         *iid == <IKsAllocator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IKsAllocatorEx_Impl: Sized + IKsAllocator_Impl {
     fn KsGetProperties(&self) -> *mut ALLOCATOR_PROPERTIES_EX;
     fn KsSetProperties(&self, param0: *const ALLOCATOR_PROPERTIES_EX);
     fn KsSetAllocatorHandle(&self, allocatorhandle: super::super::Foundation::HANDLE);
     fn KsCreateAllocatorAndGetHandle(&self, kspin: ::core::option::Option<&IKsPin>) -> super::super::Foundation::HANDLE;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IKsAllocatorEx {}
-#[cfg(feature = "Win32_Foundation")]
 impl IKsAllocatorEx_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsAllocatorEx_Impl, const OFFSET: isize>() -> IKsAllocatorEx_Vtbl {
         unsafe extern "system" fn KsGetProperties<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsAllocatorEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut ALLOCATOR_PROPERTIES_EX {
@@ -268,14 +260,14 @@ impl IKsControl_Vtbl {
         *iid == <IKsControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
+#[cfg(feature = "Win32_Media_MediaFoundation")]
 pub trait IKsDataTypeCompletion_Impl: Sized {
     fn KsCompleteMediaType(&self, filterhandle: super::super::Foundation::HANDLE, pinfactoryid: u32, ammediatype: *mut super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl ::windows_core::RuntimeName for IKsDataTypeCompletion {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl IKsDataTypeCompletion_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsDataTypeCompletion_Impl, const OFFSET: isize>() -> IKsDataTypeCompletion_Vtbl {
         unsafe extern "system" fn KsCompleteMediaType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsDataTypeCompletion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filterhandle: super::super::Foundation::HANDLE, pinfactoryid: u32, ammediatype: *mut super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::HRESULT {
@@ -289,8 +281,8 @@ impl IKsDataTypeCompletion_Vtbl {
         *iid == <IKsDataTypeCompletion as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`, `\"Win32_Media_MediaFoundation\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_Media_MediaFoundation"))]
+#[doc = "Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_MediaFoundation\"`"]
+#[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_Media_MediaFoundation"))]
 pub trait IKsDataTypeHandler_Impl: Sized {
     fn KsCompleteIoOperation(&self, sample: ::core::option::Option<&super::DirectShow::IMediaSample>, streamheader: *mut ::core::ffi::c_void, iooperation: KSIOOPERATION, cancelled: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn KsIsMediaTypeInRanges(&self, dataranges: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -298,9 +290,9 @@ pub trait IKsDataTypeHandler_Impl: Sized {
     fn KsQueryExtendedSize(&self) -> ::windows_core::Result<u32>;
     fn KsSetMediaType(&self, ammediatype: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_Media_MediaFoundation"))]
+#[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_Media_MediaFoundation"))]
 impl ::windows_core::RuntimeName for IKsDataTypeHandler {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_Media_MediaFoundation"))]
+#[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_Media_MediaFoundation"))]
 impl IKsDataTypeHandler_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsDataTypeHandler_Impl, const OFFSET: isize>() -> IKsDataTypeHandler_Vtbl {
         unsafe extern "system" fn KsCompleteIoOperation<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsDataTypeHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sample: *mut ::core::ffi::c_void, streamheader: *mut ::core::ffi::c_void, iooperation: KSIOOPERATION, cancelled: super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -347,15 +339,11 @@ impl IKsDataTypeHandler_Vtbl {
         *iid == <IKsDataTypeHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IKsFormatSupport_Impl: Sized {
     fn IsFormatSupported(&self, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn GetDevicePreferredFormat(&self) -> ::windows_core::Result<*mut KSDATAFORMAT>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IKsFormatSupport {}
-#[cfg(feature = "Win32_Foundation")]
 impl IKsFormatSupport_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsFormatSupport_Impl, const OFFSET: isize>() -> IKsFormatSupport_Vtbl {
         unsafe extern "system" fn IsFormatSupported<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsFormatSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -384,16 +372,16 @@ impl IKsFormatSupport_Vtbl {
         *iid == <IKsFormatSupport as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+#[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
+#[cfg(feature = "Win32_Media_DirectShow")]
 pub trait IKsInterfaceHandler_Impl: Sized {
     fn KsSetPin(&self, kspin: ::core::option::Option<&IKsPin>) -> ::windows_core::Result<()>;
     fn KsProcessMediaSamples(&self, ksdatatypehandler: ::core::option::Option<&IKsDataTypeHandler>, samplelist: *const ::core::option::Option<super::DirectShow::IMediaSample>, samplecount: *mut i32, iooperation: KSIOOPERATION, streamsegment: *mut *mut KSSTREAM_SEGMENT) -> ::windows_core::Result<()>;
     fn KsCompleteIo(&self, streamsegment: *mut KSSTREAM_SEGMENT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+#[cfg(feature = "Win32_Media_DirectShow")]
 impl ::windows_core::RuntimeName for IKsInterfaceHandler {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+#[cfg(feature = "Win32_Media_DirectShow")]
 impl IKsInterfaceHandler_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsInterfaceHandler_Impl, const OFFSET: isize>() -> IKsInterfaceHandler_Vtbl {
         unsafe extern "system" fn KsSetPin<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsInterfaceHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kspin: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -445,15 +433,11 @@ impl IKsJackContainerId_Vtbl {
         *iid == <IKsJackContainerId as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IKsJackDescription_Impl: Sized {
     fn GetJackCount(&self) -> ::windows_core::Result<u32>;
     fn GetJackDescription(&self, njack: u32, pdescription: *mut KSJACK_DESCRIPTION) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IKsJackDescription {}
-#[cfg(feature = "Win32_Foundation")]
 impl IKsJackDescription_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsJackDescription_Impl, const OFFSET: isize>() -> IKsJackDescription_Vtbl {
         unsafe extern "system" fn GetJackCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsJackDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows_core::HRESULT {
@@ -560,14 +544,10 @@ impl IKsJackDescription3_Vtbl {
         *iid == <IKsJackDescription3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IKsJackSinkInformation_Impl: Sized {
     fn GetJackSinkInformation(&self, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IKsJackSinkInformation {}
-#[cfg(feature = "Win32_Foundation")]
 impl IKsJackSinkInformation_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsJackSinkInformation_Impl, const OFFSET: isize>() -> IKsJackSinkInformation_Vtbl {
         unsafe extern "system" fn GetJackSinkInformation<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsJackSinkInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> ::windows_core::HRESULT {
@@ -625,14 +605,10 @@ impl IKsNotifyEvent_Vtbl {
         *iid == <IKsNotifyEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IKsObject_Impl: Sized {
     fn KsGetObjectHandle(&self) -> super::super::Foundation::HANDLE;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IKsObject {}
-#[cfg(feature = "Win32_Foundation")]
 impl IKsObject_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsObject_Impl, const OFFSET: isize>() -> IKsObject_Vtbl {
         unsafe extern "system" fn KsGetObjectHandle<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
@@ -646,8 +622,8 @@ impl IKsObject_Vtbl {
         *iid == <IKsObject as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+#[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
+#[cfg(feature = "Win32_Media_DirectShow")]
 pub trait IKsPin_Impl: Sized {
     fn KsQueryMediums(&self) -> ::windows_core::Result<*mut KSMULTIPLE_ITEM>;
     fn KsQueryInterfaces(&self) -> ::windows_core::Result<*mut KSMULTIPLE_ITEM>;
@@ -663,9 +639,9 @@ pub trait IKsPin_Impl: Sized {
     fn KsDecrementPendingIoCount(&self) -> i32;
     fn KsQualityNotify(&self, proportion: u32, timedelta: i64) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+#[cfg(feature = "Win32_Media_DirectShow")]
 impl ::windows_core::RuntimeName for IKsPin {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+#[cfg(feature = "Win32_Media_DirectShow")]
 impl IKsPin_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsPin_Impl, const OFFSET: isize>() -> IKsPin_Vtbl {
         unsafe extern "system" fn KsQueryMediums<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsPin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediumlist: *mut *mut KSMULTIPLE_ITEM) -> ::windows_core::HRESULT {
@@ -766,14 +742,14 @@ impl IKsPin_Vtbl {
         *iid == <IKsPin as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+#[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
+#[cfg(feature = "Win32_Media_DirectShow")]
 pub trait IKsPinEx_Impl: Sized + IKsPin_Impl {
     fn KsNotifyError(&self, sample: ::core::option::Option<&super::DirectShow::IMediaSample>, hr: ::windows_core::HRESULT);
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+#[cfg(feature = "Win32_Media_DirectShow")]
 impl ::windows_core::RuntimeName for IKsPinEx {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+#[cfg(feature = "Win32_Media_DirectShow")]
 impl IKsPinEx_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsPinEx_Impl, const OFFSET: isize>() -> IKsPinEx_Vtbl {
         unsafe extern "system" fn KsNotifyError<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsPinEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sample: *mut ::core::ffi::c_void, hr: ::windows_core::HRESULT) {
@@ -944,14 +920,10 @@ impl IKsPropertySet_Vtbl {
         *iid == <IKsPropertySet as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IKsQualityForwarder_Impl: Sized + IKsObject_Impl {
     fn KsFlushClient(&self, pin: ::core::option::Option<&IKsPin>);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IKsQualityForwarder {}
-#[cfg(feature = "Win32_Foundation")]
 impl IKsQualityForwarder_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsQualityForwarder_Impl, const OFFSET: isize>() -> IKsQualityForwarder_Vtbl {
         unsafe extern "system" fn KsFlushClient<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsQualityForwarder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pin: *mut ::core::ffi::c_void) {

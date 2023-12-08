@@ -12,9 +12,9 @@ unsafe impl ::windows_core::ComInterface for IInkWorkspaceHostedAppManager {
 #[doc(hidden)]
 pub struct IInkWorkspaceHostedAppManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
+    #[cfg(feature = "Graphics_Imaging")]
     pub SetThumbnailAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmap: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics_Imaging")))]
+    #[cfg(not(feature = "Graphics_Imaging"))]
     SetThumbnailAsync: usize,
 }
 #[doc(hidden)]
@@ -37,8 +37,8 @@ pub struct IInkWorkspaceHostedAppManagerStatics_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkWorkspaceHostedAppManager(::windows_core::IUnknown);
 impl InkWorkspaceHostedAppManager {
-    #[doc = "Required features: `\"Foundation\"`, `\"Graphics_Imaging\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
+    #[doc = "Required features: `\"Graphics_Imaging\"`"]
+    #[cfg(feature = "Graphics_Imaging")]
     pub fn SetThumbnailAsync<P0>(&self, bitmap: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<super::super::super::Graphics::Imaging::SoftwareBitmap>,

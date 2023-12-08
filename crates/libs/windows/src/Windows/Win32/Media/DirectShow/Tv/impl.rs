@@ -1,12 +1,12 @@
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IATSCChannelTuneRequest_Impl: Sized + IChannelTuneRequest_Impl {
     fn MinorChannel(&self) -> ::windows_core::Result<i32>;
     fn SetMinorChannel(&self, minorchannel: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IATSCChannelTuneRequest {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IATSCChannelTuneRequest_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IATSCChannelTuneRequest_Impl, const OFFSET: isize>() -> IATSCChannelTuneRequest_Vtbl {
         unsafe extern "system" fn MinorChannel<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IATSCChannelTuneRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minorchannel: *mut i32) -> ::windows_core::HRESULT {
@@ -35,15 +35,15 @@ impl IATSCChannelTuneRequest_Vtbl {
         *iid == <IATSCChannelTuneRequest as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ITuneRequest as ::windows_core::ComInterface>::IID || *iid == <IChannelTuneRequest as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IATSCComponentType_Impl: Sized + IMPEG2ComponentType_Impl {
     fn Flags(&self) -> ::windows_core::Result<i32>;
     fn SetFlags(&self, flags: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IATSCComponentType {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IATSCComponentType_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IATSCComponentType_Impl, const OFFSET: isize>() -> IATSCComponentType_Vtbl {
         unsafe extern "system" fn Flags<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IATSCComponentType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows_core::HRESULT {
@@ -72,17 +72,17 @@ impl IATSCComponentType_Vtbl {
         *iid == <IATSCComponentType as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IComponentType as ::windows_core::ComInterface>::IID || *iid == <ILanguageComponentType as ::windows_core::ComInterface>::IID || *iid == <IMPEG2ComponentType as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IATSCLocator_Impl: Sized + IDigitalLocator_Impl {
     fn PhysicalChannel(&self) -> ::windows_core::Result<i32>;
     fn SetPhysicalChannel(&self, physicalchannel: i32) -> ::windows_core::Result<()>;
     fn TSID(&self) -> ::windows_core::Result<i32>;
     fn SetTSID(&self, tsid: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IATSCLocator {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IATSCLocator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IATSCLocator_Impl, const OFFSET: isize>() -> IATSCLocator_Vtbl {
         unsafe extern "system" fn PhysicalChannel<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IATSCLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, physicalchannel: *mut i32) -> ::windows_core::HRESULT {
@@ -129,15 +129,15 @@ impl IATSCLocator_Vtbl {
         *iid == <IATSCLocator as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ILocator as ::windows_core::ComInterface>::IID || *iid == <IDigitalLocator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IATSCLocator2_Impl: Sized + IATSCLocator_Impl {
     fn ProgramNumber(&self) -> ::windows_core::Result<i32>;
     fn SetProgramNumber(&self, programnumber: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IATSCLocator2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IATSCLocator2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IATSCLocator2_Impl, const OFFSET: isize>() -> IATSCLocator2_Vtbl {
         unsafe extern "system" fn ProgramNumber<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IATSCLocator2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, programnumber: *mut i32) -> ::windows_core::HRESULT {
@@ -166,8 +166,8 @@ impl IATSCLocator2_Vtbl {
         *iid == <IATSCLocator2 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ILocator as ::windows_core::ComInterface>::IID || *iid == <IDigitalLocator as ::windows_core::ComInterface>::IID || *iid == <IATSCLocator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IATSCTuningSpace_Impl: Sized + IAnalogTVTuningSpace_Impl {
     fn MinMinorChannel(&self) -> ::windows_core::Result<i32>;
     fn SetMinMinorChannel(&self, newminminorchannelval: i32) -> ::windows_core::Result<()>;
@@ -178,9 +178,9 @@ pub trait IATSCTuningSpace_Impl: Sized + IAnalogTVTuningSpace_Impl {
     fn MaxPhysicalChannel(&self) -> ::windows_core::Result<i32>;
     fn SetMaxPhysicalChannel(&self, newmaxphysicalchannelval: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IATSCTuningSpace {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IATSCTuningSpace_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IATSCTuningSpace_Impl, const OFFSET: isize>() -> IATSCTuningSpace_Vtbl {
         unsafe extern "system" fn MinMinorChannel<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IATSCTuningSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minminorchannelval: *mut i32) -> ::windows_core::HRESULT {
@@ -756,8 +756,6 @@ impl IATSC_STT_Vtbl {
         *iid == <IATSC_STT as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IATSC_VCT_Impl: Sized {
     fn Initialize(&self, psectionlist: ::core::option::Option<&ISectionList>, pmpegdata: ::core::option::Option<&IMpeg2Data>) -> ::windows_core::Result<()>;
     fn GetVersionNumber(&self) -> ::windows_core::Result<u8>;
@@ -786,9 +784,7 @@ pub trait IATSC_VCT_Impl: Sized {
     fn GetTableDescriptorByIndex(&self, dwindex: u32) -> ::windows_core::Result<IGenericDescriptor>;
     fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IATSC_VCT {}
-#[cfg(feature = "Win32_Foundation")]
 impl IATSC_VCT_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IATSC_VCT_Impl, const OFFSET: isize>() -> IATSC_VCT_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IATSC_VCT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psectionlist: *mut ::core::ffi::c_void, pmpegdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1087,15 +1083,15 @@ impl IATSC_VCT_Vtbl {
         *iid == <IATSC_VCT as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAnalogAudioComponentType_Impl: Sized + IComponentType_Impl {
     fn AnalogAudioMode(&self) -> ::windows_core::Result<super::TVAudioMode>;
     fn SetAnalogAudioMode(&self, mode: super::TVAudioMode) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAnalogAudioComponentType {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAnalogAudioComponentType_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAnalogAudioComponentType_Impl, const OFFSET: isize>() -> IAnalogAudioComponentType_Vtbl {
         unsafe extern "system" fn AnalogAudioMode<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAnalogAudioComponentType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: *mut super::TVAudioMode) -> ::windows_core::HRESULT {
@@ -1124,15 +1120,15 @@ impl IAnalogAudioComponentType_Vtbl {
         *iid == <IAnalogAudioComponentType as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IComponentType as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAnalogLocator_Impl: Sized + ILocator_Impl {
     fn VideoStandard(&self) -> ::windows_core::Result<super::AnalogVideoStandard>;
     fn SetVideoStandard(&self, avs: super::AnalogVideoStandard) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAnalogLocator {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAnalogLocator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAnalogLocator_Impl, const OFFSET: isize>() -> IAnalogLocator_Vtbl {
         unsafe extern "system" fn VideoStandard<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAnalogLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, avs: *mut super::AnalogVideoStandard) -> ::windows_core::HRESULT {
@@ -1161,8 +1157,8 @@ impl IAnalogLocator_Vtbl {
         *iid == <IAnalogLocator as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ILocator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAnalogRadioTuningSpace_Impl: Sized + ITuningSpace_Impl {
     fn MinFrequency(&self) -> ::windows_core::Result<i32>;
     fn SetMinFrequency(&self, newminfrequencyval: i32) -> ::windows_core::Result<()>;
@@ -1171,9 +1167,9 @@ pub trait IAnalogRadioTuningSpace_Impl: Sized + ITuningSpace_Impl {
     fn Step(&self) -> ::windows_core::Result<i32>;
     fn SetStep(&self, newstepval: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAnalogRadioTuningSpace {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAnalogRadioTuningSpace_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAnalogRadioTuningSpace_Impl, const OFFSET: isize>() -> IAnalogRadioTuningSpace_Vtbl {
         unsafe extern "system" fn MinFrequency<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAnalogRadioTuningSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minfrequencyval: *mut i32) -> ::windows_core::HRESULT {
@@ -1238,15 +1234,15 @@ impl IAnalogRadioTuningSpace_Vtbl {
         *iid == <IAnalogRadioTuningSpace as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ITuningSpace as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAnalogRadioTuningSpace2_Impl: Sized + IAnalogRadioTuningSpace_Impl {
     fn CountryCode(&self) -> ::windows_core::Result<i32>;
     fn SetCountryCode(&self, newcountrycodeval: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAnalogRadioTuningSpace2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAnalogRadioTuningSpace2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAnalogRadioTuningSpace2_Impl, const OFFSET: isize>() -> IAnalogRadioTuningSpace2_Vtbl {
         unsafe extern "system" fn CountryCode<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAnalogRadioTuningSpace2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, countrycodeval: *mut i32) -> ::windows_core::HRESULT {
@@ -1275,8 +1271,8 @@ impl IAnalogRadioTuningSpace2_Vtbl {
         *iid == <IAnalogRadioTuningSpace2 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ITuningSpace as ::windows_core::ComInterface>::IID || *iid == <IAnalogRadioTuningSpace as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAnalogTVTuningSpace_Impl: Sized + ITuningSpace_Impl {
     fn MinChannel(&self) -> ::windows_core::Result<i32>;
     fn SetMinChannel(&self, newminchannelval: i32) -> ::windows_core::Result<()>;
@@ -1287,9 +1283,9 @@ pub trait IAnalogTVTuningSpace_Impl: Sized + ITuningSpace_Impl {
     fn CountryCode(&self) -> ::windows_core::Result<i32>;
     fn SetCountryCode(&self, newcountrycodeval: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAnalogTVTuningSpace {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAnalogTVTuningSpace_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAnalogTVTuningSpace_Impl, const OFFSET: isize>() -> IAnalogTVTuningSpace_Vtbl {
         unsafe extern "system" fn MinChannel<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAnalogTVTuningSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minchannelval: *mut i32) -> ::windows_core::HRESULT {
@@ -1483,8 +1479,6 @@ impl IAtscContentAdvisoryDescriptor_Vtbl {
         *iid == <IAtscContentAdvisoryDescriptor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAtscPsipParser_Impl: Sized {
     fn Initialize(&self, punkmpeg2data: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn GetPAT(&self) -> ::windows_core::Result<IPAT>;
@@ -1498,9 +1492,7 @@ pub trait IAtscPsipParser_Impl: Sized {
     fn GetSTT(&self) -> ::windows_core::Result<IATSC_STT>;
     fn GetEAS(&self, pid: u16) -> ::windows_core::Result<ISCTE_EAS>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAtscPsipParser {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAtscPsipParser_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAtscPsipParser_Impl, const OFFSET: isize>() -> IAtscPsipParser_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAtscPsipParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkmpeg2data: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1694,12 +1686,12 @@ impl IAttributeSet_Vtbl {
         *iid == <IAttributeSet as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAuxInTuningSpace_Impl: Sized + ITuningSpace_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAuxInTuningSpace {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAuxInTuningSpace_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAuxInTuningSpace_Impl, const OFFSET: isize>() -> IAuxInTuningSpace_Vtbl {
         Self { base__: ITuningSpace_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -1708,15 +1700,15 @@ impl IAuxInTuningSpace_Vtbl {
         *iid == <IAuxInTuningSpace as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ITuningSpace as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAuxInTuningSpace2_Impl: Sized + IAuxInTuningSpace_Impl {
     fn CountryCode(&self) -> ::windows_core::Result<i32>;
     fn SetCountryCode(&self, newcountrycodeval: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAuxInTuningSpace2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAuxInTuningSpace2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAuxInTuningSpace2_Impl, const OFFSET: isize>() -> IAuxInTuningSpace2_Vtbl {
         unsafe extern "system" fn CountryCode<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAuxInTuningSpace2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, countrycodeval: *mut i32) -> ::windows_core::HRESULT {
@@ -1894,8 +1886,6 @@ impl IBDA_TIF_REGISTRATION_Vtbl {
         *iid == <IBDA_TIF_REGISTRATION as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ICAT_Impl: Sized {
     fn Initialize(&self, psectionlist: ::core::option::Option<&ISectionList>, pmpegdata: ::core::option::Option<&IMpeg2Data>) -> ::windows_core::Result<()>;
     fn GetVersionNumber(&self) -> ::windows_core::Result<u8>;
@@ -1907,9 +1897,7 @@ pub trait ICAT_Impl: Sized {
     fn RegisterForWhenCurrent(&self, hnexttableiscurrent: super::super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
     fn ConvertNextToCurrent(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ICAT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ICAT_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICAT_Impl, const OFFSET: isize>() -> ICAT_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICAT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psectionlist: *mut ::core::ffi::c_void, pmpegdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2083,15 +2071,15 @@ impl ICaptionServiceDescriptor_Vtbl {
         *iid == <ICaptionServiceDescriptor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IChannelIDTuneRequest_Impl: Sized + ITuneRequest_Impl {
     fn ChannelID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetChannelID(&self, channelid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IChannelIDTuneRequest {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IChannelIDTuneRequest_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IChannelIDTuneRequest_Impl, const OFFSET: isize>() -> IChannelIDTuneRequest_Vtbl {
         unsafe extern "system" fn ChannelID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IChannelIDTuneRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channelid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -2120,15 +2108,15 @@ impl IChannelIDTuneRequest_Vtbl {
         *iid == <IChannelIDTuneRequest as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ITuneRequest as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IChannelTuneRequest_Impl: Sized + ITuneRequest_Impl {
     fn Channel(&self) -> ::windows_core::Result<i32>;
     fn SetChannel(&self, channel: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IChannelTuneRequest {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IChannelTuneRequest_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IChannelTuneRequest_Impl, const OFFSET: isize>() -> IChannelTuneRequest_Vtbl {
         unsafe extern "system" fn Channel<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IChannelTuneRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: *mut i32) -> ::windows_core::HRESULT {
@@ -2157,8 +2145,8 @@ impl IChannelTuneRequest_Vtbl {
         *iid == <IChannelTuneRequest as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ITuneRequest as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IComponent_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> ::windows_core::Result<IComponentType>;
     fn SetType(&self, ct: ::core::option::Option<&IComponentType>) -> ::windows_core::Result<()>;
@@ -2170,9 +2158,9 @@ pub trait IComponent_Impl: Sized + super::super::super::System::Com::IDispatch_I
     fn SetDescription(&self, description: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IComponent>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IComponent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IComponent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IComponent_Impl, const OFFSET: isize>() -> IComponent_Vtbl {
         unsafe extern "system" fn Type<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ct: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2267,8 +2255,8 @@ impl IComponent_Vtbl {
         *iid == <IComponent as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IComponentType_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Category(&self) -> ::windows_core::Result<super::ComponentCategory>;
     fn SetCategory(&self, category: super::ComponentCategory) -> ::windows_core::Result<()>;
@@ -2288,9 +2276,9 @@ pub trait IComponentType_Impl: Sized + super::super::super::System::Com::IDispat
     fn SetMediaType(&self, mediatype: *const super::super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IComponentType>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IComponentType {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IComponentType_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IComponentType_Impl, const OFFSET: isize>() -> IComponentType_Vtbl {
         unsafe extern "system" fn Category<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IComponentType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, category: *mut super::ComponentCategory) -> ::windows_core::HRESULT {
@@ -2457,8 +2445,8 @@ impl IComponentType_Vtbl {
         *iid == <IComponentType as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IComponentTypes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
@@ -2469,9 +2457,9 @@ pub trait IComponentTypes_Impl: Sized + super::super::super::System::Com::IDispa
     fn Remove(&self, index: &super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IComponentTypes>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IComponentTypes {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IComponentTypes_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IComponentTypes_Impl, const OFFSET: isize>() -> IComponentTypes_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IComponentTypes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT {
@@ -2566,8 +2554,8 @@ impl IComponentTypes_Vtbl {
         *iid == <IComponentTypes as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IComponents_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
@@ -2578,9 +2566,9 @@ pub trait IComponents_Impl: Sized + super::super::super::System::Com::IDispatch_
     fn Clone(&self) -> ::windows_core::Result<IComponents>;
     fn put_Item(&self, index: &super::super::super::System::Variant::VARIANT, ppcomponent: ::core::option::Option<&IComponent>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IComponents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IComponents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IComponents_Impl, const OFFSET: isize>() -> IComponents_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IComponents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT {
@@ -2675,8 +2663,8 @@ impl IComponents_Vtbl {
         *iid == <IComponents as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IComponentsOld_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
@@ -2686,9 +2674,9 @@ pub trait IComponentsOld_Impl: Sized + super::super::super::System::Com::IDispat
     fn Remove(&self, index: &super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IComponents>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IComponentsOld {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IComponentsOld_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IComponentsOld_Impl, const OFFSET: isize>() -> IComponentsOld_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IComponentsOld_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT {
@@ -2798,8 +2786,6 @@ impl ICreatePropBagOnRegKey_Vtbl {
         *iid == <ICreatePropBagOnRegKey as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDTFilter_Impl: Sized {
     fn EvalRatObjOK(&self) -> ::windows_core::Result<::windows_core::HRESULT>;
     fn GetCurrRating(&self, pensystem: *mut EnTvRat_System, penrating: *mut EnTvRat_GenericLevel, plbfenattr: *mut i32) -> ::windows_core::Result<()>;
@@ -2810,9 +2796,7 @@ pub trait IDTFilter_Impl: Sized {
     fn BlockUnRatedDelay(&self) -> ::windows_core::Result<i32>;
     fn SetBlockUnRatedDelay(&self, msecsdelaybeforeblock: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDTFilter {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDTFilter_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDTFilter_Impl, const OFFSET: isize>() -> IDTFilter_Vtbl {
         unsafe extern "system" fn EvalRatObjOK<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDTFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phrcocreateretval: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT {
@@ -2895,16 +2879,12 @@ impl IDTFilter_Vtbl {
         *iid == <IDTFilter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDTFilter2_Impl: Sized + IDTFilter_Impl {
     fn ChallengeUrl(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn GetCurrLicenseExpDate(&self, prottype: *const ProtType) -> ::windows_core::Result<i32>;
     fn GetLastErrorCode(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDTFilter2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDTFilter2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDTFilter2_Impl, const OFFSET: isize>() -> IDTFilter2_Vtbl {
         unsafe extern "system" fn ChallengeUrl<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDTFilter2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrchallengeurl: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -2945,16 +2925,12 @@ impl IDTFilter2_Vtbl {
         *iid == <IDTFilter2 as ::windows_core::ComInterface>::IID || *iid == <IDTFilter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDTFilter3_Impl: Sized + IDTFilter2_Impl {
     fn GetProtectionType(&self) -> ::windows_core::Result<ProtType>;
     fn LicenseHasExpirationDate(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn SetRights(&self, bstrrights: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDTFilter3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDTFilter3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDTFilter3_Impl, const OFFSET: isize>() -> IDTFilter3_Vtbl {
         unsafe extern "system" fn GetProtectionType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDTFilter3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprotectiontype: *mut ProtType) -> ::windows_core::HRESULT {
@@ -3018,12 +2994,12 @@ impl IDTFilterConfig_Vtbl {
         *iid == <IDTFilterConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDTFilterEvents_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDTFilterEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDTFilterEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDTFilterEvents_Impl, const OFFSET: isize>() -> IDTFilterEvents_Vtbl {
         Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -3049,12 +3025,12 @@ impl IDTFilterLicenseRenewal_Vtbl {
         *iid == <IDTFilterLicenseRenewal as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDVBCLocator_Impl: Sized + IDigitalLocator_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDVBCLocator {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDVBCLocator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVBCLocator_Impl, const OFFSET: isize>() -> IDVBCLocator_Vtbl {
         Self { base__: IDigitalLocator_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -3063,8 +3039,8 @@ impl IDVBCLocator_Vtbl {
         *iid == <IDVBCLocator as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ILocator as ::windows_core::ComInterface>::IID || *iid == <IDigitalLocator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDVBSLocator_Impl: Sized + IDigitalLocator_Impl {
     fn SignalPolarisation(&self) -> ::windows_core::Result<super::Polarisation>;
     fn SetSignalPolarisation(&self, polarisationval: super::Polarisation) -> ::windows_core::Result<()>;
@@ -3077,9 +3053,9 @@ pub trait IDVBSLocator_Impl: Sized + IDigitalLocator_Impl {
     fn Elevation(&self) -> ::windows_core::Result<i32>;
     fn SetElevation(&self, elevation: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDVBSLocator {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDVBSLocator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVBSLocator_Impl, const OFFSET: isize>() -> IDVBSLocator_Vtbl {
         unsafe extern "system" fn SignalPolarisation<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVBSLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, polarisationval: *mut super::Polarisation) -> ::windows_core::HRESULT {
@@ -3180,8 +3156,8 @@ impl IDVBSLocator_Vtbl {
         *iid == <IDVBSLocator as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ILocator as ::windows_core::ComInterface>::IID || *iid == <IDigitalLocator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDVBSLocator2_Impl: Sized + IDVBSLocator_Impl {
     fn DiseqLNBSource(&self) -> ::windows_core::Result<super::LNB_Source>;
     fn SetDiseqLNBSource(&self, diseqlnbsourceval: super::LNB_Source) -> ::windows_core::Result<()>;
@@ -3198,9 +3174,9 @@ pub trait IDVBSLocator2_Impl: Sized + IDVBSLocator_Impl {
     fn SignalPilot(&self) -> ::windows_core::Result<super::Pilot>;
     fn SetSignalPilot(&self, pilotval: super::Pilot) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDVBSLocator2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDVBSLocator2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVBSLocator2_Impl, const OFFSET: isize>() -> IDVBSLocator2_Vtbl {
         unsafe extern "system" fn DiseqLNBSource<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVBSLocator2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, diseqlnbsourceval: *mut super::LNB_Source) -> ::windows_core::HRESULT {
@@ -3337,8 +3313,8 @@ impl IDVBSLocator2_Vtbl {
         *iid == <IDVBSLocator2 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ILocator as ::windows_core::ComInterface>::IID || *iid == <IDigitalLocator as ::windows_core::ComInterface>::IID || *iid == <IDVBSLocator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDVBSTuningSpace_Impl: Sized + IDVBTuningSpace2_Impl {
     fn LowOscillator(&self) -> ::windows_core::Result<i32>;
     fn SetLowOscillator(&self, lowoscillator: i32) -> ::windows_core::Result<()>;
@@ -3351,9 +3327,9 @@ pub trait IDVBSTuningSpace_Impl: Sized + IDVBTuningSpace2_Impl {
     fn SpectralInversion(&self) -> ::windows_core::Result<super::SpectralInversion>;
     fn SetSpectralInversion(&self, spectralinversionval: super::SpectralInversion) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDVBSTuningSpace {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDVBSTuningSpace_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVBSTuningSpace_Impl, const OFFSET: isize>() -> IDVBSTuningSpace_Vtbl {
         unsafe extern "system" fn LowOscillator<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVBSTuningSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lowoscillator: *mut i32) -> ::windows_core::HRESULT {
@@ -3454,8 +3430,8 @@ impl IDVBSTuningSpace_Vtbl {
         *iid == <IDVBSTuningSpace as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ITuningSpace as ::windows_core::ComInterface>::IID || *iid == <IDVBTuningSpace as ::windows_core::ComInterface>::IID || *iid == <IDVBTuningSpace2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDVBTLocator_Impl: Sized + IDigitalLocator_Impl {
     fn Bandwidth(&self) -> ::windows_core::Result<i32>;
     fn SetBandwidth(&self, bandwidthval: i32) -> ::windows_core::Result<()>;
@@ -3472,9 +3448,9 @@ pub trait IDVBTLocator_Impl: Sized + IDigitalLocator_Impl {
     fn OtherFrequencyInUse(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn SetOtherFrequencyInUse(&self, otherfrequencyinuseval: super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDVBTLocator {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDVBTLocator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVBTLocator_Impl, const OFFSET: isize>() -> IDVBTLocator_Vtbl {
         unsafe extern "system" fn Bandwidth<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVBTLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bandwidthval: *mut i32) -> ::windows_core::HRESULT {
@@ -3611,15 +3587,15 @@ impl IDVBTLocator_Vtbl {
         *iid == <IDVBTLocator as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ILocator as ::windows_core::ComInterface>::IID || *iid == <IDigitalLocator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDVBTLocator2_Impl: Sized + IDVBTLocator_Impl {
     fn PhysicalLayerPipeId(&self) -> ::windows_core::Result<i32>;
     fn SetPhysicalLayerPipeId(&self, physicallayerpipeidval: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDVBTLocator2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDVBTLocator2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVBTLocator2_Impl, const OFFSET: isize>() -> IDVBTLocator2_Vtbl {
         unsafe extern "system" fn PhysicalLayerPipeId<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVBTLocator2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, physicallayerpipeidval: *mut i32) -> ::windows_core::HRESULT {
@@ -3648,8 +3624,8 @@ impl IDVBTLocator2_Vtbl {
         *iid == <IDVBTLocator2 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ILocator as ::windows_core::ComInterface>::IID || *iid == <IDigitalLocator as ::windows_core::ComInterface>::IID || *iid == <IDVBTLocator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDVBTuneRequest_Impl: Sized + ITuneRequest_Impl {
     fn ONID(&self) -> ::windows_core::Result<i32>;
     fn SetONID(&self, onid: i32) -> ::windows_core::Result<()>;
@@ -3658,9 +3634,9 @@ pub trait IDVBTuneRequest_Impl: Sized + ITuneRequest_Impl {
     fn SID(&self) -> ::windows_core::Result<i32>;
     fn SetSID(&self, sid: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDVBTuneRequest {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDVBTuneRequest_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVBTuneRequest_Impl, const OFFSET: isize>() -> IDVBTuneRequest_Vtbl {
         unsafe extern "system" fn ONID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVBTuneRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, onid: *mut i32) -> ::windows_core::HRESULT {
@@ -3725,15 +3701,15 @@ impl IDVBTuneRequest_Vtbl {
         *iid == <IDVBTuneRequest as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ITuneRequest as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDVBTuningSpace_Impl: Sized + ITuningSpace_Impl {
     fn SystemType(&self) -> ::windows_core::Result<super::DVBSystemType>;
     fn SetSystemType(&self, systype: super::DVBSystemType) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDVBTuningSpace {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDVBTuningSpace_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVBTuningSpace_Impl, const OFFSET: isize>() -> IDVBTuningSpace_Vtbl {
         unsafe extern "system" fn SystemType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVBTuningSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, systype: *mut super::DVBSystemType) -> ::windows_core::HRESULT {
@@ -3762,15 +3738,15 @@ impl IDVBTuningSpace_Vtbl {
         *iid == <IDVBTuningSpace as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ITuningSpace as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDVBTuningSpace2_Impl: Sized + IDVBTuningSpace_Impl {
     fn NetworkID(&self) -> ::windows_core::Result<i32>;
     fn SetNetworkID(&self, networkid: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDVBTuningSpace2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDVBTuningSpace2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVBTuningSpace2_Impl, const OFFSET: isize>() -> IDVBTuningSpace2_Vtbl {
         unsafe extern "system" fn NetworkID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVBTuningSpace2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networkid: *mut i32) -> ::windows_core::HRESULT {
@@ -3799,8 +3775,6 @@ impl IDVBTuningSpace2_Vtbl {
         *iid == <IDVBTuningSpace2 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ITuningSpace as ::windows_core::ComInterface>::IID || *iid == <IDVBTuningSpace as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDVB_BAT_Impl: Sized {
     fn Initialize(&self, psectionlist: ::core::option::Option<&ISectionList>, pmpegdata: ::core::option::Option<&IMpeg2Data>) -> ::windows_core::Result<()>;
     fn GetVersionNumber(&self) -> ::windows_core::Result<u8>;
@@ -3819,9 +3793,7 @@ pub trait IDVB_BAT_Impl: Sized {
     fn RegisterForWhenCurrent(&self, hnexttableiscurrent: super::super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
     fn ConvertNextToCurrent(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDVB_BAT {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDVB_BAT_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVB_BAT_Impl, const OFFSET: isize>() -> IDVB_BAT_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVB_BAT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psectionlist: *mut ::core::ffi::c_void, pmpegdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3982,15 +3954,11 @@ impl IDVB_BAT_Vtbl {
         *iid == <IDVB_BAT as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDVB_DIT_Impl: Sized {
     fn Initialize(&self, psectionlist: ::core::option::Option<&ISectionList>) -> ::windows_core::Result<()>;
     fn GetTransitionFlag(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDVB_DIT {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDVB_DIT_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVB_DIT_Impl, const OFFSET: isize>() -> IDVB_DIT_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVB_DIT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psectionlist: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -4019,8 +3987,6 @@ impl IDVB_DIT_Vtbl {
         *iid == <IDVB_DIT as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDVB_EIT_Impl: Sized {
     fn Initialize(&self, psectionlist: ::core::option::Option<&ISectionList>, pmpegdata: ::core::option::Option<&IMpeg2Data>) -> ::windows_core::Result<()>;
     fn GetVersionNumber(&self) -> ::windows_core::Result<u8>;
@@ -4044,9 +4010,7 @@ pub trait IDVB_EIT_Impl: Sized {
     fn ConvertNextToCurrent(&self) -> ::windows_core::Result<()>;
     fn GetVersionHash(&self) -> ::windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDVB_EIT {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDVB_EIT_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVB_EIT_Impl, const OFFSET: isize>() -> IDVB_EIT_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVB_EIT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psectionlist: *mut ::core::ffi::c_void, pmpegdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -4279,15 +4243,11 @@ impl IDVB_EIT_Vtbl {
         *iid == <IDVB_EIT as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDVB_EIT2_Impl: Sized + IDVB_EIT_Impl {
     fn GetSegmentInfo(&self, pbtid: *mut u8, pbsegment: *mut u8) -> ::windows_core::Result<()>;
     fn GetRecordSection(&self, dwrecordindex: u32) -> ::windows_core::Result<u8>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDVB_EIT2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDVB_EIT2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVB_EIT2_Impl, const OFFSET: isize>() -> IDVB_EIT2_Vtbl {
         unsafe extern "system" fn GetSegmentInfo<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVB_EIT2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbtid: *mut u8, pbsegment: *mut u8) -> ::windows_core::HRESULT {
@@ -4316,8 +4276,6 @@ impl IDVB_EIT2_Vtbl {
         *iid == <IDVB_EIT2 as ::windows_core::ComInterface>::IID || *iid == <IDVB_EIT as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDVB_NIT_Impl: Sized {
     fn Initialize(&self, psectionlist: ::core::option::Option<&ISectionList>, pmpegdata: ::core::option::Option<&IMpeg2Data>) -> ::windows_core::Result<()>;
     fn GetVersionNumber(&self) -> ::windows_core::Result<u8>;
@@ -4337,9 +4295,7 @@ pub trait IDVB_NIT_Impl: Sized {
     fn ConvertNextToCurrent(&self) -> ::windows_core::Result<()>;
     fn GetVersionHash(&self) -> ::windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDVB_NIT {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDVB_NIT_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVB_NIT_Impl, const OFFSET: isize>() -> IDVB_NIT_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVB_NIT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psectionlist: *mut ::core::ffi::c_void, pmpegdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -4616,8 +4572,6 @@ impl IDVB_RST_Vtbl {
         *iid == <IDVB_RST as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDVB_SDT_Impl: Sized {
     fn Initialize(&self, psectionlist: ::core::option::Option<&ISectionList>, pmpegdata: ::core::option::Option<&IMpeg2Data>) -> ::windows_core::Result<()>;
     fn GetVersionNumber(&self) -> ::windows_core::Result<u8>;
@@ -4638,9 +4592,7 @@ pub trait IDVB_SDT_Impl: Sized {
     fn ConvertNextToCurrent(&self) -> ::windows_core::Result<()>;
     fn GetVersionHash(&self) -> ::windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDVB_SDT {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDVB_SDT_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVB_SDT_Impl, const OFFSET: isize>() -> IDVB_SDT_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVB_SDT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psectionlist: *mut ::core::ffi::c_void, pmpegdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -4837,8 +4789,6 @@ impl IDVB_SDT_Vtbl {
         *iid == <IDVB_SDT as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDVB_SIT_Impl: Sized {
     fn Initialize(&self, psectionlist: ::core::option::Option<&ISectionList>, pmpegdata: ::core::option::Option<&IMpeg2Data>) -> ::windows_core::Result<()>;
     fn GetVersionNumber(&self) -> ::windows_core::Result<u8>;
@@ -4856,9 +4806,7 @@ pub trait IDVB_SIT_Impl: Sized {
     fn RegisterForWhenCurrent(&self, hnexttableiscurrent: super::super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
     fn ConvertNextToCurrent(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDVB_SIT {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDVB_SIT_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVB_SIT_Impl, const OFFSET: isize>() -> IDVB_SIT_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDVB_SIT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psectionlist: *mut ::core::ffi::c_void, pmpegdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -5158,12 +5106,12 @@ impl IDVB_TOT_Vtbl {
         *iid == <IDVB_TOT as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDigitalCableLocator_Impl: Sized + IATSCLocator2_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDigitalCableLocator {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDigitalCableLocator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDigitalCableLocator_Impl, const OFFSET: isize>() -> IDigitalCableLocator_Vtbl {
         Self { base__: IATSCLocator2_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -5172,17 +5120,17 @@ impl IDigitalCableLocator_Vtbl {
         *iid == <IDigitalCableLocator as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ILocator as ::windows_core::ComInterface>::IID || *iid == <IDigitalLocator as ::windows_core::ComInterface>::IID || *iid == <IATSCLocator as ::windows_core::ComInterface>::IID || *iid == <IATSCLocator2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDigitalCableTuneRequest_Impl: Sized + IATSCChannelTuneRequest_Impl {
     fn MajorChannel(&self) -> ::windows_core::Result<i32>;
     fn SetMajorChannel(&self, majorchannel: i32) -> ::windows_core::Result<()>;
     fn SourceID(&self) -> ::windows_core::Result<i32>;
     fn SetSourceID(&self, sourceid: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDigitalCableTuneRequest {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDigitalCableTuneRequest_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDigitalCableTuneRequest_Impl, const OFFSET: isize>() -> IDigitalCableTuneRequest_Vtbl {
         unsafe extern "system" fn MajorChannel<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDigitalCableTuneRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmajorchannel: *mut i32) -> ::windows_core::HRESULT {
@@ -5229,8 +5177,8 @@ impl IDigitalCableTuneRequest_Vtbl {
         *iid == <IDigitalCableTuneRequest as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ITuneRequest as ::windows_core::ComInterface>::IID || *iid == <IChannelTuneRequest as ::windows_core::ComInterface>::IID || *iid == <IATSCChannelTuneRequest as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDigitalCableTuningSpace_Impl: Sized + IATSCTuningSpace_Impl {
     fn MinMajorChannel(&self) -> ::windows_core::Result<i32>;
     fn SetMinMajorChannel(&self, newminmajorchannelval: i32) -> ::windows_core::Result<()>;
@@ -5241,9 +5189,9 @@ pub trait IDigitalCableTuningSpace_Impl: Sized + IATSCTuningSpace_Impl {
     fn MaxSourceID(&self) -> ::windows_core::Result<i32>;
     fn SetMaxSourceID(&self, newmaxsourceidval: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDigitalCableTuningSpace {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDigitalCableTuningSpace_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDigitalCableTuningSpace_Impl, const OFFSET: isize>() -> IDigitalCableTuningSpace_Vtbl {
         unsafe extern "system" fn MinMajorChannel<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDigitalCableTuningSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minmajorchannelval: *mut i32) -> ::windows_core::HRESULT {
@@ -5326,12 +5274,12 @@ impl IDigitalCableTuningSpace_Vtbl {
         *iid == <IDigitalCableTuningSpace as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ITuningSpace as ::windows_core::ComInterface>::IID || *iid == <IAnalogTVTuningSpace as ::windows_core::ComInterface>::IID || *iid == <IATSCTuningSpace as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDigitalLocator_Impl: Sized + ILocator_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDigitalLocator {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDigitalLocator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDigitalLocator_Impl, const OFFSET: isize>() -> IDigitalLocator_Vtbl {
         Self { base__: ILocator_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -6833,8 +6781,6 @@ impl IDvbSatelliteDeliverySystemDescriptor_Vtbl {
         *iid == <IDvbSatelliteDeliverySystemDescriptor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDvbServiceAttributeDescriptor_Impl: Sized {
     fn GetTag(&self) -> ::windows_core::Result<u8>;
     fn GetLength(&self) -> ::windows_core::Result<u8>;
@@ -6843,9 +6789,7 @@ pub trait IDvbServiceAttributeDescriptor_Impl: Sized {
     fn GetRecordNumericSelectionFlag(&self, brecordindex: u8) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn GetRecordVisibleServiceFlag(&self, brecordindex: u8) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDvbServiceAttributeDescriptor {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDvbServiceAttributeDescriptor_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDvbServiceAttributeDescriptor_Impl, const OFFSET: isize>() -> IDvbServiceAttributeDescriptor_Vtbl {
         unsafe extern "system" fn GetTag<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDvbServiceAttributeDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT {
@@ -8127,8 +8071,8 @@ impl IESEventServiceConfiguration_Vtbl {
         *iid == <IESEventServiceConfiguration as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IESFileExpiryDateEvent_Impl: Sized + super::IESEvent_Impl {
     fn GetTunerId(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn GetExpiryDate(&self) -> ::windows_core::Result<u64>;
@@ -8137,9 +8081,9 @@ pub trait IESFileExpiryDateEvent_Impl: Sized + super::IESEvent_Impl {
     fn IsEntitlementTokenPresent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn DoesExpireAfterFirstUse(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IESFileExpiryDateEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IESFileExpiryDateEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IESFileExpiryDateEvent_Impl, const OFFSET: isize>() -> IESFileExpiryDateEvent_Vtbl {
         unsafe extern "system" fn GetTunerId<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IESFileExpiryDateEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidtunerid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT {
@@ -8291,8 +8235,8 @@ impl IESIsdbCasResponseEvent_Vtbl {
         *iid == <IESIsdbCasResponseEvent as ::windows_core::ComInterface>::IID || *iid == <super::IESEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IESLicenseRenewalResultEvent_Impl: Sized + super::IESEvent_Impl {
     fn GetCallersId(&self) -> ::windows_core::Result<u32>;
     fn GetFileName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -8306,9 +8250,9 @@ pub trait IESLicenseRenewalResultEvent_Impl: Sized + super::IESEvent_Impl {
     fn GetEntitlementToken(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY>;
     fn GetExpiryDate(&self) -> ::windows_core::Result<u64>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IESLicenseRenewalResultEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IESLicenseRenewalResultEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IESLicenseRenewalResultEvent_Impl, const OFFSET: isize>() -> IESLicenseRenewalResultEvent_Vtbl {
         unsafe extern "system" fn GetCallersId<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IESLicenseRenewalResultEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcallersid: *mut u32) -> ::windows_core::HRESULT {
@@ -8604,8 +8548,6 @@ impl IESValueUpdatedEvent_Vtbl {
         *iid == <IESValueUpdatedEvent as ::windows_core::ComInterface>::IID || *iid == <super::IESEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IETFilter_Impl: Sized {
     fn EvalRatObjOK(&self) -> ::windows_core::Result<::windows_core::HRESULT>;
     fn GetCurrRating(&self, pensystem: *mut EnTvRat_System, penrating: *mut EnTvRat_GenericLevel, plbfenattr: *mut i32) -> ::windows_core::Result<()>;
@@ -8613,9 +8555,7 @@ pub trait IETFilter_Impl: Sized {
     fn GetLastErrorCode(&self) -> ::windows_core::Result<()>;
     fn SetRecordingOn(&self, frecstate: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IETFilter {}
-#[cfg(feature = "Win32_Foundation")]
 impl IETFilter_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IETFilter_Impl, const OFFSET: isize>() -> IETFilter_Vtbl {
         unsafe extern "system" fn EvalRatObjOK<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IETFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phrcocreateretval: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT {
@@ -8701,12 +8641,12 @@ impl IETFilterConfig_Vtbl {
         *iid == <IETFilterConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IETFilterEvents_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IETFilterEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IETFilterEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IETFilterEvents_Impl, const OFFSET: isize>() -> IETFilterEvents_Vtbl {
         Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -9064,8 +9004,8 @@ impl IEnumTuningSpaces_Vtbl {
         *iid == <IEnumTuningSpaces as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEvalRat_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel) -> ::windows_core::Result<i32>;
     fn put_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> ::windows_core::Result<()>;
@@ -9074,9 +9014,9 @@ pub trait IEvalRat_Impl: Sized + super::super::super::System::Com::IDispatch_Imp
     fn MostRestrictiveRating(&self, ensystem1: EnTvRat_System, enenlevel1: EnTvRat_GenericLevel, lbfenattr1: i32, ensystem2: EnTvRat_System, enenlevel2: EnTvRat_GenericLevel, lbfenattr2: i32, pensystem: *mut EnTvRat_System, penenlevel: *mut EnTvRat_GenericLevel, plbfenattr: *mut i32) -> ::windows_core::Result<()>;
     fn TestRating(&self, enshowsystem: EnTvRat_System, enshowlevel: EnTvRat_GenericLevel, lbfenshowattributes: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IEvalRat {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEvalRat_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEvalRat_Impl, const OFFSET: isize>() -> IEvalRat_Vtbl {
         unsafe extern "system" fn get_BlockedRatingAttributes<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEvalRat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, plbfattrs: *mut i32) -> ::windows_core::HRESULT {
@@ -9250,8 +9190,8 @@ impl IGpnvsCommonBase_Vtbl {
         *iid == <IGpnvsCommonBase as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IGuideData_Impl: Sized {
     fn GetServices(&self) -> ::windows_core::Result<IEnumTuneRequests>;
     fn GetServiceProperties(&self, ptunerequest: ::core::option::Option<&ITuneRequest>) -> ::windows_core::Result<IEnumGuideDataProperties>;
@@ -9260,9 +9200,9 @@ pub trait IGuideData_Impl: Sized {
     fn GetScheduleEntryIDs(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
     fn GetScheduleEntryProperties(&self, varscheduleentrydescriptionid: &super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IEnumGuideDataProperties>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IGuideData {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGuideData_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGuideData_Impl, const OFFSET: isize>() -> IGuideData_Vtbl {
         unsafe extern "system" fn GetServices<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGuideData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumtunerequests: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -9345,8 +9285,8 @@ impl IGuideData_Vtbl {
         *iid == <IGuideData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IGuideDataEvent_Impl: Sized {
     fn GuideDataAcquired(&self) -> ::windows_core::Result<()>;
     fn ProgramChanged(&self, varprogramdescriptionid: &super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
@@ -9356,9 +9296,9 @@ pub trait IGuideDataEvent_Impl: Sized {
     fn ServiceDeleted(&self, varservicedescriptionid: &super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn ScheduleDeleted(&self, varscheduleentrydescriptionid: &super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IGuideDataEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGuideDataEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGuideDataEvent_Impl, const OFFSET: isize>() -> IGuideDataEvent_Vtbl {
         unsafe extern "system" fn GuideDataAcquired<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGuideDataEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -9438,16 +9378,16 @@ impl IGuideDataLoader_Vtbl {
         *iid == <IGuideDataLoader as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IGuideDataProperty_Impl: Sized {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Language(&self) -> ::windows_core::Result<i32>;
     fn Value(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IGuideDataProperty {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGuideDataProperty_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGuideDataProperty_Impl, const OFFSET: isize>() -> IGuideDataProperty_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGuideDataProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -9494,12 +9434,12 @@ impl IGuideDataProperty_Vtbl {
         *iid == <IGuideDataProperty as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IISDBSLocator_Impl: Sized + IDVBSLocator_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IISDBSLocator {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IISDBSLocator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IISDBSLocator_Impl, const OFFSET: isize>() -> IISDBSLocator_Vtbl {
         Self { base__: IDVBSLocator_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -10249,14 +10189,10 @@ impl IISDB_NBIT_Vtbl {
         *iid == <IISDB_NBIT as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IISDB_SDT_Impl: Sized + IDVB_SDT_Impl {
     fn GetRecordEITUserDefinedFlags(&self, dwrecordindex: u32) -> ::windows_core::Result<u8>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IISDB_SDT {}
-#[cfg(feature = "Win32_Foundation")]
 impl IISDB_SDT_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IISDB_SDT_Impl, const OFFSET: isize>() -> IISDB_SDT_Vtbl {
         unsafe extern "system" fn GetRecordEITUserDefinedFlags<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IISDB_SDT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwrecordindex: u32, pbval: *mut u8) -> ::windows_core::HRESULT {
@@ -10537,8 +10473,6 @@ impl IISDB_SDTT_Vtbl {
         *iid == <IISDB_SDTT as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IIsdbAudioComponentDescriptor_Impl: Sized {
     fn GetTag(&self) -> ::windows_core::Result<u8>;
     fn GetLength(&self) -> ::windows_core::Result<u8>;
@@ -10555,9 +10489,7 @@ pub trait IIsdbAudioComponentDescriptor_Impl: Sized {
     fn GetLanguageCode2(&self, pszcode: *mut u8) -> ::windows_core::Result<()>;
     fn GetTextW(&self, convmode: DVB_STRCONV_MODE) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IIsdbAudioComponentDescriptor {}
-#[cfg(feature = "Win32_Foundation")]
 impl IIsdbAudioComponentDescriptor_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IIsdbAudioComponentDescriptor_Impl, const OFFSET: isize>() -> IIsdbAudioComponentDescriptor_Vtbl {
         unsafe extern "system" fn GetTag<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IIsdbAudioComponentDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT {
@@ -11383,8 +11315,6 @@ impl IIsdbDigitalCopyControlDescriptor_Vtbl {
         *iid == <IIsdbDigitalCopyControlDescriptor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IIsdbDownloadContentDescriptor_Impl: Sized {
     fn GetTag(&self) -> ::windows_core::Result<u8>;
     fn GetLength(&self) -> ::windows_core::Result<u8>;
@@ -11404,9 +11334,7 @@ pub trait IIsdbDownloadContentDescriptor_Impl: Sized {
     fn GetTextLanguageCode(&self, szcode: *mut u8) -> ::windows_core::Result<()>;
     fn GetTextW(&self, convmode: DVB_STRCONV_MODE) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IIsdbDownloadContentDescriptor {}
-#[cfg(feature = "Win32_Foundation")]
 impl IIsdbDownloadContentDescriptor_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IIsdbDownloadContentDescriptor_Impl, const OFFSET: isize>() -> IIsdbDownloadContentDescriptor_Vtbl {
         unsafe extern "system" fn GetTag<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IIsdbDownloadContentDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT {
@@ -12105,8 +12033,6 @@ impl IIsdbSIParameterDescriptor_Vtbl {
         *iid == <IIsdbSIParameterDescriptor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IIsdbSeriesDescriptor_Impl: Sized {
     fn GetTag(&self) -> ::windows_core::Result<u8>;
     fn GetLength(&self) -> ::windows_core::Result<u8>;
@@ -12118,9 +12044,7 @@ pub trait IIsdbSeriesDescriptor_Impl: Sized {
     fn GetLastEpisodeNumber(&self) -> ::windows_core::Result<u16>;
     fn GetSeriesNameW(&self, convmode: DVB_STRCONV_MODE) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IIsdbSeriesDescriptor {}
-#[cfg(feature = "Win32_Foundation")]
 impl IIsdbSeriesDescriptor_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IIsdbSeriesDescriptor_Impl, const OFFSET: isize>() -> IIsdbSeriesDescriptor_Vtbl {
         unsafe extern "system" fn GetTag<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IIsdbSeriesDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT {
@@ -12558,15 +12482,15 @@ impl IIsdbTerrestrialDeliverySystemDescriptor_Vtbl {
         *iid == <IIsdbTerrestrialDeliverySystemDescriptor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ILanguageComponentType_Impl: Sized + IComponentType_Impl {
     fn LangID(&self) -> ::windows_core::Result<i32>;
     fn SetLangID(&self, langid: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ILanguageComponentType {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ILanguageComponentType_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILanguageComponentType_Impl, const OFFSET: isize>() -> ILanguageComponentType_Vtbl {
         unsafe extern "system" fn LangID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILanguageComponentType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, langid: *mut i32) -> ::windows_core::HRESULT {
@@ -12595,8 +12519,8 @@ impl ILanguageComponentType_Vtbl {
         *iid == <ILanguageComponentType as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IComponentType as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ILocator_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn CarrierFrequency(&self) -> ::windows_core::Result<i32>;
     fn SetCarrierFrequency(&self, frequency: i32) -> ::windows_core::Result<()>;
@@ -12614,9 +12538,9 @@ pub trait ILocator_Impl: Sized + super::super::super::System::Com::IDispatch_Imp
     fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<ILocator>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ILocator {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ILocator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILocator_Impl, const OFFSET: isize>() -> ILocator_Vtbl {
         unsafe extern "system" fn CarrierFrequency<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frequency: *mut i32) -> ::windows_core::HRESULT {
@@ -12765,8 +12689,8 @@ impl ILocator_Vtbl {
         *iid == <ILocator as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMPEG2Component_Impl: Sized + IComponent_Impl {
     fn PID(&self) -> ::windows_core::Result<i32>;
     fn SetPID(&self, pid: i32) -> ::windows_core::Result<()>;
@@ -12775,9 +12699,9 @@ pub trait IMPEG2Component_Impl: Sized + IComponent_Impl {
     fn ProgramNumber(&self) -> ::windows_core::Result<i32>;
     fn SetProgramNumber(&self, programnumber: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMPEG2Component {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMPEG2Component_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMPEG2Component_Impl, const OFFSET: isize>() -> IMPEG2Component_Vtbl {
         unsafe extern "system" fn PID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMPEG2Component_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pid: *mut i32) -> ::windows_core::HRESULT {
@@ -12842,15 +12766,15 @@ impl IMPEG2Component_Vtbl {
         *iid == <IMPEG2Component as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IComponent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMPEG2ComponentType_Impl: Sized + ILanguageComponentType_Impl {
     fn StreamType(&self) -> ::windows_core::Result<super::MPEG2StreamType>;
     fn SetStreamType(&self, mp2streamtype: super::MPEG2StreamType) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMPEG2ComponentType {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMPEG2ComponentType_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMPEG2ComponentType_Impl, const OFFSET: isize>() -> IMPEG2ComponentType_Vtbl {
         unsafe extern "system" fn StreamType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMPEG2ComponentType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mp2streamtype: *mut super::MPEG2StreamType) -> ::windows_core::HRESULT {
@@ -12879,17 +12803,17 @@ impl IMPEG2ComponentType_Vtbl {
         *iid == <IMPEG2ComponentType as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IComponentType as ::windows_core::ComInterface>::IID || *iid == <ILanguageComponentType as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMPEG2TuneRequest_Impl: Sized + ITuneRequest_Impl {
     fn TSID(&self) -> ::windows_core::Result<i32>;
     fn SetTSID(&self, tsid: i32) -> ::windows_core::Result<()>;
     fn ProgNo(&self) -> ::windows_core::Result<i32>;
     fn SetProgNo(&self, progno: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMPEG2TuneRequest {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMPEG2TuneRequest_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMPEG2TuneRequest_Impl, const OFFSET: isize>() -> IMPEG2TuneRequest_Vtbl {
         unsafe extern "system" fn TSID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMPEG2TuneRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tsid: *mut i32) -> ::windows_core::HRESULT {
@@ -12936,14 +12860,14 @@ impl IMPEG2TuneRequest_Vtbl {
         *iid == <IMPEG2TuneRequest as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ITuneRequest as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMPEG2TuneRequestFactory_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn CreateTuneRequest(&self, tuningspace: ::core::option::Option<&ITuningSpace>) -> ::windows_core::Result<IMPEG2TuneRequest>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMPEG2TuneRequestFactory {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMPEG2TuneRequestFactory_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMPEG2TuneRequestFactory_Impl, const OFFSET: isize>() -> IMPEG2TuneRequestFactory_Vtbl {
         unsafe extern "system" fn CreateTuneRequest<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMPEG2TuneRequestFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tuningspace: *mut ::core::ffi::c_void, tunerequest: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -13037,15 +12961,15 @@ impl IMPEG2_TIF_CONTROL_Vtbl {
         *iid == <IMPEG2_TIF_CONTROL as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSEventBinder_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Bind(&self, peventobject: ::core::option::Option<&super::super::super::System::Com::IDispatch>, eventname: &::windows_core::BSTR, eventhandler: &::windows_core::BSTR) -> ::windows_core::Result<i32>;
     fn Unbind(&self, cancelcookie: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSEventBinder {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSEventBinder_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSEventBinder_Impl, const OFFSET: isize>() -> IMSEventBinder_Vtbl {
         unsafe extern "system" fn Bind<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSEventBinder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peventobject: *mut ::core::ffi::c_void, eventname: ::std::mem::MaybeUninit<::windows_core::BSTR>, eventhandler: ::std::mem::MaybeUninit<::windows_core::BSTR>, cancelid: *mut i32) -> ::windows_core::HRESULT {
@@ -13074,8 +12998,8 @@ impl IMSEventBinder_Vtbl {
         *iid == <IMSEventBinder as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidAnalogTuner_Impl: Sized + IMSVidTuner_Impl {
     fn Channel(&self) -> ::windows_core::Result<i32>;
     fn SetChannel(&self, channel: i32) -> ::windows_core::Result<()>;
@@ -13087,9 +13011,9 @@ pub trait IMSVidAnalogTuner_Impl: Sized + IMSVidTuner_Impl {
     fn SetSAP(&self, fsapon: super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn ChannelAvailable(&self, nchannel: i32, signalstrength: *mut i32, fsignalpresent: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidAnalogTuner {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidAnalogTuner_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidAnalogTuner_Impl, const OFFSET: isize>() -> IMSVidAnalogTuner_Vtbl {
         unsafe extern "system" fn Channel<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidAnalogTuner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: *mut i32) -> ::windows_core::HRESULT {
@@ -13184,16 +13108,16 @@ impl IMSVidAnalogTuner_Vtbl {
         *iid == <IMSVidAnalogTuner as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidVideoInputDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidTuner as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidAnalogTuner2_Impl: Sized + IMSVidAnalogTuner_Impl {
     fn TVFormats(&self) -> ::windows_core::Result<i32>;
     fn TunerModes(&self) -> ::windows_core::Result<i32>;
     fn NumAuxInputs(&self) -> ::windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidAnalogTuner2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidAnalogTuner2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidAnalogTuner2_Impl, const OFFSET: isize>() -> IMSVidAnalogTuner2_Vtbl {
         unsafe extern "system" fn TVFormats<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidAnalogTuner2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, formats: *mut i32) -> ::windows_core::HRESULT {
@@ -13240,12 +13164,12 @@ impl IMSVidAnalogTuner2_Vtbl {
         *iid == <IMSVidAnalogTuner2 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidVideoInputDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidTuner as ::windows_core::ComInterface>::IID || *iid == <IMSVidAnalogTuner as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidAnalogTunerEvent_Impl: Sized + IMSVidTunerEvent_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidAnalogTunerEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidAnalogTunerEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidAnalogTunerEvent_Impl, const OFFSET: isize>() -> IMSVidAnalogTunerEvent_Vtbl {
         Self { base__: IMSVidTunerEvent_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -13254,17 +13178,17 @@ impl IMSVidAnalogTunerEvent_Vtbl {
         *iid == <IMSVidAnalogTunerEvent as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidTunerEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidAudioRenderer_Impl: Sized + IMSVidOutputDevice_Impl {
     fn SetVolume(&self, lvol: i32) -> ::windows_core::Result<()>;
     fn Volume(&self) -> ::windows_core::Result<i32>;
     fn SetBalance(&self, lbal: i32) -> ::windows_core::Result<()>;
     fn Balance(&self) -> ::windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidAudioRenderer {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidAudioRenderer_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidAudioRenderer_Impl, const OFFSET: isize>() -> IMSVidAudioRenderer_Vtbl {
         unsafe extern "system" fn SetVolume<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidAudioRenderer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lvol: i32) -> ::windows_core::HRESULT {
@@ -13311,8 +13235,8 @@ impl IMSVidAudioRenderer_Vtbl {
         *iid == <IMSVidAudioRenderer as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidOutputDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidAudioRendererDevices_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
@@ -13320,9 +13244,9 @@ pub trait IMSVidAudioRendererDevices_Impl: Sized + super::super::super::System::
     fn Add(&self, pdb: ::core::option::Option<&IMSVidAudioRenderer>) -> ::windows_core::Result<()>;
     fn Remove(&self, v: &super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidAudioRendererDevices {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidAudioRendererDevices_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidAudioRendererDevices_Impl, const OFFSET: isize>() -> IMSVidAudioRendererDevices_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidAudioRendererDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcount: *mut i32) -> ::windows_core::HRESULT {
@@ -13381,12 +13305,12 @@ impl IMSVidAudioRendererDevices_Vtbl {
         *iid == <IMSVidAudioRendererDevices as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidAudioRendererEvent_Impl: Sized + IMSVidOutputDeviceEvent_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidAudioRendererEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidAudioRendererEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidAudioRendererEvent_Impl, const OFFSET: isize>() -> IMSVidAudioRendererEvent_Vtbl {
         Self { base__: IMSVidOutputDeviceEvent_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -13395,8 +13319,8 @@ impl IMSVidAudioRendererEvent_Vtbl {
         *iid == <IMSVidAudioRendererEvent as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidOutputDeviceEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidAudioRendererEvent2_Impl: Sized + IMSVidAudioRendererEvent_Impl {
     fn AVDecAudioDualMono(&self) -> ::windows_core::Result<()>;
     fn AVAudioSampleRate(&self) -> ::windows_core::Result<()>;
@@ -13407,9 +13331,9 @@ pub trait IMSVidAudioRendererEvent2_Impl: Sized + IMSVidAudioRendererEvent_Impl 
     fn AVDecCommonInputFormat(&self) -> ::windows_core::Result<()>;
     fn AVDecCommonOutputFormat(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidAudioRendererEvent2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidAudioRendererEvent2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidAudioRendererEvent2_Impl, const OFFSET: isize>() -> IMSVidAudioRendererEvent2_Vtbl {
         unsafe extern "system" fn AVDecAudioDualMono<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidAudioRendererEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -13468,15 +13392,15 @@ impl IMSVidAudioRendererEvent2_Vtbl {
         *iid == <IMSVidAudioRendererEvent2 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidOutputDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidAudioRendererEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidClosedCaptioning_Impl: Sized + IMSVidFeature_Impl {
     fn Enable(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn SetEnable(&self, on: super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidClosedCaptioning {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidClosedCaptioning_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidClosedCaptioning_Impl, const OFFSET: isize>() -> IMSVidClosedCaptioning_Vtbl {
         unsafe extern "system" fn Enable<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidClosedCaptioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, on: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -13505,15 +13429,15 @@ impl IMSVidClosedCaptioning_Vtbl {
         *iid == <IMSVidClosedCaptioning as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidFeature as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidClosedCaptioning2_Impl: Sized + IMSVidClosedCaptioning_Impl {
     fn Service(&self) -> ::windows_core::Result<MSVidCCService>;
     fn SetService(&self, on: MSVidCCService) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidClosedCaptioning2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidClosedCaptioning2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidClosedCaptioning2_Impl, const OFFSET: isize>() -> IMSVidClosedCaptioning2_Vtbl {
         unsafe extern "system" fn Service<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidClosedCaptioning2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, on: *mut MSVidCCService) -> ::windows_core::HRESULT {
@@ -13542,14 +13466,14 @@ impl IMSVidClosedCaptioning2_Vtbl {
         *iid == <IMSVidClosedCaptioning2 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidFeature as ::windows_core::ComInterface>::IID || *iid == <IMSVidClosedCaptioning as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidClosedCaptioning3_Impl: Sized + IMSVidClosedCaptioning2_Impl {
     fn TeleTextFilter(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidClosedCaptioning3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidClosedCaptioning3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidClosedCaptioning3_Impl, const OFFSET: isize>() -> IMSVidClosedCaptioning3_Vtbl {
         unsafe extern "system" fn TeleTextFilter<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidClosedCaptioning3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkttfilter: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -13619,8 +13543,8 @@ impl IMSVidCompositionSegment_Vtbl {
         *iid == <IMSVidCompositionSegment as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IPersist as ::windows_core::ComInterface>::IID || *iid == <IMSVidGraphSegment as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidCtl_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn AutoSize(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn SetAutoSize(&self, vbool: super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -13666,9 +13590,9 @@ pub trait IMSVidCtl_Impl: Sized + super::super::super::System::Com::IDispatch_Im
     fn DisableAudio(&self) -> ::windows_core::Result<()>;
     fn ViewNext(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidCtl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidCtl_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidCtl_Impl, const OFFSET: isize>() -> IMSVidCtl_Vtbl {
         unsafe extern "system" fn AutoSize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidCtl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbool: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -14063,12 +13987,12 @@ impl IMSVidCtl_Vtbl {
         *iid == <IMSVidCtl as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidDataServices_Impl: Sized + IMSVidFeature_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidDataServices {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidDataServices_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidDataServices_Impl, const OFFSET: isize>() -> IMSVidDataServices_Vtbl {
         Self { base__: IMSVidFeature_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -14077,12 +14001,12 @@ impl IMSVidDataServices_Vtbl {
         *iid == <IMSVidDataServices as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidFeature as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidDataServicesEvent_Impl: Sized + IMSVidDeviceEvent_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidDataServicesEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidDataServicesEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidDataServicesEvent_Impl, const OFFSET: isize>() -> IMSVidDataServicesEvent_Vtbl {
         Self { base__: IMSVidDeviceEvent_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -14091,8 +14015,8 @@ impl IMSVidDataServicesEvent_Vtbl {
         *iid == <IMSVidDataServicesEvent as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDeviceEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidDevice_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Status(&self) -> ::windows_core::Result<i32>;
@@ -14104,9 +14028,9 @@ pub trait IMSVidDevice_Impl: Sized + super::super::super::System::Com::IDispatch
     fn _ClassID(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn IsEqualDevice(&self, device: ::core::option::Option<&IMSVidDevice>) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidDevice {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidDevice_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidDevice_Impl, const OFFSET: isize>() -> IMSVidDevice_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -14242,14 +14166,14 @@ impl IMSVidDevice2_Vtbl {
         *iid == <IMSVidDevice2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidDeviceEvent_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn StateChange(&self, lpd: ::core::option::Option<&IMSVidDevice>, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidDeviceEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidDeviceEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidDeviceEvent_Impl, const OFFSET: isize>() -> IMSVidDeviceEvent_Vtbl {
         unsafe extern "system" fn StateChange<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidDeviceEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpd: *mut ::core::ffi::c_void, oldstate: i32, newstate: i32) -> ::windows_core::HRESULT {
@@ -14263,17 +14187,17 @@ impl IMSVidDeviceEvent_Vtbl {
         *iid == <IMSVidDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidEVR_Impl: Sized + IMSVidVideoRenderer_Impl {
     fn Presenter(&self) -> ::windows_core::Result<super::super::MediaFoundation::IMFVideoPresenter>;
     fn SetPresenter(&self, pallocpresent: ::core::option::Option<&super::super::MediaFoundation::IMFVideoPresenter>) -> ::windows_core::Result<()>;
     fn SetSuppressEffects(&self, bsuppress: super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn SuppressEffects(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidEVR {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidEVR_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidEVR_Impl, const OFFSET: isize>() -> IMSVidEVR_Vtbl {
         unsafe extern "system" fn Presenter<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidEVR_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppallocpresent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -14320,14 +14244,14 @@ impl IMSVidEVR_Vtbl {
         *iid == <IMSVidEVR as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidOutputDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidVideoRenderer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidEVREvent_Impl: Sized + IMSVidOutputDeviceEvent_Impl {
     fn OnUserEvent(&self, leventcode: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidEVREvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidEVREvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidEVREvent_Impl, const OFFSET: isize>() -> IMSVidEVREvent_Vtbl {
         unsafe extern "system" fn OnUserEvent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidEVREvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, leventcode: i32) -> ::windows_core::HRESULT {
@@ -14341,15 +14265,15 @@ impl IMSVidEVREvent_Vtbl {
         *iid == <IMSVidEVREvent as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidOutputDeviceEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidEncoder_Impl: Sized + IMSVidFeature_Impl {
     fn VideoEncoderInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn AudioEncoderInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidEncoder {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidEncoder_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidEncoder_Impl, const OFFSET: isize>() -> IMSVidEncoder_Vtbl {
         unsafe extern "system" fn VideoEncoderInterface<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidEncoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppencint: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -14384,12 +14308,12 @@ impl IMSVidEncoder_Vtbl {
         *iid == <IMSVidEncoder as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidFeature as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidFeature_Impl: Sized + IMSVidDevice_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidFeature {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidFeature_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidFeature_Impl, const OFFSET: isize>() -> IMSVidFeature_Vtbl {
         Self { base__: IMSVidDevice_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -14398,12 +14322,12 @@ impl IMSVidFeature_Vtbl {
         *iid == <IMSVidFeature as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidFeatureEvent_Impl: Sized + IMSVidDeviceEvent_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidFeatureEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidFeatureEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidFeatureEvent_Impl, const OFFSET: isize>() -> IMSVidFeatureEvent_Vtbl {
         Self { base__: IMSVidDeviceEvent_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -14412,8 +14336,8 @@ impl IMSVidFeatureEvent_Vtbl {
         *iid == <IMSVidFeatureEvent as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDeviceEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidFeatures_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
@@ -14421,9 +14345,9 @@ pub trait IMSVidFeatures_Impl: Sized + super::super::super::System::Com::IDispat
     fn Add(&self, pdb: ::core::option::Option<&IMSVidFeature>) -> ::windows_core::Result<()>;
     fn Remove(&self, v: &super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidFeatures {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidFeatures_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidFeatures_Impl, const OFFSET: isize>() -> IMSVidFeatures_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidFeatures_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcount: *mut i32) -> ::windows_core::HRESULT {
@@ -14482,15 +14406,15 @@ impl IMSVidFeatures_Vtbl {
         *iid == <IMSVidFeatures as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidFilePlayback_Impl: Sized + IMSVidPlayback_Impl {
     fn FileName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetFileName(&self, filename: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidFilePlayback {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidFilePlayback_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidFilePlayback_Impl, const OFFSET: isize>() -> IMSVidFilePlayback_Vtbl {
         unsafe extern "system" fn FileName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidFilePlayback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -14519,15 +14443,15 @@ impl IMSVidFilePlayback_Vtbl {
         *iid == <IMSVidFilePlayback as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidPlayback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidFilePlayback2_Impl: Sized + IMSVidFilePlayback_Impl {
     fn Set_SourceFilter(&self, filename: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn Set__SourceFilter(&self, filename: &::windows_core::GUID) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidFilePlayback2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidFilePlayback2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidFilePlayback2_Impl, const OFFSET: isize>() -> IMSVidFilePlayback2_Vtbl {
         unsafe extern "system" fn Set_SourceFilter<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidFilePlayback2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -14550,12 +14474,12 @@ impl IMSVidFilePlayback2_Vtbl {
         *iid == <IMSVidFilePlayback2 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidPlayback as ::windows_core::ComInterface>::IID || *iid == <IMSVidFilePlayback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidFilePlaybackEvent_Impl: Sized + IMSVidPlaybackEvent_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidFilePlaybackEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidFilePlaybackEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidFilePlaybackEvent_Impl, const OFFSET: isize>() -> IMSVidFilePlaybackEvent_Vtbl {
         Self { base__: IMSVidPlaybackEvent_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -14564,16 +14488,16 @@ impl IMSVidFilePlaybackEvent_Vtbl {
         *iid == <IMSVidFilePlaybackEvent as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidPlaybackEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidGenericSink_Impl: Sized + IMSVidOutputDevice_Impl {
     fn SetSinkFilter(&self, bstrname: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn SinkStreams(&self) -> ::windows_core::Result<MSVidSinkStreams>;
     fn SetSinkStreams(&self, streams: MSVidSinkStreams) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidGenericSink {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidGenericSink_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidGenericSink_Impl, const OFFSET: isize>() -> IMSVidGenericSink_Vtbl {
         unsafe extern "system" fn SetSinkFilter<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidGenericSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -14608,15 +14532,15 @@ impl IMSVidGenericSink_Vtbl {
         *iid == <IMSVidGenericSink as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidOutputDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidGenericSink2_Impl: Sized + IMSVidGenericSink_Impl {
     fn AddFilter(&self, bstrname: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn ResetFilterList(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidGenericSink2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidGenericSink2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidGenericSink2_Impl, const OFFSET: isize>() -> IMSVidGenericSink2_Vtbl {
         unsafe extern "system" fn AddFilter<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidGenericSink2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -15002,15 +14926,15 @@ impl IMSVidGraphSegmentUserInput_Vtbl {
         *iid == <IMSVidGraphSegmentUserInput as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidInputDevice_Impl: Sized + IMSVidDevice_Impl {
     fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidInputDevice {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidInputDevice_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidInputDevice_Impl, const OFFSET: isize>() -> IMSVidInputDevice_Vtbl {
         unsafe extern "system" fn IsViewable<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidInputDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, v: *const super::super::super::System::Variant::VARIANT, pfviewable: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -15039,12 +14963,12 @@ impl IMSVidInputDevice_Vtbl {
         *iid == <IMSVidInputDevice as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidInputDeviceEvent_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidInputDeviceEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidInputDeviceEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidInputDeviceEvent_Impl, const OFFSET: isize>() -> IMSVidInputDeviceEvent_Vtbl {
         Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -15053,8 +14977,8 @@ impl IMSVidInputDeviceEvent_Vtbl {
         *iid == <IMSVidInputDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidInputDevices_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
@@ -15062,9 +14986,9 @@ pub trait IMSVidInputDevices_Impl: Sized + super::super::super::System::Com::IDi
     fn Add(&self, pdb: ::core::option::Option<&IMSVidInputDevice>) -> ::windows_core::Result<()>;
     fn Remove(&self, v: &super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidInputDevices {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidInputDevices_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidInputDevices_Impl, const OFFSET: isize>() -> IMSVidInputDevices_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidInputDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcount: *mut i32) -> ::windows_core::HRESULT {
@@ -15123,12 +15047,12 @@ impl IMSVidInputDevices_Vtbl {
         *iid == <IMSVidInputDevices as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidOutputDevice_Impl: Sized + IMSVidDevice_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidOutputDevice {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidOutputDevice_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidOutputDevice_Impl, const OFFSET: isize>() -> IMSVidOutputDevice_Vtbl {
         Self { base__: IMSVidDevice_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -15137,12 +15061,12 @@ impl IMSVidOutputDevice_Vtbl {
         *iid == <IMSVidOutputDevice as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidOutputDeviceEvent_Impl: Sized + IMSVidDeviceEvent_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidOutputDeviceEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidOutputDeviceEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidOutputDeviceEvent_Impl, const OFFSET: isize>() -> IMSVidOutputDeviceEvent_Vtbl {
         Self { base__: IMSVidDeviceEvent_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -15151,8 +15075,8 @@ impl IMSVidOutputDeviceEvent_Vtbl {
         *iid == <IMSVidOutputDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDeviceEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidOutputDevices_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
@@ -15160,9 +15084,9 @@ pub trait IMSVidOutputDevices_Impl: Sized + super::super::super::System::Com::ID
     fn Add(&self, pdb: ::core::option::Option<&IMSVidOutputDevice>) -> ::windows_core::Result<()>;
     fn Remove(&self, v: &super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidOutputDevices {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidOutputDevices_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidOutputDevices_Impl, const OFFSET: isize>() -> IMSVidOutputDevices_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidOutputDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcount: *mut i32) -> ::windows_core::HRESULT {
@@ -15221,8 +15145,8 @@ impl IMSVidOutputDevices_Vtbl {
         *iid == <IMSVidOutputDevices as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidPlayback_Impl: Sized + IMSVidInputDevice_Impl {
     fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn SetEnableResetOnStop(&self, newval: super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -15239,9 +15163,9 @@ pub trait IMSVidPlayback_Impl: Sized + IMSVidInputDevice_Impl {
     fn PositionMode(&self) -> ::windows_core::Result<PositionModeList>;
     fn Length(&self) -> ::windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidPlayback {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidPlayback_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidPlayback_Impl, const OFFSET: isize>() -> IMSVidPlayback_Vtbl {
         unsafe extern "system" fn EnableResetOnStop<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidPlayback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -15372,14 +15296,14 @@ impl IMSVidPlayback_Vtbl {
         *iid == <IMSVidPlayback as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidPlaybackEvent_Impl: Sized + IMSVidInputDeviceEvent_Impl {
     fn EndOfMedia(&self, lpd: ::core::option::Option<&IMSVidPlayback>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidPlaybackEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidPlaybackEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidPlaybackEvent_Impl, const OFFSET: isize>() -> IMSVidPlaybackEvent_Vtbl {
         unsafe extern "system" fn EndOfMedia<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidPlaybackEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpd: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -15393,8 +15317,8 @@ impl IMSVidPlaybackEvent_Vtbl {
         *iid == <IMSVidPlaybackEvent as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDeviceEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidRect_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Top(&self) -> ::windows_core::Result<i32>;
     fn SetTop(&self, topval: i32) -> ::windows_core::Result<()>;
@@ -15408,9 +15332,9 @@ pub trait IMSVidRect_Impl: Sized + super::super::super::System::Com::IDispatch_I
     fn SetHWnd(&self, hwndval: super::super::super::Foundation::HWND) -> ::windows_core::Result<()>;
     fn SetRect(&self, rectval: ::core::option::Option<&IMSVidRect>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidRect {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidRect_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidRect_Impl, const OFFSET: isize>() -> IMSVidRect_Vtbl {
         unsafe extern "system" fn Top<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidRect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, topval: *mut i32) -> ::windows_core::HRESULT {
@@ -15517,8 +15441,8 @@ impl IMSVidRect_Vtbl {
         *iid == <IMSVidRect as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidStreamBufferRecordingControl_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn StartTime(&self) -> ::windows_core::Result<i32>;
     fn SetStartTime(&self, rtstart: i32) -> ::windows_core::Result<()>;
@@ -15529,9 +15453,9 @@ pub trait IMSVidStreamBufferRecordingControl_Impl: Sized + super::super::super::
     fn RecordingType(&self) -> ::windows_core::Result<RecordingType>;
     fn RecordingAttribute(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidStreamBufferRecordingControl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidStreamBufferRecordingControl_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferRecordingControl_Impl, const OFFSET: isize>() -> IMSVidStreamBufferRecordingControl_Vtbl {
         unsafe extern "system" fn StartTime<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferRecordingControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rtstart: *mut i32) -> ::windows_core::HRESULT {
@@ -15626,8 +15550,8 @@ impl IMSVidStreamBufferRecordingControl_Vtbl {
         *iid == <IMSVidStreamBufferRecordingControl as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidStreamBufferSink_Impl: Sized + IMSVidOutputDevice_Impl {
     fn get_ContentRecorder(&self, pszfilename: &::windows_core::BSTR) -> ::windows_core::Result<IMSVidStreamBufferRecordingControl>;
     fn get_ReferenceRecorder(&self, pszfilename: &::windows_core::BSTR) -> ::windows_core::Result<IMSVidStreamBufferRecordingControl>;
@@ -15636,9 +15560,9 @@ pub trait IMSVidStreamBufferSink_Impl: Sized + IMSVidOutputDevice_Impl {
     fn NameSetLock(&self) -> ::windows_core::Result<()>;
     fn SBESink(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidStreamBufferSink {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidStreamBufferSink_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSink_Impl, const OFFSET: isize>() -> IMSVidStreamBufferSink_Vtbl {
         unsafe extern "system" fn get_ContentRecorder<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfilename: ::std::mem::MaybeUninit<::windows_core::BSTR>, precordingiunknown: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -15709,14 +15633,14 @@ impl IMSVidStreamBufferSink_Vtbl {
         *iid == <IMSVidStreamBufferSink as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidOutputDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidStreamBufferSink2_Impl: Sized + IMSVidStreamBufferSink_Impl {
     fn UnlockProfile(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidStreamBufferSink2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidStreamBufferSink2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSink2_Impl, const OFFSET: isize>() -> IMSVidStreamBufferSink2_Vtbl {
         unsafe extern "system" fn UnlockProfile<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSink2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -15730,8 +15654,8 @@ impl IMSVidStreamBufferSink2_Vtbl {
         *iid == <IMSVidStreamBufferSink2 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidOutputDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidStreamBufferSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidStreamBufferSink3_Impl: Sized + IMSVidStreamBufferSink2_Impl {
     fn SetMinSeek(&self) -> ::windows_core::Result<i32>;
     fn AudioCounter(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -15752,9 +15676,9 @@ pub trait IMSVidStreamBufferSink3_Impl: Sized + IMSVidStreamBufferSink2_Impl {
     fn _DataAnalysisFilter(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn LicenseErrorCode(&self) -> ::windows_core::Result<::windows_core::HRESULT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidStreamBufferSink3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidStreamBufferSink3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSink3_Impl, const OFFSET: isize>() -> IMSVidStreamBufferSink3_Vtbl {
         unsafe extern "system" fn SetMinSeek<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSink3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwmin: *mut i32) -> ::windows_core::HRESULT {
@@ -15945,16 +15869,16 @@ impl IMSVidStreamBufferSink3_Vtbl {
         *iid == <IMSVidStreamBufferSink3 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidOutputDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidStreamBufferSink as ::windows_core::ComInterface>::IID || *iid == <IMSVidStreamBufferSink2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidStreamBufferSinkEvent_Impl: Sized + IMSVidOutputDeviceEvent_Impl {
     fn CertificateFailure(&self) -> ::windows_core::Result<()>;
     fn CertificateSuccess(&self) -> ::windows_core::Result<()>;
     fn WriteFailure(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidStreamBufferSinkEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidStreamBufferSinkEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSinkEvent_Impl, const OFFSET: isize>() -> IMSVidStreamBufferSinkEvent_Vtbl {
         unsafe extern "system" fn CertificateFailure<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSinkEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -15983,15 +15907,15 @@ impl IMSVidStreamBufferSinkEvent_Vtbl {
         *iid == <IMSVidStreamBufferSinkEvent as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidOutputDeviceEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidStreamBufferSinkEvent2_Impl: Sized + IMSVidStreamBufferSinkEvent_Impl {
     fn EncryptionOn(&self) -> ::windows_core::Result<()>;
     fn EncryptionOff(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidStreamBufferSinkEvent2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidStreamBufferSinkEvent2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSinkEvent2_Impl, const OFFSET: isize>() -> IMSVidStreamBufferSinkEvent2_Vtbl {
         unsafe extern "system" fn EncryptionOn<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSinkEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -16014,14 +15938,14 @@ impl IMSVidStreamBufferSinkEvent2_Vtbl {
         *iid == <IMSVidStreamBufferSinkEvent2 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidOutputDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidStreamBufferSinkEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidStreamBufferSinkEvent3_Impl: Sized + IMSVidStreamBufferSinkEvent2_Impl {
     fn LicenseChange(&self, dwprot: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidStreamBufferSinkEvent3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidStreamBufferSinkEvent3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSinkEvent3_Impl, const OFFSET: isize>() -> IMSVidStreamBufferSinkEvent3_Vtbl {
         unsafe extern "system" fn LicenseChange<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSinkEvent3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwprot: i32) -> ::windows_core::HRESULT {
@@ -16035,14 +15959,14 @@ impl IMSVidStreamBufferSinkEvent3_Vtbl {
         *iid == <IMSVidStreamBufferSinkEvent3 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidOutputDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidStreamBufferSinkEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidStreamBufferSinkEvent2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidStreamBufferSinkEvent4_Impl: Sized + IMSVidStreamBufferSinkEvent3_Impl {
     fn WriteFailureClear(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidStreamBufferSinkEvent4 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidStreamBufferSinkEvent4_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSinkEvent4_Impl, const OFFSET: isize>() -> IMSVidStreamBufferSinkEvent4_Vtbl {
         unsafe extern "system" fn WriteFailureClear<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSinkEvent4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -16056,8 +15980,8 @@ impl IMSVidStreamBufferSinkEvent4_Vtbl {
         *iid == <IMSVidStreamBufferSinkEvent4 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidOutputDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidStreamBufferSinkEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidStreamBufferSinkEvent2 as ::windows_core::ComInterface>::IID || *iid == <IMSVidStreamBufferSinkEvent3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidStreamBufferSource_Impl: Sized + IMSVidFilePlayback_Impl {
     fn Start(&self) -> ::windows_core::Result<i32>;
     fn RecordingAttribute(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -16067,9 +15991,9 @@ pub trait IMSVidStreamBufferSource_Impl: Sized + IMSVidFilePlayback_Impl {
     fn SetUnratedDelay(&self, dwdelay: i32) -> ::windows_core::Result<()>;
     fn SBESource(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidStreamBufferSource {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidStreamBufferSource_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSource_Impl, const OFFSET: isize>() -> IMSVidStreamBufferSource_Vtbl {
         unsafe extern "system" fn Start<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lstart: *mut i32) -> ::windows_core::HRESULT {
@@ -16140,8 +16064,8 @@ impl IMSVidStreamBufferSource_Vtbl {
         *iid == <IMSVidStreamBufferSource as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidPlayback as ::windows_core::ComInterface>::IID || *iid == <IMSVidFilePlayback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidStreamBufferSource2_Impl: Sized + IMSVidStreamBufferSource_Impl {
     fn put_RateEx(&self, dwrate: f64, dwframespersecond: u32) -> ::windows_core::Result<()>;
     fn AudioCounter(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -16149,9 +16073,9 @@ pub trait IMSVidStreamBufferSource2_Impl: Sized + IMSVidStreamBufferSource_Impl 
     fn CCCounter(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn WSTCounter(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidStreamBufferSource2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidStreamBufferSource2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSource2_Impl, const OFFSET: isize>() -> IMSVidStreamBufferSource2_Vtbl {
         unsafe extern "system" fn put_RateEx<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwrate: f64, dwframespersecond: u32) -> ::windows_core::HRESULT {
@@ -16216,8 +16140,8 @@ impl IMSVidStreamBufferSource2_Vtbl {
         *iid == <IMSVidStreamBufferSource2 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidPlayback as ::windows_core::ComInterface>::IID || *iid == <IMSVidFilePlayback as ::windows_core::ComInterface>::IID || *iid == <IMSVidStreamBufferSource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidStreamBufferSourceEvent_Impl: Sized + IMSVidFilePlaybackEvent_Impl {
     fn CertificateFailure(&self) -> ::windows_core::Result<()>;
     fn CertificateSuccess(&self) -> ::windows_core::Result<()>;
@@ -16229,9 +16153,9 @@ pub trait IMSVidStreamBufferSourceEvent_Impl: Sized + IMSVidFilePlaybackEvent_Im
     fn ContentBecomingStale(&self) -> ::windows_core::Result<()>;
     fn StaleFileDeleted(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidStreamBufferSourceEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidStreamBufferSourceEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSourceEvent_Impl, const OFFSET: isize>() -> IMSVidStreamBufferSourceEvent_Vtbl {
         unsafe extern "system" fn CertificateFailure<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSourceEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -16296,14 +16220,14 @@ impl IMSVidStreamBufferSourceEvent_Vtbl {
         *iid == <IMSVidStreamBufferSourceEvent as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidPlaybackEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidFilePlaybackEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidStreamBufferSourceEvent2_Impl: Sized + IMSVidStreamBufferSourceEvent_Impl {
     fn RateChange(&self, qwnewrate: f64, qwoldrate: f64) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidStreamBufferSourceEvent2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidStreamBufferSourceEvent2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSourceEvent2_Impl, const OFFSET: isize>() -> IMSVidStreamBufferSourceEvent2_Vtbl {
         unsafe extern "system" fn RateChange<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSourceEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, qwnewrate: f64, qwoldrate: f64) -> ::windows_core::HRESULT {
@@ -16317,8 +16241,8 @@ impl IMSVidStreamBufferSourceEvent2_Vtbl {
         *iid == <IMSVidStreamBufferSourceEvent2 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidPlaybackEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidFilePlaybackEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidStreamBufferSourceEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidStreamBufferSourceEvent3_Impl: Sized + IMSVidStreamBufferSourceEvent2_Impl {
     fn BroadcastEvent(&self, guid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn BroadcastEventEx(&self, guid: &::windows_core::BSTR, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows_core::Result<()>;
@@ -16326,9 +16250,9 @@ pub trait IMSVidStreamBufferSourceEvent3_Impl: Sized + IMSVidStreamBufferSourceE
     fn COPPUnblocked(&self) -> ::windows_core::Result<()>;
     fn ContentPrimarilyAudio(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidStreamBufferSourceEvent3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidStreamBufferSourceEvent3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSourceEvent3_Impl, const OFFSET: isize>() -> IMSVidStreamBufferSourceEvent3_Vtbl {
         unsafe extern "system" fn BroadcastEvent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferSourceEvent3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -16369,8 +16293,8 @@ impl IMSVidStreamBufferSourceEvent3_Vtbl {
         *iid == <IMSVidStreamBufferSourceEvent3 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidPlaybackEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidFilePlaybackEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidStreamBufferSourceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidStreamBufferSourceEvent2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidStreamBufferV2SourceEvent_Impl: Sized + IMSVidFilePlaybackEvent_Impl {
     fn RatingsChanged(&self) -> ::windows_core::Result<()>;
     fn TimeHole(&self, streamoffsetms: i32, sizems: i32) -> ::windows_core::Result<()>;
@@ -16382,9 +16306,9 @@ pub trait IMSVidStreamBufferV2SourceEvent_Impl: Sized + IMSVidFilePlaybackEvent_
     fn BroadcastEventEx(&self, guid: &::windows_core::BSTR, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows_core::Result<()>;
     fn ContentPrimarilyAudio(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidStreamBufferV2SourceEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidStreamBufferV2SourceEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferV2SourceEvent_Impl, const OFFSET: isize>() -> IMSVidStreamBufferV2SourceEvent_Vtbl {
         unsafe extern "system" fn RatingsChanged<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidStreamBufferV2SourceEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -16449,17 +16373,17 @@ impl IMSVidStreamBufferV2SourceEvent_Vtbl {
         *iid == <IMSVidStreamBufferV2SourceEvent as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidPlaybackEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidFilePlaybackEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidTuner_Impl: Sized + IMSVidVideoInputDevice_Impl {
     fn Tune(&self) -> ::windows_core::Result<ITuneRequest>;
     fn SetTune(&self, ptr: ::core::option::Option<&ITuneRequest>) -> ::windows_core::Result<()>;
     fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace>;
     fn SetTuningSpace(&self, plts: ::core::option::Option<&ITuningSpace>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidTuner {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidTuner_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidTuner_Impl, const OFFSET: isize>() -> IMSVidTuner_Vtbl {
         unsafe extern "system" fn Tune<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidTuner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptr: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -16506,14 +16430,14 @@ impl IMSVidTuner_Vtbl {
         *iid == <IMSVidTuner as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidVideoInputDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidTunerEvent_Impl: Sized + IMSVidInputDeviceEvent_Impl {
     fn TuneChanged(&self, lpd: ::core::option::Option<&IMSVidTuner>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidTunerEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidTunerEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidTunerEvent_Impl, const OFFSET: isize>() -> IMSVidTunerEvent_Vtbl {
         unsafe extern "system" fn TuneChanged<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidTunerEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpd: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -16527,8 +16451,8 @@ impl IMSVidTunerEvent_Vtbl {
         *iid == <IMSVidTunerEvent as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDeviceEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidVMR9_Impl: Sized + IMSVidVideoRenderer_Impl {
     fn Allocator_ID(&self) -> ::windows_core::Result<i32>;
     fn SetAllocator(&self, allocpresent: ::core::option::Option<&::windows_core::IUnknown>, id: i32) -> ::windows_core::Result<()>;
@@ -16536,9 +16460,9 @@ pub trait IMSVidVMR9_Impl: Sized + IMSVidVideoRenderer_Impl {
     fn SuppressEffects(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn Allocator(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidVMR9 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidVMR9_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidVMR9_Impl, const OFFSET: isize>() -> IMSVidVMR9_Vtbl {
         unsafe extern "system" fn Allocator_ID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidVMR9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *mut i32) -> ::windows_core::HRESULT {
@@ -16597,8 +16521,8 @@ impl IMSVidVMR9_Vtbl {
         *iid == <IMSVidVMR9 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidOutputDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidVideoRenderer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IMSVidVRGraphSegment_Impl: Sized + IMSVidGraphSegment_Impl {
     fn Set_VMRendererMode(&self, dwmode: i32) -> ::windows_core::Result<()>;
     fn SetOwner(&self, window: super::super::super::Foundation::HWND) -> ::windows_core::Result<()>;
@@ -16622,9 +16546,9 @@ pub trait IMSVidVRGraphSegment_Impl: Sized + IMSVidGraphSegment_Impl {
     fn DisplayChange(&self) -> ::windows_core::Result<()>;
     fn RePaint(&self, hdc: super::super::super::Graphics::Gdi::HDC) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl ::windows_core::RuntimeName for IMSVidVRGraphSegment {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IMSVidVRGraphSegment_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidVRGraphSegment_Impl, const OFFSET: isize>() -> IMSVidVRGraphSegment_Vtbl {
         unsafe extern "system" fn Set_VMRendererMode<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidVRGraphSegment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmode: i32) -> ::windows_core::HRESULT {
@@ -16809,12 +16733,12 @@ impl IMSVidVRGraphSegment_Vtbl {
         *iid == <IMSVidVRGraphSegment as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IPersist as ::windows_core::ComInterface>::IID || *iid == <IMSVidGraphSegment as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidVideoInputDevice_Impl: Sized + IMSVidInputDevice_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidVideoInputDevice {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidVideoInputDevice_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidVideoInputDevice_Impl, const OFFSET: isize>() -> IMSVidVideoInputDevice_Vtbl {
         Self { base__: IMSVidInputDevice_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -16823,8 +16747,8 @@ impl IMSVidVideoInputDevice_Vtbl {
         *iid == <IMSVidVideoInputDevice as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidVideoRenderer_Impl: Sized + IMSVidOutputDevice_Impl {
     fn CustomCompositorClass(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetCustomCompositorClass(&self, compositorclsid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -16857,9 +16781,9 @@ pub trait IMSVidVideoRenderer_Impl: Sized + IMSVidOutputDevice_Impl {
     fn DecimateInput(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn SetDecimateInput(&self, pdeci: super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidVideoRenderer {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidVideoRenderer_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidVideoRenderer_Impl, const OFFSET: isize>() -> IMSVidVideoRenderer_Vtbl {
         unsafe extern "system" fn CustomCompositorClass<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidVideoRenderer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositorclsid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -17152,8 +17076,8 @@ impl IMSVidVideoRenderer_Vtbl {
         *iid == <IMSVidVideoRenderer as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidOutputDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidVideoRenderer2_Impl: Sized + IMSVidVideoRenderer_Impl {
     fn Allocator(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn _Allocator(&self) -> ::windows_core::Result<super::IVMRSurfaceAllocator>;
@@ -17163,9 +17087,9 @@ pub trait IMSVidVideoRenderer2_Impl: Sized + IMSVidVideoRenderer_Impl {
     fn SetSuppressEffects(&self, bsuppress: super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn SuppressEffects(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidVideoRenderer2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidVideoRenderer2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidVideoRenderer2_Impl, const OFFSET: isize>() -> IMSVidVideoRenderer2_Vtbl {
         unsafe extern "system" fn Allocator<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidVideoRenderer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allocpresent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -17242,8 +17166,8 @@ impl IMSVidVideoRenderer2_Vtbl {
         *iid == <IMSVidVideoRenderer2 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidOutputDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidVideoRenderer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidVideoRendererDevices_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
@@ -17251,9 +17175,9 @@ pub trait IMSVidVideoRendererDevices_Impl: Sized + super::super::super::System::
     fn Add(&self, pdb: ::core::option::Option<&IMSVidVideoRenderer>) -> ::windows_core::Result<()>;
     fn Remove(&self, v: &super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidVideoRendererDevices {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidVideoRendererDevices_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidVideoRendererDevices_Impl, const OFFSET: isize>() -> IMSVidVideoRendererDevices_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidVideoRendererDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcount: *mut i32) -> ::windows_core::HRESULT {
@@ -17312,14 +17236,14 @@ impl IMSVidVideoRendererDevices_Vtbl {
         *iid == <IMSVidVideoRendererDevices as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidVideoRendererEvent_Impl: Sized + IMSVidOutputDeviceEvent_Impl {
     fn OverlayUnavailable(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidVideoRendererEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidVideoRendererEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidVideoRendererEvent_Impl, const OFFSET: isize>() -> IMSVidVideoRendererEvent_Vtbl {
         unsafe extern "system" fn OverlayUnavailable<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidVideoRendererEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -17333,14 +17257,14 @@ impl IMSVidVideoRendererEvent_Vtbl {
         *iid == <IMSVidVideoRendererEvent as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidOutputDeviceEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidVideoRendererEvent2_Impl: Sized + IMSVidOutputDeviceEvent_Impl {
     fn OverlayUnavailable(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidVideoRendererEvent2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidVideoRendererEvent2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidVideoRendererEvent2_Impl, const OFFSET: isize>() -> IMSVidVideoRendererEvent2_Vtbl {
         unsafe extern "system" fn OverlayUnavailable<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidVideoRendererEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -17354,8 +17278,8 @@ impl IMSVidVideoRendererEvent2_Vtbl {
         *iid == <IMSVidVideoRendererEvent2 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidOutputDeviceEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidWebDVD_Impl: Sized + IMSVidPlayback_Impl {
     fn OnDVDEvent(&self, levent: i32, lparam1: isize, lparam2: isize) -> ::windows_core::Result<()>;
     fn PlayTitle(&self, ltitle: i32) -> ::windows_core::Result<()>;
@@ -17453,9 +17377,9 @@ pub trait IMSVidWebDVD_Impl: Sized + IMSVidPlayback_Impl {
     fn DVDScreenInMouseCoordinates(&self) -> ::windows_core::Result<IMSVidRect>;
     fn SetDVDScreenInMouseCoordinates(&self, prect: ::core::option::Option<&IMSVidRect>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidWebDVD {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidWebDVD_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>() -> IMSVidWebDVD_Vtbl {
         unsafe extern "system" fn OnDVDEvent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, levent: i32, lparam1: isize, lparam2: isize) -> ::windows_core::HRESULT {
@@ -18342,15 +18266,15 @@ impl IMSVidWebDVD_Vtbl {
         *iid == <IMSVidWebDVD as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidPlayback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidWebDVD2_Impl: Sized + IMSVidWebDVD_Impl {
     fn get_Bookmark(&self, ppdata: *mut *mut u8, pdatalength: *mut u32) -> ::windows_core::Result<()>;
     fn put_Bookmark(&self, pdata: *const u8, dwdatalength: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidWebDVD2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidWebDVD2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidWebDVD2_Impl, const OFFSET: isize>() -> IMSVidWebDVD2_Vtbl {
         unsafe extern "system" fn get_Bookmark<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidWebDVD2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdata: *mut *mut u8, pdatalength: *mut u32) -> ::windows_core::HRESULT {
@@ -18373,8 +18297,8 @@ impl IMSVidWebDVD2_Vtbl {
         *iid == <IMSVidWebDVD2 as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidPlayback as ::windows_core::ComInterface>::IID || *iid == <IMSVidWebDVD as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidWebDVDAdm_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn ChangePassword(&self, strusername: &::windows_core::BSTR, strold: &::windows_core::BSTR, strnew: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn SaveParentalLevel(&self, level: i32, strusername: &::windows_core::BSTR, strpassword: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -18391,9 +18315,9 @@ pub trait IMSVidWebDVDAdm_Impl: Sized + super::super::super::System::Com::IDispa
     fn BookmarkOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn SetBookmarkOnStop(&self, newval: super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidWebDVDAdm {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidWebDVDAdm_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidWebDVDAdm_Impl, const OFFSET: isize>() -> IMSVidWebDVDAdm_Vtbl {
         unsafe extern "system" fn ChangePassword<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidWebDVDAdm_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strusername: ::std::mem::MaybeUninit<::windows_core::BSTR>, strold: ::std::mem::MaybeUninit<::windows_core::BSTR>, strnew: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -18530,8 +18454,8 @@ impl IMSVidWebDVDAdm_Vtbl {
         *iid == <IMSVidWebDVDAdm as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidWebDVDEvent_Impl: Sized + IMSVidPlaybackEvent_Impl {
     fn DVDNotify(&self, leventcode: i32, lparam1: &super::super::super::System::Variant::VARIANT, lparam2: &super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn PlayForwards(&self, benabled: super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -18557,9 +18481,9 @@ pub trait IMSVidWebDVDEvent_Impl: Sized + IMSVidPlaybackEvent_Impl {
     fn ChangeKaraokePresMode(&self, benabled: super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn ChangeVideoPresMode(&self, benabled: super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidWebDVDEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidWebDVDEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidWebDVDEvent_Impl, const OFFSET: isize>() -> IMSVidWebDVDEvent_Vtbl {
         unsafe extern "system" fn DVDNotify<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidWebDVDEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, leventcode: i32, lparam1: super::super::super::System::Variant::VARIANT, lparam2: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
@@ -18708,14 +18632,14 @@ impl IMSVidWebDVDEvent_Vtbl {
         *iid == <IMSVidWebDVDEvent as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidInputDeviceEvent as ::windows_core::ComInterface>::IID || *iid == <IMSVidPlaybackEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidXDS_Impl: Sized + IMSVidFeature_Impl {
     fn ChannelChangeInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidXDS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidXDS_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidXDS_Impl, const OFFSET: isize>() -> IMSVidXDS_Vtbl {
         unsafe extern "system" fn ChannelChangeInterface<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidXDS_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkcc: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -18735,14 +18659,14 @@ impl IMSVidXDS_Vtbl {
         *iid == <IMSVidXDS as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IMSVidDevice as ::windows_core::ComInterface>::IID || *iid == <IMSVidFeature as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidXDSEvent_Impl: Sized + IMSVidFeatureEvent_Impl {
     fn RatingChange(&self, prevratingsystem: EnTvRat_System, prevlevel: EnTvRat_GenericLevel, prevattributes: BfEnTvRat_GenericAttributes, newratingsystem: EnTvRat_System, newlevel: EnTvRat_GenericLevel, newattributes: BfEnTvRat_GenericAttributes) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMSVidXDSEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidXDSEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidXDSEvent_Impl, const OFFSET: isize>() -> IMSVidXDSEvent_Vtbl {
         unsafe extern "system" fn RatingChange<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidXDSEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prevratingsystem: EnTvRat_System, prevlevel: EnTvRat_GenericLevel, prevattributes: BfEnTvRat_GenericAttributes, newratingsystem: EnTvRat_System, newlevel: EnTvRat_GenericLevel, newattributes: BfEnTvRat_GenericAttributes) -> ::windows_core::HRESULT {
@@ -18773,16 +18697,12 @@ impl IMceBurnerControl_Vtbl {
         *iid == <IMceBurnerControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMpeg2Data_Impl: Sized {
     fn GetSection(&self, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, dwtimeout: u32) -> ::windows_core::Result<ISectionList>;
     fn GetTable(&self, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, dwtimeout: u32) -> ::windows_core::Result<ISectionList>;
     fn GetStreamOfSections(&self, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, hdatareadyevent: super::super::super::Foundation::HANDLE) -> ::windows_core::Result<IMpeg2Stream>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IMpeg2Data {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMpeg2Data_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMpeg2Data_Impl, const OFFSET: isize>() -> IMpeg2Data_Vtbl {
         unsafe extern "system" fn GetSection<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMpeg2Data_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, dwtimeout: u32, ppsectionlist: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -18829,15 +18749,11 @@ impl IMpeg2Data_Vtbl {
         *iid == <IMpeg2Data as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMpeg2Stream_Impl: Sized {
     fn Initialize(&self, requesttype: MPEG_REQUEST_TYPE, pmpeg2data: ::core::option::Option<&IMpeg2Data>, pcontext: *const MPEG_CONTEXT, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, hdatareadyevent: super::super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
     fn SupplyDataBuffer(&self, pstreambuffer: *const MPEG_STREAM_BUFFER) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IMpeg2Stream {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMpeg2Stream_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMpeg2Stream_Impl, const OFFSET: isize>() -> IMpeg2Stream_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMpeg2Stream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requesttype: MPEG_REQUEST_TYPE, pmpeg2data: *mut ::core::ffi::c_void, pcontext: *const MPEG_CONTEXT, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, hdatareadyevent: super::super::super::Foundation::HANDLE) -> ::windows_core::HRESULT {
@@ -18915,8 +18831,6 @@ impl IMpeg2TableFilter_Vtbl {
         *iid == <IMpeg2TableFilter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IPAT_Impl: Sized {
     fn Initialize(&self, psectionlist: ::core::option::Option<&ISectionList>, pmpegdata: ::core::option::Option<&IMpeg2Data>) -> ::windows_core::Result<()>;
     fn GetTransportStreamId(&self) -> ::windows_core::Result<u16>;
@@ -18930,9 +18844,7 @@ pub trait IPAT_Impl: Sized {
     fn RegisterForWhenCurrent(&self, hnexttableiscurrent: super::super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
     fn ConvertNextToCurrent(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IPAT {}
-#[cfg(feature = "Win32_Foundation")]
 impl IPAT_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPAT_Impl, const OFFSET: isize>() -> IPAT_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPAT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psectionlist: *mut ::core::ffi::c_void, pmpegdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -19379,8 +19291,6 @@ impl IPBDA_Services_Vtbl {
         *iid == <IPBDA_Services as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IPMT_Impl: Sized {
     fn Initialize(&self, psectionlist: ::core::option::Option<&ISectionList>, pmpegdata: ::core::option::Option<&IMpeg2Data>) -> ::windows_core::Result<()>;
     fn GetProgramNumber(&self) -> ::windows_core::Result<u16>;
@@ -19402,9 +19312,7 @@ pub trait IPMT_Impl: Sized {
     fn RegisterForWhenCurrent(&self, hnexttableiscurrent: super::super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
     fn ConvertNextToCurrent(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IPMT {}
-#[cfg(feature = "Win32_Foundation")]
 impl IPMT_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPMT_Impl, const OFFSET: isize>() -> IPMT_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPMT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psectionlist: *mut ::core::ffi::c_void, pmpegdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -19618,15 +19526,11 @@ impl IPSITables_Vtbl {
         *iid == <IPSITables as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IPTFilterLicenseRenewal_Impl: Sized {
     fn RenewLicenses(&self, wszfilename: &::windows_core::PCWSTR, wszexpiredkid: &::windows_core::PCWSTR, dwcallersid: u32, bhighpriority: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn CancelLicenseRenewal(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IPTFilterLicenseRenewal {}
-#[cfg(feature = "Win32_Foundation")]
 impl IPTFilterLicenseRenewal_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPTFilterLicenseRenewal_Impl, const OFFSET: isize>() -> IPTFilterLicenseRenewal_Vtbl {
         unsafe extern "system" fn RenewLicenses<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPTFilterLicenseRenewal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszfilename: ::windows_core::PCWSTR, wszexpiredkid: ::windows_core::PCWSTR, dwcallersid: u32, bhighpriority: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -19649,16 +19553,16 @@ impl IPTFilterLicenseRenewal_Vtbl {
         *iid == <IPTFilterLicenseRenewal as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPersistTuneXml_Impl: Sized + super::super::super::System::Com::IPersist_Impl {
     fn InitNew(&self) -> ::windows_core::Result<()>;
     fn Load(&self, varvalue: &super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn Save(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPersistTuneXml {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPersistTuneXml_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPersistTuneXml_Impl, const OFFSET: isize>() -> IPersistTuneXml_Vtbl {
         unsafe extern "system" fn InitNew<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPersistTuneXml_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -19693,14 +19597,14 @@ impl IPersistTuneXml_Vtbl {
         *iid == <IPersistTuneXml as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IPersist as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPersistTuneXmlUtility_Impl: Sized {
     fn Deserialize(&self, varvalue: &super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPersistTuneXmlUtility {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPersistTuneXmlUtility_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPersistTuneXmlUtility_Impl, const OFFSET: isize>() -> IPersistTuneXmlUtility_Vtbl {
         unsafe extern "system" fn Deserialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPersistTuneXmlUtility_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: super::super::super::System::Variant::VARIANT, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -19720,14 +19624,14 @@ impl IPersistTuneXmlUtility_Vtbl {
         *iid == <IPersistTuneXmlUtility as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPersistTuneXmlUtility2_Impl: Sized + IPersistTuneXmlUtility_Impl {
     fn Serialize(&self, pitunerequest: ::core::option::Option<&ITuneRequest>) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPersistTuneXmlUtility2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPersistTuneXmlUtility2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPersistTuneXmlUtility2_Impl, const OFFSET: isize>() -> IPersistTuneXmlUtility2_Vtbl {
         unsafe extern "system" fn Serialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPersistTuneXmlUtility2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitunerequest: *mut ::core::ffi::c_void, pstring: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -19891,14 +19795,10 @@ impl ISBE2FileScan_Vtbl {
         *iid == <ISBE2FileScan as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ISBE2GlobalEvent_Impl: Sized {
     fn GetEvent(&self, idevt: *const ::windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut super::super::super::Foundation::BOOL, pcb: *mut u32, pb: *mut u8) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ISBE2GlobalEvent {}
-#[cfg(feature = "Win32_Foundation")]
 impl ISBE2GlobalEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISBE2GlobalEvent_Impl, const OFFSET: isize>() -> ISBE2GlobalEvent_Vtbl {
         unsafe extern "system" fn GetEvent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISBE2GlobalEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idevt: *const ::windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut super::super::super::Foundation::BOOL, pcb: *mut u32, pb: *mut u8) -> ::windows_core::HRESULT {
@@ -19912,14 +19812,10 @@ impl ISBE2GlobalEvent_Vtbl {
         *iid == <ISBE2GlobalEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ISBE2GlobalEvent2_Impl: Sized + ISBE2GlobalEvent_Impl {
     fn GetEventEx(&self, idevt: *const ::windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut super::super::super::Foundation::BOOL, pcb: *mut u32, pb: *mut u8, pstreamtime: *mut i64) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ISBE2GlobalEvent2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ISBE2GlobalEvent2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISBE2GlobalEvent2_Impl, const OFFSET: isize>() -> ISBE2GlobalEvent2_Vtbl {
         unsafe extern "system" fn GetEventEx<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISBE2GlobalEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idevt: *const ::windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut super::super::super::Foundation::BOOL, pcb: *mut u32, pb: *mut u8, pstreamtime: *mut i64) -> ::windows_core::HRESULT {
@@ -19933,17 +19829,17 @@ impl ISBE2GlobalEvent2_Vtbl {
         *iid == <ISBE2GlobalEvent2 as ::windows_core::ComInterface>::IID || *iid == <ISBE2GlobalEvent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
+#[cfg(feature = "Win32_Media_MediaFoundation")]
 pub trait ISBE2MediaTypeProfile_Impl: Sized {
     fn GetStreamCount(&self) -> ::windows_core::Result<u32>;
     fn GetStream(&self, index: u32) -> ::windows_core::Result<*mut super::super::MediaFoundation::AM_MEDIA_TYPE>;
     fn AddStream(&self, pmediatype: *const super::super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>;
     fn DeleteStream(&self, index: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl ::windows_core::RuntimeName for ISBE2MediaTypeProfile {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl ISBE2MediaTypeProfile_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISBE2MediaTypeProfile_Impl, const OFFSET: isize>() -> ISBE2MediaTypeProfile_Vtbl {
         unsafe extern "system" fn GetStreamCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISBE2MediaTypeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows_core::HRESULT {
@@ -20413,16 +20309,12 @@ impl ISCTE_EAS_Vtbl {
         *iid == <ISCTE_EAS as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ISIInbandEPG_Impl: Sized {
     fn StartSIEPGScan(&self) -> ::windows_core::Result<()>;
     fn StopSIEPGScan(&self) -> ::windows_core::Result<()>;
     fn IsSIEPGScanRunning(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ISIInbandEPG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ISIInbandEPG_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISIInbandEPG_Impl, const OFFSET: isize>() -> ISIInbandEPG_Vtbl {
         unsafe extern "system" fn StartSIEPGScan<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISIInbandEPG_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -20526,8 +20418,8 @@ impl IScanningTuner_Vtbl {
         *iid == <IScanningTuner as ::windows_core::ComInterface>::IID || *iid == <ITuner as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IScanningTunerEx_Impl: Sized + IScanningTuner_Impl {
     fn GetCurrentLocator(&self, pilocator: *const ::core::option::Option<ILocator>) -> ::windows_core::Result<()>;
     fn PerformExhaustiveScan(&self, dwlowerfreq: i32, dwhigherfreq: i32, bfinetune: super::super::super::Foundation::VARIANT_BOOL, hevent: usize) -> ::windows_core::Result<()>;
@@ -20538,9 +20430,9 @@ pub trait IScanningTunerEx_Impl: Sized + IScanningTuner_Impl {
     fn GetCurrentTunerStandardCapability(&self, currentbroadcaststandard: &::windows_core::GUID, settlingtime: *mut i32, tvstandardssupported: *mut i32) -> ::windows_core::Result<()>;
     fn SetScanSignalTypeFilter(&self, scanmodulationtypes: i32, analogvideostandard: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IScanningTunerEx {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IScanningTunerEx_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IScanningTunerEx_Impl, const OFFSET: isize>() -> IScanningTunerEx_Vtbl {
         unsafe extern "system" fn GetCurrentLocator<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IScanningTunerEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pilocator: *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -20605,8 +20497,6 @@ impl IScanningTunerEx_Vtbl {
         *iid == <IScanningTunerEx as ::windows_core::ComInterface>::IID || *iid == <ITuner as ::windows_core::ComInterface>::IID || *iid == <IScanningTuner as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ISectionList_Impl: Sized {
     fn Initialize(&self, requesttype: MPEG_REQUEST_TYPE, pmpeg2data: ::core::option::Option<&IMpeg2Data>, pcontext: *const MPEG_CONTEXT, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, timeout: u32, hdoneevent: super::super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
     fn InitializeWithRawSections(&self, pmplsections: *const MPEG_PACKET_LIST) -> ::windows_core::Result<()>;
@@ -20616,9 +20506,7 @@ pub trait ISectionList_Impl: Sized {
     fn GetProgramIdentifier(&self, ppid: *const u16) -> ::windows_core::Result<()>;
     fn GetTableIdentifier(&self, ptableid: *const u8) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ISectionList {}
-#[cfg(feature = "Win32_Foundation")]
 impl ISectionList_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISectionList_Impl, const OFFSET: isize>() -> ISectionList_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISectionList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requesttype: MPEG_REQUEST_TYPE, pmpeg2data: *mut ::core::ffi::c_void, pcontext: *const MPEG_CONTEXT, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, timeout: u32, hdoneevent: super::super::super::Foundation::HANDLE) -> ::windows_core::HRESULT {
@@ -20863,17 +20751,13 @@ impl IStreamBufferConfigure2_Vtbl {
         *iid == <IStreamBufferConfigure2 as ::windows_core::ComInterface>::IID || *iid == <IStreamBufferConfigure as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IStreamBufferConfigure3_Impl: Sized + IStreamBufferConfigure2_Impl {
     fn SetStartRecConfig(&self, fstartstopscur: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn GetStartRecConfig(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn SetNamespace(&self, psznamespace: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn GetNamespace(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IStreamBufferConfigure3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IStreamBufferConfigure3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStreamBufferConfigure3_Impl, const OFFSET: isize>() -> IStreamBufferConfigure3_Vtbl {
         unsafe extern "system" fn SetStartRecConfig<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStreamBufferConfigure3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fstartstopscur: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -20947,15 +20831,15 @@ impl IStreamBufferDataCounters_Vtbl {
         *iid == <IStreamBufferDataCounters as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[doc = "Required features: `\"Win32_System_Registry\"`"]
+#[cfg(feature = "Win32_System_Registry")]
 pub trait IStreamBufferInitialize_Impl: Sized {
     fn SetHKEY(&self, hkeyroot: super::super::super::System::Registry::HKEY) -> ::windows_core::Result<()>;
     fn SetSIDs(&self, csids: u32, ppsid: *mut super::super::super::Foundation::PSID) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[cfg(feature = "Win32_System_Registry")]
 impl ::windows_core::RuntimeName for IStreamBufferInitialize {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[cfg(feature = "Win32_System_Registry")]
 impl IStreamBufferInitialize_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStreamBufferInitialize_Impl, const OFFSET: isize>() -> IStreamBufferInitialize_Vtbl {
         unsafe extern "system" fn SetHKEY<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStreamBufferInitialize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkeyroot: super::super::super::System::Registry::HKEY) -> ::windows_core::HRESULT {
@@ -21066,16 +20950,12 @@ impl IStreamBufferRecComp_Vtbl {
         *iid == <IStreamBufferRecComp as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IStreamBufferRecordControl_Impl: Sized {
     fn Start(&self, prtstart: *mut i64) -> ::windows_core::Result<()>;
     fn Stop(&self, rtstop: i64) -> ::windows_core::Result<()>;
     fn GetRecordingStatus(&self, phresult: *mut ::windows_core::HRESULT, pbstarted: *mut super::super::super::Foundation::BOOL, pbstopped: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IStreamBufferRecordControl {}
-#[cfg(feature = "Win32_Foundation")]
 impl IStreamBufferRecordControl_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStreamBufferRecordControl_Impl, const OFFSET: isize>() -> IStreamBufferRecordControl_Vtbl {
         unsafe extern "system" fn Start<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStreamBufferRecordControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prtstart: *mut i64) -> ::windows_core::HRESULT {
@@ -21255,8 +21135,6 @@ impl IStreamBufferSource_Vtbl {
         *iid == <IStreamBufferSource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITSDT_Impl: Sized {
     fn Initialize(&self, psectionlist: ::core::option::Option<&ISectionList>, pmpegdata: ::core::option::Option<&IMpeg2Data>) -> ::windows_core::Result<()>;
     fn GetVersionNumber(&self) -> ::windows_core::Result<u8>;
@@ -21268,9 +21146,7 @@ pub trait ITSDT_Impl: Sized {
     fn RegisterForWhenCurrent(&self, hnexttableiscurrent: super::super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
     fn ConvertNextToCurrent(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ITSDT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITSDT_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITSDT_Impl, const OFFSET: isize>() -> ITSDT_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITSDT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psectionlist: *mut ::core::ffi::c_void, pmpegdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -21359,8 +21235,8 @@ impl ITSDT_Vtbl {
         *iid == <ITSDT as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITuneRequest_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace>;
     fn Components(&self) -> ::windows_core::Result<IComponents>;
@@ -21368,9 +21244,9 @@ pub trait ITuneRequest_Impl: Sized + super::super::super::System::Com::IDispatch
     fn Locator(&self) -> ::windows_core::Result<ILocator>;
     fn SetLocator(&self, locator: ::core::option::Option<&ILocator>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITuneRequest {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITuneRequest_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITuneRequest_Impl, const OFFSET: isize>() -> ITuneRequest_Vtbl {
         unsafe extern "system" fn TuningSpace<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITuneRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tuningspace: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -21703,14 +21579,10 @@ impl ITunerCap_Vtbl {
         *iid == <ITunerCap as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITunerCapEx_Impl: Sized {
     fn Has608_708Caption(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ITunerCapEx {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITunerCapEx_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITunerCapEx_Impl, const OFFSET: isize>() -> ITunerCapEx_Vtbl {
         unsafe extern "system" fn Has608_708Caption<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITunerCapEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbhascaption: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -21730,8 +21602,8 @@ impl ITunerCapEx_Vtbl {
         *iid == <ITunerCapEx as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITuningSpace_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn UniqueName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetUniqueName(&self, name: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -21753,9 +21625,9 @@ pub trait ITuningSpace_Impl: Sized + super::super::super::System::Com::IDispatch
     fn SetDefaultLocator(&self, locatorval: ::core::option::Option<&ILocator>) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<ITuningSpace>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITuningSpace {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITuningSpace_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITuningSpace_Impl, const OFFSET: isize>() -> ITuningSpace_Vtbl {
         unsafe extern "system" fn UniqueName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITuningSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -21952,8 +21824,8 @@ impl ITuningSpace_Vtbl {
         *iid == <ITuningSpace as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITuningSpaceContainer_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
@@ -21969,9 +21841,9 @@ pub trait ITuningSpaceContainer_Impl: Sized + super::super::super::System::Com::
     fn MaxCount(&self) -> ::windows_core::Result<i32>;
     fn SetMaxCount(&self, maxcount: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITuningSpaceContainer {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITuningSpaceContainer_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITuningSpaceContainer_Impl, const OFFSET: isize>() -> ITuningSpaceContainer_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITuningSpaceContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT {
@@ -22120,17 +21992,17 @@ impl ITuningSpaceContainer_Vtbl {
         *iid == <ITuningSpaceContainer as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITuningSpaces_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
     fn get_Item(&self, varindex: &super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<ITuningSpace>;
     fn EnumTuningSpaces(&self) -> ::windows_core::Result<IEnumTuningSpaces>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITuningSpaces {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITuningSpaces_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITuningSpaces_Impl, const OFFSET: isize>() -> ITuningSpaces_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITuningSpaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT {
@@ -22302,12 +22174,12 @@ impl IXDSCodecConfig_Vtbl {
         *iid == <IXDSCodecConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IXDSCodecEvents_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IXDSCodecEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXDSCodecEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXDSCodecEvents_Impl, const OFFSET: isize>() -> IXDSCodecEvents_Vtbl {
         Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -22316,15 +22188,15 @@ impl IXDSCodecEvents_Vtbl {
         *iid == <IXDSCodecEvents as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IXDSToRat_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Init(&self) -> ::windows_core::Result<()>;
     fn ParseXDSBytePair(&self, byte1: u8, byte2: u8, pensystem: *mut EnTvRat_System, penlevel: *mut EnTvRat_GenericLevel, plbfenattributes: *mut i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IXDSToRat {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXDSToRat_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXDSToRat_Impl, const OFFSET: isize>() -> IXDSToRat_Vtbl {
         unsafe extern "system" fn Init<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXDSToRat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -22347,12 +22219,12 @@ impl IXDSToRat_Vtbl {
         *iid == <IXDSToRat as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _IMSVidCtlEvents_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for _IMSVidCtlEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _IMSVidCtlEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _IMSVidCtlEvents_Impl, const OFFSET: isize>() -> _IMSVidCtlEvents_Vtbl {
         Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }

@@ -71,15 +71,11 @@ impl IEnhancedStorageACT_Vtbl {
         *iid == <IEnhancedStorageACT as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IEnhancedStorageACT2_Impl: Sized + IEnhancedStorageACT_Impl {
     fn GetDeviceName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn IsDeviceRemovable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IEnhancedStorageACT2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IEnhancedStorageACT2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageACT2_Impl, const OFFSET: isize>() -> IEnhancedStorageACT2_Vtbl {
         unsafe extern "system" fn GetDeviceName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageACT2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszdevicename: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
@@ -114,16 +110,12 @@ impl IEnhancedStorageACT2_Vtbl {
         *iid == <IEnhancedStorageACT2 as ::windows_core::ComInterface>::IID || *iid == <IEnhancedStorageACT as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IEnhancedStorageACT3_Impl: Sized + IEnhancedStorageACT2_Impl {
     fn UnauthorizeEx(&self, dwflags: u32) -> ::windows_core::Result<()>;
     fn IsQueueFrozen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn GetShellExtSupport(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IEnhancedStorageACT3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IEnhancedStorageACT3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageACT3_Impl, const OFFSET: isize>() -> IEnhancedStorageACT3_Vtbl {
         unsafe extern "system" fn UnauthorizeEx<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageACT3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT {

@@ -27,8 +27,6 @@ impl II2cControllerProvider_Vtbl {
         *iid == <II2cControllerProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait II2cDeviceProvider_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
     fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn Write(&self, buffer: &[u8]) -> ::windows_core::Result<()>;
@@ -38,11 +36,9 @@ pub trait II2cDeviceProvider_Impl: Sized + super::super::super::Foundation::IClo
     fn WriteRead(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows_core::Result<()>;
     fn WriteReadPartial(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows_core::Result<ProviderI2cTransferResult>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for II2cDeviceProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cDeviceProvider";
 }
-#[cfg(feature = "Foundation")]
 impl II2cDeviceProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: II2cDeviceProvider_Impl, const OFFSET: isize>() -> II2cDeviceProvider_Vtbl {
         unsafe extern "system" fn DeviceId<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT {

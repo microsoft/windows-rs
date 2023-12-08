@@ -80,8 +80,6 @@ impl IReferenceClock {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdviseTime<P0>(&self, basetime: i64, streamtime: i64, hevent: P0) -> ::windows_core::Result<usize>
     where
         P0: ::windows_core::IntoParam<super::Foundation::HANDLE>,
@@ -89,8 +87,6 @@ impl IReferenceClock {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AdviseTime)(::windows_core::Interface::as_raw(self), basetime, streamtime, hevent.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdvisePeriodic<P0>(&self, starttime: i64, periodtime: i64, hsemaphore: P0) -> ::windows_core::Result<usize>
     where
         P0: ::windows_core::IntoParam<super::Foundation::HANDLE>,
@@ -114,14 +110,8 @@ unsafe impl ::windows_core::ComInterface for IReferenceClock {
 pub struct IReferenceClock_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptime: *mut i64) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub AdviseTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, basetime: i64, streamtime: i64, hevent: super::Foundation::HANDLE, pdwadvisecookie: *mut usize) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    AdviseTime: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub AdvisePeriodic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: i64, periodtime: i64, hsemaphore: super::Foundation::HANDLE, pdwadvisecookie: *mut usize) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    AdvisePeriodic: usize,
     pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwadvisecookie: usize) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -132,8 +122,6 @@ impl IReferenceClock2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdviseTime<P0>(&self, basetime: i64, streamtime: i64, hevent: P0) -> ::windows_core::Result<usize>
     where
         P0: ::windows_core::IntoParam<super::Foundation::HANDLE>,
@@ -141,8 +129,6 @@ impl IReferenceClock2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AdviseTime)(::windows_core::Interface::as_raw(self), basetime, streamtime, hevent.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdvisePeriodic<P0>(&self, starttime: i64, periodtime: i64, hsemaphore: P0) -> ::windows_core::Result<usize>
     where
         P0: ::windows_core::IntoParam<super::Foundation::HANDLE>,

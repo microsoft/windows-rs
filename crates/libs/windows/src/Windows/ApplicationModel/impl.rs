@@ -1,13 +1,9 @@
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IEnteredBackgroundEventArgs_Impl: Sized {
     fn GetDeferral(&self) -> ::windows_core::Result<super::Foundation::Deferral>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IEnteredBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.IEnteredBackgroundEventArgs";
 }
-#[cfg(feature = "Foundation")]
 impl IEnteredBackgroundEventArgs_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnteredBackgroundEventArgs_Impl, const OFFSET: isize>() -> IEnteredBackgroundEventArgs_Vtbl {
         unsafe extern "system" fn GetDeferral<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnteredBackgroundEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -31,16 +27,12 @@ impl IEnteredBackgroundEventArgs_Vtbl {
         *iid == <IEnteredBackgroundEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait ILeavingBackgroundEventArgs_Impl: Sized {
     fn GetDeferral(&self) -> ::windows_core::Result<super::Foundation::Deferral>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for ILeavingBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ILeavingBackgroundEventArgs";
 }
-#[cfg(feature = "Foundation")]
 impl ILeavingBackgroundEventArgs_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILeavingBackgroundEventArgs_Impl, const OFFSET: isize>() -> ILeavingBackgroundEventArgs_Vtbl {
         unsafe extern "system" fn GetDeferral<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILeavingBackgroundEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -141,17 +133,13 @@ impl ISuspendingEventArgs_Vtbl {
         *iid == <ISuspendingEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait ISuspendingOperation_Impl: Sized {
     fn GetDeferral(&self) -> ::windows_core::Result<SuspendingDeferral>;
     fn Deadline(&self) -> ::windows_core::Result<super::Foundation::DateTime>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for ISuspendingOperation {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingOperation";
 }
-#[cfg(feature = "Foundation")]
 impl ISuspendingOperation_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISuspendingOperation_Impl, const OFFSET: isize>() -> ISuspendingOperation_Vtbl {
         unsafe extern "system" fn GetDeferral<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISuspendingOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

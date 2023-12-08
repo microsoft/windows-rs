@@ -13,38 +13,14 @@ unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironment {
 pub struct IIsolatedWindowsEnvironment_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub StartProcessSilentlyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostexepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, arguments: ::std::mem::MaybeUninit<::windows_core::HSTRING>, activator: IsolatedWindowsEnvironmentActivator, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StartProcessSilentlyAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub StartProcessSilentlyWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostexepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, arguments: ::std::mem::MaybeUninit<::windows_core::HSTRING>, activator: IsolatedWindowsEnvironmentActivator, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StartProcessSilentlyWithTelemetryAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub ShareFolderAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostfolder: ::std::mem::MaybeUninit<::windows_core::HSTRING>, requestoptions: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ShareFolderAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub ShareFolderWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostfolder: ::std::mem::MaybeUninit<::windows_core::HSTRING>, requestoptions: *mut ::core::ffi::c_void, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ShareFolderWithTelemetryAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub LaunchFileWithUIAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appexepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, argumentstemplate: ::std::mem::MaybeUninit<::windows_core::HSTRING>, filepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    LaunchFileWithUIAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub LaunchFileWithUIAndTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appexepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, argumentstemplate: ::std::mem::MaybeUninit<::windows_core::HSTRING>, filepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    LaunchFileWithUIAndTelemetryAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub TerminateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TerminateAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub TerminateWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TerminateWithTelemetryAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
     pub RegisterMessageReceiver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows_core::GUID, messagereceivedcallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -89,14 +65,8 @@ unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironment3 {
 pub struct IIsolatedWindowsEnvironment3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetUserInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub ShareFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ShareFileAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub ShareFileWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, options: *mut ::core::ffi::c_void, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ShareFileWithTelemetryAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -162,14 +132,8 @@ unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentFactory 
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub CreateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateAsync: usize,
-    #[cfg(feature = "Foundation")]
     pub CreateWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateWithTelemetryAsync: usize,
     pub GetById: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, environmentid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub FindByOwnerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, environmentownerid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -419,10 +383,7 @@ pub struct IIsolatedWindowsEnvironmentProcess_Vtbl {
     pub ExitCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub WaitForExit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub WaitForExitWithTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timeoutmilliseconds: u32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub WaitForExitAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    WaitForExitAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -544,10 +505,7 @@ pub struct IIsolatedWindowsEnvironmentUserInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub EnvironmentUserSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub EnvironmentUserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub TryWaitForSignInAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryWaitForSignInAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -563,10 +521,7 @@ unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentUserInfo
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentUserInfo2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub TryWaitForSignInWithProgressAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryWaitForSignInWithProgressAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -619,8 +574,6 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StartProcessSilentlyAsync(&self, hostexepath: &::windows_core::HSTRING, arguments: &::windows_core::HSTRING, activator: IsolatedWindowsEnvironmentActivator) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>> {
         let this = self;
         unsafe {
@@ -628,8 +581,6 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).StartProcessSilentlyAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostexepath), ::core::mem::transmute_copy(arguments), activator, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn StartProcessSilentlyWithTelemetryAsync<P0>(&self, hostexepath: &::windows_core::HSTRING, arguments: &::windows_core::HSTRING, activator: IsolatedWindowsEnvironmentActivator, telemetryparameters: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>
     where
         P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentTelemetryParameters>,
@@ -640,8 +591,6 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).StartProcessSilentlyWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostexepath), ::core::mem::transmute_copy(arguments), activator, telemetryparameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ShareFolderAsync<P0>(&self, hostfolder: &::windows_core::HSTRING, requestoptions: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>
     where
         P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentShareFolderRequestOptions>,
@@ -652,8 +601,6 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).ShareFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostfolder), requestoptions.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ShareFolderWithTelemetryAsync<P0, P1>(&self, hostfolder: &::windows_core::HSTRING, requestoptions: P0, telemetryparameters: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>
     where
         P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentShareFolderRequestOptions>,
@@ -665,8 +612,6 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).ShareFolderWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostfolder), requestoptions.into_param().abi(), telemetryparameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn LaunchFileWithUIAsync(&self, appexepath: &::windows_core::HSTRING, argumentstemplate: &::windows_core::HSTRING, filepath: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>> {
         let this = self;
         unsafe {
@@ -674,8 +619,6 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).LaunchFileWithUIAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appexepath), ::core::mem::transmute_copy(argumentstemplate), ::core::mem::transmute_copy(filepath), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn LaunchFileWithUIAndTelemetryAsync<P0>(&self, appexepath: &::windows_core::HSTRING, argumentstemplate: &::windows_core::HSTRING, filepath: &::windows_core::HSTRING, telemetryparameters: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>
     where
         P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentTelemetryParameters>,
@@ -686,8 +629,6 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).LaunchFileWithUIAndTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appexepath), ::core::mem::transmute_copy(argumentstemplate), ::core::mem::transmute_copy(filepath), telemetryparameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn TerminateAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -695,8 +636,6 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).TerminateAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn TerminateWithTelemetryAsync<P0>(&self, telemetryparameters: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentTelemetryParameters>,
@@ -752,8 +691,6 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).GetUserInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ShareFileAsync<P0>(&self, filepath: &::windows_core::HSTRING, options: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>
     where
         P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentShareFileRequestOptions>,
@@ -764,8 +701,6 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).ShareFileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ShareFileWithTelemetryAsync<P0, P1>(&self, filepath: &::windows_core::HSTRING, options: P0, telemetryparameters: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>
     where
         P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentShareFileRequestOptions>,
@@ -781,8 +716,6 @@ impl IsolatedWindowsEnvironment {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironment4>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).ChangePriority)(::windows_core::Interface::as_raw(this), priority).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateAsync<P0>(options: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>
     where
         P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentOptions>,
@@ -792,8 +725,6 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn CreateWithTelemetryAsync<P0, P1>(options: P0, telemetryparameters: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>
     where
         P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentOptions>,
@@ -1348,8 +1279,6 @@ impl IsolatedWindowsEnvironmentProcess {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).WaitForExitWithTimeout)(::windows_core::Interface::as_raw(this), timeoutmilliseconds).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn WaitForExitAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1621,8 +1550,6 @@ impl IsolatedWindowsEnvironmentUserInfo {
             (::windows_core::Interface::vtable(this).EnvironmentUserName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn TryWaitForSignInAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -1630,8 +1557,6 @@ impl IsolatedWindowsEnvironmentUserInfo {
             (::windows_core::Interface::vtable(this).TryWaitForSignInAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn TryWaitForSignInWithProgressAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, IsolatedWindowsEnvironmentSignInProgress>> {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentUserInfo2>(self)?;
         unsafe {

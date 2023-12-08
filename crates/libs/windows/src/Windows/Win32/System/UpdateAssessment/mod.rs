@@ -2,8 +2,6 @@
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWaaSAssessor(::windows_core::IUnknown);
 impl IWaaSAssessor {
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOSUpdateAssessment(&self) -> ::windows_core::Result<OSUpdateAssessment> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOSUpdateAssessment)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -20,10 +18,7 @@ unsafe impl ::windows_core::ComInterface for IWaaSAssessor {
 #[doc(hidden)]
 pub struct IWaaSAssessor_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetOSUpdateAssessment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result: *mut OSUpdateAssessment) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetOSUpdateAssessment: usize,
 }
 pub const UpdateAssessmentStatus_Latest: UpdateAssessmentStatus = UpdateAssessmentStatus(0i32);
 pub const UpdateAssessmentStatus_NotLatestDeferredFeature: UpdateAssessmentStatus = UpdateAssessmentStatus(5i32);
@@ -87,8 +82,6 @@ impl ::core::fmt::Debug for UpdateImpactLevel {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct OSUpdateAssessment {
     pub isEndOfSupport: super::super::Foundation::BOOL,
     pub assessmentForCurrent: UpdateAssessment,
@@ -101,15 +94,12 @@ pub struct OSUpdateAssessment {
     pub upToDateOSBuild: ::windows_core::PWSTR,
     pub upToDateOSReleaseTime: super::super::Foundation::FILETIME,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OSUpdateAssessment {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OSUpdateAssessment {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for OSUpdateAssessment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("OSUpdateAssessment")
@@ -126,19 +116,15 @@ impl ::core::fmt::Debug for OSUpdateAssessment {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for OSUpdateAssessment {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OSUpdateAssessment {
     fn eq(&self, other: &Self) -> bool {
         self.isEndOfSupport == other.isEndOfSupport && self.assessmentForCurrent == other.assessmentForCurrent && self.assessmentForUpToDate == other.assessmentForUpToDate && self.securityStatus == other.securityStatus && self.assessmentTime == other.assessmentTime && self.releaseInfoTime == other.releaseInfoTime && self.currentOSBuild == other.currentOSBuild && self.currentOSReleaseTime == other.currentOSReleaseTime && self.upToDateOSBuild == other.upToDateOSBuild && self.upToDateOSReleaseTime == other.upToDateOSReleaseTime
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OSUpdateAssessment {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OSUpdateAssessment {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

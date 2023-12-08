@@ -48,14 +48,10 @@ impl IDxcBlob_Vtbl {
         *iid == <IDxcBlob as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDxcBlobEncoding_Impl: Sized + IDxcBlob_Impl {
     fn GetEncoding(&self, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDxcBlobEncoding {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDxcBlobEncoding_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDxcBlobEncoding_Impl, const OFFSET: isize>() -> IDxcBlobEncoding_Vtbl {
         unsafe extern "system" fn GetEncoding<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDxcBlobEncoding_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows_core::HRESULT {
@@ -69,15 +65,11 @@ impl IDxcBlobEncoding_Vtbl {
         *iid == <IDxcBlobEncoding as ::windows_core::ComInterface>::IID || *iid == <IDxcBlob as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDxcBlobUtf16_Impl: Sized + IDxcBlobEncoding_Impl {
     fn GetStringPointer(&self) -> ::windows_core::PCWSTR;
     fn GetStringLength(&self) -> usize;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDxcBlobUtf16 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDxcBlobUtf16_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDxcBlobUtf16_Impl, const OFFSET: isize>() -> IDxcBlobUtf16_Vtbl {
         unsafe extern "system" fn GetStringPointer<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDxcBlobUtf16_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::PCWSTR {
@@ -100,15 +92,11 @@ impl IDxcBlobUtf16_Vtbl {
         *iid == <IDxcBlobUtf16 as ::windows_core::ComInterface>::IID || *iid == <IDxcBlob as ::windows_core::ComInterface>::IID || *iid == <IDxcBlobEncoding as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDxcBlobUtf8_Impl: Sized + IDxcBlobEncoding_Impl {
     fn GetStringPointer(&self) -> ::windows_core::PCSTR;
     fn GetStringLength(&self) -> usize;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDxcBlobUtf8 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDxcBlobUtf8_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDxcBlobUtf8_Impl, const OFFSET: isize>() -> IDxcBlobUtf8_Vtbl {
         unsafe extern "system" fn GetStringPointer<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDxcBlobUtf8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::PCSTR {
@@ -815,8 +803,6 @@ impl IDxcOptimizerPass_Vtbl {
         *iid == <IDxcOptimizerPass as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDxcPdbUtils_Impl: Sized {
     fn Load(&self, ppdbordxil: ::core::option::Option<&IDxcBlob>) -> ::windows_core::Result<()>;
     fn GetSourceCount(&self) -> ::windows_core::Result<u32>;
@@ -843,9 +829,7 @@ pub trait IDxcPdbUtils_Impl: Sized {
     fn OverrideArgs(&self, pargpairs: *const DxcArgPair, unumargpairs: u32) -> ::windows_core::Result<()>;
     fn OverrideRootSignature(&self, prootsignature: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDxcPdbUtils {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDxcPdbUtils_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>() -> IDxcPdbUtils_Vtbl {
         unsafe extern "system" fn Load<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdbordxil: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1108,8 +1092,6 @@ impl IDxcPdbUtils_Vtbl {
         *iid == <IDxcPdbUtils as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDxcResult_Impl: Sized + IDxcOperationResult_Impl {
     fn HasOutput(&self, dxcoutkind: DXC_OUT_KIND) -> super::super::super::Foundation::BOOL;
     fn GetOutput(&self, dxcoutkind: DXC_OUT_KIND, iid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void, ppoutputname: *mut ::core::option::Option<IDxcBlobUtf16>) -> ::windows_core::Result<()>;
@@ -1117,9 +1099,7 @@ pub trait IDxcResult_Impl: Sized + IDxcOperationResult_Impl {
     fn GetOutputByIndex(&self, index: u32) -> DXC_OUT_KIND;
     fn PrimaryOutput(&self) -> DXC_OUT_KIND;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDxcResult {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDxcResult_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDxcResult_Impl, const OFFSET: isize>() -> IDxcResult_Vtbl {
         unsafe extern "system" fn HasOutput<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDxcResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dxcoutkind: DXC_OUT_KIND) -> super::super::super::Foundation::BOOL {

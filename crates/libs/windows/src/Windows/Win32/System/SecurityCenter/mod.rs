@@ -14,8 +14,8 @@ pub unsafe fn WscQueryAntiMalwareUri() -> ::windows_core::Result<()> {
     ::windows_targets::link!("wscapi.dll" "system" fn WscQueryAntiMalwareUri() -> ::windows_core::HRESULT);
     WscQueryAntiMalwareUri().ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
+#[doc = "Required features: `\"Win32_System_Threading\"`"]
+#[cfg(feature = "Win32_System_Threading")]
 #[inline]
 pub unsafe fn WscRegisterForChanges(reserved: *mut ::core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
     ::windows_targets::link!("wscapi.dll" "system" fn WscRegisterForChanges(reserved : *mut ::core::ffi::c_void, phcallbackregistration : *mut super::super::Foundation:: HANDLE, lpcallbackaddress : super::Threading:: LPTHREAD_START_ROUTINE, pcontext : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
@@ -26,8 +26,6 @@ pub unsafe fn WscRegisterForUserNotifications() -> ::windows_core::Result<()> {
     ::windows_targets::link!("wscapi.dll" "system" fn WscRegisterForUserNotifications() -> ::windows_core::HRESULT);
     WscRegisterForUserNotifications().ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WscUnRegisterChanges<P0>(hregistrationhandle: P0) -> ::windows_core::Result<()>
 where
@@ -141,8 +139,6 @@ impl IWscProduct {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ProductGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductIsDefault(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ProductIsDefault)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -169,10 +165,7 @@ pub struct IWscProduct_Vtbl {
     pub RemediationPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub ProductStateTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub ProductGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub ProductIsDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    ProductIsDefault: usize,
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
@@ -205,8 +198,6 @@ impl IWscProduct2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ProductGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductIsDefault(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ProductIsDefault)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
@@ -289,8 +280,6 @@ impl IWscProduct3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ProductGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Foundation\"`"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductIsDefault(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ProductIsDefault)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)

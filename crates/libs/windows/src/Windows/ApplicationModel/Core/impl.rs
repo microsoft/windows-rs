@@ -1,14 +1,10 @@
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait ICoreApplicationUnhandledError_Impl: Sized {
     fn UnhandledErrorDetected(&self, handler: ::core::option::Option<&super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveUnhandledErrorDetected(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for ICoreApplicationUnhandledError {
     const NAME: &'static str = "Windows.ApplicationModel.Core.ICoreApplicationUnhandledError";
 }
-#[cfg(feature = "Foundation")]
 impl ICoreApplicationUnhandledError_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICoreApplicationUnhandledError_Impl, const OFFSET: isize>() -> ICoreApplicationUnhandledError_Vtbl {
         unsafe extern "system" fn UnhandledErrorDetected<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICoreApplicationUnhandledError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT {

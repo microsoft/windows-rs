@@ -1,14 +1,10 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IReferenceClock_Impl: Sized {
     fn GetTime(&self) -> ::windows_core::Result<i64>;
     fn AdviseTime(&self, basetime: i64, streamtime: i64, hevent: super::Foundation::HANDLE) -> ::windows_core::Result<usize>;
     fn AdvisePeriodic(&self, starttime: i64, periodtime: i64, hsemaphore: super::Foundation::HANDLE) -> ::windows_core::Result<usize>;
     fn Unadvise(&self, dwadvisecookie: usize) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IReferenceClock {}
-#[cfg(feature = "Win32_Foundation")]
 impl IReferenceClock_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IReferenceClock_Impl, const OFFSET: isize>() -> IReferenceClock_Vtbl {
         unsafe extern "system" fn GetTime<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IReferenceClock_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptime: *mut i64) -> ::windows_core::HRESULT {
@@ -61,12 +57,8 @@ impl IReferenceClock_Vtbl {
         *iid == <IReferenceClock as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IReferenceClock2_Impl: Sized + IReferenceClock_Impl {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IReferenceClock2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IReferenceClock2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IReferenceClock2_Impl, const OFFSET: isize>() -> IReferenceClock2_Vtbl {
         Self { base__: IReferenceClock_Vtbl::new::<Identity, Impl, OFFSET>() }

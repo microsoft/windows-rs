@@ -275,31 +275,31 @@ impl ::core::default::Default for CSTRING {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`"]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub struct EXCEPTION_REGISTRATION_RECORD {
     pub Next: *mut EXCEPTION_REGISTRATION_RECORD,
     pub Handler: EXCEPTION_ROUTINE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::marker::Copy for EXCEPTION_REGISTRATION_RECORD {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::clone::Clone for EXCEPTION_REGISTRATION_RECORD {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::fmt::Debug for EXCEPTION_REGISTRATION_RECORD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("EXCEPTION_REGISTRATION_RECORD").field("Next", &self.Next).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::windows_core::TypeKind for EXCEPTION_REGISTRATION_RECORD {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::default::Default for EXCEPTION_REGISTRATION_RECORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -486,8 +486,8 @@ impl ::core::default::Default for LIST_ENTRY64 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`"]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub struct NT_TIB {
     pub ExceptionList: *mut EXCEPTION_REGISTRATION_RECORD,
     pub StackBase: *mut ::core::ffi::c_void,
@@ -497,44 +497,44 @@ pub struct NT_TIB {
     pub ArbitraryUserPointer: *mut ::core::ffi::c_void,
     pub Self_: *mut NT_TIB,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::marker::Copy for NT_TIB {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::clone::Clone for NT_TIB {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::windows_core::TypeKind for NT_TIB {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::default::Default for NT_TIB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`"]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub union NT_TIB_0 {
     pub FiberData: *mut ::core::ffi::c_void,
     pub Version: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::marker::Copy for NT_TIB_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::clone::Clone for NT_TIB_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::windows_core::TypeKind for NT_TIB_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::default::Default for NT_TIB_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1197,6 +1197,6 @@ impl ::core::default::Default for WNF_STATE_NAME {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`"]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub type EXCEPTION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const ::core::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const ::core::ffi::c_void) -> EXCEPTION_DISPOSITION>;

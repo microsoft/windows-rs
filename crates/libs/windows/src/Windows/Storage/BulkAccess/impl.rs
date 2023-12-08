@@ -1,5 +1,5 @@
-#[doc = "Required features: `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`"]
-#[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+#[doc = "Required features: `\"Storage_FileProperties\"`, `\"Storage_Streams\"`"]
+#[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 pub trait IStorageItemInformation_Impl: Sized {
     fn MusicProperties(&self) -> ::windows_core::Result<super::FileProperties::MusicProperties>;
     fn VideoProperties(&self) -> ::windows_core::Result<super::FileProperties::VideoProperties>;
@@ -12,11 +12,11 @@ pub trait IStorageItemInformation_Impl: Sized {
     fn PropertiesUpdated(&self, changedhandler: ::core::option::Option<&super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows_core::IInspectable>>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemovePropertiesUpdated(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+#[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl ::windows_core::RuntimeName for IStorageItemInformation {
     const NAME: &'static str = "Windows.Storage.BulkAccess.IStorageItemInformation";
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+#[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl IStorageItemInformation_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageItemInformation_Impl, const OFFSET: isize>() -> IStorageItemInformation_Vtbl {
         unsafe extern "system" fn MusicProperties<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageItemInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

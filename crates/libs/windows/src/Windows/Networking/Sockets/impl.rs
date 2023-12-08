@@ -81,8 +81,8 @@ impl IControlChannelTriggerResetEventDetails_Vtbl {
         *iid == <IControlChannelTriggerResetEventDetails as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[doc = "Required features: `\"Storage_Streams\"`"]
+#[cfg(feature = "Storage_Streams")]
 pub trait IWebSocket_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn OutputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream>;
     fn ConnectAsync(&self, uri: ::core::option::Option<&super::super::Foundation::Uri>) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>;
@@ -91,11 +91,11 @@ pub trait IWebSocket_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn RemoveClosed(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()>;
     fn CloseWithStatus(&self, code: u16, reason: &::windows_core::HSTRING) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl ::windows_core::RuntimeName for IWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocket";
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl IWebSocket_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>() -> IWebSocket_Vtbl {
         unsafe extern "system" fn OutputStream<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

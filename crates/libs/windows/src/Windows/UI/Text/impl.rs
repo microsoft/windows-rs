@@ -522,8 +522,8 @@ impl ITextCharacterFormat_Vtbl {
         *iid == <ITextCharacterFormat as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[doc = "Required features: `\"Storage_Streams\"`"]
+#[cfg(feature = "Storage_Streams")]
 pub trait ITextDocument_Impl: Sized {
     fn CaretType(&self) -> ::windows_core::Result<CaretType>;
     fn SetCaretType(&self, value: CaretType) -> ::windows_core::Result<()>;
@@ -553,11 +553,11 @@ pub trait ITextDocument_Impl: Sized {
     fn SetText(&self, options: TextSetOptions, value: &::windows_core::HSTRING) -> ::windows_core::Result<()>;
     fn Undo(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl ::windows_core::RuntimeName for ITextDocument {
     const NAME: &'static str = "Windows.UI.Text.ITextDocument";
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl ITextDocument_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument_Impl, const OFFSET: isize>() -> ITextDocument_Vtbl {
         unsafe extern "system" fn CaretType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CaretType) -> ::windows_core::HRESULT {
@@ -1315,8 +1315,8 @@ impl ITextParagraphFormat_Vtbl {
         *iid == <ITextParagraphFormat as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[doc = "Required features: `\"Storage_Streams\"`"]
+#[cfg(feature = "Storage_Streams")]
 pub trait ITextRange_Impl: Sized {
     fn Character(&self) -> ::windows_core::Result<u16>;
     fn SetCharacter(&self, value: u16) -> ::windows_core::Result<()>;
@@ -1371,11 +1371,11 @@ pub trait ITextRange_Impl: Sized {
     fn SetTextViaStream(&self, options: TextSetOptions, value: ::core::option::Option<&super::super::Storage::Streams::IRandomAccessStream>) -> ::windows_core::Result<()>;
     fn StartOf(&self, unit: TextRangeUnit, extend: bool) -> ::windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl ::windows_core::RuntimeName for ITextRange {
     const NAME: &'static str = "Windows.UI.Text.ITextRange";
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl ITextRange_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>() -> ITextRange_Vtbl {
         unsafe extern "system" fn Character<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT {
@@ -1854,8 +1854,8 @@ impl ITextRange_Vtbl {
         *iid == <ITextRange as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[doc = "Required features: `\"Storage_Streams\"`"]
+#[cfg(feature = "Storage_Streams")]
 pub trait ITextSelection_Impl: Sized + ITextRange_Impl {
     fn Options(&self) -> ::windows_core::Result<SelectionOptions>;
     fn SetOptions(&self, value: SelectionOptions) -> ::windows_core::Result<()>;
@@ -1868,11 +1868,11 @@ pub trait ITextSelection_Impl: Sized + ITextRange_Impl {
     fn MoveUp(&self, unit: TextRangeUnit, count: i32, extend: bool) -> ::windows_core::Result<i32>;
     fn TypeText(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl ::windows_core::RuntimeName for ITextSelection {
     const NAME: &'static str = "Windows.UI.Text.ITextSelection";
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl ITextSelection_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextSelection_Impl, const OFFSET: isize>() -> ITextSelection_Vtbl {
         unsafe extern "system" fn Options<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextSelection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SelectionOptions) -> ::windows_core::HRESULT {

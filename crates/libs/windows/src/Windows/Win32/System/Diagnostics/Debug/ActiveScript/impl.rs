@@ -211,8 +211,8 @@ impl IActiveScript_Vtbl {
         *iid == <IActiveScript as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptAuthor_Impl: Sized {
     fn AddNamedItem(&self, pszname: &::windows_core::PCWSTR, dwflags: u32, pdisp: ::core::option::Option<&super::super::super::Com::IDispatch>) -> ::windows_core::Result<()>;
     fn AddScriptlet(&self, pszdefaultname: &::windows_core::PCWSTR, pszcode: &::windows_core::PCWSTR, pszitemname: &::windows_core::PCWSTR, pszsubitemname: &::windows_core::PCWSTR, pszeventname: &::windows_core::PCWSTR, pszdelimiter: &::windows_core::PCWSTR, dwcookie: u32, dwflags: u32) -> ::windows_core::Result<()>;
@@ -229,9 +229,9 @@ pub trait IActiveScriptAuthor_Impl: Sized {
     fn GetInfoFromContext(&self, pszcode: &::windows_core::PCWSTR, cchcode: u32, ichcurrentposition: u32, dwlisttypesrequested: u32, pdwlisttypesprovided: *mut u32, pichlistanchorposition: *mut u32, pichfuncanchorposition: *mut u32, pmemid: *mut i32, picurrentparameter: *mut i32, ppunk: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn IsCommitChar(&self, ch: u16) -> ::windows_core::Result<super::super::super::super::Foundation::BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IActiveScriptAuthor {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IActiveScriptAuthor_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptAuthor_Impl, const OFFSET: isize>() -> IActiveScriptAuthor_Vtbl {
         unsafe extern "system" fn AddNamedItem<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptAuthor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PCWSTR, dwflags: u32, pdisp: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -657,16 +657,16 @@ impl IActiveScriptHostEncode_Vtbl {
         *iid == <IActiveScriptHostEncode as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IActiveScriptParse32_Impl: Sized {
     fn InitNew(&self) -> ::windows_core::Result<()>;
     fn AddScriptlet(&self, pstrdefaultname: &::windows_core::PCWSTR, pstrcode: &::windows_core::PCWSTR, pstritemname: &::windows_core::PCWSTR, pstrsubitemname: &::windows_core::PCWSTR, pstreventname: &::windows_core::PCWSTR, pstrdelimiter: &::windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut ::windows_core::BSTR, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()>;
     fn ParseScriptText(&self, pstrcode: &::windows_core::PCWSTR, pstritemname: &::windows_core::PCWSTR, punkcontext: ::core::option::Option<&::windows_core::IUnknown>, pstrdelimiter: &::windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IActiveScriptParse32 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IActiveScriptParse32_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptParse32_Impl, const OFFSET: isize>() -> IActiveScriptParse32_Vtbl {
         unsafe extern "system" fn InitNew<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptParse32_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -696,16 +696,16 @@ impl IActiveScriptParse32_Vtbl {
         *iid == <IActiveScriptParse32 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IActiveScriptParse64_Impl: Sized {
     fn InitNew(&self) -> ::windows_core::Result<()>;
     fn AddScriptlet(&self, pstrdefaultname: &::windows_core::PCWSTR, pstrcode: &::windows_core::PCWSTR, pstritemname: &::windows_core::PCWSTR, pstrsubitemname: &::windows_core::PCWSTR, pstreventname: &::windows_core::PCWSTR, pstrdelimiter: &::windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut ::windows_core::BSTR, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()>;
     fn ParseScriptText(&self, pstrcode: &::windows_core::PCWSTR, pstritemname: &::windows_core::PCWSTR, punkcontext: ::core::option::Option<&::windows_core::IUnknown>, pstrdelimiter: &::windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IActiveScriptParse64 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IActiveScriptParse64_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptParse64_Impl, const OFFSET: isize>() -> IActiveScriptParse64_Vtbl {
         unsafe extern "system" fn InitNew<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptParse64_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1135,15 +1135,15 @@ impl IActiveScriptProfilerHeapEnum_Vtbl {
         *iid == <IActiveScriptProfilerHeapEnum as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IActiveScriptProperty_Impl: Sized {
     fn GetProperty(&self, dwproperty: u32, pvarindex: *const super::super::super::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Variant::VARIANT>;
     fn SetProperty(&self, dwproperty: u32, pvarindex: *const super::super::super::Variant::VARIANT, pvarvalue: *const super::super::super::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IActiveScriptProperty {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IActiveScriptProperty_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptProperty_Impl, const OFFSET: isize>() -> IActiveScriptProperty_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwproperty: u32, pvarindex: *const super::super::super::Variant::VARIANT, pvarvalue: *mut super::super::super::Variant::VARIANT) -> ::windows_core::HRESULT {
@@ -1195,8 +1195,8 @@ impl IActiveScriptSIPInfo_Vtbl {
         *iid == <IActiveScriptSIPInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IActiveScriptSite_Impl: Sized {
     fn GetLCID(&self) -> ::windows_core::Result<u32>;
     fn GetItemInfo(&self, pstrname: &::windows_core::PCWSTR, dwreturnmask: u32, ppiunkitem: *mut ::core::option::Option<::windows_core::IUnknown>, ppti: *mut ::core::option::Option<super::super::super::Com::ITypeInfo>) -> ::windows_core::Result<()>;
@@ -1207,9 +1207,9 @@ pub trait IActiveScriptSite_Impl: Sized {
     fn OnEnterScript(&self) -> ::windows_core::Result<()>;
     fn OnLeaveScript(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IActiveScriptSite {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IActiveScriptSite_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptSite_Impl, const OFFSET: isize>() -> IActiveScriptSite_Vtbl {
         unsafe extern "system" fn GetLCID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcid: *mut u32) -> ::windows_core::HRESULT {
@@ -1280,17 +1280,13 @@ impl IActiveScriptSite_Vtbl {
         *iid == <IActiveScriptSite as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IActiveScriptSiteDebug32_Impl: Sized {
     fn GetDocumentContextFromPosition(&self, dwsourcecontext: u32, ucharacteroffset: u32, unumchars: u32) -> ::windows_core::Result<IDebugDocumentContext>;
     fn GetApplication(&self) -> ::windows_core::Result<IDebugApplication32>;
     fn GetRootApplicationNode(&self) -> ::windows_core::Result<IDebugApplicationNode>;
     fn OnScriptErrorDebug(&self, perrordebug: ::core::option::Option<&IActiveScriptErrorDebug>, pfenterdebugger: *mut super::super::super::super::Foundation::BOOL, pfcallonscripterrorwhencontinuing: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IActiveScriptSiteDebug32 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IActiveScriptSiteDebug32_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptSiteDebug32_Impl, const OFFSET: isize>() -> IActiveScriptSiteDebug32_Vtbl {
         unsafe extern "system" fn GetDocumentContextFromPosition<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptSiteDebug32_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsourcecontext: u32, ucharacteroffset: u32, unumchars: u32, ppsc: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1343,17 +1339,13 @@ impl IActiveScriptSiteDebug32_Vtbl {
         *iid == <IActiveScriptSiteDebug32 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IActiveScriptSiteDebug64_Impl: Sized {
     fn GetDocumentContextFromPosition(&self, dwsourcecontext: u64, ucharacteroffset: u32, unumchars: u32) -> ::windows_core::Result<IDebugDocumentContext>;
     fn GetApplication(&self) -> ::windows_core::Result<IDebugApplication64>;
     fn GetRootApplicationNode(&self) -> ::windows_core::Result<IDebugApplicationNode>;
     fn OnScriptErrorDebug(&self, perrordebug: ::core::option::Option<&IActiveScriptErrorDebug>, pfenterdebugger: *mut super::super::super::super::Foundation::BOOL, pfcallonscripterrorwhencontinuing: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IActiveScriptSiteDebug64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IActiveScriptSiteDebug64_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptSiteDebug64_Impl, const OFFSET: isize>() -> IActiveScriptSiteDebug64_Vtbl {
         unsafe extern "system" fn GetDocumentContextFromPosition<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptSiteDebug64_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsourcecontext: u64, ucharacteroffset: u32, unumchars: u32, ppsc: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1406,14 +1398,10 @@ impl IActiveScriptSiteDebug64_Vtbl {
         *iid == <IActiveScriptSiteDebug64 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IActiveScriptSiteDebugEx_Impl: Sized {
     fn OnCanNotJITScriptErrorDebug(&self, perrordebug: ::core::option::Option<&IActiveScriptErrorDebug>) -> ::windows_core::Result<super::super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IActiveScriptSiteDebugEx {}
-#[cfg(feature = "Win32_Foundation")]
 impl IActiveScriptSiteDebugEx_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptSiteDebugEx_Impl, const OFFSET: isize>() -> IActiveScriptSiteDebugEx_Vtbl {
         unsafe extern "system" fn OnCanNotJITScriptErrorDebug<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptSiteDebugEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, perrordebug: *mut ::core::ffi::c_void, pfcallonscripterrorwhencontinuing: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -1493,15 +1481,11 @@ impl IActiveScriptSiteUIControl_Vtbl {
         *iid == <IActiveScriptSiteUIControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IActiveScriptSiteWindow_Impl: Sized {
     fn GetWindow(&self) -> ::windows_core::Result<super::super::super::super::Foundation::HWND>;
     fn EnableModeless(&self, fenable: super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IActiveScriptSiteWindow {}
-#[cfg(feature = "Win32_Foundation")]
 impl IActiveScriptSiteWindow_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptSiteWindow_Impl, const OFFSET: isize>() -> IActiveScriptSiteWindow_Vtbl {
         unsafe extern "system" fn GetWindow<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptSiteWindow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::super::super::Foundation::HWND) -> ::windows_core::HRESULT {
@@ -1779,16 +1763,12 @@ impl IBindEventHandler_Vtbl {
         *iid == <IBindEventHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDebugApplication11032_Impl: Sized + IRemoteDebugApplication110_Impl {
     fn SynchronousCallInMainThread(&self, pptc: ::core::option::Option<&IDebugThreadCall32>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> ::windows_core::Result<()>;
     fn AsynchronousCallInMainThread(&self, pptc: ::core::option::Option<&IDebugThreadCall32>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> ::windows_core::Result<()>;
     fn CallableWaitForHandles(&self, handlecount: u32, phandles: *const super::super::super::super::Foundation::HANDLE) -> ::windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDebugApplication11032 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDebugApplication11032_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplication11032_Impl, const OFFSET: isize>() -> IDebugApplication11032_Vtbl {
         unsafe extern "system" fn SynchronousCallInMainThread<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplication11032_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptc: *mut ::core::ffi::c_void, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> ::windows_core::HRESULT {
@@ -1823,16 +1803,12 @@ impl IDebugApplication11032_Vtbl {
         *iid == <IDebugApplication11032 as ::windows_core::ComInterface>::IID || *iid == <IRemoteDebugApplication110 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDebugApplication11064_Impl: Sized + IRemoteDebugApplication110_Impl {
     fn SynchronousCallInMainThread(&self, pptc: ::core::option::Option<&IDebugThreadCall64>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> ::windows_core::Result<()>;
     fn AsynchronousCallInMainThread(&self, pptc: ::core::option::Option<&IDebugThreadCall64>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> ::windows_core::Result<()>;
     fn CallableWaitForHandles(&self, handlecount: u32, phandles: *const super::super::super::super::Foundation::HANDLE) -> ::windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDebugApplication11064 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDebugApplication11064_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplication11064_Impl, const OFFSET: isize>() -> IDebugApplication11064_Vtbl {
         unsafe extern "system" fn SynchronousCallInMainThread<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplication11064_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptc: *mut ::core::ffi::c_void, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> ::windows_core::HRESULT {
@@ -1867,8 +1843,6 @@ impl IDebugApplication11064_Vtbl {
         *iid == <IDebugApplication11064 as ::windows_core::ComInterface>::IID || *iid == <IRemoteDebugApplication110 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDebugApplication32_Impl: Sized + IRemoteDebugApplication_Impl {
     fn SetName(&self, pstrname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn StepOutComplete(&self) -> ::windows_core::Result<()>;
@@ -1891,9 +1865,7 @@ pub trait IDebugApplication32_Impl: Sized + IRemoteDebugApplication_Impl {
     fn AddGlobalExpressionContextProvider(&self, pdsfs: ::core::option::Option<&IProvideExpressionContexts>) -> ::windows_core::Result<u32>;
     fn RemoveGlobalExpressionContextProvider(&self, dwcookie: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDebugApplication32 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDebugApplication32_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplication32_Impl, const OFFSET: isize>() -> IDebugApplication32_Vtbl {
         unsafe extern "system" fn SetName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplication32_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstrname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT {
@@ -2060,8 +2032,6 @@ impl IDebugApplication32_Vtbl {
         *iid == <IDebugApplication32 as ::windows_core::ComInterface>::IID || *iid == <IRemoteDebugApplication as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDebugApplication64_Impl: Sized + IRemoteDebugApplication_Impl {
     fn SetName(&self, pstrname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn StepOutComplete(&self) -> ::windows_core::Result<()>;
@@ -2084,9 +2054,7 @@ pub trait IDebugApplication64_Impl: Sized + IRemoteDebugApplication_Impl {
     fn AddGlobalExpressionContextProvider(&self, pdsfs: ::core::option::Option<&IProvideExpressionContexts>) -> ::windows_core::Result<u64>;
     fn RemoveGlobalExpressionContextProvider(&self, dwcookie: u64) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDebugApplication64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDebugApplication64_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplication64_Impl, const OFFSET: isize>() -> IDebugApplication64_Vtbl {
         unsafe extern "system" fn SetName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplication64_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstrname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT {
@@ -2449,17 +2417,13 @@ impl IDebugApplicationThread_Vtbl {
         *iid == <IDebugApplicationThread as ::windows_core::ComInterface>::IID || *iid == <IRemoteDebugApplicationThread as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDebugApplicationThread11032_Impl: Sized {
     fn GetActiveThreadRequestCount(&self) -> ::windows_core::Result<u32>;
     fn IsSuspendedForBreakPoint(&self) -> ::windows_core::Result<super::super::super::super::Foundation::BOOL>;
     fn IsThreadCallable(&self) -> ::windows_core::Result<super::super::super::super::Foundation::BOOL>;
     fn AsynchronousCallIntoThread(&self, pptc: ::core::option::Option<&IDebugThreadCall32>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDebugApplicationThread11032 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDebugApplicationThread11032_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplicationThread11032_Impl, const OFFSET: isize>() -> IDebugApplicationThread11032_Vtbl {
         unsafe extern "system" fn GetActiveThreadRequestCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplicationThread11032_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puithreadrequests: *mut u32) -> ::windows_core::HRESULT {
@@ -2512,17 +2476,13 @@ impl IDebugApplicationThread11032_Vtbl {
         *iid == <IDebugApplicationThread11032 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDebugApplicationThread11064_Impl: Sized {
     fn GetActiveThreadRequestCount(&self) -> ::windows_core::Result<u32>;
     fn IsSuspendedForBreakPoint(&self) -> ::windows_core::Result<super::super::super::super::Foundation::BOOL>;
     fn IsThreadCallable(&self) -> ::windows_core::Result<super::super::super::super::Foundation::BOOL>;
     fn AsynchronousCallIntoThread(&self, pptc: ::core::option::Option<&IDebugThreadCall64>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDebugApplicationThread11064 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDebugApplicationThread11064_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplicationThread11064_Impl, const OFFSET: isize>() -> IDebugApplicationThread11064_Vtbl {
         unsafe extern "system" fn GetActiveThreadRequestCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplicationThread11064_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puithreadrequests: *mut u32) -> ::windows_core::HRESULT {
@@ -2806,8 +2766,6 @@ impl IDebugDocumentContext_Vtbl {
         *iid == <IDebugDocumentContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDebugDocumentHelper32_Impl: Sized {
     fn Init(&self, pda: ::core::option::Option<&IDebugApplication32>, pszshortname: &::windows_core::PCWSTR, pszlongname: &::windows_core::PCWSTR, docattr: u32) -> ::windows_core::Result<()>;
     fn Attach(&self, pddhparent: ::core::option::Option<&IDebugDocumentHelper32>) -> ::windows_core::Result<()>;
@@ -2828,9 +2786,7 @@ pub trait IDebugDocumentHelper32_Impl: Sized {
     fn BringDocumentToTop(&self) -> ::windows_core::Result<()>;
     fn BringDocumentContextToTop(&self, pddc: ::core::option::Option<&IDebugDocumentContext>) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDebugDocumentHelper32 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDebugDocumentHelper32_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugDocumentHelper32_Impl, const OFFSET: isize>() -> IDebugDocumentHelper32_Vtbl {
         unsafe extern "system" fn Init<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugDocumentHelper32_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pda: *mut ::core::ffi::c_void, pszshortname: ::windows_core::PCWSTR, pszlongname: ::windows_core::PCWSTR, docattr: u32) -> ::windows_core::HRESULT {
@@ -2967,8 +2923,6 @@ impl IDebugDocumentHelper32_Vtbl {
         *iid == <IDebugDocumentHelper32 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDebugDocumentHelper64_Impl: Sized {
     fn Init(&self, pda: ::core::option::Option<&IDebugApplication64>, pszshortname: &::windows_core::PCWSTR, pszlongname: &::windows_core::PCWSTR, docattr: u32) -> ::windows_core::Result<()>;
     fn Attach(&self, pddhparent: ::core::option::Option<&IDebugDocumentHelper64>) -> ::windows_core::Result<()>;
@@ -2989,9 +2943,7 @@ pub trait IDebugDocumentHelper64_Impl: Sized {
     fn BringDocumentToTop(&self) -> ::windows_core::Result<()>;
     fn BringDocumentContextToTop(&self, pddc: ::core::option::Option<&IDebugDocumentContext>) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDebugDocumentHelper64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDebugDocumentHelper64_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugDocumentHelper64_Impl, const OFFSET: isize>() -> IDebugDocumentHelper64_Vtbl {
         unsafe extern "system" fn Init<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugDocumentHelper64_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pda: *mut ::core::ffi::c_void, pszshortname: ::windows_core::PCWSTR, pszlongname: ::windows_core::PCWSTR, docattr: u32) -> ::windows_core::HRESULT {
@@ -3128,8 +3080,6 @@ impl IDebugDocumentHelper64_Vtbl {
         *iid == <IDebugDocumentHelper64 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDebugDocumentHost_Impl: Sized {
     fn GetDeferredText(&self, dwtextstartcookie: u32, pchartext: &::windows_core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> ::windows_core::Result<()>;
     fn GetScriptTextAttributes(&self, pstrcode: &::windows_core::PCWSTR, unumcodechars: u32, pstrdelimiter: &::windows_core::PCWSTR, dwflags: u32, pattr: *mut u16) -> ::windows_core::Result<()>;
@@ -3138,9 +3088,7 @@ pub trait IDebugDocumentHost_Impl: Sized {
     fn GetFileName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn NotifyChanged(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDebugDocumentHost {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDebugDocumentHost_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugDocumentHost_Impl, const OFFSET: isize>() -> IDebugDocumentHost_Vtbl {
         unsafe extern "system" fn GetDeferredText<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugDocumentHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwtextstartcookie: u32, pchartext: ::windows_core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> ::windows_core::HRESULT {
@@ -3430,16 +3378,12 @@ impl IDebugDocumentTextEvents_Vtbl {
         *iid == <IDebugDocumentTextEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDebugDocumentTextExternalAuthor_Impl: Sized {
     fn GetPathName(&self, pbstrlongname: *mut ::windows_core::BSTR, pfisoriginalfile: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn GetFileName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn NotifyChanged(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDebugDocumentTextExternalAuthor {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDebugDocumentTextExternalAuthor_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugDocumentTextExternalAuthor_Impl, const OFFSET: isize>() -> IDebugDocumentTextExternalAuthor_Vtbl {
         unsafe extern "system" fn GetPathName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugDocumentTextExternalAuthor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlongname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pfisoriginalfile: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -3572,16 +3516,16 @@ impl IDebugExpressionContext_Vtbl {
         *iid == <IDebugExpressionContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugFormatter_Impl: Sized {
     fn GetStringForVariant(&self, pvar: *const super::super::super::Variant::VARIANT, nradix: u32) -> ::windows_core::Result<::windows_core::BSTR>;
     fn GetVariantForString(&self, pwstrvalue: &::windows_core::PCWSTR) -> ::windows_core::Result<super::super::super::Variant::VARIANT>;
     fn GetStringForVarType(&self, vt: super::super::super::Variant::VARENUM, ptdescarraytype: *const super::super::super::Com::TYPEDESC) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDebugFormatter {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDebugFormatter_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFormatter_Impl, const OFFSET: isize>() -> IDebugFormatter_Vtbl {
         unsafe extern "system" fn GetStringForVariant<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugFormatter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::Variant::VARIANT, nradix: u32, pbstrvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -3628,16 +3572,16 @@ impl IDebugFormatter_Vtbl {
         *iid == <IDebugFormatter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugHelper_Impl: Sized {
     fn CreatePropertyBrowser(&self, pvar: *const super::super::super::Variant::VARIANT, bstrname: &::windows_core::PCWSTR, pdat: ::core::option::Option<&IDebugApplicationThread>) -> ::windows_core::Result<super::IDebugProperty>;
     fn CreatePropertyBrowserEx(&self, pvar: *const super::super::super::Variant::VARIANT, bstrname: &::windows_core::PCWSTR, pdat: ::core::option::Option<&IDebugApplicationThread>, pdf: ::core::option::Option<&IDebugFormatter>) -> ::windows_core::Result<super::IDebugProperty>;
     fn CreateSimpleConnectionPoint(&self, pdisp: ::core::option::Option<&super::super::super::Com::IDispatch>) -> ::windows_core::Result<ISimpleConnectionPoint>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDebugHelper {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDebugHelper_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugHelper_Impl, const OFFSET: isize>() -> IDebugHelper_Vtbl {
         unsafe extern "system" fn CreatePropertyBrowser<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::Variant::VARIANT, bstrname: ::windows_core::PCWSTR, pdat: *mut ::core::ffi::c_void, ppdob: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3701,8 +3645,6 @@ impl IDebugSessionProvider_Vtbl {
         *iid == <IDebugSessionProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDebugStackFrame_Impl: Sized {
     fn GetCodeContext(&self) -> ::windows_core::Result<IDebugCodeContext>;
     fn GetDescriptionString(&self, flong: super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -3710,9 +3652,7 @@ pub trait IDebugStackFrame_Impl: Sized {
     fn GetThread(&self) -> ::windows_core::Result<IDebugApplicationThread>;
     fn GetDebugProperty(&self) -> ::windows_core::Result<super::IDebugProperty>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDebugStackFrame {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDebugStackFrame_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugStackFrame_Impl, const OFFSET: isize>() -> IDebugStackFrame_Vtbl {
         unsafe extern "system" fn GetCodeContext<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugStackFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcc: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3783,15 +3723,11 @@ impl IDebugStackFrame_Vtbl {
         *iid == <IDebugStackFrame as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDebugStackFrame110_Impl: Sized + IDebugStackFrame_Impl {
     fn GetStackFrameType(&self) -> ::windows_core::Result<DEBUG_STACKFRAME_TYPE>;
     fn GetScriptInvocationContext(&self) -> ::windows_core::Result<IScriptInvocationContext>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDebugStackFrame110 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDebugStackFrame110_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugStackFrame110_Impl, const OFFSET: isize>() -> IDebugStackFrame110_Vtbl {
         unsafe extern "system" fn GetStackFrameType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugStackFrame110_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstackframekind: *mut DEBUG_STACKFRAME_TYPE) -> ::windows_core::HRESULT {
@@ -4116,17 +4052,13 @@ impl IEnumDebugExpressionContexts_Vtbl {
         *iid == <IEnumDebugExpressionContexts as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IEnumDebugStackFrames_Impl: Sized {
     fn Next(&self, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows_core::Result<()>;
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IEnumDebugStackFrames>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IEnumDebugStackFrames {}
-#[cfg(feature = "Win32_Foundation")]
 impl IEnumDebugStackFrames_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumDebugStackFrames_Impl, const OFFSET: isize>() -> IEnumDebugStackFrames_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumDebugStackFrames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor, pceltfetched: *mut u32) -> ::windows_core::HRESULT {
@@ -4167,14 +4099,10 @@ impl IEnumDebugStackFrames_Vtbl {
         *iid == <IEnumDebugStackFrames as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IEnumDebugStackFrames64_Impl: Sized + IEnumDebugStackFrames_Impl {
     fn Next64(&self, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor64, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IEnumDebugStackFrames64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IEnumDebugStackFrames64_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumDebugStackFrames64_Impl, const OFFSET: isize>() -> IEnumDebugStackFrames64_Vtbl {
         unsafe extern "system" fn Next64<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumDebugStackFrames64_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor64, pceltfetched: *mut u32) -> ::windows_core::HRESULT {
@@ -4328,8 +4256,6 @@ impl IJsDebug_Vtbl {
         *iid == <IJsDebug as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IJsDebugBreakPoint_Impl: Sized {
     fn IsEnabled(&self) -> ::windows_core::Result<super::super::super::super::Foundation::BOOL>;
     fn Enable(&self) -> ::windows_core::Result<()>;
@@ -4337,9 +4263,7 @@ pub trait IJsDebugBreakPoint_Impl: Sized {
     fn Delete(&self) -> ::windows_core::Result<()>;
     fn GetDocumentPosition(&self, pdocumentid: *mut u64, pcharacteroffset: *mut u32, pstatementcharcount: *mut u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IJsDebugBreakPoint {}
-#[cfg(feature = "Win32_Foundation")]
 impl IJsDebugBreakPoint_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IJsDebugBreakPoint_Impl, const OFFSET: isize>() -> IJsDebugBreakPoint_Vtbl {
         unsafe extern "system" fn IsEnabled<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IJsDebugBreakPoint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisenabled: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -4572,17 +4496,13 @@ impl IJsDebugFrame_Vtbl {
         *iid == <IJsDebugFrame as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IJsDebugProcess_Impl: Sized {
     fn CreateStackWalker(&self, threadid: u32) -> ::windows_core::Result<IJsDebugStackWalker>;
     fn CreateBreakPoint(&self, documentid: u64, characteroffset: u32, charactercount: u32, isenabled: super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<IJsDebugBreakPoint>;
     fn PerformAsyncBreak(&self, threadid: u32) -> ::windows_core::Result<()>;
     fn GetExternalStepAddress(&self) -> ::windows_core::Result<u64>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IJsDebugProcess {}
-#[cfg(feature = "Win32_Foundation")]
 impl IJsDebugProcess_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IJsDebugProcess_Impl, const OFFSET: isize>() -> IJsDebugProcess_Vtbl {
         unsafe extern "system" fn CreateStackWalker<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IJsDebugProcess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, threadid: u32, ppstackwalker: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -5856,14 +5776,14 @@ impl ISimpleConnectionPoint_Vtbl {
         *iid == <ISimpleConnectionPoint as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITridentEventSink_Impl: Sized {
     fn FireEvent(&self, pstrevent: &::windows_core::PCWSTR, pdp: *const super::super::super::Com::DISPPARAMS, pvarres: *mut super::super::super::Variant::VARIANT, pei: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITridentEventSink {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITridentEventSink_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITridentEventSink_Impl, const OFFSET: isize>() -> ITridentEventSink_Vtbl {
         unsafe extern "system" fn FireEvent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITridentEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstrevent: ::windows_core::PCWSTR, pdp: *const super::super::super::Com::DISPPARAMS, pvarres: *mut super::super::super::Variant::VARIANT, pei: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::HRESULT {
@@ -5877,14 +5797,10 @@ impl ITridentEventSink_Vtbl {
         *iid == <ITridentEventSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWebAppDiagnosticsObjectInitialization_Impl: Sized {
     fn Initialize(&self, hpassedhandle: super::super::super::super::Foundation::HANDLE_PTR, pdebugapplication: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IWebAppDiagnosticsObjectInitialization {}
-#[cfg(feature = "Win32_Foundation")]
 impl IWebAppDiagnosticsObjectInitialization_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebAppDiagnosticsObjectInitialization_Impl, const OFFSET: isize>() -> IWebAppDiagnosticsObjectInitialization_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebAppDiagnosticsObjectInitialization_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hpassedhandle: super::super::super::super::Foundation::HANDLE_PTR, pdebugapplication: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -5898,15 +5814,11 @@ impl IWebAppDiagnosticsObjectInitialization_Vtbl {
         *iid == <IWebAppDiagnosticsObjectInitialization as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWebAppDiagnosticsSetup_Impl: Sized {
     fn DiagnosticsSupported(&self) -> ::windows_core::Result<super::super::super::super::Foundation::VARIANT_BOOL>;
     fn CreateObjectWithSiteAtWebApp(&self, rclsid: *const ::windows_core::GUID, dwclscontext: u32, riid: *const ::windows_core::GUID, hpasstoobject: usize) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IWebAppDiagnosticsSetup {}
-#[cfg(feature = "Win32_Foundation")]
 impl IWebAppDiagnosticsSetup_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebAppDiagnosticsSetup_Impl, const OFFSET: isize>() -> IWebAppDiagnosticsSetup_Vtbl {
         unsafe extern "system" fn DiagnosticsSupported<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebAppDiagnosticsSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {

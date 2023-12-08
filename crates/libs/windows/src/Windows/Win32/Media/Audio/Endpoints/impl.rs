@@ -15,15 +15,15 @@ impl IAudioEndpointFormatControl_Vtbl {
         *iid == <IAudioEndpointFormatControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_Audio_Apo\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_Apo"))]
+#[doc = "Required features: `\"Win32_Media_Audio_Apo\"`"]
+#[cfg(feature = "Win32_Media_Audio_Apo")]
 pub trait IAudioEndpointLastBufferControl_Impl: Sized {
     fn IsLastBufferControlSupported(&self) -> super::super::super::Foundation::BOOL;
     fn ReleaseOutputDataPointerForLastBuffer(&self, pconnectionproperty: *const super::Apo::APO_CONNECTION_PROPERTY);
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_Apo"))]
+#[cfg(feature = "Win32_Media_Audio_Apo")]
 impl ::windows_core::RuntimeName for IAudioEndpointLastBufferControl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_Apo"))]
+#[cfg(feature = "Win32_Media_Audio_Apo")]
 impl IAudioEndpointLastBufferControl_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioEndpointLastBufferControl_Impl, const OFFSET: isize>() -> IAudioEndpointLastBufferControl_Vtbl {
         unsafe extern "system" fn IsLastBufferControlSupported<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioEndpointLastBufferControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -168,8 +168,6 @@ impl IAudioEndpointOffloadStreamVolume_Vtbl {
         *iid == <IAudioEndpointOffloadStreamVolume as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAudioEndpointVolume_Impl: Sized {
     fn RegisterControlChangeNotify(&self, pnotify: ::core::option::Option<&IAudioEndpointVolumeCallback>) -> ::windows_core::Result<()>;
     fn UnregisterControlChangeNotify(&self, pnotify: ::core::option::Option<&IAudioEndpointVolumeCallback>) -> ::windows_core::Result<()>;
@@ -190,9 +188,7 @@ pub trait IAudioEndpointVolume_Impl: Sized {
     fn QueryHardwareSupport(&self) -> ::windows_core::Result<u32>;
     fn GetVolumeRange(&self, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAudioEndpointVolume {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAudioEndpointVolume_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>() -> IAudioEndpointVolume_Vtbl {
         unsafe extern "system" fn RegisterControlChangeNotify<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnotify: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -353,14 +349,10 @@ impl IAudioEndpointVolume_Vtbl {
         *iid == <IAudioEndpointVolume as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAudioEndpointVolumeCallback_Impl: Sized {
     fn OnNotify(&self, pnotify: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAudioEndpointVolumeCallback {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAudioEndpointVolumeCallback_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioEndpointVolumeCallback_Impl, const OFFSET: isize>() -> IAudioEndpointVolumeCallback_Vtbl {
         unsafe extern "system" fn OnNotify<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioEndpointVolumeCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnotify: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA) -> ::windows_core::HRESULT {
@@ -374,14 +366,10 @@ impl IAudioEndpointVolumeCallback_Vtbl {
         *iid == <IAudioEndpointVolumeCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAudioEndpointVolumeEx_Impl: Sized + IAudioEndpointVolume_Impl {
     fn GetVolumeRangeChannel(&self, ichannel: u32, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAudioEndpointVolumeEx {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAudioEndpointVolumeEx_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioEndpointVolumeEx_Impl, const OFFSET: isize>() -> IAudioEndpointVolumeEx_Vtbl {
         unsafe extern "system" fn GetVolumeRangeChannel<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioEndpointVolumeEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ichannel: u32, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows_core::HRESULT {
@@ -395,15 +383,11 @@ impl IAudioEndpointVolumeEx_Vtbl {
         *iid == <IAudioEndpointVolumeEx as ::windows_core::ComInterface>::IID || *iid == <IAudioEndpointVolume as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAudioLfxControl_Impl: Sized {
     fn SetLocalEffectsState(&self, benabled: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn GetLocalEffectsState(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IAudioLfxControl {}
-#[cfg(feature = "Win32_Foundation")]
 impl IAudioLfxControl_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioLfxControl_Impl, const OFFSET: isize>() -> IAudioLfxControl_Vtbl {
         unsafe extern "system" fn SetLocalEffectsState<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioLfxControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, benabled: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -491,8 +475,6 @@ impl IAudioMeterInformation_Vtbl {
         *iid == <IAudioMeterInformation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IHardwareAudioEngineBase_Impl: Sized {
     fn GetAvailableOffloadConnectorCount(&self, _pwstrdeviceid: &::windows_core::PCWSTR, _uconnectorid: u32) -> ::windows_core::Result<u32>;
     fn GetEngineFormat(&self, pdevice: ::core::option::Option<&super::IMMDevice>, _brequestdeviceformat: super::super::super::Foundation::BOOL, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> ::windows_core::Result<()>;
@@ -500,9 +482,7 @@ pub trait IHardwareAudioEngineBase_Impl: Sized {
     fn SetGfxState(&self, pdevice: ::core::option::Option<&super::IMMDevice>, _benable: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn GetGfxState(&self, pdevice: ::core::option::Option<&super::IMMDevice>) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IHardwareAudioEngineBase {}
-#[cfg(feature = "Win32_Foundation")]
 impl IHardwareAudioEngineBase_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IHardwareAudioEngineBase_Impl, const OFFSET: isize>() -> IHardwareAudioEngineBase_Vtbl {
         unsafe extern "system" fn GetAvailableOffloadConnectorCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IHardwareAudioEngineBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, _pwstrdeviceid: ::windows_core::PCWSTR, _uconnectorid: u32, _pavailableconnectorinstancecount: *mut u32) -> ::windows_core::HRESULT {

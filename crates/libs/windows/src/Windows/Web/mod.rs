@@ -14,8 +14,8 @@ pub mod UI;
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUriToStreamResolver(::windows_core::IUnknown);
 impl IUriToStreamResolver {
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    #[cfg(feature = "Storage_Streams")]
     pub fn UriToStreamAsync<P0>(&self, uri: P0) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>
     where
         P0: ::windows_core::IntoParam<super::Foundation::Uri>,
@@ -41,9 +41,9 @@ unsafe impl ::windows_core::ComInterface for IUriToStreamResolver {
 #[doc(hidden)]
 pub struct IUriToStreamResolver_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub UriToStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     UriToStreamAsync: usize,
 }
 #[doc(hidden)]

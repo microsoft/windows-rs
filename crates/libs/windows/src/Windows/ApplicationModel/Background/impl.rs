@@ -29,8 +29,6 @@ impl IBackgroundTask_Vtbl {
         *iid == <IBackgroundTask as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskInstance_Impl: Sized {
     fn InstanceId(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn Task(&self) -> ::windows_core::Result<BackgroundTaskRegistration>;
@@ -42,11 +40,9 @@ pub trait IBackgroundTaskInstance_Impl: Sized {
     fn SuspendedCount(&self) -> ::windows_core::Result<u32>;
     fn GetDeferral(&self) -> ::windows_core::Result<BackgroundTaskDeferral>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IBackgroundTaskInstance {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskInstance";
 }
-#[cfg(feature = "Foundation")]
 impl IBackgroundTaskInstance_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTaskInstance_Impl, const OFFSET: isize>() -> IBackgroundTaskInstance_Vtbl {
         unsafe extern "system" fn InstanceId<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT {
@@ -156,16 +152,12 @@ impl IBackgroundTaskInstance_Vtbl {
         *iid == <IBackgroundTaskInstance as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskInstance2_Impl: Sized + IBackgroundTaskInstance_Impl {
     fn GetThrottleCount(&self, counter: BackgroundTaskThrottleCounter) -> ::windows_core::Result<u32>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IBackgroundTaskInstance2 {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskInstance2";
 }
-#[cfg(feature = "Foundation")]
 impl IBackgroundTaskInstance2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTaskInstance2_Impl, const OFFSET: isize>() -> IBackgroundTaskInstance2_Vtbl {
         unsafe extern "system" fn GetThrottleCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTaskInstance2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, counter: BackgroundTaskThrottleCounter, result__: *mut u32) -> ::windows_core::HRESULT {
@@ -188,16 +180,16 @@ impl IBackgroundTaskInstance2_Vtbl {
         *iid == <IBackgroundTaskInstance2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`, `\"System\"`"]
-#[cfg(all(feature = "Foundation", feature = "System"))]
+#[doc = "Required features: `\"System\"`"]
+#[cfg(feature = "System")]
 pub trait IBackgroundTaskInstance4_Impl: Sized + IBackgroundTaskInstance_Impl {
     fn User(&self) -> ::windows_core::Result<super::super::System::User>;
 }
-#[cfg(all(feature = "Foundation", feature = "System"))]
+#[cfg(feature = "System")]
 impl ::windows_core::RuntimeName for IBackgroundTaskInstance4 {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskInstance4";
 }
-#[cfg(all(feature = "Foundation", feature = "System"))]
+#[cfg(feature = "System")]
 impl IBackgroundTaskInstance4_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTaskInstance4_Impl, const OFFSET: isize>() -> IBackgroundTaskInstance4_Vtbl {
         unsafe extern "system" fn User<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTaskInstance4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -218,8 +210,6 @@ impl IBackgroundTaskInstance4_Vtbl {
         *iid == <IBackgroundTaskInstance4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskRegistration_Impl: Sized {
     fn TaskId(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -229,11 +219,9 @@ pub trait IBackgroundTaskRegistration_Impl: Sized {
     fn RemoveCompleted(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()>;
     fn Unregister(&self, canceltask: bool) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IBackgroundTaskRegistration {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskRegistration";
 }
-#[cfg(feature = "Foundation")]
 impl IBackgroundTaskRegistration_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTaskRegistration_Impl, const OFFSET: isize>() -> IBackgroundTaskRegistration_Vtbl {
         unsafe extern "system" fn TaskId<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTaskRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT {
@@ -311,16 +299,12 @@ impl IBackgroundTaskRegistration_Vtbl {
         *iid == <IBackgroundTaskRegistration as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskRegistration2_Impl: Sized + IBackgroundTaskRegistration_Impl {
     fn Trigger(&self) -> ::windows_core::Result<IBackgroundTrigger>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IBackgroundTaskRegistration2 {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskRegistration2";
 }
-#[cfg(feature = "Foundation")]
 impl IBackgroundTaskRegistration2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTaskRegistration2_Impl, const OFFSET: isize>() -> IBackgroundTaskRegistration2_Vtbl {
         unsafe extern "system" fn Trigger<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTaskRegistration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -341,16 +325,12 @@ impl IBackgroundTaskRegistration2_Vtbl {
         *iid == <IBackgroundTaskRegistration2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskRegistration3_Impl: Sized + IBackgroundTaskRegistration_Impl {
     fn TaskGroup(&self) -> ::windows_core::Result<BackgroundTaskRegistrationGroup>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IBackgroundTaskRegistration3 {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskRegistration3";
 }
-#[cfg(feature = "Foundation")]
 impl IBackgroundTaskRegistration3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTaskRegistration3_Impl, const OFFSET: isize>() -> IBackgroundTaskRegistration3_Vtbl {
         unsafe extern "system" fn TaskGroup<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTaskRegistration3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

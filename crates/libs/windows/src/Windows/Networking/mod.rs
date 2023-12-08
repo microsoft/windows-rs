@@ -268,8 +268,6 @@ impl HostName {
             (::windows_core::Interface::vtable(this).Compare)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value1), ::core::mem::transmute_copy(value2), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::Foundation::IStringable>(self)?;
         unsafe {
@@ -301,7 +299,6 @@ impl ::windows_core::RuntimeName for HostName {
     const NAME: &'static str = "Windows.Networking.HostName";
 }
 ::windows_core::imp::interface_hierarchy!(HostName, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::Foundation::IStringable> for HostName {}
 unsafe impl ::core::marker::Send for HostName {}
 unsafe impl ::core::marker::Sync for HostName {}

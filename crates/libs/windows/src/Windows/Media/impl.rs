@@ -164,18 +164,14 @@ impl IMediaFrame_Vtbl {
         *iid == <IMediaFrame as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IMediaMarker_Impl: Sized {
     fn Time(&self) -> ::windows_core::Result<super::Foundation::TimeSpan>;
     fn MediaMarkerType(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn Text(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IMediaMarker {
     const NAME: &'static str = "Windows.Media.IMediaMarker";
 }
-#[cfg(feature = "Foundation")]
 impl IMediaMarker_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaMarker_Impl, const OFFSET: isize>() -> IMediaMarker_Vtbl {
         unsafe extern "system" fn Time<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaMarker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT {

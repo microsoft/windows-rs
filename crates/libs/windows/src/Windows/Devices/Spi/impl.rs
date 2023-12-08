@@ -1,16 +1,12 @@
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait ISpiDeviceStatics_Impl: Sized {
     fn GetDeviceSelector(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn GetDeviceSelectorFromFriendlyName(&self, friendlyname: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn GetBusInfo(&self, busid: &::windows_core::HSTRING) -> ::windows_core::Result<SpiBusInfo>;
     fn FromIdAsync(&self, busid: &::windows_core::HSTRING, settings: ::core::option::Option<&SpiConnectionSettings>) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for ISpiDeviceStatics {
     const NAME: &'static str = "Windows.Devices.Spi.ISpiDeviceStatics";
 }
-#[cfg(feature = "Foundation")]
 impl ISpiDeviceStatics_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpiDeviceStatics_Impl, const OFFSET: isize>() -> ISpiDeviceStatics_Vtbl {
         unsafe extern "system" fn GetDeviceSelector<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpiDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT {

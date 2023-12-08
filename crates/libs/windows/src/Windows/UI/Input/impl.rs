@@ -1,15 +1,11 @@
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IPointerPointTransform_Impl: Sized {
     fn Inverse(&self) -> ::windows_core::Result<IPointerPointTransform>;
     fn TryTransform(&self, inpoint: &super::super::Foundation::Point, outpoint: &mut super::super::Foundation::Point) -> ::windows_core::Result<bool>;
     fn TransformBounds(&self, rect: &super::super::Foundation::Rect) -> ::windows_core::Result<super::super::Foundation::Rect>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IPointerPointTransform {
     const NAME: &'static str = "Windows.UI.Input.IPointerPointTransform";
 }
-#[cfg(feature = "Foundation")]
 impl IPointerPointTransform_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPointerPointTransform_Impl, const OFFSET: isize>() -> IPointerPointTransform_Vtbl {
         unsafe extern "system" fn Inverse<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPointerPointTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

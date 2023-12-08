@@ -1,5 +1,3 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IFhConfigMgr_Impl: Sized {
     fn LoadConfiguration(&self) -> ::windows_core::Result<()>;
     fn CreateDefaultConfiguration(&self, overwriteifexists: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -16,9 +14,7 @@ pub trait IFhConfigMgr_Impl: Sized {
     fn ChangeDefaultTargetRecommendation(&self, recommend: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn QueryProtectionStatus(&self, protectionstate: *mut u32, protecteduntiltime: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IFhConfigMgr {}
-#[cfg(feature = "Win32_Foundation")]
 impl IFhConfigMgr_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFhConfigMgr_Impl, const OFFSET: isize>() -> IFhConfigMgr_Vtbl {
         unsafe extern "system" fn LoadConfiguration<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -143,8 +139,6 @@ impl IFhConfigMgr_Vtbl {
         *iid == <IFhConfigMgr as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IFhReassociation_Impl: Sized {
     fn ValidateTarget(&self, targeturl: &::windows_core::BSTR) -> ::windows_core::Result<FH_DEVICE_VALIDATION_RESULT>;
     fn ScanTargetForConfigurations(&self, targeturl: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -152,9 +146,7 @@ pub trait IFhReassociation_Impl: Sized {
     fn SelectConfiguration(&self, index: u32) -> ::windows_core::Result<()>;
     fn PerformReassociation(&self, overwriteifexists: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IFhReassociation {}
-#[cfg(feature = "Win32_Foundation")]
 impl IFhReassociation_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFhReassociation_Impl, const OFFSET: isize>() -> IFhReassociation_Vtbl {
         unsafe extern "system" fn ValidateTarget<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFhReassociation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targeturl: ::std::mem::MaybeUninit<::windows_core::BSTR>, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows_core::HRESULT {

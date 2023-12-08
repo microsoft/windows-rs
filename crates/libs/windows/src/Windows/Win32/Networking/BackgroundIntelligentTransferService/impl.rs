@@ -53,17 +53,17 @@ impl AsyncIBackgroundCopyCallback_Vtbl {
         *iid == <AsyncIBackgroundCopyCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBITSExtensionSetup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnableBITSUploads(&self) -> ::windows_core::Result<()>;
     fn DisableBITSUploads(&self) -> ::windows_core::Result<()>;
     fn GetCleanupTaskName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn GetCleanupTask(&self, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IBITSExtensionSetup {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IBITSExtensionSetup_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBITSExtensionSetup_Impl, const OFFSET: isize>() -> IBITSExtensionSetup_Vtbl {
         unsafe extern "system" fn EnableBITSUploads<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBITSExtensionSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -110,14 +110,14 @@ impl IBITSExtensionSetup_Vtbl {
         *iid == <IBITSExtensionSetup as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBITSExtensionSetupFactory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetObject(&self, path: &::windows_core::BSTR) -> ::windows_core::Result<IBITSExtensionSetup>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IBITSExtensionSetupFactory {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IBITSExtensionSetupFactory_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBITSExtensionSetupFactory_Impl, const OFFSET: isize>() -> IBITSExtensionSetupFactory_Vtbl {
         unsafe extern "system" fn GetObject<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBITSExtensionSetupFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppextensionsetup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -311,16 +311,12 @@ impl IBackgroundCopyError_Vtbl {
         *iid == <IBackgroundCopyError as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile_Impl: Sized {
     fn GetRemoteName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetLocalName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetProgress(&self, pval: *mut BG_FILE_PROGRESS) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IBackgroundCopyFile {}
-#[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyFile_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyFile_Impl, const OFFSET: isize>() -> IBackgroundCopyFile_Vtbl {
         unsafe extern "system" fn GetRemoteName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
@@ -361,15 +357,11 @@ impl IBackgroundCopyFile_Vtbl {
         *iid == <IBackgroundCopyFile as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile2_Impl: Sized + IBackgroundCopyFile_Impl {
     fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows_core::Result<()>;
     fn SetRemoteName(&self, val: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IBackgroundCopyFile2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyFile2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyFile2_Impl, const OFFSET: isize>() -> IBackgroundCopyFile2_Vtbl {
         unsafe extern "system" fn GetFileRanges<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyFile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows_core::HRESULT {
@@ -392,17 +384,13 @@ impl IBackgroundCopyFile2_Vtbl {
         *iid == <IBackgroundCopyFile2 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile3_Impl: Sized + IBackgroundCopyFile2_Impl {
     fn GetTemporaryName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn SetValidationState(&self, state: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn GetValidationState(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn IsDownloadedFromPeer(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IBackgroundCopyFile3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyFile3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyFile3_Impl, const OFFSET: isize>() -> IBackgroundCopyFile3_Vtbl {
         unsafe extern "system" fn GetTemporaryName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyFile3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfilename: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
@@ -455,14 +443,10 @@ impl IBackgroundCopyFile3_Vtbl {
         *iid == <IBackgroundCopyFile3 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile4_Impl: Sized + IBackgroundCopyFile3_Impl {
     fn GetPeerDownloadStats(&self, pfromorigin: *mut u64, pfrompeers: *mut u64) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IBackgroundCopyFile4 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyFile4_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyFile4_Impl, const OFFSET: isize>() -> IBackgroundCopyFile4_Vtbl {
         unsafe extern "system" fn GetPeerDownloadStats<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyFile4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfromorigin: *mut u64, pfrompeers: *mut u64) -> ::windows_core::HRESULT {
@@ -476,15 +460,11 @@ impl IBackgroundCopyFile4_Vtbl {
         *iid == <IBackgroundCopyFile4 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile2 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile5_Impl: Sized + IBackgroundCopyFile4_Impl {
     fn SetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: &BITS_FILE_PROPERTY_VALUE) -> ::windows_core::Result<()>;
     fn GetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID) -> ::windows_core::Result<BITS_FILE_PROPERTY_VALUE>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IBackgroundCopyFile5 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyFile5_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyFile5_Impl, const OFFSET: isize>() -> IBackgroundCopyFile5_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyFile5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: BITS_FILE_PROPERTY_VALUE) -> ::windows_core::HRESULT {
@@ -513,16 +493,12 @@ impl IBackgroundCopyFile5_Vtbl {
         *iid == <IBackgroundCopyFile5 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile2 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile3 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile6_Impl: Sized + IBackgroundCopyFile5_Impl {
     fn UpdateDownloadPosition(&self, offset: u64) -> ::windows_core::Result<()>;
     fn RequestFileRanges(&self, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows_core::Result<()>;
     fn GetFilledFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IBackgroundCopyFile6 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyFile6_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyFile6_Impl, const OFFSET: isize>() -> IBackgroundCopyFile6_Vtbl {
         unsafe extern "system" fn UpdateDownloadPosition<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyFile6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: u64) -> ::windows_core::HRESULT {
@@ -551,8 +527,8 @@ impl IBackgroundCopyFile6_Vtbl {
         *iid == <IBackgroundCopyFile6 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile2 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile3 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile4 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile5 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBackgroundCopyGroup_Impl: Sized {
     fn GetProp(&self, propid: GROUPPROP) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
     fn SetProp(&self, propid: GROUPPROP, pvarval: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
@@ -570,9 +546,9 @@ pub trait IBackgroundCopyGroup_Impl: Sized {
     fn QueryNewJobInterface(&self, iid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn SetNotificationPointer(&self, iid: *const ::windows_core::GUID, punk: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IBackgroundCopyGroup {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IBackgroundCopyGroup_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyGroup_Impl, const OFFSET: isize>() -> IBackgroundCopyGroup_Vtbl {
         unsafe extern "system" fn GetProp<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: GROUPPROP, pvarval: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
@@ -721,8 +697,6 @@ impl IBackgroundCopyGroup_Vtbl {
         *iid == <IBackgroundCopyGroup as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob_Impl: Sized {
     fn AddFileSet(&self, cfilecount: u32, pfileset: *const BG_FILE_INFO) -> ::windows_core::Result<()>;
     fn AddFile(&self, remoteurl: &::windows_core::PCWSTR, localname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -757,9 +731,7 @@ pub trait IBackgroundCopyJob_Impl: Sized {
     fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut ::windows_core::PWSTR, pproxybypasslist: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>;
     fn TakeOwnership(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IBackgroundCopyJob {}
-#[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJob_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>() -> IBackgroundCopyJob_Vtbl {
         unsafe extern "system" fn AddFileSet<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cfilecount: u32, pfileset: *const BG_FILE_INFO) -> ::windows_core::HRESULT {
@@ -1139,8 +1111,6 @@ impl IBackgroundCopyJob1_Vtbl {
         *iid == <IBackgroundCopyJob1 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob2_Impl: Sized + IBackgroundCopyJob_Impl {
     fn SetNotifyCmdLine(&self, program: &::windows_core::PCWSTR, parameters: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn GetNotifyCmdLine(&self, pprogram: *mut ::windows_core::PWSTR, pparameters: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>;
@@ -1151,9 +1121,7 @@ pub trait IBackgroundCopyJob2_Impl: Sized + IBackgroundCopyJob_Impl {
     fn SetCredentials(&self, credentials: *const BG_AUTH_CREDENTIALS) -> ::windows_core::Result<()>;
     fn RemoveCredentials(&self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IBackgroundCopyJob2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJob2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyJob2_Impl, const OFFSET: isize>() -> IBackgroundCopyJob2_Vtbl {
         unsafe extern "system" fn SetNotifyCmdLine<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, program: ::windows_core::PCWSTR, parameters: ::windows_core::PCWSTR) -> ::windows_core::HRESULT {
@@ -1218,17 +1186,13 @@ impl IBackgroundCopyJob2_Vtbl {
         *iid == <IBackgroundCopyJob2 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyJob as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob3_Impl: Sized + IBackgroundCopyJob2_Impl {
     fn ReplaceRemotePrefix(&self, oldprefix: &::windows_core::PCWSTR, newprefix: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn AddFileWithRanges(&self, remoteurl: &::windows_core::PCWSTR, localname: &::windows_core::PCWSTR, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows_core::Result<()>;
     fn SetFileACLFlags(&self, flags: u32) -> ::windows_core::Result<()>;
     fn GetFileACLFlags(&self) -> ::windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IBackgroundCopyJob3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJob3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyJob3_Impl, const OFFSET: isize>() -> IBackgroundCopyJob3_Vtbl {
         unsafe extern "system" fn ReplaceRemotePrefix<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyJob3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oldprefix: ::windows_core::PCWSTR, newprefix: ::windows_core::PCWSTR) -> ::windows_core::HRESULT {
@@ -1269,8 +1233,6 @@ impl IBackgroundCopyJob3_Vtbl {
         *iid == <IBackgroundCopyJob3 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyJob as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyJob2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob4_Impl: Sized + IBackgroundCopyJob3_Impl {
     fn SetPeerCachingFlags(&self, flags: u32) -> ::windows_core::Result<()>;
     fn GetPeerCachingFlags(&self) -> ::windows_core::Result<u32>;
@@ -1279,9 +1241,7 @@ pub trait IBackgroundCopyJob4_Impl: Sized + IBackgroundCopyJob3_Impl {
     fn SetMaximumDownloadTime(&self, timeout: u32) -> ::windows_core::Result<()>;
     fn GetMaximumDownloadTime(&self) -> ::windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IBackgroundCopyJob4 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJob4_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyJob4_Impl, const OFFSET: isize>() -> IBackgroundCopyJob4_Vtbl {
         unsafe extern "system" fn SetPeerCachingFlags<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyJob4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows_core::HRESULT {
@@ -1352,15 +1312,11 @@ impl IBackgroundCopyJob4_Vtbl {
         *iid == <IBackgroundCopyJob4 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyJob as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyJob2 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyJob3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob5_Impl: Sized + IBackgroundCopyJob4_Impl {
     fn SetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: &BITS_JOB_PROPERTY_VALUE) -> ::windows_core::Result<()>;
     fn GetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID) -> ::windows_core::Result<BITS_JOB_PROPERTY_VALUE>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IBackgroundCopyJob5 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJob5_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyJob5_Impl, const OFFSET: isize>() -> IBackgroundCopyJob5_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyJob5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: BITS_JOB_PROPERTY_VALUE) -> ::windows_core::HRESULT {
@@ -1658,16 +1614,12 @@ impl IBackgroundCopyServerCertificateValidationCallback_Vtbl {
         *iid == <IBackgroundCopyServerCertificateValidationCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBitsPeer_Impl: Sized {
     fn GetPeerName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn IsAuthenticated(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn IsAvailable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IBitsPeer {}
-#[cfg(feature = "Win32_Foundation")]
 impl IBitsPeer_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBitsPeer_Impl, const OFFSET: isize>() -> IBitsPeer_Vtbl {
         unsafe extern "system" fn GetPeerName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBitsPeer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
@@ -1861,8 +1813,6 @@ impl IBitsPeerCacheAdministration_Vtbl {
         *iid == <IBitsPeerCacheAdministration as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBitsPeerCacheRecord_Impl: Sized {
     fn GetId(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn GetOriginUrl(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -1872,9 +1822,7 @@ pub trait IBitsPeerCacheRecord_Impl: Sized {
     fn IsFileValidated(&self) -> ::windows_core::Result<()>;
     fn GetFileRanges(&self, prangecount: *mut u32, ppranges: *mut *mut BG_FILE_RANGE) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IBitsPeerCacheRecord {}
-#[cfg(feature = "Win32_Foundation")]
 impl IBitsPeerCacheRecord_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBitsPeerCacheRecord_Impl, const OFFSET: isize>() -> IBitsPeerCacheRecord_Vtbl {
         unsafe extern "system" fn GetId<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBitsPeerCacheRecord_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::windows_core::GUID) -> ::windows_core::HRESULT {

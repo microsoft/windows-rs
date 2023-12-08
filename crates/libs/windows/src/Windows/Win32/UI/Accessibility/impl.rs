@@ -15,14 +15,14 @@ impl IAccIdentity_Vtbl {
         *iid == <IAccIdentity as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAccPropServer_Impl: Sized {
     fn GetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &::windows_core::GUID, pvarvalue: *mut super::super::System::Variant::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAccPropServer {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAccPropServer_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServer_Impl, const OFFSET: isize>() -> IAccPropServer_Vtbl {
         unsafe extern "system" fn GetPropValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: ::windows_core::GUID, pvarvalue: *mut super::super::System::Variant::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -36,8 +36,8 @@ impl IAccPropServer_Vtbl {
         *iid == <IAccPropServer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IAccPropServices_Impl: Sized {
     fn SetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &::windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn SetPropServer(&self, pidstring: *const u8, dwidstringlen: u32, paprops: *const ::windows_core::GUID, cprops: i32, pserver: ::core::option::Option<&IAccPropServer>, annoscope: AnnoScope) -> ::windows_core::Result<()>;
@@ -55,9 +55,9 @@ pub trait IAccPropServices_Impl: Sized {
     fn ComposeHmenuIdentityString(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows_core::Result<()>;
     fn DecomposeHmenuIdentityString(&self, pidstring: *const u8, dwidstringlen: u32, phmenu: *mut super::WindowsAndMessaging::HMENU, pidchild: *mut u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows_core::RuntimeName for IAccPropServices {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IAccPropServices_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServices_Impl, const OFFSET: isize>() -> IAccPropServices_Vtbl {
         unsafe extern "system" fn SetPropValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: ::windows_core::GUID, var: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
@@ -158,8 +158,8 @@ impl IAccPropServices_Vtbl {
         *iid == <IAccPropServices as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAccessible_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn accParent(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
     fn accChildCount(&self) -> ::windows_core::Result<i32>;
@@ -183,9 +183,9 @@ pub trait IAccessible_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn put_accName(&self, varchild: &super::super::System::Variant::VARIANT, szname: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn put_accValue(&self, varchild: &super::super::System::Variant::VARIANT, szvalue: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAccessible {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAccessible_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>() -> IAccessible_Vtbl {
         unsafe extern "system" fn accParent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdispparent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -742,17 +742,17 @@ impl IDockProvider_Vtbl {
         *iid == <IDockProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IDragProvider_Impl: Sized {
     fn IsGrabbed(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn DropEffect(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn DropEffects(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetGrabbedItems(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IDragProvider {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IDragProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDragProvider_Impl, const OFFSET: isize>() -> IDragProvider_Vtbl {
         unsafe extern "system" fn IsGrabbed<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDragProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -1041,14 +1041,14 @@ impl IInvokeProvider_Vtbl {
         *iid == <IInvokeProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IItemContainerProvider_Impl: Sized {
     fn FindItemByProperty(&self, pstartafter: ::core::option::Option<&IRawElementProviderSimple>, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<IRawElementProviderSimple>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IItemContainerProvider {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IItemContainerProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IItemContainerProvider_Impl, const OFFSET: isize>() -> IItemContainerProvider_Vtbl {
         unsafe extern "system" fn FindItemByProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IItemContainerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstartafter: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, pfound: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1335,14 +1335,10 @@ impl IObjectModelProvider_Vtbl {
         *iid == <IObjectModelProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IProxyProviderWinEventHandler_Impl: Sized {
     fn RespondToWinEvent(&self, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: ::core::option::Option<&IProxyProviderWinEventSink>) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IProxyProviderWinEventHandler {}
-#[cfg(feature = "Win32_Foundation")]
 impl IProxyProviderWinEventHandler_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IProxyProviderWinEventHandler_Impl, const OFFSET: isize>() -> IProxyProviderWinEventHandler_Vtbl {
         unsafe extern "system" fn RespondToWinEvent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IProxyProviderWinEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1356,16 +1352,16 @@ impl IProxyProviderWinEventHandler_Vtbl {
         *iid == <IProxyProviderWinEventHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IProxyProviderWinEventSink_Impl: Sized {
     fn AddAutomationPropertyChangedEvent(&self, pprovider: ::core::option::Option<&IRawElementProviderSimple>, id: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn AddAutomationEvent(&self, pprovider: ::core::option::Option<&IRawElementProviderSimple>, id: UIA_EVENT_ID) -> ::windows_core::Result<()>;
     fn AddStructureChangedEvent(&self, pprovider: ::core::option::Option<&IRawElementProviderSimple>, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IProxyProviderWinEventSink {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IProxyProviderWinEventSink_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IProxyProviderWinEventSink_Impl, const OFFSET: isize>() -> IProxyProviderWinEventSink_Vtbl {
         unsafe extern "system" fn AddAutomationPropertyChangedEvent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IProxyProviderWinEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprovider: *mut ::core::ffi::c_void, id: UIA_PROPERTY_ID, newvalue: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
@@ -1394,8 +1390,6 @@ impl IProxyProviderWinEventSink_Vtbl {
         *iid == <IProxyProviderWinEventSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IRangeValueProvider_Impl: Sized {
     fn SetValue(&self, val: f64) -> ::windows_core::Result<()>;
     fn Value(&self) -> ::windows_core::Result<f64>;
@@ -1405,9 +1399,7 @@ pub trait IRangeValueProvider_Impl: Sized {
     fn LargeChange(&self) -> ::windows_core::Result<f64>;
     fn SmallChange(&self) -> ::windows_core::Result<f64>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IRangeValueProvider {}
-#[cfg(feature = "Win32_Foundation")]
 impl IRangeValueProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IRangeValueProvider_Impl, const OFFSET: isize>() -> IRangeValueProvider_Vtbl {
         unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IRangeValueProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: f64) -> ::windows_core::HRESULT {
@@ -1682,14 +1674,10 @@ impl IRawElementProviderHostingAccessibles_Vtbl {
         *iid == <IRawElementProviderHostingAccessibles as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IRawElementProviderHwndOverride_Impl: Sized {
     fn GetOverrideProviderForHwnd(&self, hwnd: super::super::Foundation::HWND) -> ::windows_core::Result<IRawElementProviderSimple>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IRawElementProviderHwndOverride {}
-#[cfg(feature = "Win32_Foundation")]
 impl IRawElementProviderHwndOverride_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderHwndOverride_Impl, const OFFSET: isize>() -> IRawElementProviderHwndOverride_Vtbl {
         unsafe extern "system" fn GetOverrideProviderForHwnd<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderHwndOverride_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1712,17 +1700,17 @@ impl IRawElementProviderHwndOverride_Vtbl {
         *iid == <IRawElementProviderHwndOverride as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRawElementProviderSimple_Impl: Sized {
     fn ProviderOptions(&self) -> ::windows_core::Result<ProviderOptions>;
     fn GetPatternProvider(&self, patternid: UIA_PATTERN_ID) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
     fn HostRawElementProvider(&self) -> ::windows_core::Result<IRawElementProviderSimple>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IRawElementProviderSimple {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRawElementProviderSimple_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderSimple_Impl, const OFFSET: isize>() -> IRawElementProviderSimple_Vtbl {
         unsafe extern "system" fn ProviderOptions<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderSimple_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ProviderOptions) -> ::windows_core::HRESULT {
@@ -1781,14 +1769,14 @@ impl IRawElementProviderSimple_Vtbl {
         *iid == <IRawElementProviderSimple as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRawElementProviderSimple2_Impl: Sized + IRawElementProviderSimple_Impl {
     fn ShowContextMenu(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IRawElementProviderSimple2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRawElementProviderSimple2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderSimple2_Impl, const OFFSET: isize>() -> IRawElementProviderSimple2_Vtbl {
         unsafe extern "system" fn ShowContextMenu<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderSimple2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1802,14 +1790,14 @@ impl IRawElementProviderSimple2_Vtbl {
         *iid == <IRawElementProviderSimple2 as ::windows_core::ComInterface>::IID || *iid == <IRawElementProviderSimple as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRawElementProviderSimple3_Impl: Sized + IRawElementProviderSimple2_Impl {
     fn GetMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IRawElementProviderSimple3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRawElementProviderSimple3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderSimple3_Impl, const OFFSET: isize>() -> IRawElementProviderSimple3_Vtbl {
         unsafe extern "system" fn GetMetadataValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderSimple3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetid: i32, metadataid: UIA_METADATA_ID, returnval: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
@@ -1939,8 +1927,6 @@ impl IScrollItemProvider_Vtbl {
         *iid == <IScrollItemProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IScrollProvider_Impl: Sized {
     fn Scroll(&self, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows_core::Result<()>;
     fn SetScrollPercent(&self, horizontalpercent: f64, verticalpercent: f64) -> ::windows_core::Result<()>;
@@ -1951,9 +1937,7 @@ pub trait IScrollProvider_Impl: Sized {
     fn HorizontallyScrollable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn VerticallyScrollable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IScrollProvider {}
-#[cfg(feature = "Win32_Foundation")]
 impl IScrollProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IScrollProvider_Impl, const OFFSET: isize>() -> IScrollProvider_Vtbl {
         unsafe extern "system" fn Scroll<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IScrollProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows_core::HRESULT {
@@ -2048,8 +2032,6 @@ impl IScrollProvider_Vtbl {
         *iid == <IScrollProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ISelectionItemProvider_Impl: Sized {
     fn Select(&self) -> ::windows_core::Result<()>;
     fn AddToSelection(&self) -> ::windows_core::Result<()>;
@@ -2057,9 +2039,7 @@ pub trait ISelectionItemProvider_Impl: Sized {
     fn IsSelected(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn SelectionContainer(&self) -> ::windows_core::Result<IRawElementProviderSimple>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ISelectionItemProvider {}
-#[cfg(feature = "Win32_Foundation")]
 impl ISelectionItemProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISelectionItemProvider_Impl, const OFFSET: isize>() -> ISelectionItemProvider_Vtbl {
         unsafe extern "system" fn Select<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISelectionItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2112,16 +2092,16 @@ impl ISelectionItemProvider_Vtbl {
         *iid == <ISelectionItemProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISelectionProvider_Impl: Sized {
     fn GetSelection(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn CanSelectMultiple(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn IsSelectionRequired(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for ISelectionProvider {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISelectionProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISelectionProvider_Impl, const OFFSET: isize>() -> ISelectionProvider_Vtbl {
         unsafe extern "system" fn GetSelection<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISelectionProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT {
@@ -2168,17 +2148,17 @@ impl ISelectionProvider_Vtbl {
         *iid == <ISelectionProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISelectionProvider2_Impl: Sized + ISelectionProvider_Impl {
     fn FirstSelectedItem(&self) -> ::windows_core::Result<IRawElementProviderSimple>;
     fn LastSelectedItem(&self) -> ::windows_core::Result<IRawElementProviderSimple>;
     fn CurrentSelectedItem(&self) -> ::windows_core::Result<IRawElementProviderSimple>;
     fn ItemCount(&self) -> ::windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for ISelectionProvider2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISelectionProvider2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISelectionProvider2_Impl, const OFFSET: isize>() -> ISelectionProvider2_Vtbl {
         unsafe extern "system" fn FirstSelectedItem<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISelectionProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2723,15 +2703,15 @@ impl ITextProvider_Vtbl {
         *iid == <ITextProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ITextProvider2_Impl: Sized + ITextProvider_Impl {
     fn RangeFromAnnotation(&self, annotationelement: ::core::option::Option<&IRawElementProviderSimple>) -> ::windows_core::Result<ITextRangeProvider>;
     fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL, pretval: *mut ::core::option::Option<ITextRangeProvider>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for ITextProvider2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ITextProvider2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextProvider2_Impl, const OFFSET: isize>() -> ITextProvider2_Vtbl {
         unsafe extern "system" fn RangeFromAnnotation<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, annotationelement: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2760,8 +2740,8 @@ impl ITextProvider2_Vtbl {
         *iid == <ITextProvider2 as ::windows_core::ComInterface>::IID || *iid == <ITextProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextRangeProvider_Impl: Sized {
     fn Clone(&self) -> ::windows_core::Result<ITextRangeProvider>;
     fn Compare(&self, range: ::core::option::Option<&ITextRangeProvider>) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -2782,9 +2762,9 @@ pub trait ITextRangeProvider_Impl: Sized {
     fn ScrollIntoView(&self, aligntotop: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn GetChildren(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITextRangeProvider {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextRangeProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>() -> ITextRangeProvider_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2975,14 +2955,14 @@ impl ITextRangeProvider_Vtbl {
         *iid == <ITextRangeProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextRangeProvider2_Impl: Sized + ITextRangeProvider_Impl {
     fn ShowContextMenu(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITextRangeProvider2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextRangeProvider2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider2_Impl, const OFFSET: isize>() -> ITextRangeProvider2_Vtbl {
         unsafe extern "system" fn ShowContextMenu<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3029,8 +3009,6 @@ impl IToggleProvider_Vtbl {
         *iid == <IToggleProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITransformProvider_Impl: Sized {
     fn Move(&self, x: f64, y: f64) -> ::windows_core::Result<()>;
     fn Resize(&self, width: f64, height: f64) -> ::windows_core::Result<()>;
@@ -3039,9 +3017,7 @@ pub trait ITransformProvider_Impl: Sized {
     fn CanResize(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn CanRotate(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ITransformProvider {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITransformProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransformProvider_Impl, const OFFSET: isize>() -> ITransformProvider_Vtbl {
         unsafe extern "system" fn Move<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransformProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: f64, y: f64) -> ::windows_core::HRESULT {
@@ -3106,8 +3082,6 @@ impl ITransformProvider_Vtbl {
         *iid == <ITransformProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITransformProvider2_Impl: Sized + ITransformProvider_Impl {
     fn Zoom(&self, zoom: f64) -> ::windows_core::Result<()>;
     fn CanZoom(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -3116,9 +3090,7 @@ pub trait ITransformProvider2_Impl: Sized + ITransformProvider_Impl {
     fn ZoomMaximum(&self) -> ::windows_core::Result<f64>;
     fn ZoomByUnit(&self, zoomunit: ZoomUnit) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ITransformProvider2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITransformProvider2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransformProvider2_Impl, const OFFSET: isize>() -> ITransformProvider2_Vtbl {
         unsafe extern "system" fn Zoom<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransformProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, zoom: f64) -> ::windows_core::HRESULT {
@@ -3189,8 +3161,8 @@ impl ITransformProvider2_Vtbl {
         *iid == <ITransformProvider2 as ::windows_core::ComInterface>::IID || *iid == <ITransformProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation_Impl: Sized {
     fn CompareElements(&self, el1: ::core::option::Option<&IUIAutomationElement>, el2: ::core::option::Option<&IUIAutomationElement>) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -3248,9 +3220,9 @@ pub trait IUIAutomation_Impl: Sized {
     fn ElementFromIAccessible(&self, accessible: ::core::option::Option<&IAccessible>, childid: i32) -> ::windows_core::Result<IUIAutomationElement>;
     fn ElementFromIAccessibleBuildCache(&self, accessible: ::core::option::Option<&IAccessible>, childid: i32, cacherequest: ::core::option::Option<&IUIAutomationCacheRequest>) -> ::windows_core::Result<IUIAutomationElement>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomation {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>() -> IUIAutomation_Vtbl {
         unsafe extern "system" fn CompareElements<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, el1: *mut ::core::ffi::c_void, el2: *mut ::core::ffi::c_void, aresame: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -3837,8 +3809,8 @@ impl IUIAutomation_Vtbl {
         *iid == <IUIAutomation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation2_Impl: Sized + IUIAutomation_Impl {
     fn AutoSetFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn SetAutoSetFocus(&self, autosetfocus: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -3847,9 +3819,9 @@ pub trait IUIAutomation2_Impl: Sized + IUIAutomation_Impl {
     fn TransactionTimeout(&self) -> ::windows_core::Result<u32>;
     fn SetTransactionTimeout(&self, timeout: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomation2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation2_Impl, const OFFSET: isize>() -> IUIAutomation2_Vtbl {
         unsafe extern "system" fn AutoSetFocus<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, autosetfocus: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -3914,15 +3886,15 @@ impl IUIAutomation2_Vtbl {
         *iid == <IUIAutomation2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation3_Impl: Sized + IUIAutomation2_Impl {
     fn AddTextEditTextChangedEventHandler(&self, element: ::core::option::Option<&IUIAutomationElement>, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: ::core::option::Option<&IUIAutomationCacheRequest>, handler: ::core::option::Option<&IUIAutomationTextEditTextChangedEventHandler>) -> ::windows_core::Result<()>;
     fn RemoveTextEditTextChangedEventHandler(&self, element: ::core::option::Option<&IUIAutomationElement>, handler: ::core::option::Option<&IUIAutomationTextEditTextChangedEventHandler>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomation3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation3_Impl, const OFFSET: isize>() -> IUIAutomation3_Vtbl {
         unsafe extern "system" fn AddTextEditTextChangedEventHandler<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3945,15 +3917,15 @@ impl IUIAutomation3_Vtbl {
         *iid == <IUIAutomation3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation4_Impl: Sized + IUIAutomation3_Impl {
     fn AddChangesEventHandler(&self, element: ::core::option::Option<&IUIAutomationElement>, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: ::core::option::Option<&IUIAutomationCacheRequest>, handler: ::core::option::Option<&IUIAutomationChangesEventHandler>) -> ::windows_core::Result<()>;
     fn RemoveChangesEventHandler(&self, element: ::core::option::Option<&IUIAutomationElement>, handler: ::core::option::Option<&IUIAutomationChangesEventHandler>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomation4 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation4_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation4_Impl, const OFFSET: isize>() -> IUIAutomation4_Vtbl {
         unsafe extern "system" fn AddChangesEventHandler<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3976,15 +3948,15 @@ impl IUIAutomation4_Vtbl {
         *iid == <IUIAutomation4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation5_Impl: Sized + IUIAutomation4_Impl {
     fn AddNotificationEventHandler(&self, element: ::core::option::Option<&IUIAutomationElement>, scope: TreeScope, cacherequest: ::core::option::Option<&IUIAutomationCacheRequest>, handler: ::core::option::Option<&IUIAutomationNotificationEventHandler>) -> ::windows_core::Result<()>;
     fn RemoveNotificationEventHandler(&self, element: ::core::option::Option<&IUIAutomationElement>, handler: ::core::option::Option<&IUIAutomationNotificationEventHandler>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomation5 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation5_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation5_Impl, const OFFSET: isize>() -> IUIAutomation5_Vtbl {
         unsafe extern "system" fn AddNotificationEventHandler<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -4007,8 +3979,8 @@ impl IUIAutomation5_Vtbl {
         *iid == <IUIAutomation5 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation6_Impl: Sized + IUIAutomation5_Impl {
     fn CreateEventHandlerGroup(&self) -> ::windows_core::Result<IUIAutomationEventHandlerGroup>;
     fn AddEventHandlerGroup(&self, element: ::core::option::Option<&IUIAutomationElement>, handlergroup: ::core::option::Option<&IUIAutomationEventHandlerGroup>) -> ::windows_core::Result<()>;
@@ -4020,9 +3992,9 @@ pub trait IUIAutomation6_Impl: Sized + IUIAutomation5_Impl {
     fn AddActiveTextPositionChangedEventHandler(&self, element: ::core::option::Option<&IUIAutomationElement>, scope: TreeScope, cacherequest: ::core::option::Option<&IUIAutomationCacheRequest>, handler: ::core::option::Option<&IUIAutomationActiveTextPositionChangedEventHandler>) -> ::windows_core::Result<()>;
     fn RemoveActiveTextPositionChangedEventHandler(&self, element: ::core::option::Option<&IUIAutomationElement>, handler: ::core::option::Option<&IUIAutomationActiveTextPositionChangedEventHandler>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomation6 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation6_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation6_Impl, const OFFSET: isize>() -> IUIAutomation6_Vtbl {
         unsafe extern "system" fn CreateEventHandlerGroup<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handlergroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -4318,14 +4290,10 @@ impl IUIAutomationAnnotationPattern_Vtbl {
         *iid == <IUIAutomationAnnotationPattern as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationBoolCondition_Impl: Sized + IUIAutomationCondition_Impl {
     fn BooleanValue(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IUIAutomationBoolCondition {}
-#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationBoolCondition_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationBoolCondition_Impl, const OFFSET: isize>() -> IUIAutomationBoolCondition_Vtbl {
         unsafe extern "system" fn BooleanValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationBoolCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boolval: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -4445,14 +4413,14 @@ impl IUIAutomationCacheRequest_Vtbl {
         *iid == <IUIAutomationCacheRequest as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationChangesEventHandler_Impl: Sized {
     fn HandleChangesEvent(&self, sender: ::core::option::Option<&IUIAutomationElement>, uiachanges: *const UiaChangeInfo, changescount: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomationChangesEventHandler {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationChangesEventHandler_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationChangesEventHandler_Impl, const OFFSET: isize>() -> IUIAutomationChangesEventHandler_Vtbl {
         unsafe extern "system" fn HandleChangesEvent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationChangesEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, uiachanges: *const UiaChangeInfo, changescount: i32) -> ::windows_core::HRESULT {
@@ -4545,8 +4513,8 @@ impl IUIAutomationDockPattern_Vtbl {
         *iid == <IUIAutomationDockPattern as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationDragPattern_Impl: Sized {
     fn CurrentIsGrabbed(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn CachedIsGrabbed(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -4557,9 +4525,9 @@ pub trait IUIAutomationDragPattern_Impl: Sized {
     fn GetCurrentGrabbedItems(&self) -> ::windows_core::Result<IUIAutomationElementArray>;
     fn GetCachedGrabbedItems(&self) -> ::windows_core::Result<IUIAutomationElementArray>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IUIAutomationDragPattern {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationDragPattern_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>() -> IUIAutomationDragPattern_Vtbl {
         unsafe extern "system" fn CurrentIsGrabbed<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -4735,8 +4703,8 @@ impl IUIAutomationDropTargetPattern_Vtbl {
         *iid == <IUIAutomationDropTargetPattern as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement_Impl: Sized {
     fn SetFocus(&self) -> ::windows_core::Result<()>;
     fn GetRuntimeId(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -4821,9 +4789,9 @@ pub trait IUIAutomationElement_Impl: Sized {
     fn CachedProviderDescription(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomationElement {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>() -> IUIAutomationElement_Vtbl {
         unsafe extern "system" fn SetFocus<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -5794,8 +5762,8 @@ impl IUIAutomationElement_Vtbl {
         *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement2_Impl: Sized + IUIAutomationElement_Impl {
     fn CurrentOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn CachedOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -5804,9 +5772,9 @@ pub trait IUIAutomationElement2_Impl: Sized + IUIAutomationElement_Impl {
     fn CurrentFlowsFrom(&self) -> ::windows_core::Result<IUIAutomationElementArray>;
     fn CachedFlowsFrom(&self) -> ::windows_core::Result<IUIAutomationElementArray>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomationElement2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement2_Impl, const OFFSET: isize>() -> IUIAutomationElement2_Vtbl {
         unsafe extern "system" fn CurrentOptimizeForVisualContent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -5889,16 +5857,16 @@ impl IUIAutomationElement2_Vtbl {
         *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement3_Impl: Sized + IUIAutomationElement2_Impl {
     fn ShowContextMenu(&self) -> ::windows_core::Result<()>;
     fn CurrentIsPeripheral(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn CachedIsPeripheral(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomationElement3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement3_Impl, const OFFSET: isize>() -> IUIAutomationElement3_Vtbl {
         unsafe extern "system" fn ShowContextMenu<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -5939,8 +5907,8 @@ impl IUIAutomationElement3_Vtbl {
         *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement4_Impl: Sized + IUIAutomationElement3_Impl {
     fn CurrentPositionInSet(&self) -> ::windows_core::Result<i32>;
     fn CurrentSizeOfSet(&self) -> ::windows_core::Result<i32>;
@@ -5953,9 +5921,9 @@ pub trait IUIAutomationElement4_Impl: Sized + IUIAutomationElement3_Impl {
     fn CachedAnnotationTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn CachedAnnotationObjects(&self) -> ::windows_core::Result<IUIAutomationElementArray>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomationElement4 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement4_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement4_Impl, const OFFSET: isize>() -> IUIAutomationElement4_Vtbl {
         unsafe extern "system" fn CurrentPositionInSet<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT {
@@ -6086,17 +6054,17 @@ impl IUIAutomationElement4_Vtbl {
         *iid == <IUIAutomationElement4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement5_Impl: Sized + IUIAutomationElement4_Impl {
     fn CurrentLandmarkType(&self) -> ::windows_core::Result<UIA_LANDMARKTYPE_ID>;
     fn CurrentLocalizedLandmarkType(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn CachedLandmarkType(&self) -> ::windows_core::Result<UIA_LANDMARKTYPE_ID>;
     fn CachedLocalizedLandmarkType(&self) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomationElement5 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement5_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement5_Impl, const OFFSET: isize>() -> IUIAutomationElement5_Vtbl {
         unsafe extern "system" fn CurrentLandmarkType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut UIA_LANDMARKTYPE_ID) -> ::windows_core::HRESULT {
@@ -6155,15 +6123,15 @@ impl IUIAutomationElement5_Vtbl {
         *iid == <IUIAutomationElement5 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement6_Impl: Sized + IUIAutomationElement5_Impl {
     fn CurrentFullDescription(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn CachedFullDescription(&self) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomationElement6 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement6_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement6_Impl, const OFFSET: isize>() -> IUIAutomationElement6_Vtbl {
         unsafe extern "system" fn CurrentFullDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -6198,8 +6166,8 @@ impl IUIAutomationElement6_Vtbl {
         *iid == <IUIAutomationElement6 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement5 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement7_Impl: Sized + IUIAutomationElement6_Impl {
     fn FindFirstWithOptions(&self, scope: TreeScope, condition: ::core::option::Option<&IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: ::core::option::Option<&IUIAutomationElement>) -> ::windows_core::Result<IUIAutomationElement>;
     fn FindAllWithOptions(&self, scope: TreeScope, condition: ::core::option::Option<&IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: ::core::option::Option<&IUIAutomationElement>) -> ::windows_core::Result<IUIAutomationElementArray>;
@@ -6207,9 +6175,9 @@ pub trait IUIAutomationElement7_Impl: Sized + IUIAutomationElement6_Impl {
     fn FindAllWithOptionsBuildCache(&self, scope: TreeScope, condition: ::core::option::Option<&IUIAutomationCondition>, cacherequest: ::core::option::Option<&IUIAutomationCacheRequest>, traversaloptions: TreeTraversalOptions, root: ::core::option::Option<&IUIAutomationElement>) -> ::windows_core::Result<IUIAutomationElementArray>;
     fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomationElement7 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement7_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement7_Impl, const OFFSET: isize>() -> IUIAutomationElement7_Vtbl {
         unsafe extern "system" fn FindFirstWithOptions<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: *mut ::core::ffi::c_void, traversaloptions: TreeTraversalOptions, root: *mut ::core::ffi::c_void, found: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -6280,15 +6248,15 @@ impl IUIAutomationElement7_Vtbl {
         *iid == <IUIAutomationElement7 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement5 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement6 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement8_Impl: Sized + IUIAutomationElement7_Impl {
     fn CurrentHeadingLevel(&self) -> ::windows_core::Result<UIA_HEADINGLEVEL_ID>;
     fn CachedHeadingLevel(&self) -> ::windows_core::Result<UIA_HEADINGLEVEL_ID>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomationElement8 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement8_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement8_Impl, const OFFSET: isize>() -> IUIAutomationElement8_Vtbl {
         unsafe extern "system" fn CurrentHeadingLevel<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut UIA_HEADINGLEVEL_ID) -> ::windows_core::HRESULT {
@@ -6323,15 +6291,15 @@ impl IUIAutomationElement8_Vtbl {
         *iid == <IUIAutomationElement8 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement5 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement6 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement7 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement9_Impl: Sized + IUIAutomationElement8_Impl {
     fn CurrentIsDialog(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn CachedIsDialog(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomationElement9 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement9_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement9_Impl, const OFFSET: isize>() -> IUIAutomationElement9_Vtbl {
         unsafe extern "system" fn CurrentIsDialog<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -6792,14 +6760,14 @@ impl IUIAutomationInvokePattern_Vtbl {
         *iid == <IUIAutomationInvokePattern as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationItemContainerPattern_Impl: Sized {
     fn FindItemByProperty(&self, pstartafter: ::core::option::Option<&IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<IUIAutomationElement>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomationItemContainerPattern {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationItemContainerPattern_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationItemContainerPattern_Impl, const OFFSET: isize>() -> IUIAutomationItemContainerPattern_Vtbl {
         unsafe extern "system" fn FindItemByProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationItemContainerPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstartafter: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, pfound: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -7365,15 +7333,11 @@ impl IUIAutomationPatternHandler_Vtbl {
         *iid == <IUIAutomationPatternHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationPatternInstance_Impl: Sized {
     fn GetProperty(&self, index: u32, cached: super::super::Foundation::BOOL, r#type: UIAutomationType, pptr: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn CallMethod(&self, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IUIAutomationPatternInstance {}
-#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationPatternInstance_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationPatternInstance_Impl, const OFFSET: isize>() -> IUIAutomationPatternInstance_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationPatternInstance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, cached: super::super::Foundation::BOOL, r#type: UIAutomationType, pptr: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -7396,14 +7360,14 @@ impl IUIAutomationPatternInstance_Vtbl {
         *iid == <IUIAutomationPatternInstance as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationPropertyChangedEventHandler_Impl: Sized {
     fn HandlePropertyChangedEvent(&self, sender: ::core::option::Option<&IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomationPropertyChangedEventHandler {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationPropertyChangedEventHandler_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationPropertyChangedEventHandler_Impl, const OFFSET: isize>() -> IUIAutomationPropertyChangedEventHandler_Vtbl {
         unsafe extern "system" fn HandlePropertyChangedEvent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationPropertyChangedEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, newvalue: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
@@ -7420,16 +7384,16 @@ impl IUIAutomationPropertyChangedEventHandler_Vtbl {
         *iid == <IUIAutomationPropertyChangedEventHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationPropertyCondition_Impl: Sized + IUIAutomationCondition_Impl {
     fn PropertyId(&self) -> ::windows_core::Result<UIA_PROPERTY_ID>;
     fn PropertyValue(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
     fn PropertyConditionFlags(&self) -> ::windows_core::Result<PropertyConditionFlags>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomationPropertyCondition {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationPropertyCondition_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationPropertyCondition_Impl, const OFFSET: isize>() -> IUIAutomationPropertyCondition_Vtbl {
         unsafe extern "system" fn PropertyId<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationPropertyCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: *mut UIA_PROPERTY_ID) -> ::windows_core::HRESULT {
@@ -7476,15 +7440,11 @@ impl IUIAutomationPropertyCondition_Vtbl {
         *iid == <IUIAutomationPropertyCondition as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationCondition as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationProxyFactory_Impl: Sized {
     fn CreateProvider(&self, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32) -> ::windows_core::Result<IRawElementProviderSimple>;
     fn ProxyFactoryId(&self) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IUIAutomationProxyFactory {}
-#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationProxyFactory_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactory_Impl, const OFFSET: isize>() -> IUIAutomationProxyFactory_Vtbl {
         unsafe extern "system" fn CreateProvider<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, provider: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -7519,8 +7479,8 @@ impl IUIAutomationProxyFactory_Vtbl {
         *iid == <IUIAutomationProxyFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationProxyFactoryEntry_Impl: Sized {
     fn ProxyFactory(&self) -> ::windows_core::Result<IUIAutomationProxyFactory>;
     fn ClassName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -7536,9 +7496,9 @@ pub trait IUIAutomationProxyFactoryEntry_Impl: Sized {
     fn SetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID, winevents: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>;
     fn GetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IUIAutomationProxyFactoryEntry {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationProxyFactoryEntry_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>() -> IUIAutomationProxyFactoryEntry_Vtbl {
         unsafe extern "system" fn ProxyFactory<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factory: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -7767,8 +7727,6 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
         *iid == <IUIAutomationProxyFactoryMapping as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationRangeValuePattern_Impl: Sized {
     fn SetValue(&self, val: f64) -> ::windows_core::Result<()>;
     fn CurrentValue(&self) -> ::windows_core::Result<f64>;
@@ -7784,9 +7742,7 @@ pub trait IUIAutomationRangeValuePattern_Impl: Sized {
     fn CachedLargeChange(&self) -> ::windows_core::Result<f64>;
     fn CachedSmallChange(&self) -> ::windows_core::Result<f64>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IUIAutomationRangeValuePattern {}
-#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationRangeValuePattern_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>() -> IUIAutomationRangeValuePattern_Vtbl {
         unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: f64) -> ::windows_core::HRESULT {
@@ -7947,16 +7903,12 @@ impl IUIAutomationRangeValuePattern_Vtbl {
         *iid == <IUIAutomationRangeValuePattern as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationRegistrar_Impl: Sized {
     fn RegisterProperty(&self, property: *const UIAutomationPropertyInfo) -> ::windows_core::Result<i32>;
     fn RegisterEvent(&self, event: *const UIAutomationEventInfo) -> ::windows_core::Result<i32>;
     fn RegisterPattern(&self, pattern: *const UIAutomationPatternInfo, ppatternid: *mut i32, ppatternavailablepropertyid: *mut i32, propertyidcount: u32, ppropertyids: *mut i32, eventidcount: u32, peventids: *mut i32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IUIAutomationRegistrar {}
-#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationRegistrar_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRegistrar_Impl, const OFFSET: isize>() -> IUIAutomationRegistrar_Vtbl {
         unsafe extern "system" fn RegisterProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: *const UIAutomationPropertyInfo, propertyid: *mut i32) -> ::windows_core::HRESULT {
@@ -8014,8 +7966,6 @@ impl IUIAutomationScrollItemPattern_Vtbl {
         *iid == <IUIAutomationScrollItemPattern as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationScrollPattern_Impl: Sized {
     fn Scroll(&self, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows_core::Result<()>;
     fn SetScrollPercent(&self, horizontalpercent: f64, verticalpercent: f64) -> ::windows_core::Result<()>;
@@ -8032,9 +7982,7 @@ pub trait IUIAutomationScrollPattern_Impl: Sized {
     fn CachedHorizontallyScrollable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn CachedVerticallyScrollable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IUIAutomationScrollPattern {}
-#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationScrollPattern_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>() -> IUIAutomationScrollPattern_Vtbl {
         unsafe extern "system" fn Scroll<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows_core::HRESULT {
@@ -8201,8 +8149,6 @@ impl IUIAutomationScrollPattern_Vtbl {
         *iid == <IUIAutomationScrollPattern as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationSelectionItemPattern_Impl: Sized {
     fn Select(&self) -> ::windows_core::Result<()>;
     fn AddToSelection(&self) -> ::windows_core::Result<()>;
@@ -8212,9 +8158,7 @@ pub trait IUIAutomationSelectionItemPattern_Impl: Sized {
     fn CachedIsSelected(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn CachedSelectionContainer(&self) -> ::windows_core::Result<IUIAutomationElement>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IUIAutomationSelectionItemPattern {}
-#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationSelectionItemPattern_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>() -> IUIAutomationSelectionItemPattern_Vtbl {
         unsafe extern "system" fn Select<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -8291,8 +8235,6 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
         *iid == <IUIAutomationSelectionItemPattern as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationSelectionPattern_Impl: Sized {
     fn GetCurrentSelection(&self) -> ::windows_core::Result<IUIAutomationElementArray>;
     fn CurrentCanSelectMultiple(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -8301,9 +8243,7 @@ pub trait IUIAutomationSelectionPattern_Impl: Sized {
     fn CachedCanSelectMultiple(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn CachedIsSelectionRequired(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IUIAutomationSelectionPattern {}
-#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationSelectionPattern_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>() -> IUIAutomationSelectionPattern_Vtbl {
         unsafe extern "system" fn GetCurrentSelection<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -8386,8 +8326,6 @@ impl IUIAutomationSelectionPattern_Vtbl {
         *iid == <IUIAutomationSelectionPattern as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationSelectionPattern2_Impl: Sized + IUIAutomationSelectionPattern_Impl {
     fn CurrentFirstSelectedItem(&self) -> ::windows_core::Result<IUIAutomationElement>;
     fn CurrentLastSelectedItem(&self) -> ::windows_core::Result<IUIAutomationElement>;
@@ -8398,9 +8336,7 @@ pub trait IUIAutomationSelectionPattern2_Impl: Sized + IUIAutomationSelectionPat
     fn CachedCurrentSelectedItem(&self) -> ::windows_core::Result<IUIAutomationElement>;
     fn CachedItemCount(&self) -> ::windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IUIAutomationSelectionPattern2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationSelectionPattern2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>() -> IUIAutomationSelectionPattern2_Vtbl {
         unsafe extern "system" fn CurrentFirstSelectedItem<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -9080,15 +9016,11 @@ impl IUIAutomationTextChildPattern_Vtbl {
         *iid == <IUIAutomationTextChildPattern as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationTextEditPattern_Impl: Sized + IUIAutomationTextPattern_Impl {
     fn GetActiveComposition(&self) -> ::windows_core::Result<IUIAutomationTextRange>;
     fn GetConversionTarget(&self) -> ::windows_core::Result<IUIAutomationTextRange>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IUIAutomationTextEditPattern {}
-#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationTextEditPattern_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextEditPattern_Impl, const OFFSET: isize>() -> IUIAutomationTextEditPattern_Vtbl {
         unsafe extern "system" fn GetActiveComposition<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextEditPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, range: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -9147,8 +9079,6 @@ impl IUIAutomationTextEditTextChangedEventHandler_Vtbl {
         *iid == <IUIAutomationTextEditTextChangedEventHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationTextPattern_Impl: Sized {
     fn RangeFromPoint(&self, pt: &super::super::Foundation::POINT) -> ::windows_core::Result<IUIAutomationTextRange>;
     fn RangeFromChild(&self, child: ::core::option::Option<&IUIAutomationElement>) -> ::windows_core::Result<IUIAutomationTextRange>;
@@ -9157,9 +9087,7 @@ pub trait IUIAutomationTextPattern_Impl: Sized {
     fn DocumentRange(&self) -> ::windows_core::Result<IUIAutomationTextRange>;
     fn SupportedTextSelection(&self) -> ::windows_core::Result<SupportedTextSelection>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IUIAutomationTextPattern {}
-#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationTextPattern_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextPattern_Impl, const OFFSET: isize>() -> IUIAutomationTextPattern_Vtbl {
         unsafe extern "system" fn RangeFromPoint<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pt: super::super::Foundation::POINT, range: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -9242,15 +9170,11 @@ impl IUIAutomationTextPattern_Vtbl {
         *iid == <IUIAutomationTextPattern as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationTextPattern2_Impl: Sized + IUIAutomationTextPattern_Impl {
     fn RangeFromAnnotation(&self, annotation: ::core::option::Option<&IUIAutomationElement>) -> ::windows_core::Result<IUIAutomationTextRange>;
     fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL, range: *mut ::core::option::Option<IUIAutomationTextRange>) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IUIAutomationTextPattern2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationTextPattern2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextPattern2_Impl, const OFFSET: isize>() -> IUIAutomationTextPattern2_Vtbl {
         unsafe extern "system" fn RangeFromAnnotation<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, annotation: *mut ::core::ffi::c_void, range: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -9279,8 +9203,8 @@ impl IUIAutomationTextPattern2_Vtbl {
         *iid == <IUIAutomationTextPattern2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationTextPattern as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationTextRange_Impl: Sized {
     fn Clone(&self) -> ::windows_core::Result<IUIAutomationTextRange>;
     fn Compare(&self, range: ::core::option::Option<&IUIAutomationTextRange>) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -9301,9 +9225,9 @@ pub trait IUIAutomationTextRange_Impl: Sized {
     fn ScrollIntoView(&self, aligntotop: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn GetChildren(&self) -> ::windows_core::Result<IUIAutomationElementArray>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomationTextRange {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationTextRange_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>() -> IUIAutomationTextRange_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clonedrange: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -9494,14 +9418,14 @@ impl IUIAutomationTextRange_Vtbl {
         *iid == <IUIAutomationTextRange as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationTextRange2_Impl: Sized + IUIAutomationTextRange_Impl {
     fn ShowContextMenu(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomationTextRange2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationTextRange2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange2_Impl, const OFFSET: isize>() -> IUIAutomationTextRange2_Vtbl {
         unsafe extern "system" fn ShowContextMenu<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -9515,16 +9439,16 @@ impl IUIAutomationTextRange2_Vtbl {
         *iid == <IUIAutomationTextRange2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationTextRange as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationTextRange3_Impl: Sized + IUIAutomationTextRange2_Impl {
     fn GetEnclosingElementBuildCache(&self, cacherequest: ::core::option::Option<&IUIAutomationCacheRequest>) -> ::windows_core::Result<IUIAutomationElement>;
     fn GetChildrenBuildCache(&self, cacherequest: ::core::option::Option<&IUIAutomationCacheRequest>) -> ::windows_core::Result<IUIAutomationElementArray>;
     fn GetAttributeValues(&self, attributeids: *const UIA_TEXTATTRIBUTE_ID, attributeidcount: i32) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IUIAutomationTextRange3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationTextRange3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange3_Impl, const OFFSET: isize>() -> IUIAutomationTextRange3_Vtbl {
         unsafe extern "system" fn GetEnclosingElementBuildCache<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cacherequest: *mut ::core::ffi::c_void, enclosingelement: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -9656,8 +9580,6 @@ impl IUIAutomationTogglePattern_Vtbl {
         *iid == <IUIAutomationTogglePattern as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationTransformPattern_Impl: Sized {
     fn Move(&self, x: f64, y: f64) -> ::windows_core::Result<()>;
     fn Resize(&self, width: f64, height: f64) -> ::windows_core::Result<()>;
@@ -9669,9 +9591,7 @@ pub trait IUIAutomationTransformPattern_Impl: Sized {
     fn CachedCanResize(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn CachedCanRotate(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IUIAutomationTransformPattern {}
-#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationTransformPattern_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>() -> IUIAutomationTransformPattern_Vtbl {
         unsafe extern "system" fn Move<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: f64, y: f64) -> ::windows_core::HRESULT {
@@ -9772,8 +9692,6 @@ impl IUIAutomationTransformPattern_Vtbl {
         *iid == <IUIAutomationTransformPattern as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationTransformPattern2_Impl: Sized + IUIAutomationTransformPattern_Impl {
     fn Zoom(&self, zoomvalue: f64) -> ::windows_core::Result<()>;
     fn ZoomByUnit(&self, zoomunit: ZoomUnit) -> ::windows_core::Result<()>;
@@ -9786,9 +9704,7 @@ pub trait IUIAutomationTransformPattern2_Impl: Sized + IUIAutomationTransformPat
     fn CurrentZoomMaximum(&self) -> ::windows_core::Result<f64>;
     fn CachedZoomMaximum(&self) -> ::windows_core::Result<f64>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IUIAutomationTransformPattern2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationTransformPattern2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>() -> IUIAutomationTransformPattern2_Vtbl {
         unsafe extern "system" fn Zoom<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, zoomvalue: f64) -> ::windows_core::HRESULT {
@@ -10089,8 +10005,6 @@ impl IUIAutomationTreeWalker_Vtbl {
         *iid == <IUIAutomationTreeWalker as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationValuePattern_Impl: Sized {
     fn SetValue(&self, val: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn CurrentValue(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -10098,9 +10012,7 @@ pub trait IUIAutomationValuePattern_Impl: Sized {
     fn CachedValue(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn CachedIsReadOnly(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IUIAutomationValuePattern {}
-#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationValuePattern_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationValuePattern_Impl, const OFFSET: isize>() -> IUIAutomationValuePattern_Vtbl {
         unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -10182,8 +10094,6 @@ impl IUIAutomationVirtualizedItemPattern_Vtbl {
         *iid == <IUIAutomationVirtualizedItemPattern as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationWindowPattern_Impl: Sized {
     fn Close(&self) -> ::windows_core::Result<()>;
     fn WaitForInputIdle(&self, milliseconds: i32) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -10201,9 +10111,7 @@ pub trait IUIAutomationWindowPattern_Impl: Sized {
     fn CachedWindowVisualState(&self) -> ::windows_core::Result<WindowVisualState>;
     fn CachedWindowInteractionState(&self) -> ::windows_core::Result<WindowInteractionState>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IUIAutomationWindowPattern {}
-#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationWindowPattern_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>() -> IUIAutomationWindowPattern_Vtbl {
         unsafe extern "system" fn Close<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -10382,16 +10290,12 @@ impl IUIAutomationWindowPattern_Vtbl {
         *iid == <IUIAutomationWindowPattern as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IValueProvider_Impl: Sized {
     fn SetValue(&self, val: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn Value(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn IsReadOnly(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IValueProvider {}
-#[cfg(feature = "Win32_Foundation")]
 impl IValueProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueProvider_Impl, const OFFSET: isize>() -> IValueProvider_Vtbl {
         unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: ::windows_core::PCWSTR) -> ::windows_core::HRESULT {
@@ -10449,8 +10353,6 @@ impl IVirtualizedItemProvider_Vtbl {
         *iid == <IVirtualizedItemProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWindowProvider_Impl: Sized {
     fn SetVisualState(&self, state: WindowVisualState) -> ::windows_core::Result<()>;
     fn Close(&self) -> ::windows_core::Result<()>;
@@ -10462,9 +10364,7 @@ pub trait IWindowProvider_Impl: Sized {
     fn WindowInteractionState(&self) -> ::windows_core::Result<WindowInteractionState>;
     fn IsTopmost(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IWindowProvider {}
-#[cfg(feature = "Win32_Foundation")]
 impl IWindowProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowProvider_Impl, const OFFSET: isize>() -> IWindowProvider_Vtbl {
         unsafe extern "system" fn SetVisualState<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: WindowVisualState) -> ::windows_core::HRESULT {

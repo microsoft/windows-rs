@@ -87,8 +87,6 @@ impl IDXCoreAdapter_Vtbl {
         *iid == <IDXCoreAdapter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDXCoreAdapterFactory_Impl: Sized {
     fn CreateAdapterList(&self, numattributes: u32, filterattributes: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppvadapterlist: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn GetAdapterByLuid(&self, adapterluid: *const super::super::Foundation::LUID, riid: *const ::windows_core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -96,9 +94,7 @@ pub trait IDXCoreAdapterFactory_Impl: Sized {
     fn RegisterEventNotification(&self, dxcoreobject: ::core::option::Option<&::windows_core::IUnknown>, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> ::windows_core::Result<u32>;
     fn UnregisterEventNotification(&self, eventcookie: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IDXCoreAdapterFactory {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDXCoreAdapterFactory_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapterFactory_Impl, const OFFSET: isize>() -> IDXCoreAdapterFactory_Vtbl {
         unsafe extern "system" fn CreateAdapterList<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numattributes: u32, filterattributes: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppvadapterlist: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

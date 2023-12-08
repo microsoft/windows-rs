@@ -6,8 +6,6 @@ where
     ::windows_targets::link!("msports.dll" "system" fn ComDBClaimNextFreePort(hcomdb : HCOMDB, comnumber : *mut u32) -> i32);
     ComDBClaimNextFreePort(hcomdb.into_param().abi(), comnumber)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ComDBClaimPort<P0, P1>(hcomdb: P0, comnumber: u32, forceclaim: P1, forced: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> i32
 where
@@ -577,8 +575,6 @@ impl ::core::default::Default for SERIAL_QUEUE_SIZE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SERIAL_STATUS {
     pub Errors: u32,
     pub HoldReasons: u32,
@@ -587,33 +583,26 @@ pub struct SERIAL_STATUS {
     pub EofReceived: super::super::Foundation::BOOLEAN,
     pub WaitForImmediate: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERIAL_STATUS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERIAL_STATUS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SERIAL_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SERIAL_STATUS").field("Errors", &self.Errors).field("HoldReasons", &self.HoldReasons).field("AmountInInQueue", &self.AmountInInQueue).field("AmountInOutQueue", &self.AmountInOutQueue).field("EofReceived", &self.EofReceived).field("WaitForImmediate", &self.WaitForImmediate).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for SERIAL_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERIAL_STATUS {
     fn eq(&self, other: &Self) -> bool {
         self.Errors == other.Errors && self.HoldReasons == other.HoldReasons && self.AmountInInQueue == other.AmountInInQueue && self.AmountInOutQueue == other.AmountInOutQueue && self.EofReceived == other.EofReceived && self.WaitForImmediate == other.WaitForImmediate
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERIAL_STATUS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERIAL_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

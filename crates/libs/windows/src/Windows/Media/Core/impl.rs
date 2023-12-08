@@ -1,5 +1,3 @@
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IMediaCue_Impl: Sized {
     fn SetStartTime(&self, value: &super::super::Foundation::TimeSpan) -> ::windows_core::Result<()>;
     fn StartTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan>;
@@ -8,11 +6,9 @@ pub trait IMediaCue_Impl: Sized {
     fn SetId(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()>;
     fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IMediaCue {
     const NAME: &'static str = "Windows.Media.Core.IMediaCue";
 }
-#[cfg(feature = "Foundation")]
 impl IMediaCue_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaCue_Impl, const OFFSET: isize>() -> IMediaCue_Vtbl {
         unsafe extern "system" fn SetStartTime<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaCue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT {
@@ -273,19 +269,15 @@ impl IMediaTrack_Vtbl {
         *iid == <IMediaTrack as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait ISingleSelectMediaTrackList_Impl: Sized {
     fn SelectedIndexChanged(&self, handler: ::core::option::Option<&super::super::Foundation::TypedEventHandler<ISingleSelectMediaTrackList, ::windows_core::IInspectable>>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSelectedIndexChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()>;
     fn SetSelectedIndex(&self, value: i32) -> ::windows_core::Result<()>;
     fn SelectedIndex(&self) -> ::windows_core::Result<i32>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for ISingleSelectMediaTrackList {
     const NAME: &'static str = "Windows.Media.Core.ISingleSelectMediaTrackList";
 }
-#[cfg(feature = "Foundation")]
 impl ISingleSelectMediaTrackList_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISingleSelectMediaTrackList_Impl, const OFFSET: isize>() -> ISingleSelectMediaTrackList_Vtbl {
         unsafe extern "system" fn SelectedIndexChanged<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISingleSelectMediaTrackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT {

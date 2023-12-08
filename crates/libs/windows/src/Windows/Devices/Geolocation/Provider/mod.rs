@@ -15,14 +15,8 @@ pub struct IGeolocationProvider_Vtbl {
     pub IsOverridden: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetOverridePosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newposition: super::BasicGeoposition, positionsource: super::PositionSource, accuracyinmeters: f64, result__: *mut LocationOverrideStatus) -> ::windows_core::HRESULT,
     pub ClearOverridePosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub IsOverriddenChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IsOverriddenChanged: usize,
-    #[cfg(feature = "Foundation")]
     pub RemoveIsOverriddenChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveIsOverriddenChanged: usize,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -53,8 +47,6 @@ impl GeolocationProvider {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).ClearOverridePosition)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn IsOverriddenChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::EventHandler<::windows_core::IInspectable>>,
@@ -65,8 +57,6 @@ impl GeolocationProvider {
             (::windows_core::Interface::vtable(this).IsOverriddenChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RemoveIsOverriddenChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveIsOverriddenChanged)(::windows_core::Interface::as_raw(this), token).ok() }

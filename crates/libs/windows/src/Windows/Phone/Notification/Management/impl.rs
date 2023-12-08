@@ -1,5 +1,3 @@
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IAccessoryNotificationTriggerDetails_Impl: Sized {
     fn TimeCreated(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime>;
     fn AppDisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -8,11 +6,9 @@ pub trait IAccessoryNotificationTriggerDetails_Impl: Sized {
     fn StartedProcessing(&self) -> ::windows_core::Result<bool>;
     fn SetStartedProcessing(&self, value: bool) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IAccessoryNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.IAccessoryNotificationTriggerDetails";
 }
-#[cfg(feature = "Foundation")]
 impl IAccessoryNotificationTriggerDetails_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>() -> IAccessoryNotificationTriggerDetails_Vtbl {
         unsafe extern "system" fn TimeCreated<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT {

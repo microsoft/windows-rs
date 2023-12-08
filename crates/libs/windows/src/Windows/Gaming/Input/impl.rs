@@ -1,5 +1,5 @@
-#[doc = "Required features: `\"Foundation\"`, `\"System\"`"]
-#[cfg(all(feature = "Foundation", feature = "System"))]
+#[doc = "Required features: `\"System\"`"]
+#[cfg(feature = "System")]
 pub trait IGameController_Impl: Sized {
     fn HeadsetConnected(&self, value: ::core::option::Option<&super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveHeadsetConnected(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()>;
@@ -11,11 +11,11 @@ pub trait IGameController_Impl: Sized {
     fn IsWireless(&self) -> ::windows_core::Result<bool>;
     fn User(&self) -> ::windows_core::Result<super::super::System::User>;
 }
-#[cfg(all(feature = "Foundation", feature = "System"))]
+#[cfg(feature = "System")]
 impl ::windows_core::RuntimeName for IGameController {
     const NAME: &'static str = "Windows.Gaming.Input.IGameController";
 }
-#[cfg(all(feature = "Foundation", feature = "System"))]
+#[cfg(feature = "System")]
 impl IGameController_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGameController_Impl, const OFFSET: isize>() -> IGameController_Vtbl {
         unsafe extern "system" fn HeadsetConnected<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGameController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT {

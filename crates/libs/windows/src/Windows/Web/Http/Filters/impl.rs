@@ -1,13 +1,9 @@
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IHttpFilter_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
     fn SendRequestAsync(&self, request: ::core::option::Option<&super::HttpRequestMessage>) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IHttpFilter {
     const NAME: &'static str = "Windows.Web.Http.Filters.IHttpFilter";
 }
-#[cfg(feature = "Foundation")]
 impl IHttpFilter_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IHttpFilter_Impl, const OFFSET: isize>() -> IHttpFilter_Vtbl {
         unsafe extern "system" fn SendRequestAsync<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IHttpFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

@@ -41,9 +41,9 @@ unsafe impl ::windows_core::ComInterface for IDiagnosticInvoker {
 #[doc(hidden)]
 pub struct IDiagnosticInvoker_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Data_Json", feature = "Foundation"))]
+    #[cfg(feature = "Data_Json")]
     pub RunDiagnosticActionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Data_Json", feature = "Foundation")))]
+    #[cfg(not(feature = "Data_Json"))]
     RunDiagnosticActionAsync: usize,
 }
 #[doc(hidden)]
@@ -60,10 +60,7 @@ unsafe impl ::windows_core::ComInterface for IDiagnosticInvoker2 {
 #[doc(hidden)]
 pub struct IDiagnosticInvoker2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub RunDiagnosticActionFromStringAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RunDiagnosticActionFromStringAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -113,14 +110,8 @@ unsafe impl ::windows_core::ComInterface for IProcessCpuUsageReport {
 #[doc(hidden)]
 pub struct IProcessCpuUsageReport_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub KernelTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    KernelTime: usize,
-    #[cfg(feature = "Foundation")]
     pub UserTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    UserTime: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -139,10 +130,7 @@ pub struct IProcessDiagnosticInfo_Vtbl {
     pub ProcessId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub ExecutableFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Parent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub ProcessStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ProcessStartTime: usize,
     pub DiskUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub MemoryUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CpuUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -313,18 +301,9 @@ unsafe impl ::windows_core::ComInterface for ISystemCpuUsageReport {
 #[doc(hidden)]
 pub struct ISystemCpuUsageReport_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub KernelTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    KernelTime: usize,
-    #[cfg(feature = "Foundation")]
     pub UserTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    UserTime: usize,
-    #[cfg(feature = "Foundation")]
     pub IdleTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IdleTime: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -450,8 +429,8 @@ unsafe impl ::core::marker::Sync for DiagnosticActionResult {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DiagnosticInvoker(::windows_core::IUnknown);
 impl DiagnosticInvoker {
-    #[doc = "Required features: `\"Data_Json\"`, `\"Foundation\"`"]
-    #[cfg(all(feature = "Data_Json", feature = "Foundation"))]
+    #[doc = "Required features: `\"Data_Json\"`"]
+    #[cfg(feature = "Data_Json")]
     pub fn RunDiagnosticActionAsync<P0>(&self, context: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>
     where
         P0: ::windows_core::IntoParam<super::super::Data::Json::JsonObject>,
@@ -462,8 +441,6 @@ impl DiagnosticInvoker {
             (::windows_core::Interface::vtable(this).RunDiagnosticActionAsync)(::windows_core::Interface::as_raw(this), context.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RunDiagnosticActionFromStringAsync(&self, context: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
         let this = &::windows_core::ComInterface::cast::<IDiagnosticInvoker2>(self)?;
         unsafe {
@@ -544,8 +521,6 @@ unsafe impl ::core::marker::Sync for ProcessCpuUsage {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessCpuUsageReport(::windows_core::IUnknown);
 impl ProcessCpuUsageReport {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn KernelTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -553,8 +528,6 @@ impl ProcessCpuUsageReport {
             (::windows_core::Interface::vtable(this).KernelTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn UserTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -603,8 +576,6 @@ impl ProcessDiagnosticInfo {
             (::windows_core::Interface::vtable(this).Parent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ProcessStartTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -946,8 +917,6 @@ unsafe impl ::core::marker::Sync for SystemCpuUsage {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemCpuUsageReport(::windows_core::IUnknown);
 impl SystemCpuUsageReport {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn KernelTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -955,8 +924,6 @@ impl SystemCpuUsageReport {
             (::windows_core::Interface::vtable(this).KernelTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn UserTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -964,8 +931,6 @@ impl SystemCpuUsageReport {
             (::windows_core::Interface::vtable(this).UserTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn IdleTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {

@@ -1,5 +1,5 @@
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IChannelCredentials_Impl: Sized + super::IDispatch_Impl {
     fn SetWindowsCredential(&self, domain: &::windows_core::BSTR, username: &::windows_core::BSTR, password: &::windows_core::BSTR, impersonationlevel: i32, allowntlm: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn SetUserNameCredential(&self, username: &::windows_core::BSTR, password: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -12,9 +12,9 @@ pub trait IChannelCredentials_Impl: Sized + super::IDispatch_Impl {
     fn SetServiceCertificateAuthentication(&self, storelocation: &::windows_core::BSTR, revocationmode: &::windows_core::BSTR, certificatevalidationmode: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn SetIssuedToken(&self, localissueraddres: &::windows_core::BSTR, localissuerbindingtype: &::windows_core::BSTR, localissuerbinding: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IChannelCredentials {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IChannelCredentials_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IChannelCredentials_Impl, const OFFSET: isize>() -> IChannelCredentials_Vtbl {
         unsafe extern "system" fn SetWindowsCredential<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, domain: ::std::mem::MaybeUninit<::windows_core::BSTR>, username: ::std::mem::MaybeUninit<::windows_core::BSTR>, password: ::std::mem::MaybeUninit<::windows_core::BSTR>, impersonationlevel: i32, allowntlm: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {

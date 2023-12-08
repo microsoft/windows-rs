@@ -13,10 +13,7 @@ unsafe impl ::windows_core::ComInterface for ICommunicationBlockingAccessManager
 pub struct ICommunicationBlockingAccessManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsBlockingActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub IsBlockedNumberAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, number: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IsBlockedNumberAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
     pub ShowBlockNumbersUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phonenumbers: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -59,10 +56,7 @@ unsafe impl ::windows_core::ComInterface for ICommunicationBlockingAppManagerSta
 #[doc(hidden)]
 pub struct ICommunicationBlockingAppManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub RequestSetAsActiveBlockingAppAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestSetAsActiveBlockingAppAsync: usize,
 }
 pub struct CommunicationBlockingAccessManager;
 impl CommunicationBlockingAccessManager {
@@ -72,8 +66,6 @@ impl CommunicationBlockingAccessManager {
             (::windows_core::Interface::vtable(this).IsBlockingActive)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn IsBlockedNumberAsync(number: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
@@ -128,8 +120,6 @@ impl CommunicationBlockingAppManager {
     pub fn ShowCommunicationBlockingSettingsUI() -> ::windows_core::Result<()> {
         Self::ICommunicationBlockingAppManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).ShowCommunicationBlockingSettingsUI)(::windows_core::Interface::as_raw(this)).ok() })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn RequestSetAsActiveBlockingAppAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ICommunicationBlockingAppManagerStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();

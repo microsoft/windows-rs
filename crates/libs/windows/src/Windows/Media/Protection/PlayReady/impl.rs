@@ -107,8 +107,8 @@ impl INDCustomData_Vtbl {
         *iid == <INDCustomData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[doc = "Required features: `\"deprecated\"`"]
+#[cfg(feature = "deprecated")]
 pub trait INDDownloadEngine_Impl: Sized {
     fn Open(&self, uri: ::core::option::Option<&super::super::super::Foundation::Uri>, sessionidbytes: &[u8]) -> ::windows_core::Result<()>;
     fn Pause(&self) -> ::windows_core::Result<()>;
@@ -120,11 +120,11 @@ pub trait INDDownloadEngine_Impl: Sized {
     fn BufferFullMaxThresholdInSamples(&self) -> ::windows_core::Result<u32>;
     fn Notifier(&self) -> ::windows_core::Result<NDDownloadEngineNotifier>;
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeName for INDDownloadEngine {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDDownloadEngine";
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(feature = "deprecated")]
 impl INDDownloadEngine_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngine_Impl, const OFFSET: isize>() -> INDDownloadEngine_Vtbl {
         unsafe extern "system" fn Open<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, sessionIDBytes_array_size: u32, sessionidbytes: *const u8) -> ::windows_core::HRESULT {
@@ -409,19 +409,19 @@ impl INDLicenseFetchResult_Vtbl {
         *iid == <INDLicenseFetchResult as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[doc = "Required features: `\"deprecated\"`"]
+#[cfg(feature = "deprecated")]
 pub trait INDMessenger_Impl: Sized {
     fn SendRegistrationRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
     fn SendProximityDetectionStartAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
     fn SendProximityDetectionResponseAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
     fn SendLicenseFetchRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeName for INDMessenger {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDMessenger";
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(feature = "deprecated")]
 impl INDMessenger_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INDMessenger_Impl, const OFFSET: isize>() -> INDMessenger_Vtbl {
         unsafe extern "system" fn SendRegistrationRequestAsync<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INDMessenger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionIDBytes_array_size: u32, sessionidbytes: *const u8, challengeDataBytes_array_size: u32, challengedatabytes: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -791,8 +791,8 @@ impl INDStreamParserNotifier_Vtbl {
         *iid == <INDStreamParserNotifier as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[doc = "Required features: `\"deprecated\"`"]
+#[cfg(feature = "deprecated")]
 pub trait INDTransmitterProperties_Impl: Sized {
     fn CertificateType(&self) -> ::windows_core::Result<NDCertificateType>;
     fn PlatformIdentifier(&self) -> ::windows_core::Result<NDCertificatePlatformID>;
@@ -806,11 +806,11 @@ pub trait INDTransmitterProperties_Impl: Sized {
     fn ModelName(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn ModelNumber(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeName for INDTransmitterProperties {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDTransmitterProperties";
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(feature = "deprecated")]
 impl INDTransmitterProperties_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>() -> INDTransmitterProperties_Vtbl {
         unsafe extern "system" fn CertificateType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut NDCertificateType) -> ::windows_core::HRESULT {
@@ -962,8 +962,6 @@ impl INDTransmitterProperties_Vtbl {
         *iid == <INDTransmitterProperties as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IPlayReadyDomain_Impl: Sized {
     fn AccountId(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn ServiceId(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -971,11 +969,9 @@ pub trait IPlayReadyDomain_Impl: Sized {
     fn FriendlyName(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn DomainJoinUrl(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IPlayReadyDomain {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyDomain";
 }
-#[cfg(feature = "Foundation")]
 impl IPlayReadyDomain_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyDomain_Impl, const OFFSET: isize>() -> IPlayReadyDomain_Vtbl {
         unsafe extern "system" fn AccountId<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT {
@@ -1048,8 +1044,6 @@ impl IPlayReadyDomain_Vtbl {
         *iid == <IPlayReadyDomain as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IPlayReadyLicense_Impl: Sized {
     fn FullyEvaluated(&self) -> ::windows_core::Result<bool>;
     fn UsableForPlay(&self) -> ::windows_core::Result<bool>;
@@ -1059,11 +1053,9 @@ pub trait IPlayReadyLicense_Impl: Sized {
     fn ChainDepth(&self) -> ::windows_core::Result<u32>;
     fn GetKIDAtChainDepth(&self, chaindepth: u32) -> ::windows_core::Result<::windows_core::GUID>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IPlayReadyLicense {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyLicense";
 }
-#[cfg(feature = "Foundation")]
 impl IPlayReadyLicense_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicense_Impl, const OFFSET: isize>() -> IPlayReadyLicense_Vtbl {
         unsafe extern "system" fn FullyEvaluated<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicense_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT {
@@ -1159,19 +1151,15 @@ impl IPlayReadyLicense_Vtbl {
         *iid == <IPlayReadyLicense as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IPlayReadyLicenseAcquisitionServiceRequest_Impl: Sized + super::IMediaProtectionServiceRequest_Impl + IPlayReadyServiceRequest_Impl {
     fn ContentHeader(&self) -> ::windows_core::Result<PlayReadyContentHeader>;
     fn SetContentHeader(&self, value: ::core::option::Option<&PlayReadyContentHeader>) -> ::windows_core::Result<()>;
     fn DomainServiceId(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn SetDomainServiceId(&self, value: &::windows_core::GUID) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IPlayReadyLicenseAcquisitionServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest";
 }
-#[cfg(feature = "Foundation")]
 impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>() -> IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
         unsafe extern "system" fn ContentHeader<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1288,8 +1276,6 @@ impl IPlayReadyLicenseSession2_Vtbl {
         *iid == <IPlayReadyLicenseSession2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IPlayReadySecureStopServiceRequest_Impl: Sized + super::IMediaProtectionServiceRequest_Impl + IPlayReadyServiceRequest_Impl {
     fn SessionID(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn StartTime(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime>;
@@ -1297,11 +1283,9 @@ pub trait IPlayReadySecureStopServiceRequest_Impl: Sized + super::IMediaProtecti
     fn Stopped(&self) -> ::windows_core::Result<bool>;
     fn PublisherCertificate(&self) -> ::windows_core::Result<::windows_core::Array<u8>>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IPlayReadySecureStopServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadySecureStopServiceRequest";
 }
-#[cfg(feature = "Foundation")]
 impl IPlayReadySecureStopServiceRequest_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadySecureStopServiceRequest_Impl, const OFFSET: isize>() -> IPlayReadySecureStopServiceRequest_Vtbl {
         unsafe extern "system" fn SessionID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadySecureStopServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT {
@@ -1374,8 +1358,6 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
         *iid == <IPlayReadySecureStopServiceRequest as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait IPlayReadyServiceRequest_Impl: Sized + super::IMediaProtectionServiceRequest_Impl {
     fn Uri(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri>;
     fn SetUri(&self, value: ::core::option::Option<&super::super::super::Foundation::Uri>) -> ::windows_core::Result<()>;
@@ -1387,11 +1369,9 @@ pub trait IPlayReadyServiceRequest_Impl: Sized + super::IMediaProtectionServiceR
     fn GenerateManualEnablingChallenge(&self) -> ::windows_core::Result<PlayReadySoapMessage>;
     fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> ::windows_core::Result<::windows_core::HRESULT>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for IPlayReadyServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyServiceRequest";
 }
-#[cfg(feature = "Foundation")]
 impl IPlayReadyServiceRequest_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>() -> IPlayReadyServiceRequest_Vtbl {
         unsafe extern "system" fn Uri<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

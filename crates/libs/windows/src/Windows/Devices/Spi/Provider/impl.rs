@@ -27,8 +27,6 @@ impl ISpiControllerProvider_Vtbl {
         *iid == <ISpiControllerProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait ISpiDeviceProvider_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
     fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn ConnectionSettings(&self) -> ::windows_core::Result<ProviderSpiConnectionSettings>;
@@ -37,11 +35,9 @@ pub trait ISpiDeviceProvider_Impl: Sized + super::super::super::Foundation::IClo
     fn TransferSequential(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows_core::Result<()>;
     fn TransferFullDuplex(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for ISpiDeviceProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiDeviceProvider";
 }
-#[cfg(feature = "Foundation")]
 impl ISpiDeviceProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpiDeviceProvider_Impl, const OFFSET: isize>() -> ISpiDeviceProvider_Vtbl {
         unsafe extern "system" fn DeviceId<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT {

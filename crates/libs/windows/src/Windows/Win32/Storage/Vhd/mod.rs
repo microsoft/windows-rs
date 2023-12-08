@@ -1,5 +1,3 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddVirtualDiskParent<P0, P1>(virtualdiskhandle: P0, parentpath: P1) -> ::windows_core::Result<()>
 where
@@ -9,8 +7,6 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn AddVirtualDiskParent(virtualdiskhandle : super::super::Foundation:: HANDLE, parentpath : ::windows_core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
     AddVirtualDiskParent(virtualdiskhandle.into_param().abi(), parentpath.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplySnapshotVhdSet<P0>(virtualdiskhandle: P0, parameters: *const APPLY_SNAPSHOT_VHDSET_PARAMETERS, flags: APPLY_SNAPSHOT_VHDSET_FLAG) -> ::windows_core::Result<()>
 where
@@ -19,8 +15,8 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn ApplySnapshotVhdSet(virtualdiskhandle : super::super::Foundation:: HANDLE, parameters : *const APPLY_SNAPSHOT_VHDSET_PARAMETERS, flags : APPLY_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation:: WIN32_ERROR);
     ApplySnapshotVhdSet(virtualdiskhandle.into_param().abi(), parameters, flags).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_IO\"`"]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn AttachVirtualDisk<P0, P1>(virtualdiskhandle: P0, securitydescriptor: P1, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: ::core::option::Option<*const ATTACH_VIRTUAL_DISK_PARAMETERS>, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()>
 where
@@ -30,8 +26,6 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn AttachVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, securitydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, flags : ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags : u32, parameters : *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
     AttachVirtualDisk(virtualdiskhandle.into_param().abi(), securitydescriptor.into_param().abi(), flags, providerspecificflags, ::core::mem::transmute(parameters.unwrap_or(::std::ptr::null())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BreakMirrorVirtualDisk<P0>(virtualdiskhandle: P0) -> ::windows_core::Result<()>
 where
@@ -40,8 +34,8 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn BreakMirrorVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
     BreakMirrorVirtualDisk(virtualdiskhandle.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn CompactVirtualDisk<P0>(virtualdiskhandle: P0, flags: COMPACT_VIRTUAL_DISK_FLAG, parameters: ::core::option::Option<*const COMPACT_VIRTUAL_DISK_PARAMETERS>, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()>
 where
@@ -50,8 +44,6 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn CompactVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : COMPACT_VIRTUAL_DISK_FLAG, parameters : *const COMPACT_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
     CompactVirtualDisk(virtualdiskhandle.into_param().abi(), flags, ::core::mem::transmute(parameters.unwrap_or(::std::ptr::null())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CompleteForkVirtualDisk<P0>(virtualdiskhandle: P0) -> ::windows_core::Result<()>
 where
@@ -60,8 +52,8 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn CompleteForkVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
     CompleteForkVirtualDisk(virtualdiskhandle.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_IO\"`"]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CreateVirtualDisk<P0, P1>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: P0, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, securitydescriptor: P1, flags: CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>, handle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()>
 where
@@ -71,8 +63,6 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn CreateVirtualDisk(virtualstoragetype : *const VIRTUAL_STORAGE_TYPE, path : ::windows_core::PCWSTR, virtualdiskaccessmask : VIRTUAL_DISK_ACCESS_MASK, securitydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, flags : CREATE_VIRTUAL_DISK_FLAG, providerspecificflags : u32, parameters : *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED, handle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
     CreateVirtualDisk(virtualstoragetype, path.into_param().abi(), virtualdiskaccessmask, securitydescriptor.into_param().abi(), flags, providerspecificflags, parameters, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())), handle).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteSnapshotVhdSet<P0>(virtualdiskhandle: P0, parameters: *const DELETE_SNAPSHOT_VHDSET_PARAMETERS, flags: DELETE_SNAPSHOT_VHDSET_FLAG) -> ::windows_core::Result<()>
 where
@@ -81,8 +71,6 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn DeleteSnapshotVhdSet(virtualdiskhandle : super::super::Foundation:: HANDLE, parameters : *const DELETE_SNAPSHOT_VHDSET_PARAMETERS, flags : DELETE_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation:: WIN32_ERROR);
     DeleteSnapshotVhdSet(virtualdiskhandle.into_param().abi(), parameters, flags).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteVirtualDiskMetadata<P0>(virtualdiskhandle: P0, item: *const ::windows_core::GUID) -> ::windows_core::Result<()>
 where
@@ -91,8 +79,6 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn DeleteVirtualDiskMetadata(virtualdiskhandle : super::super::Foundation:: HANDLE, item : *const ::windows_core::GUID) -> super::super::Foundation:: WIN32_ERROR);
     DeleteVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), item).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DetachVirtualDisk<P0>(virtualdiskhandle: P0, flags: DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> ::windows_core::Result<()>
 where
@@ -101,8 +87,6 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn DetachVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : DETACH_VIRTUAL_DISK_FLAG, providerspecificflags : u32) -> super::super::Foundation:: WIN32_ERROR);
     DetachVirtualDisk(virtualdiskhandle.into_param().abi(), flags, providerspecificflags).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumerateVirtualDiskMetadata<P0>(virtualdiskhandle: P0, numberofitems: *mut u32, items: *mut ::windows_core::GUID) -> ::windows_core::Result<()>
 where
@@ -111,8 +95,8 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn EnumerateVirtualDiskMetadata(virtualdiskhandle : super::super::Foundation:: HANDLE, numberofitems : *mut u32, items : *mut ::windows_core::GUID) -> super::super::Foundation:: WIN32_ERROR);
     EnumerateVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), numberofitems, items).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ExpandVirtualDisk<P0>(virtualdiskhandle: P0, flags: EXPAND_VIRTUAL_DISK_FLAG, parameters: *const EXPAND_VIRTUAL_DISK_PARAMETERS, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()>
 where
@@ -121,8 +105,8 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn ExpandVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : EXPAND_VIRTUAL_DISK_FLAG, parameters : *const EXPAND_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
     ExpandVirtualDisk(virtualdiskhandle.into_param().abi(), flags, parameters, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ForkVirtualDisk<P0>(virtualdiskhandle: P0, flags: FORK_VIRTUAL_DISK_FLAG, parameters: *const FORK_VIRTUAL_DISK_PARAMETERS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()>
 where
@@ -131,15 +115,11 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn ForkVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : FORK_VIRTUAL_DISK_FLAG, parameters : *const FORK_VIRTUAL_DISK_PARAMETERS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
     ForkVirtualDisk(virtualdiskhandle.into_param().abi(), flags, parameters, overlapped).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes: *mut u32, pathsbuffer: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
     ::windows_targets::link!("virtdisk.dll" "system" fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes : *mut u32, pathsbuffer : ::windows_core::PWSTR) -> super::super::Foundation:: WIN32_ERROR);
     GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes, ::core::mem::transmute(pathsbuffer)).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStorageDependencyInformation<P0>(objecthandle: P0, flags: GET_STORAGE_DEPENDENCY_FLAG, storagedependencyinfosize: u32, storagedependencyinfo: *mut STORAGE_DEPENDENCY_INFO, sizeused: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
@@ -148,8 +128,6 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn GetStorageDependencyInformation(objecthandle : super::super::Foundation:: HANDLE, flags : GET_STORAGE_DEPENDENCY_FLAG, storagedependencyinfosize : u32, storagedependencyinfo : *mut STORAGE_DEPENDENCY_INFO, sizeused : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
     GetStorageDependencyInformation(objecthandle.into_param().abi(), flags, storagedependencyinfosize, storagedependencyinfo, ::core::mem::transmute(sizeused.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVirtualDiskInformation<P0>(virtualdiskhandle: P0, virtualdiskinfosize: *mut u32, virtualdiskinfo: *mut GET_VIRTUAL_DISK_INFO, sizeused: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
@@ -158,8 +136,6 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn GetVirtualDiskInformation(virtualdiskhandle : super::super::Foundation:: HANDLE, virtualdiskinfosize : *mut u32, virtualdiskinfo : *mut GET_VIRTUAL_DISK_INFO, sizeused : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
     GetVirtualDiskInformation(virtualdiskhandle.into_param().abi(), virtualdiskinfosize, virtualdiskinfo, ::core::mem::transmute(sizeused.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVirtualDiskMetadata<P0>(virtualdiskhandle: P0, item: *const ::windows_core::GUID, metadatasize: *mut u32, metadata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -168,8 +144,8 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn GetVirtualDiskMetadata(virtualdiskhandle : super::super::Foundation:: HANDLE, item : *const ::windows_core::GUID, metadatasize : *mut u32, metadata : *mut ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
     GetVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), item, metadatasize, metadata).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn GetVirtualDiskOperationProgress<P0>(virtualdiskhandle: P0, overlapped: *const super::super::System::IO::OVERLAPPED, progress: *mut VIRTUAL_DISK_PROGRESS) -> ::windows_core::Result<()>
 where
@@ -178,8 +154,6 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn GetVirtualDiskOperationProgress(virtualdiskhandle : super::super::Foundation:: HANDLE, overlapped : *const super::super::System::IO:: OVERLAPPED, progress : *mut VIRTUAL_DISK_PROGRESS) -> super::super::Foundation:: WIN32_ERROR);
     GetVirtualDiskOperationProgress(virtualdiskhandle.into_param().abi(), overlapped, progress).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVirtualDiskPhysicalPath<P0>(virtualdiskhandle: P0, diskpathsizeinbytes: *mut u32, diskpath: ::windows_core::PWSTR) -> ::windows_core::Result<()>
 where
@@ -188,8 +162,8 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn GetVirtualDiskPhysicalPath(virtualdiskhandle : super::super::Foundation:: HANDLE, diskpathsizeinbytes : *mut u32, diskpath : ::windows_core::PWSTR) -> super::super::Foundation:: WIN32_ERROR);
     GetVirtualDiskPhysicalPath(virtualdiskhandle.into_param().abi(), diskpathsizeinbytes, ::core::mem::transmute(diskpath)).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn MergeVirtualDisk<P0>(virtualdiskhandle: P0, flags: MERGE_VIRTUAL_DISK_FLAG, parameters: *const MERGE_VIRTUAL_DISK_PARAMETERS, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()>
 where
@@ -198,8 +172,8 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn MergeVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : MERGE_VIRTUAL_DISK_FLAG, parameters : *const MERGE_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
     MergeVirtualDisk(virtualdiskhandle.into_param().abi(), flags, parameters, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn MirrorVirtualDisk<P0>(virtualdiskhandle: P0, flags: MIRROR_VIRTUAL_DISK_FLAG, parameters: *const MIRROR_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()>
 where
@@ -208,8 +182,6 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn MirrorVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : MIRROR_VIRTUAL_DISK_FLAG, parameters : *const MIRROR_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
     MirrorVirtualDisk(virtualdiskhandle.into_param().abi(), flags, parameters, overlapped).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ModifyVhdSet<P0>(virtualdiskhandle: P0, parameters: *const MODIFY_VHDSET_PARAMETERS, flags: MODIFY_VHDSET_FLAG) -> ::windows_core::Result<()>
 where
@@ -218,8 +190,6 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn ModifyVhdSet(virtualdiskhandle : super::super::Foundation:: HANDLE, parameters : *const MODIFY_VHDSET_PARAMETERS, flags : MODIFY_VHDSET_FLAG) -> super::super::Foundation:: WIN32_ERROR);
     ModifyVhdSet(virtualdiskhandle.into_param().abi(), parameters, flags).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenVirtualDisk<P0>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: P0, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, flags: OPEN_VIRTUAL_DISK_FLAG, parameters: ::core::option::Option<*const OPEN_VIRTUAL_DISK_PARAMETERS>, handle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()>
 where
@@ -228,8 +198,6 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn OpenVirtualDisk(virtualstoragetype : *const VIRTUAL_STORAGE_TYPE, path : ::windows_core::PCWSTR, virtualdiskaccessmask : VIRTUAL_DISK_ACCESS_MASK, flags : OPEN_VIRTUAL_DISK_FLAG, parameters : *const OPEN_VIRTUAL_DISK_PARAMETERS, handle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
     OpenVirtualDisk(virtualstoragetype, path.into_param().abi(), virtualdiskaccessmask, flags, ::core::mem::transmute(parameters.unwrap_or(::std::ptr::null())), handle).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryChangesVirtualDisk<P0, P1>(virtualdiskhandle: P0, changetrackingid: P1, byteoffset: u64, bytelength: u64, flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, ranges: *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount: *mut u32, processedlength: *mut u64) -> ::windows_core::Result<()>
 where
@@ -239,8 +207,6 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn QueryChangesVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, changetrackingid : ::windows_core::PCWSTR, byteoffset : u64, bytelength : u64, flags : QUERY_CHANGES_VIRTUAL_DISK_FLAG, ranges : *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount : *mut u32, processedlength : *mut u64) -> super::super::Foundation:: WIN32_ERROR);
     QueryChangesVirtualDisk(virtualdiskhandle.into_param().abi(), changetrackingid.into_param().abi(), byteoffset, bytelength, flags, ranges, rangecount, processedlength).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RawSCSIVirtualDisk<P0>(virtualdiskhandle: P0, parameters: *const RAW_SCSI_VIRTUAL_DISK_PARAMETERS, flags: RAW_SCSI_VIRTUAL_DISK_FLAG, response: *mut RAW_SCSI_VIRTUAL_DISK_RESPONSE) -> ::windows_core::Result<()>
 where
@@ -249,8 +215,8 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn RawSCSIVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, parameters : *const RAW_SCSI_VIRTUAL_DISK_PARAMETERS, flags : RAW_SCSI_VIRTUAL_DISK_FLAG, response : *mut RAW_SCSI_VIRTUAL_DISK_RESPONSE) -> super::super::Foundation:: WIN32_ERROR);
     RawSCSIVirtualDisk(virtualdiskhandle.into_param().abi(), parameters, flags, response).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ResizeVirtualDisk<P0>(virtualdiskhandle: P0, flags: RESIZE_VIRTUAL_DISK_FLAG, parameters: *const RESIZE_VIRTUAL_DISK_PARAMETERS, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()>
 where
@@ -259,8 +225,6 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn ResizeVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : RESIZE_VIRTUAL_DISK_FLAG, parameters : *const RESIZE_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
     ResizeVirtualDisk(virtualdiskhandle.into_param().abi(), flags, parameters, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetVirtualDiskInformation<P0>(virtualdiskhandle: P0, virtualdiskinfo: *const SET_VIRTUAL_DISK_INFO) -> ::windows_core::Result<()>
 where
@@ -269,8 +233,6 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn SetVirtualDiskInformation(virtualdiskhandle : super::super::Foundation:: HANDLE, virtualdiskinfo : *const SET_VIRTUAL_DISK_INFO) -> super::super::Foundation:: WIN32_ERROR);
     SetVirtualDiskInformation(virtualdiskhandle.into_param().abi(), virtualdiskinfo).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetVirtualDiskMetadata<P0>(virtualdiskhandle: P0, item: *const ::windows_core::GUID, metadatasize: u32, metadata: *const ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -279,8 +241,6 @@ where
     ::windows_targets::link!("virtdisk.dll" "system" fn SetVirtualDiskMetadata(virtualdiskhandle : super::super::Foundation:: HANDLE, item : *const ::windows_core::GUID, metadatasize : u32, metadata : *const ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
     SetVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), item, metadatasize, metadata).ok()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TakeSnapshotVhdSet<P0>(virtualdiskhandle: P0, parameters: *const TAKE_SNAPSHOT_VHDSET_PARAMETERS, flags: TAKE_SNAPSHOT_VHDSET_FLAG) -> ::windows_core::Result<()>
 where
@@ -2543,33 +2503,25 @@ impl ::core::default::Default for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GET_VIRTUAL_DISK_INFO {
     pub Version: GET_VIRTUAL_DISK_INFO_VERSION,
     pub Anonymous: GET_VIRTUAL_DISK_INFO_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GET_VIRTUAL_DISK_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GET_VIRTUAL_DISK_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GET_VIRTUAL_DISK_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union GET_VIRTUAL_DISK_INFO_0 {
     pub Size: GET_VIRTUAL_DISK_INFO_0_3,
     pub Identifier: ::windows_core::GUID,
@@ -2587,179 +2539,139 @@ pub union GET_VIRTUAL_DISK_INFO_0 {
     pub VirtualDiskId: ::windows_core::GUID,
     pub ChangeTrackingState: GET_VIRTUAL_DISK_INFO_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GET_VIRTUAL_DISK_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GET_VIRTUAL_DISK_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GET_VIRTUAL_DISK_INFO_0_0 {
     pub Enabled: super::super::Foundation::BOOL,
     pub NewerChanges: super::super::Foundation::BOOL,
     pub MostRecentId: [u16; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GET_VIRTUAL_DISK_INFO_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GET_VIRTUAL_DISK_INFO_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GET_VIRTUAL_DISK_INFO_0_0").field("Enabled", &self.Enabled).field("NewerChanges", &self.NewerChanges).field("MostRecentId", &self.MostRecentId).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Enabled == other.Enabled && self.NewerChanges == other.NewerChanges && self.MostRecentId == other.MostRecentId
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GET_VIRTUAL_DISK_INFO_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GET_VIRTUAL_DISK_INFO_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GET_VIRTUAL_DISK_INFO_0_1 {
     pub ParentResolved: super::super::Foundation::BOOL,
     pub ParentLocationBuffer: [u16; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GET_VIRTUAL_DISK_INFO_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GET_VIRTUAL_DISK_INFO_0_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GET_VIRTUAL_DISK_INFO_0_1").field("ParentResolved", &self.ParentResolved).field("ParentLocationBuffer", &self.ParentLocationBuffer).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.ParentResolved == other.ParentResolved && self.ParentLocationBuffer == other.ParentLocationBuffer
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GET_VIRTUAL_DISK_INFO_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GET_VIRTUAL_DISK_INFO_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GET_VIRTUAL_DISK_INFO_0_2 {
     pub LogicalSectorSize: u32,
     pub PhysicalSectorSize: u32,
     pub IsRemote: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GET_VIRTUAL_DISK_INFO_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GET_VIRTUAL_DISK_INFO_0_2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GET_VIRTUAL_DISK_INFO_0_2").field("LogicalSectorSize", &self.LogicalSectorSize).field("PhysicalSectorSize", &self.PhysicalSectorSize).field("IsRemote", &self.IsRemote).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0_2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.LogicalSectorSize == other.LogicalSectorSize && self.PhysicalSectorSize == other.PhysicalSectorSize && self.IsRemote == other.IsRemote
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GET_VIRTUAL_DISK_INFO_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GET_VIRTUAL_DISK_INFO_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GET_VIRTUAL_DISK_INFO_0_3 {
     pub VirtualSize: u64,
     pub PhysicalSize: u64,
     pub BlockSize: u32,
     pub SectorSize: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GET_VIRTUAL_DISK_INFO_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GET_VIRTUAL_DISK_INFO_0_3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GET_VIRTUAL_DISK_INFO_0_3").field("VirtualSize", &self.VirtualSize).field("PhysicalSize", &self.PhysicalSize).field("BlockSize", &self.BlockSize).field("SectorSize", &self.SectorSize).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0_3 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.VirtualSize == other.VirtualSize && self.PhysicalSize == other.PhysicalSize && self.BlockSize == other.BlockSize && self.SectorSize == other.SectorSize
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GET_VIRTUAL_DISK_INFO_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GET_VIRTUAL_DISK_INFO_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2998,170 +2910,131 @@ impl ::core::default::Default for MODIFY_VHDSET_PARAMETERS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS {
     pub Version: OPEN_VIRTUAL_DISK_VERSION,
     pub Anonymous: OPEN_VIRTUAL_DISK_PARAMETERS_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OPEN_VIRTUAL_DISK_PARAMETERS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPEN_VIRTUAL_DISK_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: OPEN_VIRTUAL_DISK_PARAMETERS_0_0,
     pub Version2: OPEN_VIRTUAL_DISK_PARAMETERS_0_1,
     pub Version3: OPEN_VIRTUAL_DISK_PARAMETERS_0_2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OPEN_VIRTUAL_DISK_PARAMETERS_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RWDepth: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("OPEN_VIRTUAL_DISK_PARAMETERS_0_0").field("RWDepth", &self.RWDepth).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.RWDepth == other.RWDepth
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub GetInfoOnly: super::super::Foundation::BOOL,
     pub ReadOnly: super::super::Foundation::BOOL,
     pub ResiliencyGuid: ::windows_core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("OPEN_VIRTUAL_DISK_PARAMETERS_0_1").field("GetInfoOnly", &self.GetInfoOnly).field("ReadOnly", &self.ReadOnly).field("ResiliencyGuid", &self.ResiliencyGuid).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.GetInfoOnly == other.GetInfoOnly && self.ReadOnly == other.ReadOnly && self.ResiliencyGuid == other.ResiliencyGuid
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub GetInfoOnly: super::super::Foundation::BOOL,
     pub ReadOnly: super::super::Foundation::BOOL,
     pub ResiliencyGuid: ::windows_core::GUID,
     pub SnapshotId: ::windows_core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("OPEN_VIRTUAL_DISK_PARAMETERS_0_2").field("GetInfoOnly", &self.GetInfoOnly).field("ReadOnly", &self.ReadOnly).field("ResiliencyGuid", &self.ResiliencyGuid).field("SnapshotId", &self.SnapshotId).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.GetInfoOnly == other.GetInfoOnly && self.ReadOnly == other.ReadOnly && self.ResiliencyGuid == other.ResiliencyGuid && self.SnapshotId == other.SnapshotId
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3199,57 +3072,43 @@ impl ::core::default::Default for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
     pub Version: RAW_SCSI_VIRTUAL_DISK_VERSION,
     pub Anonymous: RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RSVDHandle: super::super::Foundation::BOOL,
     pub DataIn: u8,
@@ -3261,33 +3120,26 @@ pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub SenseInfo: *mut u8,
     pub Cdb: *mut u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0").field("RSVDHandle", &self.RSVDHandle).field("DataIn", &self.DataIn).field("CdbLength", &self.CdbLength).field("SenseInfoLength", &self.SenseInfoLength).field("SrbFlags", &self.SrbFlags).field("DataTransferLength", &self.DataTransferLength).field("DataBuffer", &self.DataBuffer).field("SenseInfo", &self.SenseInfo).field("Cdb", &self.Cdb).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.RSVDHandle == other.RSVDHandle && self.DataIn == other.DataIn && self.CdbLength == other.CdbLength && self.SenseInfoLength == other.SenseInfoLength && self.SrbFlags == other.SrbFlags && self.DataTransferLength == other.DataTransferLength && self.DataBuffer == other.DataBuffer && self.SenseInfo == other.SenseInfo && self.Cdb == other.Cdb
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3428,33 +3280,25 @@ impl ::core::default::Default for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SET_VIRTUAL_DISK_INFO {
     pub Version: SET_VIRTUAL_DISK_INFO_VERSION,
     pub Anonymous: SET_VIRTUAL_DISK_INFO_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SET_VIRTUAL_DISK_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for SET_VIRTUAL_DISK_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SET_VIRTUAL_DISK_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union SET_VIRTUAL_DISK_INFO_0 {
     pub ParentFilePath: ::windows_core::PCWSTR,
     pub UniqueIdentifier: ::windows_core::GUID,
@@ -3464,97 +3308,75 @@ pub union SET_VIRTUAL_DISK_INFO_0 {
     pub ChangeTrackingEnabled: super::super::Foundation::BOOL,
     pub ParentLocator: SET_VIRTUAL_DISK_INFO_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SET_VIRTUAL_DISK_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for SET_VIRTUAL_DISK_INFO_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SET_VIRTUAL_DISK_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SET_VIRTUAL_DISK_INFO_0_0 {
     pub LinkageId: ::windows_core::GUID,
     pub ParentFilePath: ::windows_core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SET_VIRTUAL_DISK_INFO_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SET_VIRTUAL_DISK_INFO_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SET_VIRTUAL_DISK_INFO_0_0").field("LinkageId", &self.LinkageId).field("ParentFilePath", &self.ParentFilePath).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for SET_VIRTUAL_DISK_INFO_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SET_VIRTUAL_DISK_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.LinkageId == other.LinkageId && self.ParentFilePath == other.ParentFilePath
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SET_VIRTUAL_DISK_INFO_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SET_VIRTUAL_DISK_INFO_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SET_VIRTUAL_DISK_INFO_0_1 {
     pub ChildDepth: u32,
     pub ParentFilePath: ::windows_core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SET_VIRTUAL_DISK_INFO_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SET_VIRTUAL_DISK_INFO_0_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SET_VIRTUAL_DISK_INFO_0_1").field("ChildDepth", &self.ChildDepth).field("ParentFilePath", &self.ParentFilePath).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for SET_VIRTUAL_DISK_INFO_0_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SET_VIRTUAL_DISK_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.ChildDepth == other.ChildDepth && self.ParentFilePath == other.ParentFilePath
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SET_VIRTUAL_DISK_INFO_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SET_VIRTUAL_DISK_INFO_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

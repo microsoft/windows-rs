@@ -162,9 +162,9 @@ pub struct ISceneMesh_Vtbl {
     pub SetPrimitiveTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Graphics::DirectX::DirectXPrimitiveTopology) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))]
     SetPrimitiveTopology: usize,
-    #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))]
+    #[cfg(feature = "Graphics_DirectX")]
     pub FillMeshAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, semantic: SceneAttributeSemantic, format: super::super::super::Graphics::DirectX::DirectXPixelFormat, memory: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics_DirectX")))]
+    #[cfg(not(feature = "Graphics_DirectX"))]
     FillMeshAttribute: usize,
 }
 #[doc(hidden)]
@@ -586,8 +586,6 @@ impl SceneBoundingBox {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -749,7 +747,6 @@ impl ::windows_core::RuntimeName for SceneBoundingBox {
 }
 ::windows_core::imp::interface_hierarchy!(SceneBoundingBox, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for SceneBoundingBox {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for SceneBoundingBox {}
 impl ::windows_core::CanTryInto<SceneObject> for SceneBoundingBox {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for SceneBoundingBox {}
@@ -766,8 +763,6 @@ impl SceneComponent {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -891,7 +886,6 @@ impl ::windows_core::RuntimeName for SceneComponent {
 }
 ::windows_core::imp::interface_hierarchy!(SceneComponent, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for SceneComponent {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for SceneComponent {}
 impl ::windows_core::CanTryInto<SceneObject> for SceneComponent {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for SceneComponent {}
@@ -911,8 +905,6 @@ impl SceneComponentCollection {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -1184,8 +1176,6 @@ impl SceneMaterial {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -1302,7 +1292,6 @@ impl ::windows_core::RuntimeName for SceneMaterial {
 }
 ::windows_core::imp::interface_hierarchy!(SceneMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for SceneMaterial {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for SceneMaterial {}
 impl ::windows_core::CanTryInto<SceneObject> for SceneMaterial {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for SceneMaterial {}
@@ -1319,8 +1308,6 @@ impl SceneMaterialInput {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -1437,7 +1424,6 @@ impl ::windows_core::RuntimeName for SceneMaterialInput {
 }
 ::windows_core::imp::interface_hierarchy!(SceneMaterialInput, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for SceneMaterialInput {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for SceneMaterialInput {}
 impl ::windows_core::CanTryInto<SceneObject> for SceneMaterialInput {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for SceneMaterialInput {}
@@ -1454,8 +1440,6 @@ impl SceneMesh {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -1579,8 +1563,8 @@ impl SceneMesh {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPrimitiveTopology)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Graphics_DirectX\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))]
+    #[doc = "Required features: `\"Graphics_DirectX\"`"]
+    #[cfg(feature = "Graphics_DirectX")]
     pub fn FillMeshAttribute<P0>(&self, semantic: SceneAttributeSemantic, format: super::super::super::Graphics::DirectX::DirectXPixelFormat, memory: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::MemoryBuffer>,
@@ -1617,7 +1601,6 @@ impl ::windows_core::RuntimeName for SceneMesh {
 }
 ::windows_core::imp::interface_hierarchy!(SceneMesh, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for SceneMesh {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for SceneMesh {}
 impl ::windows_core::CanTryInto<SceneObject> for SceneMesh {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for SceneMesh {}
@@ -1634,8 +1617,6 @@ impl SceneMeshMaterialAttributeMap {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -1834,7 +1815,6 @@ impl ::core::iter::IntoIterator for &SceneMeshMaterialAttributeMap {
 }
 ::windows_core::imp::interface_hierarchy!(SceneMeshMaterialAttributeMap, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for SceneMeshMaterialAttributeMap {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for SceneMeshMaterialAttributeMap {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, SceneAttributeSemantic>>> for SceneMeshMaterialAttributeMap {}
@@ -1855,8 +1835,6 @@ impl SceneMeshRendererComponent {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2029,7 +2007,6 @@ impl ::windows_core::RuntimeName for SceneMeshRendererComponent {
 }
 ::windows_core::imp::interface_hierarchy!(SceneMeshRendererComponent, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for SceneMeshRendererComponent {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for SceneMeshRendererComponent {}
 impl ::windows_core::CanTryInto<SceneRendererComponent> for SceneMeshRendererComponent {}
 impl ::windows_core::CanTryInto<SceneComponent> for SceneMeshRendererComponent {}
@@ -2048,8 +2025,6 @@ impl SceneMetallicRoughnessMaterial {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2357,7 +2332,6 @@ impl ::windows_core::RuntimeName for SceneMetallicRoughnessMaterial {
 }
 ::windows_core::imp::interface_hierarchy!(SceneMetallicRoughnessMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for SceneMetallicRoughnessMaterial {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for SceneMetallicRoughnessMaterial {}
 impl ::windows_core::CanTryInto<ScenePbrMaterial> for SceneMetallicRoughnessMaterial {}
 impl ::windows_core::CanTryInto<SceneMaterial> for SceneMetallicRoughnessMaterial {}
@@ -2376,8 +2350,6 @@ impl SceneModelTransform {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2576,7 +2548,6 @@ impl ::windows_core::RuntimeName for SceneModelTransform {
 }
 ::windows_core::imp::interface_hierarchy!(SceneModelTransform, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for SceneModelTransform {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for SceneModelTransform {}
 impl ::windows_core::CanTryInto<super::CompositionTransform> for SceneModelTransform {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for SceneModelTransform {}
@@ -2593,8 +2564,6 @@ impl SceneNode {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2764,7 +2733,6 @@ impl ::windows_core::RuntimeName for SceneNode {
 }
 ::windows_core::imp::interface_hierarchy!(SceneNode, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for SceneNode {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for SceneNode {}
 impl ::windows_core::CanTryInto<SceneObject> for SceneNode {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for SceneNode {}
@@ -2784,8 +2752,6 @@ impl SceneNodeCollection {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -3057,8 +3023,6 @@ impl SceneObject {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -3175,7 +3139,6 @@ impl ::windows_core::RuntimeName for SceneObject {
 }
 ::windows_core::imp::interface_hierarchy!(SceneObject, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for SceneObject {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for SceneObject {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for SceneObject {}
 unsafe impl ::core::marker::Send for SceneObject {}
@@ -3191,8 +3154,6 @@ impl ScenePbrMaterial {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -3421,7 +3382,6 @@ impl ::windows_core::RuntimeName for ScenePbrMaterial {
 }
 ::windows_core::imp::interface_hierarchy!(ScenePbrMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for ScenePbrMaterial {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for ScenePbrMaterial {}
 impl ::windows_core::CanTryInto<SceneMaterial> for ScenePbrMaterial {}
 impl ::windows_core::CanTryInto<SceneObject> for ScenePbrMaterial {}
@@ -3439,8 +3399,6 @@ impl SceneRendererComponent {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -3564,7 +3522,6 @@ impl ::windows_core::RuntimeName for SceneRendererComponent {
 }
 ::windows_core::imp::interface_hierarchy!(SceneRendererComponent, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for SceneRendererComponent {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for SceneRendererComponent {}
 impl ::windows_core::CanTryInto<SceneComponent> for SceneRendererComponent {}
 impl ::windows_core::CanTryInto<SceneObject> for SceneRendererComponent {}
@@ -3582,8 +3539,6 @@ impl SceneSurfaceMaterialInput {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -3761,7 +3716,6 @@ impl ::windows_core::RuntimeName for SceneSurfaceMaterialInput {
 }
 ::windows_core::imp::interface_hierarchy!(SceneSurfaceMaterialInput, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for SceneSurfaceMaterialInput {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for SceneSurfaceMaterialInput {}
 impl ::windows_core::CanTryInto<SceneMaterialInput> for SceneSurfaceMaterialInput {}
 impl ::windows_core::CanTryInto<SceneObject> for SceneSurfaceMaterialInput {}
@@ -3779,8 +3733,6 @@ impl SceneVisual {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -4216,7 +4168,6 @@ impl ::windows_core::RuntimeName for SceneVisual {
 }
 ::windows_core::imp::interface_hierarchy!(SceneVisual, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for SceneVisual {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for SceneVisual {}
 impl ::windows_core::CanTryInto<super::ContainerVisual> for SceneVisual {}
 impl ::windows_core::CanTryInto<super::Visual> for SceneVisual {}

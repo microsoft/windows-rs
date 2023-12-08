@@ -12,13 +12,10 @@ unsafe impl ::windows_core::ComInterface for IContactPartnerProvisioningManagerS
 #[doc(hidden)]
 pub struct IContactPartnerProvisioningManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub AssociateNetworkAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, store: *mut ::core::ffi::c_void, networkname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, networkaccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AssociateNetworkAccountAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub ImportVcardToSystemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     ImportVcardToSystemAsync: usize,
 }
 #[doc(hidden)]
@@ -35,10 +32,7 @@ unsafe impl ::windows_core::ComInterface for IContactPartnerProvisioningManagerS
 #[doc(hidden)]
 pub struct IContactPartnerProvisioningManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation")]
     pub AssociateSocialNetworkAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, store: *mut ::core::ffi::c_void, networkname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, networkaccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AssociateSocialNetworkAccountAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -65,8 +59,6 @@ pub struct IMessagePartnerProvisioningManagerStatics_Vtbl {
 }
 pub struct ContactPartnerProvisioningManager;
 impl ContactPartnerProvisioningManager {
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AssociateNetworkAccountAsync<P0>(store: P0, networkname: &::windows_core::HSTRING, networkaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<super::ContactStore>,
@@ -76,8 +68,8 @@ impl ContactPartnerProvisioningManager {
             (::windows_core::Interface::vtable(this).AssociateNetworkAccountAsync)(::windows_core::Interface::as_raw(this), store.into_param().abi(), ::core::mem::transmute_copy(networkname), ::core::mem::transmute_copy(networkaccountid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    #[cfg(feature = "Storage_Streams")]
     pub fn ImportVcardToSystemAsync<P0>(stream: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IInputStream>,
@@ -87,8 +79,6 @@ impl ContactPartnerProvisioningManager {
             (::windows_core::Interface::vtable(this).ImportVcardToSystemAsync)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn AssociateSocialNetworkAccountAsync<P0>(store: P0, networkname: &::windows_core::HSTRING, networkaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::IntoParam<super::ContactStore>,

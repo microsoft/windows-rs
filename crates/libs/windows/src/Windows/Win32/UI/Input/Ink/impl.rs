@@ -15,14 +15,10 @@ impl IInkCommitRequestHandler_Vtbl {
         *iid == <IInkCommitRequestHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IInkD2DRenderer_Impl: Sized {
     fn Draw(&self, pd2d1devicecontext: ::core::option::Option<&::windows_core::IUnknown>, pinkstrokeiterable: ::core::option::Option<&::windows_core::IUnknown>, fhighcontrast: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IInkD2DRenderer {}
-#[cfg(feature = "Win32_Foundation")]
 impl IInkD2DRenderer_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkD2DRenderer_Impl, const OFFSET: isize>() -> IInkD2DRenderer_Vtbl {
         unsafe extern "system" fn Draw<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkD2DRenderer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pd2d1devicecontext: *mut ::core::ffi::c_void, pinkstrokeiterable: *mut ::core::ffi::c_void, fhighcontrast: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {

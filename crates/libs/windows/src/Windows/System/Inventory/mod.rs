@@ -76,8 +76,6 @@ impl InstalledDesktopApp {
             (::windows_core::Interface::vtable(this).GetInventoryAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -104,7 +102,6 @@ impl ::windows_core::RuntimeName for InstalledDesktopApp {
     const NAME: &'static str = "Windows.System.Inventory.InstalledDesktopApp";
 }
 ::windows_core::imp::interface_hierarchy!(InstalledDesktopApp, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IStringable> for InstalledDesktopApp {}
 unsafe impl ::core::marker::Send for InstalledDesktopApp {}
 unsafe impl ::core::marker::Sync for InstalledDesktopApp {}

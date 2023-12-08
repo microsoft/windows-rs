@@ -1,5 +1,3 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IInertiaProcessor_Impl: Sized {
     fn InitialOriginX(&self) -> ::windows_core::Result<f32>;
     fn SetInitialOriginX(&self, x: f32) -> ::windows_core::Result<()>;
@@ -51,9 +49,7 @@ pub trait IInertiaProcessor_Impl: Sized {
     fn Complete(&self) -> ::windows_core::Result<()>;
     fn CompleteTime(&self, timestamp: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IInertiaProcessor {}
-#[cfg(feature = "Win32_Foundation")]
 impl IInertiaProcessor_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInertiaProcessor_Impl, const OFFSET: isize>() -> IInertiaProcessor_Vtbl {
         unsafe extern "system" fn InitialOriginX<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInertiaProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: *mut f32) -> ::windows_core::HRESULT {

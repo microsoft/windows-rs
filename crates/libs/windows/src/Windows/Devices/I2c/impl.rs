@@ -1,15 +1,11 @@
-#[doc = "Required features: `\"Foundation\"`"]
-#[cfg(feature = "Foundation")]
 pub trait II2cDeviceStatics_Impl: Sized {
     fn GetDeviceSelector(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn GetDeviceSelectorFromFriendlyName(&self, friendlyname: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn FromIdAsync(&self, deviceid: &::windows_core::HSTRING, settings: ::core::option::Option<&I2cConnectionSettings>) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>>;
 }
-#[cfg(feature = "Foundation")]
 impl ::windows_core::RuntimeName for II2cDeviceStatics {
     const NAME: &'static str = "Windows.Devices.I2c.II2cDeviceStatics";
 }
-#[cfg(feature = "Foundation")]
 impl II2cDeviceStatics_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: II2cDeviceStatics_Impl, const OFFSET: isize>() -> II2cDeviceStatics_Vtbl {
         unsafe extern "system" fn GetDeviceSelector<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: II2cDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT {

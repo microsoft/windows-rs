@@ -1,11 +1,7 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub trait IIsolatedEnvironmentInterop_Impl: Sized {
     fn GetHostHwndInterop(&self, containerhwnd: super::super::super::Foundation::HWND) -> ::windows_core::Result<super::super::super::Foundation::HWND>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IIsolatedEnvironmentInterop {}
-#[cfg(feature = "Win32_Foundation")]
 impl IIsolatedEnvironmentInterop_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IIsolatedEnvironmentInterop_Impl, const OFFSET: isize>() -> IIsolatedEnvironmentInterop_Vtbl {
         unsafe extern "system" fn GetHostHwndInterop<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IIsolatedEnvironmentInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, containerhwnd: super::super::super::Foundation::HWND, hosthwnd: *mut super::super::super::Foundation::HWND) -> ::windows_core::HRESULT {

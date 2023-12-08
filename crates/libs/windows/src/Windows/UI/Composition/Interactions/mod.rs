@@ -151,14 +151,8 @@ pub struct IInteractionTracker_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     PositionVelocityInPixelsPerSecond: usize,
     pub Scale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Foundation")]
     pub ScaleInertiaDecayRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ScaleInertiaDecayRate: usize,
-    #[cfg(feature = "Foundation")]
     pub SetScaleInertiaDecayRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetScaleInertiaDecayRate: usize,
     pub ScaleVelocityInPercentPerSecond: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
     pub AdjustPositionXIfGreaterThanThreshold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adjustment: f32, positionthreshold: f32) -> ::windows_core::HRESULT,
     pub AdjustPositionYIfGreaterThanThreshold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adjustment: f32, positionthreshold: f32) -> ::windows_core::HRESULT,
@@ -502,10 +496,7 @@ pub struct IInteractionTrackerInertiaStateEnteredArgs_Vtbl {
     pub ModifiedRestingPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     ModifiedRestingPosition: usize,
-    #[cfg(feature = "Foundation")]
     pub ModifiedRestingScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ModifiedRestingScale: usize,
     #[cfg(feature = "Foundation_Numerics")]
     pub NaturalRestingPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -954,8 +945,6 @@ impl CompositionConditionalValue {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -1114,7 +1103,6 @@ impl ::windows_core::RuntimeName for CompositionConditionalValue {
 }
 ::windows_core::imp::interface_hierarchy!(CompositionConditionalValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for CompositionConditionalValue {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for CompositionConditionalValue {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for CompositionConditionalValue {}
 unsafe impl ::core::marker::Send for CompositionConditionalValue {}
@@ -1130,8 +1118,6 @@ impl CompositionInteractionSourceCollection {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -1298,7 +1284,6 @@ impl ::core::iter::IntoIterator for &CompositionInteractionSourceCollection {
 }
 ::windows_core::imp::interface_hierarchy!(CompositionInteractionSourceCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for CompositionInteractionSourceCollection {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for CompositionInteractionSourceCollection {}
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>> for CompositionInteractionSourceCollection {}
@@ -1316,8 +1301,6 @@ impl InteractionSourceConfiguration {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -1467,7 +1450,6 @@ impl ::windows_core::RuntimeName for InteractionSourceConfiguration {
 }
 ::windows_core::imp::interface_hierarchy!(InteractionSourceConfiguration, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for InteractionSourceConfiguration {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for InteractionSourceConfiguration {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for InteractionSourceConfiguration {}
 unsafe impl ::core::marker::Send for InteractionSourceConfiguration {}
@@ -1483,8 +1465,6 @@ impl InteractionTracker {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -1718,8 +1698,6 @@ impl InteractionTracker {
             (::windows_core::Interface::vtable(this).Scale)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ScaleInertiaDecayRate(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
@@ -1727,8 +1705,6 @@ impl InteractionTracker {
             (::windows_core::Interface::vtable(this).ScaleInertiaDecayRate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn SetScaleInertiaDecayRate<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<f32>>,
@@ -1967,7 +1943,6 @@ impl ::windows_core::RuntimeName for InteractionTracker {
 }
 ::windows_core::imp::interface_hierarchy!(InteractionTracker, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for InteractionTracker {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for InteractionTracker {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for InteractionTracker {}
 unsafe impl ::core::marker::Send for InteractionTracker {}
@@ -2051,8 +2026,6 @@ impl InteractionTrackerInertiaModifier {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2169,7 +2142,6 @@ impl ::windows_core::RuntimeName for InteractionTrackerInertiaModifier {
 }
 ::windows_core::imp::interface_hierarchy!(InteractionTrackerInertiaModifier, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for InteractionTrackerInertiaModifier {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for InteractionTrackerInertiaModifier {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for InteractionTrackerInertiaModifier {}
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaModifier {}
@@ -2185,8 +2157,6 @@ impl InteractionTrackerInertiaMotion {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2345,7 +2315,6 @@ impl ::windows_core::RuntimeName for InteractionTrackerInertiaMotion {
 }
 ::windows_core::imp::interface_hierarchy!(InteractionTrackerInertiaMotion, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for InteractionTrackerInertiaMotion {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for InteractionTrackerInertiaMotion {}
 impl ::windows_core::CanTryInto<InteractionTrackerInertiaModifier> for InteractionTrackerInertiaMotion {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for InteractionTrackerInertiaMotion {}
@@ -2362,8 +2331,6 @@ impl InteractionTrackerInertiaNaturalMotion {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2522,7 +2489,6 @@ impl ::windows_core::RuntimeName for InteractionTrackerInertiaNaturalMotion {
 }
 ::windows_core::imp::interface_hierarchy!(InteractionTrackerInertiaNaturalMotion, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for InteractionTrackerInertiaNaturalMotion {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for InteractionTrackerInertiaNaturalMotion {}
 impl ::windows_core::CanTryInto<InteractionTrackerInertiaModifier> for InteractionTrackerInertiaNaturalMotion {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for InteractionTrackerInertiaNaturalMotion {}
@@ -2539,8 +2505,6 @@ impl InteractionTrackerInertiaRestingValue {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -2699,7 +2663,6 @@ impl ::windows_core::RuntimeName for InteractionTrackerInertiaRestingValue {
 }
 ::windows_core::imp::interface_hierarchy!(InteractionTrackerInertiaRestingValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for InteractionTrackerInertiaRestingValue {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for InteractionTrackerInertiaRestingValue {}
 impl ::windows_core::CanTryInto<InteractionTrackerInertiaModifier> for InteractionTrackerInertiaRestingValue {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for InteractionTrackerInertiaRestingValue {}
@@ -2718,8 +2681,6 @@ impl InteractionTrackerInertiaStateEnteredArgs {
             (::windows_core::Interface::vtable(this).ModifiedRestingPosition)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn ModifiedRestingScale(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
@@ -2911,8 +2872,6 @@ impl InteractionTrackerVector2InertiaModifier {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -3029,7 +2988,6 @@ impl ::windows_core::RuntimeName for InteractionTrackerVector2InertiaModifier {
 }
 ::windows_core::imp::interface_hierarchy!(InteractionTrackerVector2InertiaModifier, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for InteractionTrackerVector2InertiaModifier {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for InteractionTrackerVector2InertiaModifier {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for InteractionTrackerVector2InertiaModifier {}
 unsafe impl ::core::marker::Send for InteractionTrackerVector2InertiaModifier {}
@@ -3045,8 +3003,6 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -3205,7 +3161,6 @@ impl ::windows_core::RuntimeName for InteractionTrackerVector2InertiaNaturalMoti
 }
 ::windows_core::imp::interface_hierarchy!(InteractionTrackerVector2InertiaNaturalMotion, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for InteractionTrackerVector2InertiaNaturalMotion {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for InteractionTrackerVector2InertiaNaturalMotion {}
 impl ::windows_core::CanTryInto<InteractionTrackerVector2InertiaModifier> for InteractionTrackerVector2InertiaNaturalMotion {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for InteractionTrackerVector2InertiaNaturalMotion {}
@@ -3222,8 +3177,6 @@ impl VisualInteractionSource {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -3583,7 +3536,6 @@ impl ::windows_core::RuntimeName for VisualInteractionSource {
 }
 ::windows_core::imp::interface_hierarchy!(VisualInteractionSource, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for VisualInteractionSource {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for VisualInteractionSource {}
 impl ::windows_core::CanTryInto<ICompositionInteractionSource> for VisualInteractionSource {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for VisualInteractionSource {}

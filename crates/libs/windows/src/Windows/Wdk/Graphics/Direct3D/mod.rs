@@ -1,467 +1,339 @@
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTAcquireKeyedMutex(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTAcquireKeyedMutex(param0 : *mut D3DKMT_ACQUIREKEYEDMUTEX) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTAcquireKeyedMutex(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTAcquireKeyedMutex2(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTAcquireKeyedMutex2(param0 : *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTAcquireKeyedMutex2(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTAdjustFullscreenGamma(param0: *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTAdjustFullscreenGamma(param0 : *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTAdjustFullscreenGamma(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCancelPresents(param0: *const D3DKMT_CANCEL_PRESENTS) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCancelPresents(param0 : *const D3DKMT_CANCEL_PRESENTS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCancelPresents(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn D3DKMTChangeSurfacePointer(param0: *const D3DKMT_CHANGESURFACEPOINTER) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTChangeSurfacePointer(param0 : *const D3DKMT_CHANGESURFACEPOINTER) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTChangeSurfacePointer(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTChangeVideoMemoryReservation(param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTChangeVideoMemoryReservation(param0 : *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTChangeVideoMemoryReservation(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCheckExclusiveOwnership() -> super::super::super::Win32::Foundation::BOOLEAN {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckExclusiveOwnership() -> super::super::super::Win32::Foundation:: BOOLEAN);
     D3DKMTCheckExclusiveOwnership()
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCheckMonitorPowerState(param0: *const D3DKMT_CHECKMONITORPOWERSTATE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckMonitorPowerState(param0 : *const D3DKMT_CHECKMONITORPOWERSTATE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCheckMonitorPowerState(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCheckMultiPlaneOverlaySupport(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckMultiPlaneOverlaySupport(param0 : *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCheckMultiPlaneOverlaySupport(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCheckMultiPlaneOverlaySupport2(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckMultiPlaneOverlaySupport2(param0 : *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCheckMultiPlaneOverlaySupport2(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCheckMultiPlaneOverlaySupport3(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckMultiPlaneOverlaySupport3(param0 : *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCheckMultiPlaneOverlaySupport3(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCheckOcclusion(param0: *const D3DKMT_CHECKOCCLUSION) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckOcclusion(param0 : *const D3DKMT_CHECKOCCLUSION) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCheckOcclusion(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCheckSharedResourceAccess(param0: *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckSharedResourceAccess(param0 : *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCheckSharedResourceAccess(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCheckVidPnExclusiveOwnership(param0: *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckVidPnExclusiveOwnership(param0 : *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCheckVidPnExclusiveOwnership(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCloseAdapter(param0: *const D3DKMT_CLOSEADAPTER) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCloseAdapter(param0 : *const D3DKMT_CLOSEADAPTER) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCloseAdapter(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTConfigureSharedResource(param0: *const D3DKMT_CONFIGURESHAREDRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTConfigureSharedResource(param0 : *const D3DKMT_CONFIGURESHAREDRESOURCE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTConfigureSharedResource(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCreateAllocation(param0: *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateAllocation(param0 : *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCreateAllocation(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCreateAllocation2(param0: *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateAllocation2(param0 : *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCreateAllocation2(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCreateContext(param0: *mut D3DKMT_CREATECONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateContext(param0 : *mut D3DKMT_CREATECONTEXT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCreateContext(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCreateContextVirtual(param0: *const D3DKMT_CREATECONTEXTVIRTUAL) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateContextVirtual(param0 : *const D3DKMT_CREATECONTEXTVIRTUAL) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCreateContextVirtual(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn D3DKMTCreateDCFromMemory(param0: *mut D3DKMT_CREATEDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateDCFromMemory(param0 : *mut D3DKMT_CREATEDCFROMMEMORY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCreateDCFromMemory(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCreateDevice(param0: *mut D3DKMT_CREATEDEVICE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateDevice(param0 : *mut D3DKMT_CREATEDEVICE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCreateDevice(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCreateHwContext(param0: *mut D3DKMT_CREATEHWCONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateHwContext(param0 : *mut D3DKMT_CREATEHWCONTEXT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCreateHwContext(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCreateHwQueue(param0: *mut D3DKMT_CREATEHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateHwQueue(param0 : *mut D3DKMT_CREATEHWQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCreateHwQueue(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCreateKeyedMutex(param0: *mut D3DKMT_CREATEKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateKeyedMutex(param0 : *mut D3DKMT_CREATEKEYEDMUTEX) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCreateKeyedMutex(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCreateKeyedMutex2(param0: *mut D3DKMT_CREATEKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateKeyedMutex2(param0 : *mut D3DKMT_CREATEKEYEDMUTEX2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCreateKeyedMutex2(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCreateOutputDupl(param0: *const D3DKMT_CREATE_OUTPUTDUPL) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateOutputDupl(param0 : *const D3DKMT_CREATE_OUTPUTDUPL) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCreateOutputDupl(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCreateOverlay(param0: *mut D3DKMT_CREATEOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateOverlay(param0 : *mut D3DKMT_CREATEOVERLAY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCreateOverlay(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCreatePagingQueue(param0: *mut D3DKMT_CREATEPAGINGQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreatePagingQueue(param0 : *mut D3DKMT_CREATEPAGINGQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCreatePagingQueue(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCreateProtectedSession(param0: *mut D3DKMT_CREATEPROTECTEDSESSION) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateProtectedSession(param0 : *mut D3DKMT_CREATEPROTECTEDSESSION) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCreateProtectedSession(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCreateSynchronizationObject(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateSynchronizationObject(param0 : *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCreateSynchronizationObject(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTCreateSynchronizationObject2(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateSynchronizationObject2(param0 : *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCreateSynchronizationObject2(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTDestroyAllocation(param0: *const D3DKMT_DESTROYALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyAllocation(param0 : *const D3DKMT_DESTROYALLOCATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTDestroyAllocation(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTDestroyAllocation2(param0: *const D3DKMT_DESTROYALLOCATION2) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyAllocation2(param0 : *const D3DKMT_DESTROYALLOCATION2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTDestroyAllocation2(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTDestroyContext(param0: *const D3DKMT_DESTROYCONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyContext(param0 : *const D3DKMT_DESTROYCONTEXT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTDestroyContext(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn D3DKMTDestroyDCFromMemory(param0: *const D3DKMT_DESTROYDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyDCFromMemory(param0 : *const D3DKMT_DESTROYDCFROMMEMORY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTDestroyDCFromMemory(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTDestroyDevice(param0: *const D3DKMT_DESTROYDEVICE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyDevice(param0 : *const D3DKMT_DESTROYDEVICE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTDestroyDevice(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTDestroyHwContext(param0: *const D3DKMT_DESTROYHWCONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyHwContext(param0 : *const D3DKMT_DESTROYHWCONTEXT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTDestroyHwContext(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTDestroyHwQueue(param0: *const D3DKMT_DESTROYHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyHwQueue(param0 : *const D3DKMT_DESTROYHWQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTDestroyHwQueue(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTDestroyKeyedMutex(param0: *const D3DKMT_DESTROYKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyKeyedMutex(param0 : *const D3DKMT_DESTROYKEYEDMUTEX) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTDestroyKeyedMutex(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTDestroyOutputDupl(param0: *const D3DKMT_DESTROY_OUTPUTDUPL) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyOutputDupl(param0 : *const D3DKMT_DESTROY_OUTPUTDUPL) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTDestroyOutputDupl(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTDestroyOverlay(param0: *const D3DKMT_DESTROYOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyOverlay(param0 : *const D3DKMT_DESTROYOVERLAY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTDestroyOverlay(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTDestroyPagingQueue(param0: *mut D3DDDI_DESTROYPAGINGQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyPagingQueue(param0 : *mut D3DDDI_DESTROYPAGINGQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTDestroyPagingQueue(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTDestroyProtectedSession(param0: *mut D3DKMT_DESTROYPROTECTEDSESSION) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyProtectedSession(param0 : *mut D3DKMT_DESTROYPROTECTEDSESSION) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTDestroyProtectedSession(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTDestroySynchronizationObject(param0: *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroySynchronizationObject(param0 : *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTDestroySynchronizationObject(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTEnumAdapters(param0: *mut D3DKMT_ENUMADAPTERS) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTEnumAdapters(param0 : *mut D3DKMT_ENUMADAPTERS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTEnumAdapters(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTEnumAdapters2(param0: *mut D3DKMT_ENUMADAPTERS2) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTEnumAdapters2(param0 : *mut D3DKMT_ENUMADAPTERS2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTEnumAdapters2(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTEnumAdapters3(param0: *mut D3DKMT_ENUMADAPTERS3) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("api-ms-win-dx-d3dkmt-l1-1-6.dll" "system" fn D3DKMTEnumAdapters3(param0 : *mut D3DKMT_ENUMADAPTERS3) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTEnumAdapters3(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTEscape(param0: *const D3DKMT_ESCAPE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTEscape(param0 : *const D3DKMT_ESCAPE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTEscape(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTEvict(param0: *mut D3DKMT_EVICT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTEvict(param0 : *mut D3DKMT_EVICT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTEvict(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTFlipOverlay(param0: *const D3DKMT_FLIPOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTFlipOverlay(param0 : *const D3DKMT_FLIPOVERLAY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTFlipOverlay(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTFlushHeapTransitions(param0: *const D3DKMT_FLUSHHEAPTRANSITIONS) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTFlushHeapTransitions(param0 : *const D3DKMT_FLUSHHEAPTRANSITIONS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTFlushHeapTransitions(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTFreeGpuVirtualAddress(param0: *const D3DKMT_FREEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTFreeGpuVirtualAddress(param0 : *const D3DKMT_FREEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTFreeGpuVirtualAddress(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetAllocationPriority(param0: *const D3DKMT_GETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetAllocationPriority(param0 : *const D3DKMT_GETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetAllocationPriority(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetContextInProcessSchedulingPriority(param0: *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetContextInProcessSchedulingPriority(param0 : *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetContextInProcessSchedulingPriority(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetContextSchedulingPriority(param0: *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetContextSchedulingPriority(param0 : *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetContextSchedulingPriority(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetDWMVerticalBlankEvent(param0: *const D3DKMT_GETVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetDWMVerticalBlankEvent(param0 : *const D3DKMT_GETVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetDWMVerticalBlankEvent(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetDeviceState(param0: *mut D3DKMT_GETDEVICESTATE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetDeviceState(param0 : *mut D3DKMT_GETDEVICESTATE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetDeviceState(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetDisplayModeList(param0: *mut D3DKMT_GETDISPLAYMODELIST) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetDisplayModeList(param0 : *mut D3DKMT_GETDISPLAYMODELIST) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetDisplayModeList(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetMultiPlaneOverlayCaps(param0: *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetMultiPlaneOverlayCaps(param0 : *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetMultiPlaneOverlayCaps(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetMultisampleMethodList(param0: *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetMultisampleMethodList(param0 : *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetMultisampleMethodList(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetOverlayState(param0: *mut D3DKMT_GETOVERLAYSTATE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetOverlayState(param0 : *mut D3DKMT_GETOVERLAYSTATE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetOverlayState(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetPostCompositionCaps(param0: *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetPostCompositionCaps(param0 : *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetPostCompositionCaps(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetPresentHistory(param0: *mut D3DKMT_GETPRESENTHISTORY) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetPresentHistory(param0 : *mut D3DKMT_GETPRESENTHISTORY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetPresentHistory(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetPresentQueueEvent(hadapter: u32, param1: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetPresentQueueEvent(hadapter : u32, param1 : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetPresentQueueEvent(hadapter, param1)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetProcessDeviceRemovalSupport(param0: *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetProcessDeviceRemovalSupport(param0 : *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetProcessDeviceRemovalSupport(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetProcessSchedulingPriorityClass<P0>(param0: P0, param1: *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation::NTSTATUS
 where
@@ -470,428 +342,312 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetProcessSchedulingPriorityClass(param0 : super::super::super::Win32::Foundation:: HANDLE, param1 : *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetProcessSchedulingPriorityClass(param0.into_param().abi(), param1)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetResourcePresentPrivateDriverData(param0: *mut D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetResourcePresentPrivateDriverData(param0 : *mut D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetResourcePresentPrivateDriverData(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetRuntimeData(param0: *mut D3DKMT_GETRUNTIMEDATA) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetRuntimeData(param0 : *mut D3DKMT_GETRUNTIMEDATA) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetRuntimeData(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetScanLine(param0: *mut D3DKMT_GETSCANLINE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetScanLine(param0 : *mut D3DKMT_GETSCANLINE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetScanLine(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetSharedPrimaryHandle(param0: *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetSharedPrimaryHandle(param0 : *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetSharedPrimaryHandle(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTGetSharedResourceAdapterLuid(param0: *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetSharedResourceAdapterLuid(param0 : *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTGetSharedResourceAdapterLuid(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTInvalidateActiveVidPn(param0: *const D3DKMT_INVALIDATEACTIVEVIDPN) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTInvalidateActiveVidPn(param0 : *const D3DKMT_INVALIDATEACTIVEVIDPN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTInvalidateActiveVidPn(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTInvalidateCache(param0: *const D3DKMT_INVALIDATECACHE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTInvalidateCache(param0 : *const D3DKMT_INVALIDATECACHE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTInvalidateCache(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTLock(param0: *mut D3DKMT_LOCK) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTLock(param0 : *mut D3DKMT_LOCK) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTLock(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTLock2(param0: *mut D3DKMT_LOCK2) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTLock2(param0 : *mut D3DKMT_LOCK2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTLock2(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTMakeResident(param0: *mut D3DDDI_MAKERESIDENT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTMakeResident(param0 : *mut D3DDDI_MAKERESIDENT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTMakeResident(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTMapGpuVirtualAddress(param0: *mut D3DDDI_MAPGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTMapGpuVirtualAddress(param0 : *mut D3DDDI_MAPGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTMapGpuVirtualAddress(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTMarkDeviceAsError(param0: *const D3DKMT_MARKDEVICEASERROR) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTMarkDeviceAsError(param0 : *const D3DKMT_MARKDEVICEASERROR) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTMarkDeviceAsError(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOfferAllocations(param0: *const D3DKMT_OFFERALLOCATIONS) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOfferAllocations(param0 : *const D3DKMT_OFFERALLOCATIONS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOfferAllocations(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOpenAdapterFromDeviceName(param0: *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromDeviceName(param0 : *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenAdapterFromDeviceName(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOpenAdapterFromGdiDisplayName(param0: *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromGdiDisplayName(param0 : *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenAdapterFromGdiDisplayName(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn D3DKMTOpenAdapterFromHdc(param0: *mut D3DKMT_OPENADAPTERFROMHDC) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromHdc(param0 : *mut D3DKMT_OPENADAPTERFROMHDC) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenAdapterFromHdc(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOpenAdapterFromLuid(param0: *mut D3DKMT_OPENADAPTERFROMLUID) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromLuid(param0 : *mut D3DKMT_OPENADAPTERFROMLUID) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenAdapterFromLuid(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOpenKeyedMutex(param0: *mut D3DKMT_OPENKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutex(param0 : *mut D3DKMT_OPENKEYEDMUTEX) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenKeyedMutex(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOpenKeyedMutex2(param0: *mut D3DKMT_OPENKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutex2(param0 : *mut D3DKMT_OPENKEYEDMUTEX2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenKeyedMutex2(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOpenKeyedMutexFromNtHandle(param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutexFromNtHandle(param0 : *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenKeyedMutexFromNtHandle(param0)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[doc = "Required features: `\"Wdk_Foundation\"`"]
+#[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOpenNtHandleFromName(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenNtHandleFromName(param0 : *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenNtHandleFromName(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOpenProtectedSessionFromNtHandle(param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenProtectedSessionFromNtHandle(param0 : *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenProtectedSessionFromNtHandle(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOpenResource(param0: *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenResource(param0 : *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenResource(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOpenResource2(param0: *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenResource2(param0 : *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenResource2(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOpenResourceFromNtHandle(param0: *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenResourceFromNtHandle(param0 : *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenResourceFromNtHandle(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOpenSyncObjectFromNtHandle(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectFromNtHandle(param0 : *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenSyncObjectFromNtHandle(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOpenSyncObjectFromNtHandle2(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectFromNtHandle2(param0 : *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenSyncObjectFromNtHandle2(param0)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[doc = "Required features: `\"Wdk_Foundation\"`"]
+#[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOpenSyncObjectNtHandleFromName(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectNtHandleFromName(param0 : *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenSyncObjectNtHandleFromName(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOpenSynchronizationObject(param0: *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenSynchronizationObject(param0 : *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenSynchronizationObject(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOutputDuplGetFrameInfo(param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOutputDuplGetFrameInfo(param0 : *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOutputDuplGetFrameInfo(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOutputDuplGetMetaData(param0: *mut D3DKMT_OUTPUTDUPL_METADATA) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOutputDuplGetMetaData(param0 : *mut D3DKMT_OUTPUTDUPL_METADATA) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOutputDuplGetMetaData(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOutputDuplGetPointerShapeData(param0: *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOutputDuplGetPointerShapeData(param0 : *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOutputDuplGetPointerShapeData(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOutputDuplPresent(param0: *const D3DKMT_OUTPUTDUPLPRESENT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOutputDuplPresent(param0 : *const D3DKMT_OUTPUTDUPLPRESENT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOutputDuplPresent(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOutputDuplPresentToHwQueue(param0: *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("api-ms-win-dx-d3dkmt-l1-1-4.dll" "system" fn D3DKMTOutputDuplPresentToHwQueue(param0 : *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOutputDuplPresentToHwQueue(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOutputDuplReleaseFrame(param0: *mut D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOutputDuplReleaseFrame(param0 : *mut D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOutputDuplReleaseFrame(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTPollDisplayChildren(param0: *const D3DKMT_POLLDISPLAYCHILDREN) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTPollDisplayChildren(param0 : *const D3DKMT_POLLDISPLAYCHILDREN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTPollDisplayChildren(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTPresent(param0: *mut D3DKMT_PRESENT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTPresent(param0 : *mut D3DKMT_PRESENT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTPresent(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTPresentMultiPlaneOverlay(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTPresentMultiPlaneOverlay(param0 : *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTPresentMultiPlaneOverlay(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTPresentMultiPlaneOverlay2(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTPresentMultiPlaneOverlay2(param0 : *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTPresentMultiPlaneOverlay2(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTPresentMultiPlaneOverlay3(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTPresentMultiPlaneOverlay3(param0 : *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTPresentMultiPlaneOverlay3(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTPresentRedirected(param0: *const D3DKMT_PRESENT_REDIRECTED) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTPresentRedirected(param0 : *const D3DKMT_PRESENT_REDIRECTED) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTPresentRedirected(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTQueryAdapterInfo(param0: *mut D3DKMT_QUERYADAPTERINFO) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryAdapterInfo(param0 : *mut D3DKMT_QUERYADAPTERINFO) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTQueryAdapterInfo(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTQueryAllocationResidency(param0: *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryAllocationResidency(param0 : *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTQueryAllocationResidency(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTQueryClockCalibration(param0: *mut D3DKMT_QUERYCLOCKCALIBRATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryClockCalibration(param0 : *mut D3DKMT_QUERYCLOCKCALIBRATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTQueryClockCalibration(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTQueryFSEBlock(param0: *mut D3DKMT_QUERYFSEBLOCK) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryFSEBlock(param0 : *mut D3DKMT_QUERYFSEBLOCK) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTQueryFSEBlock(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTQueryProcessOfferInfo(param0: *mut D3DKMT_QUERYPROCESSOFFERINFO) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryProcessOfferInfo(param0 : *mut D3DKMT_QUERYPROCESSOFFERINFO) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTQueryProcessOfferInfo(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTQueryProtectedSessionInfoFromNtHandle(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryProtectedSessionInfoFromNtHandle(param0 : *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTQueryProtectedSessionInfoFromNtHandle(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTQueryProtectedSessionStatus(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryProtectedSessionStatus(param0 : *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTQueryProtectedSessionStatus(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(param0: *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(param0 : *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTQueryResourceInfo(param0: *mut D3DKMT_QUERYRESOURCEINFO) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryResourceInfo(param0 : *mut D3DKMT_QUERYRESOURCEINFO) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTQueryResourceInfo(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTQueryResourceInfoFromNtHandle(param0: *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryResourceInfoFromNtHandle(param0 : *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTQueryResourceInfoFromNtHandle(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTQueryStatistics(param0: *const D3DKMT_QUERYSTATISTICS) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryStatistics(param0 : *const D3DKMT_QUERYSTATISTICS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTQueryStatistics(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTQueryVidPnExclusiveOwnership(param0: *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryVidPnExclusiveOwnership(param0 : *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTQueryVidPnExclusiveOwnership(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTQueryVideoMemoryInfo(param0: *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryVideoMemoryInfo(param0 : *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTQueryVideoMemoryInfo(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTReclaimAllocations(param0: *mut D3DKMT_RECLAIMALLOCATIONS) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTReclaimAllocations(param0 : *mut D3DKMT_RECLAIMALLOCATIONS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTReclaimAllocations(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTReclaimAllocations2(param0: *mut D3DKMT_RECLAIMALLOCATIONS2) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTReclaimAllocations2(param0 : *mut D3DKMT_RECLAIMALLOCATIONS2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTReclaimAllocations2(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTRegisterTrimNotification(param0: *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTRegisterTrimNotification(param0 : *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTRegisterTrimNotification(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTRegisterVailProcess(param0: *const ::windows_core::GUID) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTRegisterVailProcess(param0 : *const ::windows_core::GUID) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTRegisterVailProcess(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTReleaseKeyedMutex(param0: *mut D3DKMT_RELEASEKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTReleaseKeyedMutex(param0 : *mut D3DKMT_RELEASEKEYEDMUTEX) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTReleaseKeyedMutex(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTReleaseKeyedMutex2(param0: *mut D3DKMT_RELEASEKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTReleaseKeyedMutex2(param0 : *mut D3DKMT_RELEASEKEYEDMUTEX2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTReleaseKeyedMutex2(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTReleaseProcessVidPnSourceOwners<P0>(param0: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
@@ -900,85 +656,61 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTReleaseProcessVidPnSourceOwners(param0 : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTReleaseProcessVidPnSourceOwners(param0.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTRender(param0: *mut D3DKMT_RENDER) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTRender(param0 : *mut D3DKMT_RENDER) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTRender(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTReserveGpuVirtualAddress(param0: *mut D3DDDI_RESERVEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTReserveGpuVirtualAddress(param0 : *mut D3DDDI_RESERVEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTReserveGpuVirtualAddress(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSetAllocationPriority(param0: *const D3DKMT_SETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetAllocationPriority(param0 : *const D3DKMT_SETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSetAllocationPriority(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSetContextInProcessSchedulingPriority(param0: *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetContextInProcessSchedulingPriority(param0 : *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSetContextInProcessSchedulingPriority(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSetContextSchedulingPriority(param0: *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetContextSchedulingPriority(param0 : *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSetContextSchedulingPriority(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSetDisplayMode(param0: *mut D3DKMT_SETDISPLAYMODE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetDisplayMode(param0 : *mut D3DKMT_SETDISPLAYMODE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSetDisplayMode(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSetDisplayPrivateDriverFormat(param0: *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetDisplayPrivateDriverFormat(param0 : *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSetDisplayPrivateDriverFormat(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSetFSEBlock(param0: *const D3DKMT_SETFSEBLOCK) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetFSEBlock(param0 : *const D3DKMT_SETFSEBLOCK) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSetFSEBlock(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSetGammaRamp(param0: *const D3DKMT_SETGAMMARAMP) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetGammaRamp(param0 : *const D3DKMT_SETGAMMARAMP) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSetGammaRamp(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSetHwProtectionTeardownRecovery(param0: *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetHwProtectionTeardownRecovery(param0 : *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSetHwProtectionTeardownRecovery(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSetMonitorColorSpaceTransform(param0: *const D3DKMT_SET_COLORSPACE_TRANSFORM) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetMonitorColorSpaceTransform(param0 : *const D3DKMT_SET_COLORSPACE_TRANSFORM) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSetMonitorColorSpaceTransform(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSetProcessSchedulingPriorityClass<P0>(param0: P0, param1: D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation::NTSTATUS
 where
@@ -987,246 +719,178 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetProcessSchedulingPriorityClass(param0 : super::super::super::Win32::Foundation:: HANDLE, param1 : D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSetProcessSchedulingPriorityClass(param0.into_param().abi(), param1)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSetQueuedLimit(param0: *const D3DKMT_SETQUEUEDLIMIT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetQueuedLimit(param0 : *const D3DKMT_SETQUEUEDLIMIT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSetQueuedLimit(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSetStablePowerState(param0: *const D3DKMT_SETSTABLEPOWERSTATE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetStablePowerState(param0 : *const D3DKMT_SETSTABLEPOWERSTATE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSetStablePowerState(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSetSyncRefreshCountWaitTarget(param0: *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetSyncRefreshCountWaitTarget(param0 : *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSetSyncRefreshCountWaitTarget(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSetVidPnSourceHwProtection(param0: *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceHwProtection(param0 : *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSetVidPnSourceHwProtection(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSetVidPnSourceOwner(param0: *const D3DKMT_SETVIDPNSOURCEOWNER) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceOwner(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSetVidPnSourceOwner(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSetVidPnSourceOwner1(param0: *const D3DKMT_SETVIDPNSOURCEOWNER1) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceOwner1(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER1) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSetVidPnSourceOwner1(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSetVidPnSourceOwner2(param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceOwner2(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSetVidPnSourceOwner2(param0)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[doc = "Required features: `\"Wdk_Foundation\"`"]
+#[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTShareObjects(hobjects: &[u32], pobjectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTShareObjects(cobjects : u32, hobjects : *const u32, pobjectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, dwdesiredaccess : u32, phsharednthandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTShareObjects(hobjects.len().try_into().unwrap(), ::core::mem::transmute(hobjects.as_ptr()), pobjectattributes, dwdesiredaccess, phsharednthandle)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSharedPrimaryLockNotification(param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSharedPrimaryLockNotification(param0 : *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSharedPrimaryLockNotification(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSharedPrimaryUnLockNotification(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSharedPrimaryUnLockNotification(param0 : *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSharedPrimaryUnLockNotification(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSignalSynchronizationObject(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObject(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSignalSynchronizationObject(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSignalSynchronizationObject2(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObject2(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSignalSynchronizationObject2(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSignalSynchronizationObjectFromCpu(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObjectFromCpu(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSignalSynchronizationObjectFromCpu(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSignalSynchronizationObjectFromGpu(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObjectFromGpu(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSignalSynchronizationObjectFromGpu(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSignalSynchronizationObjectFromGpu2(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObjectFromGpu2(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSignalSynchronizationObjectFromGpu2(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSubmitCommand(param0: *const D3DKMT_SUBMITCOMMAND) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSubmitCommand(param0 : *const D3DKMT_SUBMITCOMMAND) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSubmitCommand(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSubmitCommandToHwQueue(param0: *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSubmitCommandToHwQueue(param0 : *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSubmitCommandToHwQueue(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSubmitPresentBltToHwQueue(param0: *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("api-ms-win-dx-d3dkmt-l1-1-4.dll" "system" fn D3DKMTSubmitPresentBltToHwQueue(param0 : *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSubmitPresentBltToHwQueue(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSubmitPresentToHwQueue(param0: *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("api-ms-win-dx-d3dkmt-l1-1-4.dll" "system" fn D3DKMTSubmitPresentToHwQueue(param0 : *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSubmitPresentToHwQueue(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSubmitSignalSyncObjectsToHwQueue(param0: *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSubmitSignalSyncObjectsToHwQueue(param0 : *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSubmitSignalSyncObjectsToHwQueue(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTSubmitWaitForSyncObjectsToHwQueue(param0: *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSubmitWaitForSyncObjectsToHwQueue(param0 : *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSubmitWaitForSyncObjectsToHwQueue(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTTrimProcessCommitment(param0: *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTTrimProcessCommitment(param0 : *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTTrimProcessCommitment(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTUnlock(param0: *const D3DKMT_UNLOCK) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTUnlock(param0 : *const D3DKMT_UNLOCK) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTUnlock(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTUnlock2(param0: *const D3DKMT_UNLOCK2) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTUnlock2(param0 : *const D3DKMT_UNLOCK2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTUnlock2(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTUnregisterTrimNotification(param0: *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTUnregisterTrimNotification(param0 : *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTUnregisterTrimNotification(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTUpdateAllocationProperty(param0: *mut D3DDDI_UPDATEALLOCPROPERTY) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTUpdateAllocationProperty(param0 : *mut D3DDDI_UPDATEALLOCPROPERTY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTUpdateAllocationProperty(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTUpdateGpuVirtualAddress(param0: *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTUpdateGpuVirtualAddress(param0 : *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTUpdateGpuVirtualAddress(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTUpdateOverlay(param0: *const D3DKMT_UPDATEOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTUpdateOverlay(param0 : *const D3DKMT_UPDATEOVERLAY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTUpdateOverlay(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTWaitForIdle(param0: *const D3DKMT_WAITFORIDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTWaitForIdle(param0 : *const D3DKMT_WAITFORIDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTWaitForIdle(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTWaitForSynchronizationObject(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObject(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTWaitForSynchronizationObject(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTWaitForSynchronizationObject2(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObject2(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTWaitForSynchronizationObject2(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTWaitForSynchronizationObjectFromCpu(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObjectFromCpu(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTWaitForSynchronizationObjectFromCpu(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTWaitForSynchronizationObjectFromGpu(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObjectFromGpu(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTWaitForSynchronizationObjectFromGpu(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTWaitForVerticalBlankEvent(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTWaitForVerticalBlankEvent(param0 : *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTWaitForVerticalBlankEvent(param0)
 }
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTWaitForVerticalBlankEvent2(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> super::super::super::Win32::Foundation::NTSTATUS {
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTWaitForVerticalBlankEvent2(param0 : *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> super::super::super::Win32::Foundation:: NTSTATUS);
@@ -6354,8 +6018,6 @@ impl ::core::default::Default for D3DCAPS8 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DDDIARG_CREATERESOURCE {
     pub Format: D3DDDIFORMAT,
     pub Pool: D3DDDI_POOL,
@@ -6371,27 +6033,21 @@ pub struct D3DDDIARG_CREATERESOURCE {
     pub Flags: D3DDDI_RESOURCEFLAGS,
     pub Rotation: D3DDDI_ROTATION,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDIARG_CREATERESOURCE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDIARG_CREATERESOURCE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDIARG_CREATERESOURCE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDIARG_CREATERESOURCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DDDIARG_CREATERESOURCE2 {
     pub Format: D3DDDIFORMAT,
     pub Pool: D3DDDI_POOL,
@@ -6408,19 +6064,15 @@ pub struct D3DDDIARG_CREATERESOURCE2 {
     pub Rotation: D3DDDI_ROTATION,
     pub Flags2: D3DDDI_RESOURCEFLAGS2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDIARG_CREATERESOURCE2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDIARG_CREATERESOURCE2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDIARG_CREATERESOURCE2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDIARG_CREATERESOURCE2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6860,8 +6512,6 @@ impl ::core::default::Default for D3DDDI_ALLOCATIONINFO_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DDDI_ALLOCATIONINFO2 {
     pub hAllocation: u32,
     pub Anonymous1: D3DDDI_ALLOCATIONINFO2_0,
@@ -6873,132 +6523,101 @@ pub struct D3DDDI_ALLOCATIONINFO2 {
     pub Anonymous2: D3DDDI_ALLOCATIONINFO2_1,
     pub Reserved: [usize; 5],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_ALLOCATIONINFO2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_ALLOCATIONINFO2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_ALLOCATIONINFO2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DDDI_ALLOCATIONINFO2_0 {
     pub hSection: super::super::super::Win32::Foundation::HANDLE,
     pub pSystemMem: *const ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_ALLOCATIONINFO2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_ALLOCATIONINFO2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_ALLOCATIONINFO2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DDDI_ALLOCATIONINFO2_1 {
     pub Priority: u32,
     pub Unused: usize,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_ALLOCATIONINFO2_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_ALLOCATIONINFO2_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_ALLOCATIONINFO2_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DDDI_ALLOCATIONINFO2_2 {
     pub Anonymous: D3DDDI_ALLOCATIONINFO2_2_0,
     pub Value: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_ALLOCATIONINFO2_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_ALLOCATIONINFO2_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2_2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_ALLOCATIONINFO2_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DDDI_ALLOCATIONINFO2_2_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_ALLOCATIONINFO2_2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_ALLOCATIONINFO2_2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DDDI_ALLOCATIONINFO2_2_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DDDI_ALLOCATIONINFO2_2_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2_2_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DDDI_ALLOCATIONINFO2_2_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DDDI_ALLOCATIONINFO2_2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_ALLOCATIONINFO2_2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8627,201 +8246,154 @@ impl ::core::default::Default for D3DDDI_SURFACEINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO {
     pub Type: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE,
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
     pub SynchronizationMutex: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2,
     pub Semaphore: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1,
     pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
     pub Reserved: [u32; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0").field("Reserved", &self.Reserved).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Reserved == other.Reserved
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
     pub MaxCount: u32,
     pub InitialCount: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1").field("MaxCount", &self.MaxCount).field("InitialCount", &self.InitialCount).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.MaxCount == other.MaxCount && self.InitialCount == other.InitialCount
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
     pub InitialState: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2").field("InitialState", &self.InitialState).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.InitialState == other.InitialState
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     pub Type: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE,
     pub Flags: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS,
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0,
     pub SharedHandle: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     pub SynchronizationMutex: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6,
     pub Semaphore: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5,
@@ -8831,103 +8403,79 @@ pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     pub PeriodicMonitoredFence: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3,
     pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
     pub Event: super::super::super::Win32::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0").field("Event", &self.Event).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Event == other.Event
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
     pub FenceValue: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1").field("FenceValue", &self.FenceValue).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.FenceValue == other.FenceValue
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
     pub InitialFenceValue: u64,
     pub FenceValueCPUVirtualAddress: *mut ::core::ffi::c_void,
@@ -8935,41 +8483,32 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
     pub EngineAffinity: u32,
     pub Padding: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2").field("InitialFenceValue", &self.InitialFenceValue).field("FenceValueCPUVirtualAddress", &self.FenceValueCPUVirtualAddress).field("FenceValueGPUVirtualAddress", &self.FenceValueGPUVirtualAddress).field("EngineAffinity", &self.EngineAffinity).field("Padding", &self.Padding).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.InitialFenceValue == other.InitialFenceValue && self.FenceValueCPUVirtualAddress == other.FenceValueCPUVirtualAddress && self.FenceValueGPUVirtualAddress == other.FenceValueGPUVirtualAddress && self.EngineAffinity == other.EngineAffinity && self.Padding == other.Padding
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     pub hAdapter: u32,
     pub VidPnTargetId: u32,
@@ -8979,148 +8518,114 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     pub EngineAffinity: u32,
     pub Padding: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3").field("hAdapter", &self.hAdapter).field("VidPnTargetId", &self.VidPnTargetId).field("Time", &self.Time).field("FenceValueCPUVirtualAddress", &self.FenceValueCPUVirtualAddress).field("FenceValueGPUVirtualAddress", &self.FenceValueGPUVirtualAddress).field("EngineAffinity", &self.EngineAffinity).field("Padding", &self.Padding).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.hAdapter == other.hAdapter && self.VidPnTargetId == other.VidPnTargetId && self.Time == other.Time && self.FenceValueCPUVirtualAddress == other.FenceValueCPUVirtualAddress && self.FenceValueGPUVirtualAddress == other.FenceValueGPUVirtualAddress && self.EngineAffinity == other.EngineAffinity && self.Padding == other.Padding
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     pub Reserved: [u64; 8],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4").field("Reserved", &self.Reserved).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     fn eq(&self, other: &Self) -> bool {
         self.Reserved == other.Reserved
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     pub MaxCount: u32,
     pub InitialCount: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5").field("MaxCount", &self.MaxCount).field("InitialCount", &self.InitialCount).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     fn eq(&self, other: &Self) -> bool {
         self.MaxCount == other.MaxCount && self.InitialCount == other.InitialCount
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     pub InitialState: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6").field("InitialState", &self.InitialState).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     fn eq(&self, other: &Self) -> bool {
         self.InitialState == other.InitialState
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9611,8 +9116,8 @@ impl ::core::default::Default for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLA
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DDEVICEDESC_V1 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -9628,15 +9133,15 @@ pub struct D3DDEVICEDESC_V1 {
     pub dwMaxBufferSize: u32,
     pub dwMaxVertexCount: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::marker::Copy for D3DDEVICEDESC_V1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::clone::Clone for D3DDEVICEDESC_V1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::fmt::Debug for D3DDEVICEDESC_V1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DDEVICEDESC_V1")
@@ -9656,27 +9161,27 @@ impl ::core::fmt::Debug for D3DDEVICEDESC_V1 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::windows_core::TypeKind for D3DDEVICEDESC_V1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::PartialEq for D3DDEVICEDESC_V1 {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dcmColorModel == other.dcmColorModel && self.dwDevCaps == other.dwDevCaps && self.dtcTransformCaps == other.dtcTransformCaps && self.bClipping == other.bClipping && self.dlcLightingCaps == other.dlcLightingCaps && self.dpcLineCaps == other.dpcLineCaps && self.dpcTriCaps == other.dpcTriCaps && self.dwDeviceRenderBitDepth == other.dwDeviceRenderBitDepth && self.dwDeviceZBufferBitDepth == other.dwDeviceZBufferBitDepth && self.dwMaxBufferSize == other.dwMaxBufferSize && self.dwMaxVertexCount == other.dwMaxVertexCount
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::Eq for D3DDEVICEDESC_V1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::default::Default for D3DDEVICEDESC_V1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DDEVICEDESC_V2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -9700,15 +9205,15 @@ pub struct D3DDEVICEDESC_V2 {
     pub dwMinStippleHeight: u32,
     pub dwMaxStippleHeight: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::marker::Copy for D3DDEVICEDESC_V2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::clone::Clone for D3DDEVICEDESC_V2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::fmt::Debug for D3DDEVICEDESC_V2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DDEVICEDESC_V2")
@@ -9736,11 +9241,11 @@ impl ::core::fmt::Debug for D3DDEVICEDESC_V2 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::windows_core::TypeKind for D3DDEVICEDESC_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::PartialEq for D3DDEVICEDESC_V2 {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -9766,17 +9271,17 @@ impl ::core::cmp::PartialEq for D3DDEVICEDESC_V2 {
             && self.dwMaxStippleHeight == other.dwMaxStippleHeight
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::Eq for D3DDEVICEDESC_V2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::default::Default for D3DDEVICEDESC_V2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DDEVICEDESC_V3 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -9813,15 +9318,15 @@ pub struct D3DDEVICEDESC_V3 {
     pub wMaxTextureBlendStages: u16,
     pub wMaxSimultaneousTextures: u16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::marker::Copy for D3DDEVICEDESC_V3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::clone::Clone for D3DDEVICEDESC_V3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::fmt::Debug for D3DDEVICEDESC_V3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DDEVICEDESC_V3")
@@ -9862,11 +9367,11 @@ impl ::core::fmt::Debug for D3DDEVICEDESC_V3 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::windows_core::TypeKind for D3DDEVICEDESC_V3 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::PartialEq for D3DDEVICEDESC_V3 {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -9905,9 +9410,9 @@ impl ::core::cmp::PartialEq for D3DDEVICEDESC_V3 {
             && self.wMaxSimultaneousTextures == other.wMaxSimultaneousTextures
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::Eq for D3DDEVICEDESC_V3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::default::Default for D3DDEVICEDESC_V3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9945,8 +9450,8 @@ impl ::core::default::Default for D3DGPU_PHYSICAL_ADDRESS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct D3DHAL_CALLBACKS {
     pub dwSize: u32,
     pub ContextCreate: LPD3DHAL_CONTEXTCREATECB,
@@ -9984,15 +9489,15 @@ pub struct D3DHAL_CALLBACKS {
     pub dwReserved8: u32,
     pub dwReserved9: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for D3DHAL_CALLBACKS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for D3DHAL_CALLBACKS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for D3DHAL_CALLBACKS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DHAL_CALLBACKS")
@@ -10023,19 +9528,19 @@ impl ::core::fmt::Debug for D3DHAL_CALLBACKS {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::windows_core::TypeKind for D3DHAL_CALLBACKS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for D3DHAL_CALLBACKS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct D3DHAL_CALLBACKS2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -10045,33 +9550,33 @@ pub struct D3DHAL_CALLBACKS2 {
     pub DrawOneIndexedPrimitive: LPD3DHAL_DRAWONEINDEXEDPRIMITIVECB,
     pub DrawPrimitives: LPD3DHAL_DRAWPRIMITIVESCB,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for D3DHAL_CALLBACKS2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for D3DHAL_CALLBACKS2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for D3DHAL_CALLBACKS2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DHAL_CALLBACKS2").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::windows_core::TypeKind for D3DHAL_CALLBACKS2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for D3DHAL_CALLBACKS2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct D3DHAL_CALLBACKS3 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -10080,25 +9585,25 @@ pub struct D3DHAL_CALLBACKS3 {
     pub ValidateTextureStageState: LPD3DHAL_VALIDATETEXTURESTAGESTATECB,
     pub DrawPrimitives2: LPD3DHAL_DRAWPRIMITIVES2CB,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for D3DHAL_CALLBACKS3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for D3DHAL_CALLBACKS3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for D3DHAL_CALLBACKS3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DHAL_CALLBACKS3").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("lpvReserved", &self.lpvReserved).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::windows_core::TypeKind for D3DHAL_CALLBACKS3 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for D3DHAL_CALLBACKS3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10225,8 +9730,8 @@ impl ::core::default::Default for D3DHAL_CLIPPEDTRIANGLEFAN {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct D3DHAL_CONTEXTCREATEDATA {
     pub Anonymous1: D3DHAL_CONTEXTCREATEDATA_0,
     pub Anonymous2: D3DHAL_CONTEXTCREATEDATA_1,
@@ -10235,113 +9740,113 @@ pub struct D3DHAL_CONTEXTCREATEDATA {
     pub dwhContext: usize,
     pub ddrval: ::windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for D3DHAL_CONTEXTCREATEDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_CONTEXTCREATEDATA_0 {
     pub lpDDGbl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DIRECTDRAW_GBL,
     pub lpDDLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DIRECTDRAW_LCL,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for D3DHAL_CONTEXTCREATEDATA_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for D3DHAL_CONTEXTCREATEDATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_CONTEXTCREATEDATA_1 {
     pub lpDDS: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA_1 {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for D3DHAL_CONTEXTCREATEDATA_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_CONTEXTCREATEDATA_2 {
     pub lpDDSZ: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA_2 {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA_2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for D3DHAL_CONTEXTCREATEDATA_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_CONTEXTCREATEDATA_3 {
     pub dwPID: u32,
     pub dwrstates: usize,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for D3DHAL_CONTEXTCREATEDATA_3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA_3 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for D3DHAL_CONTEXTCREATEDATA_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10662,47 +10167,36 @@ impl ::core::default::Default for D3DHAL_DP2ADDDIRTYBOX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DHAL_DP2ADDDIRTYRECT {
     pub dwSurface: u32,
     pub rDirtyArea: super::super::super::Win32::Foundation::RECTL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DHAL_DP2ADDDIRTYRECT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DHAL_DP2ADDDIRTYRECT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DHAL_DP2ADDDIRTYRECT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DHAL_DP2ADDDIRTYRECT").field("dwSurface", &self.dwSurface).field("rDirtyArea", &self.rDirtyArea).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DHAL_DP2ADDDIRTYRECT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DHAL_DP2ADDDIRTYRECT {
     fn eq(&self, other: &Self) -> bool {
         self.dwSurface == other.dwSurface && self.rDirtyArea == other.rDirtyArea
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DHAL_DP2ADDDIRTYRECT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DHAL_DP2ADDDIRTYRECT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DHAL_DP2BLT {
     pub dwSource: u32,
     pub rSource: super::super::super::Win32::Foundation::RECTL,
@@ -10712,33 +10206,26 @@ pub struct D3DHAL_DP2BLT {
     pub dwDestMipLevel: u32,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DHAL_DP2BLT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DHAL_DP2BLT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DHAL_DP2BLT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DHAL_DP2BLT").field("dwSource", &self.dwSource).field("rSource", &self.rSource).field("dwSourceMipLevel", &self.dwSourceMipLevel).field("dwDest", &self.dwDest).field("rDest", &self.rDest).field("dwDestMipLevel", &self.dwDestMipLevel).field("Flags", &self.Flags).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DHAL_DP2BLT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DHAL_DP2BLT {
     fn eq(&self, other: &Self) -> bool {
         self.dwSource == other.dwSource && self.rSource == other.rSource && self.dwSourceMipLevel == other.dwSourceMipLevel && self.dwDest == other.dwDest && self.rDest == other.rDest && self.dwDestMipLevel == other.dwDestMipLevel && self.Flags == other.Flags
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DHAL_DP2BLT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DHAL_DP2BLT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10787,8 +10274,6 @@ impl ::core::default::Default for D3DHAL_DP2BUFFERBLT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DHAL_DP2CLEAR {
     pub dwFlags: u32,
     pub dwFillColor: u32,
@@ -10796,73 +10281,57 @@ pub struct D3DHAL_DP2CLEAR {
     pub dwFillStencil: u32,
     pub Rects: [super::super::super::Win32::Foundation::RECT; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DHAL_DP2CLEAR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DHAL_DP2CLEAR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DHAL_DP2CLEAR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DHAL_DP2CLEAR").field("dwFlags", &self.dwFlags).field("dwFillColor", &self.dwFillColor).field("dvFillDepth", &self.dvFillDepth).field("dwFillStencil", &self.dwFillStencil).field("Rects", &self.Rects).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DHAL_DP2CLEAR {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DHAL_DP2CLEAR {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags && self.dwFillColor == other.dwFillColor && self.dvFillDepth == other.dvFillDepth && self.dwFillStencil == other.dwFillStencil && self.Rects == other.Rects
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DHAL_DP2CLEAR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DHAL_DP2CLEAR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DHAL_DP2COLORFILL {
     pub dwSurface: u32,
     pub rRect: super::super::super::Win32::Foundation::RECTL,
     pub Color: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DHAL_DP2COLORFILL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DHAL_DP2COLORFILL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DHAL_DP2COLORFILL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DHAL_DP2COLORFILL").field("dwSurface", &self.dwSurface).field("rRect", &self.rRect).field("Color", &self.Color).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DHAL_DP2COLORFILL {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DHAL_DP2COLORFILL {
     fn eq(&self, other: &Self) -> bool {
         self.dwSurface == other.dwSurface && self.rRect == other.rRect && self.Color == other.Color
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DHAL_DP2COLORFILL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DHAL_DP2COLORFILL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12536,8 +12005,6 @@ impl ::core::default::Default for D3DHAL_DP2STATESET {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DHAL_DP2SURFACEBLT {
     pub dwSource: u32,
     pub rSource: super::super::super::Win32::Foundation::RECTL,
@@ -12547,41 +12014,32 @@ pub struct D3DHAL_DP2SURFACEBLT {
     pub dwDestMipLevel: u32,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DHAL_DP2SURFACEBLT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DHAL_DP2SURFACEBLT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DHAL_DP2SURFACEBLT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DHAL_DP2SURFACEBLT").field("dwSource", &self.dwSource).field("rSource", &self.rSource).field("dwSourceMipLevel", &self.dwSourceMipLevel).field("dwDest", &self.dwDest).field("rDest", &self.rDest).field("dwDestMipLevel", &self.dwDestMipLevel).field("Flags", &self.Flags).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DHAL_DP2SURFACEBLT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DHAL_DP2SURFACEBLT {
     fn eq(&self, other: &Self) -> bool {
         self.dwSource == other.dwSource && self.rSource == other.rSource && self.dwSourceMipLevel == other.dwSourceMipLevel && self.dwDest == other.dwDest && self.rDest == other.rDest && self.dwDestMipLevel == other.dwDestMipLevel && self.Flags == other.Flags
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DHAL_DP2SURFACEBLT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DHAL_DP2SURFACEBLT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DHAL_DP2TEXBLT {
     pub dwDDDestSurface: u32,
     pub dwDDSrcSurface: u32,
@@ -12589,33 +12047,26 @@ pub struct D3DHAL_DP2TEXBLT {
     pub rSrc: super::super::super::Win32::Foundation::RECTL,
     pub dwFlags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DHAL_DP2TEXBLT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DHAL_DP2TEXBLT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DHAL_DP2TEXBLT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DHAL_DP2TEXBLT").field("dwDDDestSurface", &self.dwDDDestSurface).field("dwDDSrcSurface", &self.dwDDSrcSurface).field("pDest", &self.pDest).field("rSrc", &self.rSrc).field("dwFlags", &self.dwFlags).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DHAL_DP2TEXBLT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DHAL_DP2TEXBLT {
     fn eq(&self, other: &Self) -> bool {
         self.dwDDDestSurface == other.dwDDDestSurface && self.dwDDSrcSurface == other.dwDDSrcSurface && self.pDest == other.pDest && self.rSrc == other.rSrc && self.dwFlags == other.dwFlags
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DHAL_DP2TEXBLT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DHAL_DP2TEXBLT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13110,8 +12561,8 @@ impl ::core::default::Default for D3DHAL_DRAWPRIMCOUNTS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct D3DHAL_DRAWPRIMITIVES2DATA {
     pub dwhContext: usize,
     pub dwFlags: u32,
@@ -13128,69 +12579,69 @@ pub struct D3DHAL_DRAWPRIMITIVES2DATA {
     pub Anonymous2: D3DHAL_DRAWPRIMITIVES2DATA_1,
     pub dwErrorOffset: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for D3DHAL_DRAWPRIMITIVES2DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for D3DHAL_DRAWPRIMITIVES2DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::windows_core::TypeKind for D3DHAL_DRAWPRIMITIVES2DATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for D3DHAL_DRAWPRIMITIVES2DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_DRAWPRIMITIVES2DATA_0 {
     pub lpDDVertex: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
     pub lpVertices: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for D3DHAL_DRAWPRIMITIVES2DATA_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for D3DHAL_DRAWPRIMITIVES2DATA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::windows_core::TypeKind for D3DHAL_DRAWPRIMITIVES2DATA_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for D3DHAL_DRAWPRIMITIVES2DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_DRAWPRIMITIVES2DATA_1 {
     pub dwVertexSize: u32,
     pub ddrval: ::windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for D3DHAL_DRAWPRIMITIVES2DATA_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for D3DHAL_DRAWPRIMITIVES2DATA_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::windows_core::TypeKind for D3DHAL_DRAWPRIMITIVES2DATA_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for D3DHAL_DRAWPRIMITIVES2DATA_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13257,8 +12708,8 @@ impl ::core::default::Default for D3DHAL_GETSTATEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 pub struct D3DHAL_GLOBALDRIVERDATA {
     pub dwSize: u32,
     pub hwCaps: D3DDEVICEDESC_V1,
@@ -13267,33 +12718,33 @@ pub struct D3DHAL_GLOBALDRIVERDATA {
     pub dwNumTextureFormats: u32,
     pub lpTextureFormats: *mut super::super::super::Win32::Graphics::DirectDraw::DDSURFACEDESC,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::core::marker::Copy for D3DHAL_GLOBALDRIVERDATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::core::clone::Clone for D3DHAL_GLOBALDRIVERDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::core::fmt::Debug for D3DHAL_GLOBALDRIVERDATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DHAL_GLOBALDRIVERDATA").field("dwSize", &self.dwSize).field("hwCaps", &self.hwCaps).field("dwNumVertices", &self.dwNumVertices).field("dwNumClipVertices", &self.dwNumClipVertices).field("dwNumTextureFormats", &self.dwNumTextureFormats).field("lpTextureFormats", &self.lpTextureFormats).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::windows_core::TypeKind for D3DHAL_GLOBALDRIVERDATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::core::cmp::PartialEq for D3DHAL_GLOBALDRIVERDATA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.hwCaps == other.hwCaps && self.dwNumVertices == other.dwNumVertices && self.dwNumClipVertices == other.dwNumClipVertices && self.dwNumTextureFormats == other.dwNumTextureFormats && self.lpTextureFormats == other.lpTextureFormats
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::core::cmp::Eq for D3DHAL_GLOBALDRIVERDATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::core::default::Default for D3DHAL_GLOBALDRIVERDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13414,71 +12865,71 @@ impl ::core::default::Default for D3DHAL_SCENECAPTUREDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct D3DHAL_SETRENDERTARGETDATA {
     pub dwhContext: usize,
     pub Anonymous1: D3DHAL_SETRENDERTARGETDATA_0,
     pub Anonymous2: D3DHAL_SETRENDERTARGETDATA_1,
     pub ddrval: ::windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for D3DHAL_SETRENDERTARGETDATA {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::windows_core::TypeKind for D3DHAL_SETRENDERTARGETDATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for D3DHAL_SETRENDERTARGETDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_SETRENDERTARGETDATA_0 {
     pub lpDDS: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for D3DHAL_SETRENDERTARGETDATA_0 {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::windows_core::TypeKind for D3DHAL_SETRENDERTARGETDATA_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for D3DHAL_SETRENDERTARGETDATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_SETRENDERTARGETDATA_1 {
     pub lpDDSZ: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for D3DHAL_SETRENDERTARGETDATA_1 {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::windows_core::TypeKind for D3DHAL_SETRENDERTARGETDATA_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for D3DHAL_SETRENDERTARGETDATA_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14290,8 +13741,6 @@ impl ::core::default::Default for D3DKMDT_VIDEO_PRESENT_SOURCE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMDT_VIDEO_PRESENT_TARGET {
     pub Id: u32,
     pub VideoOutputTechnology: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY,
@@ -14299,33 +13748,26 @@ pub struct D3DKMDT_VIDEO_PRESENT_TARGET {
     pub MonitorOrientationAwareness: D3DKMDT_MONITOR_ORIENTATION_AWARENESS,
     pub SupportsSdtvModes: super::super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMDT_VIDEO_PRESENT_TARGET {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMDT_VIDEO_PRESENT_TARGET {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMDT_VIDEO_PRESENT_TARGET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMDT_VIDEO_PRESENT_TARGET").field("Id", &self.Id).field("VideoOutputTechnology", &self.VideoOutputTechnology).field("VideoOutputHpdAwareness", &self.VideoOutputHpdAwareness).field("MonitorOrientationAwareness", &self.MonitorOrientationAwareness).field("SupportsSdtvModes", &self.SupportsSdtvModes).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMDT_VIDEO_PRESENT_TARGET {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMDT_VIDEO_PRESENT_TARGET {
     fn eq(&self, other: &Self) -> bool {
         self.Id == other.Id && self.VideoOutputTechnology == other.VideoOutputTechnology && self.VideoOutputHpdAwareness == other.VideoOutputHpdAwareness && self.MonitorOrientationAwareness == other.MonitorOrientationAwareness && self.SupportsSdtvModes == other.SupportsSdtvModes
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMDT_VIDEO_PRESENT_TARGET {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMDT_VIDEO_PRESENT_TARGET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14866,39 +14308,30 @@ impl ::core::default::Default for D3DKMT_ACQUIREKEYEDMUTEX2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
     pub Type: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE,
     pub Activate: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE").field("Type", &self.Type).field("Activate", &self.Activate).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.Activate == other.Activate
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14936,41 +14369,32 @@ impl ::core::default::Default for D3DKMT_ADAPTERADDRESS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_ADAPTERINFO {
     pub hAdapter: u32,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub NumOfSources: u32,
     pub bPrecisePresentRegionsPreferred: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_ADAPTERINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_ADAPTERINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_ADAPTERINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_ADAPTERINFO").field("hAdapter", &self.hAdapter).field("AdapterLuid", &self.AdapterLuid).field("NumOfSources", &self.NumOfSources).field("bPrecisePresentRegionsPreferred", &self.bPrecisePresentRegionsPreferred).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_ADAPTERINFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_ADAPTERINFO {
     fn eq(&self, other: &Self) -> bool {
         self.hAdapter == other.hAdapter && self.AdapterLuid == other.AdapterLuid && self.NumOfSources == other.NumOfSources && self.bPrecisePresentRegionsPreferred == other.bPrecisePresentRegionsPreferred
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_ADAPTERINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_ADAPTERINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15338,38 +14762,29 @@ impl ::core::default::Default for D3DKMT_AUXILIARYPRESENTINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_BDDFALLBACK_CTL {
     pub ForceBddHeadlessNextFallback: super::super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_BDDFALLBACK_CTL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_BDDFALLBACK_CTL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_BDDFALLBACK_CTL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_BDDFALLBACK_CTL").field("ForceBddHeadlessNextFallback", &self.ForceBddHeadlessNextFallback).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_BDDFALLBACK_CTL {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_BDDFALLBACK_CTL {
     fn eq(&self, other: &Self) -> bool {
         self.ForceBddHeadlessNextFallback == other.ForceBddHeadlessNextFallback
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_BDDFALLBACK_CTL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_BDDFALLBACK_CTL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15406,75 +14821,58 @@ impl ::core::default::Default for D3DKMT_BLOCKLIST_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {
     pub hLogicalSurface: u64,
     pub hPhysicalSurface: u64,
     pub EventId: u64,
     pub DirtyRegions: D3DKMT_DIRTYREGIONS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN").field("hLogicalSurface", &self.hLogicalSurface).field("hPhysicalSurface", &self.hPhysicalSurface).field("EventId", &self.EventId).field("DirtyRegions", &self.DirtyRegions).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {
     fn eq(&self, other: &Self) -> bool {
         self.hLogicalSurface == other.hLogicalSurface && self.hPhysicalSurface == other.hPhysicalSurface && self.EventId == other.EventId && self.DirtyRegions == other.DirtyRegions
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_BRIGHTNESS_INFO {
     pub Type: D3DKMT_BRIGHTNESS_INFO_TYPE,
     pub ChildUid: u32,
     pub Anonymous: D3DKMT_BRIGHTNESS_INFO_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_BRIGHTNESS_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_BRIGHTNESS_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_BRIGHTNESS_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_BRIGHTNESS_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_BRIGHTNESS_INFO_0 {
     pub PossibleLevels: D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS,
     pub Brightness: u8,
@@ -15487,19 +14885,15 @@ pub union D3DKMT_BRIGHTNESS_INFO_0 {
     pub GetBrightnessMillinits: DXGK_BRIGHTNESS_GET_OUT,
     pub SetBrightnessMillinits: DXGK_BRIGHTNESS_SET_IN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_BRIGHTNESS_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_BRIGHTNESS_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_BRIGHTNESS_INFO_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_BRIGHTNESS_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15566,8 +14960,6 @@ impl ::core::default::Default for D3DKMT_BUDGETCHANGENOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_CANCEL_PRESENTS {
     pub cbSize: u32,
     pub hDevice: u32,
@@ -15577,19 +14969,15 @@ pub struct D3DKMT_CANCEL_PRESENTS {
     pub CompSurfaceLuid: super::super::super::Win32::Foundation::LUID,
     pub BindId: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_CANCEL_PRESENTS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_CANCEL_PRESENTS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_CANCEL_PRESENTS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_CANCEL_PRESENTS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15662,8 +15050,8 @@ impl ::core::default::Default for D3DKMT_CANCEL_PRESENTS_FLAGS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct D3DKMT_CHANGESURFACEPOINTER {
     pub hDC: super::super::super::Win32::Graphics::Gdi::HDC,
     pub hBitmap: super::super::super::Win32::Foundation::HANDLE,
@@ -15672,41 +15060,39 @@ pub struct D3DKMT_CHANGESURFACEPOINTER {
     pub Height: u32,
     pub Pitch: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for D3DKMT_CHANGESURFACEPOINTER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for D3DKMT_CHANGESURFACEPOINTER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for D3DKMT_CHANGESURFACEPOINTER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_CHANGESURFACEPOINTER").field("hDC", &self.hDC).field("hBitmap", &self.hBitmap).field("pSurfacePointer", &self.pSurfacePointer).field("Width", &self.Width).field("Height", &self.Height).field("Pitch", &self.Pitch).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::windows_core::TypeKind for D3DKMT_CHANGESURFACEPOINTER {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for D3DKMT_CHANGESURFACEPOINTER {
     fn eq(&self, other: &Self) -> bool {
         self.hDC == other.hDC && self.hBitmap == other.hBitmap && self.pSurfacePointer == other.pSurfacePointer && self.Width == other.Width && self.Height == other.Height && self.Pitch == other.Pitch
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for D3DKMT_CHANGESURFACEPOINTER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for D3DKMT_CHANGESURFACEPOINTER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub hAdapter: u32,
@@ -15714,33 +15100,26 @@ pub struct D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
     pub Reservation: u64,
     pub PhysicalAdapterIndex: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_CHANGEVIDEOMEMORYRESERVATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_CHANGEVIDEOMEMORYRESERVATION").field("hProcess", &self.hProcess).field("hAdapter", &self.hAdapter).field("MemorySegmentGroup", &self.MemorySegmentGroup).field("Reservation", &self.Reservation).field("PhysicalAdapterIndex", &self.PhysicalAdapterIndex).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
     fn eq(&self, other: &Self) -> bool {
         self.hProcess == other.hProcess && self.hAdapter == other.hAdapter && self.MemorySegmentGroup == other.MemorySegmentGroup && self.Reservation == other.Reservation && self.PhysicalAdapterIndex == other.PhysicalAdapterIndex
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_CHANGEVIDEOMEMORYRESERVATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15777,8 +15156,6 @@ impl ::core::default::Default for D3DKMT_CHECKMONITORPOWERSTATE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {
     pub hDevice: u32,
     pub PlaneCount: u32,
@@ -15786,27 +15163,21 @@ pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
     pub ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {
     pub hAdapter: u32,
     pub hDevice: u32,
@@ -15815,27 +15186,21 @@ pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
     pub ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
     pub hAdapter: u32,
     pub hDevice: u32,
@@ -15846,57 +15211,44 @@ pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
     pub ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_CHECKOCCLUSION {
     pub hWindow: super::super::super::Win32::Foundation::HWND,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_CHECKOCCLUSION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_CHECKOCCLUSION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_CHECKOCCLUSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_CHECKOCCLUSION").field("hWindow", &self.hWindow).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_CHECKOCCLUSION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_CHECKOCCLUSION {
     fn eq(&self, other: &Self) -> bool {
         self.hWindow == other.hWindow
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_CHECKOCCLUSION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_CHECKOCCLUSION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15963,49 +15315,38 @@ impl ::core::default::Default for D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
     pub hResource: u32,
     pub CompSurfaceLuid: super::super::super::Win32::Foundation::LUID,
     pub VidPnSourceId: u32,
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE").field("hResource", &self.hResource).field("CompSurfaceLuid", &self.CompSurfaceLuid).field("VidPnSourceId", &self.VidPnSourceId).field("PlaneAttributes", &self.PlaneAttributes).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
     fn eq(&self, other: &Self) -> bool {
         self.hResource == other.hResource && self.CompSurfaceLuid == other.CompSurfaceLuid && self.VidPnSourceId == other.VidPnSourceId && self.PlaneAttributes == other.PlaneAttributes
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
     pub LayerIndex: u32,
     pub hResource: u32,
@@ -16013,41 +15354,32 @@ pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
     pub VidPnSourceId: u32,
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2").field("LayerIndex", &self.LayerIndex).field("hResource", &self.hResource).field("CompSurfaceLuid", &self.CompSurfaceLuid).field("VidPnSourceId", &self.VidPnSourceId).field("PlaneAttributes", &self.PlaneAttributes).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
     fn eq(&self, other: &Self) -> bool {
         self.LayerIndex == other.LayerIndex && self.hResource == other.hResource && self.CompSurfaceLuid == other.CompSurfaceLuid && self.VidPnSourceId == other.VidPnSourceId && self.PlaneAttributes == other.PlaneAttributes
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
     pub LayerIndex: u32,
     pub hResource: u32,
@@ -16055,33 +15387,26 @@ pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
     pub VidPnSourceId: u32,
     pub pPlaneAttributes: *mut D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3").field("LayerIndex", &self.LayerIndex).field("hResource", &self.hResource).field("CompSurfaceLuid", &self.CompSurfaceLuid).field("VidPnSourceId", &self.VidPnSourceId).field("pPlaneAttributes", &self.pPlaneAttributes).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
     fn eq(&self, other: &Self) -> bool {
         self.LayerIndex == other.LayerIndex && self.hResource == other.hResource && self.CompSurfaceLuid == other.CompSurfaceLuid && self.VidPnSourceId == other.VidPnSourceId && self.pPlaneAttributes == other.pPlaneAttributes
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16212,8 +15537,6 @@ impl ::core::default::Default for D3DKMT_COMPOSITION_PRESENTHISTORYTOKEN {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_CONFIGURESHAREDRESOURCE {
     pub hDevice: u32,
     pub hResource: u32,
@@ -16221,33 +15544,26 @@ pub struct D3DKMT_CONFIGURESHAREDRESOURCE {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub AllowAccess: super::super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_CONFIGURESHAREDRESOURCE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_CONFIGURESHAREDRESOURCE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_CONFIGURESHAREDRESOURCE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_CONFIGURESHAREDRESOURCE").field("hDevice", &self.hDevice).field("hResource", &self.hResource).field("IsDwm", &self.IsDwm).field("hProcess", &self.hProcess).field("AllowAccess", &self.AllowAccess).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_CONFIGURESHAREDRESOURCE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_CONFIGURESHAREDRESOURCE {
     fn eq(&self, other: &Self) -> bool {
         self.hDevice == other.hDevice && self.hResource == other.hResource && self.IsDwm == other.IsDwm && self.hProcess == other.hProcess && self.AllowAccess == other.AllowAccess
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_CONFIGURESHAREDRESOURCE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_CONFIGURESHAREDRESOURCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16368,8 +15684,6 @@ impl ::core::default::Default for D3DKMT_CPDRIVERNAME {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_CREATEALLOCATION {
     pub hDevice: u32,
     pub hResource: u32,
@@ -16383,69 +15697,53 @@ pub struct D3DKMT_CREATEALLOCATION {
     pub Flags: D3DKMT_CREATEALLOCATIONFLAGS,
     pub hPrivateRuntimeResourceHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_CREATEALLOCATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_CREATEALLOCATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_CREATEALLOCATION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_CREATEALLOCATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_CREATEALLOCATION_0 {
     pub pStandardAllocation: *mut D3DKMT_CREATESTANDARDALLOCATION,
     pub pPrivateDriverData: *const ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_CREATEALLOCATION_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_CREATEALLOCATION_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_CREATEALLOCATION_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_CREATEALLOCATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_CREATEALLOCATION_1 {
     pub pAllocationInfo: *mut D3DDDI_ALLOCATIONINFO,
     pub pAllocationInfo2: *mut D3DDDI_ALLOCATIONINFO2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_CREATEALLOCATION_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_CREATEALLOCATION_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_CREATEALLOCATION_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_CREATEALLOCATION_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16538,8 +15836,8 @@ impl ::core::default::Default for D3DKMT_CREATECONTEXTVIRTUAL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct D3DKMT_CREATEDCFROMMEMORY {
     pub pMemory: *mut ::core::ffi::c_void,
     pub Format: D3DDDIFORMAT,
@@ -16551,33 +15849,33 @@ pub struct D3DKMT_CREATEDCFROMMEMORY {
     pub hDc: super::super::super::Win32::Graphics::Gdi::HDC,
     pub hBitmap: super::super::super::Win32::Foundation::HANDLE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for D3DKMT_CREATEDCFROMMEMORY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for D3DKMT_CREATEDCFROMMEMORY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for D3DKMT_CREATEDCFROMMEMORY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_CREATEDCFROMMEMORY").field("pMemory", &self.pMemory).field("Format", &self.Format).field("Width", &self.Width).field("Height", &self.Height).field("Pitch", &self.Pitch).field("hDeviceDc", &self.hDeviceDc).field("pColorTable", &self.pColorTable).field("hDc", &self.hDc).field("hBitmap", &self.hBitmap).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::windows_core::TypeKind for D3DKMT_CREATEDCFROMMEMORY {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for D3DKMT_CREATEDCFROMMEMORY {
     fn eq(&self, other: &Self) -> bool {
         self.pMemory == other.pMemory && self.Format == other.Format && self.Width == other.Width && self.Height == other.Height && self.Pitch == other.Pitch && self.hDeviceDc == other.hDeviceDc && self.pColorTable == other.pColorTable && self.hDc == other.hDc && self.hBitmap == other.hBitmap
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for D3DKMT_CREATEDCFROMMEMORY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for D3DKMT_CREATEDCFROMMEMORY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17083,52 +16381,40 @@ impl ::core::default::Default for D3DKMT_CREATESYNCFILE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_CREATESYNCHRONIZATIONOBJECT {
     pub hDevice: u32,
     pub Info: D3DDDI_SYNCHRONIZATIONOBJECTINFO,
     pub hSyncObject: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_CREATESYNCHRONIZATIONOBJECT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_CREATESYNCHRONIZATIONOBJECT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_CREATESYNCHRONIZATIONOBJECT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_CREATESYNCHRONIZATIONOBJECT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_CREATESYNCHRONIZATIONOBJECT2 {
     pub hDevice: u32,
     pub Info: D3DDDI_SYNCHRONIZATIONOBJECTINFO2,
     pub hSyncObject: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_CREATESYNCHRONIZATIONOBJECT2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_CREATESYNCHRONIZATIONOBJECT2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_CREATESYNCHRONIZATIONOBJECT2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_CREATESYNCHRONIZATIONOBJECT2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17227,8 +16513,6 @@ impl ::core::default::Default for D3DKMT_CREATE_DOORBELL_FLAGS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_CREATE_OUTPUTDUPL {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
@@ -17237,19 +16521,15 @@ pub struct D3DKMT_CREATE_OUTPUTDUPL {
     pub KeyedMutexs: [D3DKMT_OUTPUTDUPL_KEYEDMUTEX; 3],
     pub Flags: D3DKMT_OUTPUTDUPLCREATIONFLAGS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_CREATE_OUTPUTDUPL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_CREATE_OUTPUTDUPL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_CREATE_OUTPUTDUPL {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_CREATE_OUTPUTDUPL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17428,39 +16708,39 @@ impl ::core::default::Default for D3DKMT_DESTROYCONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct D3DKMT_DESTROYDCFROMMEMORY {
     pub hDc: super::super::super::Win32::Graphics::Gdi::HDC,
     pub hBitmap: super::super::super::Win32::Foundation::HANDLE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for D3DKMT_DESTROYDCFROMMEMORY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for D3DKMT_DESTROYDCFROMMEMORY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for D3DKMT_DESTROYDCFROMMEMORY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_DESTROYDCFROMMEMORY").field("hDc", &self.hDc).field("hBitmap", &self.hBitmap).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::windows_core::TypeKind for D3DKMT_DESTROYDCFROMMEMORY {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for D3DKMT_DESTROYDCFROMMEMORY {
     fn eq(&self, other: &Self) -> bool {
         self.hDc == other.hDc && self.hBitmap == other.hBitmap
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for D3DKMT_DESTROYDCFROMMEMORY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for D3DKMT_DESTROYDCFROMMEMORY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17700,40 +16980,31 @@ impl ::core::default::Default for D3DKMT_DESTROY_DOORBELL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_DESTROY_OUTPUTDUPL {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub bDestroyAllContexts: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_DESTROY_OUTPUTDUPL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_DESTROY_OUTPUTDUPL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_DESTROY_OUTPUTDUPL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_DESTROY_OUTPUTDUPL").field("hAdapter", &self.hAdapter).field("VidPnSourceId", &self.VidPnSourceId).field("bDestroyAllContexts", &self.bDestroyAllContexts).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_DESTROY_OUTPUTDUPL {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_DESTROY_OUTPUTDUPL {
     fn eq(&self, other: &Self) -> bool {
         self.hAdapter == other.hAdapter && self.VidPnSourceId == other.VidPnSourceId && self.bDestroyAllContexts == other.bDestroyAllContexts
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_DESTROY_OUTPUTDUPL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_DESTROY_OUTPUTDUPL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17763,39 +17034,30 @@ impl ::core::default::Default for D3DKMT_DEVICEPAGEFAULT_STATE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_DEVICEPRESENT_QUEUE_STATE {
     pub VidPnSourceId: u32,
     pub bQueuedPresentLimitReached: super::super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_DEVICEPRESENT_QUEUE_STATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_DEVICEPRESENT_QUEUE_STATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_DEVICEPRESENT_QUEUE_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_DEVICEPRESENT_QUEUE_STATE").field("VidPnSourceId", &self.VidPnSourceId).field("bQueuedPresentLimitReached", &self.bQueuedPresentLimitReached).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_DEVICEPRESENT_QUEUE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_DEVICEPRESENT_QUEUE_STATE {
     fn eq(&self, other: &Self) -> bool {
         self.VidPnSourceId == other.VidPnSourceId && self.bQueuedPresentLimitReached == other.bQueuedPresentLimitReached
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_DEVICEPRESENT_QUEUE_STATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_DEVICEPRESENT_QUEUE_STATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18029,77 +17291,59 @@ impl ::core::default::Default for D3DKMT_DEVICE_IDS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_DIRECTFLIP_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_DIRECTFLIP_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_DIRECTFLIP_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_DIRECTFLIP_SUPPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_DIRECTFLIP_SUPPORT").field("Supported", &self.Supported).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_DIRECTFLIP_SUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_DIRECTFLIP_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
         self.Supported == other.Supported
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_DIRECTFLIP_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_DIRECTFLIP_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_DIRTYREGIONS {
     pub NumRects: u32,
     pub Rects: [super::super::super::Win32::Foundation::RECT; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_DIRTYREGIONS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_DIRTYREGIONS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_DIRTYREGIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_DIRTYREGIONS").field("NumRects", &self.NumRects).field("Rects", &self.Rects).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_DIRTYREGIONS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_DIRTYREGIONS {
     fn eq(&self, other: &Self) -> bool {
         self.NumRects == other.NumRects && self.Rects == other.Rects
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_DIRTYREGIONS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_DIRTYREGIONS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18320,38 +17564,29 @@ impl ::core::default::Default for D3DKMT_DMM_ESCAPE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_DOD_SET_DIRTYRECT_MODE {
     pub bForceFullScreenDirty: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_DOD_SET_DIRTYRECT_MODE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_DOD_SET_DIRTYRECT_MODE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_DOD_SET_DIRTYRECT_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_DOD_SET_DIRTYRECT_MODE").field("bForceFullScreenDirty", &self.bForceFullScreenDirty).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_DOD_SET_DIRTYRECT_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_DOD_SET_DIRTYRECT_MODE {
     fn eq(&self, other: &Self) -> bool {
         self.bForceFullScreenDirty == other.bForceFullScreenDirty
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_DOD_SET_DIRTYRECT_MODE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_DOD_SET_DIRTYRECT_MODE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18442,104 +17677,80 @@ impl ::core::default::Default for D3DKMT_DRIVER_DESCRIPTION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_ENUMADAPTERS {
     pub NumAdapters: u32,
     pub Adapters: [D3DKMT_ADAPTERINFO; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_ENUMADAPTERS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_ENUMADAPTERS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_ENUMADAPTERS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_ENUMADAPTERS").field("NumAdapters", &self.NumAdapters).field("Adapters", &self.Adapters).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_ENUMADAPTERS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_ENUMADAPTERS {
     fn eq(&self, other: &Self) -> bool {
         self.NumAdapters == other.NumAdapters && self.Adapters == other.Adapters
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_ENUMADAPTERS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_ENUMADAPTERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_ENUMADAPTERS2 {
     pub NumAdapters: u32,
     pub pAdapters: *mut D3DKMT_ADAPTERINFO,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_ENUMADAPTERS2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_ENUMADAPTERS2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_ENUMADAPTERS2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_ENUMADAPTERS2").field("NumAdapters", &self.NumAdapters).field("pAdapters", &self.pAdapters).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_ENUMADAPTERS2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_ENUMADAPTERS2 {
     fn eq(&self, other: &Self) -> bool {
         self.NumAdapters == other.NumAdapters && self.pAdapters == other.pAdapters
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_ENUMADAPTERS2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_ENUMADAPTERS2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_ENUMADAPTERS3 {
     pub Filter: D3DKMT_ENUMADAPTERS_FILTER,
     pub NumAdapters: u32,
     pub pAdapters: *mut D3DKMT_ADAPTERINFO,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_ENUMADAPTERS3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_ENUMADAPTERS3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_ENUMADAPTERS3 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_ENUMADAPTERS3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18618,8 +17829,6 @@ impl ::core::default::Default for D3DKMT_ESCAPE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     pub Type: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE,
     pub VidPnSourceId: u32,
@@ -18628,33 +17837,26 @@ pub struct D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     pub BaseDesktopDuration: u32,
     pub Reserved: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE").field("Type", &self.Type).field("VidPnSourceId", &self.VidPnSourceId).field("ProcessBoostEligible", &self.ProcessBoostEligible).field("VSyncMultiplier", &self.VSyncMultiplier).field("BaseDesktopDuration", &self.BaseDesktopDuration).field("Reserved", &self.Reserved).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.VidPnSourceId == other.VidPnSourceId && self.ProcessBoostEligible == other.ProcessBoostEligible && self.VSyncMultiplier == other.VSyncMultiplier && self.BaseDesktopDuration == other.BaseDesktopDuration && self.Reserved == other.Reserved
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18827,8 +18029,6 @@ impl ::core::default::Default for D3DKMT_FLIPINFOFLAGS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
     pub auxiliaryPresentInfo: D3DKMT_AUXILIARYPRESENTINFO,
     pub flipManagerTracingId: u32,
@@ -18841,15 +18041,12 @@ pub struct D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
     pub WasCanceled: super::super::super::Win32::Foundation::BOOL,
     pub ConvertedToNonIFlip: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO")
@@ -18866,19 +18063,15 @@ impl ::core::fmt::Debug for D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
     fn eq(&self, other: &Self) -> bool {
         self.auxiliaryPresentInfo == other.auxiliaryPresentInfo && self.flipManagerTracingId == other.flipManagerTracingId && self.customDurationChanged == other.customDurationChanged && self.FlipAdapterLuid == other.FlipAdapterLuid && self.VidPnSourceId == other.VidPnSourceId && self.independentFlipStage == other.independentFlipStage && self.FlipCompletedQpc == other.FlipCompletedQpc && self.HwPresentDurationQpc == other.HwPresentDurationQpc && self.WasCanceled == other.WasCanceled && self.ConvertedToNonIFlip == other.ConvertedToNonIFlip
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18953,8 +18146,6 @@ impl ::core::default::Default for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
     pub FenceValue: u64,
     pub hLogicalSurface: u64,
@@ -18987,95 +18178,73 @@ pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
     pub ColorSpace: D3DDDI_COLOR_SPACE_TYPE,
     pub DirtyRegions: D3DKMT_DIRTYREGIONS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 {
     pub ScatterBlts: D3DKMT_SCATTERBLTS,
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0 {
     pub hSyncObject: super::super::super::Win32::Foundation::HANDLE,
     pub HDRMetaDataType: D3DDDI_HDR_METADATA_TYPE,
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {
     pub HDRMetaDataHDR10: D3DDDI_HDR_METADATA_HDR10,
     pub HDRMetaDataHDR10Plus: D3DDDI_HDR_METADATA_HDR10PLUS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -19272,8 +18441,6 @@ impl ::core::default::Default for D3DKMT_FREEGPUVIRTUALADDRESS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
     pub hLogicalSurface: u64,
     pub hPhysicalSurface: u64,
@@ -19281,33 +18448,26 @@ pub struct D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
     pub ScrollOffset: super::super::super::Win32::Foundation::POINT,
     pub DirtyRegions: D3DKMT_DIRTYREGIONS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN").field("hLogicalSurface", &self.hLogicalSurface).field("hPhysicalSurface", &self.hPhysicalSurface).field("ScrollRect", &self.ScrollRect).field("ScrollOffset", &self.ScrollOffset).field("DirtyRegions", &self.DirtyRegions).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
     fn eq(&self, other: &Self) -> bool {
         self.hLogicalSurface == other.hLogicalSurface && self.hPhysicalSurface == other.hPhysicalSurface && self.ScrollRect == other.ScrollRect && self.ScrollOffset == other.ScrollOffset && self.DirtyRegions == other.DirtyRegions
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -19438,34 +18598,26 @@ impl ::core::default::Default for D3DKMT_GETCONTEXTSCHEDULINGPRIORITY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_GETDEVICESTATE {
     pub hDevice: u32,
     pub StateType: D3DKMT_DEVICESTATE_TYPE,
     pub Anonymous: D3DKMT_GETDEVICESTATE_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_GETDEVICESTATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_GETDEVICESTATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_GETDEVICESTATE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_GETDEVICESTATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_GETDEVICESTATE_0 {
     pub ExecutionState: D3DKMT_DEVICEEXECUTION_STATE,
     pub PresentState: D3DKMT_DEVICEPRESENT_STATE,
@@ -19474,19 +18626,15 @@ pub union D3DKMT_GETDEVICESTATE_0 {
     pub PageFaultState: D3DKMT_DEVICEPAGEFAULT_STATE,
     pub PresentQueueState: D3DKMT_DEVICEPRESENT_QUEUE_STATE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_GETDEVICESTATE_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_GETDEVICESTATE_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_GETDEVICESTATE_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_GETDEVICESTATE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -19560,48 +18708,37 @@ impl ::core::default::Default for D3DKMT_GETMULTISAMPLEMETHODLIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_GETOVERLAYSTATE {
     pub hDevice: u32,
     pub hOverlay: u32,
     pub OverlayEnabled: super::super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_GETOVERLAYSTATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_GETOVERLAYSTATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_GETOVERLAYSTATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_GETOVERLAYSTATE").field("hDevice", &self.hDevice).field("hOverlay", &self.hOverlay).field("OverlayEnabled", &self.OverlayEnabled).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_GETOVERLAYSTATE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_GETOVERLAYSTATE {
     fn eq(&self, other: &Self) -> bool {
         self.hDevice == other.hDevice && self.hOverlay == other.hOverlay && self.OverlayEnabled == other.OverlayEnabled
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_GETOVERLAYSTATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_GETOVERLAYSTATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_GETPRESENTHISTORY {
     pub hAdapter: u32,
     pub ProvidedSize: u32,
@@ -19609,73 +18746,57 @@ pub struct D3DKMT_GETPRESENTHISTORY {
     pub pTokens: *mut D3DKMT_PRESENTHISTORYTOKEN,
     pub NumTokens: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_GETPRESENTHISTORY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_GETPRESENTHISTORY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_GETPRESENTHISTORY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_GETPRESENTHISTORY").field("hAdapter", &self.hAdapter).field("ProvidedSize", &self.ProvidedSize).field("WrittenSize", &self.WrittenSize).field("pTokens", &self.pTokens).field("NumTokens", &self.NumTokens).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_GETPRESENTHISTORY {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_GETPRESENTHISTORY {
     fn eq(&self, other: &Self) -> bool {
         self.hAdapter == other.hAdapter && self.ProvidedSize == other.ProvidedSize && self.WrittenSize == other.WrittenSize && self.pTokens == other.pTokens && self.NumTokens == other.NumTokens
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_GETPRESENTHISTORY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_GETPRESENTHISTORY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub Support: super::super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT").field("hProcess", &self.hProcess).field("AdapterLuid", &self.AdapterLuid).field("Support", &self.Support).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
     fn eq(&self, other: &Self) -> bool {
         self.hProcess == other.hProcess && self.AdapterLuid == other.AdapterLuid && self.Support == other.Support
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -19714,41 +18835,32 @@ impl ::core::default::Default for D3DKMT_GETRUNTIMEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_GETSCANLINE {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub InVerticalBlank: super::super::super::Win32::Foundation::BOOLEAN,
     pub ScanLine: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_GETSCANLINE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_GETSCANLINE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_GETSCANLINE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_GETSCANLINE").field("hAdapter", &self.hAdapter).field("VidPnSourceId", &self.VidPnSourceId).field("InVerticalBlank", &self.InVerticalBlank).field("ScanLine", &self.ScanLine).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_GETSCANLINE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_GETSCANLINE {
     fn eq(&self, other: &Self) -> bool {
         self.hAdapter == other.hAdapter && self.VidPnSourceId == other.VidPnSourceId && self.InVerticalBlank == other.InVerticalBlank && self.ScanLine == other.ScanLine
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_GETSCANLINE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_GETSCANLINE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -19786,40 +18898,31 @@ impl ::core::default::Default for D3DKMT_GETSHAREDPRIMARYHANDLE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
     pub hGlobalShare: u32,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_GETSHAREDRESOURCEADAPTERLUID {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_GETSHAREDRESOURCEADAPTERLUID").field("hGlobalShare", &self.hGlobalShare).field("hNtHandle", &self.hNtHandle).field("AdapterLuid", &self.AdapterLuid).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
     fn eq(&self, other: &Self) -> bool {
         self.hGlobalShare == other.hGlobalShare && self.hNtHandle == other.hNtHandle && self.AdapterLuid == other.AdapterLuid
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_GETSHAREDRESOURCEADAPTERLUID {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -19858,78 +18961,60 @@ impl ::core::default::Default for D3DKMT_GETVERTICALBLANKEVENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
     pub hDevice: u32,
     pub bFailedDwmAcquireVidPn: super::super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO").field("hDevice", &self.hDevice).field("bFailedDwmAcquireVidPn", &self.bFailedDwmAcquireVidPn).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.hDevice == other.hDevice && self.bFailedDwmAcquireVidPn == other.bFailedDwmAcquireVidPn
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_GET_GPUMMU_CAPS {
     pub PhysicalAdapterIndex: u32,
     pub GpuMmuCaps: DXGK_ESCAPE_GPUMMUCAPS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_GET_GPUMMU_CAPS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_GET_GPUMMU_CAPS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_GET_GPUMMU_CAPS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_GET_GPUMMU_CAPS").field("PhysicalAdapterIndex", &self.PhysicalAdapterIndex).field("GpuMmuCaps", &self.GpuMmuCaps).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_GET_GPUMMU_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_GET_GPUMMU_CAPS {
     fn eq(&self, other: &Self) -> bool {
         self.PhysicalAdapterIndex == other.PhysicalAdapterIndex && self.GpuMmuCaps == other.GpuMmuCaps
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_GET_GPUMMU_CAPS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_GET_GPUMMU_CAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -19993,8 +19078,6 @@ impl ::core::default::Default for D3DKMT_GET_POST_COMPOSITION_CAPS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_GET_PTE {
     pub PhysicalAdapterIndex: u32,
     pub PageTableLevel: u32,
@@ -20004,59 +19087,46 @@ pub struct D3DKMT_GET_PTE {
     pub Pte: [DXGK_PTE; 64],
     pub NumValidEntries: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_GET_PTE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_GET_PTE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_GET_PTE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_GET_PTE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_GET_SEGMENT_CAPS {
     pub PhysicalAdapterIndex: u32,
     pub NumSegments: u32,
     pub SegmentCaps: [D3DKMT_SEGMENT_CAPS; 32],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_GET_SEGMENT_CAPS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_GET_SEGMENT_CAPS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_GET_SEGMENT_CAPS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_GET_SEGMENT_CAPS").field("PhysicalAdapterIndex", &self.PhysicalAdapterIndex).field("NumSegments", &self.NumSegments).field("SegmentCaps", &self.SegmentCaps).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_GET_SEGMENT_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_GET_SEGMENT_CAPS {
     fn eq(&self, other: &Self) -> bool {
         self.PhysicalAdapterIndex == other.PhysicalAdapterIndex && self.NumSegments == other.NumSegments && self.SegmentCaps == other.SegmentCaps
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_GET_SEGMENT_CAPS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_GET_SEGMENT_CAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -20161,232 +19231,178 @@ impl ::core::default::Default for D3DKMT_GPUVERSION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_HISTORY_BUFFER_STATUS {
     pub Enabled: super::super::super::Win32::Foundation::BOOLEAN,
     pub Reserved: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_HISTORY_BUFFER_STATUS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_HISTORY_BUFFER_STATUS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_HISTORY_BUFFER_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_HISTORY_BUFFER_STATUS").field("Enabled", &self.Enabled).field("Reserved", &self.Reserved).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_HISTORY_BUFFER_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_HISTORY_BUFFER_STATUS {
     fn eq(&self, other: &Self) -> bool {
         self.Enabled == other.Enabled && self.Reserved == other.Reserved
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_HISTORY_BUFFER_STATUS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_HISTORY_BUFFER_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_HWDRM_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_HWDRM_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_HWDRM_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_HWDRM_SUPPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_HWDRM_SUPPORT").field("Supported", &self.Supported).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_HWDRM_SUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_HWDRM_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
         self.Supported == other.Supported
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_HWDRM_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_HWDRM_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_HYBRID_DLIST_DLL_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_HYBRID_DLIST_DLL_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_HYBRID_DLIST_DLL_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_HYBRID_DLIST_DLL_SUPPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_HYBRID_DLIST_DLL_SUPPORT").field("Supported", &self.Supported).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_HYBRID_DLIST_DLL_SUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_HYBRID_DLIST_DLL_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
         self.Supported == other.Supported
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_HYBRID_DLIST_DLL_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_HYBRID_DLIST_DLL_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_HYBRID_LIST {
     pub State: D3DKMT_GPU_PREFERENCE_QUERY_STATE,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub bUserPreferenceQuery: super::super::super::Win32::Foundation::BOOL,
     pub QueryType: D3DKMT_GPU_PREFERENCE_QUERY_TYPE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_HYBRID_LIST {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_HYBRID_LIST {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_HYBRID_LIST {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_HYBRID_LIST").field("State", &self.State).field("AdapterLuid", &self.AdapterLuid).field("bUserPreferenceQuery", &self.bUserPreferenceQuery).field("QueryType", &self.QueryType).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_HYBRID_LIST {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_HYBRID_LIST {
     fn eq(&self, other: &Self) -> bool {
         self.State == other.State && self.AdapterLuid == other.AdapterLuid && self.bUserPreferenceQuery == other.bUserPreferenceQuery && self.QueryType == other.QueryType
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_HYBRID_LIST {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_HYBRID_LIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT").field("Supported", &self.Supported).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
         self.Supported == other.Supported
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_INDEPENDENTFLIP_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_INDEPENDENTFLIP_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_INDEPENDENTFLIP_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_INDEPENDENTFLIP_SUPPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_INDEPENDENTFLIP_SUPPORT").field("Supported", &self.Supported).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_INDEPENDENTFLIP_SUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_INDEPENDENTFLIP_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
         self.Supported == other.Supported
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_INDEPENDENTFLIP_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_INDEPENDENTFLIP_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -20456,38 +19472,29 @@ impl ::core::default::Default for D3DKMT_INVALIDATECACHE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
     pub Disabled: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED").field("Disabled", &self.Disabled).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
     fn eq(&self, other: &Self) -> bool {
         self.Disabled == other.Disabled
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -20648,40 +19655,31 @@ impl ::core::default::Default for D3DKMT_MIRACAST_CHUNK_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
     pub HdcpSupported: super::super::super::Win32::Foundation::BOOLEAN,
     pub DefaultControlPort: u32,
     pub UsesIhvSolution: super::super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS").field("HdcpSupported", &self.HdcpSupported).field("DefaultControlPort", &self.DefaultControlPort).field("UsesIhvSolution", &self.UsesIhvSolution).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
     fn eq(&self, other: &Self) -> bool {
         self.HdcpSupported == other.HdcpSupported && self.DefaultControlPort == other.DefaultControlPort && self.UsesIhvSolution == other.UsesIhvSolution
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -20717,440 +19715,339 @@ impl ::core::default::Default for D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub TargetId: u32,
     pub StopReason: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS").field("AdapterLuid", &self.AdapterLuid).field("TargetId", &self.TargetId).field("StopReason", &self.StopReason).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
     fn eq(&self, other: &Self) -> bool {
         self.AdapterLuid == other.AdapterLuid && self.TargetId == other.TargetId && self.StopReason == other.StopReason
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_MOVE_RECT {
     pub SourcePoint: super::super::super::Win32::Foundation::POINT,
     pub DestRect: super::super::super::Win32::Foundation::RECT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_MOVE_RECT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_MOVE_RECT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_MOVE_RECT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_MOVE_RECT").field("SourcePoint", &self.SourcePoint).field("DestRect", &self.DestRect).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_MOVE_RECT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_MOVE_RECT {
     fn eq(&self, other: &Self) -> bool {
         self.SourcePoint == other.SourcePoint && self.DestRect == other.DestRect
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_MOVE_RECT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_MOVE_RECT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_MPO3DDI_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_MPO3DDI_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_MPO3DDI_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_MPO3DDI_SUPPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_MPO3DDI_SUPPORT").field("Supported", &self.Supported).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_MPO3DDI_SUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_MPO3DDI_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
         self.Supported == other.Supported
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_MPO3DDI_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_MPO3DDI_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_MPOKERNELCAPS_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_MPOKERNELCAPS_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_MPOKERNELCAPS_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_MPOKERNELCAPS_SUPPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_MPOKERNELCAPS_SUPPORT").field("Supported", &self.Supported).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_MPOKERNELCAPS_SUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_MPOKERNELCAPS_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
         self.Supported == other.Supported
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_MPOKERNELCAPS_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_MPOKERNELCAPS_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT").field("Supported", &self.Supported).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
         self.Supported == other.Supported
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
     pub VidPnSourceId: u32,
     pub Update: super::super::super::Win32::Foundation::BOOL,
     pub KernelSupported: super::super::super::Win32::Foundation::BOOL,
     pub HudSupported: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT").field("VidPnSourceId", &self.VidPnSourceId).field("Update", &self.Update).field("KernelSupported", &self.KernelSupported).field("HudSupported", &self.HudSupported).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
         self.VidPnSourceId == other.VidPnSourceId && self.Update == other.Update && self.KernelSupported == other.KernelSupported && self.HudSupported == other.HudSupported
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT").field("Supported", &self.Supported).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
         self.Supported == other.Supported
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
     pub VidPnSourceId: u32,
     pub Update: super::super::super::Win32::Foundation::BOOL,
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT").field("VidPnSourceId", &self.VidPnSourceId).field("Update", &self.Update).field("Supported", &self.Supported).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
         self.VidPnSourceId == other.VidPnSourceId && self.Update == other.Update && self.Supported == other.Supported
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_MULTIPLANEOVERLAY_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_MULTIPLANEOVERLAY_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_MULTIPLANEOVERLAY_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_MULTIPLANEOVERLAY_SUPPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_MULTIPLANEOVERLAY_SUPPORT").field("Supported", &self.Supported).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_MULTIPLANEOVERLAY_SUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_MULTIPLANEOVERLAY_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
         self.Supported == other.Supported
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_MULTIPLANEOVERLAY_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_MULTIPLANEOVERLAY_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_MULTIPLANE_OVERLAY {
     pub LayerIndex: u32,
     pub Enabled: super::super::super::Win32::Foundation::BOOL,
     pub hAllocation: u32,
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_MULTIPLANE_OVERLAY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_MULTIPLANE_OVERLAY").field("LayerIndex", &self.LayerIndex).field("Enabled", &self.Enabled).field("hAllocation", &self.hAllocation).field("PlaneAttributes", &self.PlaneAttributes).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_MULTIPLANE_OVERLAY {
     fn eq(&self, other: &Self) -> bool {
         self.LayerIndex == other.LayerIndex && self.Enabled == other.Enabled && self.hAllocation == other.hAllocation && self.PlaneAttributes == other.PlaneAttributes
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_MULTIPLANE_OVERLAY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_MULTIPLANE_OVERLAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_MULTIPLANE_OVERLAY2 {
     pub LayerIndex: u32,
     pub Enabled: super::super::super::Win32::Foundation::BOOL,
     pub hAllocation: u32,
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_MULTIPLANE_OVERLAY2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_MULTIPLANE_OVERLAY2").field("LayerIndex", &self.LayerIndex).field("Enabled", &self.Enabled).field("hAllocation", &self.hAllocation).field("PlaneAttributes", &self.PlaneAttributes).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_MULTIPLANE_OVERLAY2 {
     fn eq(&self, other: &Self) -> bool {
         self.LayerIndex == other.LayerIndex && self.Enabled == other.Enabled && self.hAllocation == other.hAllocation && self.PlaneAttributes == other.PlaneAttributes
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_MULTIPLANE_OVERLAY2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_MULTIPLANE_OVERLAY2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_MULTIPLANE_OVERLAY3 {
     pub LayerIndex: u32,
     pub InputFlags: D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS,
@@ -21166,27 +20063,21 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY3 {
     pub FlipToFenceValue: u64,
     pub FlipAwayFenceValue: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY3 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_MULTIPLANE_OVERLAY3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
     pub Flags: u32,
     pub SrcRect: super::super::super::Win32::Foundation::RECT,
@@ -21204,15 +20095,12 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
     pub StereoFlipMode: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE,
     pub StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES")
@@ -21234,27 +20122,21 @@ impl ::core::fmt::Debug for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags && self.SrcRect == other.SrcRect && self.DstRect == other.DstRect && self.ClipRect == other.ClipRect && self.Rotation == other.Rotation && self.Blend == other.Blend && self.DirtyRectCount == other.DirtyRectCount && self.pDirtyRects == other.pDirtyRects && self.VideoFrameFormat == other.VideoFrameFormat && self.YCbCrFlags == other.YCbCrFlags && self.StereoFormat == other.StereoFormat && self.StereoLeftViewFrame0 == other.StereoLeftViewFrame0 && self.StereoBaseViewFrame0 == other.StereoBaseViewFrame0 && self.StereoFlipMode == other.StereoFlipMode && self.StretchQuality == other.StretchQuality
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
     pub Flags: u32,
     pub SrcRect: super::super::super::Win32::Foundation::RECT,
@@ -21273,15 +20155,12 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
     pub StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
     pub Reserved1: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2")
@@ -21304,27 +20183,21 @@ impl ::core::fmt::Debug for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags && self.SrcRect == other.SrcRect && self.DstRect == other.DstRect && self.ClipRect == other.ClipRect && self.Rotation == other.Rotation && self.Blend == other.Blend && self.DirtyRectCount == other.DirtyRectCount && self.pDirtyRects == other.pDirtyRects && self.VideoFrameFormat == other.VideoFrameFormat && self.ColorSpace == other.ColorSpace && self.StereoFormat == other.StereoFormat && self.StereoLeftViewFrame0 == other.StereoLeftViewFrame0 && self.StereoBaseViewFrame0 == other.StereoBaseViewFrame0 && self.StereoFlipMode == other.StereoFlipMode && self.StretchQuality == other.StretchQuality && self.Reserved1 == other.Reserved1
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
     pub Flags: u32,
     pub SrcRect: super::super::super::Win32::Foundation::RECT,
@@ -21338,33 +20211,26 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
     pub StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
     pub SDRWhiteLevel: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3").field("Flags", &self.Flags).field("SrcRect", &self.SrcRect).field("DstRect", &self.DstRect).field("ClipRect", &self.ClipRect).field("Rotation", &self.Rotation).field("Blend", &self.Blend).field("DirtyRectCount", &self.DirtyRectCount).field("pDirtyRects", &self.pDirtyRects).field("ColorSpace", &self.ColorSpace).field("StretchQuality", &self.StretchQuality).field("SDRWhiteLevel", &self.SDRWhiteLevel).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags && self.SrcRect == other.SrcRect && self.DstRect == other.DstRect && self.ClipRect == other.ClipRect && self.Rotation == other.Rotation && self.Blend == other.Blend && self.DirtyRectCount == other.DirtyRectCount && self.pDirtyRects == other.pDirtyRects && self.ColorSpace == other.ColorSpace && self.StretchQuality == other.StretchQuality && self.SDRWhiteLevel == other.SDRWhiteLevel
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -21437,27 +20303,21 @@ impl ::core::default::Default for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
     pub Flags: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS,
     pub SrcRect: super::super::super::Win32::Foundation::RECT,
     pub DstRect: super::super::super::Win32::Foundation::RECT,
     pub Rotation: D3DDDI_ROTATION,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -21530,25 +20390,19 @@ impl ::core::default::Default for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLA
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {
     pub VidPnSourceId: u32,
     pub PostComposition: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -21586,25 +20440,19 @@ impl ::core::default::Default for D3DKMT_MULTISAMPLEMETHOD {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_NODEMETADATA {
     pub NodeOrdinalAndAdapterIndex: u32,
     pub NodeData: DXGK_NODEMETADATA,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_NODEMETADATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_NODEMETADATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_NODEMETADATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_NODEMETADATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -21822,161 +20670,134 @@ impl ::core::default::Default for D3DKMT_OFFER_FLAGS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OPENADAPTERFROMDEVICENAME {
     pub pDeviceName: ::windows_core::PCWSTR,
     pub hAdapter: u32,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OPENADAPTERFROMDEVICENAME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OPENADAPTERFROMDEVICENAME {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_OPENADAPTERFROMDEVICENAME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_OPENADAPTERFROMDEVICENAME").field("pDeviceName", &self.pDeviceName).field("hAdapter", &self.hAdapter).field("AdapterLuid", &self.AdapterLuid).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OPENADAPTERFROMDEVICENAME {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_OPENADAPTERFROMDEVICENAME {
     fn eq(&self, other: &Self) -> bool {
         self.pDeviceName == other.pDeviceName && self.hAdapter == other.hAdapter && self.AdapterLuid == other.AdapterLuid
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_OPENADAPTERFROMDEVICENAME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OPENADAPTERFROMDEVICENAME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
     pub DeviceName: [u16; 32],
     pub hAdapter: u32,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub VidPnSourceId: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME").field("DeviceName", &self.DeviceName).field("hAdapter", &self.hAdapter).field("AdapterLuid", &self.AdapterLuid).field("VidPnSourceId", &self.VidPnSourceId).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
     fn eq(&self, other: &Self) -> bool {
         self.DeviceName == other.DeviceName && self.hAdapter == other.hAdapter && self.AdapterLuid == other.AdapterLuid && self.VidPnSourceId == other.VidPnSourceId
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct D3DKMT_OPENADAPTERFROMHDC {
     pub hDc: super::super::super::Win32::Graphics::Gdi::HDC,
     pub hAdapter: u32,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub VidPnSourceId: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for D3DKMT_OPENADAPTERFROMHDC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for D3DKMT_OPENADAPTERFROMHDC {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for D3DKMT_OPENADAPTERFROMHDC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_OPENADAPTERFROMHDC").field("hDc", &self.hDc).field("hAdapter", &self.hAdapter).field("AdapterLuid", &self.AdapterLuid).field("VidPnSourceId", &self.VidPnSourceId).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::windows_core::TypeKind for D3DKMT_OPENADAPTERFROMHDC {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for D3DKMT_OPENADAPTERFROMHDC {
     fn eq(&self, other: &Self) -> bool {
         self.hDc == other.hDc && self.hAdapter == other.hAdapter && self.AdapterLuid == other.AdapterLuid && self.VidPnSourceId == other.VidPnSourceId
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for D3DKMT_OPENADAPTERFROMHDC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for D3DKMT_OPENADAPTERFROMHDC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OPENADAPTERFROMLUID {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub hAdapter: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OPENADAPTERFROMLUID {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OPENADAPTERFROMLUID {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_OPENADAPTERFROMLUID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_OPENADAPTERFROMLUID").field("AdapterLuid", &self.AdapterLuid).field("hAdapter", &self.hAdapter).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OPENADAPTERFROMLUID {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_OPENADAPTERFROMLUID {
     fn eq(&self, other: &Self) -> bool {
         self.AdapterLuid == other.AdapterLuid && self.hAdapter == other.hAdapter
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_OPENADAPTERFROMLUID {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OPENADAPTERFROMLUID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -22076,49 +20897,38 @@ impl ::core::default::Default for D3DKMT_OPENKEYEDMUTEX2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub hKeyedMutex: u32,
     pub pPrivateRuntimeData: *mut ::core::ffi::c_void,
     pub PrivateRuntimeDataSize: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE").field("hNtHandle", &self.hNtHandle).field("hKeyedMutex", &self.hKeyedMutex).field("pPrivateRuntimeData", &self.pPrivateRuntimeData).field("PrivateRuntimeDataSize", &self.PrivateRuntimeDataSize).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
     fn eq(&self, other: &Self) -> bool {
         self.hNtHandle == other.hNtHandle && self.hKeyedMutex == other.hKeyedMutex && self.pPrivateRuntimeData == other.pPrivateRuntimeData && self.PrivateRuntimeDataSize == other.PrivateRuntimeDataSize
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub hDevice: u32,
@@ -22127,98 +20937,85 @@ pub struct D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
     pub hSyncObject: u32,
     pub NativeFenceMapping: D3DDDI_NATIVEFENCEMAPPING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[doc = "Required features: `\"Wdk_Foundation\"`"]
+#[cfg(feature = "Wdk_Foundation")]
 pub struct D3DKMT_OPENNTHANDLEFROMNAME {
     pub dwDesiredAccess: u32,
     pub pObjAttrib: *mut super::super::Foundation::OBJECT_ATTRIBUTES,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[cfg(feature = "Wdk_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OPENNTHANDLEFROMNAME {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[cfg(feature = "Wdk_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OPENNTHANDLEFROMNAME {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[cfg(feature = "Wdk_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_OPENNTHANDLEFROMNAME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_OPENNTHANDLEFROMNAME").field("dwDesiredAccess", &self.dwDesiredAccess).field("pObjAttrib", &self.pObjAttrib).field("hNtHandle", &self.hNtHandle).finish()
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[cfg(feature = "Wdk_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OPENNTHANDLEFROMNAME {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[cfg(feature = "Wdk_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_OPENNTHANDLEFROMNAME {
     fn eq(&self, other: &Self) -> bool {
         self.dwDesiredAccess == other.dwDesiredAccess && self.pObjAttrib == other.pObjAttrib && self.hNtHandle == other.hNtHandle
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[cfg(feature = "Wdk_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_OPENNTHANDLEFROMNAME {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[cfg(feature = "Wdk_Foundation")]
 impl ::core::default::Default for D3DKMT_OPENNTHANDLEFROMNAME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub hHandle: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE").field("hNtHandle", &self.hNtHandle).field("hHandle", &self.hHandle).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {
     fn eq(&self, other: &Self) -> bool {
         self.hNtHandle == other.hNtHandle && self.hHandle == other.hHandle
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -22272,8 +21069,6 @@ impl ::core::default::Default for D3DKMT_OPENRESOURCE_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OPENRESOURCEFROMNTHANDLE {
     pub hDevice: u32,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
@@ -22291,15 +21086,12 @@ pub struct D3DKMT_OPENRESOURCEFROMNTHANDLE {
     pub KeyedMutexPrivateRuntimeDataSize: u32,
     pub hSyncObject: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OPENRESOURCEFROMNTHANDLE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OPENRESOURCEFROMNTHANDLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_OPENRESOURCEFROMNTHANDLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_OPENRESOURCEFROMNTHANDLE")
@@ -22321,11 +21113,9 @@ impl ::core::fmt::Debug for D3DKMT_OPENRESOURCEFROMNTHANDLE {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OPENRESOURCEFROMNTHANDLE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_OPENRESOURCEFROMNTHANDLE {
     fn eq(&self, other: &Self) -> bool {
         self.hDevice == other.hDevice
@@ -22345,9 +21135,7 @@ impl ::core::cmp::PartialEq for D3DKMT_OPENRESOURCEFROMNTHANDLE {
             && self.hSyncObject == other.hSyncObject
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_OPENRESOURCEFROMNTHANDLE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OPENRESOURCEFROMNTHANDLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -22385,47 +21173,36 @@ impl ::core::default::Default for D3DKMT_OPENSYNCHRONIZATIONOBJECT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub hSyncObject: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_OPENSYNCOBJECTFROMNTHANDLE").field("hNtHandle", &self.hNtHandle).field("hSyncObject", &self.hSyncObject).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {
     fn eq(&self, other: &Self) -> bool {
         self.hNtHandle == other.hNtHandle && self.hSyncObject == other.hSyncObject
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub hDevice: u32,
@@ -22433,132 +21210,111 @@ pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {
     pub hSyncObject: u32,
     pub Anonymous: D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0 {
     pub MonitoredFence: D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0,
     pub Reserved: [u64; 8],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
     pub FenceValueCPUVirtualAddress: *mut ::core::ffi::c_void,
     pub FenceValueGPUVirtualAddress: u64,
     pub EngineAffinity: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0").field("FenceValueCPUVirtualAddress", &self.FenceValueCPUVirtualAddress).field("FenceValueGPUVirtualAddress", &self.FenceValueGPUVirtualAddress).field("EngineAffinity", &self.EngineAffinity).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.FenceValueCPUVirtualAddress == other.FenceValueCPUVirtualAddress && self.FenceValueGPUVirtualAddress == other.FenceValueGPUVirtualAddress && self.EngineAffinity == other.EngineAffinity
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[doc = "Required features: `\"Wdk_Foundation\"`"]
+#[cfg(feature = "Wdk_Foundation")]
 pub struct D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     pub dwDesiredAccess: u32,
     pub pObjAttrib: *mut super::super::Foundation::OBJECT_ATTRIBUTES,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[cfg(feature = "Wdk_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[cfg(feature = "Wdk_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[cfg(feature = "Wdk_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME").field("dwDesiredAccess", &self.dwDesiredAccess).field("pObjAttrib", &self.pObjAttrib).field("hNtHandle", &self.hNtHandle).finish()
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[cfg(feature = "Wdk_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[cfg(feature = "Wdk_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     fn eq(&self, other: &Self) -> bool {
         self.dwDesiredAccess == other.dwDesiredAccess && self.pObjAttrib == other.pObjAttrib && self.hNtHandle == other.hNtHandle
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[cfg(feature = "Wdk_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[cfg(feature = "Wdk_Foundation")]
 impl ::core::default::Default for D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
     pub Type: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE,
     pub Width: u32,
@@ -22566,33 +21322,26 @@ pub struct D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
     pub Pitch: u32,
     pub HotSpot: super::super::super::Win32::Foundation::POINT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_OUTDUPL_POINTER_SHAPE_INFO").field("Type", &self.Type).field("Width", &self.Width).field("Height", &self.Height).field("Pitch", &self.Pitch).field("HotSpot", &self.HotSpot).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.Width == other.Width && self.Height == other.Height && self.Pitch == other.Pitch && self.HotSpot == other.HotSpot
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -22695,8 +21444,6 @@ impl ::core::default::Default for D3DKMT_OUTPUTDUPLCREATIONFLAGS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OUTPUTDUPLPRESENT {
     pub hContext: u32,
     pub hSource: u32,
@@ -22707,19 +21454,15 @@ pub struct D3DKMT_OUTPUTDUPLPRESENT {
     pub Flags: D3DKMT_OUTPUTDUPLPRESENTFLAGS,
     pub hIndirectContext: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OUTPUTDUPLPRESENT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OUTPUTDUPLPRESENT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OUTPUTDUPLPRESENT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OUTPUTDUPLPRESENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -22792,8 +21535,6 @@ impl ::core::default::Default for D3DKMT_OUTPUTDUPLPRESENTFLAGS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {
     pub hSource: u32,
     pub VidPnSourceId: u32,
@@ -22803,27 +21544,21 @@ pub struct D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {
     pub Flags: D3DKMT_OUTPUTDUPLPRESENTFLAGS,
     pub hIndirectHwQueue: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OUTPUTDUPL_FRAMEINFO {
     pub LastPresentTime: i64,
     pub LastMouseUpdateTime: i64,
@@ -22834,15 +21569,12 @@ pub struct D3DKMT_OUTPUTDUPL_FRAMEINFO {
     pub TotalMetadataBufferSize: u32,
     pub PointerShapeBufferSize: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OUTPUTDUPL_FRAMEINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OUTPUTDUPL_FRAMEINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_OUTPUTDUPL_FRAMEINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_OUTPUTDUPL_FRAMEINFO")
@@ -22857,67 +21589,52 @@ impl ::core::fmt::Debug for D3DKMT_OUTPUTDUPL_FRAMEINFO {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OUTPUTDUPL_FRAMEINFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_OUTPUTDUPL_FRAMEINFO {
     fn eq(&self, other: &Self) -> bool {
         self.LastPresentTime == other.LastPresentTime && self.LastMouseUpdateTime == other.LastMouseUpdateTime && self.AccumulatedFrames == other.AccumulatedFrames && self.RectsCoalesced == other.RectsCoalesced && self.ProtectedContentMaskedOut == other.ProtectedContentMaskedOut && self.PointerPosition == other.PointerPosition && self.TotalMetadataBufferSize == other.TotalMetadataBufferSize && self.PointerShapeBufferSize == other.PointerShapeBufferSize
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_OUTPUTDUPL_FRAMEINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OUTPUTDUPL_FRAMEINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub FrameInfo: D3DKMT_OUTPUTDUPL_FRAMEINFO,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_OUTPUTDUPL_GET_FRAMEINFO").field("hAdapter", &self.hAdapter).field("VidPnSourceId", &self.VidPnSourceId).field("FrameInfo", &self.FrameInfo).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
     fn eq(&self, other: &Self) -> bool {
         self.hAdapter == other.hAdapter && self.VidPnSourceId == other.VidPnSourceId && self.FrameInfo == other.FrameInfo
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
@@ -22926,71 +21643,55 @@ pub struct D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
     pub BufferSizeRequired: u32,
     pub ShapeInfo: D3DKMT_OUTDUPL_POINTER_SHAPE_INFO,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA").field("hAdapter", &self.hAdapter).field("VidPnSourceId", &self.VidPnSourceId).field("BufferSizeSupplied", &self.BufferSizeSupplied).field("pShapeBuffer", &self.pShapeBuffer).field("BufferSizeRequired", &self.BufferSizeRequired).field("ShapeInfo", &self.ShapeInfo).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.hAdapter == other.hAdapter && self.VidPnSourceId == other.VidPnSourceId && self.BufferSizeSupplied == other.BufferSizeSupplied && self.pShapeBuffer == other.pShapeBuffer && self.BufferSizeRequired == other.BufferSizeRequired && self.ShapeInfo == other.ShapeInfo
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OUTPUTDUPL_KEYEDMUTEX {
     pub hSharedSurfaceNt: super::super::super::Win32::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OUTPUTDUPL_KEYEDMUTEX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OUTPUTDUPL_KEYEDMUTEX {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_OUTPUTDUPL_KEYEDMUTEX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_OUTPUTDUPL_KEYEDMUTEX").field("hSharedSurfaceNt", &self.hSharedSurfaceNt).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OUTPUTDUPL_KEYEDMUTEX {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_OUTPUTDUPL_KEYEDMUTEX {
     fn eq(&self, other: &Self) -> bool {
         self.hSharedSurfaceNt == other.hSharedSurfaceNt
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_OUTPUTDUPL_KEYEDMUTEX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OUTPUTDUPL_KEYEDMUTEX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -23031,39 +21732,30 @@ impl ::core::default::Default for D3DKMT_OUTPUTDUPL_METADATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OUTPUTDUPL_POINTER_POSITION {
     pub Position: super::super::super::Win32::Foundation::POINT,
     pub Visible: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OUTPUTDUPL_POINTER_POSITION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OUTPUTDUPL_POINTER_POSITION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_OUTPUTDUPL_POINTER_POSITION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_OUTPUTDUPL_POINTER_POSITION").field("Position", &self.Position).field("Visible", &self.Visible).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OUTPUTDUPL_POINTER_POSITION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_OUTPUTDUPL_POINTER_POSITION {
     fn eq(&self, other: &Self) -> bool {
         self.Position == other.Position && self.Visible == other.Visible
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_OUTPUTDUPL_POINTER_POSITION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OUTPUTDUPL_POINTER_POSITION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -23101,8 +21793,6 @@ impl ::core::default::Default for D3DKMT_OUTPUTDUPL_RELEASE_FRAME {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OUTPUTDUPL_SNAPSHOT {
     pub Size: u32,
     pub SessionProcessCount: u32,
@@ -23112,33 +21802,26 @@ pub struct D3DKMT_OUTPUTDUPL_SNAPSHOT {
     pub Padding: u32,
     pub OutputDuplDebugInfos: [OUTPUTDUPL_CONTEXT_DEBUG_INFO; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_OUTPUTDUPL_SNAPSHOT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_OUTPUTDUPL_SNAPSHOT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_OUTPUTDUPL_SNAPSHOT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_OUTPUTDUPL_SNAPSHOT").field("Size", &self.Size).field("SessionProcessCount", &self.SessionProcessCount).field("SessionActiveConnectionsCount", &self.SessionActiveConnectionsCount).field("NumVidPnSources", &self.NumVidPnSources).field("NumOutputDuplContexts", &self.NumOutputDuplContexts).field("Padding", &self.Padding).field("OutputDuplDebugInfos", &self.OutputDuplDebugInfos).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_OUTPUTDUPL_SNAPSHOT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_OUTPUTDUPL_SNAPSHOT {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.SessionProcessCount == other.SessionProcessCount && self.SessionActiveConnectionsCount == other.SessionActiveConnectionsCount && self.NumVidPnSources == other.NumVidPnSources && self.NumOutputDuplContexts == other.NumOutputDuplContexts && self.Padding == other.Padding && self.OutputDuplDebugInfos == other.OutputDuplDebugInfos
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_OUTPUTDUPL_SNAPSHOT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_OUTPUTDUPL_SNAPSHOT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -23178,76 +21861,58 @@ impl ::core::default::Default for D3DKMT_PAGE_TABLE_LEVEL_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_PANELFITTER_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_PANELFITTER_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_PANELFITTER_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_PANELFITTER_SUPPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_PANELFITTER_SUPPORT").field("Supported", &self.Supported).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_PANELFITTER_SUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_PANELFITTER_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
         self.Supported == other.Supported
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_PANELFITTER_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_PANELFITTER_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_PARAVIRTUALIZATION {
     pub SecureContainer: super::super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_PARAVIRTUALIZATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_PARAVIRTUALIZATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_PARAVIRTUALIZATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_PARAVIRTUALIZATION").field("SecureContainer", &self.SecureContainer).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_PARAVIRTUALIZATION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_PARAVIRTUALIZATION {
     fn eq(&self, other: &Self) -> bool {
         self.SecureContainer == other.SecureContainer
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_PARAVIRTUALIZATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_PARAVIRTUALIZATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -23476,8 +22141,6 @@ impl ::core::default::Default for D3DKMT_POLLDISPLAYCHILDREN {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_PRESENT {
     pub Anonymous1: D3DKMT_PRESENT_0,
     pub hWindow: super::super::super::Win32::Foundation::HWND,
@@ -23505,69 +22168,53 @@ pub struct D3DKMT_PRESENT {
     pub pPrivateDriverData: *mut ::core::ffi::c_void,
     pub bOptimizeForComposition: super::super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_PRESENT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_PRESENT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_PRESENT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_PRESENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_PRESENT_0 {
     pub hDevice: u32,
     pub hContext: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_PRESENT_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_PRESENT_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_PRESENT_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_PRESENT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_PRESENT_1 {
     pub hAdapter: u32,
     pub hIndirectContext: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_PRESENT_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_PRESENT_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_PRESENT_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_PRESENT_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -23640,35 +22287,27 @@ impl ::core::default::Default for D3DKMT_PRESENTFLAGS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_PRESENTHISTORYTOKEN {
     pub Model: D3DKMT_PRESENT_MODEL,
     pub TokenSize: u32,
     pub CompositionBindingId: u64,
     pub Token: D3DKMT_PRESENTHISTORYTOKEN_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_PRESENTHISTORYTOKEN {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_PRESENTHISTORYTOKEN {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_PRESENTHISTORYTOKEN {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_PRESENTHISTORYTOKEN {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_PRESENTHISTORYTOKEN_0 {
     pub Flip: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN,
     pub Blt: D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN,
@@ -23680,27 +22319,21 @@ pub union D3DKMT_PRESENTHISTORYTOKEN_0 {
     pub FlipManager: D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN,
     pub SurfaceComplete: D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_PRESENTHISTORYTOKEN_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_PRESENTHISTORYTOKEN_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_PRESENTHISTORYTOKEN_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_PRESENTHISTORYTOKEN_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
     pub Anonymous: D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0,
     pub BroadcastContextCount: u32,
@@ -23713,52 +22346,40 @@ pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
     pub pPresentPlanes: *mut D3DKMT_MULTIPLANE_OVERLAY,
     pub Duration: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {
     pub hDevice: u32,
     pub hContext: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {
     pub hAdapter: u32,
     pub Anonymous: D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0,
@@ -23772,52 +22393,40 @@ pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {
     pub pPresentPlanes: *mut D3DKMT_MULTIPLANE_OVERLAY2,
     pub Duration: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0 {
     pub hDevice: u32,
     pub hContext: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
     pub hAdapter: u32,
     pub ContextCount: u32,
@@ -23834,19 +22443,15 @@ pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
     pub pHDRMetaData: *const ::core::ffi::c_void,
     pub BoostRefreshRateMultiplier: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -23919,8 +22524,6 @@ impl ::core::default::Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_PRESENT_REDIRECTED {
     pub hSyncObj: u32,
     pub hDevice: u32,
@@ -23931,19 +22534,15 @@ pub struct D3DKMT_PRESENT_REDIRECTED {
     pub PrivateDriverDataSize: u32,
     pub pPrivateDriverData: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_PRESENT_REDIRECTED {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_PRESENT_REDIRECTED {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_PRESENT_REDIRECTED {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_PRESENT_REDIRECTED {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -24016,41 +22615,32 @@ impl ::core::default::Default for D3DKMT_PRESENT_REDIRECTED_FLAGS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_PRESENT_RGNS {
     pub DirtyRectCount: u32,
     pub pDirtyRects: *const super::super::super::Win32::Foundation::RECT,
     pub MoveRectCount: u32,
     pub pMoveRects: *const D3DKMT_MOVE_RECT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_PRESENT_RGNS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_PRESENT_RGNS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_PRESENT_RGNS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_PRESENT_RGNS").field("DirtyRectCount", &self.DirtyRectCount).field("pDirtyRects", &self.pDirtyRects).field("MoveRectCount", &self.MoveRectCount).field("pMoveRects", &self.pMoveRects).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_PRESENT_RGNS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_PRESENT_RGNS {
     fn eq(&self, other: &Self) -> bool {
         self.DirtyRectCount == other.DirtyRectCount && self.pDirtyRects == other.pDirtyRects && self.MoveRectCount == other.MoveRectCount && self.pMoveRects == other.pMoveRects
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_PRESENT_RGNS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_PRESENT_RGNS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -24171,27 +22761,21 @@ impl ::core::default::Default for D3DKMT_PRESENT_STATS_DWM2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_PROCESS_VERIFIER_OPTION {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub Type: D3DKMT_PROCESS_VERIFIER_OPTION_TYPE,
     pub Mode: D3DKMT_VERIFIER_OPTION_MODE,
     pub Data: D3DKMT_PROCESS_VERIFIER_OPTION_DATA,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_PROCESS_VERIFIER_OPTION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_PROCESS_VERIFIER_OPTION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_PROCESS_VERIFIER_OPTION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_PROCESS_VERIFIER_OPTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -24381,27 +22965,21 @@ impl ::core::default::Default for D3DKMT_QUERYCLOCKCALIBRATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_QUERYFSEBLOCK {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub Flags: D3DKMT_QUERYFSEBLOCKFLAGS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_QUERYFSEBLOCK {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_QUERYFSEBLOCK {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_QUERYFSEBLOCK {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_QUERYFSEBLOCK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -24456,49 +23034,38 @@ impl ::core::default::Default for D3DKMT_QUERYFSEBLOCKFLAGS_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_QUERYPROCESSOFFERINFO {
     pub cbSize: u32,
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub DecommitUniqueness: u64,
     pub DecommittableBytes: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_QUERYPROCESSOFFERINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_QUERYPROCESSOFFERINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_QUERYPROCESSOFFERINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_QUERYPROCESSOFFERINFO").field("cbSize", &self.cbSize).field("hProcess", &self.hProcess).field("DecommitUniqueness", &self.DecommitUniqueness).field("DecommittableBytes", &self.DecommittableBytes).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_QUERYPROCESSOFFERINFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_QUERYPROCESSOFFERINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.hProcess == other.hProcess && self.DecommitUniqueness == other.DecommitUniqueness && self.DecommittableBytes == other.DecommittableBytes
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_QUERYPROCESSOFFERINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_QUERYPROCESSOFFERINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub pPrivateDriverData: *const ::core::ffi::c_void,
@@ -24506,33 +23073,26 @@ pub struct D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
     pub pPrivateRuntimeData: *const ::core::ffi::c_void,
     pub PrivateRuntimeDataSize: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE").field("hNtHandle", &self.hNtHandle).field("pPrivateDriverData", &self.pPrivateDriverData).field("PrivateDriverDataSize", &self.PrivateDriverDataSize).field("pPrivateRuntimeData", &self.pPrivateRuntimeData).field("PrivateRuntimeDataSize", &self.PrivateRuntimeDataSize).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
     fn eq(&self, other: &Self) -> bool {
         self.hNtHandle == other.hNtHandle && self.pPrivateDriverData == other.pPrivateDriverData && self.PrivateDriverDataSize == other.PrivateDriverDataSize && self.pPrivateRuntimeData == other.pPrivateRuntimeData && self.PrivateRuntimeDataSize == other.PrivateRuntimeDataSize
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -24634,8 +23194,6 @@ impl ::core::default::Default for D3DKMT_QUERYRESOURCEINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
     pub hDevice: u32,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
@@ -24645,41 +23203,32 @@ pub struct D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
     pub ResourcePrivateDriverDataSize: u32,
     pub NumAllocations: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE").field("hDevice", &self.hDevice).field("hNtHandle", &self.hNtHandle).field("pPrivateRuntimeData", &self.pPrivateRuntimeData).field("PrivateRuntimeDataSize", &self.PrivateRuntimeDataSize).field("TotalPrivateDriverDataSize", &self.TotalPrivateDriverDataSize).field("ResourcePrivateDriverDataSize", &self.ResourcePrivateDriverDataSize).field("NumAllocations", &self.NumAllocations).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
     fn eq(&self, other: &Self) -> bool {
         self.hDevice == other.hDevice && self.hNtHandle == other.hNtHandle && self.pPrivateRuntimeData == other.pPrivateRuntimeData && self.PrivateRuntimeDataSize == other.PrivateRuntimeDataSize && self.TotalPrivateDriverDataSize == other.TotalPrivateDriverDataSize && self.ResourcePrivateDriverDataSize == other.ResourcePrivateDriverDataSize && self.NumAllocations == other.NumAllocations
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_QUERYSTATISTICS {
     pub Type: D3DKMT_QUERYSTATISTICS_TYPE,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
@@ -24687,27 +23236,21 @@ pub struct D3DKMT_QUERYSTATISTICS {
     pub QueryResult: D3DKMT_QUERYSTATISTICS_RESULT,
     pub Anonymous: D3DKMT_QUERYSTATISTICS_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_QUERYSTATISTICS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_QUERYSTATISTICS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_QUERYSTATISTICS_0 {
     pub QuerySegment: D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT,
     pub QueryProcessSegment: D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT,
@@ -24727,19 +23270,15 @@ pub union D3DKMT_QUERYSTATISTICS_0 {
     pub QueryNode2: D3DKMT_QUERYSTATISTICS_QUERY_NODE2,
     pub QueryProcessNode2: D3DKMT_QUERYSTATISTICS_QUERY_NODE2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_QUERYSTATISTICS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -26478,8 +25017,6 @@ impl ::core::default::Default for D3DKMT_QUERYSTATSTICS_TERMINATIONS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_QUERYVIDEOMEMORYINFO {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub hAdapter: u32,
@@ -26490,41 +25027,32 @@ pub struct D3DKMT_QUERYVIDEOMEMORYINFO {
     pub AvailableForReservation: u64,
     pub PhysicalAdapterIndex: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_QUERYVIDEOMEMORYINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_QUERYVIDEOMEMORYINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_QUERYVIDEOMEMORYINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_QUERYVIDEOMEMORYINFO").field("hProcess", &self.hProcess).field("hAdapter", &self.hAdapter).field("MemorySegmentGroup", &self.MemorySegmentGroup).field("Budget", &self.Budget).field("CurrentUsage", &self.CurrentUsage).field("CurrentReservation", &self.CurrentReservation).field("AvailableForReservation", &self.AvailableForReservation).field("PhysicalAdapterIndex", &self.PhysicalAdapterIndex).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_QUERYVIDEOMEMORYINFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_QUERYVIDEOMEMORYINFO {
     fn eq(&self, other: &Self) -> bool {
         self.hProcess == other.hProcess && self.hAdapter == other.hAdapter && self.MemorySegmentGroup == other.MemorySegmentGroup && self.Budget == other.Budget && self.CurrentUsage == other.CurrentUsage && self.CurrentReservation == other.CurrentReservation && self.AvailableForReservation == other.AvailableForReservation && self.PhysicalAdapterIndex == other.PhysicalAdapterIndex
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_QUERYVIDEOMEMORYINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_QUERYVIDEOMEMORYINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub hWindow: super::super::super::Win32::Foundation::HWND,
@@ -26532,33 +25060,26 @@ pub struct D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub OwnerType: D3DKMT_VIDPNSOURCEOWNER_TYPE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP").field("hProcess", &self.hProcess).field("hWindow", &self.hWindow).field("VidPnSourceId", &self.VidPnSourceId).field("AdapterLuid", &self.AdapterLuid).field("OwnerType", &self.OwnerType).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
     fn eq(&self, other: &Self) -> bool {
         self.hProcess == other.hProcess && self.hWindow == other.hWindow && self.VidPnSourceId == other.VidPnSourceId && self.AdapterLuid == other.AdapterLuid && self.OwnerType == other.OwnerType
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -26734,8 +25255,6 @@ impl ::core::default::Default for D3DKMT_QUERY_SCANOUT_CAPS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_RECLAIMALLOCATIONS {
     pub hDevice: u32,
     pub pResources: *mut u32,
@@ -26743,41 +25262,32 @@ pub struct D3DKMT_RECLAIMALLOCATIONS {
     pub pDiscarded: *mut super::super::super::Win32::Foundation::BOOL,
     pub NumAllocations: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_RECLAIMALLOCATIONS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_RECLAIMALLOCATIONS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_RECLAIMALLOCATIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_RECLAIMALLOCATIONS").field("hDevice", &self.hDevice).field("pResources", &self.pResources).field("HandleList", &self.HandleList).field("pDiscarded", &self.pDiscarded).field("NumAllocations", &self.NumAllocations).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_RECLAIMALLOCATIONS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_RECLAIMALLOCATIONS {
     fn eq(&self, other: &Self) -> bool {
         self.hDevice == other.hDevice && self.pResources == other.pResources && self.HandleList == other.HandleList && self.pDiscarded == other.pDiscarded && self.NumAllocations == other.NumAllocations
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_RECLAIMALLOCATIONS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_RECLAIMALLOCATIONS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_RECLAIMALLOCATIONS2 {
     pub hPagingQueue: u32,
     pub NumAllocations: u32,
@@ -26786,44 +25296,34 @@ pub struct D3DKMT_RECLAIMALLOCATIONS2 {
     pub Anonymous: D3DKMT_RECLAIMALLOCATIONS2_0,
     pub PagingFenceValue: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_RECLAIMALLOCATIONS2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_RECLAIMALLOCATIONS2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_RECLAIMALLOCATIONS2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_RECLAIMALLOCATIONS2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_RECLAIMALLOCATIONS2_0 {
     pub pDiscarded: *mut super::super::super::Win32::Foundation::BOOL,
     pub pResults: *mut D3DDDI_RECLAIM_RESULT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_RECLAIMALLOCATIONS2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_RECLAIMALLOCATIONS2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_RECLAIMALLOCATIONS2_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_RECLAIMALLOCATIONS2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -26856,8 +25356,6 @@ impl ::core::default::Default for D3DKMT_REGISTERBUDGETCHANGENOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_REGISTERTRIMNOTIFICATION {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub hDevice: u32,
@@ -26865,25 +25363,20 @@ pub struct D3DKMT_REGISTERTRIMNOTIFICATION {
     pub Context: *mut ::core::ffi::c_void,
     pub Handle: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_REGISTERTRIMNOTIFICATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_REGISTERTRIMNOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_REGISTERTRIMNOTIFICATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_REGISTERTRIMNOTIFICATION").field("AdapterLuid", &self.AdapterLuid).field("hDevice", &self.hDevice).field("Context", &self.Context).field("Handle", &self.Handle).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_REGISTERTRIMNOTIFICATION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_REGISTERTRIMNOTIFICATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27069,8 +25562,6 @@ impl ::core::default::Default for D3DKMT_REQUEST_MACHINE_CRASH_ESCAPE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_SCATTERBLT {
     pub hLogicalSurfaceDestination: u64,
     pub hDestinationCompSurfDWM: i64,
@@ -27078,72 +25569,56 @@ pub struct D3DKMT_SCATTERBLT {
     pub SourceRect: super::super::super::Win32::Foundation::RECT,
     pub DestinationOffset: super::super::super::Win32::Foundation::POINT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_SCATTERBLT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_SCATTERBLT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_SCATTERBLT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_SCATTERBLT").field("hLogicalSurfaceDestination", &self.hLogicalSurfaceDestination).field("hDestinationCompSurfDWM", &self.hDestinationCompSurfDWM).field("DestinationCompositionBindingId", &self.DestinationCompositionBindingId).field("SourceRect", &self.SourceRect).field("DestinationOffset", &self.DestinationOffset).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_SCATTERBLT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_SCATTERBLT {
     fn eq(&self, other: &Self) -> bool {
         self.hLogicalSurfaceDestination == other.hLogicalSurfaceDestination && self.hDestinationCompSurfDWM == other.hDestinationCompSurfDWM && self.DestinationCompositionBindingId == other.DestinationCompositionBindingId && self.SourceRect == other.SourceRect && self.DestinationOffset == other.DestinationOffset
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_SCATTERBLT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_SCATTERBLT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_SCATTERBLTS {
     pub NumBlts: u32,
     pub Blts: [D3DKMT_SCATTERBLT; 12],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_SCATTERBLTS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_SCATTERBLTS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_SCATTERBLTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_SCATTERBLTS").field("NumBlts", &self.NumBlts).field("Blts", &self.Blts).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_SCATTERBLTS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_SCATTERBLTS {
     fn eq(&self, other: &Self) -> bool {
         self.NumBlts == other.NumBlts && self.Blts == other.Blts
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_SCATTERBLTS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_SCATTERBLTS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27214,8 +25689,6 @@ impl ::core::default::Default for D3DKMT_SEGMENTSIZEINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_SEGMENT_CAPS {
     pub Size: u64,
     pub PageSize: u32,
@@ -27224,33 +25697,26 @@ pub struct D3DKMT_SEGMENT_CAPS {
     pub bReservedSysMem: super::super::super::Win32::Foundation::BOOLEAN,
     pub BudgetGroup: D3DKMT_MEMORY_SEGMENT_GROUP,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_SEGMENT_CAPS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_SEGMENT_CAPS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_SEGMENT_CAPS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_SEGMENT_CAPS").field("Size", &self.Size).field("PageSize", &self.PageSize).field("SegmentId", &self.SegmentId).field("bAperture", &self.bAperture).field("bReservedSysMem", &self.bReservedSysMem).field("BudgetGroup", &self.BudgetGroup).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_SEGMENT_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_SEGMENT_CAPS {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.PageSize == other.PageSize && self.SegmentId == other.SegmentId && self.bAperture == other.bAperture && self.bReservedSysMem == other.bReservedSysMem && self.BudgetGroup == other.BudgetGroup
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_SEGMENT_CAPS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_SEGMENT_CAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27445,27 +25911,21 @@ impl ::core::default::Default for D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_SETFSEBLOCK {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub Flags: D3DKMT_SETFSEBLOCKFLAGS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_SETFSEBLOCK {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_SETFSEBLOCK {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_SETFSEBLOCK {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_SETFSEBLOCK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27561,39 +26021,30 @@ impl ::core::default::Default for D3DKMT_SETGAMMARAMP_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {
     pub hAdapter: u32,
     pub Recovered: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY").field("hAdapter", &self.hAdapter).field("Recovered", &self.Recovered).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {
     fn eq(&self, other: &Self) -> bool {
         self.hAdapter == other.hAdapter && self.Recovered == other.Recovered
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27669,39 +26120,30 @@ impl ::core::default::Default for D3DKMT_SETQUEUEDLIMIT_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_SETSTABLEPOWERSTATE {
     pub hAdapter: u32,
     pub Enabled: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_SETSTABLEPOWERSTATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_SETSTABLEPOWERSTATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_SETSTABLEPOWERSTATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_SETSTABLEPOWERSTATE").field("hAdapter", &self.hAdapter).field("Enabled", &self.Enabled).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_SETSTABLEPOWERSTATE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_SETSTABLEPOWERSTATE {
     fn eq(&self, other: &Self) -> bool {
         self.hAdapter == other.hAdapter && self.Enabled == other.Enabled
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_SETSTABLEPOWERSTATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_SETSTABLEPOWERSTATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27740,40 +26182,31 @@ impl ::core::default::Default for D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_SETVIDPNSOURCEHWPROTECTION {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub HwProtected: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_SETVIDPNSOURCEHWPROTECTION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_SETVIDPNSOURCEHWPROTECTION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_SETVIDPNSOURCEHWPROTECTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_SETVIDPNSOURCEHWPROTECTION").field("hAdapter", &self.hAdapter).field("VidPnSourceId", &self.VidPnSourceId).field("HwProtected", &self.HwProtected).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_SETVIDPNSOURCEHWPROTECTION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_SETVIDPNSOURCEHWPROTECTION {
     fn eq(&self, other: &Self) -> bool {
         self.hAdapter == other.hAdapter && self.VidPnSourceId == other.VidPnSourceId && self.HwProtected == other.HwProtected
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_SETVIDPNSOURCEHWPROTECTION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_SETVIDPNSOURCEHWPROTECTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27850,8 +26283,6 @@ impl ::core::default::Default for D3DKMT_SETVIDPNSOURCEOWNER2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_SET_COLORSPACE_TRANSFORM {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub VidPnTargetId: u32,
@@ -27859,122 +26290,94 @@ pub struct D3DKMT_SET_COLORSPACE_TRANSFORM {
     pub Size: u32,
     pub Anonymous: D3DKMT_SET_COLORSPACE_TRANSFORM_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_SET_COLORSPACE_TRANSFORM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_SET_COLORSPACE_TRANSFORM {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_SET_COLORSPACE_TRANSFORM {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_SET_COLORSPACE_TRANSFORM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_SET_COLORSPACE_TRANSFORM_0 {
     pub pColorSpaceTransform: *mut D3DKMDT_3x4_COLORSPACE_TRANSFORM,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_SET_COLORSPACE_TRANSFORM_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_SET_COLORSPACE_TRANSFORM_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_SET_COLORSPACE_TRANSFORM_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_SET_COLORSPACE_TRANSFORM_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub VidPnSourceId: u32,
     pub LockRect: super::super::super::Win32::Foundation::RECTL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION").field("AdapterLuid", &self.AdapterLuid).field("VidPnSourceId", &self.VidPnSourceId).field("LockRect", &self.LockRect).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
         self.AdapterLuid == other.AdapterLuid && self.VidPnSourceId == other.VidPnSourceId && self.LockRect == other.LockRect
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub VidPnSourceId: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION").field("AdapterLuid", &self.AdapterLuid).field("VidPnSourceId", &self.VidPnSourceId).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
         self.AdapterLuid == other.AdapterLuid && self.VidPnSourceId == other.VidPnSourceId
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -28034,8 +26437,6 @@ impl ::core::default::Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {
     pub hContext: u32,
     pub ObjectCount: u32,
@@ -28045,83 +26446,64 @@ pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {
     pub BroadcastContext: [u32; 64],
     pub Anonymous: D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {
     pub Fence: D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0,
     pub CpuEventHandle: super::super::super::Win32::Foundation::HANDLE,
     pub Reserved: [u64; 8],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {
     pub FenceValue: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0").field("FenceValue", &self.FenceValue).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.FenceValue == other.FenceValue
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -28190,8 +26572,6 @@ impl ::core::default::Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
     pub ObjectCount: u32,
     pub ObjectHandleArray: *const u32,
@@ -28200,46 +26580,36 @@ pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
     pub BroadcastContextArray: *const u32,
     pub Anonymous: D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
     pub FenceValue: u64,
     pub CpuEventHandle: super::super::super::Win32::Foundation::HANDLE,
     pub MonitoredFenceValueArray: *const u64,
     pub Reserved: [u64; 8],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -28393,51 +26763,39 @@ impl ::core::default::Default for D3DKMT_SUBMITCOMMANDTOHWQUEUE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {
     pub hHwQueue: u32,
     pub HwQueueProgressFenceId: u64,
     pub PrivatePresentData: D3DKMT_PRESENT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_SUBMITPRESENTTOHWQUEUE {
     pub hHwQueues: *mut u32,
     pub PrivatePresentData: D3DKMT_PRESENT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_SUBMITPRESENTTOHWQUEUE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_SUBMITPRESENTTOHWQUEUE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_SUBMITPRESENTTOHWQUEUE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_SUBMITPRESENTTOHWQUEUE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -28565,26 +26923,20 @@ impl ::core::default::Default for D3DKMT_TDRDBGCTRL_ESCAPE_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_TRACKEDWORKLOAD_SUPPORT {
     pub PhysicalAdapterIndex: u32,
     pub EngineType: DXGK_ENGINE_TYPE,
     pub Support: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_TRACKEDWORKLOAD_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_TRACKEDWORKLOAD_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_TRACKEDWORKLOAD_SUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_TRACKEDWORKLOAD_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -28611,8 +26963,6 @@ impl ::core::default::Default for D3DKMT_TRIMNOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_TRIMPROCESSCOMMITMENT {
     pub cbSize: u32,
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
@@ -28620,19 +26970,15 @@ pub struct D3DKMT_TRIMPROCESSCOMMITMENT {
     pub DecommitRequested: u64,
     pub NumBytesDecommitted: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_TRIMPROCESSCOMMITMENT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_TRIMPROCESSCOMMITMENT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_TRIMPROCESSCOMMITMENT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_TRIMPROCESSCOMMITMENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -29097,33 +27443,25 @@ impl ::core::default::Default for D3DKMT_VGPUINTERFACEID {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDMM_ESCAPE {
     pub Type: D3DKMT_VIDMMESCAPETYPE,
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_VIDMM_ESCAPE_0 {
     pub SetFault: D3DKMT_VIDMM_ESCAPE_0_9,
     pub Evict: D3DKMT_VIDMM_ESCAPE_0_4,
@@ -29141,27 +27479,21 @@ pub union D3DKMT_VIDMM_ESCAPE_0 {
     pub VerifyIntegrity: D3DKMT_VIDMM_ESCAPE_0_12,
     pub DelayedEvictionConfig: D3DKMT_VIDMM_ESCAPE_0_2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDMM_ESCAPE_0_0 {
     pub Operation: D3DKMT_DEFRAG_ESCAPE_OPERATION,
     pub SegmentId: u32,
@@ -29170,262 +27502,202 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_0 {
     pub LargestGapBefore: u64,
     pub LargestGapAfter: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_VIDMM_ESCAPE_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_VIDMM_ESCAPE_0_0").field("Operation", &self.Operation).field("SegmentId", &self.SegmentId).field("TotalCommitted", &self.TotalCommitted).field("TotalFree", &self.TotalFree).field("LargestGapBefore", &self.LargestGapBefore).field("LargestGapAfter", &self.LargestGapAfter).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_VIDMM_ESCAPE_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Operation == other.Operation && self.SegmentId == other.SegmentId && self.TotalCommitted == other.TotalCommitted && self.TotalFree == other.TotalFree && self.LargestGapBefore == other.LargestGapBefore && self.LargestGapAfter == other.LargestGapAfter
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_VIDMM_ESCAPE_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDMM_ESCAPE_0_1 {
     pub hPagingQueue: u32,
     pub PhysicalAdapterIndex: u32,
     pub Milliseconds: u32,
     pub PagingFenceValue: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_VIDMM_ESCAPE_0_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_VIDMM_ESCAPE_0_1").field("hPagingQueue", &self.hPagingQueue).field("PhysicalAdapterIndex", &self.PhysicalAdapterIndex).field("Milliseconds", &self.Milliseconds).field("PagingFenceValue", &self.PagingFenceValue).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_VIDMM_ESCAPE_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.hPagingQueue == other.hPagingQueue && self.PhysicalAdapterIndex == other.PhysicalAdapterIndex && self.Milliseconds == other.Milliseconds && self.PagingFenceValue == other.PagingFenceValue
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_VIDMM_ESCAPE_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDMM_ESCAPE_0_2 {
     pub TimerValue: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_VIDMM_ESCAPE_0_2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_VIDMM_ESCAPE_0_2").field("TimerValue", &self.TimerValue).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_VIDMM_ESCAPE_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.TimerValue == other.TimerValue
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_VIDMM_ESCAPE_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDMM_ESCAPE_0_3 {
     pub NtHandle: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_VIDMM_ESCAPE_0_3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_VIDMM_ESCAPE_0_3").field("NtHandle", &self.NtHandle).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_3 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_VIDMM_ESCAPE_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.NtHandle == other.NtHandle
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_VIDMM_ESCAPE_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDMM_ESCAPE_0_4 {
     pub ResourceHandle: u32,
     pub AllocationHandle: u32,
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_4 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_4 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_VIDMM_ESCAPE_0_4 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_VIDMM_ESCAPE_0_4").field("ResourceHandle", &self.ResourceHandle).field("AllocationHandle", &self.AllocationHandle).field("hProcess", &self.hProcess).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_4 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_VIDMM_ESCAPE_0_4 {
     fn eq(&self, other: &Self) -> bool {
         self.ResourceHandle == other.ResourceHandle && self.AllocationHandle == other.AllocationHandle && self.hProcess == other.hProcess
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_VIDMM_ESCAPE_0_4 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0_4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDMM_ESCAPE_0_5 {
     pub NumBytesToTrim: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_5 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_5 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_VIDMM_ESCAPE_0_5 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_VIDMM_ESCAPE_0_5").field("NumBytesToTrim", &self.NumBytesToTrim).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_5 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_VIDMM_ESCAPE_0_5 {
     fn eq(&self, other: &Self) -> bool {
         self.NumBytesToTrim == other.NumBytesToTrim
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_VIDMM_ESCAPE_0_5 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0_5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDMM_ESCAPE_0_6 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_6_0,
     pub Command: D3DKMT_VAD_ESCAPE_COMMAND,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_6 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_6 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_6 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0_6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_VIDMM_ESCAPE_0_6_0 {
     pub GetNumVads: D3DKMT_VIDMM_ESCAPE_0_6_0_0,
     pub GetVad: D3DKMT_VAD_DESC,
@@ -29434,376 +27706,288 @@ pub union D3DKMT_VIDMM_ESCAPE_0_6_0 {
     pub GetPte: D3DKMT_GET_PTE,
     pub GetSegmentCaps: D3DKMT_GET_SEGMENT_CAPS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_6_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_6_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_6_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0_6_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDMM_ESCAPE_0_6_0_0 {
     pub NumVads: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_6_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_6_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_VIDMM_ESCAPE_0_6_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_VIDMM_ESCAPE_0_6_0_0").field("NumVads", &self.NumVads).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_6_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_VIDMM_ESCAPE_0_6_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.NumVads == other.NumVads
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_VIDMM_ESCAPE_0_6_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0_6_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDMM_ESCAPE_0_7 {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_7 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_7 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_VIDMM_ESCAPE_0_7 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_VIDMM_ESCAPE_0_7").field("hProcess", &self.hProcess).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_7 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_VIDMM_ESCAPE_0_7 {
     fn eq(&self, other: &Self) -> bool {
         self.hProcess == other.hProcess
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_VIDMM_ESCAPE_0_7 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0_7 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDMM_ESCAPE_0_8 {
     pub LocalMemoryBudget: u64,
     pub SystemMemoryBudget: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_8 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_8 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_VIDMM_ESCAPE_0_8 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_VIDMM_ESCAPE_0_8").field("LocalMemoryBudget", &self.LocalMemoryBudget).field("SystemMemoryBudget", &self.SystemMemoryBudget).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_8 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_VIDMM_ESCAPE_0_8 {
     fn eq(&self, other: &Self) -> bool {
         self.LocalMemoryBudget == other.LocalMemoryBudget && self.SystemMemoryBudget == other.SystemMemoryBudget
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_VIDMM_ESCAPE_0_8 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0_8 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDMM_ESCAPE_0_9 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_9_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_9 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_9 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_9 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0_9 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_VIDMM_ESCAPE_0_9_0 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_9_0_0,
     pub Value: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_9_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_9_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_9_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0_9_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDMM_ESCAPE_0_9_0_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_9_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_9_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_VIDMM_ESCAPE_0_9_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_VIDMM_ESCAPE_0_9_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_9_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_VIDMM_ESCAPE_0_9_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_VIDMM_ESCAPE_0_9_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0_9_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDMM_ESCAPE_0_10 {
     pub MinTrimInterval: u32,
     pub MaxTrimInterval: u32,
     pub IdleTrimInterval: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_10 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_10 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_VIDMM_ESCAPE_0_10 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_VIDMM_ESCAPE_0_10").field("MinTrimInterval", &self.MinTrimInterval).field("MaxTrimInterval", &self.MaxTrimInterval).field("IdleTrimInterval", &self.IdleTrimInterval).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_10 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_VIDMM_ESCAPE_0_10 {
     fn eq(&self, other: &Self) -> bool {
         self.MinTrimInterval == other.MinTrimInterval && self.MaxTrimInterval == other.MaxTrimInterval && self.IdleTrimInterval == other.IdleTrimInterval
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_VIDMM_ESCAPE_0_10 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0_10 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDMM_ESCAPE_0_11 {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub bAllowWakeOnSubmission: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_11 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_11 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_VIDMM_ESCAPE_0_11 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_VIDMM_ESCAPE_0_11").field("hProcess", &self.hProcess).field("bAllowWakeOnSubmission", &self.bAllowWakeOnSubmission).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_11 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_VIDMM_ESCAPE_0_11 {
     fn eq(&self, other: &Self) -> bool {
         self.hProcess == other.hProcess && self.bAllowWakeOnSubmission == other.bAllowWakeOnSubmission
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_VIDMM_ESCAPE_0_11 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0_11 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDMM_ESCAPE_0_12 {
     pub SegmentId: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_12 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_12 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_VIDMM_ESCAPE_0_12 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_VIDMM_ESCAPE_0_12").field("SegmentId", &self.SegmentId).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_12 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_VIDMM_ESCAPE_0_12 {
     fn eq(&self, other: &Self) -> bool {
         self.SegmentId == other.SegmentId
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_VIDMM_ESCAPE_0_12 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0_12 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDMM_ESCAPE_0_13 {
     pub bFlush: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_13 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_13 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_VIDMM_ESCAPE_0_13 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_VIDMM_ESCAPE_0_13").field("bFlush", &self.bFlush).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_13 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_VIDMM_ESCAPE_0_13 {
     fn eq(&self, other: &Self) -> bool {
         self.bFlush == other.bFlush
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_VIDMM_ESCAPE_0_13 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDMM_ESCAPE_0_13 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -29876,34 +28060,26 @@ impl ::core::default::Default for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDSCH_ESCAPE {
     pub Type: D3DKMT_VIDSCHESCAPETYPE,
     pub Anonymous: D3DKMT_VIDSCH_ESCAPE_0,
     pub VirtualRefreshRateControl: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDSCH_ESCAPE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDSCH_ESCAPE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDSCH_ESCAPE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDSCH_ESCAPE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_VIDSCH_ESCAPE_0 {
     pub PreemptionControl: super::super::super::Win32::Foundation::BOOL,
     pub EnableContextDelay: super::super::super::Win32::Foundation::BOOL,
@@ -29914,107 +28090,82 @@ pub union D3DKMT_VIDSCH_ESCAPE_0 {
     pub TdrLimit: D3DKMT_VIDSCH_ESCAPE_0_1,
     pub PfnControl: D3DKMT_ESCAPE_PFN_CONTROL_COMMAND,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDSCH_ESCAPE_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDSCH_ESCAPE_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDSCH_ESCAPE_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDSCH_ESCAPE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDSCH_ESCAPE_0_0 {
     pub TdrControl: u32,
     pub Anonymous: D3DKMT_VIDSCH_ESCAPE_0_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDSCH_ESCAPE_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDSCH_ESCAPE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDSCH_ESCAPE_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDSCH_ESCAPE_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union D3DKMT_VIDSCH_ESCAPE_0_0_0 {
     pub NodeOrdinal: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDSCH_ESCAPE_0_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDSCH_ESCAPE_0_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDSCH_ESCAPE_0_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDSCH_ESCAPE_0_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_VIDSCH_ESCAPE_0_1 {
     pub Count: u32,
     pub Time: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_VIDSCH_ESCAPE_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_VIDSCH_ESCAPE_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_VIDSCH_ESCAPE_0_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_VIDSCH_ESCAPE_0_1").field("Count", &self.Count).field("Time", &self.Time).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_VIDSCH_ESCAPE_0_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_VIDSCH_ESCAPE_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.Count == other.Count && self.Time == other.Time
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_VIDSCH_ESCAPE_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_VIDSCH_ESCAPE_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -30208,8 +28359,6 @@ impl ::core::default::Default for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {
     pub hDevice: u32,
     pub ObjectCount: u32,
@@ -30218,19 +28367,15 @@ pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {
     pub hAsyncEvent: super::super::super::Win32::Foundation::HANDLE,
     pub Flags: D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -30828,38 +28973,29 @@ impl ::core::default::Default for D3DKMT_WSAUMDIMAGENAME {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_XBOX {
     pub IsXBOX: super::super::super::Win32::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DKMT_XBOX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DKMT_XBOX {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DKMT_XBOX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DKMT_XBOX").field("IsXBOX", &self.IsXBOX).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DKMT_XBOX {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DKMT_XBOX {
     fn eq(&self, other: &Self) -> bool {
         self.IsXBOX == other.IsXBOX
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DKMT_XBOX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DKMT_XBOX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -30896,8 +29032,8 @@ impl ::core::default::Default for D3DLINEPATTERN {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTDEVICEDESC_V3 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -30934,15 +29070,15 @@ pub struct D3DNTDEVICEDESC_V3 {
     pub wMaxTextureBlendStages: u16,
     pub wMaxSimultaneousTextures: u16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::marker::Copy for D3DNTDEVICEDESC_V3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::clone::Clone for D3DNTDEVICEDESC_V3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::fmt::Debug for D3DNTDEVICEDESC_V3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DNTDEVICEDESC_V3")
@@ -30983,11 +29119,11 @@ impl ::core::fmt::Debug for D3DNTDEVICEDESC_V3 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::windows_core::TypeKind for D3DNTDEVICEDESC_V3 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::PartialEq for D3DNTDEVICEDESC_V3 {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -31026,17 +29162,17 @@ impl ::core::cmp::PartialEq for D3DNTDEVICEDESC_V3 {
             && self.wMaxSimultaneousTextures == other.wMaxSimultaneousTextures
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::Eq for D3DNTDEVICEDESC_V3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::default::Default for D3DNTDEVICEDESC_V3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTHALDEVICEDESC_V1 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -31052,15 +29188,15 @@ pub struct D3DNTHALDEVICEDESC_V1 {
     pub dwMaxBufferSize: u32,
     pub dwMaxVertexCount: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::marker::Copy for D3DNTHALDEVICEDESC_V1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::clone::Clone for D3DNTHALDEVICEDESC_V1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::fmt::Debug for D3DNTHALDEVICEDESC_V1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DNTHALDEVICEDESC_V1")
@@ -31080,27 +29216,27 @@ impl ::core::fmt::Debug for D3DNTHALDEVICEDESC_V1 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::windows_core::TypeKind for D3DNTHALDEVICEDESC_V1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::PartialEq for D3DNTHALDEVICEDESC_V1 {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dcmColorModel == other.dcmColorModel && self.dwDevCaps == other.dwDevCaps && self.dtcTransformCaps == other.dtcTransformCaps && self.bClipping == other.bClipping && self.dlcLightingCaps == other.dlcLightingCaps && self.dpcLineCaps == other.dpcLineCaps && self.dpcTriCaps == other.dpcTriCaps && self.dwDeviceRenderBitDepth == other.dwDeviceRenderBitDepth && self.dwDeviceZBufferBitDepth == other.dwDeviceZBufferBitDepth && self.dwMaxBufferSize == other.dwMaxBufferSize && self.dwMaxVertexCount == other.dwMaxVertexCount
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::Eq for D3DNTHALDEVICEDESC_V1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::default::Default for D3DNTHALDEVICEDESC_V1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTHALDEVICEDESC_V2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -31124,15 +29260,15 @@ pub struct D3DNTHALDEVICEDESC_V2 {
     pub dwMinStippleHeight: u32,
     pub dwMaxStippleHeight: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::marker::Copy for D3DNTHALDEVICEDESC_V2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::clone::Clone for D3DNTHALDEVICEDESC_V2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::fmt::Debug for D3DNTHALDEVICEDESC_V2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DNTHALDEVICEDESC_V2")
@@ -31160,11 +29296,11 @@ impl ::core::fmt::Debug for D3DNTHALDEVICEDESC_V2 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::windows_core::TypeKind for D3DNTHALDEVICEDESC_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::PartialEq for D3DNTHALDEVICEDESC_V2 {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -31190,17 +29326,17 @@ impl ::core::cmp::PartialEq for D3DNTHALDEVICEDESC_V2 {
             && self.dwMaxStippleHeight == other.dwMaxStippleHeight
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::Eq for D3DNTHALDEVICEDESC_V2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::default::Default for D3DNTHALDEVICEDESC_V2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct D3DNTHAL_CALLBACKS {
     pub dwSize: u32,
     pub ContextCreate: LPD3DNTHAL_CONTEXTCREATECB,
@@ -31238,15 +29374,15 @@ pub struct D3DNTHAL_CALLBACKS {
     pub dwReserved8: usize,
     pub dwReserved9: usize,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::marker::Copy for D3DNTHAL_CALLBACKS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::clone::Clone for D3DNTHAL_CALLBACKS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::fmt::Debug for D3DNTHAL_CALLBACKS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DNTHAL_CALLBACKS")
@@ -31280,19 +29416,19 @@ impl ::core::fmt::Debug for D3DNTHAL_CALLBACKS {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::windows_core::TypeKind for D3DNTHAL_CALLBACKS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::default::Default for D3DNTHAL_CALLBACKS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct D3DNTHAL_CALLBACKS2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -31302,33 +29438,33 @@ pub struct D3DNTHAL_CALLBACKS2 {
     pub dwReserved3: *mut ::core::ffi::c_void,
     pub dwReserved4: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::marker::Copy for D3DNTHAL_CALLBACKS2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::clone::Clone for D3DNTHAL_CALLBACKS2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::fmt::Debug for D3DNTHAL_CALLBACKS2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DNTHAL_CALLBACKS2").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).field("dwReserved3", &self.dwReserved3).field("dwReserved4", &self.dwReserved4).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::windows_core::TypeKind for D3DNTHAL_CALLBACKS2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::default::Default for D3DNTHAL_CALLBACKS2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 pub struct D3DNTHAL_CALLBACKS3 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -31337,25 +29473,25 @@ pub struct D3DNTHAL_CALLBACKS3 {
     pub ValidateTextureStageState: LPD3DNTHAL_VALIDATETEXTURESTAGESTATECB,
     pub DrawPrimitives2: LPD3DNTHAL_DRAWPRIMITIVES2CB,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::core::marker::Copy for D3DNTHAL_CALLBACKS3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::core::clone::Clone for D3DNTHAL_CALLBACKS3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::core::fmt::Debug for D3DNTHAL_CALLBACKS3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DNTHAL_CALLBACKS3").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("lpvReserved", &self.lpvReserved).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::windows_core::TypeKind for D3DNTHAL_CALLBACKS3 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::core::default::Default for D3DNTHAL_CALLBACKS3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -31438,8 +29574,8 @@ impl ::core::default::Default for D3DNTHAL_CLIPPEDTRIANGLEFAN {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct D3DNTHAL_CONTEXTCREATEDATA {
     pub Anonymous1: D3DNTHAL_CONTEXTCREATEDATA_0,
     pub Anonymous2: D3DNTHAL_CONTEXTCREATEDATA_1,
@@ -31448,94 +29584,94 @@ pub struct D3DNTHAL_CONTEXTCREATEDATA {
     pub dwhContext: usize,
     pub ddrval: ::windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::marker::Copy for D3DNTHAL_CONTEXTCREATEDATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::clone::Clone for D3DNTHAL_CONTEXTCREATEDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::windows_core::TypeKind for D3DNTHAL_CONTEXTCREATEDATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::default::Default for D3DNTHAL_CONTEXTCREATEDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub union D3DNTHAL_CONTEXTCREATEDATA_0 {
     pub lpDDGbl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_DIRECTDRAW_GLOBAL,
     pub lpDDLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_DIRECTDRAW_LOCAL,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::marker::Copy for D3DNTHAL_CONTEXTCREATEDATA_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::clone::Clone for D3DNTHAL_CONTEXTCREATEDATA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::windows_core::TypeKind for D3DNTHAL_CONTEXTCREATEDATA_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::default::Default for D3DNTHAL_CONTEXTCREATEDATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub union D3DNTHAL_CONTEXTCREATEDATA_1 {
     pub lpDDS: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
     pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::marker::Copy for D3DNTHAL_CONTEXTCREATEDATA_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::clone::Clone for D3DNTHAL_CONTEXTCREATEDATA_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::windows_core::TypeKind for D3DNTHAL_CONTEXTCREATEDATA_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::default::Default for D3DNTHAL_CONTEXTCREATEDATA_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub union D3DNTHAL_CONTEXTCREATEDATA_2 {
     pub lpDDSZ: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
     pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::marker::Copy for D3DNTHAL_CONTEXTCREATEDATA_2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::clone::Clone for D3DNTHAL_CONTEXTCREATEDATA_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::windows_core::TypeKind for D3DNTHAL_CONTEXTCREATEDATA_2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::default::Default for D3DNTHAL_CONTEXTCREATEDATA_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -31856,47 +29992,36 @@ impl ::core::default::Default for D3DNTHAL_DP2ADDDIRTYBOX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DNTHAL_DP2ADDDIRTYRECT {
     pub dwSurface: u32,
     pub rDirtyArea: super::super::super::Win32::Foundation::RECTL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DNTHAL_DP2ADDDIRTYRECT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DNTHAL_DP2ADDDIRTYRECT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DNTHAL_DP2ADDDIRTYRECT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DNTHAL_DP2ADDDIRTYRECT").field("dwSurface", &self.dwSurface).field("rDirtyArea", &self.rDirtyArea).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DNTHAL_DP2ADDDIRTYRECT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DNTHAL_DP2ADDDIRTYRECT {
     fn eq(&self, other: &Self) -> bool {
         self.dwSurface == other.dwSurface && self.rDirtyArea == other.rDirtyArea
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DNTHAL_DP2ADDDIRTYRECT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DNTHAL_DP2ADDDIRTYRECT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DNTHAL_DP2BLT {
     pub dwSource: u32,
     pub rSource: super::super::super::Win32::Foundation::RECTL,
@@ -31906,33 +30031,26 @@ pub struct D3DNTHAL_DP2BLT {
     pub dwDestMipLevel: u32,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DNTHAL_DP2BLT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DNTHAL_DP2BLT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DNTHAL_DP2BLT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DNTHAL_DP2BLT").field("dwSource", &self.dwSource).field("rSource", &self.rSource).field("dwSourceMipLevel", &self.dwSourceMipLevel).field("dwDest", &self.dwDest).field("rDest", &self.rDest).field("dwDestMipLevel", &self.dwDestMipLevel).field("Flags", &self.Flags).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DNTHAL_DP2BLT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DNTHAL_DP2BLT {
     fn eq(&self, other: &Self) -> bool {
         self.dwSource == other.dwSource && self.rSource == other.rSource && self.dwSourceMipLevel == other.dwSourceMipLevel && self.dwDest == other.dwDest && self.rDest == other.rDest && self.dwDestMipLevel == other.dwDestMipLevel && self.Flags == other.Flags
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DNTHAL_DP2BLT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DNTHAL_DP2BLT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -31981,8 +30099,6 @@ impl ::core::default::Default for D3DNTHAL_DP2BUFFERBLT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DNTHAL_DP2CLEAR {
     pub dwFlags: u32,
     pub dwFillColor: u32,
@@ -31990,73 +30106,57 @@ pub struct D3DNTHAL_DP2CLEAR {
     pub dwFillStencil: u32,
     pub Rects: [super::super::super::Win32::Foundation::RECT; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DNTHAL_DP2CLEAR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DNTHAL_DP2CLEAR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DNTHAL_DP2CLEAR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DNTHAL_DP2CLEAR").field("dwFlags", &self.dwFlags).field("dwFillColor", &self.dwFillColor).field("dvFillDepth", &self.dvFillDepth).field("dwFillStencil", &self.dwFillStencil).field("Rects", &self.Rects).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DNTHAL_DP2CLEAR {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DNTHAL_DP2CLEAR {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags && self.dwFillColor == other.dwFillColor && self.dvFillDepth == other.dvFillDepth && self.dwFillStencil == other.dwFillStencil && self.Rects == other.Rects
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DNTHAL_DP2CLEAR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DNTHAL_DP2CLEAR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DNTHAL_DP2COLORFILL {
     pub dwSurface: u32,
     pub rRect: super::super::super::Win32::Foundation::RECTL,
     pub Color: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DNTHAL_DP2COLORFILL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DNTHAL_DP2COLORFILL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DNTHAL_DP2COLORFILL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DNTHAL_DP2COLORFILL").field("dwSurface", &self.dwSurface).field("rRect", &self.rRect).field("Color", &self.Color).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DNTHAL_DP2COLORFILL {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DNTHAL_DP2COLORFILL {
     fn eq(&self, other: &Self) -> bool {
         self.dwSurface == other.dwSurface && self.rRect == other.rRect && self.Color == other.Color
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DNTHAL_DP2COLORFILL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DNTHAL_DP2COLORFILL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -33738,8 +31838,6 @@ impl ::core::default::Default for D3DNTHAL_DP2STATESET {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DNTHAL_DP2SURFACEBLT {
     pub dwSource: u32,
     pub rSource: super::super::super::Win32::Foundation::RECTL,
@@ -33749,41 +31847,32 @@ pub struct D3DNTHAL_DP2SURFACEBLT {
     pub dwDestMipLevel: u32,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DNTHAL_DP2SURFACEBLT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DNTHAL_DP2SURFACEBLT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DNTHAL_DP2SURFACEBLT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DNTHAL_DP2SURFACEBLT").field("dwSource", &self.dwSource).field("rSource", &self.rSource).field("dwSourceMipLevel", &self.dwSourceMipLevel).field("dwDest", &self.dwDest).field("rDest", &self.rDest).field("dwDestMipLevel", &self.dwDestMipLevel).field("Flags", &self.Flags).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DNTHAL_DP2SURFACEBLT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DNTHAL_DP2SURFACEBLT {
     fn eq(&self, other: &Self) -> bool {
         self.dwSource == other.dwSource && self.rSource == other.rSource && self.dwSourceMipLevel == other.dwSourceMipLevel && self.dwDest == other.dwDest && self.rDest == other.rDest && self.dwDestMipLevel == other.dwDestMipLevel && self.Flags == other.Flags
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DNTHAL_DP2SURFACEBLT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DNTHAL_DP2SURFACEBLT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DNTHAL_DP2TEXBLT {
     pub dwDDDestSurface: u32,
     pub dwDDSrcSurface: u32,
@@ -33791,33 +31880,26 @@ pub struct D3DNTHAL_DP2TEXBLT {
     pub rSrc: super::super::super::Win32::Foundation::RECTL,
     pub dwFlags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DNTHAL_DP2TEXBLT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DNTHAL_DP2TEXBLT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DNTHAL_DP2TEXBLT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DNTHAL_DP2TEXBLT").field("dwDDDestSurface", &self.dwDDDestSurface).field("dwDDSrcSurface", &self.dwDDSrcSurface).field("pDest", &self.pDest).field("rSrc", &self.rSrc).field("dwFlags", &self.dwFlags).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DNTHAL_DP2TEXBLT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DNTHAL_DP2TEXBLT {
     fn eq(&self, other: &Self) -> bool {
         self.dwDDDestSurface == other.dwDDDestSurface && self.dwDDSrcSurface == other.dwDDSrcSurface && self.pDest == other.pDest && self.rSrc == other.rSrc && self.dwFlags == other.dwFlags
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DNTHAL_DP2TEXBLT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DNTHAL_DP2TEXBLT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -34167,8 +32249,8 @@ impl ::core::default::Default for D3DNTHAL_DP2ZRANGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct D3DNTHAL_DRAWPRIMITIVES2DATA {
     pub dwhContext: usize,
     pub dwFlags: u32,
@@ -34185,77 +32267,77 @@ pub struct D3DNTHAL_DRAWPRIMITIVES2DATA {
     pub Anonymous2: D3DNTHAL_DRAWPRIMITIVES2DATA_1,
     pub dwErrorOffset: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::marker::Copy for D3DNTHAL_DRAWPRIMITIVES2DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::clone::Clone for D3DNTHAL_DRAWPRIMITIVES2DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::windows_core::TypeKind for D3DNTHAL_DRAWPRIMITIVES2DATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::default::Default for D3DNTHAL_DRAWPRIMITIVES2DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub union D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
     pub lpDDVertex: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
     pub lpVertices: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::marker::Copy for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::clone::Clone for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::windows_core::TypeKind for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::default::Default for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub union D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
     pub dwVertexSize: u32,
     pub ddrval: ::windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::marker::Copy for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::clone::Clone for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::windows_core::TypeKind for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::default::Default for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 pub struct D3DNTHAL_GLOBALDRIVERDATA {
     pub dwSize: u32,
     pub hwCaps: D3DNTHALDEVICEDESC_V1,
@@ -34264,33 +32346,33 @@ pub struct D3DNTHAL_GLOBALDRIVERDATA {
     pub dwNumTextureFormats: u32,
     pub lpTextureFormats: *mut super::super::super::Win32::Graphics::DirectDraw::DDSURFACEDESC,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::core::marker::Copy for D3DNTHAL_GLOBALDRIVERDATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::core::clone::Clone for D3DNTHAL_GLOBALDRIVERDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::core::fmt::Debug for D3DNTHAL_GLOBALDRIVERDATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DNTHAL_GLOBALDRIVERDATA").field("dwSize", &self.dwSize).field("hwCaps", &self.hwCaps).field("dwNumVertices", &self.dwNumVertices).field("dwNumClipVertices", &self.dwNumClipVertices).field("dwNumTextureFormats", &self.dwNumTextureFormats).field("lpTextureFormats", &self.lpTextureFormats).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::windows_core::TypeKind for D3DNTHAL_GLOBALDRIVERDATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::core::cmp::PartialEq for D3DNTHAL_GLOBALDRIVERDATA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.hwCaps == other.hwCaps && self.dwNumVertices == other.dwNumVertices && self.dwNumClipVertices == other.dwNumClipVertices && self.dwNumTextureFormats == other.dwNumTextureFormats && self.lpTextureFormats == other.lpTextureFormats
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::core::cmp::Eq for D3DNTHAL_GLOBALDRIVERDATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl ::core::default::Default for D3DNTHAL_GLOBALDRIVERDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -34328,82 +32410,73 @@ impl ::core::default::Default for D3DNTHAL_SCENECAPTUREDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct D3DNTHAL_SETRENDERTARGETDATA {
     pub dwhContext: usize,
     pub lpDDS: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
     pub lpDDSZ: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
     pub ddrval: ::windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::marker::Copy for D3DNTHAL_SETRENDERTARGETDATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::clone::Clone for D3DNTHAL_SETRENDERTARGETDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::fmt::Debug for D3DNTHAL_SETRENDERTARGETDATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DNTHAL_SETRENDERTARGETDATA").field("dwhContext", &self.dwhContext).field("lpDDS", &self.lpDDS).field("lpDDSZ", &self.lpDDSZ).field("ddrval", &self.ddrval).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::windows_core::TypeKind for D3DNTHAL_SETRENDERTARGETDATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::cmp::PartialEq for D3DNTHAL_SETRENDERTARGETDATA {
     fn eq(&self, other: &Self) -> bool {
         self.dwhContext == other.dwhContext && self.lpDDS == other.lpDDS && self.lpDDSZ == other.lpDDSZ && self.ddrval == other.ddrval
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::cmp::Eq for D3DNTHAL_SETRENDERTARGETDATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::default::Default for D3DNTHAL_SETRENDERTARGETDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DNTHAL_TEXTURECREATEDATA {
     pub dwhContext: usize,
     pub hDDS: super::super::super::Win32::Foundation::HANDLE,
     pub dwHandle: usize,
     pub ddrval: ::windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DNTHAL_TEXTURECREATEDATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DNTHAL_TEXTURECREATEDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DNTHAL_TEXTURECREATEDATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DNTHAL_TEXTURECREATEDATA").field("dwhContext", &self.dwhContext).field("hDDS", &self.hDDS).field("dwHandle", &self.dwHandle).field("ddrval", &self.ddrval).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DNTHAL_TEXTURECREATEDATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DNTHAL_TEXTURECREATEDATA {
     fn eq(&self, other: &Self) -> bool {
         self.dwhContext == other.dwhContext && self.hDDS == other.hDDS && self.dwHandle == other.dwHandle && self.ddrval == other.ddrval
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DNTHAL_TEXTURECREATEDATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DNTHAL_TEXTURECREATEDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -34441,41 +32514,32 @@ impl ::core::default::Default for D3DNTHAL_TEXTUREDESTROYDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DNTHAL_TEXTUREGETSURFDATA {
     pub dwhContext: usize,
     pub hDDS: super::super::super::Win32::Foundation::HANDLE,
     pub dwHandle: usize,
     pub ddrval: ::windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DNTHAL_TEXTUREGETSURFDATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DNTHAL_TEXTUREGETSURFDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DNTHAL_TEXTUREGETSURFDATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3DNTHAL_TEXTUREGETSURFDATA").field("dwhContext", &self.dwhContext).field("hDDS", &self.hDDS).field("dwHandle", &self.dwHandle).field("ddrval", &self.ddrval).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for D3DNTHAL_TEXTUREGETSURFDATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DNTHAL_TEXTUREGETSURFDATA {
     fn eq(&self, other: &Self) -> bool {
         self.dwhContext == other.dwhContext && self.hDDS == other.hDDS && self.dwHandle == other.dwHandle && self.ddrval == other.ddrval
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3DNTHAL_TEXTUREGETSURFDATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DNTHAL_TEXTUREGETSURFDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -35650,26 +33714,20 @@ impl ::core::default::Default for DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETER
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub TargetId: u32,
     pub Vos: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -35943,402 +34001,309 @@ impl ::core::default::Default for DXGKMDT_OPM_STANDARD_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DXGKVGPU_ESCAPE_HEAD {
     pub Luid: GPUP_DRIVER_ESCAPE_INPUT,
     pub Type: DXGKVGPU_ESCAPE_TYPE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXGKVGPU_ESCAPE_HEAD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DXGKVGPU_ESCAPE_HEAD {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXGKVGPU_ESCAPE_HEAD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DXGKVGPU_ESCAPE_HEAD").field("Luid", &self.Luid).field("Type", &self.Type).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DXGKVGPU_ESCAPE_HEAD {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGKVGPU_ESCAPE_HEAD {
     fn eq(&self, other: &Self) -> bool {
         self.Luid == other.Luid && self.Type == other.Type
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DXGKVGPU_ESCAPE_HEAD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXGKVGPU_ESCAPE_HEAD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DXGKVGPU_ESCAPE_INITIALIZE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub VmGuid: ::windows_core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXGKVGPU_ESCAPE_INITIALIZE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DXGKVGPU_ESCAPE_INITIALIZE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXGKVGPU_ESCAPE_INITIALIZE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DXGKVGPU_ESCAPE_INITIALIZE").field("Header", &self.Header).field("VmGuid", &self.VmGuid).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DXGKVGPU_ESCAPE_INITIALIZE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGKVGPU_ESCAPE_INITIALIZE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.VmGuid == other.VmGuid
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DXGKVGPU_ESCAPE_INITIALIZE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXGKVGPU_ESCAPE_INITIALIZE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DXGKVGPU_ESCAPE_PAUSE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub DeviceLuid: super::super::super::Win32::Foundation::LUID,
     pub Anonymous: DXGKVGPU_ESCAPE_PAUSE_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXGKVGPU_ESCAPE_PAUSE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DXGKVGPU_ESCAPE_PAUSE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DXGKVGPU_ESCAPE_PAUSE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXGKVGPU_ESCAPE_PAUSE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union DXGKVGPU_ESCAPE_PAUSE_0 {
     pub Anonymous: DXGKVGPU_ESCAPE_PAUSE_0_0,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXGKVGPU_ESCAPE_PAUSE_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DXGKVGPU_ESCAPE_PAUSE_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DXGKVGPU_ESCAPE_PAUSE_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXGKVGPU_ESCAPE_PAUSE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DXGKVGPU_ESCAPE_PAUSE_0_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXGKVGPU_ESCAPE_PAUSE_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DXGKVGPU_ESCAPE_PAUSE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXGKVGPU_ESCAPE_PAUSE_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DXGKVGPU_ESCAPE_PAUSE_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DXGKVGPU_ESCAPE_PAUSE_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGKVGPU_ESCAPE_PAUSE_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DXGKVGPU_ESCAPE_PAUSE_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXGKVGPU_ESCAPE_PAUSE_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub PowerState: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE").field("Header", &self.Header).field("PowerState", &self.PowerState).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.PowerState == other.PowerState
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub Offset: u32,
     pub Size: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXGKVGPU_ESCAPE_READ_PCI_CONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DXGKVGPU_ESCAPE_READ_PCI_CONFIG").field("Header", &self.Header).field("Offset", &self.Offset).field("Size", &self.Size).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Offset == other.Offset && self.Size == other.Size
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DXGKVGPU_ESCAPE_READ_PCI_CONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXGKVGPU_ESCAPE_READ_VGPU_TYPE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DXGKVGPU_ESCAPE_READ_VGPU_TYPE").field("Header", &self.Header).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DXGKVGPU_ESCAPE_READ_VGPU_TYPE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DXGKVGPU_ESCAPE_RELEASE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXGKVGPU_ESCAPE_RELEASE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DXGKVGPU_ESCAPE_RELEASE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXGKVGPU_ESCAPE_RELEASE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DXGKVGPU_ESCAPE_RELEASE").field("Header", &self.Header).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DXGKVGPU_ESCAPE_RELEASE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGKVGPU_ESCAPE_RELEASE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DXGKVGPU_ESCAPE_RELEASE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXGKVGPU_ESCAPE_RELEASE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DXGKVGPU_ESCAPE_RESUME {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub DeviceLuid: super::super::super::Win32::Foundation::LUID,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXGKVGPU_ESCAPE_RESUME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DXGKVGPU_ESCAPE_RESUME {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXGKVGPU_ESCAPE_RESUME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DXGKVGPU_ESCAPE_RESUME").field("Header", &self.Header).field("DeviceLuid", &self.DeviceLuid).field("Flags", &self.Flags).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DXGKVGPU_ESCAPE_RESUME {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGKVGPU_ESCAPE_RESUME {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.DeviceLuid == other.DeviceLuid && self.Flags == other.Flags
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DXGKVGPU_ESCAPE_RESUME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXGKVGPU_ESCAPE_RESUME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub Offset: u32,
     pub Size: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG").field("Header", &self.Header).field("Offset", &self.Offset).field("Size", &self.Size).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Offset == other.Offset && self.Size == other.Size
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -36716,8 +34681,6 @@ impl ::core::default::Default for DXGK_DISPLAY_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DXGK_ESCAPE_GPUMMUCAPS {
     pub ReadOnlyMemorySupported: super::super::super::Win32::Foundation::BOOLEAN,
     pub NoExecuteMemorySupported: super::super::super::Win32::Foundation::BOOLEAN,
@@ -36730,15 +34693,12 @@ pub struct DXGK_ESCAPE_GPUMMUCAPS {
     pub PageTableLevelCount: u32,
     pub PageTableLevelDesk: [D3DKMT_PAGE_TABLE_LEVEL_DESC; 6],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXGK_ESCAPE_GPUMMUCAPS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DXGK_ESCAPE_GPUMMUCAPS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXGK_ESCAPE_GPUMMUCAPS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DXGK_ESCAPE_GPUMMUCAPS")
@@ -36755,19 +34715,15 @@ impl ::core::fmt::Debug for DXGK_ESCAPE_GPUMMUCAPS {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DXGK_ESCAPE_GPUMMUCAPS {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGK_ESCAPE_GPUMMUCAPS {
     fn eq(&self, other: &Self) -> bool {
         self.ReadOnlyMemorySupported == other.ReadOnlyMemorySupported && self.NoExecuteMemorySupported == other.NoExecuteMemorySupported && self.ZeroInPteSupported == other.ZeroInPteSupported && self.CacheCoherentMemorySupported == other.CacheCoherentMemorySupported && self.LargePageSupported == other.LargePageSupported && self.DualPteSupported == other.DualPteSupported && self.AllowNonAlignedLargePageAddress == other.AllowNonAlignedLargePageAddress && self.VirtualAddressBitCount == other.VirtualAddressBitCount && self.PageTableLevelCount == other.PageTableLevelCount && self.PageTableLevelDesk == other.PageTableLevelDesk
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DXGK_ESCAPE_GPUMMUCAPS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXGK_ESCAPE_GPUMMUCAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -36942,8 +34898,8 @@ impl ::core::default::Default for DXGK_GPUVERSION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Power\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[doc = "Required features: `\"Win32_System_Power\"`"]
+#[cfg(feature = "Win32_System_Power")]
 pub struct DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
     pub Version: u32,
     pub PrivateHandle: *mut ::core::ffi::c_void,
@@ -36952,58 +34908,58 @@ pub struct DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
     pub FStateNotificationCb: PDXGK_FSTATE_NOTIFICATION,
     pub InitialComponentStateCb: PDXGK_INITIAL_COMPONENT_STATE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[cfg(feature = "Win32_System_Power")]
 impl ::core::marker::Copy for DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[cfg(feature = "Win32_System_Power")]
 impl ::core::clone::Clone for DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[cfg(feature = "Win32_System_Power")]
 impl ::core::fmt::Debug for DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2").field("Version", &self.Version).field("PrivateHandle", &self.PrivateHandle).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[cfg(feature = "Win32_System_Power")]
 impl ::windows_core::TypeKind for DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[cfg(feature = "Win32_System_Power")]
 impl ::core::default::Default for DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Power\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[doc = "Required features: `\"Win32_System_Power\"`"]
+#[cfg(feature = "Win32_System_Power")]
 pub struct DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
     pub DeviceHandle: *mut ::core::ffi::c_void,
     pub InitialGrfxPowerState: super::super::super::Win32::System::Power::DEVICE_POWER_STATE,
     pub SetSharedPowerComponentStateCb: PDXGK_SET_SHARED_POWER_COMPONENT_STATE,
     pub UnregisterCb: PDXGK_GRAPHICSPOWER_UNREGISTER,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[cfg(feature = "Win32_System_Power")]
 impl ::core::marker::Copy for DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[cfg(feature = "Win32_System_Power")]
 impl ::core::clone::Clone for DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[cfg(feature = "Win32_System_Power")]
 impl ::core::fmt::Debug for DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DXGK_GRAPHICSPOWER_REGISTER_OUTPUT").field("DeviceHandle", &self.DeviceHandle).field("InitialGrfxPowerState", &self.InitialGrfxPowerState).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[cfg(feature = "Win32_System_Power")]
 impl ::windows_core::TypeKind for DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[cfg(feature = "Win32_System_Power")]
 impl ::core::default::Default for DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -37153,8 +35109,6 @@ impl ::core::default::Default for DXGK_MONITORLINKINFO_USAGEHINTS_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DXGK_NODEMETADATA {
     pub EngineType: DXGK_ENGINE_TYPE,
     pub FriendlyName: [u16; 32],
@@ -37162,19 +35116,15 @@ pub struct DXGK_NODEMETADATA {
     pub GpuMmuSupported: super::super::super::Win32::Foundation::BOOLEAN,
     pub IoMmuSupported: super::super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXGK_NODEMETADATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DXGK_NODEMETADATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for DXGK_NODEMETADATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXGK_NODEMETADATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -37366,46 +35316,35 @@ impl ::core::default::Default for DXGK_TARGETMODE_DETAIL_TIMING {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GPUP_DRIVER_ESCAPE_INPUT {
     pub vfLUID: super::super::super::Win32::Foundation::LUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GPUP_DRIVER_ESCAPE_INPUT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GPUP_DRIVER_ESCAPE_INPUT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GPUP_DRIVER_ESCAPE_INPUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GPUP_DRIVER_ESCAPE_INPUT").field("vfLUID", &self.vfLUID).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GPUP_DRIVER_ESCAPE_INPUT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GPUP_DRIVER_ESCAPE_INPUT {
     fn eq(&self, other: &Self) -> bool {
         self.vfLUID == other.vfLUID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GPUP_DRIVER_ESCAPE_INPUT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GPUP_DRIVER_ESCAPE_INPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct OUTPUTDUPL_CONTEXT_DEBUG_INFO {
     pub Status: OUTPUTDUPL_CONTEXT_DEBUG_STATUS,
     pub ProcessID: super::super::super::Win32::Foundation::HANDLE,
@@ -37414,33 +35353,26 @@ pub struct OUTPUTDUPL_CONTEXT_DEBUG_INFO {
     pub LastMouseTime: i64,
     pub ProcessName: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OUTPUTDUPL_CONTEXT_DEBUG_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OUTPUTDUPL_CONTEXT_DEBUG_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for OUTPUTDUPL_CONTEXT_DEBUG_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("OUTPUTDUPL_CONTEXT_DEBUG_INFO").field("Status", &self.Status).field("ProcessID", &self.ProcessID).field("AccumulatedPresents", &self.AccumulatedPresents).field("LastPresentTime", &self.LastPresentTime).field("LastMouseTime", &self.LastMouseTime).field("ProcessName", &self.ProcessName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for OUTPUTDUPL_CONTEXT_DEBUG_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OUTPUTDUPL_CONTEXT_DEBUG_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.Status == other.Status && self.ProcessID == other.ProcessID && self.AccumulatedPresents == other.AccumulatedPresents && self.LastPresentTime == other.LastPresentTime && self.LastMouseTime == other.LastMouseTime && self.ProcessName == other.ProcessName
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OUTPUTDUPL_CONTEXT_DEBUG_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OUTPUTDUPL_CONTEXT_DEBUG_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -37482,8 +35414,8 @@ pub type LPD3DHAL_CLEAR2CB = ::core::option::Option<unsafe extern "system" fn(pa
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type LPD3DHAL_CLEARCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CLEARDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub type LPD3DHAL_CONTEXTCREATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTCREATEDATA) -> u32>;
 pub type LPD3DHAL_CONTEXTDESTROYALLCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTDESTROYALLDATA) -> u32>;
 pub type LPD3DHAL_CONTEXTDESTROYCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTDESTROYDATA) -> u32>;
@@ -37493,8 +35425,8 @@ pub type LPD3DHAL_DRAWONEINDEXEDPRIMITIVECB = ::core::option::Option<unsafe exte
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type LPD3DHAL_DRAWONEPRIMITIVECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWONEPRIMITIVEDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub type LPD3DHAL_DRAWPRIMITIVES2CB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWPRIMITIVES2DATA) -> u32>;
 pub type LPD3DHAL_DRAWPRIMITIVESCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWPRIMITIVESDATA) -> u32>;
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
@@ -37507,8 +35439,8 @@ pub type LPD3DHAL_RENDERPRIMITIVECB = ::core::option::Option<unsafe extern "syst
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DHAL_RENDERSTATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_RENDERSTATEDATA) -> u32>;
 pub type LPD3DHAL_SCENECAPTURECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_SCENECAPTUREDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub type LPD3DHAL_SETRENDERTARGETCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_SETRENDERTARGETDATA) -> u32>;
 #[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -37520,590 +35452,228 @@ pub type LPD3DHAL_VALIDATETEXTURESTAGESTATECB = ::core::option::Option<unsafe ex
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type LPD3DNTHAL_CLEAR2CB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CLEAR2DATA) -> u32>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DNTHAL_CONTEXTCREATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTCREATEDATA) -> u32>;
 pub type LPD3DNTHAL_CONTEXTDESTROYALLCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYALLDATA) -> u32>;
 pub type LPD3DNTHAL_CONTEXTDESTROYCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DNTHAL_DRAWPRIMITIVES2CB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_DRAWPRIMITIVES2DATA) -> u32>;
 pub type LPD3DNTHAL_SCENECAPTURECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_SCENECAPTUREDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DNTHAL_SETRENDERTARGETCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_SETRENDERTARGETDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type LPD3DNTHAL_TEXTURECREATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURECREATEDATA) -> u32>;
 pub type LPD3DNTHAL_TEXTUREDESTROYCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREDESTROYDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type LPD3DNTHAL_TEXTUREGETSURFCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREGETSURFDATA) -> u32>;
 pub type LPD3DNTHAL_TEXTURESWAPCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURESWAPDATA) -> u32>;
 pub type LPD3DNTHAL_VALIDATETEXTURESTAGESTATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PDXGK_FSTATE_NOTIFICATION = ::core::option::Option<unsafe extern "system" fn(graphicsdevicehandle: *mut ::core::ffi::c_void, componentindex: u32, newfstate: u32, prenotification: super::super::super::Win32::Foundation::BOOLEAN, privatehandle: *mut ::core::ffi::c_void)>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PDXGK_GRAPHICSPOWER_UNREGISTER = ::core::option::Option<unsafe extern "system" fn(devicehandle: *mut ::core::ffi::c_void, privatehandle: *mut ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PDXGK_INITIAL_COMPONENT_STATE = ::core::option::Option<unsafe extern "system" fn(graphicsdevicehandle: *mut ::core::ffi::c_void, privatehandle: *mut ::core::ffi::c_void, componentindex: u32, isblockingtype: super::super::super::Win32::Foundation::BOOLEAN, initialfstate: u32, componentguid: ::windows_core::GUID, powercomponentmappingflag: u32)>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Power\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[doc = "Required features: `\"Win32_System_Power\"`"]
+#[cfg(feature = "Win32_System_Power")]
 pub type PDXGK_POWER_NOTIFICATION = ::core::option::Option<unsafe extern "system" fn(graphicsdevicehandle: *mut ::core::ffi::c_void, newgrfxpowerstate: super::super::super::Win32::System::Power::DEVICE_POWER_STATE, prenotification: super::super::super::Win32::Foundation::BOOLEAN, privatehandle: *mut ::core::ffi::c_void)>;
 pub type PDXGK_REMOVAL_NOTIFICATION = ::core::option::Option<unsafe extern "system" fn(graphicsdevicehandle: *mut ::core::ffi::c_void, privatehandle: *mut ::core::ffi::c_void)>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PDXGK_SET_SHARED_POWER_COMPONENT_STATE = ::core::option::Option<unsafe extern "system" fn(devicehandle: *mut ::core::ffi::c_void, privatehandle: *mut ::core::ffi::c_void, componentindex: u32, active: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_ACQUIREKEYEDMUTEX = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_ACQUIREKEYEDMUTEX2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_ADJUSTFULLSCREENGAMMA = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_BUDGETCHANGENOTIFICATIONCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_BUDGETCHANGENOTIFICATION)>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CANCELPRESENTS = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CANCEL_PRESENTS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub type PFND3DKMT_CHANGESURFACEPOINTER = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGESURFACEPOINTER) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CHANGEVIDEOMEMORYRESERVATION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CHECKEXCLUSIVEOWNERSHIP = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CHECKMONITORPOWERSTATE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKMONITORPOWERSTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CHECKOCCLUSION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKOCCLUSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CHECKSHAREDRESOURCEACCESS = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CLOSEADAPTER = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CLOSEADAPTER) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CONFIGURESHAREDRESOURCE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CONFIGURESHAREDRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CONNECTDOORBELL = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CONNECT_DOORBELL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CREATEALLOCATION = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CREATEALLOCATION2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CREATECONTEXT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATECONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CREATECONTEXTVIRTUAL = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATECONTEXTVIRTUAL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub type PFND3DKMT_CREATEDCFROMMEMORY = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CREATEDEVICE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEDEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CREATEDOORBELL = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CREATE_DOORBELL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CREATEHWQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CREATEKEYEDMUTEX = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CREATEKEYEDMUTEX2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CREATENATIVEFENCE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATENATIVEFENCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CREATEOUTPUTDUPL = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CREATE_OUTPUTDUPL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CREATEOVERLAY = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CREATEPAGINGQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEPAGINGQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CREATEPROTECTEDSESSION = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEPROTECTEDSESSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CREATESYNCHRONIZATIONOBJECT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_CREATESYNCHRONIZATIONOBJECT2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_DESTROYALLOCATION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_DESTROYALLOCATION2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYALLOCATION2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_DESTROYCONTEXT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYCONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub type PFND3DKMT_DESTROYDCFROMMEMORY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_DESTROYDEVICE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYDEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_DESTROYDOORBELL = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROY_DOORBELL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_DESTROYHWQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_DESTROYKEYEDMUTEX = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_DESTROYOUTPUTDUPL = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROY_OUTPUTDUPL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_DESTROYOVERLAY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_DESTROYPAGINGQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DDDI_DESTROYPAGINGQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_DESTROYPROTECTEDSESSION = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_DESTROYPROTECTEDSESSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_DESTROYSYNCHRONIZATIONOBJECT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_ENUMADAPTERS = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_ENUMADAPTERS2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_ENUMADAPTERS3 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS3) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_ESCAPE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_ESCAPE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_EVICT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_EVICT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_FLIPOVERLAY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_FLIPOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_FLUSHHEAPTRANSITIONS = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_FLUSHHEAPTRANSITIONS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_FREEGPUVIRTUALADDRESS = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_FREEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_GETALLOCATIONPRIORITY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_GETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_GETCONTEXTSCHEDULINGPRIORITY = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_GETDEVICESTATE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETDEVICESTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_GETDISPLAYMODELIST = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETDISPLAYMODELIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_GETDWMVERTICALBLANKEVENT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_GETVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_GETMULTIPLANEOVERLAYCAPS = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_GETMULTISAMPLEMETHODLIST = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_GETOVERLAYSTATE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETOVERLAYSTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_GETPOSTCOMPOSITIONCAPS = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_GETPRESENTHISTORY = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETPRESENTHISTORY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_GETPROCESSDEVICEREMOVALSUPPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_GETPROCESSSCHEDULINGPRIORITYCLASS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::HANDLE, param1: *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_GETRESOURCEPRESENTPRIVATEDRIVERDATA = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_GETRUNTIMEDATA = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETRUNTIMEDATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_GETSCANLINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSCANLINE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_GETSHAREDPRIMARYHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_GETSHAREDRESOURCEADAPTERLUID = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_INVALIDATEACTIVEVIDPN = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_INVALIDATEACTIVEVIDPN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_INVALIDATECACHE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_INVALIDATECACHE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_LOCK = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_LOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_LOCK2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_LOCK2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_MAKERESIDENT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DDDI_MAKERESIDENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_MAPGPUVIRTUALADDRESS = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DDDI_MAPGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_MARKDEVICEASERROR = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_MARKDEVICEASERROR) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_NOTIFYWORKSUBMISSION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_NOTIFY_WORK_SUBMISSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OFFERALLOCATIONS = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_OFFERALLOCATIONS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OPENADAPTERFROMDEVICENAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OPENADAPTERFROMGDIDISPLAYNAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub type PFND3DKMT_OPENADAPTERFROMHDC = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMHDC) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OPENADAPTERFROMLUID = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMLUID) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OPENKEYEDMUTEX = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OPENKEYEDMUTEX2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OPENKEYEDMUTEXFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OPENNATIVEFENCEFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[doc = "Required features: `\"Wdk_Foundation\"`"]
+#[cfg(feature = "Wdk_Foundation")]
 pub type PFND3DKMT_OPENNTHANDLEFROMNAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OPENRESOURCE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OPENRESOURCE2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OPENRESOURCEFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OPENSYNCHRONIZATIONOBJECT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[doc = "Required features: `\"Wdk_Foundation\"`"]
+#[cfg(feature = "Wdk_Foundation")]
 pub type PFND3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OUTPUTDUPLGETFRAMEINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OUTPUTDUPLGETMETADATA = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_METADATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OUTPUTDUPLGETPOINTERSHAPEDATA = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OUTPUTDUPLPRESENT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPLPRESENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OUTPUTDUPLRELEASEFRAME = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_PINDIRECTFLIPRESOURCES = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_PINDIRECTFLIPRESOURCES) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_POLLDISPLAYCHILDREN = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_POLLDISPLAYCHILDREN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_PRESENT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_PRESENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY3 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_QUERYADAPTERINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYADAPTERINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_QUERYALLOCATIONRESIDENCY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_QUERYCLOCKCALIBRATION = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYCLOCKCALIBRATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_QUERYFSEBLOCK = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYFSEBLOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_QUERYHYBRIDLISTVALUE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_HYBRID_LIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_QUERYPROCESSOFFERINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROCESSOFFERINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_QUERYPROTECTEDSESSIONSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_QUERYRESOURCEINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYRESOURCEINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_QUERYRESOURCEINFOFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_QUERYSTATISTICS = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_QUERYSTATISTICS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_QUERYVIDEOMEMORYINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_RECLAIMALLOCATIONS = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_RECLAIMALLOCATIONS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_RECLAIMALLOCATIONS2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_RECLAIMALLOCATIONS2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_REGISTERBUDGETCHANGENOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_REGISTERBUDGETCHANGENOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_REGISTERTRIMNOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_RELEASEKEYEDMUTEX = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_RELEASEKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_RELEASEKEYEDMUTEX2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_RELEASEKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_RELEASEPROCESSVIDPNSOURCEOWNERS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_RENDER = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_RENDER) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_RESERVEGPUVIRTUALADDRESS = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DDDI_RESERVEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SETALLOCATIONPRIORITY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SETCONTEXTSCHEDULINGPRIORITY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SETDISPLAYMODE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_SETDISPLAYMODE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SETFSEBLOCK = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETFSEBLOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SETGAMMARAMP = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETGAMMARAMP) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SETHYBRIDLISTVVALUE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_HYBRID_LIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SETPROCESSSCHEDULINGPRIORITYCLASS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::HANDLE, param1: D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SETQUEUEDLIMIT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETQUEUEDLIMIT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SETSTABLEPOWERSTATE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETSTABLEPOWERSTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SETSTEREOENABLED = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::BOOL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SETSYNCREFRESHCOUNTWAITTARGET = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SETVIDPNSOURCEHWPROTECTION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SETVIDPNSOURCEOWNER = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SETVIDPNSOURCEOWNER1 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER1) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SETVIDPNSOURCEOWNER2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SHAREDPRIMARYLOCKNOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`"]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+#[doc = "Required features: `\"Wdk_Foundation\"`"]
+#[cfg(feature = "Wdk_Foundation")]
 pub type PFND3DKMT_SHAREOBJECTS = ::core::option::Option<unsafe extern "system" fn(cobjects: u32, hobjects: *const u32, pobjectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SUBMITCOMMAND = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITCOMMAND) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SUBMITCOMMANDTOHWQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SUBMITPRESENTBLTTOHWQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SUBMITPRESENTTOHWQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_TRIMNOTIFICATIONCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_TRIMNOTIFICATION)>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_TRIMPROCESSCOMMITMENT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_UNLOCK = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_UNLOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_UNLOCK2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_UNLOCK2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_UNPINDIRECTFLIPRESOURCES = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_UNPINDIRECTFLIPRESOURCES) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_UNREGISTERTRIMNOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_UPDATEALLOCATIONPROPERTY = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DDDI_UPDATEALLOCPROPERTY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_UPDATEGPUVIRTUALADDRESS = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_UPDATEOVERLAY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_UPDATEOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_WAITFORIDLE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORIDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DNTPARSEUNKNOWNCOMMAND = ::core::option::Option<unsafe extern "system" fn(lpvcommands: *mut ::core::ffi::c_void, lplpvreturnedcommand: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 pub type PFND3DPARSEUNKNOWNCOMMAND = ::core::option::Option<unsafe extern "system" fn(lpvcommands: *mut ::core::ffi::c_void, lplpvreturnedcommand: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;

@@ -1,5 +1,5 @@
-#[doc = "Required features: `\"Foundation\"`, `\"Security_Credentials\"`"]
-#[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+#[doc = "Required features: `\"Security_Credentials\"`"]
+#[cfg(feature = "Security_Credentials")]
 pub trait ISyndicationClient_Impl: Sized {
     fn ServerCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
     fn SetServerCredential(&self, value: ::core::option::Option<&super::super::Security::Credentials::PasswordCredential>) -> ::windows_core::Result<()>;
@@ -14,11 +14,11 @@ pub trait ISyndicationClient_Impl: Sized {
     fn SetRequestHeader(&self, name: &::windows_core::HSTRING, value: &::windows_core::HSTRING) -> ::windows_core::Result<()>;
     fn RetrieveFeedAsync(&self, uri: ::core::option::Option<&super::super::Foundation::Uri>) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>;
 }
-#[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+#[cfg(feature = "Security_Credentials")]
 impl ::windows_core::RuntimeName for ISyndicationClient {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationClient";
 }
-#[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
+#[cfg(feature = "Security_Credentials")]
 impl ISyndicationClient_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>() -> ISyndicationClient_Vtbl {
         unsafe extern "system" fn ServerCredential<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

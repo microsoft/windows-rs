@@ -25,8 +25,6 @@ impl DesktopWindowTarget {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation\"`"]
-    #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
@@ -164,7 +162,6 @@ impl ::windows_core::RuntimeName for DesktopWindowTarget {
 }
 ::windows_core::imp::interface_hierarchy!(DesktopWindowTarget, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IAnimationObject> for DesktopWindowTarget {}
-#[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for DesktopWindowTarget {}
 impl ::windows_core::CanTryInto<super::CompositionTarget> for DesktopWindowTarget {}
 impl ::windows_core::CanTryInto<super::CompositionObject> for DesktopWindowTarget {}
