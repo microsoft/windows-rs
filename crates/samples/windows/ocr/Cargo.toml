@@ -13,5 +13,4 @@ features = [
     "Media_Ocr", 
     "Graphics_Imaging", 
     "Storage_Streams", 
-    "Foundation",
 ]

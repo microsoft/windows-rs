@@ -7,6 +7,5 @@ publish = false
 [dependencies.windows]
 path = "../../../libs/windows"
 features = [
-    "Win32_Foundation",
     "Win32_UI_WindowsAndMessaging",
 ]
