@@ -1,11 +1,7 @@
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DisableThreadProfiling(performancedatahandle : super::super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EnableThreadProfiling(threadhandle : super::super::super::Foundation:: HANDLE, flags : u32, hardwarecounters : u64, performancedatahandle : *mut super::super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn QueryThreadProfiling(threadhandle : super::super::super::Foundation:: HANDLE, enabled : *mut super::super::super::Foundation:: BOOLEAN) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ReadThreadProfilingData(performancedatahandle : super::super::super::Foundation:: HANDLE, flags : u32, performancedata : *mut PERFORMANCE_DATA) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn DisableThreadProfiling(performancedatahandle : super::super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn EnableThreadProfiling(threadhandle : super::super::super::Foundation:: HANDLE, flags : u32, hardwarecounters : u64, performancedatahandle : *mut super::super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn QueryThreadProfiling(threadhandle : super::super::super::Foundation:: HANDLE, enabled : *mut super::super::super::Foundation:: BOOLEAN) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn ReadThreadProfilingData(performancedatahandle : super::super::super::Foundation:: HANDLE, flags : u32, performancedata : *mut PERFORMANCE_DATA) -> u32);
 pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = 1i32;
 pub const PMCCounter: HARDWARE_COUNTER_TYPE = 0i32;
 pub type HARDWARE_COUNTER_TYPE = i32;

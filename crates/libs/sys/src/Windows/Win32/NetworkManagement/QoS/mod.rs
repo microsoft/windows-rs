@@ -1,61 +1,46 @@
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"] fn QOSAddSocketToFlow(qoshandle : super::super::Foundation:: HANDLE, socket : super::super::Networking::WinSock:: SOCKET, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, traffictype : QOS_TRAFFIC_TYPE, flags : u32, flowid : *mut u32) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn QOSCancel(qoshandle : super::super::Foundation:: HANDLE, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn QOSCloseHandle(qoshandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn QOSCreateHandle(version : *const QOS_VERSION, qoshandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn QOSEnumerateFlows(qoshandle : super::super::Foundation:: HANDLE, size : *mut u32, buffer : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn QOSNotifyFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_NOTIFY_FLOW, size : *mut u32, buffer : *mut ::core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn QOSQueryFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_QUERY_FLOW, size : *mut u32, buffer : *mut ::core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"] fn QOSRemoveSocketFromFlow(qoshandle : super::super::Foundation:: HANDLE, socket : super::super::Networking::WinSock:: SOCKET, flowid : u32, flags : u32) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn QOSSetFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_SET_FLOW, size : u32, buffer : *const ::core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"] fn QOSStartTrackingClient(qoshandle : super::super::Foundation:: HANDLE, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, flags : u32) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"] fn QOSStopTrackingClient(qoshandle : super::super::Foundation:: HANDLE, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, flags : u32) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TcAddFilter(flowhandle : super::super::Foundation:: HANDLE, pgenericfilter : *const TC_GEN_FILTER, pfilterhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"] fn TcAddFlow(ifchandle : super::super::Foundation:: HANDLE, clflowctx : super::super::Foundation:: HANDLE, flags : u32, pgenericflow : *const TC_GEN_FLOW, pflowhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TcCloseInterface(ifchandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TcDeleteFilter(filterhandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TcDeleteFlow(flowhandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TcDeregisterClient(clienthandle : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"] fn TcEnumerateFlows(ifchandle : super::super::Foundation:: HANDLE, penumhandle : *mut super::super::Foundation:: HANDLE, pflowcount : *mut u32, pbufsize : *mut u32, buffer : *mut ENUMERATION_BUFFER) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"] fn TcEnumerateInterfaces(clienthandle : super::super::Foundation:: HANDLE, pbuffersize : *mut u32, interfacebuffer : *mut TC_IFC_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TcGetFlowNameA(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : ::windows_sys::core::PSTR) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TcGetFlowNameW(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : ::windows_sys::core::PWSTR) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"] fn TcModifyFlow(flowhandle : super::super::Foundation:: HANDLE, pgenericflow : *const TC_GEN_FLOW) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TcOpenInterfaceA(pinterfacename : ::windows_sys::core::PCSTR, clienthandle : super::super::Foundation:: HANDLE, clifcctx : super::super::Foundation:: HANDLE, pifchandle : *mut super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TcOpenInterfaceW(pinterfacename : ::windows_sys::core::PCWSTR, clienthandle : super::super::Foundation:: HANDLE, clifcctx : super::super::Foundation:: HANDLE, pifchandle : *mut super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Networking_WinSock")]
+::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_Networking_WinSock\"`"] fn QOSAddSocketToFlow(qoshandle : super::super::Foundation:: HANDLE, socket : super::super::Networking::WinSock:: SOCKET, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, traffictype : QOS_TRAFFIC_TYPE, flags : u32, flowid : *mut u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn QOSCancel(qoshandle : super::super::Foundation:: HANDLE, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("qwave.dll" "system" fn QOSCloseHandle(qoshandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("qwave.dll" "system" fn QOSCreateHandle(version : *const QOS_VERSION, qoshandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("qwave.dll" "system" fn QOSEnumerateFlows(qoshandle : super::super::Foundation:: HANDLE, size : *mut u32, buffer : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn QOSNotifyFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_NOTIFY_FLOW, size : *mut u32, buffer : *mut ::core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn QOSQueryFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_QUERY_FLOW, size : *mut u32, buffer : *mut ::core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Networking_WinSock")]
+::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_Networking_WinSock\"`"] fn QOSRemoveSocketFromFlow(qoshandle : super::super::Foundation:: HANDLE, socket : super::super::Networking::WinSock:: SOCKET, flowid : u32, flags : u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn QOSSetFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_SET_FLOW, size : u32, buffer : *const ::core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Networking_WinSock")]
+::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_Networking_WinSock\"`"] fn QOSStartTrackingClient(qoshandle : super::super::Foundation:: HANDLE, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, flags : u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Networking_WinSock")]
+::windows_targets::link!("qwave.dll" "system" #[doc = "Required features: `\"Win32_Networking_WinSock\"`"] fn QOSStopTrackingClient(qoshandle : super::super::Foundation:: HANDLE, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, flags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("traffic.dll" "system" fn TcAddFilter(flowhandle : super::super::Foundation:: HANDLE, pgenericfilter : *const TC_GEN_FILTER, pfilterhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Networking_WinSock")]
+::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Networking_WinSock\"`"] fn TcAddFlow(ifchandle : super::super::Foundation:: HANDLE, clflowctx : super::super::Foundation:: HANDLE, flags : u32, pgenericflow : *const TC_GEN_FLOW, pflowhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcCloseInterface(ifchandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcDeleteFilter(filterhandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcDeleteFlow(flowhandle : super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcDeregisterClient(clienthandle : super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Networking_WinSock")]
+::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Networking_WinSock\"`"] fn TcEnumerateFlows(ifchandle : super::super::Foundation:: HANDLE, penumhandle : *mut super::super::Foundation:: HANDLE, pflowcount : *mut u32, pbufsize : *mut u32, buffer : *mut ENUMERATION_BUFFER) -> u32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"] fn TcEnumerateInterfaces(clienthandle : super::super::Foundation:: HANDLE, pbuffersize : *mut u32, interfacebuffer : *mut TC_IFC_DESCRIPTOR) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcGetFlowNameA(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : ::windows_sys::core::PSTR) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcGetFlowNameW(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : ::windows_sys::core::PWSTR) -> u32);
+#[cfg(feature = "Win32_Networking_WinSock")]
+::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Networking_WinSock\"`"] fn TcModifyFlow(flowhandle : super::super::Foundation:: HANDLE, pgenericflow : *const TC_GEN_FLOW) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcOpenInterfaceA(pinterfacename : ::windows_sys::core::PCSTR, clienthandle : super::super::Foundation:: HANDLE, clifcctx : super::super::Foundation:: HANDLE, pifchandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcOpenInterfaceW(pinterfacename : ::windows_sys::core::PCWSTR, clienthandle : super::super::Foundation:: HANDLE, clifcctx : super::super::Foundation:: HANDLE, pifchandle : *mut super::super::Foundation:: HANDLE) -> u32);
 ::windows_targets::link!("traffic.dll" "system" fn TcQueryFlowA(pflowname : ::windows_sys::core::PCSTR, pguidparam : *const ::windows_sys::core::GUID, pbuffersize : *mut u32, buffer : *mut ::core::ffi::c_void) -> u32);
 ::windows_targets::link!("traffic.dll" "system" fn TcQueryFlowW(pflowname : ::windows_sys::core::PCWSTR, pguidparam : *const ::windows_sys::core::GUID, pbuffersize : *mut u32, buffer : *mut ::core::ffi::c_void) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TcQueryInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const ::windows_sys::core::GUID, notifychange : super::super::Foundation:: BOOLEAN, pbuffersize : *mut u32, buffer : *mut ::core::ffi::c_void) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TcRegisterClient(tciversion : u32, clregctx : super::super::Foundation:: HANDLE, clienthandlerlist : *const TCI_CLIENT_FUNC_LIST, pclienthandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const ::windows_sys::core::GUID, notifychange : super::super::Foundation:: BOOLEAN, pbuffersize : *mut u32, buffer : *mut ::core::ffi::c_void) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcRegisterClient(tciversion : u32, clregctx : super::super::Foundation:: HANDLE, clienthandlerlist : *const TCI_CLIENT_FUNC_LIST, pclienthandle : *mut super::super::Foundation:: HANDLE) -> u32);
 ::windows_targets::link!("traffic.dll" "system" fn TcSetFlowA(pflowname : ::windows_sys::core::PCSTR, pguidparam : *const ::windows_sys::core::GUID, buffersize : u32, buffer : *const ::core::ffi::c_void) -> u32);
 ::windows_targets::link!("traffic.dll" "system" fn TcSetFlowW(pflowname : ::windows_sys::core::PCWSTR, pguidparam : *const ::windows_sys::core::GUID, buffersize : u32, buffer : *const ::core::ffi::c_void) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("traffic.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TcSetInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const ::windows_sys::core::GUID, buffersize : u32, buffer : *const ::core::ffi::c_void) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcSetInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const ::windows_sys::core::GUID, buffersize : u32, buffer : *const ::core::ffi::c_void) -> u32);
 pub const ABLE_TO_RECV_RSVP: u32 = 50002u32;
 pub const ADM_CTRL_FAILED: u32 = 3u32;
 pub const AD_FLAG_BREAK_BIT: u32 = 1u32;
@@ -1378,8 +1363,6 @@ impl ::core::clone::Clone for QOS_FLOWRATE_OUTGOING {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct QOS_FLOW_FUNDAMENTALS {
     pub BottleneckBandwidthSet: super::super::Foundation::BOOL,
     pub BottleneckBandwidth: u64,
@@ -1388,9 +1371,7 @@ pub struct QOS_FLOW_FUNDAMENTALS {
     pub RTTSet: super::super::Foundation::BOOL,
     pub RTT: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for QOS_FLOW_FUNDAMENTALS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for QOS_FLOW_FUNDAMENTALS {
     fn clone(&self) -> Self {
         *self
@@ -1980,17 +1961,13 @@ impl ::core::clone::Clone for TCG_PCClientTaggedEventStruct {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct TCI_CLIENT_FUNC_LIST {
     pub ClNotifyHandler: TCI_NOTIFY_HANDLER,
     pub ClAddFlowCompleteHandler: TCI_ADD_FLOW_COMPLETE_HANDLER,
     pub ClModifyFlowCompleteHandler: TCI_MOD_FLOW_COMPLETE_HANDLER,
     pub ClDeleteFlowCompleteHandler: TCI_DEL_FLOW_COMPLETE_HANDLER,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TCI_CLIENT_FUNC_LIST {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TCI_CLIENT_FUNC_LIST {
     fn clone(&self) -> Self {
         *self
@@ -2096,15 +2073,7 @@ pub type CBADMITRESULT = ::core::option::Option<unsafe extern "system" fn(lpmhan
 pub type CBGETRSVPOBJECTS = ::core::option::Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, lpmerror: i32, rsvpobjectscount: i32, pprsvpobjects: *mut *mut RsvpObjHdr) -> *mut u32>;
 pub type PALLOCMEM = ::core::option::Option<unsafe extern "system" fn(size: u32) -> *mut ::core::ffi::c_void>;
 pub type PFREEMEM = ::core::option::Option<unsafe extern "system" fn(pv: *mut ::core::ffi::c_void)>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type TCI_ADD_FLOW_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type TCI_DEL_FLOW_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type TCI_MOD_FLOW_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type TCI_NOTIFY_HANDLER = ::core::option::Option<unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const ::core::ffi::c_void)>;

@@ -336,8 +336,6 @@ impl ::core::clone::Clone for XACTOPT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct XACTSTATS {
     pub cOpen: u32,
     pub cCommitting: u32,
@@ -348,9 +346,7 @@ pub struct XACTSTATS {
     pub cHeuristicDecision: u32,
     pub timeTransactionsUp: super::super::Foundation::FILETIME,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for XACTSTATS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for XACTSTATS {
     fn clone(&self) -> Self {
         *self

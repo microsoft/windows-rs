@@ -3,18 +3,12 @@
 ::windows_targets::link!("msdmo.dll" "system" fn DMOGetTypes(clsiddmo : *const ::windows_sys::core::GUID, ulinputtypesrequested : u32, pulinputtypessupplied : *mut u32, pinputtypes : *mut DMO_PARTIAL_MEDIATYPE, uloutputtypesrequested : u32, puloutputtypessupplied : *mut u32, poutputtypes : *mut DMO_PARTIAL_MEDIATYPE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("msdmo.dll" "system" fn DMORegister(szname : ::windows_sys::core::PCWSTR, clsiddmo : *const ::windows_sys::core::GUID, guidcategory : *const ::windows_sys::core::GUID, dwflags : u32, cintypes : u32, pintypes : *const DMO_PARTIAL_MEDIATYPE, couttypes : u32, pouttypes : *const DMO_PARTIAL_MEDIATYPE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("msdmo.dll" "system" fn DMOUnregister(clsiddmo : *const ::windows_sys::core::GUID, guidcategory : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msdmo.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MoCopyMediaType(pmtdest : *mut DMO_MEDIA_TYPE, pmtsrc : *const DMO_MEDIA_TYPE) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msdmo.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MoCreateMediaType(ppmt : *mut *mut DMO_MEDIA_TYPE, cbformat : u32) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msdmo.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MoDeleteMediaType(pmt : *mut DMO_MEDIA_TYPE) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msdmo.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MoDuplicateMediaType(ppmtdest : *mut *mut DMO_MEDIA_TYPE, pmtsrc : *const DMO_MEDIA_TYPE) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msdmo.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MoFreeMediaType(pmt : *mut DMO_MEDIA_TYPE) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msdmo.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MoInitMediaType(pmt : *mut DMO_MEDIA_TYPE, cbformat : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("msdmo.dll" "system" fn MoCopyMediaType(pmtdest : *mut DMO_MEDIA_TYPE, pmtsrc : *const DMO_MEDIA_TYPE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("msdmo.dll" "system" fn MoCreateMediaType(ppmt : *mut *mut DMO_MEDIA_TYPE, cbformat : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("msdmo.dll" "system" fn MoDeleteMediaType(pmt : *mut DMO_MEDIA_TYPE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("msdmo.dll" "system" fn MoDuplicateMediaType(ppmtdest : *mut *mut DMO_MEDIA_TYPE, pmtsrc : *const DMO_MEDIA_TYPE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("msdmo.dll" "system" fn MoFreeMediaType(pmt : *mut DMO_MEDIA_TYPE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("msdmo.dll" "system" fn MoInitMediaType(pmt : *mut DMO_MEDIA_TYPE, cbformat : u32) -> ::windows_sys::core::HRESULT);
 pub type IDMOQualityControl = *mut ::core::ffi::c_void;
 pub type IDMOVideoOutputOptimizations = *mut ::core::ffi::c_void;
 pub type IEnumDMO = *mut ::core::ffi::c_void;
@@ -78,8 +72,6 @@ pub type _DMO_QUALITY_STATUS_FLAGS = i32;
 pub type _DMO_SET_TYPE_FLAGS = i32;
 pub type _DMO_VIDEO_OUTPUT_STREAM_FLAGS = i32;
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DMO_MEDIA_TYPE {
     pub majortype: ::windows_sys::core::GUID,
     pub subtype: ::windows_sys::core::GUID,
@@ -91,9 +83,7 @@ pub struct DMO_MEDIA_TYPE {
     pub cbFormat: u32,
     pub pbFormat: *mut u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DMO_MEDIA_TYPE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DMO_MEDIA_TYPE {
     fn clone(&self) -> Self {
         *self

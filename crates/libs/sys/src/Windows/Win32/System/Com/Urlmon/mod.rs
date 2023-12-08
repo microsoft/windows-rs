@@ -16,22 +16,20 @@
 ::windows_targets::link!("urlmon.dll" "system" fn CoInternetParseIUri(piuri : super:: IUri, parseaction : PARSEACTION, dwflags : u32, pwzresult : ::windows_sys::core::PWSTR, cchresult : u32, pcchresult : *mut u32, dwreserved : usize) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn CoInternetParseUrl(pwzurl : ::windows_sys::core::PCWSTR, parseaction : PARSEACTION, dwflags : u32, pszresult : ::windows_sys::core::PWSTR, cchresult : u32, pcchresult : *mut u32, dwreserved : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn CoInternetQueryInfo(pwzurl : ::windows_sys::core::PCWSTR, queryoptions : QUERYOPTION, dwqueryflags : u32, pvbuffer : *mut ::core::ffi::c_void, cbbuffer : u32, pcbbuffer : *mut u32, dwreserved : u32) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("urlmon.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CoInternetSetFeatureEnabled(featureentry : INTERNETFEATURELIST, dwflags : u32, fenable : super::super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn CoInternetSetFeatureEnabled(featureentry : INTERNETFEATURELIST, dwflags : u32, fenable : super::super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn CompareSecurityIds(pbsecurityid1 : *const u8, dwlen1 : u32, pbsecurityid2 : *const u8, dwlen2 : u32, dwreserved : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn CompatFlagsFromClsid(pclsid : *const ::windows_sys::core::GUID, pdwcompatflags : *mut u32, pdwmiscstatusflags : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_targets::link!("urlmon.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn CopyBindInfo(pcbisrc : *const super:: BINDINFO, pbidest : *mut super:: BINDINFO) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_targets::link!("urlmon.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn CopyStgMedium(pcstgmedsrc : *const super:: STGMEDIUM, pstgmeddest : *mut super:: STGMEDIUM) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+::windows_targets::link!("urlmon.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn CopyBindInfo(pcbisrc : *const super:: BINDINFO, pbidest : *mut super:: BINDINFO) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+::windows_targets::link!("urlmon.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn CopyStgMedium(pcstgmedsrc : *const super:: STGMEDIUM, pstgmeddest : *mut super:: STGMEDIUM) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn CreateAsyncBindCtx(reserved : u32, pbscb : super:: IBindStatusCallback, pefetc : super:: IEnumFORMATETC, ppbc : *mut super:: IBindCtx) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn CreateAsyncBindCtxEx(pbc : super:: IBindCtx, dwoptions : u32, pbscb : super:: IBindStatusCallback, penum : super:: IEnumFORMATETC, ppbc : *mut super:: IBindCtx, reserved : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn CreateFormatEnumerator(cfmtetc : u32, rgfmtetc : *const super:: FORMATETC, ppenumfmtetc : *mut super:: IEnumFORMATETC) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn CreateURLMoniker(pmkctx : super:: IMoniker, szurl : ::windows_sys::core::PCWSTR, ppmk : *mut super:: IMoniker) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn CreateURLMonikerEx(pmkctx : super:: IMoniker, szurl : ::windows_sys::core::PCWSTR, ppmk : *mut super:: IMoniker, dwflags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn CreateURLMonikerEx2(pmkctx : super:: IMoniker, puri : super:: IUri, ppmk : *mut super:: IMoniker, dwflags : u32) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("urlmon.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FaultInIEFeature(hwnd : super::super::super::Foundation:: HWND, pclassspec : *const super:: uCLSSPEC, pquery : *mut super:: QUERYCONTEXT, dwflags : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn FaultInIEFeature(hwnd : super::super::super::Foundation:: HWND, pclassspec : *const super:: uCLSSPEC, pquery : *mut super:: QUERYCONTEXT, dwflags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn FindMediaType(rgsztypes : ::windows_sys::core::PCSTR, rgcftypes : *mut u16) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn FindMediaTypeClass(pbc : super:: IBindCtx, sztype : ::windows_sys::core::PCSTR, pclsid : *mut ::windows_sys::core::GUID, reserved : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn FindMimeFromData(pbc : super:: IBindCtx, pwzurl : ::windows_sys::core::PCWSTR, pbuffer : *const ::core::ffi::c_void, cbsize : u32, pwzmimeproposed : ::windows_sys::core::PCWSTR, dwmimeflags : u32, ppwzmimeout : *mut ::windows_sys::core::PWSTR, dwreserved : u32) -> ::windows_sys::core::HRESULT);
@@ -48,10 +46,8 @@
 ::windows_targets::link!("urlmon.dll" "system" fn IEGetUserPrivateNamespaceName() -> ::windows_sys::core::PWSTR);
 ::windows_targets::link!("urlmon.dll" "system" fn IEInstallScope(pdwscope : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn IsAsyncMoniker(pmk : super:: IMoniker) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("urlmon.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IsLoggingEnabledA(pszurl : ::windows_sys::core::PCSTR) -> super::super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("urlmon.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IsLoggingEnabledW(pwszurl : ::windows_sys::core::PCWSTR) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("urlmon.dll" "system" fn IsLoggingEnabledA(pszurl : ::windows_sys::core::PCSTR) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("urlmon.dll" "system" fn IsLoggingEnabledW(pwszurl : ::windows_sys::core::PCWSTR) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("urlmon.dll" "system" fn IsValidURL(pbc : super:: IBindCtx, szurl : ::windows_sys::core::PCWSTR, dwreserved : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn MkParseDisplayNameEx(pbc : super:: IBindCtx, szdisplayname : ::windows_sys::core::PCWSTR, pcheaten : *mut u32, ppmk : *mut super:: IMoniker) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn ObtainUserAgentString(dwoption : u32, pszuaout : ::windows_sys::core::PSTR, cbsize : *mut u32) -> ::windows_sys::core::HRESULT);
@@ -59,12 +55,11 @@
 ::windows_targets::link!("urlmon.dll" "system" fn RegisterFormatEnumerator(pbc : super:: IBindCtx, pefetc : super:: IEnumFORMATETC, reserved : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn RegisterMediaTypeClass(pbc : super:: IBindCtx, ctypes : u32, rgsztypes : *const ::windows_sys::core::PCSTR, rgclsid : *const ::windows_sys::core::GUID, reserved : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn RegisterMediaTypes(ctypes : u32, rgsztypes : *const ::windows_sys::core::PCSTR, rgcftypes : *mut u16) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_targets::link!("urlmon.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn ReleaseBindInfo(pbindinfo : *mut super:: BINDINFO));
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+::windows_targets::link!("urlmon.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn ReleaseBindInfo(pbindinfo : *mut super:: BINDINFO));
 ::windows_targets::link!("urlmon.dll" "system" fn RevokeBindStatusCallback(pbc : super:: IBindCtx, pbscb : super:: IBindStatusCallback) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn RevokeFormatEnumerator(pbc : super:: IBindCtx, pefetc : super:: IEnumFORMATETC) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("urlmon.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetAccessForIEAppContainer(hobject : super::super::super::Foundation:: HANDLE, ieobjecttype : IEObjectType, dwaccessmask : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn SetAccessForIEAppContainer(hobject : super::super::super::Foundation:: HANDLE, ieobjecttype : IEObjectType, dwaccessmask : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn SetSoftwareUpdateAdvertisementState(szdistunit : ::windows_sys::core::PCWSTR, dwadstate : u32, dwadvertisedversionms : u32, dwadvertisedversionls : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn URLDownloadToCacheFileA(param0 : ::windows_sys::core::IUnknown, param1 : ::windows_sys::core::PCSTR, param2 : ::windows_sys::core::PSTR, cchfilename : u32, param4 : u32, param5 : super:: IBindStatusCallback) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn URLDownloadToCacheFileW(param0 : ::windows_sys::core::IUnknown, param1 : ::windows_sys::core::PCWSTR, param2 : ::windows_sys::core::PWSTR, cchfilename : u32, param4 : u32, param5 : super:: IBindStatusCallback) -> ::windows_sys::core::HRESULT);
@@ -78,8 +73,7 @@
 ::windows_targets::link!("urlmon.dll" "system" fn URLOpenStreamW(param0 : ::windows_sys::core::IUnknown, param1 : ::windows_sys::core::PCWSTR, param2 : u32, param3 : super:: IBindStatusCallback) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn UrlMkGetSessionOption(dwoption : u32, pbuffer : *mut ::core::ffi::c_void, dwbufferlength : u32, pdwbufferlengthout : *mut u32, dwreserved : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn UrlMkSetSessionOption(dwoption : u32, pbuffer : *const ::core::ffi::c_void, dwbufferlength : u32, dwreserved : u32) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("urlmon.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WriteHitLogging(lplogginginfo : *const HIT_LOGGING_INFO) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("urlmon.dll" "system" fn WriteHitLogging(lplogginginfo : *const HIT_LOGGING_INFO) -> super::super::super::Foundation:: BOOL);
 pub type IBindCallbackRedirect = *mut ::core::ffi::c_void;
 pub type IBindHttpSecurity = *mut ::core::ffi::c_void;
 pub type IBindProtocol = *mut ::core::ffi::c_void;
@@ -871,8 +865,6 @@ impl ::core::clone::Clone for DATAINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct HIT_LOGGING_INFO {
     pub dwStructSize: u32,
     pub lpszLoggedUrlName: ::windows_sys::core::PSTR,
@@ -880,9 +872,7 @@ pub struct HIT_LOGGING_INFO {
     pub EndTime: super::super::super::Foundation::SYSTEMTIME,
     pub lpszExtendedInfo: ::windows_sys::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HIT_LOGGING_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HIT_LOGGING_INFO {
     fn clone(&self) -> Self {
         *self
@@ -927,24 +917,18 @@ impl ::core::clone::Clone for PROTOCOL_ARGUMENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct REMSECURITY_ATTRIBUTES {
     pub nLength: u32,
     pub lpSecurityDescriptor: u32,
     pub bInheritHandle: super::super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for REMSECURITY_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for REMSECURITY_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct RemBINDINFO {
     pub cbSize: u32,
     pub szExtraInfo: ::windows_sys::core::PWSTR,
@@ -960,9 +944,7 @@ pub struct RemBINDINFO {
     pub pUnk: ::windows_sys::core::IUnknown,
     pub dwReserved: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RemBINDINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RemBINDINFO {
     fn clone(&self) -> Self {
         *self

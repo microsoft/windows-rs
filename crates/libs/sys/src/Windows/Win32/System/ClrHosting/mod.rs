@@ -8,8 +8,8 @@
 ::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeEx(pwszversion : ::windows_sys::core::PCWSTR, pwszbuildflavor : ::windows_sys::core::PCWSTR, startupflags : u32, rclsid : *const ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeHost(pwszversion : ::windows_sys::core::PCWSTR, pwszbuildflavor : ::windows_sys::core::PCWSTR, pwszhostconfigfile : ::windows_sys::core::PCWSTR, preserved : *mut ::core::ffi::c_void, startupflags : u32, rclsid : *const ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn CorExitProcess(exitcode : i32));
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-::windows_targets::link!("mscoree.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`"] fn CorLaunchApplication(dwclickoncehost : HOST_TYPE, pwzappfullname : ::windows_sys::core::PCWSTR, dwmanifestpaths : u32, ppwzmanifestpaths : *const ::windows_sys::core::PCWSTR, dwactivationdata : u32, ppwzactivationdata : *const ::windows_sys::core::PCWSTR, lpprocessinformation : *mut super::Threading:: PROCESS_INFORMATION) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Threading")]
+::windows_targets::link!("mscoree.dll" "system" #[doc = "Required features: `\"Win32_System_Threading\"`"] fn CorLaunchApplication(dwclickoncehost : HOST_TYPE, pwzappfullname : ::windows_sys::core::PCWSTR, dwmanifestpaths : u32, ppwzmanifestpaths : *const ::windows_sys::core::PCWSTR, dwactivationdata : u32, ppwzactivationdata : *const ::windows_sys::core::PCWSTR, lpprocessinformation : *mut super::Threading:: PROCESS_INFORMATION) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn CorMarkThreadInThreadPool());
 ::windows_targets::link!("mscoree.dll" "system" fn CreateDebuggingInterfaceFromVersion(idebuggerversion : i32, szdebuggeeversion : ::windows_sys::core::PCWSTR, ppcordb : *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn GetCLRIdentityManager(riid : *const ::windows_sys::core::GUID, ppmanager : *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
@@ -21,15 +21,12 @@
 ::windows_targets::link!("mscoree.dll" "system" fn GetRequestedRuntimeInfo(pexe : ::windows_sys::core::PCWSTR, pwszversion : ::windows_sys::core::PCWSTR, pconfigurationfile : ::windows_sys::core::PCWSTR, startupflags : u32, runtimeinfoflags : u32, pdirectory : ::windows_sys::core::PWSTR, dwdirectory : u32, dwdirectorylength : *mut u32, pversion : ::windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn GetRequestedRuntimeVersion(pexe : ::windows_sys::core::PCWSTR, pversion : ::windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn GetRequestedRuntimeVersionForCLSID(rclsid : *const ::windows_sys::core::GUID, pversion : ::windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32, dwresolutionflags : CLSID_RESOLUTION_FLAGS) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("mscoree.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetVersionFromProcess(hprocess : super::super::Foundation:: HANDLE, pversion : ::windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("mscoree.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn LoadLibraryShim(szdllname : ::windows_sys::core::PCWSTR, szversion : ::windows_sys::core::PCWSTR, pvreserved : *mut ::core::ffi::c_void, phmoddll : *mut super::super::Foundation:: HMODULE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn GetVersionFromProcess(hprocess : super::super::Foundation:: HANDLE, pversion : ::windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn LoadLibraryShim(szdllname : ::windows_sys::core::PCWSTR, szversion : ::windows_sys::core::PCWSTR, pvreserved : *mut ::core::ffi::c_void, phmoddll : *mut super::super::Foundation:: HMODULE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn LoadStringRC(iresouceid : u32, szbuffer : ::windows_sys::core::PWSTR, imax : i32, bquiet : i32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn LoadStringRCEx(lcid : u32, iresouceid : u32, szbuffer : ::windows_sys::core::PWSTR, imax : i32, bquiet : i32, pcwchused : *mut i32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn LockClrVersion(hostcallback : FLockClrVersionCallback, pbeginhostsetup : *mut FLockClrVersionCallback, pendhostsetup : *mut FLockClrVersionCallback) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("mscoree.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RunDll32ShimW(hwnd : super::super::Foundation:: HWND, hinst : super::super::Foundation:: HINSTANCE, lpszcmdline : ::windows_sys::core::PCWSTR, ncmdshow : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn RunDll32ShimW(hwnd : super::super::Foundation:: HWND, hinst : super::super::Foundation:: HINSTANCE, lpszcmdline : ::windows_sys::core::PCWSTR, ncmdshow : i32) -> ::windows_sys::core::HRESULT);
 pub type IActionOnCLREvent = *mut ::core::ffi::c_void;
 pub type IApartmentCallback = *mut ::core::ffi::c_void;
 pub type IAppDomainBinding = *mut ::core::ffi::c_void;
@@ -320,16 +317,12 @@ impl ::core::clone::Clone for AssemblyBindInfo {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct BucketParameters {
     pub fInited: super::super::Foundation::BOOL,
     pub pszEventTypeName: [u16; 255],
     pub pszParams: [u16; 2550],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for BucketParameters {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BucketParameters {
     fn clone(&self) -> Self {
         *self
@@ -426,15 +419,15 @@ impl ::core::clone::Clone for ModuleBindInfo {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct StackOverflowInfo {
     pub soType: StackOverflowType,
     pub pExceptionInfo: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for StackOverflowInfo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for StackOverflowInfo {
     fn clone(&self) -> Self {
         *self

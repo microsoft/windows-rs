@@ -1,128 +1,99 @@
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CallNtPowerInformation(informationlevel : POWER_INFORMATION_LEVEL, inputbuffer : *const ::core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut ::core::ffi::c_void, outputbufferlength : u32) -> super::super::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CanUserWritePwrScheme() -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DeletePwrScheme(uiid : u32) -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DevicePowerClose() -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DevicePowerEnumDevices(queryindex : u32, queryinterpretationflags : u32, queryflags : u32, preturnbuffer : *mut u8, pbuffersize : *mut u32) -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DevicePowerOpen(debugmask : u32) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn CallNtPowerInformation(informationlevel : POWER_INFORMATION_LEVEL, inputbuffer : *const ::core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut ::core::ffi::c_void, outputbufferlength : u32) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("powrprof.dll" "system" fn CanUserWritePwrScheme() -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn DeletePwrScheme(uiid : u32) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn DevicePowerClose() -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn DevicePowerEnumDevices(queryindex : u32, queryinterpretationflags : u32, queryflags : u32, preturnbuffer : *mut u8, pbuffersize : *mut u32) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn DevicePowerOpen(debugmask : u32) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("powrprof.dll" "system" fn DevicePowerSetDeviceState(devicedescription : ::windows_sys::core::PCWSTR, setflags : u32, setdata : *const ::core::ffi::c_void) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EnumPwrSchemes(lpfn : PWRSCHEMESENUMPROC, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetActivePwrScheme(puiid : *mut u32) -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetCurrentPowerPolicies(pglobalpowerpolicy : *mut GLOBAL_POWER_POLICY, ppowerpolicy : *mut POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetDevicePowerState(hdevice : super::super::Foundation:: HANDLE, pfon : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetPwrCapabilities(lpspc : *mut SYSTEM_POWER_CAPABILITIES) -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetPwrDiskSpindownRange(puimax : *mut u32, puimin : *mut u32) -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetSystemPowerStatus(lpsystempowerstatus : *mut SYSTEM_POWER_STATUS) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IsAdminOverrideActive(papp : *const ADMINISTRATOR_POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IsPwrHibernateAllowed() -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IsPwrShutdownAllowed() -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IsPwrSuspendAllowed() -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IsSystemResumeAutomatic() -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PowerClearRequest(powerrequest : super::super::Foundation:: HANDLE, requesttype : POWER_REQUEST_TYPE) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerCreatePossibleSetting(rootsystempowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, possiblesettingindex : u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`"] fn PowerCreateRequest(context : *const super::Threading:: REASON_CONTEXT) -> super::super::Foundation:: HANDLE);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerCreateSetting(rootsystempowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerDeleteScheme(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn EnumPwrSchemes(lpfn : PWRSCHEMESENUMPROC, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn GetActivePwrScheme(puiid : *mut u32) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn GetCurrentPowerPolicies(pglobalpowerpolicy : *mut GLOBAL_POWER_POLICY, ppowerpolicy : *mut POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("kernel32.dll" "system" fn GetDevicePowerState(hdevice : super::super::Foundation:: HANDLE, pfon : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("powrprof.dll" "system" fn GetPwrCapabilities(lpspc : *mut SYSTEM_POWER_CAPABILITIES) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn GetPwrDiskSpindownRange(puimax : *mut u32, puimin : *mut u32) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("kernel32.dll" "system" fn GetSystemPowerStatus(lpsystempowerstatus : *mut SYSTEM_POWER_STATUS) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("powrprof.dll" "system" fn IsAdminOverrideActive(papp : *const ADMINISTRATOR_POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn IsPwrHibernateAllowed() -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn IsPwrShutdownAllowed() -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn IsPwrSuspendAllowed() -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("kernel32.dll" "system" fn IsSystemResumeAutomatic() -> super::super::Foundation:: BOOL);
+::windows_targets::link!("powrprof.dll" "system" fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("kernel32.dll" "system" fn PowerClearRequest(powerrequest : super::super::Foundation:: HANDLE, requesttype : POWER_REQUEST_TYPE) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerCreatePossibleSetting(rootsystempowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, possiblesettingindex : u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Threading")]
+::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_System_Threading\"`"] fn PowerCreateRequest(context : *const super::Threading:: REASON_CONTEXT) -> super::super::Foundation:: HANDLE);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerCreateSetting(rootsystempowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerDeleteScheme(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("powrprof.dll" "system" fn PowerDeterminePlatformRole() -> POWER_PLATFORM_ROLE);
 ::windows_targets::link!("powrprof.dll" "system" fn PowerDeterminePlatformRoleEx(version : POWER_PLATFORM_ROLE_VERSION) -> POWER_PLATFORM_ROLE);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerDuplicateScheme(rootpowerkey : super::Registry:: HKEY, sourceschemeguid : *const ::windows_sys::core::GUID, destinationschemeguid : *mut *mut ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerEnumerate(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, accessflags : POWER_DATA_ACCESSOR, index : u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerGetActiveScheme(userrootpowerkey : super::Registry:: HKEY, activepolicyguid : *mut *mut ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerImportPowerScheme(rootpowerkey : super::Registry:: HKEY, importfilenamepath : ::windows_sys::core::PCWSTR, destinationschemeguid : *mut *mut ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PowerIsSettingRangeDefined(subkeyguid : *const ::windows_sys::core::GUID, settingguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: BOOLEAN);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerOpenSystemPowerKey(phsystempowerkey : *mut super::Registry:: HKEY, access : u32, openexisting : super::super::Foundation:: BOOL) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerOpenUserPowerKey(phuserpowerkey : *mut super::Registry:: HKEY, access : u32, openexisting : super::super::Foundation:: BOOL) -> u32);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerDuplicateScheme(rootpowerkey : super::Registry:: HKEY, sourceschemeguid : *const ::windows_sys::core::GUID, destinationschemeguid : *mut *mut ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerEnumerate(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, accessflags : POWER_DATA_ACCESSOR, index : u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerGetActiveScheme(userrootpowerkey : super::Registry:: HKEY, activepolicyguid : *mut *mut ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerImportPowerScheme(rootpowerkey : super::Registry:: HKEY, importfilenamepath : ::windows_sys::core::PCWSTR, destinationschemeguid : *mut *mut ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerIsSettingRangeDefined(subkeyguid : *const ::windows_sys::core::GUID, settingguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: BOOLEAN);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerOpenSystemPowerKey(phsystempowerkey : *mut super::Registry:: HKEY, access : u32, openexisting : super::super::Foundation:: BOOL) -> u32);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerOpenUserPowerKey(phuserpowerkey : *mut super::Registry:: HKEY, access : u32, openexisting : super::super::Foundation:: BOOL) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
 ::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerReadACDefaultIndex(rootpowerkey : super::Registry:: HKEY, schemepersonalityguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, acdefaultindex : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerReadACValue(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, r#type : *mut u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerReadACValue(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, r#type : *mut u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
 ::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerReadACValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, acvalueindex : *mut u32) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
 ::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerReadDCDefaultIndex(rootpowerkey : super::Registry:: HKEY, schemepersonalityguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, dcdefaultindex : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerReadDCValue(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, r#type : *mut u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerReadDCValue(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, r#type : *mut u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
 ::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerReadDCValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, dcvalueindex : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerReadDescription(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerReadFriendlyName(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerReadIconResourceSpecifier(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerReadPossibleDescription(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, possiblesettingindex : u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerReadPossibleFriendlyName(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, possiblesettingindex : u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerReadPossibleValue(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, r#type : *mut u32, possiblesettingindex : u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerReadDescription(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerReadFriendlyName(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerReadIconResourceSpecifier(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerReadPossibleDescription(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, possiblesettingindex : u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerReadPossibleFriendlyName(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, possiblesettingindex : u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerReadPossibleValue(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, r#type : *mut u32, possiblesettingindex : u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("powrprof.dll" "system" fn PowerReadSettingAttributes(subgroupguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerReadValueIncrement(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, valueincrement : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerReadValueMax(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, valuemaximum : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerReadValueMin(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, valueminimum : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerReadValueUnitsSpecifier(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerReadValueIncrement(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, valueincrement : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerReadValueMax(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, valuemaximum : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerReadValueMin(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, valueminimum : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerReadValueUnitsSpecifier(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("powrprof.dll" "system" fn PowerRegisterForEffectivePowerModeNotifications(version : u32, callback : EFFECTIVE_POWER_MODE_CALLBACK, context : *const ::core::ffi::c_void, registrationhandle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn PowerRegisterSuspendResumeNotification(flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS, recipient : super::super::Foundation:: HANDLE, registrationhandle : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PowerRemovePowerSetting(powersettingsubkeyguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn PowerRegisterSuspendResumeNotification(flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS, recipient : super::super::Foundation:: HANDLE, registrationhandle : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerRemovePowerSetting(powersettingsubkeyguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("powrprof.dll" "system" fn PowerReplaceDefaultPowerSchemes() -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PowerReportThermalEvent(event : *const THERMAL_EVENT) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PowerRestoreDefaultPowerSchemes() -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PowerRestoreIndividualDefaultPowerScheme(schemeguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerSetActiveScheme(userrootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PowerSetRequest(powerrequest : super::super::Foundation:: HANDLE, requesttype : POWER_REQUEST_TYPE) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PowerSettingAccessCheck(accessflags : POWER_DATA_ACCESSOR, powerguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerSettingAccessCheckEx(accessflags : POWER_DATA_ACCESSOR, powerguid : *const ::windows_sys::core::GUID, accesstype : super::Registry:: REG_SAM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn PowerSettingRegisterNotification(settingguid : *const ::windows_sys::core::GUID, flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS, recipient : super::super::Foundation:: HANDLE, registrationhandle : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PowerSettingUnregisterNotification(registrationhandle : HPOWERNOTIFY) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerReportThermalEvent(event : *const THERMAL_EVENT) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerRestoreDefaultPowerSchemes() -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerRestoreIndividualDefaultPowerScheme(schemeguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerSetActiveScheme(userrootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("kernel32.dll" "system" fn PowerSetRequest(powerrequest : super::super::Foundation:: HANDLE, requesttype : POWER_REQUEST_TYPE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("powrprof.dll" "system" fn PowerSettingAccessCheck(accessflags : POWER_DATA_ACCESSOR, powerguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerSettingAccessCheckEx(accessflags : POWER_DATA_ACCESSOR, powerguid : *const ::windows_sys::core::GUID, accesstype : super::Registry:: REG_SAM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn PowerSettingRegisterNotification(settingguid : *const ::windows_sys::core::GUID, flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS, recipient : super::super::Foundation:: HANDLE, registrationhandle : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerSettingUnregisterNotification(registrationhandle : HPOWERNOTIFY) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("powrprof.dll" "system" fn PowerUnregisterFromEffectivePowerModeNotifications(registrationhandle : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PowerUnregisterSuspendResumeNotification(registrationhandle : HPOWERNOTIFY) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerUnregisterSuspendResumeNotification(registrationhandle : HPOWERNOTIFY) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
 ::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerWriteACDefaultIndex(rootsystempowerkey : super::Registry:: HKEY, schemepersonalityguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, defaultacindex : u32) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
@@ -131,59 +102,44 @@
 ::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerWriteDCDefaultIndex(rootsystempowerkey : super::Registry:: HKEY, schemepersonalityguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, defaultdcindex : u32) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
 ::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerWriteDCValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, dcvalueindex : u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerWriteDescription(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerWriteFriendlyName(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerWriteIconResourceSpecifier(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerWritePossibleDescription(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerWritePossibleFriendlyName(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerWritePossibleValue(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, r#type : u32, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PowerWriteSettingAttributes(subgroupguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, attributes : u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerWriteValueIncrement(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, valueincrement : u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerWriteValueMax(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, valuemaximum : u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerWriteValueMin(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, valueminimum : u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn PowerWriteValueUnitsSpecifier(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ReadGlobalPwrPolicy(pglobalpowerpolicy : *const GLOBAL_POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ReadProcessorPwrScheme(uiid : u32, pmachineprocessorpowerpolicy : *mut MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ReadPwrScheme(uiid : u32, ppowerpolicy : *mut POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RegisterPowerSettingNotification(hrecipient : super::super::Foundation:: HANDLE, powersettingguid : *const ::windows_sys::core::GUID, flags : u32) -> HPOWERNOTIFY);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn RegisterSuspendResumeNotification(hrecipient : super::super::Foundation:: HANDLE, flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS) -> HPOWERNOTIFY);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RequestWakeupLatency(latency : LATENCY_TIME) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetActivePwrScheme(uiid : u32, pglobalpowerpolicy : *const GLOBAL_POWER_POLICY, ppowerpolicy : *const POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetSuspendState(bhibernate : super::super::Foundation:: BOOLEAN, bforce : super::super::Foundation:: BOOLEAN, bwakeupeventsdisabled : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetSystemPowerState(fsuspend : super::super::Foundation:: BOOL, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerWriteDescription(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerWriteFriendlyName(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerWriteIconResourceSpecifier(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerWritePossibleDescription(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerWritePossibleFriendlyName(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerWritePossibleValue(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, r#type : u32, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerWriteSettingAttributes(subgroupguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, attributes : u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerWriteValueIncrement(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, valueincrement : u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerWriteValueMax(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, valuemaximum : u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerWriteValueMin(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, valueminimum : u32) -> super::super::Foundation:: WIN32_ERROR);
+#[cfg(feature = "Win32_System_Registry")]
+::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PowerWriteValueUnitsSpecifier(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn ReadGlobalPwrPolicy(pglobalpowerpolicy : *const GLOBAL_POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn ReadProcessorPwrScheme(uiid : u32, pmachineprocessorpowerpolicy : *mut MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn ReadPwrScheme(uiid : u32, ppowerpolicy : *mut POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("user32.dll" "system" fn RegisterPowerSettingNotification(hrecipient : super::super::Foundation:: HANDLE, powersettingguid : *const ::windows_sys::core::GUID, flags : u32) -> HPOWERNOTIFY);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn RegisterSuspendResumeNotification(hrecipient : super::super::Foundation:: HANDLE, flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS) -> HPOWERNOTIFY);
+::windows_targets::link!("kernel32.dll" "system" fn RequestWakeupLatency(latency : LATENCY_TIME) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("powrprof.dll" "system" fn SetActivePwrScheme(uiid : u32, pglobalpowerpolicy : *const GLOBAL_POWER_POLICY, ppowerpolicy : *const POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn SetSuspendState(bhibernate : super::super::Foundation:: BOOLEAN, bforce : super::super::Foundation:: BOOLEAN, bwakeupeventsdisabled : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("kernel32.dll" "system" fn SetSystemPowerState(fsuspend : super::super::Foundation:: BOOL, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn SetThreadExecutionState(esflags : EXECUTION_STATE) -> EXECUTION_STATE);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UnregisterPowerSettingNotification(handle : HPOWERNOTIFY) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UnregisterSuspendResumeNotification(handle : HPOWERNOTIFY) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ValidatePowerPolicies(pglobalpowerpolicy : *mut GLOBAL_POWER_POLICY, ppowerpolicy : *mut POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WriteGlobalPwrPolicy(pglobalpowerpolicy : *const GLOBAL_POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WriteProcessorPwrScheme(uiid : u32, pmachineprocessorpowerpolicy : *const MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("powrprof.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WritePwrScheme(puiid : *const u32, lpszschemename : ::windows_sys::core::PCWSTR, lpszdescription : ::windows_sys::core::PCWSTR, lpscheme : *const POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("user32.dll" "system" fn UnregisterPowerSettingNotification(handle : HPOWERNOTIFY) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn UnregisterSuspendResumeNotification(handle : HPOWERNOTIFY) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("powrprof.dll" "system" fn ValidatePowerPolicies(pglobalpowerpolicy : *mut GLOBAL_POWER_POLICY, ppowerpolicy : *mut POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn WriteGlobalPwrPolicy(pglobalpowerpolicy : *const GLOBAL_POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn WriteProcessorPwrScheme(uiid : u32, pmachineprocessorpowerpolicy : *const MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn WritePwrScheme(puiid : *const u32, lpszschemename : ::windows_sys::core::PCWSTR, lpszdescription : ::windows_sys::core::PCWSTR, lpscheme : *const POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
 pub const ACCESS_ACTIVE_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = 27i32;
 pub const ACCESS_ACTIVE_SCHEME: POWER_DATA_ACCESSOR = 19i32;
 pub const ACCESS_AC_POWER_SETTING_INDEX: POWER_DATA_ACCESSOR = 0i32;
@@ -700,8 +656,6 @@ impl ::core::clone::Clone for ACPI_REAL_TIME {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct ACPI_TIME_AND_ALARM_CAPABILITIES {
     pub AcWakeSupported: super::super::Foundation::BOOLEAN,
     pub DcWakeSupported: super::super::Foundation::BOOLEAN,
@@ -714,9 +668,7 @@ pub struct ACPI_TIME_AND_ALARM_CAPABILITIES {
     pub RealTimeFeaturesSupported: super::super::Foundation::BOOLEAN,
     pub RealTimeResolution: ACPI_TIME_RESOLUTION,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACPI_TIME_AND_ALARM_CAPABILITIES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACPI_TIME_AND_ALARM_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
@@ -760,15 +712,11 @@ impl ::core::clone::Clone for BATTERY_CHARGING_SOURCE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct BATTERY_CHARGING_SOURCE_INFORMATION {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub SourceOnline: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for BATTERY_CHARGING_SOURCE_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BATTERY_CHARGING_SOURCE_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -1009,23 +957,17 @@ impl ::core::clone::Clone for GLOBAL_MACHINE_POWER_POLICY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GLOBAL_POWER_POLICY {
     pub user: GLOBAL_USER_POWER_POLICY,
     pub mach: GLOBAL_MACHINE_POWER_POLICY,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GLOBAL_POWER_POLICY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GLOBAL_POWER_POLICY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GLOBAL_USER_POWER_POLICY {
     pub Revision: u32,
     pub PowerButtonAc: POWER_ACTION_POLICY,
@@ -1037,9 +979,7 @@ pub struct GLOBAL_USER_POWER_POLICY {
     pub DischargePolicy: [SYSTEM_POWER_LEVEL; 4],
     pub GlobalFlags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GLOBAL_USER_POWER_POLICY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GLOBAL_USER_POWER_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -1117,88 +1057,64 @@ impl ::core::clone::Clone for POWER_IDLE_RESILIENCY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct POWER_MONITOR_INVOCATION {
     pub Console: super::super::Foundation::BOOLEAN,
     pub RequestReason: POWER_MONITOR_REQUEST_REASON,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for POWER_MONITOR_INVOCATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for POWER_MONITOR_INVOCATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct POWER_PLATFORM_INFORMATION {
     pub AoAc: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for POWER_PLATFORM_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for POWER_PLATFORM_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct POWER_POLICY {
     pub user: USER_POWER_POLICY,
     pub mach: MACHINE_POWER_POLICY,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for POWER_POLICY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for POWER_POLICY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
     pub IsAllowed: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct POWER_SESSION_CONNECT {
     pub Connected: super::super::Foundation::BOOLEAN,
     pub Console: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for POWER_SESSION_CONNECT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for POWER_SESSION_CONNECT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct POWER_SESSION_RIT_STATE {
     pub Active: super::super::Foundation::BOOLEAN,
     pub LastInputTime: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for POWER_SESSION_RIT_STATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for POWER_SESSION_RIT_STATE {
     fn clone(&self) -> Self {
         *self
@@ -1216,16 +1132,12 @@ impl ::core::clone::Clone for POWER_SESSION_TIMEOUTS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct POWER_SESSION_WINLOGON {
     pub SessionId: u32,
     pub Console: super::super::Foundation::BOOLEAN,
     pub Locked: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for POWER_SESSION_WINLOGON {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for POWER_SESSION_WINLOGON {
     fn clone(&self) -> Self {
         *self
@@ -1618,8 +1530,6 @@ impl ::core::clone::Clone for SET_POWER_SETTING_VALUE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SYSTEM_BATTERY_STATE {
     pub AcOnLine: super::super::Foundation::BOOLEAN,
     pub BatteryPresent: super::super::Foundation::BOOLEAN,
@@ -1634,17 +1544,13 @@ pub struct SYSTEM_BATTERY_STATE {
     pub DefaultAlert1: u32,
     pub DefaultAlert2: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SYSTEM_BATTERY_STATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SYSTEM_BATTERY_STATE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SYSTEM_POWER_CAPABILITIES {
     pub PowerButtonPresent: super::super::Foundation::BOOLEAN,
     pub SleepButtonPresent: super::super::Foundation::BOOLEAN,
@@ -1680,9 +1586,7 @@ pub struct SYSTEM_POWER_CAPABILITIES {
     pub MinDeviceWakeState: SYSTEM_POWER_STATE,
     pub DefaultLowLatencyWake: SYSTEM_POWER_STATE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SYSTEM_POWER_CAPABILITIES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SYSTEM_POWER_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
@@ -1702,8 +1606,6 @@ impl ::core::clone::Clone for SYSTEM_POWER_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SYSTEM_POWER_LEVEL {
     pub Enable: super::super::Foundation::BOOLEAN,
     pub Spare: [u8; 3],
@@ -1711,17 +1613,13 @@ pub struct SYSTEM_POWER_LEVEL {
     pub PowerPolicy: POWER_ACTION_POLICY,
     pub MinSystemState: SYSTEM_POWER_STATE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SYSTEM_POWER_LEVEL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SYSTEM_POWER_LEVEL {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SYSTEM_POWER_POLICY {
     pub Revision: u32,
     pub PowerButton: POWER_ACTION_POLICY,
@@ -1752,9 +1650,7 @@ pub struct SYSTEM_POWER_POLICY {
     pub MinThrottle: u8,
     pub OverThrottled: POWER_ACTION_POLICY,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SYSTEM_POWER_POLICY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SYSTEM_POWER_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -1810,8 +1706,6 @@ impl ::core::clone::Clone for THERMAL_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct THERMAL_POLICY {
     pub Version: u32,
     pub WaitForUpdate: super::super::Foundation::BOOLEAN,
@@ -1823,9 +1717,7 @@ pub struct THERMAL_POLICY {
     pub ActiveLevel: u32,
     pub OverThrottled: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for THERMAL_POLICY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for THERMAL_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -1844,8 +1736,6 @@ impl ::core::clone::Clone for THERMAL_WAIT_READ {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct USER_POWER_POLICY {
     pub Revision: u32,
     pub IdleAc: POWER_ACTION_POLICY,
@@ -1870,9 +1760,7 @@ pub struct USER_POWER_POLICY {
     pub ForcedThrottleAc: u8,
     pub ForcedThrottleDc: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_POWER_POLICY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_POWER_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -1891,9 +1779,5 @@ impl ::core::clone::Clone for WAKE_ALARM_INFORMATION {
 }
 pub type EFFECTIVE_POWER_MODE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(mode: EFFECTIVE_POWER_MODE, context: *const ::core::ffi::c_void)>;
 pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, r#type: u32, setting: *const ::core::ffi::c_void) -> u32>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PWRSCHEMESENUMPROC = ::core::option::Option<unsafe extern "system" fn(index: u32, namesize: u32, name: ::windows_sys::core::PCWSTR, descriptionsize: u32, description: ::windows_sys::core::PCWSTR, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type PWRSCHEMESENUMPROC_V1 = ::core::option::Option<unsafe extern "system" fn(index: u32, namesize: u32, name: *const i8, descriptionsize: u32, description: *const i8, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN>;

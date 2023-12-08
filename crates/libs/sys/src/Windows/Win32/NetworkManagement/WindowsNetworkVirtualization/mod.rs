@@ -1,7 +1,6 @@
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wnvapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WnvOpen() -> super::super::Foundation:: HANDLE);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("wnvapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn WnvRequestNotification(wnvhandle : super::super::Foundation:: HANDLE, notificationparam : *mut WNV_NOTIFICATION_PARAM, overlapped : *mut super::super::System::IO:: OVERLAPPED, bytestransferred : *mut u32) -> u32);
+::windows_targets::link!("wnvapi.dll" "system" fn WnvOpen() -> super::super::Foundation:: HANDLE);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("wnvapi.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn WnvRequestNotification(wnvhandle : super::super::Foundation:: HANDLE, notificationparam : *mut WNV_NOTIFICATION_PARAM, overlapped : *mut super::super::System::IO:: OVERLAPPED, bytestransferred : *mut u32) -> u32);
 pub const WNV_API_MAJOR_VERSION_1: u32 = 1u32;
 pub const WNV_API_MINOR_VERSION_0: u32 = 0u32;
 pub const WnvCustomerAddressAdded: WNV_CA_NOTIFICATION_TYPE = 0i32;

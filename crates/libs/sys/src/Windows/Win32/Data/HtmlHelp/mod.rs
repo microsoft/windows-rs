@@ -1,7 +1,5 @@
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("htmlhelp.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn HtmlHelpA(hwndcaller : super::super::Foundation:: HWND, pszfile : ::windows_sys::core::PCSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("htmlhelp.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn HtmlHelpW(hwndcaller : super::super::Foundation:: HWND, pszfile : ::windows_sys::core::PCWSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
+::windows_targets::link!("htmlhelp.dll" "system" fn HtmlHelpA(hwndcaller : super::super::Foundation:: HWND, pszfile : ::windows_sys::core::PCSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
+::windows_targets::link!("htmlhelp.dll" "system" fn HtmlHelpW(hwndcaller : super::super::Foundation:: HWND, pszfile : ::windows_sys::core::PCWSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
 pub type IITDatabase = *mut ::core::ffi::c_void;
 pub type IITPropList = *mut ::core::ffi::c_void;
 pub type IITResultSet = *mut ::core::ffi::c_void;
@@ -311,8 +309,6 @@ impl ::core::clone::Clone for COLUMNSTATUS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CProperty {
     pub dwPropID: u32,
     pub cbData: u32,
@@ -320,65 +316,57 @@ pub struct CProperty {
     pub Anonymous: CProperty_0,
     pub fPersist: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CProperty {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CProperty {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union CProperty_0 {
     pub lpszwData: ::windows_sys::core::PWSTR,
     pub lpvData: *mut ::core::ffi::c_void,
     pub dwValue: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CProperty_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CProperty_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[doc = "Required features: `\"Win32_UI_Controls\"`"]
+#[cfg(feature = "Win32_UI_Controls")]
 pub struct HHNTRACK {
     pub hdr: super::super::UI::Controls::NMHDR,
     pub pszCurUrl: ::windows_sys::core::PCSTR,
     pub idAction: i32,
     pub phhWinType: *mut HH_WINTYPE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[cfg(feature = "Win32_UI_Controls")]
 impl ::core::marker::Copy for HHNTRACK {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[cfg(feature = "Win32_UI_Controls")]
 impl ::core::clone::Clone for HHNTRACK {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[doc = "Required features: `\"Win32_UI_Controls\"`"]
+#[cfg(feature = "Win32_UI_Controls")]
 pub struct HHN_NOTIFY {
     pub hdr: super::super::UI::Controls::NMHDR,
     pub pszUrl: ::windows_sys::core::PCSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[cfg(feature = "Win32_UI_Controls")]
 impl ::core::marker::Copy for HHN_NOTIFY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[cfg(feature = "Win32_UI_Controls")]
 impl ::core::clone::Clone for HHN_NOTIFY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct HH_AKLINK {
     pub cbStruct: i32,
     pub fReserved: super::super::Foundation::BOOL,
@@ -389,9 +377,7 @@ pub struct HH_AKLINK {
     pub pszWindow: *mut i8,
     pub fIndexOnFail: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HH_AKLINK {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HH_AKLINK {
     fn clone(&self) -> Self {
         *self
@@ -424,8 +410,6 @@ impl ::core::clone::Clone for HH_ENUM_IT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct HH_FTS_QUERY {
     pub cbStruct: i32,
     pub fUniCodeStrings: super::super::Foundation::BOOL,
@@ -436,32 +420,28 @@ pub struct HH_FTS_QUERY {
     pub fExecute: super::super::Foundation::BOOL,
     pub pszWindow: *mut i8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HH_FTS_QUERY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HH_FTS_QUERY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct HH_GLOBAL_PROPERTY {
     pub id: HH_GPROPID,
     pub var: super::super::System::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for HH_GLOBAL_PROPERTY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for HH_GLOBAL_PROPERTY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct HH_POPUP {
     pub cbStruct: i32,
     pub hinst: super::super::Foundation::HINSTANCE,
@@ -473,9 +453,7 @@ pub struct HH_POPUP {
     pub rcMargins: super::super::Foundation::RECT,
     pub pszFont: *mut i8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HH_POPUP {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HH_POPUP {
     fn clone(&self) -> Self {
         *self
@@ -494,8 +472,6 @@ impl ::core::clone::Clone for HH_SET_INFOTYPE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct HH_WINTYPE {
     pub cbStruct: i32,
     pub fUniCodeStrings: super::super::Foundation::BOOL,
@@ -534,9 +510,7 @@ pub struct HH_WINTYPE {
     pub cbInfoTypes: i32,
     pub pszCustomTabs: *mut i8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HH_WINTYPE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HH_WINTYPE {
     fn clone(&self) -> Self {
         *self

@@ -1,6 +1,5 @@
 ::windows_targets::link!("msports.dll" "system" fn ComDBClaimNextFreePort(hcomdb : HCOMDB, comnumber : *mut u32) -> i32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msports.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ComDBClaimPort(hcomdb : HCOMDB, comnumber : u32, forceclaim : super::super::Foundation:: BOOL, forced : *mut super::super::Foundation:: BOOL) -> i32);
+::windows_targets::link!("msports.dll" "system" fn ComDBClaimPort(hcomdb : HCOMDB, comnumber : u32, forceclaim : super::super::Foundation:: BOOL, forced : *mut super::super::Foundation:: BOOL) -> i32);
 ::windows_targets::link!("msports.dll" "system" fn ComDBClose(hcomdb : HCOMDB) -> i32);
 ::windows_targets::link!("msports.dll" "system" fn ComDBGetCurrentPortUsage(hcomdb : HCOMDB, buffer : *mut u8, buffersize : u32, reporttype : u32, maxportsreported : *mut u32) -> i32);
 ::windows_targets::link!("msports.dll" "system" fn ComDBOpen(phcomdb : *mut HCOMDB) -> i32);
@@ -260,8 +259,6 @@ impl ::core::clone::Clone for SERIAL_QUEUE_SIZE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SERIAL_STATUS {
     pub Errors: u32,
     pub HoldReasons: u32,
@@ -270,9 +267,7 @@ pub struct SERIAL_STATUS {
     pub EofReceived: super::super::Foundation::BOOLEAN,
     pub WaitForImmediate: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERIAL_STATUS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERIAL_STATUS {
     fn clone(&self) -> Self {
         *self

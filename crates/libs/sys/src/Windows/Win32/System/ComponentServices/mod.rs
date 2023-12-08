@@ -551,8 +551,6 @@ impl ::core::clone::Clone for APPSTATISTICS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct ApplicationProcessRecycleInfo {
     pub IsRecyclable: super::super::Foundation::BOOL,
     pub IsRecycled: super::super::Foundation::BOOL,
@@ -569,9 +567,7 @@ pub struct ApplicationProcessRecycleInfo {
     pub CallLimit: u32,
     pub NumCallsLastReported: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ApplicationProcessRecycleInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ApplicationProcessRecycleInfo {
     fn clone(&self) -> Self {
         *self
@@ -595,8 +591,6 @@ impl ::core::clone::Clone for ApplicationProcessStatistics {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct ApplicationProcessSummary {
     pub PartitionIdPrimaryApplication: ::windows_sys::core::GUID,
     pub ApplicationIdPrimaryApplication: ::windows_sys::core::GUID,
@@ -608,9 +602,7 @@ pub struct ApplicationProcessSummary {
     pub IsPaused: super::super::Foundation::BOOL,
     pub IsRecycled: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ApplicationProcessSummary {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ApplicationProcessSummary {
     fn clone(&self) -> Self {
         *self
@@ -688,16 +680,12 @@ impl ::core::clone::Clone for COMSVCSEVENTINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct ComponentHangMonitorInfo {
     pub IsMonitored: super::super::Foundation::BOOL,
     pub TerminateOnHang: super::super::Foundation::BOOL,
     pub AvgCallThresholdInMs: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ComponentHangMonitorInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ComponentHangMonitorInfo {
     fn clone(&self) -> Self {
         *self
@@ -757,8 +745,6 @@ impl ::core::clone::Clone for CrmLogRecordRead {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct HANG_INFO {
     pub fAppHangMonitorEnabled: super::super::Foundation::BOOL,
     pub fTerminateOnHang: super::super::Foundation::BOOL,
@@ -767,9 +753,7 @@ pub struct HANG_INFO {
     pub dwDumpCount: u32,
     pub dwInfoMsgCount: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HANG_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HANG_INFO {
     fn clone(&self) -> Self {
         *self

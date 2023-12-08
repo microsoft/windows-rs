@@ -1,46 +1,46 @@
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn ChangeServiceConfig2A(hservice : super::super::Security:: SC_HANDLE, dwinfolevel : SERVICE_CONFIG, lpinfo : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn ChangeServiceConfig2W(hservice : super::super::Security:: SC_HANDLE, dwinfolevel : SERVICE_CONFIG, lpinfo : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn ChangeServiceConfigA(hservice : super::super::Security:: SC_HANDLE, dwservicetype : ENUM_SERVICE_TYPE, dwstarttype : SERVICE_START_TYPE, dwerrorcontrol : SERVICE_ERROR, lpbinarypathname : ::windows_sys::core::PCSTR, lploadordergroup : ::windows_sys::core::PCSTR, lpdwtagid : *mut u32, lpdependencies : ::windows_sys::core::PCSTR, lpservicestartname : ::windows_sys::core::PCSTR, lppassword : ::windows_sys::core::PCSTR, lpdisplayname : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn ChangeServiceConfigW(hservice : super::super::Security:: SC_HANDLE, dwservicetype : ENUM_SERVICE_TYPE, dwstarttype : SERVICE_START_TYPE, dwerrorcontrol : SERVICE_ERROR, lpbinarypathname : ::windows_sys::core::PCWSTR, lploadordergroup : ::windows_sys::core::PCWSTR, lpdwtagid : *mut u32, lpdependencies : ::windows_sys::core::PCWSTR, lpservicestartname : ::windows_sys::core::PCWSTR, lppassword : ::windows_sys::core::PCWSTR, lpdisplayname : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn CloseServiceHandle(hscobject : super::super::Security:: SC_HANDLE) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn ControlService(hservice : super::super::Security:: SC_HANDLE, dwcontrol : u32, lpservicestatus : *mut SERVICE_STATUS) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn ControlServiceExA(hservice : super::super::Security:: SC_HANDLE, dwcontrol : u32, dwinfolevel : u32, pcontrolparams : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn ControlServiceExW(hservice : super::super::Security:: SC_HANDLE, dwcontrol : u32, dwinfolevel : u32, pcontrolparams : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn ChangeServiceConfig2A(hservice : super::super::Security:: SC_HANDLE, dwinfolevel : SERVICE_CONFIG, lpinfo : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn ChangeServiceConfig2W(hservice : super::super::Security:: SC_HANDLE, dwinfolevel : SERVICE_CONFIG, lpinfo : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn ChangeServiceConfigA(hservice : super::super::Security:: SC_HANDLE, dwservicetype : ENUM_SERVICE_TYPE, dwstarttype : SERVICE_START_TYPE, dwerrorcontrol : SERVICE_ERROR, lpbinarypathname : ::windows_sys::core::PCSTR, lploadordergroup : ::windows_sys::core::PCSTR, lpdwtagid : *mut u32, lpdependencies : ::windows_sys::core::PCSTR, lpservicestartname : ::windows_sys::core::PCSTR, lppassword : ::windows_sys::core::PCSTR, lpdisplayname : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn ChangeServiceConfigW(hservice : super::super::Security:: SC_HANDLE, dwservicetype : ENUM_SERVICE_TYPE, dwstarttype : SERVICE_START_TYPE, dwerrorcontrol : SERVICE_ERROR, lpbinarypathname : ::windows_sys::core::PCWSTR, lploadordergroup : ::windows_sys::core::PCWSTR, lpdwtagid : *mut u32, lpdependencies : ::windows_sys::core::PCWSTR, lpservicestartname : ::windows_sys::core::PCWSTR, lppassword : ::windows_sys::core::PCWSTR, lpdisplayname : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn CloseServiceHandle(hscobject : super::super::Security:: SC_HANDLE) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn ControlService(hservice : super::super::Security:: SC_HANDLE, dwcontrol : u32, lpservicestatus : *mut SERVICE_STATUS) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn ControlServiceExA(hservice : super::super::Security:: SC_HANDLE, dwcontrol : u32, dwinfolevel : u32, pcontrolparams : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn ControlServiceExW(hservice : super::super::Security:: SC_HANDLE, dwcontrol : u32, dwinfolevel : u32, pcontrolparams : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn CreateServiceA(hscmanager : super::super::Security:: SC_HANDLE, lpservicename : ::windows_sys::core::PCSTR, lpdisplayname : ::windows_sys::core::PCSTR, dwdesiredaccess : u32, dwservicetype : ENUM_SERVICE_TYPE, dwstarttype : SERVICE_START_TYPE, dwerrorcontrol : SERVICE_ERROR, lpbinarypathname : ::windows_sys::core::PCSTR, lploadordergroup : ::windows_sys::core::PCSTR, lpdwtagid : *mut u32, lpdependencies : ::windows_sys::core::PCSTR, lpservicestartname : ::windows_sys::core::PCSTR, lppassword : ::windows_sys::core::PCSTR) -> super::super::Security:: SC_HANDLE);
 #[cfg(feature = "Win32_Security")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn CreateServiceW(hscmanager : super::super::Security:: SC_HANDLE, lpservicename : ::windows_sys::core::PCWSTR, lpdisplayname : ::windows_sys::core::PCWSTR, dwdesiredaccess : u32, dwservicetype : ENUM_SERVICE_TYPE, dwstarttype : SERVICE_START_TYPE, dwerrorcontrol : SERVICE_ERROR, lpbinarypathname : ::windows_sys::core::PCWSTR, lploadordergroup : ::windows_sys::core::PCWSTR, lpdwtagid : *mut u32, lpdependencies : ::windows_sys::core::PCWSTR, lpservicestartname : ::windows_sys::core::PCWSTR, lppassword : ::windows_sys::core::PCWSTR) -> super::super::Security:: SC_HANDLE);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn DeleteService(hservice : super::super::Security:: SC_HANDLE) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn EnumDependentServicesA(hservice : super::super::Security:: SC_HANDLE, dwservicestate : ENUM_SERVICE_STATE, lpservices : *mut ENUM_SERVICE_STATUSA, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn EnumDependentServicesW(hservice : super::super::Security:: SC_HANDLE, dwservicestate : ENUM_SERVICE_STATE, lpservices : *mut ENUM_SERVICE_STATUSW, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn EnumServicesStatusA(hscmanager : super::super::Security:: SC_HANDLE, dwservicetype : ENUM_SERVICE_TYPE, dwservicestate : ENUM_SERVICE_STATE, lpservices : *mut ENUM_SERVICE_STATUSA, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32, lpresumehandle : *mut u32) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn EnumServicesStatusExA(hscmanager : super::super::Security:: SC_HANDLE, infolevel : SC_ENUM_TYPE, dwservicetype : ENUM_SERVICE_TYPE, dwservicestate : ENUM_SERVICE_STATE, lpservices : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32, lpresumehandle : *mut u32, pszgroupname : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn EnumServicesStatusExW(hscmanager : super::super::Security:: SC_HANDLE, infolevel : SC_ENUM_TYPE, dwservicetype : ENUM_SERVICE_TYPE, dwservicestate : ENUM_SERVICE_STATE, lpservices : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32, lpresumehandle : *mut u32, pszgroupname : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn EnumServicesStatusW(hscmanager : super::super::Security:: SC_HANDLE, dwservicetype : ENUM_SERVICE_TYPE, dwservicestate : ENUM_SERVICE_STATE, lpservices : *mut ENUM_SERVICE_STATUSW, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32, lpresumehandle : *mut u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn DeleteService(hservice : super::super::Security:: SC_HANDLE) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn EnumDependentServicesA(hservice : super::super::Security:: SC_HANDLE, dwservicestate : ENUM_SERVICE_STATE, lpservices : *mut ENUM_SERVICE_STATUSA, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn EnumDependentServicesW(hservice : super::super::Security:: SC_HANDLE, dwservicestate : ENUM_SERVICE_STATE, lpservices : *mut ENUM_SERVICE_STATUSW, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn EnumServicesStatusA(hscmanager : super::super::Security:: SC_HANDLE, dwservicetype : ENUM_SERVICE_TYPE, dwservicestate : ENUM_SERVICE_STATE, lpservices : *mut ENUM_SERVICE_STATUSA, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32, lpresumehandle : *mut u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn EnumServicesStatusExA(hscmanager : super::super::Security:: SC_HANDLE, infolevel : SC_ENUM_TYPE, dwservicetype : ENUM_SERVICE_TYPE, dwservicestate : ENUM_SERVICE_STATE, lpservices : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32, lpresumehandle : *mut u32, pszgroupname : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn EnumServicesStatusExW(hscmanager : super::super::Security:: SC_HANDLE, infolevel : SC_ENUM_TYPE, dwservicetype : ENUM_SERVICE_TYPE, dwservicestate : ENUM_SERVICE_STATE, lpservices : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32, lpresumehandle : *mut u32, pszgroupname : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn EnumServicesStatusW(hscmanager : super::super::Security:: SC_HANDLE, dwservicetype : ENUM_SERVICE_TYPE, dwservicestate : ENUM_SERVICE_STATE, lpservices : *mut ENUM_SERVICE_STATUSW, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32, lpresumehandle : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("api-ms-win-service-core-l1-1-4.dll" "system" fn GetServiceDirectory(hservicestatus : SERVICE_STATUS_HANDLE, edirectorytype : SERVICE_DIRECTORY_TYPE, lppathbuffer : ::windows_sys::core::PWSTR, cchpathbufferlength : u32, lpcchrequiredbufferlength : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn GetServiceDisplayNameA(hscmanager : super::super::Security:: SC_HANDLE, lpservicename : ::windows_sys::core::PCSTR, lpdisplayname : ::windows_sys::core::PSTR, lpcchbuffer : *mut u32) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn GetServiceDisplayNameW(hscmanager : super::super::Security:: SC_HANDLE, lpservicename : ::windows_sys::core::PCWSTR, lpdisplayname : ::windows_sys::core::PWSTR, lpcchbuffer : *mut u32) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn GetServiceKeyNameA(hscmanager : super::super::Security:: SC_HANDLE, lpdisplayname : ::windows_sys::core::PCSTR, lpservicename : ::windows_sys::core::PSTR, lpcchbuffer : *mut u32) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn GetServiceKeyNameW(hscmanager : super::super::Security:: SC_HANDLE, lpdisplayname : ::windows_sys::core::PCWSTR, lpservicename : ::windows_sys::core::PWSTR, lpcchbuffer : *mut u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn GetServiceDisplayNameA(hscmanager : super::super::Security:: SC_HANDLE, lpservicename : ::windows_sys::core::PCSTR, lpdisplayname : ::windows_sys::core::PSTR, lpcchbuffer : *mut u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn GetServiceDisplayNameW(hscmanager : super::super::Security:: SC_HANDLE, lpservicename : ::windows_sys::core::PCWSTR, lpdisplayname : ::windows_sys::core::PWSTR, lpcchbuffer : *mut u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn GetServiceKeyNameA(hscmanager : super::super::Security:: SC_HANDLE, lpdisplayname : ::windows_sys::core::PCSTR, lpservicename : ::windows_sys::core::PSTR, lpcchbuffer : *mut u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn GetServiceKeyNameW(hscmanager : super::super::Security:: SC_HANDLE, lpdisplayname : ::windows_sys::core::PCWSTR, lpservicename : ::windows_sys::core::PWSTR, lpcchbuffer : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Registry")]
 ::windows_targets::link!("api-ms-win-service-core-l1-1-3.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn GetServiceRegistryStateKey(servicestatushandle : SERVICE_STATUS_HANDLE, statetype : SERVICE_REGISTRY_STATE_TYPE, accessmask : u32, servicestatekey : *mut super::Registry:: HKEY) -> u32);
 #[cfg(feature = "Win32_Security")]
@@ -49,8 +49,7 @@
 ::windows_targets::link!("api-ms-win-service-core-l1-1-5.dll" "system" #[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_Registry\"`"] fn GetSharedServiceRegistryStateKey(servicehandle : super::super::Security:: SC_HANDLE, statetype : SERVICE_SHARED_REGISTRY_STATE_TYPE, accessmask : u32, servicestatekey : *mut super::Registry:: HKEY) -> u32);
 #[cfg(feature = "Win32_Security")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn LockServiceDatabase(hscmanager : super::super::Security:: SC_HANDLE) -> *mut ::core::ffi::c_void);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn NotifyBootConfigStatus(bootacceptable : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn NotifyBootConfigStatus(bootacceptable : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn NotifyServiceStatusChangeA(hservice : super::super::Security:: SC_HANDLE, dwnotifymask : SERVICE_NOTIFY, pnotifybuffer : *const SERVICE_NOTIFY_2A) -> u32);
 #[cfg(feature = "Win32_Security")]
@@ -63,51 +62,45 @@
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn OpenServiceA(hscmanager : super::super::Security:: SC_HANDLE, lpservicename : ::windows_sys::core::PCSTR, dwdesiredaccess : u32) -> super::super::Security:: SC_HANDLE);
 #[cfg(feature = "Win32_Security")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn OpenServiceW(hscmanager : super::super::Security:: SC_HANDLE, lpservicename : ::windows_sys::core::PCWSTR, dwdesiredaccess : u32) -> super::super::Security:: SC_HANDLE);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn QueryServiceConfig2A(hservice : super::super::Security:: SC_HANDLE, dwinfolevel : SERVICE_CONFIG, lpbuffer : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn QueryServiceConfig2W(hservice : super::super::Security:: SC_HANDLE, dwinfolevel : SERVICE_CONFIG, lpbuffer : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn QueryServiceConfigA(hservice : super::super::Security:: SC_HANDLE, lpserviceconfig : *mut QUERY_SERVICE_CONFIGA, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn QueryServiceConfigW(hservice : super::super::Security:: SC_HANDLE, lpserviceconfig : *mut QUERY_SERVICE_CONFIGW, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn QueryServiceDynamicInformation(hservicestatus : SERVICE_STATUS_HANDLE, dwinfolevel : u32, ppdynamicinfo : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn QueryServiceLockStatusA(hscmanager : super::super::Security:: SC_HANDLE, lplockstatus : *mut QUERY_SERVICE_LOCK_STATUSA, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn QueryServiceLockStatusW(hscmanager : super::super::Security:: SC_HANDLE, lplockstatus : *mut QUERY_SERVICE_LOCK_STATUSW, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn QueryServiceObjectSecurity(hservice : super::super::Security:: SC_HANDLE, dwsecurityinformation : u32, lpsecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn QueryServiceStatus(hservice : super::super::Security:: SC_HANDLE, lpservicestatus : *mut SERVICE_STATUS) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn QueryServiceStatusEx(hservice : super::super::Security:: SC_HANDLE, infolevel : SC_STATUS_TYPE, lpbuffer : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn QueryServiceConfig2A(hservice : super::super::Security:: SC_HANDLE, dwinfolevel : SERVICE_CONFIG, lpbuffer : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn QueryServiceConfig2W(hservice : super::super::Security:: SC_HANDLE, dwinfolevel : SERVICE_CONFIG, lpbuffer : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn QueryServiceConfigA(hservice : super::super::Security:: SC_HANDLE, lpserviceconfig : *mut QUERY_SERVICE_CONFIGA, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn QueryServiceConfigW(hservice : super::super::Security:: SC_HANDLE, lpserviceconfig : *mut QUERY_SERVICE_CONFIGW, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn QueryServiceDynamicInformation(hservicestatus : SERVICE_STATUS_HANDLE, dwinfolevel : u32, ppdynamicinfo : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn QueryServiceLockStatusA(hscmanager : super::super::Security:: SC_HANDLE, lplockstatus : *mut QUERY_SERVICE_LOCK_STATUSA, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn QueryServiceLockStatusW(hscmanager : super::super::Security:: SC_HANDLE, lplockstatus : *mut QUERY_SERVICE_LOCK_STATUSW, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn QueryServiceObjectSecurity(hservice : super::super::Security:: SC_HANDLE, dwsecurityinformation : u32, lpsecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn QueryServiceStatus(hservice : super::super::Security:: SC_HANDLE, lpservicestatus : *mut SERVICE_STATUS) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn QueryServiceStatusEx(hservice : super::super::Security:: SC_HANDLE, infolevel : SC_STATUS_TYPE, lpbuffer : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerA(lpservicename : ::windows_sys::core::PCSTR, lphandlerproc : LPHANDLER_FUNCTION) -> SERVICE_STATUS_HANDLE);
 ::windows_targets::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerExA(lpservicename : ::windows_sys::core::PCSTR, lphandlerproc : LPHANDLER_FUNCTION_EX, lpcontext : *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE);
 ::windows_targets::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerExW(lpservicename : ::windows_sys::core::PCWSTR, lphandlerproc : LPHANDLER_FUNCTION_EX, lpcontext : *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE);
 ::windows_targets::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerW(lpservicename : ::windows_sys::core::PCWSTR, lphandlerproc : LPHANDLER_FUNCTION) -> SERVICE_STATUS_HANDLE);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetServiceBits(hservicestatus : SERVICE_STATUS_HANDLE, dwservicebits : u32, bsetbitson : super::super::Foundation:: BOOL, bupdateimmediately : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn SetServiceObjectSecurity(hservice : super::super::Security:: SC_HANDLE, dwsecurityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, lpsecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetServiceStatus(hservicestatus : SERVICE_STATUS_HANDLE, lpservicestatus : *const SERVICE_STATUS) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn StartServiceA(hservice : super::super::Security:: SC_HANDLE, dwnumserviceargs : u32, lpserviceargvectors : *const ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn StartServiceCtrlDispatcherA(lpservicestarttable : *const SERVICE_TABLE_ENTRYA) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn StartServiceCtrlDispatcherW(lpservicestarttable : *const SERVICE_TABLE_ENTRYW) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn StartServiceW(hservice : super::super::Security:: SC_HANDLE, dwnumserviceargs : u32, lpserviceargvectors : *const ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn SetServiceBits(hservicestatus : SERVICE_STATUS_HANDLE, dwservicebits : u32, bsetbitson : super::super::Foundation:: BOOL, bupdateimmediately : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn SetServiceObjectSecurity(hservice : super::super::Security:: SC_HANDLE, dwsecurityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, lpsecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn SetServiceStatus(hservicestatus : SERVICE_STATUS_HANDLE, lpservicestatus : *const SERVICE_STATUS) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn StartServiceA(hservice : super::super::Security:: SC_HANDLE, dwnumserviceargs : u32, lpserviceargvectors : *const ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn StartServiceCtrlDispatcherA(lpservicestarttable : *const SERVICE_TABLE_ENTRYA) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn StartServiceCtrlDispatcherW(lpservicestarttable : *const SERVICE_TABLE_ENTRYW) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn StartServiceW(hservice : super::super::Security:: SC_HANDLE, dwnumserviceargs : u32, lpserviceargvectors : *const ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security")]
 ::windows_targets::link!("sechost.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn SubscribeServiceChangeNotifications(hservice : super::super::Security:: SC_HANDLE, eeventtype : SC_EVENT_TYPE, pcallback : PSC_NOTIFICATION_CALLBACK, pcallbackcontext : *const ::core::ffi::c_void, psubscription : *mut PSC_NOTIFICATION_REGISTRATION) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UnlockServiceDatabase(sclock : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn UnlockServiceDatabase(sclock : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("sechost.dll" "system" fn UnsubscribeServiceChangeNotifications(psubscription : PSC_NOTIFICATION_REGISTRATION));
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn WaitServiceState(hservice : super::super::Security:: SC_HANDLE, dwnotify : u32, dwtimeout : u32, hcancelevent : super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn WaitServiceState(hservice : super::super::Security:: SC_HANDLE, dwnotify : u32, dwtimeout : u32, hcancelevent : super::super::Foundation:: HANDLE) -> u32);
 pub const CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2d7a2816_0c5e_45fc_9ce7_570e5ecde9c9);
 pub const DOMAIN_JOIN_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1ce20aba_9851_4421_9430_1ddeb766e809);
 pub const DOMAIN_LEAVE_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xddaf516e_58c2_4866_9574_c3b615d42ea1);
@@ -517,14 +510,10 @@ impl ::core::clone::Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_DELAYED_AUTO_START_INFO {
     pub fDelayedAutostart: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVICE_DELAYED_AUTO_START_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERVICE_DELAYED_AUTO_START_INFO {
     fn clone(&self) -> Self {
         *self
@@ -579,14 +568,10 @@ impl ::core::clone::Clone for SERVICE_FAILURE_ACTIONSW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_FAILURE_ACTIONS_FLAG {
     pub fFailureActionsOnNonCrashFailures: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVICE_FAILURE_ACTIONS_FLAG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERVICE_FAILURE_ACTIONS_FLAG {
     fn clone(&self) -> Self {
         *self
@@ -649,15 +634,11 @@ impl ::core::clone::Clone for SERVICE_NOTIFY_2W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_PREFERRED_NODE_INFO {
     pub usPreferredNode: u16,
     pub fDelete: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVICE_PREFERRED_NODE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERVICE_PREFERRED_NODE_INFO {
     fn clone(&self) -> Self {
         *self

@@ -20,8 +20,7 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathLine2(path : *mut GpPath, points : *const PointF, count : i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathLine2I(path : *mut GpPath, points : *const Point, count : i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathLineI(path : *mut GpPath, x1 : i32, y1 : i32, x2 : i32, y2 : i32) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipAddPathPath(path : *mut GpPath, addingpath : *const GpPath, connect : super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathPath(path : *mut GpPath, addingpath : *const GpPath, connect : super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathPie(path : *mut GpPath, x : f32, y : f32, width : f32, height : f32, startangle : f32, sweepangle : f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathPieI(path : *mut GpPath, x : i32, y : i32, width : i32, height : i32, startangle : f32, sweepangle : f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathPolygon(path : *mut GpPath, points : *const PointF, count : i32) -> Status);
@@ -36,11 +35,9 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipBeginContainer(graphics : *mut GpGraphics, dstrect : *const RectF, srcrect : *const RectF, unit : Unit, state : *mut u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipBeginContainer2(graphics : *mut GpGraphics, state : *mut u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipBeginContainerI(graphics : *mut GpGraphics, dstrect : *const Rect, srcrect : *const Rect, unit : Unit, state : *mut u32) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipBitmapApplyEffect(bitmap : *mut GpBitmap, effect : *mut CGpEffect, roi : *mut super::super::Foundation:: RECT, useauxdata : super::super::Foundation:: BOOL, auxdata : *mut *mut ::core::ffi::c_void, auxdatasize : *mut i32) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapApplyEffect(bitmap : *mut GpBitmap, effect : *mut CGpEffect, roi : *mut super::super::Foundation:: RECT, useauxdata : super::super::Foundation:: BOOL, auxdata : *mut *mut ::core::ffi::c_void, auxdatasize : *mut i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapConvertFormat(pinputbitmap : *mut GpBitmap, format : i32, dithertype : DitherType, palettetype : PaletteType, palette : *mut ColorPalette, alphathresholdpercent : f32) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipBitmapCreateApplyEffect(inputbitmaps : *mut *mut GpBitmap, numinputs : i32, effect : *mut CGpEffect, roi : *mut super::super::Foundation:: RECT, outputrect : *mut super::super::Foundation:: RECT, outputbitmap : *mut *mut GpBitmap, useauxdata : super::super::Foundation:: BOOL, auxdata : *mut *mut ::core::ffi::c_void, auxdatasize : *mut i32) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapCreateApplyEffect(inputbitmaps : *mut *mut GpBitmap, numinputs : i32, effect : *mut CGpEffect, roi : *mut super::super::Foundation:: RECT, outputrect : *mut super::super::Foundation:: RECT, outputbitmap : *mut *mut GpBitmap, useauxdata : super::super::Foundation:: BOOL, auxdata : *mut *mut ::core::ffi::c_void, auxdatasize : *mut i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapGetHistogram(bitmap : *mut GpBitmap, format : HistogramFormat, numberofentries : u32, channel0 : *mut u32, channel1 : *mut u32, channel2 : *mut u32, channel3 : *mut u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapGetHistogramSize(format : HistogramFormat, numberofentries : *mut u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapGetPixel(bitmap : *mut GpBitmap, x : i32, y : i32, color : *mut u32) -> Status);
@@ -73,8 +70,7 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlusToFile(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, filename : ::windows_sys::core::PCWSTR, emftype : EmfType, description : ::windows_sys::core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn GdipConvertToEmfPlusToStream(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, stream : super::super::System::Com:: IStream, emftype : EmfType, description : ::windows_sys::core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipCreateAdjustableArrowCap(height : f32, width : f32, isfilled : super::super::Foundation:: BOOL, cap : *mut *mut GpAdjustableArrowCap) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateAdjustableArrowCap(height : f32, width : f32, isfilled : super::super::Foundation:: BOOL, cap : *mut *mut GpAdjustableArrowCap) -> Status);
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"] fn GdipCreateBitmapFromDirectDrawSurface(surface : super::DirectDraw:: IDirectDrawSurface7, bitmap : *mut *mut GpBitmap) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromFile(filename : ::windows_sys::core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
@@ -86,8 +82,7 @@
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipCreateBitmapFromHBITMAP(hbm : super::Gdi:: HBITMAP, hpal : super::Gdi:: HPALETTE, bitmap : *mut *mut GpBitmap) -> Status);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn GdipCreateBitmapFromHICON(hicon : super::super::UI::WindowsAndMessaging:: HICON, bitmap : *mut *mut GpBitmap) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipCreateBitmapFromResource(hinstance : super::super::Foundation:: HINSTANCE, lpbitmapname : ::windows_sys::core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromResource(hinstance : super::super::Foundation:: HINSTANCE, lpbitmapname : ::windows_sys::core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromScan0(width : i32, height : i32, stride : i32, format : i32, scan0 : *const u8, bitmap : *mut *mut GpBitmap) -> Status);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn GdipCreateBitmapFromStream(stream : super::super::System::Com:: IStream, bitmap : *mut *mut GpBitmap) -> Status);
@@ -106,12 +101,10 @@
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipCreateFontFromLogfontW(hdc : super::Gdi:: HDC, logfont : *const super::Gdi:: LOGFONTW, font : *mut *mut GpFont) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipCreateFromHDC(hdc : super::Gdi:: HDC, graphics : *mut *mut GpGraphics) -> Status);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn GdipCreateFromHDC2(hdc : super::Gdi:: HDC, hdevice : super::super::Foundation:: HANDLE, graphics : *mut *mut GpGraphics) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipCreateFromHWND(hwnd : super::super::Foundation:: HWND, graphics : *mut *mut GpGraphics) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipCreateFromHWNDICM(hwnd : super::super::Foundation:: HWND, graphics : *mut *mut GpGraphics) -> Status);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipCreateFromHDC2(hdc : super::Gdi:: HDC, hdevice : super::super::Foundation:: HANDLE, graphics : *mut *mut GpGraphics) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFromHWND(hwnd : super::super::Foundation:: HWND, graphics : *mut *mut GpGraphics) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFromHWNDICM(hwnd : super::super::Foundation:: HWND, graphics : *mut *mut GpGraphics) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipCreateHBITMAPFromBitmap(bitmap : *mut GpBitmap, hbmreturn : *mut super::Gdi:: HBITMAP, background : u32) -> Status);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -123,22 +116,20 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrush(point1 : *const PointF, point2 : *const PointF, color1 : u32, color2 : u32, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrushFromRect(rect : *const RectF, color1 : u32, color2 : u32, mode : LinearGradientMode, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrushFromRectI(rect : *const Rect, color1 : u32, color2 : u32, mode : LinearGradientMode, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipCreateLineBrushFromRectWithAngle(rect : *const RectF, color1 : u32, color2 : u32, angle : f32, isanglescalable : super::super::Foundation:: BOOL, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipCreateLineBrushFromRectWithAngleI(rect : *const Rect, color1 : u32, color2 : u32, angle : f32, isanglescalable : super::super::Foundation:: BOOL, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrushFromRectWithAngle(rect : *const RectF, color1 : u32, color2 : u32, angle : f32, isanglescalable : super::super::Foundation:: BOOL, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrushFromRectWithAngleI(rect : *const Rect, color1 : u32, color2 : u32, angle : f32, isanglescalable : super::super::Foundation:: BOOL, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrushI(point1 : *const Point, point2 : *const Point, color1 : u32, color2 : u32, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMatrix(matrix : *mut *mut Matrix) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMatrix2(m11 : f32, m12 : f32, m21 : f32, m22 : f32, dx : f32, dy : f32, matrix : *mut *mut Matrix) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMatrix3(rect : *const RectF, dstplg : *const PointF, matrix : *mut *mut Matrix) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMatrix3I(rect : *const Rect, dstplg : *const Point, matrix : *mut *mut Matrix) -> Status);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn GdipCreateMetafileFromEmf(hemf : super::Gdi:: HENHMETAFILE, deleteemf : super::super::Foundation:: BOOL, metafile : *mut *mut GpMetafile) -> Status);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipCreateMetafileFromEmf(hemf : super::Gdi:: HENHMETAFILE, deleteemf : super::super::Foundation:: BOOL, metafile : *mut *mut GpMetafile) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromFile(file : ::windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn GdipCreateMetafileFromStream(stream : super::super::System::Com:: IStream, metafile : *mut *mut GpMetafile) -> Status);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn GdipCreateMetafileFromWmf(hwmf : super::Gdi:: HMETAFILE, deletewmf : super::super::Foundation:: BOOL, wmfplaceablefileheader : *const WmfPlaceableFileHeader, metafile : *mut *mut GpMetafile) -> Status);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipCreateMetafileFromWmf(hwmf : super::Gdi:: HMETAFILE, deletewmf : super::super::Foundation:: BOOL, wmfplaceablefileheader : *const WmfPlaceableFileHeader, metafile : *mut *mut GpMetafile) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromWmfFile(file : ::windows_sys::core::PCWSTR, wmfplaceablefileheader : *const WmfPlaceableFileHeader, metafile : *mut *mut GpMetafile) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePath(brushmode : FillMode, path : *mut *mut GpPath) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePath2(param0 : *const PointF, param1 : *const u8, param2 : i32, param3 : FillMode, path : *mut *mut GpPath) -> Status);
@@ -266,8 +257,7 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipFlattenPath(path : *mut GpPath, matrix : *mut Matrix, flatness : f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipFlush(graphics : *mut GpGraphics, intention : FlushIntention) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipFree(ptr : *mut ::core::ffi::c_void));
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipGetAdjustableArrowCapFillState(cap : *mut GpAdjustableArrowCap, fillstate : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipGetAdjustableArrowCapFillState(cap : *mut GpAdjustableArrowCap, fillstate : *mut super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetAdjustableArrowCapHeight(cap : *mut GpAdjustableArrowCap, height : *mut f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetAdjustableArrowCapMiddleInset(cap : *mut GpAdjustableArrowCap, middleinset : *mut f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetAdjustableArrowCapWidth(cap : *mut GpAdjustableArrowCap, width : *mut f32) -> Status);
@@ -336,8 +326,7 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineBlend(brush : *mut GpLineGradient, blend : *mut f32, positions : *mut f32, count : i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineBlendCount(brush : *mut GpLineGradient, count : *mut i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineColors(brush : *mut GpLineGradient, colors : *mut u32) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipGetLineGammaCorrection(brush : *mut GpLineGradient, usegammacorrection : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineGammaCorrection(brush : *mut GpLineGradient, usegammacorrection : *mut super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLinePresetBlend(brush : *mut GpLineGradient, blend : *mut u32, positions : *mut f32, count : i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLinePresetBlendCount(brush : *mut GpLineGradient, count : *mut i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineRect(brush : *mut GpLineGradient, rect : *mut RectF) -> Status);
@@ -351,16 +340,16 @@
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipGetLogFontW(font : *mut GpFont, graphics : *mut GpGraphics, logfontw : *mut super::Gdi:: LOGFONTW) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetMatrixElements(matrix : *const Matrix, matrixout : *mut f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileDownLevelRasterizationLimit(metafile : *const GpMetafile, metafilerasterizationlimitdpi : *mut u32) -> Status);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn GdipGetMetafileHeaderFromEmf(hemf : super::Gdi:: HENHMETAFILE, header : *mut MetafileHeader) -> Status);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn GdipGetMetafileHeaderFromFile(filename : ::windows_sys::core::PCWSTR, header : *mut MetafileHeader) -> Status);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn GdipGetMetafileHeaderFromMetafile(metafile : *mut GpMetafile, header : *mut MetafileHeader) -> Status);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"] fn GdipGetMetafileHeaderFromStream(stream : super::super::System::Com:: IStream, header : *mut MetafileHeader) -> Status);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn GdipGetMetafileHeaderFromWmf(hwmf : super::Gdi:: HMETAFILE, wmfplaceablefileheader : *const WmfPlaceableFileHeader, header : *mut MetafileHeader) -> Status);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipGetMetafileHeaderFromEmf(hemf : super::Gdi:: HENHMETAFILE, header : *mut MetafileHeader) -> Status);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipGetMetafileHeaderFromFile(filename : ::windows_sys::core::PCWSTR, header : *mut MetafileHeader) -> Status);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipGetMetafileHeaderFromMetafile(metafile : *mut GpMetafile, header : *mut MetafileHeader) -> Status);
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"] fn GdipGetMetafileHeaderFromStream(stream : super::super::System::Com:: IStream, header : *mut MetafileHeader) -> Status);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipGetMetafileHeaderFromWmf(hwmf : super::Gdi:: HMETAFILE, wmfplaceablefileheader : *const WmfPlaceableFileHeader, header : *mut MetafileHeader) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetNearestColor(graphics : *mut GpGraphics, argb : *mut u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPageScale(graphics : *mut GpGraphics, scale : *mut f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPageUnit(graphics : *mut GpGraphics, unit : *mut Unit) -> Status);
@@ -372,8 +361,7 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientCenterPoint(brush : *mut GpPathGradient, points : *mut PointF) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientCenterPointI(brush : *mut GpPathGradient, points : *mut Point) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientFocusScales(brush : *mut GpPathGradient, xscale : *mut f32, yscale : *mut f32) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipGetPathGradientGammaCorrection(brush : *mut GpPathGradient, usegammacorrection : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientGammaCorrection(brush : *mut GpPathGradient, usegammacorrection : *mut super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientPath(brush : *mut GpPathGradient, path : *mut GpPath) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientPointCount(brush : *mut GpPathGradient, count : *mut i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientPresetBlend(brush : *mut GpPathGradient, blend : *mut u32, positions : *mut f32, count : i32) -> Status);
@@ -455,51 +443,29 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageRotateFlip(image : *mut GpImage, rftype : RotateFlipType) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageSelectActiveFrame(image : *mut GpImage, dimensionid : *const ::windows_sys::core::GUID, frameindex : u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageSetAbort(pimage : *mut GpImage, piabort : GdiplusAbort) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipInitializePalette(palette : *mut ColorPalette, palettetype : PaletteType, optimalcolors : i32, usetransparentcolor : super::super::Foundation:: BOOL, bitmap : *mut GpBitmap) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipInitializePalette(palette : *mut ColorPalette, palettetype : PaletteType, optimalcolors : i32, usetransparentcolor : super::super::Foundation:: BOOL, bitmap : *mut GpBitmap) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipInvertMatrix(matrix : *mut Matrix) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsClipEmpty(graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsEmptyRegion(region : *mut GpRegion, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsEqualRegion(region : *mut GpRegion, region2 : *mut GpRegion, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsInfiniteRegion(region : *mut GpRegion, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsMatrixEqual(matrix : *const Matrix, matrix2 : *const Matrix, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsMatrixIdentity(matrix : *const Matrix, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsMatrixInvertible(matrix : *const Matrix, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsOutlineVisiblePathPoint(path : *mut GpPath, x : f32, y : f32, pen : *mut GpPen, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsOutlineVisiblePathPointI(path : *mut GpPath, x : i32, y : i32, pen : *mut GpPen, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsStyleAvailable(family : *const GpFontFamily, style : i32, isstyleavailable : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsVisibleClipEmpty(graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsVisiblePathPoint(path : *mut GpPath, x : f32, y : f32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsVisiblePathPointI(path : *mut GpPath, x : i32, y : i32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsVisiblePoint(graphics : *mut GpGraphics, x : f32, y : f32, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsVisiblePointI(graphics : *mut GpGraphics, x : i32, y : i32, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsVisibleRect(graphics : *mut GpGraphics, x : f32, y : f32, width : f32, height : f32, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsVisibleRectI(graphics : *mut GpGraphics, x : i32, y : i32, width : i32, height : i32, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsVisibleRegionPoint(region : *mut GpRegion, x : f32, y : f32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsVisibleRegionPointI(region : *mut GpRegion, x : i32, y : i32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsVisibleRegionRect(region : *mut GpRegion, x : f32, y : f32, width : f32, height : f32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipIsVisibleRegionRectI(region : *mut GpRegion, x : i32, y : i32, width : i32, height : i32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsClipEmpty(graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsEmptyRegion(region : *mut GpRegion, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsEqualRegion(region : *mut GpRegion, region2 : *mut GpRegion, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsInfiniteRegion(region : *mut GpRegion, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsMatrixEqual(matrix : *const Matrix, matrix2 : *const Matrix, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsMatrixIdentity(matrix : *const Matrix, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsMatrixInvertible(matrix : *const Matrix, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsOutlineVisiblePathPoint(path : *mut GpPath, x : f32, y : f32, pen : *mut GpPen, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsOutlineVisiblePathPointI(path : *mut GpPath, x : i32, y : i32, pen : *mut GpPen, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsStyleAvailable(family : *const GpFontFamily, style : i32, isstyleavailable : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleClipEmpty(graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisiblePathPoint(path : *mut GpPath, x : f32, y : f32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisiblePathPointI(path : *mut GpPath, x : i32, y : i32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisiblePoint(graphics : *mut GpGraphics, x : f32, y : f32, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisiblePointI(graphics : *mut GpGraphics, x : i32, y : i32, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRect(graphics : *mut GpGraphics, x : f32, y : f32, width : f32, height : f32, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRectI(graphics : *mut GpGraphics, x : i32, y : i32, width : i32, height : i32, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRegionPoint(region : *mut GpRegion, x : f32, y : f32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRegionPointI(region : *mut GpRegion, x : i32, y : i32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRegionRect(region : *mut GpRegion, x : f32, y : f32, width : f32, height : f32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRegionRectI(region : *mut GpRegion, x : i32, y : i32, width : i32, height : i32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromFile(filename : ::windows_sys::core::PCWSTR, image : *mut *mut GpImage) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromFileICM(filename : ::windows_sys::core::PCWSTR, image : *mut *mut GpImage) -> Status);
 #[cfg(feature = "Win32_System_Com")]
@@ -521,17 +487,13 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterEnumerate(iterator : *mut GpPathIterator, resultcount : *mut i32, points : *mut PointF, types : *mut u8, count : i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterGetCount(iterator : *mut GpPathIterator, count : *mut i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterGetSubpathCount(iterator : *mut GpPathIterator, count : *mut i32) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipPathIterHasCurve(iterator : *mut GpPathIterator, hascurve : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipPathIterIsValid(iterator : *mut GpPathIterator, valid : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterHasCurve(iterator : *mut GpPathIterator, hascurve : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterIsValid(iterator : *mut GpPathIterator, valid : *mut super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterNextMarker(iterator : *mut GpPathIterator, resultcount : *mut i32, startindex : *mut i32, endindex : *mut i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterNextMarkerPath(iterator : *mut GpPathIterator, resultcount : *mut i32, path : *mut GpPath) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterNextPathType(iterator : *mut GpPathIterator, resultcount : *mut i32, pathtype : *mut u8, startindex : *mut i32, endindex : *mut i32) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipPathIterNextSubpath(iterator : *mut GpPathIterator, resultcount : *mut i32, startindex : *mut i32, endindex : *mut i32, isclosed : *mut super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipPathIterNextSubpathPath(iterator : *mut GpPathIterator, resultcount : *mut i32, path : *mut GpPath, isclosed : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterNextSubpath(iterator : *mut GpPathIterator, resultcount : *mut i32, startindex : *mut i32, endindex : *mut i32, isclosed : *mut super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterNextSubpathPath(iterator : *mut GpPathIterator, resultcount : *mut i32, path : *mut GpPath, isclosed : *mut super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterRewind(iterator : *mut GpPathIterator) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipPlayMetafileRecord(metafile : *const GpMetafile, recordtype : EmfPlusRecordType, flags : u32, datasize : u32, data : *const u8) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipPrivateAddFontFile(fontcollection : *mut GpFontCollection, filename : ::windows_sys::core::PCWSTR) -> Status);
@@ -580,8 +542,7 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipScalePenTransform(pen : *mut GpPen, sx : f32, sy : f32, order : MatrixOrder) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipScaleTextureTransform(brush : *mut GpTexture, sx : f32, sy : f32, order : MatrixOrder) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipScaleWorldTransform(graphics : *mut GpGraphics, sx : f32, sy : f32, order : MatrixOrder) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipSetAdjustableArrowCapFillState(cap : *mut GpAdjustableArrowCap, fillstate : super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipSetAdjustableArrowCapFillState(cap : *mut GpAdjustableArrowCap, fillstate : super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetAdjustableArrowCapHeight(cap : *mut GpAdjustableArrowCap, height : f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetAdjustableArrowCapMiddleInset(cap : *mut GpAdjustableArrowCap, middleinset : f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetAdjustableArrowCapWidth(cap : *mut GpAdjustableArrowCap, width : f32) -> Status);
@@ -601,34 +562,23 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetCustomLineCapWidthScale(customcap : *mut GpCustomLineCap, widthscale : f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetEffectParameters(effect : *mut CGpEffect, params : *const ::core::ffi::c_void, size : u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetEmpty(region : *mut GpRegion) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipSetImageAttributesCachedBackground(imageattr : *mut GpImageAttributes, enableflag : super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipSetImageAttributesColorKeys(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, colorlow : u32, colorhigh : u32) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipSetImageAttributesColorMatrix(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, colormatrix : *const ColorMatrix, graymatrix : *const ColorMatrix, flags : ColorMatrixFlags) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipSetImageAttributesGamma(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, gamma : f32) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipSetImageAttributesNoOp(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipSetImageAttributesOutputChannel(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, channelflags : ColorChannelFlags) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipSetImageAttributesOutputChannelColorProfile(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, colorprofilefilename : ::windows_sys::core::PCWSTR) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipSetImageAttributesRemapTable(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, mapsize : u32, map : *const ColorMap) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipSetImageAttributesThreshold(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, threshold : f32) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesCachedBackground(imageattr : *mut GpImageAttributes, enableflag : super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesColorKeys(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, colorlow : u32, colorhigh : u32) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesColorMatrix(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, colormatrix : *const ColorMatrix, graymatrix : *const ColorMatrix, flags : ColorMatrixFlags) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesGamma(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, gamma : f32) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesNoOp(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesOutputChannel(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, channelflags : ColorChannelFlags) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesOutputChannelColorProfile(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, colorprofilefilename : ::windows_sys::core::PCWSTR) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesRemapTable(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, mapsize : u32, map : *const ColorMap) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesThreshold(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, threshold : f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesToIdentity(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipSetImageAttributesWrapMode(imageattr : *mut GpImageAttributes, wrap : WrapMode, argb : u32, clamp : super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesWrapMode(imageattr : *mut GpImageAttributes, wrap : WrapMode, argb : u32, clamp : super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImagePalette(image : *mut GpImage, palette : *const ColorPalette) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetInfinite(region : *mut GpRegion) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetInterpolationMode(graphics : *mut GpGraphics, interpolationmode : InterpolationMode) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineBlend(brush : *mut GpLineGradient, blend : *const f32, positions : *const f32, count : i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineColors(brush : *mut GpLineGradient, color1 : u32, color2 : u32) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipSetLineGammaCorrection(brush : *mut GpLineGradient, usegammacorrection : super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineGammaCorrection(brush : *mut GpLineGradient, usegammacorrection : super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineLinearBlend(brush : *mut GpLineGradient, focus : f32, scale : f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetLinePresetBlend(brush : *mut GpLineGradient, blend : *const u32, positions : *const f32, count : i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineSigmaBlend(brush : *mut GpLineGradient, focus : f32, scale : f32) -> Status);
@@ -644,8 +594,7 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientCenterPoint(brush : *mut GpPathGradient, points : *const PointF) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientCenterPointI(brush : *mut GpPathGradient, points : *const Point) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientFocusScales(brush : *mut GpPathGradient, xscale : f32, yscale : f32) -> Status);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdipSetPathGradientGammaCorrection(brush : *mut GpPathGradient, usegammacorrection : super::super::Foundation:: BOOL) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientGammaCorrection(brush : *mut GpPathGradient, usegammacorrection : super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientLinearBlend(brush : *mut GpPathGradient, focus : f32, scale : f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientPath(brush : *mut GpPathGradient, path : *const GpPath) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientPresetBlend(brush : *mut GpPathGradient, blend : *const u32, positions : *const f32, count : i32) -> Status);
@@ -719,8 +668,7 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdiplusNotificationHook(token : *mut usize) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdiplusNotificationUnhook(token : usize));
 ::windows_targets::link!("gdiplus.dll" "system" fn GdiplusShutdown(token : usize));
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GdiplusStartup(token : *mut usize, input : *const GdiplusStartupInput, output : *mut GdiplusStartupOutput) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdiplusStartup(token : *mut usize, input : *const GdiplusStartupInput, output : *mut GdiplusStartupOutput) -> Status);
 pub type GdiplusAbort = *mut ::core::ffi::c_void;
 pub type IImageBytes = *mut ::core::ffi::c_void;
 pub const ALPHA_SHIFT: u32 = 24u32;
@@ -1799,43 +1747,31 @@ impl ::core::clone::Clone for BitmapData {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct Blur {
     pub Base: Effect,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for Blur {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for Blur {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct BlurParams {
     pub radius: f32,
     pub expandEdge: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for BlurParams {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BlurParams {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct BrightnessContrast {
     pub Base: Effect,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for BrightnessContrast {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BrightnessContrast {
     fn clone(&self) -> Self {
         *self
@@ -2027,14 +1963,10 @@ impl ::core::clone::Clone for Color {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct ColorBalance {
     pub Base: Effect,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ColorBalance {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ColorBalance {
     fn clone(&self) -> Self {
         *self
@@ -2053,14 +1985,10 @@ impl ::core::clone::Clone for ColorBalanceParams {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct ColorCurve {
     pub Base: Effect,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ColorCurve {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ColorCurve {
     fn clone(&self) -> Self {
         *self
@@ -2079,14 +2007,10 @@ impl ::core::clone::Clone for ColorCurveParams {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct ColorLUT {
     pub Base: Effect,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ColorLUT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ColorLUT {
     fn clone(&self) -> Self {
         *self
@@ -2127,14 +2051,10 @@ impl ::core::clone::Clone for ColorMatrix {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct ColorMatrixEffect {
     pub Base: Effect,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ColorMatrixEffect {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ColorMatrixEffect {
     fn clone(&self) -> Self {
         *self
@@ -2154,8 +2074,6 @@ impl ::core::clone::Clone for ColorPalette {
 }
 pub type CustomLineCap = isize;
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct ENHMETAHEADER3 {
     pub iType: u32,
     pub nSize: u32,
@@ -2173,17 +2091,13 @@ pub struct ENHMETAHEADER3 {
     pub szlDevice: super::super::Foundation::SIZE,
     pub szlMillimeters: super::super::Foundation::SIZE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENHMETAHEADER3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ENHMETAHEADER3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct Effect {
     pub lpVtbl: *mut *mut ::core::ffi::c_void,
     pub nativeEffect: *mut CGpEffect,
@@ -2191,9 +2105,7 @@ pub struct Effect {
     pub auxData: *mut ::core::ffi::c_void,
     pub useAuxData: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for Effect {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for Effect {
     fn clone(&self) -> Self {
         *self
@@ -2227,32 +2139,24 @@ pub type Font = isize;
 pub type FontCollection = isize;
 pub type FontFamily = isize;
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GdiplusStartupInput {
     pub GdiplusVersion: u32,
     pub DebugEventCallback: isize,
     pub SuppressBackgroundThread: super::super::Foundation::BOOL,
     pub SuppressExternalCodecs: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GdiplusStartupInput {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GdiplusStartupInput {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct GdiplusStartupInputEx {
     pub Base: GdiplusStartupInput,
     pub StartupParameters: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GdiplusStartupInputEx {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GdiplusStartupInputEx {
     fn clone(&self) -> Self {
         *self
@@ -2294,14 +2198,10 @@ pub type GpSolidFill = isize;
 pub type GpStringFormat = isize;
 pub type GpTexture = isize;
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct HueSaturationLightness {
     pub Base: Effect,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HueSaturationLightness {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HueSaturationLightness {
     fn clone(&self) -> Self {
         *self
@@ -2360,14 +2260,10 @@ impl ::core::clone::Clone for ImageItemData {
 }
 pub type InstalledFontCollection = isize;
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct Levels {
     pub Base: Effect,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for Levels {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for Levels {
     fn clone(&self) -> Self {
         *self
@@ -2388,8 +2284,8 @@ impl ::core::clone::Clone for LevelsParams {
 pub type Matrix = isize;
 pub type Metafile = isize;
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct MetafileHeader {
     pub Type: MetafileType,
     pub Size: u32,
@@ -2406,24 +2302,24 @@ pub struct MetafileHeader {
     pub LogicalDpiX: i32,
     pub LogicalDpiY: i32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for MetafileHeader {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for MetafileHeader {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub union MetafileHeader_0 {
     pub WmfHeader: super::Gdi::METAHEADER,
     pub EmfHeader: ENHMETAHEADER3,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for MetafileHeader_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for MetafileHeader_0 {
     fn clone(&self) -> Self {
         *self
@@ -2506,29 +2402,21 @@ impl ::core::clone::Clone for RectF {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct RedEyeCorrection {
     pub Base: Effect,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RedEyeCorrection {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RedEyeCorrection {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct RedEyeCorrectionParams {
     pub numberOfAreas: u32,
     pub areas: *mut super::super::Foundation::RECT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RedEyeCorrectionParams {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RedEyeCorrectionParams {
     fn clone(&self) -> Self {
         *self
@@ -2536,14 +2424,10 @@ impl ::core::clone::Clone for RedEyeCorrectionParams {
 }
 pub type Region = isize;
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct Sharpen {
     pub Base: Effect,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for Sharpen {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for Sharpen {
     fn clone(&self) -> Self {
         *self
@@ -2583,14 +2467,10 @@ impl ::core::clone::Clone for SizeF {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct Tint {
     pub Base: Effect,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for Tint {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for Tint {
     fn clone(&self) -> Self {
         *self
@@ -2623,17 +2503,9 @@ impl ::core::clone::Clone for WmfPlaceableFileHeader {
     }
 }
 pub type DebugEventProc = ::core::option::Option<unsafe extern "system" fn(level: DebugEventLevel, message: ::windows_sys::core::PCSTR)>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type DrawImageAbort = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type EnumerateMetafileProc = ::core::option::Option<unsafe extern "system" fn(param0: EmfPlusRecordType, param1: u32, param2: u32, param3: *const u8, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type GetThumbnailImageAbort = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub type ImageAbort = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type NotificationHookProc = ::core::option::Option<unsafe extern "system" fn(token: *mut usize) -> Status>;
 pub type NotificationUnhookProc = ::core::option::Option<unsafe extern "system" fn(token: usize)>;

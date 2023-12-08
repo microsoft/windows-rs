@@ -4,15 +4,14 @@
 ::windows_targets::link!("rpcrt4.dll" "system" fn IUnknown_QueryInterface_Proxy(this : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("rpcrt4.dll" "system" fn IUnknown_Release_Proxy(this : ::windows_sys::core::IUnknown) -> u32);
 ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcAllocate(size : u32) -> *mut ::core::ffi::c_void);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn I_RpcAsyncAbortCall(pasync : *const RPC_ASYNC_STATE, exceptioncode : u32) -> RPC_STATUS);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn I_RpcAsyncSetHandle(message : *const RPC_MESSAGE, pasync : *const RPC_ASYNC_STATE) -> RPC_STATUS);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn I_RpcAsyncAbortCall(pasync : *const RPC_ASYNC_STATE, exceptioncode : u32) -> RPC_STATUS);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn I_RpcAsyncSetHandle(message : *const RPC_MESSAGE, pasync : *const RPC_ASYNC_STATE) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingCopy(sourcebinding : *mut ::core::ffi::c_void, destinationbinding : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingCreateNP(servername : ::windows_sys::core::PCWSTR, servicename : ::windows_sys::core::PCWSTR, networkoptions : ::windows_sys::core::PCWSTR, binding : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingHandleToAsyncHandle(binding : *mut ::core::ffi::c_void, asynchandle : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn I_RpcBindingInqClientTokenAttributes(binding : *const ::core::ffi::c_void, tokenid : *mut super::super::Foundation:: LUID, authenticationid : *mut super::super::Foundation:: LUID, modifiedid : *mut super::super::Foundation:: LUID) -> RPC_STATUS);
+::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqClientTokenAttributes(binding : *const ::core::ffi::c_void, tokenid : *mut super::super::Foundation:: LUID, authenticationid : *mut super::super::Foundation:: LUID, modifiedid : *mut super::super::Foundation:: LUID) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqDynamicEndpointA(binding : *const ::core::ffi::c_void, dynamicendpoint : *mut ::windows_sys::core::PSTR) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqDynamicEndpointW(binding : *const ::core::ffi::c_void, dynamicendpoint : *mut ::windows_sys::core::PWSTR) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqLocalClientPID(binding : *mut ::core::ffi::c_void, pid : *mut u32) -> RPC_STATUS);
@@ -423,20 +422,20 @@
 ::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrXmitOrRepAsMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrXmitOrRepAsUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn RpcAsyncAbortCall(pasync : *mut RPC_ASYNC_STATE, exceptioncode : u32) -> RPC_STATUS);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn RpcAsyncCancelCall(pasync : *mut RPC_ASYNC_STATE, fabort : super::super::Foundation:: BOOL) -> RPC_STATUS);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn RpcAsyncCompleteCall(pasync : *mut RPC_ASYNC_STATE, reply : *mut ::core::ffi::c_void) -> RPC_STATUS);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn RpcAsyncGetCallStatus(pasync : *const RPC_ASYNC_STATE) -> RPC_STATUS);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn RpcAsyncInitializeHandle(pasync : *mut RPC_ASYNC_STATE, size : u32) -> RPC_STATUS);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn RpcAsyncRegisterInfo(pasync : *const RPC_ASYNC_STATE) -> RPC_STATUS);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn RpcBindingBind(pasync : *const RPC_ASYNC_STATE, binding : *const ::core::ffi::c_void, ifspec : *const ::core::ffi::c_void) -> RPC_STATUS);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn RpcAsyncAbortCall(pasync : *mut RPC_ASYNC_STATE, exceptioncode : u32) -> RPC_STATUS);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn RpcAsyncCancelCall(pasync : *mut RPC_ASYNC_STATE, fabort : super::super::Foundation:: BOOL) -> RPC_STATUS);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn RpcAsyncCompleteCall(pasync : *mut RPC_ASYNC_STATE, reply : *mut ::core::ffi::c_void) -> RPC_STATUS);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn RpcAsyncGetCallStatus(pasync : *const RPC_ASYNC_STATE) -> RPC_STATUS);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn RpcAsyncInitializeHandle(pasync : *mut RPC_ASYNC_STATE, size : u32) -> RPC_STATUS);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn RpcAsyncRegisterInfo(pasync : *const RPC_ASYNC_STATE) -> RPC_STATUS);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn RpcBindingBind(pasync : *const RPC_ASYNC_STATE, binding : *const ::core::ffi::c_void, ifspec : *const ::core::ffi::c_void) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingCopy(sourcebinding : *const ::core::ffi::c_void, destinationbinding : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn RpcBindingCreateA(template : *const RPC_BINDING_HANDLE_TEMPLATE_V1_A, security : *const RPC_BINDING_HANDLE_SECURITY_V1_A, options : *const RPC_BINDING_HANDLE_OPTIONS_V1, binding : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
@@ -474,22 +473,20 @@
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingVectorFree(bindingvector : *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcCancelThread(thread : *const ::core::ffi::c_void) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcCancelThreadEx(thread : *const ::core::ffi::c_void, timeout : i32) -> RPC_STATUS);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"] fn RpcCertGeneratePrincipalNameA(context : *const super::super::Security::Cryptography:: CERT_CONTEXT, flags : u32, pbuffer : *mut ::windows_sys::core::PSTR) -> RPC_STATUS);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"] fn RpcCertGeneratePrincipalNameW(context : *const super::super::Security::Cryptography:: CERT_CONTEXT, flags : u32, pbuffer : *mut ::windows_sys::core::PWSTR) -> RPC_STATUS);
+#[cfg(feature = "Win32_Security_Cryptography")]
+::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_Security_Cryptography\"`"] fn RpcCertGeneratePrincipalNameA(context : *const super::super::Security::Cryptography:: CERT_CONTEXT, flags : u32, pbuffer : *mut ::windows_sys::core::PSTR) -> RPC_STATUS);
+#[cfg(feature = "Win32_Security_Cryptography")]
+::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_Security_Cryptography\"`"] fn RpcCertGeneratePrincipalNameW(context : *const super::super::Security::Cryptography:: CERT_CONTEXT, flags : u32, pbuffer : *mut ::windows_sys::core::PWSTR) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcEpRegisterA(ifspec : *const ::core::ffi::c_void, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : ::windows_sys::core::PCSTR) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcEpRegisterNoReplaceA(ifspec : *const ::core::ffi::c_void, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : ::windows_sys::core::PCSTR) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcEpRegisterNoReplaceW(ifspec : *const ::core::ffi::c_void, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : ::windows_sys::core::PCWSTR) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcEpRegisterW(ifspec : *const ::core::ffi::c_void, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : ::windows_sys::core::PCWSTR) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcEpResolveBinding(binding : *const ::core::ffi::c_void, ifspec : *const ::core::ffi::c_void) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcEpUnregister(ifspec : *const ::core::ffi::c_void, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR) -> RPC_STATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RpcErrorAddRecord(errorinfo : *const RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS);
+::windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorAddRecord(errorinfo : *const RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorClearInformation());
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorEndEnumeration(enumhandle : *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RpcErrorGetNextRecord(enumhandle : *const RPC_ERROR_ENUM_HANDLE, copystrings : super::super::Foundation:: BOOL, errorinfo : *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS);
+::windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorGetNextRecord(enumhandle : *const RPC_ERROR_ENUM_HANDLE, copystrings : super::super::Foundation:: BOOL, errorinfo : *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorGetNumberOfRecords(enumhandle : *const RPC_ERROR_ENUM_HANDLE, records : *mut i32) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorLoadErrorInfo(errorblob : *const ::core::ffi::c_void, blobsize : usize, enumhandle : *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorResetEnumeration(enumhandle : *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS);
@@ -497,8 +494,7 @@
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorStartEnumeration(enumhandle : *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcExceptionFilter(exceptioncode : u32) -> i32);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcFreeAuthorizationContext(pauthzclientcontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RpcGetAuthorizationContextForClient(clientbinding : *const ::core::ffi::c_void, impersonateonreturn : super::super::Foundation:: BOOL, reserved1 : *const ::core::ffi::c_void, pexpirationtime : *const i64, reserved2 : super::super::Foundation:: LUID, reserved3 : u32, reserved4 : *const ::core::ffi::c_void, pauthzclientcontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+::windows_targets::link!("rpcrt4.dll" "system" fn RpcGetAuthorizationContextForClient(clientbinding : *const ::core::ffi::c_void, impersonateonreturn : super::super::Foundation:: BOOL, reserved1 : *const ::core::ffi::c_void, pexpirationtime : *const i64, reserved2 : super::super::Foundation:: LUID, reserved3 : u32, reserved4 : *const ::core::ffi::c_void, pauthzclientcontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
 ::windows_targets::link!("rpcns4.dll" "system" fn RpcIfIdVectorFree(ifidvector : *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcIfInqId(rpcifhandle : *const ::core::ffi::c_void, rpcifid : *mut RPC_IF_ID) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcImpersonateClient(bindinghandle : *const ::core::ffi::c_void) -> RPC_STATUS);
@@ -617,8 +613,8 @@
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf2(ifspec : *const ::core::ffi::c_void, mgrtypeuuid : *const ::windows_sys::core::GUID, mgrepv : *const ::core::ffi::c_void, flags : u32, maxcalls : u32, maxrpcsize : u32, ifcallbackfn : RPC_IF_CALLBACK_FN) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf3(ifspec : *const ::core::ffi::c_void, mgrtypeuuid : *const ::windows_sys::core::GUID, mgrepv : *const ::core::ffi::c_void, flags : u32, maxcalls : u32, maxrpcsize : u32, ifcallback : RPC_IF_CALLBACK_FN, securitydescriptor : *const ::core::ffi::c_void) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerRegisterIfEx(ifspec : *const ::core::ffi::c_void, mgrtypeuuid : *const ::windows_sys::core::GUID, mgrepv : *const ::core::ffi::c_void, flags : u32, maxcalls : u32, ifcallback : RPC_IF_CALLBACK_FN) -> RPC_STATUS);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn RpcServerSubscribeForNotification(binding : *const ::core::ffi::c_void, notification : RPC_NOTIFICATIONS, notificationtype : RPC_NOTIFICATION_TYPES, notificationinfo : *const RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS);
+#[cfg(feature = "Win32_System_IO")]
+::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn RpcServerSubscribeForNotification(binding : *const ::core::ffi::c_void, notification : RPC_NOTIFICATIONS, notificationtype : RPC_NOTIFICATION_TYPES, notificationinfo : *const RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerTestCancel(bindinghandle : *const ::core::ffi::c_void) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUnregisterIf(ifspec : *const ::core::ffi::c_void, mgrtypeuuid : *const ::windows_sys::core::GUID, waitforcallstocomplete : u32) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUnregisterIfEx(ifspec : *const ::core::ffi::c_void, mgrtypeuuid : *const ::windows_sys::core::GUID, rundowncontexthandles : i32) -> RPC_STATUS);
@@ -2503,8 +2499,8 @@ impl ::core::clone::Clone for RDR_CALLOUT_STATE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 pub union RPC_ASYNC_NOTIFICATION_INFO {
     pub APC: RPC_ASYNC_NOTIFICATION_INFO_0,
     pub IOC: RPC_ASYNC_NOTIFICATION_INFO_1,
@@ -2512,64 +2508,64 @@ pub union RPC_ASYNC_NOTIFICATION_INFO {
     pub hEvent: super::super::Foundation::HANDLE,
     pub NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[cfg(feature = "Win32_System_IO")]
 impl ::core::marker::Copy for RPC_ASYNC_NOTIFICATION_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[cfg(feature = "Win32_System_IO")]
 impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_0 {
     pub NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
     pub hThread: super::super::Foundation::HANDLE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[cfg(feature = "Win32_System_IO")]
 impl ::core::marker::Copy for RPC_ASYNC_NOTIFICATION_INFO_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[cfg(feature = "Win32_System_IO")]
 impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_1 {
     pub hIOPort: super::super::Foundation::HANDLE,
     pub dwNumberOfBytesTransferred: u32,
     pub dwCompletionKey: usize,
     pub lpOverlapped: *mut super::IO::OVERLAPPED,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[cfg(feature = "Win32_System_IO")]
 impl ::core::marker::Copy for RPC_ASYNC_NOTIFICATION_INFO_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[cfg(feature = "Win32_System_IO")]
 impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_2 {
     pub hWnd: super::super::Foundation::HWND,
     pub Msg: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[cfg(feature = "Win32_System_IO")]
 impl ::core::marker::Copy for RPC_ASYNC_NOTIFICATION_INFO_2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[cfg(feature = "Win32_System_IO")]
 impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 pub struct RPC_ASYNC_STATE {
     pub Size: u32,
     pub Signature: u32,
@@ -2583,9 +2579,9 @@ pub struct RPC_ASYNC_STATE {
     pub u: RPC_ASYNC_NOTIFICATION_INFO,
     pub Reserved: [isize; 4],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[cfg(feature = "Win32_System_IO")]
 impl ::core::marker::Copy for RPC_ASYNC_STATE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[cfg(feature = "Win32_System_IO")]
 impl ::core::clone::Clone for RPC_ASYNC_STATE {
     fn clone(&self) -> Self {
         *self
@@ -2706,8 +2702,6 @@ impl ::core::clone::Clone for RPC_BINDING_VECTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct RPC_CALL_ATTRIBUTES_V1_A {
     pub Version: u32,
     pub Flags: u32,
@@ -2719,17 +2713,13 @@ pub struct RPC_CALL_ATTRIBUTES_V1_A {
     pub AuthenticationService: u32,
     pub NullSession: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V1_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V1_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct RPC_CALL_ATTRIBUTES_V1_W {
     pub Version: u32,
     pub Flags: u32,
@@ -2741,17 +2731,13 @@ pub struct RPC_CALL_ATTRIBUTES_V1_W {
     pub AuthenticationService: u32,
     pub NullSession: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V1_W {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V1_W {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct RPC_CALL_ATTRIBUTES_V2_A {
     pub Version: u32,
     pub Flags: u32,
@@ -2772,17 +2758,13 @@ pub struct RPC_CALL_ATTRIBUTES_V2_A {
     pub OpNum: u16,
     pub InterfaceUuid: ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V2_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V2_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct RPC_CALL_ATTRIBUTES_V2_W {
     pub Version: u32,
     pub Flags: u32,
@@ -2803,17 +2785,13 @@ pub struct RPC_CALL_ATTRIBUTES_V2_W {
     pub OpNum: u16,
     pub InterfaceUuid: ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V2_W {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V2_W {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct RPC_CALL_ATTRIBUTES_V3_A {
     pub Version: u32,
     pub Flags: u32,
@@ -2836,17 +2814,13 @@ pub struct RPC_CALL_ATTRIBUTES_V3_A {
     pub ClientIdentifierBufferLength: u32,
     pub ClientIdentifier: *mut u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V3_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V3_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct RPC_CALL_ATTRIBUTES_V3_W {
     pub Version: u32,
     pub Flags: u32,
@@ -2869,9 +2843,7 @@ pub struct RPC_CALL_ATTRIBUTES_V3_W {
     pub ClientIdentifierBufferLength: u32,
     pub ClientIdentifier: *mut u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V3_W {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V3_W {
     fn clone(&self) -> Self {
         *self
@@ -3011,8 +2983,6 @@ impl ::core::clone::Clone for RPC_ERROR_ENUM_HANDLE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct RPC_EXTENDED_ERROR_INFO {
     pub Version: u32,
     pub ComputerName: ::windows_sys::core::PWSTR,
@@ -3025,24 +2995,18 @@ pub struct RPC_EXTENDED_ERROR_INFO {
     pub NumberOfParameters: i32,
     pub Parameters: [RPC_EE_INFO_PARAM; 4],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RPC_EXTENDED_ERROR_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RPC_EXTENDED_ERROR_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub union RPC_EXTENDED_ERROR_INFO_0 {
     pub SystemTime: super::super::Foundation::SYSTEMTIME,
     pub FileTime: super::super::Foundation::FILETIME,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RPC_EXTENDED_ERROR_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RPC_EXTENDED_ERROR_INFO_0 {
     fn clone(&self) -> Self {
         *self
@@ -3788,8 +3752,8 @@ pub type MIDL_ES_WRITE = ::core::option::Option<unsafe extern "system" fn(state:
 pub type NDR_NOTIFY2_ROUTINE = ::core::option::Option<unsafe extern "system" fn(flag: u8)>;
 pub type NDR_NOTIFY_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
 pub type NDR_RUNDOWN = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void)>;
-#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "Required features: `\"Win32_System_IO\"`"]
+#[cfg(feature = "Win32_System_IO")]
 pub type PFN_RPCNOTIFICATION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pasync: *mut RPC_ASYNC_STATE, context: *mut ::core::ffi::c_void, event: RPC_ASYNC_EVENT)>;
 pub type PFN_RPC_ALLOCATE = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> *mut ::core::ffi::c_void>;
 pub type PFN_RPC_FREE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;

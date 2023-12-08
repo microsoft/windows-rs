@@ -1,8 +1,6 @@
 ::windows_targets::link!("srclient.dll" "system" fn SRRemoveRestorePoint(dwrpnum : u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("sfc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SRSetRestorePointA(prestoreptspec : *const RESTOREPOINTINFOA, psmgrstatus : *mut STATEMGRSTATUS) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("sfc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SRSetRestorePointW(prestoreptspec : *const RESTOREPOINTINFOW, psmgrstatus : *mut STATEMGRSTATUS) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("sfc.dll" "system" fn SRSetRestorePointA(prestoreptspec : *const RESTOREPOINTINFOA, psmgrstatus : *mut STATEMGRSTATUS) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("sfc.dll" "system" fn SRSetRestorePointW(prestoreptspec : *const RESTOREPOINTINFOW, psmgrstatus : *mut STATEMGRSTATUS) -> super::super::Foundation:: BOOL);
 pub const ACCESSIBILITY_SETTING: u32 = 3u32;
 pub const APPLICATION_INSTALL: RESTOREPOINTINFO_TYPE = 0u32;
 pub const APPLICATION_RUN: u32 = 5u32;
@@ -49,8 +47,6 @@ impl ::core::clone::Clone for RESTOREPOINTINFOA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct RESTOREPOINTINFOEX {
     pub ftCreation: super::super::Foundation::FILETIME,
     pub dwEventType: u32,
@@ -58,9 +54,7 @@ pub struct RESTOREPOINTINFOEX {
     pub dwRPNum: u32,
     pub szDescription: [u16; 256],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RESTOREPOINTINFOEX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RESTOREPOINTINFOEX {
     fn clone(&self) -> Self {
         *self
@@ -80,15 +74,11 @@ impl ::core::clone::Clone for RESTOREPOINTINFOW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct STATEMGRSTATUS {
     pub nStatus: super::super::Foundation::WIN32_ERROR,
     pub llSequenceNumber: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STATEMGRSTATUS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STATEMGRSTATUS {
     fn clone(&self) -> Self {
         *self

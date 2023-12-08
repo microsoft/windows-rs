@@ -46,15 +46,11 @@ pub type NapNotifyType = i32;
 pub type NapTracingLevel = i32;
 pub type RemoteConfigurationType = i32;
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct CorrelationId {
     pub connId: ::windows_sys::core::GUID,
     pub timeStamp: super::super::Foundation::FILETIME,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CorrelationId {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CorrelationId {
     fn clone(&self) -> Self {
         *self
@@ -72,14 +68,10 @@ impl ::core::clone::Clone for CountedString {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FailureCategoryMapping {
     pub mappingCompliance: [super::super::Foundation::BOOL; 5],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FailureCategoryMapping {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FailureCategoryMapping {
     fn clone(&self) -> Self {
         *self
@@ -119,41 +111,31 @@ impl ::core::clone::Clone for Ipv6Address {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct IsolationInfo {
     pub isolationState: IsolationState,
     pub probEndTime: super::super::Foundation::FILETIME,
     pub failureUrl: CountedString,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IsolationInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IsolationInfo {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct IsolationInfoEx {
     pub isolationState: IsolationState,
     pub extendedIsolationState: ExtendedIsolationState,
     pub probEndTime: super::super::Foundation::FILETIME,
     pub failureUrl: CountedString,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IsolationInfoEx {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IsolationInfoEx {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Foundation\"`"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct NapComponentRegistrationInfo {
     pub id: u32,
     pub friendlyName: CountedString,
@@ -165,9 +147,7 @@ pub struct NapComponentRegistrationInfo {
     pub registrationDate: super::super::Foundation::FILETIME,
     pub componentType: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NapComponentRegistrationInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NapComponentRegistrationInfo {
     fn clone(&self) -> Self {
         *self
