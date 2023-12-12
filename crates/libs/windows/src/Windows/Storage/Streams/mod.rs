@@ -1429,7 +1429,7 @@ impl DataReaderLoadOperation {
 }
 impl ::std::future::Future for DataReaderLoadOperation {
     type Output = ::windows_core::Result<u32>;
-    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
+    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context<'_>) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let waker = context.waker().clone();
             let _ = self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
@@ -1718,7 +1718,7 @@ impl DataWriterStoreOperation {
 }
 impl ::std::future::Future for DataWriterStoreOperation {
     type Output = ::windows_core::Result<u32>;
-    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
+    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context<'_>) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let waker = context.waker().clone();
             let _ = self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {

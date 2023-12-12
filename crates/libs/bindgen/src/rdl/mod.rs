@@ -136,7 +136,7 @@ pub struct Interface {
 syn::custom_keyword!(interface);
 syn::custom_keyword!(class);
 
-fn winrt(input: syn::parse::ParseStream) -> syn::Result<bool> {
+fn winrt(input: syn::parse::ParseStream<'_>) -> syn::Result<bool> {
     let attributes = input.call(syn::Attribute::parse_inner)?;
     if attributes.len() == 1 {
         if let syn::Meta::Path(path) = &attributes[0].meta {
@@ -154,7 +154,7 @@ fn winrt(input: syn::parse::ParseStream) -> syn::Result<bool> {
 }
 
 impl syn::parse::Parse for File {
-    fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
+    fn parse(input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
         let mut references = vec![];
         let mut modules = vec![];
         let winrt = winrt(input)?;
@@ -178,7 +178,7 @@ impl Module {
         self.namespace.rsplit_once('.').map_or(&self.namespace, |(_, name)| name)
     }
 
-    fn parse(namespace: &str, winrt: bool, input: syn::parse::ParseStream) -> syn::Result<Self> {
+    fn parse(namespace: &str, winrt: bool, input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
         input.parse::<syn::Token![mod]>()?;
         let name = input.parse::<syn::Ident>()?.to_string();
 
@@ -195,7 +195,7 @@ impl Module {
 }
 
 impl ModuleMember {
-    fn parse(namespace: &str, winrt: bool, input: syn::parse::ParseStream) -> syn::Result<Self> {
+    fn parse(namespace: &str, winrt: bool, input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
         let attributes: Vec<syn::Attribute> = input.call(syn::Attribute::parse_outer)?;
         let lookahead = input.lookahead1();
         if lookahead.peek(syn::Token![mod]) {
@@ -222,7 +222,7 @@ impl ModuleMember {
 }
 
 impl Class {
-    fn parse(attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream) -> syn::Result<Self> {
+    fn parse(attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
         input.parse::<class>()?;
         let name = input.parse::<syn::Ident>()?.to_string();
         let mut extends = Vec::new();
@@ -247,7 +247,7 @@ impl Class {
 }
 
 impl Interface {
-    fn parse(_namespace: &str, winrt: bool, attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream) -> syn::Result<Self> {
+    fn parse(_namespace: &str, winrt: bool, attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
         input.parse::<interface>()?;
         let name = input.parse::<syn::Ident>()?.to_string();
 
@@ -284,7 +284,7 @@ impl Interface {
 }
 
 impl Struct {
-    fn parse(_namespace: &str, winrt: bool, attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream) -> syn::Result<Self> {
+    fn parse(_namespace: &str, winrt: bool, attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
         // TODO: need to validate that the struct is valid according to the constraints of the winmd type system.
         // Same for the other types. That way we can spit out errors quickly for things like unnamed fields.
         let span = input.span();
@@ -311,7 +311,7 @@ impl Struct {
 }
 
 impl Enum {
-    fn parse(_namespace: &str, winrt: bool, attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream) -> syn::Result<Self> {
+    fn parse(_namespace: &str, winrt: bool, attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
         let mut item: syn::ItemEnum = input.parse()?;
         item.attrs = attributes;
         let name = item.ident.to_string();
@@ -320,7 +320,7 @@ impl Enum {
 }
 
 impl Constant {
-    fn parse(_namespace: &str, attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream) -> syn::Result<Self> {
+    fn parse(_namespace: &str, attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
         let mut item: syn::ItemConst = input.parse()?;
         item.attrs = attributes;
         let name = item.ident.to_string();
@@ -329,7 +329,7 @@ impl Constant {
 }
 
 impl Function {
-    fn parse(_namespace: &str, attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream) -> syn::Result<Self> {
+    fn parse(_namespace: &str, attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
         let mut item: syn::TraitItemFn = input.parse()?;
         item.attrs = attributes;
         let name = item.sig.ident.to_string();

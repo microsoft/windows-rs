@@ -1254,7 +1254,7 @@ impl DeleteSmsMessageOperation {
 #[cfg(feature = "deprecated")]
 impl ::std::future::Future for DeleteSmsMessageOperation {
     type Output = ::windows_core::Result<()>;
-    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
+    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context<'_>) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let waker = context.waker().clone();
             let _ = self.SetCompleted(&super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
@@ -1362,7 +1362,7 @@ impl DeleteSmsMessagesOperation {
 #[cfg(feature = "deprecated")]
 impl ::std::future::Future for DeleteSmsMessagesOperation {
     type Output = ::windows_core::Result<()>;
-    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
+    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context<'_>) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let waker = context.waker().clone();
             let _ = self.SetCompleted(&super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
@@ -1473,7 +1473,7 @@ impl GetSmsDeviceOperation {
 #[cfg(feature = "deprecated")]
 impl ::std::future::Future for GetSmsDeviceOperation {
     type Output = ::windows_core::Result<SmsDevice>;
-    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
+    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context<'_>) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let waker = context.waker().clone();
             let _ = self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
@@ -1584,7 +1584,7 @@ impl GetSmsMessageOperation {
 #[cfg(feature = "deprecated")]
 impl ::std::future::Future for GetSmsMessageOperation {
     type Output = ::windows_core::Result<ISmsMessage>;
-    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
+    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context<'_>) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let waker = context.waker().clone();
             let _ = self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
@@ -1719,7 +1719,7 @@ impl GetSmsMessagesOperation {
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::std::future::Future for GetSmsMessagesOperation {
     type Output = ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ISmsMessage>>;
-    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
+    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context<'_>) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let waker = context.waker().clone();
             let _ = self.SetCompleted(&super::super::Foundation::AsyncOperationWithProgressCompletedHandler::new(move |_sender, _args| {
@@ -1827,7 +1827,7 @@ impl SendSmsMessageOperation {
 #[cfg(feature = "deprecated")]
 impl ::std::future::Future for SendSmsMessageOperation {
     type Output = ::windows_core::Result<()>;
-    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
+    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context<'_>) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let waker = context.waker().clone();
             let _ = self.SetCompleted(&super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
