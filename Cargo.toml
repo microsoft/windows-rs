@@ -11,3 +11,6 @@ members = [
 exclude = [
     "crates/targets/baseline",
 ]
+
+[workspace.lints.rust]
+elided-lifetimes-in-paths = "warn"
