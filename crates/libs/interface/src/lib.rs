@@ -374,7 +374,7 @@ impl Interface {
 }
 
 impl Parse for Interface {
-    fn parse(input: ParseStream) -> syn::Result<Self> {
+    fn parse(input: ParseStream<'_>) -> syn::Result<Self> {
         let attributes = input.call(syn::Attribute::parse_outer)?;
         let mut docs = Vec::new();
         for attr in attributes.into_iter() {
@@ -475,7 +475,7 @@ impl Guid {
 }
 
 impl Parse for Guid {
-    fn parse(cursor: ParseStream) -> syn::Result<Self> {
+    fn parse(cursor: ParseStream<'_>) -> syn::Result<Self> {
         let string: Option<syn::LitStr> = cursor.parse().ok();
 
         Ok(Self(string))
@@ -514,7 +514,7 @@ impl InterfaceMethod {
 }
 
 impl syn::parse::Parse for InterfaceMethod {
-    fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
+    fn parse(input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
         let docs = input.call(syn::Attribute::parse_outer)?;
         let visibility = input.parse::<syn::Visibility>()?;
         let method = input.parse::<syn::TraitItemFn>()?;

@@ -618,7 +618,7 @@ impl Writer {
                 impl<#constraints> ::std::future::Future for #ident {
                     type Output = ::windows_core::Result<#return_type>;
 
-                    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
+                    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context<'_>) -> ::std::task::Poll<Self::Output> {
                         if self.Status()? == #namespace AsyncStatus::Started {
                             let waker = context.waker().clone();
 
