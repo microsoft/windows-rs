@@ -11,3 +11,6 @@ members = [
 exclude = [
     "crates/targets/baseline",
 ]
+
+[workspace.lints.rust]
+rust_2018_idioms = "warn"

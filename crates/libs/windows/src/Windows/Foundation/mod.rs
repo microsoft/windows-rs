@@ -83,7 +83,7 @@ impl IAsyncAction {
 }
 impl ::std::future::Future for IAsyncAction {
     type Output = ::windows_core::Result<()>;
-    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
+    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context<'_>) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == AsyncStatus::Started {
             let waker = context.waker().clone();
             let _ = self.SetCompleted(&AsyncActionCompletedHandler::new(move |_sender, _args| {
@@ -202,7 +202,7 @@ impl<TProgress: ::windows_core::RuntimeType + 'static> IAsyncActionWithProgress<
 }
 impl<TProgress: ::windows_core::RuntimeType + 'static> ::std::future::Future for IAsyncActionWithProgress<TProgress> {
     type Output = ::windows_core::Result<()>;
-    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
+    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context<'_>) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == AsyncStatus::Started {
             let waker = context.waker().clone();
             let _ = self.SetCompleted(&AsyncActionWithProgressCompletedHandler::new(move |_sender, _args| {
@@ -370,7 +370,7 @@ impl<TResult: ::windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
 }
 impl<TResult: ::windows_core::RuntimeType + 'static> ::std::future::Future for IAsyncOperation<TResult> {
     type Output = ::windows_core::Result<TResult>;
-    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
+    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context<'_>) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == AsyncStatus::Started {
             let waker = context.waker().clone();
             let _ = self.SetCompleted(&AsyncOperationCompletedHandler::new(move |_sender, _args| {
@@ -497,7 +497,7 @@ impl<TResult: ::windows_core::RuntimeType + 'static, TProgress: ::windows_core::
 }
 impl<TResult: ::windows_core::RuntimeType + 'static, TProgress: ::windows_core::RuntimeType + 'static> ::std::future::Future for IAsyncOperationWithProgress<TResult, TProgress> {
     type Output = ::windows_core::Result<TResult>;
-    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
+    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context<'_>) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == AsyncStatus::Started {
             let waker = context.waker().clone();
             let _ = self.SetCompleted(&AsyncOperationWithProgressCompletedHandler::new(move |_sender, _args| {
