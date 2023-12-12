@@ -13,4 +13,4 @@ exclude = [
 ]
 
 [workspace.lints.rust]
-elided-lifetimes-in-paths = "warn"
+rust_2018_idioms = "warn"
