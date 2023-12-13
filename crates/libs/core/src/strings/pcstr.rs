@@ -32,7 +32,7 @@ impl PCSTR {
     ///
     /// The `PCSTR`'s pointer needs to be valid for reads up until and including the next `\0`.
     pub unsafe fn as_bytes(&self) -> &[u8] {
-        let len = super::strlen(*self);
+        let len = strlen(*self);
         std::slice::from_raw_parts(self.0, len)
     }
 

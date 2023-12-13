@@ -7,7 +7,7 @@ use crate::ComInterface;
 pub struct IGenericFactory(crate::IUnknown);
 
 impl IGenericFactory {
-    pub fn ActivateInstance<I: crate::ComInterface>(&self) -> crate::Result<I> {
+    pub fn ActivateInstance<I: ComInterface>(&self) -> crate::Result<I> {
         unsafe {
             let mut result__ = std::mem::zeroed();
             (crate::Interface::vtable(self).ActivateInstance)(std::mem::transmute_copy(self), &mut result__ as *mut _ as *mut _).from_abi::<crate::IInspectable>(result__)?.cast()
@@ -25,6 +25,6 @@ unsafe impl crate::Interface for IGenericFactory {
     type Vtable = IGenericFactory_Vtbl;
 }
 
-unsafe impl crate::ComInterface for IGenericFactory {
+unsafe impl ComInterface for IGenericFactory {
     const IID: crate::GUID = crate::GUID::from_u128(0x00000035_0000_0000_c000_000000000046);
 }

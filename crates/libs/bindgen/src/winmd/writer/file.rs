@@ -1,6 +1,4 @@
 use super::*;
-use metadata::*;
-use std::mem::*;
 
 pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> Vec<u8> {
     if [tables.len(), strings.len(), blobs.len()].iter().any(|len| *len > u32::MAX as usize) {
@@ -11,19 +9,19 @@ pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> V
         let mut guids = vec![0; 16]; // zero guid
         let size_of_streams = tables.len() + guids.len() + strings.len() + blobs.len();
 
-        let mut dos: IMAGE_DOS_HEADER = zeroed();
-        dos.e_magic = IMAGE_DOS_SIGNATURE;
+        let mut dos: metadata::IMAGE_DOS_HEADER = std::mem::zeroed();
+        dos.e_magic = metadata::IMAGE_DOS_SIGNATURE;
         dos.e_lfarlc = 64;
-        dos.e_lfanew = size_of::<IMAGE_DOS_HEADER>() as i32;
+        dos.e_lfanew = std::mem::size_of::<metadata::IMAGE_DOS_HEADER>() as i32;
 
-        let mut file: IMAGE_FILE_HEADER = zeroed();
-        file.Machine = IMAGE_FILE_MACHINE_I386;
+        let mut file: metadata::IMAGE_FILE_HEADER = std::mem::zeroed();
+        file.Machine = metadata::IMAGE_FILE_MACHINE_I386;
         file.NumberOfSections = 1;
-        file.SizeOfOptionalHeader = size_of::<IMAGE_OPTIONAL_HEADER32>() as u16;
-        file.Characteristics = IMAGE_FILE_DLL | IMAGE_FILE_32BIT_MACHINE | IMAGE_FILE_EXECUTABLE_IMAGE;
+        file.SizeOfOptionalHeader = std::mem::size_of::<metadata::IMAGE_OPTIONAL_HEADER32>() as u16;
+        file.Characteristics = metadata::IMAGE_FILE_DLL | metadata::IMAGE_FILE_32BIT_MACHINE | metadata::IMAGE_FILE_EXECUTABLE_IMAGE;
 
-        let mut optional: IMAGE_OPTIONAL_HEADER32 = zeroed();
-        optional.Magic = IMAGE_NT_OPTIONAL_HDR32_MAGIC;
+        let mut optional: metadata::IMAGE_OPTIONAL_HEADER32 = std::mem::zeroed();
+        optional.Magic = metadata::IMAGE_NT_OPTIONAL_HDR32_MAGIC;
         optional.MajorLinkerVersion = 11;
         optional.SizeOfInitializedData = 1024;
         optional.ImageBase = 0x400000;
@@ -34,26 +32,26 @@ pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> V
         optional.MajorSubsystemVersion = 6;
         optional.MinorSubsystemVersion = 2;
         optional.SizeOfHeaders = 512;
-        optional.Subsystem = IMAGE_SUBSYSTEM_WINDOWS_CUI;
-        optional.DllCharacteristics = IMAGE_DLLCHARACTERISTICS_NX_COMPAT | IMAGE_DLLCHARACTERISTICS_NO_SEH | IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE;
+        optional.Subsystem = metadata::IMAGE_SUBSYSTEM_WINDOWS_CUI;
+        optional.DllCharacteristics = metadata::IMAGE_DLLCHARACTERISTICS_NX_COMPAT | metadata::IMAGE_DLLCHARACTERISTICS_NO_SEH | metadata::IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE;
         optional.SizeOfStackReserve = 0x100000;
         optional.SizeOfHeapReserve = 4096;
         optional.LoaderFlags = 0x100000;
         optional.NumberOfRvaAndSizes = 16;
 
-        let mut section: IMAGE_SECTION_HEADER = zeroed();
+        let mut section: metadata::IMAGE_SECTION_HEADER = std::mem::zeroed();
         section.Name = *b".text\0\0\0";
         section.Characteristics = 0x4000_0020;
         section.VirtualAddress = SECTION_ALIGNMENT;
 
-        let mut clr: IMAGE_COR20_HEADER = zeroed();
-        clr.cb = size_of::<IMAGE_COR20_HEADER>() as u32;
+        let mut clr: metadata::IMAGE_COR20_HEADER = std::mem::zeroed();
+        clr.cb = std::mem::size_of::<metadata::IMAGE_COR20_HEADER>() as u32;
         clr.MajorRuntimeVersion = 2;
         clr.MinorRuntimeVersion = 5;
         clr.Flags = 1;
 
-        let metadata = METADATA_HEADER {
-            signature: METADATA_SIGNATURE,
+        let metadata = metadata::METADATA_HEADER {
+            signature: metadata::METADATA_SIGNATURE,
             major_version: 1,
             minor_version: 1,
             length: 20,
@@ -67,22 +65,22 @@ pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> V
         type GuidsHeader = StreamHeader<8>;
         type BlobsHeader = StreamHeader<8>;
 
-        let size_of_stream_headers = size_of::<TablesHeader>() + size_of::<StringsHeader>() + size_of::<GuidsHeader>() + size_of::<BlobsHeader>();
-        let size_of_image = optional.FileAlignment as usize + size_of::<IMAGE_COR20_HEADER>() + size_of::<METADATA_HEADER>() + size_of_stream_headers + size_of_streams;
+        let size_of_stream_headers = std::mem::size_of::<TablesHeader>() + std::mem::size_of::<StringsHeader>() + std::mem::size_of::<GuidsHeader>() + std::mem::size_of::<BlobsHeader>();
+        let size_of_image = optional.FileAlignment as usize + std::mem::size_of::<metadata::IMAGE_COR20_HEADER>() + std::mem::size_of::<metadata::METADATA_HEADER>() + size_of_stream_headers + size_of_streams;
 
         optional.SizeOfImage = round(size_of_image, optional.SectionAlignment as usize) as u32;
         section.Misc.VirtualSize = size_of_image as u32 - optional.FileAlignment;
         section.SizeOfRawData = round(section.Misc.VirtualSize as usize, optional.FileAlignment as usize) as u32;
 
-        optional.DataDirectory[14] = IMAGE_DATA_DIRECTORY { VirtualAddress: SECTION_ALIGNMENT, Size: size_of::<IMAGE_COR20_HEADER>() as u32 };
+        optional.DataDirectory[14] = metadata::IMAGE_DATA_DIRECTORY { VirtualAddress: SECTION_ALIGNMENT, Size: std::mem::size_of::<metadata::IMAGE_COR20_HEADER>() as u32 };
         section.PointerToRawData = optional.FileAlignment;
-        clr.MetaData.VirtualAddress = SECTION_ALIGNMENT + size_of::<IMAGE_COR20_HEADER>() as u32;
-        clr.MetaData.Size = section.Misc.VirtualSize - size_of::<IMAGE_COR20_HEADER>() as u32;
+        clr.MetaData.VirtualAddress = SECTION_ALIGNMENT + std::mem::size_of::<metadata::IMAGE_COR20_HEADER>() as u32;
+        clr.MetaData.Size = section.Misc.VirtualSize - std::mem::size_of::<metadata::IMAGE_COR20_HEADER>() as u32;
 
         let mut buffer = Vec::<u8>::new();
 
         buffer.write_header(&dos);
-        buffer.write_u32(IMAGE_NT_SIGNATURE);
+        buffer.write_u32(metadata::IMAGE_NT_SIGNATURE);
         buffer.write_header(&file);
         buffer.write_header(&optional);
         buffer.write_header(&section);

@@ -1,6 +1,7 @@
 use super::*;
+use metadata::{AsRow, HasAttributes};
 
-pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
+pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     if writer.sys {
         gen_sys_handle(writer, def)
     } else {
@@ -8,10 +9,10 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
     }
 }
 
-pub fn gen_sys_handle(writer: &Writer, def: TypeDef) -> TokenStream {
+pub fn gen_sys_handle(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let ident = to_ident(def.name());
     match def.underlying_type() {
-        Type::ISize if writer.std => quote! {
+        metadata::Type::ISize if writer.std => quote! {
             pub type #ident = *mut ::core::ffi::c_void;
         },
         underlying_type => {
@@ -24,7 +25,7 @@ pub fn gen_sys_handle(writer: &Writer, def: TypeDef) -> TokenStream {
     }
 }
 
-pub fn gen_win_handle(writer: &Writer, def: TypeDef) -> TokenStream {
+pub fn gen_win_handle(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let name = def.name();
     let ident = to_ident(name);
     let underlying_type = def.underlying_type();
@@ -38,7 +39,7 @@ pub fn gen_win_handle(writer: &Writer, def: TypeDef) -> TokenStream {
             }
         }
     } else {
-        let invalid = type_def_invalid_values(def);
+        let invalid = metadata::type_def_invalid_values(def);
 
         if !invalid.is_empty() {
             let invalid = invalid.iter().map(|value| {
@@ -107,9 +108,9 @@ pub fn gen_win_handle(writer: &Writer, def: TypeDef) -> TokenStream {
     tokens
 }
 
-fn type_def_usable_for(row: TypeDef) -> Option<TypeDef> {
+fn type_def_usable_for(row: metadata::TypeDef) -> Option<metadata::TypeDef> {
     if let Some(attribute) = row.find_attribute("AlsoUsableForAttribute") {
-        if let Some((_, Value::String(name))) = attribute.args().first() {
+        if let Some((_, metadata::Value::String(name))) = attribute.args().first() {
             return row.reader().get_type_def(row.namespace(), name.as_str()).next();
         }
     }

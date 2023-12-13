@@ -105,7 +105,7 @@ impl TypeKind for HRESULT {
     type TypeKind = CopyType;
 }
 
-impl<T> std::convert::From<Result<T>> for HRESULT {
+impl<T> From<Result<T>> for HRESULT {
     fn from(result: Result<T>) -> Self {
         if let Err(error) = result {
             return error.into();

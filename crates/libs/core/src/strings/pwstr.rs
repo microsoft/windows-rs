@@ -32,7 +32,7 @@ impl PWSTR {
     ///
     /// The `PWSTR`'s pointer needs to be valid for reads up until and including the next `\0`.
     pub unsafe fn as_wide(&self) -> &[u16] {
-        let len = super::wcslen(PCWSTR::from_raw(self.0));
+        let len = wcslen(PCWSTR::from_raw(self.0));
         std::slice::from_raw_parts(self.0, len)
     }
 

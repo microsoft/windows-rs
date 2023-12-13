@@ -1,18 +1,18 @@
 use super::*;
 
-pub fn writer(writer: &Writer, def: TypeDef, kind: InterfaceKind, method: MethodDef, method_names: &mut MethodNames, virtual_names: &mut MethodNames, base_count: usize) -> TokenStream {
-    let signature = method_def_signature(def.namespace(), method, &[]);
+pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::InterfaceKind, method: metadata::MethodDef, method_names: &mut MethodNames, virtual_names: &mut MethodNames, base_count: usize) -> TokenStream {
+    let signature = metadata::method_def_signature(def.namespace(), method, &[]);
 
     let name = method_names.add(method);
     let vname = virtual_names.add(method);
     let generics = writer.constraint_generics(&signature.params);
     let where_clause = writer.where_clause(&signature.params);
-    let mut cfg = signature_cfg(method);
+    let mut cfg = cfg::signature_cfg(method);
     cfg.add_feature(def.namespace());
     let doc = writer.cfg_method_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 
-    if kind == InterfaceKind::None {
+    if kind == metadata::InterfaceKind::None {
         return quote! {};
     }
 
@@ -24,7 +24,7 @@ pub fn writer(writer: &Writer, def: TypeDef, kind: InterfaceKind, method: Method
 
     let kind = signature.kind();
     match kind {
-        SignatureKind::Query(_) => {
+        metadata::SignatureKind::Query(_) => {
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
@@ -39,7 +39,7 @@ pub fn writer(writer: &Writer, def: TypeDef, kind: InterfaceKind, method: Method
                 }
             }
         }
-        SignatureKind::QueryOptional(_) => {
+        metadata::SignatureKind::QueryOptional(_) => {
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
@@ -53,7 +53,7 @@ pub fn writer(writer: &Writer, def: TypeDef, kind: InterfaceKind, method: Method
                 }
             }
         }
-        SignatureKind::ResultValue => {
+        metadata::SignatureKind::ResultValue => {
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
@@ -68,7 +68,7 @@ pub fn writer(writer: &Writer, def: TypeDef, kind: InterfaceKind, method: Method
                 }
             }
         }
-        SignatureKind::ResultVoid => {
+        metadata::SignatureKind::ResultVoid => {
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
 
@@ -80,11 +80,11 @@ pub fn writer(writer: &Writer, def: TypeDef, kind: InterfaceKind, method: Method
                 }
             }
         }
-        SignatureKind::ReturnValue => {
+        metadata::SignatureKind::ReturnValue => {
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
-            let is_nullable = type_is_nullable(&return_type);
+            let is_nullable = metadata::type_is_nullable(&return_type);
             let return_type = writer.type_name(&return_type);
 
             if is_nullable {
@@ -109,7 +109,7 @@ pub fn writer(writer: &Writer, def: TypeDef, kind: InterfaceKind, method: Method
                 }
             }
         }
-        SignatureKind::ReturnStruct => {
+        metadata::SignatureKind::ReturnStruct => {
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let return_type = writer.type_name(&signature.return_type);
@@ -124,7 +124,7 @@ pub fn writer(writer: &Writer, def: TypeDef, kind: InterfaceKind, method: Method
                 }
             }
         }
-        SignatureKind::PreserveSig => {
+        metadata::SignatureKind::PreserveSig => {
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let return_type = writer.return_sig(&signature);
@@ -137,7 +137,7 @@ pub fn writer(writer: &Writer, def: TypeDef, kind: InterfaceKind, method: Method
                 }
             }
         }
-        SignatureKind::ReturnVoid => {
+        metadata::SignatureKind::ReturnVoid => {
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
 
@@ -152,9 +152,9 @@ pub fn writer(writer: &Writer, def: TypeDef, kind: InterfaceKind, method: Method
     }
 }
 
-pub fn gen_upcall(writer: &Writer, sig: &Signature, inner: TokenStream) -> TokenStream {
+pub fn gen_upcall(writer: &Writer, sig: &metadata::Signature, inner: TokenStream) -> TokenStream {
     match sig.kind() {
-        SignatureKind::ResultValue => {
+        metadata::SignatureKind::ResultValue => {
             let invoke_args = sig.params[..sig.params.len() - 1].iter().map(|param| gen_win32_invoke_arg(writer, param));
 
             let result = writer.param_name(sig.params[sig.params.len() - 1].def);
@@ -170,14 +170,14 @@ pub fn gen_upcall(writer: &Writer, sig: &Signature, inner: TokenStream) -> Token
                 }
             }
         }
-        SignatureKind::Query(_) | SignatureKind::QueryOptional(_) | SignatureKind::ResultVoid => {
+        metadata::SignatureKind::Query(_) | metadata::SignatureKind::QueryOptional(_) | metadata::SignatureKind::ResultVoid => {
             let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(writer, param));
 
             quote! {
                 #inner(#(#invoke_args,)*).into()
             }
         }
-        SignatureKind::ReturnStruct => {
+        metadata::SignatureKind::ReturnStruct => {
             let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(writer, param));
 
             quote! {
@@ -194,12 +194,12 @@ pub fn gen_upcall(writer: &Writer, sig: &Signature, inner: TokenStream) -> Token
     }
 }
 
-fn gen_win32_invoke_arg(writer: &Writer, param: &SignatureParam) -> TokenStream {
+fn gen_win32_invoke_arg(writer: &Writer, param: &metadata::SignatureParam) -> TokenStream {
     let name = writer.param_name(param.def);
 
-    if param.def.flags().contains(ParamAttributes::In) && type_is_nullable(&param.ty) {
+    if param.def.flags().contains(metadata::ParamAttributes::In) && metadata::type_is_nullable(&param.ty) {
         quote! { ::windows_core::from_raw_borrowed(&#name) }
-    } else if (!param.ty.is_pointer() && type_is_nullable(&param.ty)) || (param.def.flags().contains(ParamAttributes::In) && !type_is_primitive(&param.ty)) {
+    } else if (!param.ty.is_pointer() && metadata::type_is_nullable(&param.ty)) || (param.def.flags().contains(metadata::ParamAttributes::In) && !metadata::type_is_primitive(&param.ty)) {
         quote! { ::core::mem::transmute(&#name) }
     } else {
         quote! { ::core::mem::transmute_copy(&#name) }

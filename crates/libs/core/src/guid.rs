@@ -71,7 +71,7 @@ impl std::fmt::Debug for GUID {
     }
 }
 
-impl std::convert::From<&str> for GUID {
+impl From<&str> for GUID {
     fn from(value: &str) -> Self {
         assert!(value.len() == 36, "Invalid GUID string");
         let mut bytes = value.bytes();
@@ -97,13 +97,13 @@ impl std::convert::From<&str> for GUID {
     }
 }
 
-impl std::convert::From<u128> for GUID {
+impl From<u128> for GUID {
     fn from(value: u128) -> Self {
         Self::from_u128(value)
     }
 }
 
-impl std::convert::From<GUID> for u128 {
+impl From<GUID> for u128 {
     fn from(value: GUID) -> Self {
         value.to_u128()
     }

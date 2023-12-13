@@ -1,5 +1,4 @@
 use super::*;
-use std::collections::hash_map::*;
 
 pub struct Blobs {
     map: HashMap<Vec<u8>, u32>,
@@ -19,7 +18,7 @@ impl Blobs {
         }
 
         match self.map.entry(value.to_vec()) {
-            Entry::Vacant(entry) => {
+            std::collections::hash_map::Entry::Vacant(entry) => {
                 let offset = *entry.insert(self.stream.len() as u32);
                 let len = value.len();
                 match len {
@@ -38,7 +37,7 @@ impl Blobs {
                 self.stream.extend_from_slice(value);
                 offset
             }
-            Entry::Occupied(entry) => *entry.get(),
+            std::collections::hash_map::Entry::Occupied(entry) => *entry.get(),
         }
     }
 

@@ -2,15 +2,15 @@
 struct StockIterable<T>
 where
     T: ::windows_core::RuntimeType + 'static,
-    <T as ::windows_core::Type<T>>::Default: ::std::clone::Clone,
+    <T as ::windows_core::Type<T>>::Default: Clone,
 {
-    values: std::vec::Vec<T::Default>,
+    values: Vec<T::Default>,
 }
 
 impl<T> IIterable_Impl<T> for StockIterable<T>
 where
     T: ::windows_core::RuntimeType,
-    <T as ::windows_core::Type<T>>::Default: ::std::clone::Clone,
+    <T as ::windows_core::Type<T>>::Default: Clone,
 {
     fn First(&self) -> ::windows_core::Result<IIterator<T>> {
         unsafe {
@@ -29,7 +29,7 @@ where
 struct StockIterator<T>
 where
     T: ::windows_core::RuntimeType + 'static,
-    <T as ::windows_core::Type<T>>::Default: ::std::clone::Clone,
+    <T as ::windows_core::Type<T>>::Default: Clone,
 {
     owner: IIterable<T>,
     current: ::std::sync::atomic::AtomicUsize,
@@ -38,7 +38,7 @@ where
 impl<T> IIterator_Impl<T> for StockIterator<T>
 where
     T: ::windows_core::RuntimeType,
-    <T as ::windows_core::Type<T>>::Default: ::std::clone::Clone,
+    <T as ::windows_core::Type<T>>::Default: Clone,
 {
     fn Current(&self) -> ::windows_core::Result<T> {
         let owner: &StockIterable<T> = unsafe { ::windows_core::AsImpl::as_impl(&self.owner) };
@@ -83,13 +83,13 @@ where
     }
 }
 
-impl<T> ::core::convert::TryFrom<::std::vec::Vec<T::Default>> for IIterable<T>
+impl<T> ::core::convert::TryFrom<Vec<T::Default>> for IIterable<T>
 where
     T: ::windows_core::RuntimeType,
-    <T as ::windows_core::Type<T>>::Default: ::std::clone::Clone,
+    <T as ::windows_core::Type<T>>::Default: Clone,
 {
     type Error = ::windows_core::Error;
-    fn try_from(values: ::std::vec::Vec<T::Default>) -> ::windows_core::Result<Self> {
+    fn try_from(values: Vec<T::Default>) -> ::windows_core::Result<Self> {
         // TODO: should provide a fallible try_into or more explicit allocator
         Ok(StockIterable { values }.into())
     }

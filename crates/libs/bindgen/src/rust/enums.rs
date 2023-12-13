@@ -1,22 +1,23 @@
 use super::*;
+use metadata::HasAttributes;
 
-pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
+pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let type_name = def.type_name();
     let ident = to_ident(type_name.name);
     let underlying_type = def.underlying_type();
     let underlying_type = writer.type_name(&underlying_type);
 
     // TODO: unscoped enums should be removed from metadata
-    let is_scoped = def.flags().contains(TypeAttributes::WindowsRuntime) || def.has_attribute("ScopedEnumAttribute");
+    let is_scoped = def.flags().contains(metadata::TypeAttributes::WindowsRuntime) || def.has_attribute("ScopedEnumAttribute");
 
-    let cfg = type_def_cfg(def, &[]);
+    let cfg = cfg::type_def_cfg(def, &[]);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 
     let fields: Vec<(TokenStream, TokenStream)> = def
         .fields()
         .filter_map(|field| {
-            if field.flags().contains(FieldAttributes::Literal) {
+            if field.flags().contains(metadata::FieldAttributes::Literal) {
                 let field_name = to_ident(field.name());
                 let constant = field.constant().unwrap();
                 let value = writer.value(&constant.value());
@@ -110,7 +111,7 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
         // Win32 enums use the Flags attribute. WinRT enums don't have the Flags attribute but are paritioned merely based
         // on whether they are signed.
         // TODO: Win32 metadata should just follow WinRT's example here.
-        let type_def_is_flags = def.has_attribute("FlagsAttribute") || (def.flags().contains(TypeAttributes::WindowsRuntime) && def.underlying_type() == Type::U32);
+        let type_def_is_flags = def.has_attribute("FlagsAttribute") || (def.flags().contains(metadata::TypeAttributes::WindowsRuntime) && def.underlying_type() == metadata::Type::U32);
 
         if type_def_is_flags {
             tokens.combine(&quote! {
@@ -159,8 +160,8 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
             });
         }
 
-        if def.flags().contains(TypeAttributes::WindowsRuntime) {
-            let signature = Literal::byte_string(type_def_signature(def, &[]).as_bytes());
+        if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
+            let signature = Literal::byte_string(metadata::type_def_signature(def, &[]).as_bytes());
 
             tokens.combine(&quote! {
                 #features

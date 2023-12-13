@@ -16,7 +16,7 @@ impl<C, I> FactoryCache<C, I> {
     }
 }
 
-impl<C: crate::RuntimeName, I: crate::ComInterface> FactoryCache<C, I> {
+impl<C: crate::RuntimeName, I: ComInterface> FactoryCache<C, I> {
     pub fn call<R, F: FnOnce(&I) -> crate::Result<R>>(&self, callback: F) -> crate::Result<R> {
         loop {
             // Attempt to load a previously cached factory pointer.
@@ -45,11 +45,11 @@ impl<C: crate::RuntimeName, I: crate::ComInterface> FactoryCache<C, I> {
 }
 
 // This is safe because `FactoryCache` only holds agile factory pointers, which are safe to cache and share between threads.
-unsafe impl<C, I> std::marker::Sync for FactoryCache<C, I> {}
+unsafe impl<C, I> Sync for FactoryCache<C, I> {}
 
 /// Attempts to load the factory object for the given WinRT class.
 /// This can be used to access COM interfaces implemented on a Windows Runtime class factory.
-pub fn factory<C: crate::RuntimeName, I: crate::ComInterface>() -> crate::Result<I> {
+pub fn factory<C: crate::RuntimeName, I: ComInterface>() -> crate::Result<I> {
     let mut factory: Option<I> = None;
     let name = crate::HSTRING::from(C::NAME);
 
