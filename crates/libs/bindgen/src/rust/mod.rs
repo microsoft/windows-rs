@@ -17,8 +17,8 @@ mod try_format;
 mod winrt_methods;
 mod writer;
 use super::*;
+use crate::Result;
 use rayon::prelude::*;
-use {crate::Result, Error, Tree};
 
 pub fn from_reader(reader: &'static metadata::Reader, mut config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
     let mut writer = Writer::new(reader, output);

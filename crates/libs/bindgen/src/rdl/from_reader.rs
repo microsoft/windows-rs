@@ -1,6 +1,6 @@
 use super::*;
+use crate::Result;
 use tokens::{quote, to_ident, TokenStream};
-use {crate::Result, rdl, Error, Tree};
 
 pub fn from_reader(reader: &'static metadata::Reader, mut config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
     let dialect = match config.remove("type") {
