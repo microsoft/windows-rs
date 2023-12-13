@@ -17,9 +17,8 @@ mod try_format;
 mod winrt_methods;
 mod writer;
 use super::*;
-use crate::{Error, Result, Tree};
-use cfg::*;
 use rayon::prelude::*;
+use {crate::Result, Error, Tree};
 
 pub fn from_reader(reader: &'static metadata::Reader, mut config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
     let mut writer = Writer::new(reader, output);
@@ -56,7 +55,7 @@ fn gen_file(writer: &Writer) -> Result<()> {
 
     if writer.flatten {
         let tokens = standalone::standalone_imp(writer);
-        crate::write_to_file(&writer.output, try_format(writer, &tokens))
+        write_to_file(&writer.output, try_format(writer, &tokens))
     } else {
         let mut tokens = String::new();
         let root = Tree::new(writer.reader);
@@ -65,12 +64,12 @@ fn gen_file(writer: &Writer) -> Result<()> {
             tokens.push_str(&namespace(writer, tree));
         }
 
-        crate::write_to_file(&writer.output, try_format(writer, &tokens))
+        write_to_file(&writer.output, try_format(writer, &tokens))
     }
 }
 
 fn gen_package(writer: &Writer) -> Result<()> {
-    let directory = crate::directory(&writer.output);
+    let directory = directory(&writer.output);
     let root = Tree::new(writer.reader);
     let mut root_len = 0;
 
@@ -92,20 +91,20 @@ fn gen_package(writer: &Writer) -> Result<()> {
         }
 
         let output = format!("{directory}/mod.rs");
-        crate::write_to_file(&output, try_format(writer, &tokens))?;
+        write_to_file(&output, try_format(writer, &tokens))?;
 
         if !writer.sys && !tokens_impl.is_empty() {
             let output = format!("{directory}/impl.rs");
-            crate::write_to_file(&output, try_format(writer, &tokens_impl))?;
+            write_to_file(&output, try_format(writer, &tokens_impl))?;
         }
 
         Ok::<(), Error>(())
     })?;
 
-    let cargo_toml = format!("{}/Cargo.toml", crate::directory(directory));
+    let cargo_toml = format!("{}/Cargo.toml", super::directory(directory));
     let mut toml = String::new();
 
-    for line in crate::read_file_lines(&cargo_toml)? {
+    for line in read_file_lines(&cargo_toml)? {
         toml.push_str(&line);
         toml.push('\n');
 
@@ -130,14 +129,12 @@ fn gen_package(writer: &Writer) -> Result<()> {
         }
     }
 
-    crate::write_to_file(&cargo_toml, toml)
+    write_to_file(&cargo_toml, toml)
 }
 
-use crate::tokens::*;
-use metadata::*;
 use method_names::*;
-use std::collections::*;
 use std::fmt::Write;
+use tokens::*;
 use try_format::*;
 use writer::*;
 
@@ -164,57 +161,57 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
         }
     }
 
-    let mut functions = BTreeMap::<&str, TokenStream>::new();
-    let mut types = BTreeMap::<TypeKind, BTreeMap<&str, TokenStream>>::new();
+    let mut functions = std::collections::BTreeMap::<&str, TokenStream>::new();
+    let mut types = std::collections::BTreeMap::<metadata::TypeKind, std::collections::BTreeMap<&str, TokenStream>>::new();
 
     for item in writer.reader.namespace_items(writer.namespace) {
         match item {
-            Item::Type(def) => {
+            metadata::Item::Type(def) => {
                 let type_name = def.type_name();
-                if REMAP_TYPES.iter().any(|(x, _)| x == &type_name) {
+                if metadata::REMAP_TYPES.iter().any(|(x, _)| x == &type_name) {
                     continue;
                 }
-                if CORE_TYPES.iter().any(|(x, _)| x == &type_name) {
+                if metadata::CORE_TYPES.iter().any(|(x, _)| x == &type_name) {
                     continue;
                 }
                 let name = type_name.name;
                 let kind = def.kind();
                 match kind {
-                    TypeKind::Class => {
-                        if def.flags().contains(TypeAttributes::WindowsRuntime) {
+                    metadata::TypeKind::Class => {
+                        if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
                             types.entry(kind).or_default().insert(name, classes::writer(writer, def));
                         }
                     }
-                    TypeKind::Interface => types.entry(kind).or_default().entry(name).or_default().combine(&interfaces::writer(writer, def)),
-                    TypeKind::Enum => types.entry(kind).or_default().entry(name).or_default().combine(&enums::writer(writer, def)),
-                    TypeKind::Struct => {
+                    metadata::TypeKind::Interface => types.entry(kind).or_default().entry(name).or_default().combine(&interfaces::writer(writer, def)),
+                    metadata::TypeKind::Enum => types.entry(kind).or_default().entry(name).or_default().combine(&enums::writer(writer, def)),
+                    metadata::TypeKind::Struct => {
                         if def.fields().next().is_none() {
-                            if let Some(guid) = type_def_guid(def) {
+                            if let Some(guid) = metadata::type_def_guid(def) {
                                 let ident = to_ident(name);
                                 let value = writer.guid(&guid);
-                                let guid = writer.type_name(&Type::GUID);
-                                let cfg = type_def_cfg(def, &[]);
+                                let guid = writer.type_name(&metadata::Type::GUID);
+                                let cfg = cfg::type_def_cfg(def, &[]);
                                 let doc = writer.cfg_doc(&cfg);
                                 let constant = quote! {
                                     #doc
                                     pub const #ident: #guid = #value;
                                 };
-                                types.entry(TypeKind::Class).or_default().entry(name).or_default().combine(&constant);
+                                types.entry(metadata::TypeKind::Class).or_default().entry(name).or_default().combine(&constant);
                                 continue;
                             }
                         }
                         types.entry(kind).or_default().entry(name).or_default().combine(&structs::writer(writer, def));
                     }
-                    TypeKind::Delegate => types.entry(kind).or_default().entry(name).or_default().combine(&delegates::writer(writer, def)),
+                    metadata::TypeKind::Delegate => types.entry(kind).or_default().entry(name).or_default().combine(&delegates::writer(writer, def)),
                 }
             }
-            Item::Fn(def, namespace) => {
+            metadata::Item::Fn(def, namespace) => {
                 let name = def.name();
                 functions.entry(name).or_default().combine(&functions::writer(writer, namespace, def));
             }
-            Item::Const(def) => {
+            metadata::Item::Const(def) => {
                 let name = def.name();
-                types.entry(TypeKind::Class).or_default().entry(name).or_default().combine(&constants::writer(writer, def));
+                types.entry(metadata::TypeKind::Class).or_default().entry(name).or_default().combine(&constants::writer(writer, def));
             }
         }
     }
@@ -239,15 +236,15 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
 fn namespace_impl(writer: &Writer, tree: &Tree) -> String {
     let writer = &mut writer.clone();
     writer.namespace = tree.namespace;
-    let mut types = BTreeMap::<&str, TokenStream>::new();
+    let mut types = std::collections::BTreeMap::<&str, TokenStream>::new();
 
     for item in writer.reader.namespace_items(tree.namespace) {
-        if let Item::Type(def) = item {
+        if let metadata::Item::Type(def) = item {
             let type_name = def.type_name();
-            if CORE_TYPES.iter().any(|(x, _)| x == &type_name) {
+            if metadata::CORE_TYPES.iter().any(|(x, _)| x == &type_name) {
                 continue;
             }
-            if def.kind() != TypeKind::Interface {
+            if def.kind() != metadata::TypeKind::Interface {
                 continue;
             }
             let tokens = implements::writer(writer, def);

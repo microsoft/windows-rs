@@ -10,7 +10,7 @@ pub struct Writer {
 }
 
 impl Writer {
-    pub fn new(file: &rdl::File) -> Self {
+    pub fn new(file: &File) -> Self {
         let mut writer = Self::default();
         writer.rdl_file(file);
         writer
@@ -37,7 +37,7 @@ impl Writer {
         self.newline = true;
     }
 
-    fn rdl_file(&mut self, file: &rdl::File) {
+    fn rdl_file(&mut self, file: &File) {
         if file.winrt {
             self.word("#![winrt]\n");
         } else {
@@ -55,7 +55,7 @@ impl Writer {
         }
     }
 
-    fn rdl_module(&mut self, module: &rdl::Module) {
+    fn rdl_module(&mut self, module: &Module) {
         self.word("mod ");
         self.word(module.name());
         self.word(" {");
@@ -73,19 +73,19 @@ impl Writer {
         self.newline();
     }
 
-    fn rdl_module_member(&mut self, member: &rdl::ModuleMember) {
+    fn rdl_module_member(&mut self, member: &ModuleMember) {
         match member {
-            rdl::ModuleMember::Module(member) => self.rdl_module(member),
-            rdl::ModuleMember::Interface(member) => self.rdl_interface(member),
-            rdl::ModuleMember::Struct(member) => self.rdl_struct(member),
-            rdl::ModuleMember::Enum(member) => self.rdl_enum(member),
-            rdl::ModuleMember::Class(member) => self.rdl_class(member),
-            rdl::ModuleMember::Constant(member) => self.rdl_constant(member),
-            rdl::ModuleMember::Function(member) => self.rdl_function(member),
+            ModuleMember::Module(member) => self.rdl_module(member),
+            ModuleMember::Interface(member) => self.rdl_interface(member),
+            ModuleMember::Struct(member) => self.rdl_struct(member),
+            ModuleMember::Enum(member) => self.rdl_enum(member),
+            ModuleMember::Class(member) => self.rdl_class(member),
+            ModuleMember::Constant(member) => self.rdl_constant(member),
+            ModuleMember::Function(member) => self.rdl_function(member),
         }
     }
 
-    fn rdl_class(&mut self, member: &rdl::Class) {
+    fn rdl_class(&mut self, member: &Class) {
         self.attrs(&member.attributes);
         self.word("class ");
         self.word(&member.name);
@@ -117,7 +117,7 @@ impl Writer {
         self.newline();
     }
 
-    fn rdl_interface(&mut self, member: &rdl::Interface) {
+    fn rdl_interface(&mut self, member: &Interface) {
         self.attrs(&member.attributes);
         self.word("interface ");
         self.word(&member.name);
@@ -167,11 +167,11 @@ impl Writer {
         self.word("}");
     }
 
-    fn rdl_constant(&mut self, member: &rdl::Constant) {
+    fn rdl_constant(&mut self, member: &Constant) {
         self.item_const(&member.item);
     }
 
-    fn rdl_function(&mut self, member: &rdl::Function) {
+    fn rdl_function(&mut self, member: &Function) {
         self.trait_item_fn(&member.item);
         self.word(";");
         self.newline();
@@ -222,7 +222,7 @@ impl Writer {
         self.expr(&meta.value);
     }
 
-    fn rdl_struct(&mut self, member: &rdl::Struct) {
+    fn rdl_struct(&mut self, member: &Struct) {
         self.attrs(&member.attributes);
 
         self.word("struct ");
@@ -244,7 +244,7 @@ impl Writer {
         self.word("}");
     }
 
-    fn rdl_enum(&mut self, member: &rdl::Enum) {
+    fn rdl_enum(&mut self, member: &Enum) {
         self.attrs(&member.item.attrs);
 
         self.word("enum ");

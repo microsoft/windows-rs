@@ -68,7 +68,7 @@ pub enum ModuleMember {
 impl ModuleMember {
     pub fn name(&self) -> &str {
         match self {
-            Self::Module(module) => crate::extension(&module.namespace),
+            Self::Module(module) => extension(&module.namespace),
             Self::Interface(member) => &member.name,
             Self::Struct(member) => &member.name,
             Self::Enum(member) => &member.name,

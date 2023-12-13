@@ -2,7 +2,6 @@
 
 use super::Write;
 use super::*;
-use metadata::*;
 
 #[derive(Default)]
 pub struct Tables {
@@ -183,13 +182,13 @@ impl Tables {
             panic!("metadata table too large");
         }
 
-        let resolution_scope = coded_index_size(&[self.Module.len(), self.ModuleRef.len(), self.AssemblyRef.len(), self.TypeRef.len()]);
+        let resolution_scope = metadata::coded_index_size(&[self.Module.len(), self.ModuleRef.len(), self.AssemblyRef.len(), self.TypeRef.len()]);
 
-        let type_def_or_ref = coded_index_size(&[self.TypeDef.len(), self.TypeRef.len(), self.TypeSpec.len()]);
+        let type_def_or_ref = metadata::coded_index_size(&[self.TypeDef.len(), self.TypeRef.len(), self.TypeSpec.len()]);
 
-        let has_constant = coded_index_size(&[self.Field.len(), self.Param.len(), self.Property.len()]);
+        let has_constant = metadata::coded_index_size(&[self.Field.len(), self.Param.len(), self.Property.len()]);
 
-        let type_or_method_def = coded_index_size(&[self.TypeDef.len(), self.MethodDef.len()]);
+        let type_or_method_def = metadata::coded_index_size(&[self.TypeDef.len(), self.MethodDef.len()]);
 
         let valid_tables: u64 = 1 << 0 | // Module 
         1 << 0x01 | // TypeRef

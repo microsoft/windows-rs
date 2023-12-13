@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
+pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     if writer.sys {
         gen_sys_interface(def)
     } else {
@@ -8,11 +8,11 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
     }
 }
 
-fn gen_sys_interface(def: TypeDef) -> TokenStream {
+fn gen_sys_interface(def: metadata::TypeDef) -> TokenStream {
     let name = def.name();
     let ident = to_ident(name);
 
-    if type_def_is_exclusive(def) {
+    if metadata::type_def_is_exclusive(def) {
         quote! {}
     } else {
         quote! {
@@ -21,18 +21,18 @@ fn gen_sys_interface(def: TypeDef) -> TokenStream {
     }
 }
 
-fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
-    let generics = &type_def_generics(def);
+fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
+    let generics = &metadata::type_def_generics(def);
     let ident = writer.type_def_name(def, generics);
-    let is_exclusive = type_def_is_exclusive(def);
+    let is_exclusive = metadata::type_def_is_exclusive(def);
     let phantoms = writer.generic_phantoms(generics);
     let constraints = writer.generic_constraints(generics);
-    let cfg = type_def_cfg(def, &[]);
+    let cfg = cfg::type_def_cfg(def, &[]);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
-    let interfaces = type_interfaces(&Type::TypeDef(def, generics.to_vec()));
-    let vtables = type_def_vtables(def);
-    let has_unknown_base = matches!(vtables.first(), Some(Type::IUnknown));
+    let interfaces = metadata::type_interfaces(&metadata::Type::TypeDef(def, generics.to_vec()));
+    let vtables = metadata::type_def_vtables(def);
+    let has_unknown_base = matches!(vtables.first(), Some(metadata::Type::IUnknown));
 
     let mut tokens = if is_exclusive {
         quote! { #[doc(hidden)] }
@@ -63,14 +63,14 @@ fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
         let method_names = &mut MethodNames::new();
         let virtual_names = &mut MethodNames::new();
 
-        if def.flags().contains(TypeAttributes::WindowsRuntime) {
+        if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
             for method in def.methods() {
-                methods.combine(&winrt_methods::writer(writer, def, generics, InterfaceKind::Default, method, method_names, virtual_names));
+                methods.combine(&winrt_methods::writer(writer, def, generics, metadata::InterfaceKind::Default, method, method_names, virtual_names));
             }
             for interface in &interfaces {
-                if let Type::TypeDef(def, generics) = &interface.ty {
+                if let metadata::Type::TypeDef(def, generics) = &interface.ty {
                     for method in def.methods() {
-                        methods.combine(&winrt_methods::writer(writer, *def, generics, InterfaceKind::None, method, method_names, virtual_names));
+                        methods.combine(&winrt_methods::writer(writer, *def, generics, metadata::InterfaceKind::None, method, method_names, virtual_names));
                     }
                 }
             }
@@ -78,9 +78,9 @@ fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
             let mut bases = vtables.len();
             for ty in &vtables {
                 match ty {
-                    Type::IUnknown | Type::IInspectable => {}
-                    Type::TypeDef(def, _) => {
-                        let kind = if def.type_name() == TypeName::IDispatch { InterfaceKind::None } else { InterfaceKind::Default };
+                    metadata::Type::IUnknown | metadata::Type::IInspectable => {}
+                    metadata::Type::TypeDef(def, _) => {
+                        let kind = if def.type_name() == metadata::TypeName::IDispatch { metadata::InterfaceKind::None } else { metadata::InterfaceKind::Default };
                         for method in def.methods() {
                             methods.combine(&com_methods::writer(writer, *def, kind, method, method_names, virtual_names, bases));
                         }
@@ -91,7 +91,7 @@ fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
                 bases -= 1;
             }
             for method in def.methods() {
-                methods.combine(&com_methods::writer(writer, def, InterfaceKind::Default, method, method_names, virtual_names, 0));
+                methods.combine(&com_methods::writer(writer, def, metadata::InterfaceKind::Default, method, method_names, virtual_names, 0));
             }
         }
 
@@ -110,7 +110,7 @@ fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
                 let into = writer.type_name(ty);
 
                 write!(&mut hierarchy, ", {into}").unwrap();
-                hierarchy_cfg = hierarchy_cfg.union(&type_cfg(ty));
+                hierarchy_cfg = hierarchy_cfg.union(&cfg::type_cfg(ty));
             }
 
             hierarchy.push_str(");");
@@ -119,7 +119,7 @@ fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
         } else {
             for ty in &vtables {
                 let into = writer.type_name(ty);
-                let cfg = writer.cfg_features(&cfg.union(&type_cfg(ty)));
+                let cfg = writer.cfg_features(&cfg.union(&cfg::type_cfg(ty)));
                 tokens.combine(&quote! {
                     #cfg
                     impl<#constraints> ::windows_core::CanInto<#into> for #ident {}
@@ -127,10 +127,10 @@ fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
             }
         }
 
-        if def.flags().contains(TypeAttributes::WindowsRuntime) {
+        if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
             for interface in &interfaces {
                 let into = writer.type_name(&interface.ty);
-                let cfg = writer.cfg_features(&cfg.union(&type_cfg(&interface.ty)));
+                let cfg = writer.cfg_features(&cfg.union(&cfg::type_cfg(&interface.ty)));
                 tokens.combine(&quote! {
                     #cfg
                     impl<#constraints> ::windows_core::CanTryInto<#into> for #ident {}

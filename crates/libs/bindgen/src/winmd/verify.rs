@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn verify(reader: &metadata::Reader) -> crate::Result<()> {
+pub fn verify(reader: &metadata::Reader) -> Result<()> {
     let unused: Vec<&str> = reader.unused().collect();
 
     if !unused.is_empty() {
@@ -10,7 +10,7 @@ pub fn verify(reader: &metadata::Reader) -> crate::Result<()> {
             message.push_str(&format!("\n  {unused}"));
         }
 
-        return Err(crate::Error::new(&message));
+        return Err(Error::new(&message));
     }
 
     for item in reader.items() {
@@ -34,9 +34,9 @@ pub fn verify(reader: &metadata::Reader) -> crate::Result<()> {
     Ok(())
 }
 
-fn not_type_ref(ty: &metadata::Type) -> crate::Result<()> {
+fn not_type_ref(ty: &metadata::Type) -> Result<()> {
     if let metadata::Type::TypeRef(ty) = ty {
-        return Err(crate::Error::new(&format!("missing type definition `{}`", ty)));
+        return Err(Error::new(&format!("missing type definition `{}`", ty)));
     }
     Ok(())
 }

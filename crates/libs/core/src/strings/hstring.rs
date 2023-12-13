@@ -49,8 +49,8 @@ impl HSTRING {
     }
 
     /// Get the contents of this `HSTRING` as a String lossily.
-    pub fn to_string_lossy(&self) -> std::string::String {
-        std::string::String::from_utf16_lossy(self.as_wide())
+    pub fn to_string_lossy(&self) -> String {
+        String::from_utf16_lossy(self.as_wide())
     }
 
     /// Get the contents of this `HSTRING` as a OsString.
@@ -149,47 +149,47 @@ impl std::fmt::Debug for HSTRING {
     }
 }
 
-impl std::convert::From<&str> for HSTRING {
+impl From<&str> for HSTRING {
     fn from(value: &str) -> Self {
         unsafe { Self::from_wide_iter(value.encode_utf16(), value.len()).unwrap() }
     }
 }
 
-impl std::convert::From<std::string::String> for HSTRING {
-    fn from(value: std::string::String) -> Self {
+impl From<String> for HSTRING {
+    fn from(value: String) -> Self {
         value.as_str().into()
     }
 }
 
-impl std::convert::From<&std::string::String> for HSTRING {
-    fn from(value: &std::string::String) -> Self {
+impl From<&String> for HSTRING {
+    fn from(value: &String) -> Self {
         value.as_str().into()
     }
 }
 
 #[cfg(windows)]
-impl std::convert::From<&std::path::Path> for HSTRING {
+impl From<&std::path::Path> for HSTRING {
     fn from(value: &std::path::Path) -> Self {
         value.as_os_str().into()
     }
 }
 
 #[cfg(windows)]
-impl std::convert::From<&std::ffi::OsStr> for HSTRING {
+impl From<&std::ffi::OsStr> for HSTRING {
     fn from(value: &std::ffi::OsStr) -> Self {
         unsafe { Self::from_wide_iter(std::os::windows::ffi::OsStrExt::encode_wide(value), value.len()).unwrap() }
     }
 }
 
 #[cfg(windows)]
-impl std::convert::From<std::ffi::OsString> for HSTRING {
+impl From<std::ffi::OsString> for HSTRING {
     fn from(value: std::ffi::OsString) -> Self {
         value.as_os_str().into()
     }
 }
 
 #[cfg(windows)]
-impl std::convert::From<&std::ffi::OsString> for HSTRING {
+impl From<&std::ffi::OsString> for HSTRING {
     fn from(value: &std::ffi::OsString) -> Self {
         value.as_os_str().into()
     }
@@ -215,20 +215,20 @@ impl PartialEq for HSTRING {
     }
 }
 
-impl PartialEq<std::string::String> for HSTRING {
-    fn eq(&self, other: &std::string::String) -> bool {
+impl PartialEq<String> for HSTRING {
+    fn eq(&self, other: &String) -> bool {
         *self == **other
     }
 }
 
-impl PartialEq<std::string::String> for &HSTRING {
-    fn eq(&self, other: &std::string::String) -> bool {
+impl PartialEq<String> for &HSTRING {
+    fn eq(&self, other: &String) -> bool {
         **self == **other
     }
 }
 
-impl PartialEq<&std::string::String> for HSTRING {
-    fn eq(&self, other: &&std::string::String) -> bool {
+impl PartialEq<&String> for HSTRING {
+    fn eq(&self, other: &&String) -> bool {
         *self == ***other
     }
 }
@@ -269,19 +269,19 @@ impl PartialEq<&HSTRING> for str {
     }
 }
 
-impl PartialEq<HSTRING> for std::string::String {
+impl PartialEq<HSTRING> for String {
     fn eq(&self, other: &HSTRING) -> bool {
         *other == **self
     }
 }
 
-impl PartialEq<HSTRING> for &std::string::String {
+impl PartialEq<HSTRING> for &String {
     fn eq(&self, other: &HSTRING) -> bool {
         *other == ***self
     }
 }
 
-impl PartialEq<&HSTRING> for std::string::String {
+impl PartialEq<&HSTRING> for String {
     fn eq(&self, other: &&HSTRING) -> bool {
         **other == **self
     }
@@ -371,31 +371,31 @@ impl PartialEq<&HSTRING> for std::ffi::OsString {
     }
 }
 
-impl<'a> std::convert::TryFrom<&'a HSTRING> for std::string::String {
+impl<'a> TryFrom<&'a HSTRING> for String {
     type Error = std::string::FromUtf16Error;
 
     fn try_from(hstring: &HSTRING) -> std::result::Result<Self, Self::Error> {
-        std::string::String::from_utf16(hstring.as_wide())
+        String::from_utf16(hstring.as_wide())
     }
 }
 
-impl std::convert::TryFrom<HSTRING> for std::string::String {
+impl TryFrom<HSTRING> for String {
     type Error = std::string::FromUtf16Error;
 
     fn try_from(hstring: HSTRING) -> std::result::Result<Self, Self::Error> {
-        std::string::String::try_from(&hstring)
+        String::try_from(&hstring)
     }
 }
 
 #[cfg(windows)]
-impl<'a> std::convert::From<&'a HSTRING> for std::ffi::OsString {
+impl<'a> From<&'a HSTRING> for std::ffi::OsString {
     fn from(hstring: &HSTRING) -> Self {
         hstring.to_os_string()
     }
 }
 
 #[cfg(windows)]
-impl std::convert::From<HSTRING> for std::ffi::OsString {
+impl From<HSTRING> for std::ffi::OsString {
     fn from(hstring: HSTRING) -> Self {
         Self::from(&hstring)
     }

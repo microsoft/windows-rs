@@ -10,6 +10,9 @@ repository = "https://github.com/microsoft/windows-rs"
 readme = "readme.md"
 categories = ["os::windows-apis"]
 
+[lints]
+workspace = true
+
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []

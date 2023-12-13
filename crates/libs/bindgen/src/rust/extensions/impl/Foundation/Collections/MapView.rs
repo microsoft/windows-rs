@@ -3,8 +3,8 @@ struct StockMapView<K, V>
 where
     K: ::windows_core::RuntimeType + 'static,
     V: ::windows_core::RuntimeType + 'static,
-    <K as ::windows_core::Type<K>>::Default: std::clone::Clone + std::cmp::Ord,
-    <V as ::windows_core::Type<V>>::Default: std::clone::Clone,
+    <K as ::windows_core::Type<K>>::Default: Clone + Ord,
+    <V as ::windows_core::Type<V>>::Default: Clone,
 {
     map: std::collections::BTreeMap<K::Default, V::Default>,
 }
@@ -13,8 +13,8 @@ impl<K, V> IIterable_Impl<IKeyValuePair<K, V>> for StockMapView<K, V>
 where
     K: ::windows_core::RuntimeType,
     V: ::windows_core::RuntimeType,
-    <K as ::windows_core::Type<K>>::Default: std::clone::Clone + std::cmp::Ord,
-    <V as ::windows_core::Type<V>>::Default: std::clone::Clone,
+    <K as ::windows_core::Type<K>>::Default: Clone + Ord,
+    <V as ::windows_core::Type<V>>::Default: Clone,
 {
     fn First(&self) -> ::windows_core::Result<IIterator<IKeyValuePair<K, V>>> {
         unsafe {
@@ -33,8 +33,8 @@ impl<K, V> IMapView_Impl<K, V> for StockMapView<K, V>
 where
     K: ::windows_core::RuntimeType,
     V: ::windows_core::RuntimeType,
-    <K as ::windows_core::Type<K>>::Default: std::clone::Clone + std::cmp::Ord,
-    <V as ::windows_core::Type<V>>::Default: std::clone::Clone,
+    <K as ::windows_core::Type<K>>::Default: Clone + Ord,
+    <V as ::windows_core::Type<V>>::Default: Clone,
 {
     fn Lookup(&self, key: &K::Default) -> ::windows_core::Result<V> {
         let value = self
@@ -51,8 +51,8 @@ where
     }
     fn Split(
         &self,
-        first: &mut std::option::Option<IMapView<K, V>>,
-        second: &mut std::option::Option<IMapView<K, V>>,
+        first: &mut Option<IMapView<K, V>>,
+        second: &mut Option<IMapView<K, V>>,
     ) -> ::windows_core::Result<()> {
         *first = None;
         *second = None;
@@ -65,8 +65,8 @@ struct StockMapViewIterator<'a, K, V>
 where
     K: ::windows_core::RuntimeType + 'static,
     V: ::windows_core::RuntimeType + 'static,
-    <K as ::windows_core::Type<K>>::Default: std::clone::Clone + std::cmp::Ord,
-    <V as ::windows_core::Type<V>>::Default: std::clone::Clone,
+    <K as ::windows_core::Type<K>>::Default: Clone + Ord,
+    <V as ::windows_core::Type<V>>::Default: Clone,
 {
     _owner: IIterable<IKeyValuePair<K, V>>,
     current: ::std::sync::RwLock<std::collections::btree_map::Iter<'a, K::Default, V::Default>>,
@@ -76,8 +76,8 @@ impl<'a, K, V> IIterator_Impl<IKeyValuePair<K, V>> for StockMapViewIterator<'a, 
 where
     K: ::windows_core::RuntimeType,
     V: ::windows_core::RuntimeType,
-    <K as ::windows_core::Type<K>>::Default: std::clone::Clone + std::cmp::Ord,
-    <V as ::windows_core::Type<V>>::Default: std::clone::Clone,
+    <K as ::windows_core::Type<K>>::Default: Clone + Ord,
+    <V as ::windows_core::Type<V>>::Default: Clone,
 {
     fn Current(&self) -> ::windows_core::Result<IKeyValuePair<K, V>> {
         let mut current = self.current.read().unwrap().clone().peekable();
@@ -134,8 +134,8 @@ struct StockKeyValuePair<K, V>
 where
     K: ::windows_core::RuntimeType + 'static,
     V: ::windows_core::RuntimeType + 'static,
-    <K as ::windows_core::Type<K>>::Default: std::clone::Clone,
-    <V as ::windows_core::Type<V>>::Default: std::clone::Clone,
+    <K as ::windows_core::Type<K>>::Default: Clone,
+    <V as ::windows_core::Type<V>>::Default: Clone,
 {
     key: K::Default,
     value: V::Default,
@@ -145,8 +145,8 @@ impl<K, V> IKeyValuePair_Impl<K, V> for StockKeyValuePair<K, V>
 where
     K: ::windows_core::RuntimeType,
     V: ::windows_core::RuntimeType,
-    <K as ::windows_core::Type<K>>::Default: std::clone::Clone,
-    <V as ::windows_core::Type<V>>::Default: std::clone::Clone,
+    <K as ::windows_core::Type<K>>::Default: Clone,
+    <V as ::windows_core::Type<V>>::Default: Clone,
 {
     fn Key(&self) -> ::windows_core::Result<K> {
         K::from_default(&self.key)
@@ -161,8 +161,8 @@ impl<K, V> ::core::convert::TryFrom<std::collections::BTreeMap<K::Default, V::De
 where
     K: ::windows_core::RuntimeType,
     V: ::windows_core::RuntimeType,
-    <K as ::windows_core::Type<K>>::Default: std::clone::Clone + std::cmp::Ord,
-    <V as ::windows_core::Type<V>>::Default: std::clone::Clone,
+    <K as ::windows_core::Type<K>>::Default: Clone + Ord,
+    <V as ::windows_core::Type<V>>::Default: Clone,
 {
     type Error = ::windows_core::Error;
     fn try_from(

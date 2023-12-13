@@ -1,5 +1,4 @@
 use quote::quote;
-use syn::parse::{Parse, ParseStream};
 use syn::spanned::Spanned;
 
 /// Defines a COM interface to call or implement.
@@ -373,8 +372,8 @@ impl Interface {
     }
 }
 
-impl Parse for Interface {
-    fn parse(input: ParseStream<'_>) -> syn::Result<Self> {
+impl syn::parse::Parse for Interface {
+    fn parse(input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
         let attributes = input.call(syn::Attribute::parse_outer)?;
         let mut docs = Vec::new();
         for attr in attributes.into_iter() {
@@ -474,8 +473,8 @@ impl Guid {
     }
 }
 
-impl Parse for Guid {
-    fn parse(cursor: ParseStream<'_>) -> syn::Result<Self> {
+impl syn::parse::Parse for Guid {
+    fn parse(cursor: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
         let string: Option<syn::LitStr> = cursor.parse().ok();
 
         Ok(Self(string))

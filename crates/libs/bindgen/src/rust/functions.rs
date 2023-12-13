@@ -1,6 +1,7 @@
 use super::*;
+use metadata::HasAttributes;
 
-pub fn writer(writer: &Writer, namespace: &str, def: MethodDef) -> TokenStream {
+pub fn writer(writer: &Writer, namespace: &str, def: metadata::MethodDef) -> TokenStream {
     // TODO: remove inline functions from metadata
     if def.module_name() == "forceinline" {
         return quote! {};
@@ -20,28 +21,28 @@ pub fn writer(writer: &Writer, namespace: &str, def: MethodDef) -> TokenStream {
     }
 }
 
-fn gen_sys_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenStream {
-    let signature = method_def_signature(namespace, def, &[]);
-    let cfg = signature_cfg(def);
+fn gen_sys_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) -> TokenStream {
+    let signature = metadata::method_def_signature(namespace, def, &[]);
+    let cfg = cfg::signature_cfg(def);
     let mut tokens = writer.cfg_features(&cfg);
     tokens.combine(&gen_link(writer, namespace, &signature, &cfg));
     tokens
 }
 
-fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenStream {
+fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) -> TokenStream {
     let name = to_ident(def.name());
-    let signature = method_def_signature(namespace, def, &[]);
+    let signature = metadata::method_def_signature(namespace, def, &[]);
     let generics = writer.constraint_generics(&signature.params);
     let where_clause = writer.where_clause(&signature.params);
     let abi_return_type = writer.return_sig(&signature);
-    let cfg = signature_cfg(def);
+    let cfg = cfg::signature_cfg(def);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
     let link = gen_link(writer, namespace, &signature, &cfg);
 
     let kind = signature.kind();
     match kind {
-        SignatureKind::Query(_) => {
+        metadata::SignatureKind::Query(_) => {
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
@@ -58,7 +59,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
                 }
             }
         }
-        SignatureKind::QueryOptional(_) => {
+        metadata::SignatureKind::QueryOptional(_) => {
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
@@ -74,7 +75,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
                 }
             }
         }
-        SignatureKind::ResultValue => {
+        metadata::SignatureKind::ResultValue => {
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
@@ -91,7 +92,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
                 }
             }
         }
-        SignatureKind::ResultVoid => {
+        metadata::SignatureKind::ResultVoid => {
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
 
@@ -105,11 +106,11 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
                 }
             }
         }
-        SignatureKind::ReturnValue => {
+        metadata::SignatureKind::ReturnValue => {
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
-            let is_nullable = type_is_nullable(&return_type);
+            let is_nullable = metadata::type_is_nullable(&return_type);
             let return_type = writer.type_name(&return_type);
 
             if is_nullable {
@@ -138,7 +139,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
                 }
             }
         }
-        SignatureKind::ReturnStruct | SignatureKind::PreserveSig => {
+        metadata::SignatureKind::ReturnStruct | metadata::SignatureKind::PreserveSig => {
             if handle_last_error(def, &signature) {
                 let args = writer.win32_args(&signature.params, kind);
                 let params = writer.win32_params(&signature.params, kind);
@@ -169,7 +170,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
                 }
             }
         }
-        SignatureKind::ReturnVoid => {
+        metadata::SignatureKind::ReturnVoid => {
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let does_not_return = does_not_return(def);
@@ -187,7 +188,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
     }
 }
 
-fn gen_link(writer: &Writer, namespace: &str, signature: &Signature, cfg: &Cfg) -> TokenStream {
+fn gen_link(writer: &Writer, namespace: &str, signature: &metadata::Signature, cfg: &cfg::Cfg) -> TokenStream {
     let name = signature.def.name();
     let ident = to_ident(name);
     let library = signature.def.module_name();
@@ -203,13 +204,13 @@ fn gen_link(writer: &Writer, namespace: &str, signature: &Signature, cfg: &Cfg) 
 
     let params = signature.params.iter().map(|p| {
         let name = writer.param_name(p.def);
-        let tokens = if p.kind == SignatureParamKind::ValueType { writer.type_default_name(&p.ty) } else { writer.type_abi_name(&p.ty) };
+        let tokens = if p.kind == metadata::SignatureParamKind::ValueType { writer.type_default_name(&p.ty) } else { writer.type_abi_name(&p.ty) };
         quote! { #name: #tokens }
     });
 
     let return_type = writer.return_sig(signature);
 
-    let vararg = if writer.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
+    let vararg = if writer.sys && signature.call_flags.contains(metadata::MethodCallAttributes::VARARG) {
         "...".into()
     } else {
         quote! {}
@@ -240,7 +241,7 @@ fn gen_link(writer: &Writer, namespace: &str, signature: &Signature, cfg: &Cfg) 
     }
 }
 
-fn does_not_return(def: MethodDef) -> TokenStream {
+fn does_not_return(def: metadata::MethodDef) -> TokenStream {
     if def.has_attribute("DoesNotReturnAttribute") {
         quote! { -> ! }
     } else {
@@ -248,15 +249,15 @@ fn does_not_return(def: MethodDef) -> TokenStream {
     }
 }
 
-fn handle_last_error(def: MethodDef, signature: &Signature) -> bool {
+fn handle_last_error(def: metadata::MethodDef, signature: &metadata::Signature) -> bool {
     if let Some(map) = def.impl_map() {
-        if map.flags().contains(PInvokeAttributes::SupportsLastError) {
-            if let Type::TypeDef(return_type, _) = &signature.return_type {
-                if type_def_is_handle(*return_type) {
+        if map.flags().contains(metadata::PInvokeAttributes::SupportsLastError) {
+            if let metadata::Type::TypeDef(return_type, _) = &signature.return_type {
+                if metadata::type_def_is_handle(*return_type) {
                     if return_type.underlying_type().is_pointer() {
                         return true;
                     }
-                    if !type_def_invalid_values(*return_type).is_empty() {
+                    if !metadata::type_def_invalid_values(*return_type).is_empty() {
                         return true;
                     }
                 }
@@ -266,13 +267,13 @@ fn handle_last_error(def: MethodDef, signature: &Signature) -> bool {
     false
 }
 
-fn method_def_extern_abi(def: MethodDef) -> &'static str {
+fn method_def_extern_abi(def: metadata::MethodDef) -> &'static str {
     let impl_map = def.impl_map().expect("ImplMap not found");
     let flags = impl_map.flags();
 
-    if flags.contains(PInvokeAttributes::CallConvPlatformapi) {
+    if flags.contains(metadata::PInvokeAttributes::CallConvPlatformapi) {
         "system"
-    } else if flags.contains(PInvokeAttributes::CallConvCdecl) {
+    } else if flags.contains(metadata::PInvokeAttributes::CallConvCdecl) {
         "cdecl"
     } else {
         unimplemented!()

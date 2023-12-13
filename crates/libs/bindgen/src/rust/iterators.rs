@@ -1,9 +1,9 @@
 use super::*;
 
-pub fn writer(writer: &Writer, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, _phantoms: &TokenStream, cfg: &Cfg) -> TokenStream {
+pub fn writer(writer: &Writer, def: metadata::TypeDef, generics: &[metadata::Type], ident: &TokenStream, constraints: &TokenStream, _phantoms: &TokenStream, cfg: &cfg::Cfg) -> TokenStream {
     match def.type_name() {
         // If the type is IIterator<T> then simply implement the Iterator trait over top.
-        TypeName::IIterator => {
+        metadata::TypeName::IIterator => {
             return quote! {
                 impl<T: ::windows_core::RuntimeType> ::core::iter::Iterator for IIterator<T> {
                     type Item = T;
@@ -22,7 +22,7 @@ pub fn writer(writer: &Writer, def: TypeDef, generics: &[Type], ident: &TokenStr
         }
         // If the type is IIterable<T> then implement the IntoIterator trait and rely on the resulting
         // IIterator<T> returned by first() to implement the Iterator trait.
-        TypeName::IIterable => {
+        metadata::TypeName::IIterable => {
             return quote! {
                 impl<T: ::windows_core::RuntimeType> ::core::iter::IntoIterator for IIterable<T> {
                     type Item = T;
@@ -44,7 +44,7 @@ pub fn writer(writer: &Writer, def: TypeDef, generics: &[Type], ident: &TokenStr
             };
         }
         // If the type is IVectorView<T> then provide the VectorViewIterator fast iterator.
-        TypeName::IVectorView => {
+        metadata::TypeName::IVectorView => {
             return quote! {
                 pub struct VectorViewIterator<T: ::windows_core::RuntimeType + 'static> {
                     vector: ::core::option::Option<IVectorView<T>>,
@@ -91,7 +91,7 @@ pub fn writer(writer: &Writer, def: TypeDef, generics: &[Type], ident: &TokenStr
                 }
             };
         }
-        TypeName::IVector => {
+        metadata::TypeName::IVector => {
             return quote! {
                 pub struct VectorIterator<T: ::windows_core::RuntimeType + 'static> {
                     vector: ::core::option::Option<IVector<T>>,
@@ -143,17 +143,17 @@ pub fn writer(writer: &Writer, def: TypeDef, generics: &[Type], ident: &TokenStr
 
     let wfc = writer.namespace("Windows.Foundation.Collections");
     let mut iterable = None;
-    let interfaces = type_interfaces(&Type::TypeDef(def, generics.to_vec()));
+    let interfaces = metadata::type_interfaces(&metadata::Type::TypeDef(def, generics.to_vec()));
 
     // If the class or interface is not one of the well-known collection interfaces, we then see whether it
     // implements any one of them. Here is where we favor IVectorView/IVector over IIterable.
     for interface in interfaces {
-        if let Type::TypeDef(interface, interface_generics) = &interface.ty {
+        if let metadata::Type::TypeDef(interface, interface_generics) = &interface.ty {
             match interface.type_name() {
-                TypeName::IVectorView => {
+                metadata::TypeName::IVectorView => {
                     let item = writer.type_name(&interface_generics[0]);
                     let mut cfg = cfg.clone();
-                    type_def_cfg_combine(*interface, interface_generics, &mut cfg);
+                    cfg::type_def_cfg_combine(*interface, interface_generics, &mut cfg);
                     let features = writer.cfg_features(&cfg);
 
                     return quote! {
@@ -177,10 +177,10 @@ pub fn writer(writer: &Writer, def: TypeDef, generics: &[Type], ident: &TokenStr
                         }
                     };
                 }
-                TypeName::IVector => {
+                metadata::TypeName::IVector => {
                     let item = writer.type_name(&interface_generics[0]);
                     let mut cfg = cfg.clone();
-                    type_def_cfg_combine(*interface, interface_generics, &mut cfg);
+                    cfg::type_def_cfg_combine(*interface, interface_generics, &mut cfg);
                     let features = writer.cfg_features(&cfg);
 
                     return quote! {
@@ -204,7 +204,7 @@ pub fn writer(writer: &Writer, def: TypeDef, generics: &[Type], ident: &TokenStr
                         }
                     };
                 }
-                TypeName::IIterable => {
+                metadata::TypeName::IIterable => {
                     iterable = Some((*interface, interface_generics.to_vec()));
                 }
                 _ => {}
@@ -217,7 +217,7 @@ pub fn writer(writer: &Writer, def: TypeDef, generics: &[Type], ident: &TokenStr
         Some((interface, interface_generics)) => {
             let item = writer.type_name(&interface_generics[0]);
             let mut cfg = cfg.clone();
-            type_def_cfg_combine(interface, &interface_generics, &mut cfg);
+            cfg::type_def_cfg_combine(interface, &interface_generics, &mut cfg);
             let features = writer.cfg_features(&cfg);
 
             quote! {
