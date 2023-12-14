@@ -15,7 +15,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterable<T> {
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown> for IIterable<T> {}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable> for IIterable<T> {}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IIterable<T> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{faa585ea-6214-4217-afda-7f46de5869b3}").push_slice(b";").push_other(<T as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{faa585ea-6214-4217-afda-7f46de5869b3}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")") };
 }
 impl<T: ::windows_core::RuntimeType> ::core::iter::IntoIterator for IIterable<T> {
     type Item = T;
@@ -85,7 +85,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown> for IIterator<T> {}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable> for IIterator<T> {}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IIterator<T> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{6a79e863-4300-459a-9966-cbb660963ee1}").push_slice(b";").push_other(<T as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{6a79e863-4300-459a-9966-cbb660963ee1}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")") };
 }
 impl<T: ::windows_core::RuntimeType> ::core::iter::Iterator for IIterator<T> {
     type Item = T;
@@ -141,7 +141,7 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown> for IKeyValuePair<K, V> {}
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable> for IKeyValuePair<K, V> {}
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IKeyValuePair<K, V> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{02b51929-c1c4-4a7e-8940-0312b5c18500}").push_slice(b";").push_other(<K as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{02b51929-c1c4-4a7e-8940-0312b5c18500}").push_slice(b";").push_other(K::SIGNATURE).push_slice(b";").push_other(V::SIGNATURE).push_slice(b")") };
 }
 unsafe impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static> ::windows_core::Interface for IKeyValuePair<K, V> {
     type Vtable = IKeyValuePair_Vtbl<K, V>;
@@ -237,7 +237,7 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable> for IMap<K, V> {}
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static> ::windows_core::CanTryInto<IIterable<IKeyValuePair<K, V>>> for IMap<K, V> {}
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IMap<K, V> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{3c2925fe-8519-45c1-aa79-197b6718c1c1}").push_slice(b";").push_other(<K as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{3c2925fe-8519-45c1-aa79-197b6718c1c1}").push_slice(b";").push_other(K::SIGNATURE).push_slice(b";").push_other(V::SIGNATURE).push_slice(b")") };
 }
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static> ::core::iter::IntoIterator for IMap<K, V> {
     type Item = IKeyValuePair<K, V>;
@@ -301,7 +301,7 @@ impl<K: ::windows_core::RuntimeType + 'static> IMapChangedEventArgs<K> {
 impl<K: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown> for IMapChangedEventArgs<K> {}
 impl<K: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable> for IMapChangedEventArgs<K> {}
 impl<K: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IMapChangedEventArgs<K> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9939f4df-050a-4c0f-aa60-77075f9c4777}").push_slice(b";").push_other(<K as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9939f4df-050a-4c0f-aa60-77075f9c4777}").push_slice(b";").push_other(K::SIGNATURE).push_slice(b")") };
 }
 unsafe impl<K: ::windows_core::RuntimeType + 'static> ::windows_core::Interface for IMapChangedEventArgs<K> {
     type Vtable = IMapChangedEventArgs_Vtbl<K>;
@@ -370,7 +370,7 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable> for IMapView<K, V> {}
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static> ::windows_core::CanTryInto<IIterable<IKeyValuePair<K, V>>> for IMapView<K, V> {}
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IMapView<K, V> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{e480ce40-a338-4ada-adcf-272272e48cb9}").push_slice(b";").push_other(<K as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{e480ce40-a338-4ada-adcf-272272e48cb9}").push_slice(b";").push_other(K::SIGNATURE).push_slice(b";").push_other(V::SIGNATURE).push_slice(b")") };
 }
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static> ::core::iter::IntoIterator for IMapView<K, V> {
     type Item = IKeyValuePair<K, V>;
@@ -497,7 +497,7 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static> ::windows_core::CanTryInto<IIterable<IKeyValuePair<K, V>>> for IObservableMap<K, V> {}
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static> ::windows_core::CanTryInto<IMap<K, V>> for IObservableMap<K, V> {}
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IObservableMap<K, V> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{65df2bf5-bf39-41b5-aebc-5a9d865e472b}").push_slice(b";").push_other(<K as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{65df2bf5-bf39-41b5-aebc-5a9d865e472b}").push_slice(b";").push_other(K::SIGNATURE).push_slice(b";").push_other(V::SIGNATURE).push_slice(b")") };
 }
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static> ::core::iter::IntoIterator for IObservableMap<K, V> {
     type Item = IKeyValuePair<K, V>;
@@ -640,7 +640,7 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanTryInto<IIterable<T>> for IObservableVector<T> {}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanTryInto<IVector<T>> for IObservableVector<T> {}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IObservableVector<T> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{5917eb53-50b4-4a0d-b309-65862b3f1dbc}").push_slice(b";").push_other(<T as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{5917eb53-50b4-4a0d-b309-65862b3f1dbc}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")") };
 }
 impl<T: ::windows_core::RuntimeType + 'static> ::core::iter::IntoIterator for IObservableVector<T> {
     type Item = T;
@@ -870,7 +870,7 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable> for IVector<T> {}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanTryInto<IIterable<T>> for IVector<T> {}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IVector<T> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{913337e9-11a1-4345-a3a2-4e7f956e222d}").push_slice(b";").push_other(<T as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{913337e9-11a1-4345-a3a2-4e7f956e222d}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")") };
 }
 pub struct VectorIterator<T: ::windows_core::RuntimeType + 'static> {
     vector: ::core::option::Option<IVector<T>>,
@@ -1016,7 +1016,7 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable> for IVectorView<T> {}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanTryInto<IIterable<T>> for IVectorView<T> {}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IVectorView<T> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{bbe1fa4c-b0e3-4583-baef-1f1b2e483e56}").push_slice(b";").push_other(<T as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{bbe1fa4c-b0e3-4583-baef-1f1b2e483e56}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")") };
 }
 pub struct VectorViewIterator<T: ::windows_core::RuntimeType + 'static> {
     vector: ::core::option::Option<IVectorView<T>>,
@@ -1506,7 +1506,7 @@ unsafe impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::Runtime
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for MapChangedEventHandler<K, V> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{179517f3-94ee-41f8-bddc-768a895544f3}").push_slice(b";").push_other(<K as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{179517f3-94ee-41f8-bddc-768a895544f3}").push_slice(b";").push_other(K::SIGNATURE).push_slice(b";").push_other(V::SIGNATURE).push_slice(b")") };
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1591,7 +1591,7 @@ unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::ComInterfa
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for VectorChangedEventHandler<T> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{0c051752-9fbf-4c70-aa0c-0e4c82d9a761}").push_slice(b";").push_other(<T as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{0c051752-9fbf-4c70-aa0c-0e4c82d9a761}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")") };
 }
 #[repr(C)]
 #[doc(hidden)]

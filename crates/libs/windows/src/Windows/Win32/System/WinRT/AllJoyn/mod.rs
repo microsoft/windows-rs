@@ -7,7 +7,7 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateFromWin32Handle)(::windows_core::Interface::as_raw(self), win32handle, enableaboutdata, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateFromWin32Handle)(::windows_core::Interface::as_raw(self), win32handle, enableaboutdata, &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWindowsDevicesAllJoynBusAttachmentFactoryInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -54,7 +54,7 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateFromWin32Handle)(::windows_core::Interface::as_raw(self), win32handle, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateFromWin32Handle)(::windows_core::Interface::as_raw(self), win32handle, &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWindowsDevicesAllJoynBusObjectFactoryInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);

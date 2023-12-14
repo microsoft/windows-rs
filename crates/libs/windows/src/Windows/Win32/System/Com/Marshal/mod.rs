@@ -155,7 +155,7 @@ where
 {
     ::windows_targets::link!("ole32.dll" "system" fn CoUnmarshalInterface(pstm : * mut::core::ffi::c_void, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    CoUnmarshalInterface(pstm.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    CoUnmarshalInterface(pstm.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]

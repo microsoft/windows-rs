@@ -318,7 +318,7 @@ impl IFunctionDiscoveryServiceProvider {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), pifunctioninstance.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), pifunctioninstance.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IFunctionDiscoveryServiceProvider, ::windows_core::IUnknown);
@@ -351,7 +351,7 @@ impl IFunctionInstance {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.QueryService)(::windows_core::Interface::as_raw(self), guidservice, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.QueryService)(::windows_core::Interface::as_raw(self), guidservice, &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetID(&self) -> ::windows_core::Result<*mut u16> {
         let mut result__ = ::std::mem::zeroed();

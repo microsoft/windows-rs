@@ -660,7 +660,7 @@ impl Writer {
                     };
 
                     quote! {
-                        .push_other(<#g as ::windows_core::RuntimeType>::SIGNATURE)
+                        .push_other(#g::SIGNATURE)
                         #semi
                     }
                 });
@@ -900,7 +900,7 @@ impl Writer {
                     quote! { result__ as *mut _ as *mut _, }
                 }
                 metadata::SignatureKind::Query(query) | metadata::SignatureKind::QueryOptional(query) if query.guid == position => {
-                    quote! { &<T as ::windows_core::ComInterface>::IID, }
+                    quote! { &T::IID, }
                 }
                 _ => {
                     let name = self.param_name(param.def);

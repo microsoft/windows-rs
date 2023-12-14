@@ -36,7 +36,7 @@ where
 {
     ::windows_targets::link!("dcomp.dll" "system" fn DCompositionCreateDevice(dxgidevice : * mut::core::ffi::c_void, iid : *const ::windows_core::GUID, dcompositiondevice : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    DCompositionCreateDevice(dxgidevice.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    DCompositionCreateDevice(dxgidevice.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn DCompositionCreateDevice2<P0, T>(renderingdevice: P0) -> ::windows_core::Result<T>
@@ -46,7 +46,7 @@ where
 {
     ::windows_targets::link!("dcomp.dll" "system" fn DCompositionCreateDevice2(renderingdevice : * mut::core::ffi::c_void, iid : *const ::windows_core::GUID, dcompositiondevice : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    DCompositionCreateDevice2(renderingdevice.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    DCompositionCreateDevice2(renderingdevice.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn DCompositionCreateDevice3<P0, T>(renderingdevice: P0) -> ::windows_core::Result<T>
@@ -56,7 +56,7 @@ where
 {
     ::windows_targets::link!("dcomp.dll" "system" fn DCompositionCreateDevice3(renderingdevice : * mut::core::ffi::c_void, iid : *const ::windows_core::GUID, dcompositiondevice : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    DCompositionCreateDevice3(renderingdevice.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    DCompositionCreateDevice3(renderingdevice.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
 }
 #[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
@@ -2202,7 +2202,7 @@ impl IDCompositionSurface {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).BeginDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows_core::ComInterface>::IID, &mut result__, updateoffset).from_abi(result__)
+        (::windows_core::Interface::vtable(self).BeginDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &T::IID, &mut result__, updateoffset).from_abi(result__)
     }
     pub unsafe fn EndDraw(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EndDraw)(::windows_core::Interface::as_raw(self)).ok()
@@ -2617,7 +2617,7 @@ impl IDCompositionVirtualSurface {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.BeginDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows_core::ComInterface>::IID, &mut result__, updateoffset).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.BeginDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &T::IID, &mut result__, updateoffset).from_abi(result__)
     }
     pub unsafe fn EndDraw(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.EndDraw)(::windows_core::Interface::as_raw(self)).ok()

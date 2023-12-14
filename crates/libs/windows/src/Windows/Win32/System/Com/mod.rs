@@ -27,7 +27,7 @@ where
 {
     ::windows_targets::link!("ole32.dll" "system" fn BindMoniker(pmk : * mut::core::ffi::c_void, grfopt : u32, iidresult : *const ::windows_core::GUID, ppvresult : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    BindMoniker(pmk.into_param().abi(), grfopt, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    BindMoniker(pmk.into_param().abi(), grfopt, &T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn CLSIDFromProgID<P0>(lpszprogid: P0) -> ::windows_core::Result<::windows_core::GUID>
@@ -116,7 +116,7 @@ where
 {
     ::windows_targets::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const ::windows_core::GUID, punkouter : * mut::core::ffi::c_void, dwclscontext : CLSCTX, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    CoCreateInstance(rclsid, punkouter.into_param().abi(), dwclscontext, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    CoCreateInstance(rclsid, punkouter.into_param().abi(), dwclscontext, &T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn CoCreateInstanceEx<P0>(clsid: *const ::windows_core::GUID, punkouter: P0, dwclsctx: CLSCTX, pserverinfo: ::core::option::Option<*const COSERVERINFO>, presults: &mut [MULTI_QI]) -> ::windows_core::Result<()>
@@ -216,7 +216,7 @@ where
 {
     ::windows_targets::link!("ole32.dll" "system" fn CoGetCallContext(riid : *const ::windows_core::GUID, ppinterface : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    CoGetCallContext(&<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    CoGetCallContext(&T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn CoGetCallerTID() -> ::windows_core::Result<u32> {
@@ -231,7 +231,7 @@ where
 {
     ::windows_targets::link!("ole32.dll" "system" fn CoGetCancelObject(dwthreadid : u32, iid : *const ::windows_core::GUID, ppunk : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    CoGetCancelObject(dwthreadid, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    CoGetCancelObject(dwthreadid, &T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn CoGetClassObject<T>(rclsid: *const ::windows_core::GUID, dwclscontext: CLSCTX, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<T>
@@ -240,7 +240,7 @@ where
 {
     ::windows_targets::link!("ole32.dll" "system" fn CoGetClassObject(rclsid : *const ::windows_core::GUID, dwclscontext : u32, pvreserved : *const ::core::ffi::c_void, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    CoGetClassObject(rclsid, dwclscontext.0 as _, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    CoGetClassObject(rclsid, dwclscontext.0 as _, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())), &T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn CoGetContextToken() -> ::windows_core::Result<usize> {
@@ -273,7 +273,7 @@ where
 {
     ::windows_targets::link!("ole32.dll" "system" fn CoGetObject(pszname : ::windows_core::PCWSTR, pbindoptions : *const BIND_OPTS, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    CoGetObject(pszname.into_param().abi(), ::core::mem::transmute(pbindoptions.unwrap_or(::std::ptr::null())), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    CoGetObject(pszname.into_param().abi(), ::core::mem::transmute(pbindoptions.unwrap_or(::std::ptr::null())), &T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn CoGetObjectContext<T>() -> ::windows_core::Result<T>
@@ -282,7 +282,7 @@ where
 {
     ::windows_targets::link!("ole32.dll" "system" fn CoGetObjectContext(riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    CoGetObjectContext(&<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    CoGetObjectContext(&T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn CoGetPSClsid(riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::GUID> {
@@ -627,7 +627,7 @@ where
 {
     ::windows_targets::link!("ole32.dll" "system" fn CreateDataCache(punkouter : * mut::core::ffi::c_void, rclsid : *const ::windows_core::GUID, iid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    CreateDataCache(punkouter.into_param().abi(), rclsid, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    CreateDataCache(punkouter.into_param().abi(), rclsid, &T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn CreateFileMoniker<P0>(lpszpathname: P0) -> ::windows_core::Result<IMoniker>
@@ -1934,7 +1934,7 @@ impl IClassActivator {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetClassObject)(::windows_core::Interface::as_raw(self), rclsid, dwclasscontext, locale, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetClassObject)(::windows_core::Interface::as_raw(self), rclsid, dwclasscontext, locale, &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IClassActivator, ::windows_core::IUnknown);
@@ -1960,7 +1960,7 @@ impl IClassFactory {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateInstance)(::windows_core::Interface::as_raw(self), punkouter.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateInstance)(::windows_core::Interface::as_raw(self), punkouter.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn LockServer<P0>(&self, flock: P0) -> ::windows_core::Result<()>
     where
@@ -2958,7 +2958,7 @@ impl IMachineGlobalObjectTable {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetObject)(::windows_core::Interface::as_raw(self), clsid, identifier.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetObject)(::windows_core::Interface::as_raw(self), clsid, identifier.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn RevokeObject<P0>(&self, token: P0) -> ::windows_core::Result<()>
     where
@@ -3314,7 +3314,7 @@ impl IOplockStorage {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateStorageEx)(::windows_core::Interface::as_raw(self), pwcsname.into_param().abi(), grfmode, stgfmt, grfattrs, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateStorageEx)(::windows_core::Interface::as_raw(self), pwcsname.into_param().abi(), grfmode, stgfmt, grfattrs, &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenStorageEx<P0, T>(&self, pwcsname: P0, grfmode: u32, stgfmt: u32, grfattrs: u32) -> ::windows_core::Result<T>
     where
@@ -3322,7 +3322,7 @@ impl IOplockStorage {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).OpenStorageEx)(::windows_core::Interface::as_raw(self), pwcsname.into_param().abi(), grfmode, stgfmt, grfattrs, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OpenStorageEx)(::windows_core::Interface::as_raw(self), pwcsname.into_param().abi(), grfmode, stgfmt, grfattrs, &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOplockStorage, ::windows_core::IUnknown);
@@ -4253,7 +4253,7 @@ impl IServiceProvider {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).QueryService)(::windows_core::Interface::as_raw(self), guidservice, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).QueryService)(::windows_core::Interface::as_raw(self), guidservice, &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IServiceProvider, ::windows_core::IUnknown);
@@ -4713,7 +4713,7 @@ impl ITypeInfo {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateInstance)(::windows_core::Interface::as_raw(self), punkouter.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateInstance)(::windows_core::Interface::as_raw(self), punkouter.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMops(&self, memid: i32) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -4854,7 +4854,7 @@ impl ITypeInfo2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.CreateInstance)(::windows_core::Interface::as_raw(self), punkouter.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateInstance)(::windows_core::Interface::as_raw(self), punkouter.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMops(&self, memid: i32) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();

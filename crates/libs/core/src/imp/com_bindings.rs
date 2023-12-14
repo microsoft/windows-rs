@@ -115,7 +115,7 @@ impl IAgileReference {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Resolve)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Resolve)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAgileReference, ::windows_core::IUnknown);
@@ -796,7 +796,7 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable> for IReference<T> {}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanTryInto<IPropertyValue> for IReference<T> {}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IReference<T> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{61c17706-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(<T as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{61c17706-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")") };
 }
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface for IReference<T> {
     type Vtable = IReference_Vtbl<T>;
@@ -879,7 +879,7 @@ impl IWeakReference {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Resolve)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Resolve)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWeakReference, ::windows_core::IUnknown);

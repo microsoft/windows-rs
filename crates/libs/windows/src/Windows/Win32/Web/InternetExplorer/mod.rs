@@ -1884,7 +1884,7 @@ impl IInternetExplorerManager {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateObject)(::windows_core::Interface::as_raw(self), dwconfig, pszurl.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateObject)(::windows_core::Interface::as_raw(self), dwconfig, pszurl.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetExplorerManager, ::windows_core::IUnknown);
@@ -3532,7 +3532,7 @@ impl IUrlHistoryStg {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).BindToObject)(::windows_core::Interface::as_raw(self), pocsurl.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).BindToObject)(::windows_core::Interface::as_raw(self), pocsurl.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumUrls(&self) -> ::windows_core::Result<IEnumSTATURL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3585,7 +3585,7 @@ impl IUrlHistoryStg2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.BindToObject)(::windows_core::Interface::as_raw(self), pocsurl.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.BindToObject)(::windows_core::Interface::as_raw(self), pocsurl.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumUrls(&self) -> ::windows_core::Result<IEnumSTATURL> {
         let mut result__ = ::std::mem::zeroed();

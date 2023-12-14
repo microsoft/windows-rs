@@ -2,7 +2,7 @@
 struct StockVectorView<T>
 where
     T: ::windows_core::RuntimeType + 'static,
-    <T as ::windows_core::Type<T>>::Default: Clone + PartialEq,
+    T::Default: Clone + PartialEq,
 {
     values: Vec<T::Default>,
 }
@@ -10,7 +10,7 @@ where
 impl<T> IIterable_Impl<T> for StockVectorView<T>
 where
     T: ::windows_core::RuntimeType,
-    <T as ::windows_core::Type<T>>::Default: Clone + PartialEq,
+    T::Default: Clone + PartialEq,
 {
     fn First(&self) -> ::windows_core::Result<IIterator<T>> {
         unsafe {
@@ -28,7 +28,7 @@ where
 impl<T> IVectorView_Impl<T> for StockVectorView<T>
 where
     T: ::windows_core::RuntimeType,
-    <T as ::windows_core::Type<T>>::Default: Clone + PartialEq,
+    T::Default: Clone + PartialEq,
 {
     fn GetAt(&self, index: u32) -> ::windows_core::Result<T> {
         let item = self
@@ -65,7 +65,7 @@ where
 struct StockVectorViewIterator<T>
 where
     T: ::windows_core::RuntimeType + 'static,
-    <T as ::windows_core::Type<T>>::Default: Clone + PartialEq,
+    T::Default: Clone + PartialEq,
 {
     owner: IIterable<T>,
     current: ::std::sync::atomic::AtomicUsize,
@@ -74,7 +74,7 @@ where
 impl<T> IIterator_Impl<T> for StockVectorViewIterator<T>
 where
     T: ::windows_core::RuntimeType,
-    <T as ::windows_core::Type<T>>::Default: Clone + PartialEq,
+    T::Default: Clone + PartialEq,
 {
     fn Current(&self) -> ::windows_core::Result<T> {
         let owner: &StockVectorView<T> = unsafe { ::windows_core::AsImpl::as_impl(&self.owner) };
@@ -122,7 +122,7 @@ where
 impl<T> ::core::convert::TryFrom<Vec<T::Default>> for IVectorView<T>
 where
     T: ::windows_core::RuntimeType,
-    <T as ::windows_core::Type<T>>::Default: Clone + PartialEq,
+    T::Default: Clone + PartialEq,
 {
     type Error = ::windows_core::Error;
     fn try_from(values: Vec<T::Default>) -> ::windows_core::Result<Self> {

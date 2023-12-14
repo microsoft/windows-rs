@@ -7,7 +7,7 @@ impl ISoftwareBitmapNative {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetData)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetData)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISoftwareBitmapNative, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -36,7 +36,7 @@ impl ISoftwareBitmapNativeFactory {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateFromWICBitmap)(::windows_core::Interface::as_raw(self), data.into_param().abi(), forcereadonly.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateFromWICBitmap)(::windows_core::Interface::as_raw(self), data.into_param().abi(), forcereadonly.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -47,7 +47,7 @@ impl ISoftwareBitmapNativeFactory {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateFromMF2DBuffer2)(::windows_core::Interface::as_raw(self), data.into_param().abi(), subtype, width, height, forcereadonly.into_param().abi(), ::core::mem::transmute(mindisplayaperture.unwrap_or(::std::ptr::null())), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateFromMF2DBuffer2)(::windows_core::Interface::as_raw(self), data.into_param().abi(), subtype, width, height, forcereadonly.into_param().abi(), ::core::mem::transmute(mindisplayaperture.unwrap_or(::std::ptr::null())), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISoftwareBitmapNativeFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);

@@ -2713,7 +2713,7 @@ impl ISpResourceManager {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.QueryService)(::windows_core::Interface::as_raw(self), guidservice, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.QueryService)(::windows_core::Interface::as_raw(self), guidservice, &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetObject<P0>(&self, guidserviceid: *const ::windows_core::GUID, punkobject: P0) -> ::windows_core::Result<()>
     where

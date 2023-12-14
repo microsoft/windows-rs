@@ -5,7 +5,7 @@ where
 {
     ::windows_targets::link!("mscoree.dll" "system" fn CLRCreateInstance(clsid : *const ::windows_core::GUID, riid : *const ::windows_core::GUID, ppinterface : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    CLRCreateInstance(clsid, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    CLRCreateInstance(clsid, &T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn CallFunctionShim<P0, P1, P2>(szdllname: P0, szfunctionname: P1, lpvargument1: *mut ::core::ffi::c_void, lpvargument2: *mut ::core::ffi::c_void, szversion: P2, pvreserved: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -793,7 +793,7 @@ impl ICLRMetaHost {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetRuntime)(::windows_core::Interface::as_raw(self), pwzversion.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetRuntime)(::windows_core::Interface::as_raw(self), pwzversion.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVersionFromFile<P0>(&self, pwzfilepath: P0, pwzbuffer: ::windows_core::PWSTR, pcchbuffer: *mut u32) -> ::windows_core::Result<()>
     where
@@ -824,7 +824,7 @@ impl ICLRMetaHost {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).QueryLegacyV2RuntimeBinding)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).QueryLegacyV2RuntimeBinding)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn ExitProcess(&self, iexitcode: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ExitProcess)(::windows_core::Interface::as_raw(self), iexitcode).ok()
@@ -868,7 +868,7 @@ impl ICLRMetaHostPolicy {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetRequestedRuntime)(::windows_core::Interface::as_raw(self), dwpolicyflags, pwzbinary.into_param().abi(), pcfgstream.into_param().abi(), ::core::mem::transmute(pwzversion), pcchversion, ::core::mem::transmute(pwzimageversion), pcchimageversion, pdwconfigflags, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetRequestedRuntime)(::windows_core::Interface::as_raw(self), dwpolicyflags, pwzbinary.into_param().abi(), pcfgstream.into_param().abi(), ::core::mem::transmute(pwzversion), pcchversion, ::core::mem::transmute(pwzimageversion), pcchimageversion, pdwconfigflags, &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRMetaHostPolicy, ::windows_core::IUnknown);
@@ -1136,7 +1136,7 @@ impl ICLRRuntimeInfo {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetInterface)(::windows_core::Interface::as_raw(self), rclsid, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetInterface)(::windows_core::Interface::as_raw(self), rclsid, &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn IsLoadable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();

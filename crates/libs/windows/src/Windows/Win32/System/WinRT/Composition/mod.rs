@@ -37,7 +37,7 @@ impl ICompositionDrawingSurfaceInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).BeginDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows_core::ComInterface>::IID, &mut result__, updateoffset).from_abi(result__)
+        (::windows_core::Interface::vtable(self).BeginDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &T::IID, &mut result__, updateoffset).from_abi(result__)
     }
     pub unsafe fn EndDraw(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EndDraw)(::windows_core::Interface::as_raw(self)).ok()
@@ -82,7 +82,7 @@ impl ICompositionDrawingSurfaceInterop2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.BeginDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows_core::ComInterface>::IID, &mut result__, updateoffset).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.BeginDraw)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &T::IID, &mut result__, updateoffset).from_abi(result__)
     }
     pub unsafe fn EndDraw(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.EndDraw)(::windows_core::Interface::as_raw(self)).ok()

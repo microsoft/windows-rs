@@ -31,7 +31,7 @@ impl ID3D11On12Device {
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
         T: ::windows_core::ComInterface,
     {
-        (::windows_core::Interface::vtable(self).CreateWrappedResource)(::windows_core::Interface::as_raw(self), presource12.into_param().abi(), pflags11, instate, outstate, &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows_core::Interface::vtable(self).CreateWrappedResource)(::windows_core::Interface::as_raw(self), presource12.into_param().abi(), pflags11, instate, outstate, &T::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "Required features: `\"Win32_Graphics_Direct3D11\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
@@ -81,7 +81,7 @@ impl ID3D11On12Device1 {
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
         T: ::windows_core::ComInterface,
     {
-        (::windows_core::Interface::vtable(self).base__.CreateWrappedResource)(::windows_core::Interface::as_raw(self), presource12.into_param().abi(), pflags11, instate, outstate, &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows_core::Interface::vtable(self).base__.CreateWrappedResource)(::windows_core::Interface::as_raw(self), presource12.into_param().abi(), pflags11, instate, outstate, &T::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "Required features: `\"Win32_Graphics_Direct3D11\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
@@ -98,7 +98,7 @@ impl ID3D11On12Device1 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetD3D12Device)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetD3D12Device)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D11On12Device1, ::windows_core::IUnknown, ID3D11On12Device);
@@ -127,7 +127,7 @@ impl ID3D11On12Device2 {
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
         T: ::windows_core::ComInterface,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.CreateWrappedResource)(::windows_core::Interface::as_raw(self), presource12.into_param().abi(), pflags11, instate, outstate, &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.CreateWrappedResource)(::windows_core::Interface::as_raw(self), presource12.into_param().abi(), pflags11, instate, outstate, &T::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "Required features: `\"Win32_Graphics_Direct3D11\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
@@ -144,7 +144,7 @@ impl ID3D11On12Device2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.GetD3D12Device)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetD3D12Device)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
@@ -155,7 +155,7 @@ impl ID3D11On12Device2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).UnwrapUnderlyingResource)(::windows_core::Interface::as_raw(self), presource11.into_param().abi(), pcommandqueue.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).UnwrapUnderlyingResource)(::windows_core::Interface::as_raw(self), presource11.into_param().abi(), pcommandqueue.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]

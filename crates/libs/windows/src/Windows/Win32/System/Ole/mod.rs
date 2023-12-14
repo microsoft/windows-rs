@@ -464,7 +464,7 @@ where
 {
     ::windows_targets::link!("oleaut32.dll" "system" fn OleCreatePictureIndirect(lppictdesc : *const PICTDESC, riid : *const ::windows_core::GUID, fown : super::super::Foundation:: BOOL, lplpvobj : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    OleCreatePictureIndirect(lppictdesc, &<T as ::windows_core::ComInterface>::IID, fown.into_param().abi(), &mut result__).from_abi(result__)
+    OleCreatePictureIndirect(lppictdesc, &T::IID, fown.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn OleCreatePropertyFrame<P0, P1>(hwndowner: P0, x: u32, y: u32, lpszcaption: P1, cobjects: u32, ppunk: *const ::core::option::Option<::windows_core::IUnknown>, cpages: u32, ppageclsid: *const ::windows_core::GUID, lcid: u32, dwreserved: u32, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -3440,7 +3440,7 @@ impl IClassFactory2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.CreateInstance)(::windows_core::Interface::as_raw(self), punkouter.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateInstance)(::windows_core::Interface::as_raw(self), punkouter.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3465,7 +3465,7 @@ impl IClassFactory2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateInstanceLic)(::windows_core::Interface::as_raw(self), punkouter.into_param().abi(), punkreserved.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, bstrkey.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateInstanceLic)(::windows_core::Interface::as_raw(self), punkouter.into_param().abi(), punkreserved.into_param().abi(), &T::IID, bstrkey.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4849,7 +4849,7 @@ impl IObjectWithSite {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetSite)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSite)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IObjectWithSite, ::windows_core::IUnknown);
@@ -6147,7 +6147,7 @@ impl IOleItemContainer {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetObject)(::windows_core::Interface::as_raw(self), pszitem.into_param().abi(), dwspeedneeded, pbc.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetObject)(::windows_core::Interface::as_raw(self), pszitem.into_param().abi(), dwspeedneeded, pbc.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6158,7 +6158,7 @@ impl IOleItemContainer {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetObjectStorage)(::windows_core::Interface::as_raw(self), pszitem.into_param().abi(), pbc.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetObjectStorage)(::windows_core::Interface::as_raw(self), pszitem.into_param().abi(), pbc.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn IsRunning<P0>(&self, pszitem: P0) -> ::windows_core::Result<()>
     where

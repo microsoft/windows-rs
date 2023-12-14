@@ -2615,7 +2615,7 @@ impl ICreateWithTipTransactionEx {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateInstance)(::windows_core::Interface::as_raw(self), bstrtipurl.into_param().abi(), rclsid, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateInstance)(::windows_core::Interface::as_raw(self), bstrtipurl.into_param().abi(), rclsid, &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICreateWithTipTransactionEx, ::windows_core::IUnknown);
@@ -2643,7 +2643,7 @@ impl ICreateWithTransactionEx {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateInstance)(::windows_core::Interface::as_raw(self), ptransaction.into_param().abi(), rclsid, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateInstance)(::windows_core::Interface::as_raw(self), ptransaction.into_param().abi(), rclsid, &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICreateWithTransactionEx, ::windows_core::IUnknown);
@@ -5372,7 +5372,7 @@ impl ITransactionContextEx {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateInstance)(::windows_core::Interface::as_raw(self), rclsid, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateInstance)(::windows_core::Interface::as_raw(self), rclsid, &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn Commit(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Commit)(::windows_core::Interface::as_raw(self)).ok()

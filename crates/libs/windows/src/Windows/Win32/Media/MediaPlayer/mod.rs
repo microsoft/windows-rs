@@ -8907,7 +8907,7 @@ impl IXFeed {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Parent)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Parent)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn LastWriteTime(&self) -> ::windows_core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = ::std::mem::zeroed();
@@ -8956,7 +8956,7 @@ impl IXFeed {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetItem)(::windows_core::Interface::as_raw(self), uiid, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetItem)(::windows_core::Interface::as_raw(self), uiid, &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn MarkAllItemsRead(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).MarkAllItemsRead)(::windows_core::Interface::as_raw(self)).ok()
@@ -9044,7 +9044,7 @@ impl IXFeed {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetWatcher)(::windows_core::Interface::as_raw(self), scope, mask, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetWatcher)(::windows_core::Interface::as_raw(self), scope, mask, &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn UnreadItemCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -9166,7 +9166,7 @@ impl IXFeed2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.Parent)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Parent)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn LastWriteTime(&self) -> ::windows_core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = ::std::mem::zeroed();
@@ -9215,7 +9215,7 @@ impl IXFeed2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), uiid, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), uiid, &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn MarkAllItemsRead(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.MarkAllItemsRead)(::windows_core::Interface::as_raw(self)).ok()
@@ -9303,7 +9303,7 @@ impl IXFeed2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.GetWatcher)(::windows_core::Interface::as_raw(self), scope, mask, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetWatcher)(::windows_core::Interface::as_raw(self), scope, mask, &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn UnreadItemCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -9318,7 +9318,7 @@ impl IXFeed2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetItemByEffectiveId)(::windows_core::Interface::as_raw(self), uieffectiveid, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetItemByEffectiveId)(::windows_core::Interface::as_raw(self), uieffectiveid, &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn LastItemDownloadTime(&self) -> ::windows_core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = ::std::mem::zeroed();
@@ -9400,7 +9400,7 @@ impl IXFeedEnclosure {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Parent)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Parent)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn DownloadUrl(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -9539,7 +9539,7 @@ impl IXFeedFolder {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateFeed)(::windows_core::Interface::as_raw(self), pszname.into_param().abi(), pszurl.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateFeed)(::windows_core::Interface::as_raw(self), pszname.into_param().abi(), pszurl.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSubfolder<P0, T>(&self, pszname: P0) -> ::windows_core::Result<T>
     where
@@ -9547,7 +9547,7 @@ impl IXFeedFolder {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateSubfolder)(::windows_core::Interface::as_raw(self), pszname.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateSubfolder)(::windows_core::Interface::as_raw(self), pszname.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn ExistsFeed<P0>(&self, pszname: P0, pbfeedexists: *const super::super::Foundation::BOOL) -> ::windows_core::Result<()>
     where
@@ -9567,7 +9567,7 @@ impl IXFeedFolder {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetFeed)(::windows_core::Interface::as_raw(self), pszname.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFeed)(::windows_core::Interface::as_raw(self), pszname.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSubfolder<P0, T>(&self, pszname: P0) -> ::windows_core::Result<T>
     where
@@ -9575,7 +9575,7 @@ impl IXFeedFolder {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetSubfolder)(::windows_core::Interface::as_raw(self), pszname.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSubfolder)(::windows_core::Interface::as_raw(self), pszname.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
@@ -9605,7 +9605,7 @@ impl IXFeedFolder {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Parent)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Parent)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn IsRoot(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9616,7 +9616,7 @@ impl IXFeedFolder {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetWatcher)(::windows_core::Interface::as_raw(self), scope, mask, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetWatcher)(::windows_core::Interface::as_raw(self), scope, mask, &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn TotalUnreadItemCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -9832,7 +9832,7 @@ impl IXFeedItem {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Enclosure)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Enclosure)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn IsRead(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9853,7 +9853,7 @@ impl IXFeedItem {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Parent)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Parent)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
@@ -9946,7 +9946,7 @@ impl IXFeedItem2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.Enclosure)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Enclosure)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn IsRead(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9967,7 +9967,7 @@ impl IXFeedItem2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.Parent)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Parent)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Delete)(::windows_core::Interface::as_raw(self)).ok()
@@ -10015,7 +10015,7 @@ impl IXFeedsEnum {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Item)(::windows_core::Interface::as_raw(self), uiindex, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Item)(::windows_core::Interface::as_raw(self), uiindex, &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXFeedsEnum, ::windows_core::IUnknown);
@@ -10041,7 +10041,7 @@ impl IXFeedsManager {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).RootFolder)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).RootFolder)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn IsSubscribed<P0>(&self, pszurl: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -10063,7 +10063,7 @@ impl IXFeedsManager {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetFeed)(::windows_core::Interface::as_raw(self), pszpath.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFeed)(::windows_core::Interface::as_raw(self), pszpath.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFeedByUrl<P0, T>(&self, pszurl: P0) -> ::windows_core::Result<T>
     where
@@ -10071,7 +10071,7 @@ impl IXFeedsManager {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetFeedByUrl)(::windows_core::Interface::as_raw(self), pszurl.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFeedByUrl)(::windows_core::Interface::as_raw(self), pszurl.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn ExistsFolder<P0>(&self, pszpath: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -10086,7 +10086,7 @@ impl IXFeedsManager {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetFolder)(::windows_core::Interface::as_raw(self), pszpath.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFolder)(::windows_core::Interface::as_raw(self), pszpath.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn DeleteFeed<P0>(&self, pszpath: P0) -> ::windows_core::Result<()>
     where

@@ -64,7 +64,7 @@ impl IPrintDocumentPackageTarget {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetPackageTarget)(::windows_core::Interface::as_raw(self), guidtargettype, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetPackageTarget)(::windows_core::Interface::as_raw(self), guidtargettype, &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn Cancel(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Cancel)(::windows_core::Interface::as_raw(self)).ok()
@@ -98,7 +98,7 @@ impl IPrintDocumentPackageTarget2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetTargetIppPrintDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetTargetIppPrintDevice)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintDocumentPackageTarget2, ::windows_core::IUnknown);

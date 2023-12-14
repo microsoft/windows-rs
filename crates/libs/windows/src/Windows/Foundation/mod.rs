@@ -184,7 +184,7 @@ impl<TProgress: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<:
 impl<TProgress: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable> for IAsyncActionWithProgress<TProgress> {}
 impl<TProgress: ::windows_core::RuntimeType + 'static> ::windows_core::CanTryInto<IAsyncInfo> for IAsyncActionWithProgress<TProgress> {}
 impl<TProgress: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IAsyncActionWithProgress<TProgress> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{1f6db258-e803-48a1-9546-eb7353398884}").push_slice(b";").push_other(<TProgress as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{1f6db258-e803-48a1-9546-eb7353398884}").push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")") };
 }
 impl<TProgress: ::windows_core::RuntimeType + 'static> IAsyncActionWithProgress<TProgress> {
     pub fn get(&self) -> ::windows_core::Result<()> {
@@ -352,7 +352,7 @@ impl<TResult: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::w
 impl<TResult: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable> for IAsyncOperation<TResult> {}
 impl<TResult: ::windows_core::RuntimeType + 'static> ::windows_core::CanTryInto<IAsyncInfo> for IAsyncOperation<TResult> {}
 impl<TResult: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IAsyncOperation<TResult> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9fc2b0bb-e446-44e2-aa61-9cab8f636af2}").push_slice(b";").push_other(<TResult as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9fc2b0bb-e446-44e2-aa61-9cab8f636af2}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b")") };
 }
 impl<TResult: ::windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
     pub fn get(&self) -> ::windows_core::Result<TResult> {
@@ -479,7 +479,7 @@ impl<TResult: ::windows_core::RuntimeType + 'static, TProgress: ::windows_core::
 impl<TResult: ::windows_core::RuntimeType + 'static, TProgress: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable> for IAsyncOperationWithProgress<TResult, TProgress> {}
 impl<TResult: ::windows_core::RuntimeType + 'static, TProgress: ::windows_core::RuntimeType + 'static> ::windows_core::CanTryInto<IAsyncInfo> for IAsyncOperationWithProgress<TResult, TProgress> {}
 impl<TResult: ::windows_core::RuntimeType + 'static, TProgress: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IAsyncOperationWithProgress<TResult, TProgress> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{b5d036d7-e297-498f-ba60-0289e76e23dd}").push_slice(b";").push_other(<TResult as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<TProgress as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{b5d036d7-e297-498f-ba60-0289e76e23dd}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")") };
 }
 impl<TResult: ::windows_core::RuntimeType + 'static, TProgress: ::windows_core::RuntimeType + 'static> IAsyncOperationWithProgress<TResult, TProgress> {
     pub fn get(&self) -> ::windows_core::Result<TResult> {
@@ -1298,7 +1298,7 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable> for IReference<T> {}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanTryInto<IPropertyValue> for IReference<T> {}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IReference<T> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{61c17706-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(<T as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{61c17706-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")") };
 }
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface for IReference<T> {
     type Vtable = IReference_Vtbl<T>;
@@ -1550,7 +1550,7 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable> for IReferenceArray<T> {}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanTryInto<IPropertyValue> for IReferenceArray<T> {}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IReferenceArray<T> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{61c17707-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(<T as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{61c17707-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")") };
 }
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface for IReferenceArray<T> {
     type Vtable = IReferenceArray_Vtbl<T>;
@@ -2889,7 +2889,7 @@ unsafe impl<TProgress: ::windows_core::RuntimeType + 'static> ::windows_core::Co
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 impl<TProgress: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for AsyncActionProgressHandler<TProgress> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{6d844858-0cff-4590-ae89-95a5a5c8b4b8}").push_slice(b";").push_other(<TProgress as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{6d844858-0cff-4590-ae89-95a5a5c8b4b8}").push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")") };
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2971,7 +2971,7 @@ unsafe impl<TProgress: ::windows_core::RuntimeType + 'static> ::windows_core::Co
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 impl<TProgress: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for AsyncActionWithProgressCompletedHandler<TProgress> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9c029f91-cc84-44fd-ac26-0a6c4e555281}").push_slice(b";").push_other(<TProgress as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9c029f91-cc84-44fd-ac26-0a6c4e555281}").push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")") };
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3053,7 +3053,7 @@ unsafe impl<TResult: ::windows_core::RuntimeType + 'static> ::windows_core::ComI
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 impl<TResult: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for AsyncOperationCompletedHandler<TResult> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{fcdcf02c-e5d8-4478-915a-4d90b74b83a5}").push_slice(b";").push_other(<TResult as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{fcdcf02c-e5d8-4478-915a-4d90b74b83a5}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b")") };
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3139,7 +3139,7 @@ unsafe impl<TResult: ::windows_core::RuntimeType + 'static, TProgress: ::windows
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 impl<TResult: ::windows_core::RuntimeType + 'static, TProgress: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for AsyncOperationProgressHandler<TResult, TProgress> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{55690902-0aab-421a-8778-f8ce5026d758}").push_slice(b";").push_other(<TResult as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<TProgress as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{55690902-0aab-421a-8778-f8ce5026d758}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")") };
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3226,7 +3226,7 @@ unsafe impl<TResult: ::windows_core::RuntimeType + 'static, TProgress: ::windows
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 impl<TResult: ::windows_core::RuntimeType + 'static, TProgress: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{e85df41d-6aa7-46e3-a8e2-f009d840c627}").push_slice(b";").push_other(<TResult as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<TProgress as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{e85df41d-6aa7-46e3-a8e2-f009d840c627}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")") };
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3380,7 +3380,7 @@ unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::ComInterfa
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for EventHandler<T> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9de1c535-6ae1-11e0-84e1-18a905bcc53f}").push_slice(b";").push_other(<T as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9de1c535-6ae1-11e0-84e1-18a905bcc53f}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")") };
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3466,7 +3466,7 @@ unsafe impl<TSender: ::windows_core::RuntimeType + 'static, TResult: ::windows_c
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 impl<TSender: ::windows_core::RuntimeType + 'static, TResult: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for TypedEventHandler<TSender, TResult> {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9de1c534-6ae1-11e0-84e1-18a905bcc53f}").push_slice(b";").push_other(<TSender as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<TResult as ::windows_core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = { ::windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9de1c534-6ae1-11e0-84e1-18a905bcc53f}").push_slice(b";").push_other(TSender::SIGNATURE).push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b")") };
 }
 #[repr(C)]
 #[doc(hidden)]

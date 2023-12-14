@@ -957,7 +957,7 @@ impl ID3D11Device {
         P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
         T: ::windows_core::ComInterface,
     {
-        (::windows_core::Interface::vtable(self).OpenSharedResource)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows_core::Interface::vtable(self).OpenSharedResource)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &T::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1250,7 +1250,7 @@ impl ID3D11Device1 {
         P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
         T: ::windows_core::ComInterface,
     {
-        (::windows_core::Interface::vtable(self).base__.OpenSharedResource)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows_core::Interface::vtable(self).base__.OpenSharedResource)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &T::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1334,7 +1334,7 @@ impl ID3D11Device1 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).OpenSharedResource1)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OpenSharedResource1)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenSharedResourceByName<P0, T>(&self, lpname: P0, dwdesiredaccess: u32) -> ::windows_core::Result<T>
     where
@@ -1342,7 +1342,7 @@ impl ID3D11Device1 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).OpenSharedResourceByName)(::windows_core::Interface::as_raw(self), lpname.into_param().abi(), dwdesiredaccess, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OpenSharedResourceByName)(::windows_core::Interface::as_raw(self), lpname.into_param().abi(), dwdesiredaccess, &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D11Device1, ::windows_core::IUnknown, ID3D11Device);
@@ -1515,7 +1515,7 @@ impl ID3D11Device2 {
         P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
         T: ::windows_core::ComInterface,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.OpenSharedResource)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.OpenSharedResource)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &T::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1599,7 +1599,7 @@ impl ID3D11Device2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.OpenSharedResource1)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.OpenSharedResource1)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenSharedResourceByName<P0, T>(&self, lpname: P0, dwdesiredaccess: u32) -> ::windows_core::Result<T>
     where
@@ -1607,7 +1607,7 @@ impl ID3D11Device2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.OpenSharedResourceByName)(::windows_core::Interface::as_raw(self), lpname.into_param().abi(), dwdesiredaccess, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.OpenSharedResourceByName)(::windows_core::Interface::as_raw(self), lpname.into_param().abi(), dwdesiredaccess, &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetImmediateContext2(&self) -> ::windows_core::Result<ID3D11DeviceContext2> {
         let mut result__ = ::std::mem::zeroed();
@@ -1797,7 +1797,7 @@ impl ID3D11Device3 {
         P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
         T: ::windows_core::ComInterface,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.OpenSharedResource)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.base__.OpenSharedResource)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &T::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1881,7 +1881,7 @@ impl ID3D11Device3 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.base__.OpenSharedResource1)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.OpenSharedResource1)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenSharedResourceByName<P0, T>(&self, lpname: P0, dwdesiredaccess: u32) -> ::windows_core::Result<T>
     where
@@ -1889,7 +1889,7 @@ impl ID3D11Device3 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.base__.OpenSharedResourceByName)(::windows_core::Interface::as_raw(self), lpname.into_param().abi(), dwdesiredaccess, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.OpenSharedResourceByName)(::windows_core::Interface::as_raw(self), lpname.into_param().abi(), dwdesiredaccess, &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetImmediateContext2(&self) -> ::windows_core::Result<ID3D11DeviceContext2> {
         let mut result__ = ::std::mem::zeroed();
@@ -2158,7 +2158,7 @@ impl ID3D11Device4 {
         P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
         T: ::windows_core::ComInterface,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OpenSharedResource)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OpenSharedResource)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &T::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2242,7 +2242,7 @@ impl ID3D11Device4 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.OpenSharedResource1)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.OpenSharedResource1)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenSharedResourceByName<P0, T>(&self, lpname: P0, dwdesiredaccess: u32) -> ::windows_core::Result<T>
     where
@@ -2250,7 +2250,7 @@ impl ID3D11Device4 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.OpenSharedResourceByName)(::windows_core::Interface::as_raw(self), lpname.into_param().abi(), dwdesiredaccess, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.OpenSharedResourceByName)(::windows_core::Interface::as_raw(self), lpname.into_param().abi(), dwdesiredaccess, &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetImmediateContext2(&self) -> ::windows_core::Result<ID3D11DeviceContext2> {
         let mut result__ = ::std::mem::zeroed();
@@ -2505,7 +2505,7 @@ impl ID3D11Device5 {
         P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
         T: ::windows_core::ComInterface,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.OpenSharedResource)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.OpenSharedResource)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &T::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2589,7 +2589,7 @@ impl ID3D11Device5 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OpenSharedResource1)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OpenSharedResource1)(::windows_core::Interface::as_raw(self), hresource.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenSharedResourceByName<P0, T>(&self, lpname: P0, dwdesiredaccess: u32) -> ::windows_core::Result<T>
     where
@@ -2597,7 +2597,7 @@ impl ID3D11Device5 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OpenSharedResourceByName)(::windows_core::Interface::as_raw(self), lpname.into_param().abi(), dwdesiredaccess, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OpenSharedResourceByName)(::windows_core::Interface::as_raw(self), lpname.into_param().abi(), dwdesiredaccess, &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetImmediateContext2(&self) -> ::windows_core::Result<ID3D11DeviceContext2> {
         let mut result__ = ::std::mem::zeroed();
@@ -2694,13 +2694,13 @@ impl ID3D11Device5 {
         P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
         T: ::windows_core::ComInterface,
     {
-        (::windows_core::Interface::vtable(self).OpenSharedFence)(::windows_core::Interface::as_raw(self), hfence.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows_core::Interface::vtable(self).OpenSharedFence)(::windows_core::Interface::as_raw(self), hfence.into_param().abi(), &T::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn CreateFence<T>(&self, initialvalue: u64, flags: D3D11_FENCE_FLAG, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
         T: ::windows_core::ComInterface,
     {
-        (::windows_core::Interface::vtable(self).CreateFence)(::windows_core::Interface::as_raw(self), initialvalue, flags, &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows_core::Interface::vtable(self).CreateFence)(::windows_core::Interface::as_raw(self), initialvalue, flags, &T::IID, result__ as *mut _ as *mut _).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D11Device5, ::windows_core::IUnknown, ID3D11Device, ID3D11Device1, ID3D11Device2, ID3D11Device3, ID3D11Device4);

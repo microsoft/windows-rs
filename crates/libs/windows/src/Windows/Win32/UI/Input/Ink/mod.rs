@@ -85,7 +85,7 @@ impl IInkDesktopHost {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateInkPresenter)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateInkPresenter)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateAndInitializeInkPresenter<P0, T>(&self, rootvisual: P0, width: f32, height: f32) -> ::windows_core::Result<T>
     where
@@ -93,7 +93,7 @@ impl IInkDesktopHost {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateAndInitializeInkPresenter)(::windows_core::Interface::as_raw(self), rootvisual.into_param().abi(), width, height, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateAndInitializeInkPresenter)(::windows_core::Interface::as_raw(self), rootvisual.into_param().abi(), width, height, &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInkDesktopHost, ::windows_core::IUnknown);
