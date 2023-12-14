@@ -44,7 +44,7 @@ where
 {
     ::windows_targets::link!("d2d1.dll" "system" fn D2D1CreateFactory(factorytype : D2D1_FACTORY_TYPE, riid : *const ::windows_core::GUID, pfactoryoptions : *const D2D1_FACTORY_OPTIONS, ppifactory : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    D2D1CreateFactory(factorytype, &<T as ::windows_core::ComInterface>::IID, ::core::mem::transmute(pfactoryoptions.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+    D2D1CreateFactory(factorytype, &T::IID, ::core::mem::transmute(pfactoryoptions.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -14435,7 +14435,7 @@ impl ID2D1SvgElement {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetAttributeValue)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetAttributeValue)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAttributeValue2<P0>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *mut ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows_core::Result<()>
     where

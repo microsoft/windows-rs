@@ -39,7 +39,7 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for I
             .push_slice(b"pinterface(")
             .push_slice(b"TODO")
             .push_slice(b";")
-            .push_other(<T as ::windows_core::RuntimeType>::SIGNATURE)
+            .push_other(T::SIGNATURE)
             .push_slice(b")")
     };
 }
@@ -119,7 +119,7 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for I
             .push_slice(b"pinterface(")
             .push_slice(b"TODO")
             .push_slice(b";")
-            .push_other(<T as ::windows_core::RuntimeType>::SIGNATURE)
+            .push_other(T::SIGNATURE)
             .push_slice(b")")
     };
 }
@@ -205,9 +205,9 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
             .push_slice(b"pinterface(")
             .push_slice(b"TODO")
             .push_slice(b";")
-            .push_other(<K as ::windows_core::RuntimeType>::SIGNATURE)
+            .push_other(K::SIGNATURE)
             .push_slice(b";")
-            .push_other(<V as ::windows_core::RuntimeType>::SIGNATURE)
+            .push_other(V::SIGNATURE)
             .push_slice(b")")
     };
 }
@@ -333,9 +333,9 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
             .push_slice(b"pinterface(")
             .push_slice(b"TODO")
             .push_slice(b";")
-            .push_other(<K as ::windows_core::RuntimeType>::SIGNATURE)
+            .push_other(K::SIGNATURE)
             .push_slice(b";")
-            .push_other(<V as ::windows_core::RuntimeType>::SIGNATURE)
+            .push_other(V::SIGNATURE)
             .push_slice(b")")
     };
 }

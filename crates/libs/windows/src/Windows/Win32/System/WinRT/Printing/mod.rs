@@ -8,7 +8,7 @@ impl IPrintManagerInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn ShowPrintUIForWindowAsync<P0, T>(&self, appwindow: P0) -> ::windows_core::Result<T>
     where
@@ -16,7 +16,7 @@ impl IPrintManagerInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).ShowPrintUIForWindowAsync)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ShowPrintUIForWindowAsync)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintManagerInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -273,7 +273,7 @@ impl IPrinting3DManagerInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn ShowPrintUIForWindowAsync<P0, T>(&self, appwindow: P0) -> ::windows_core::Result<T>
     where
@@ -281,7 +281,7 @@ impl IPrinting3DManagerInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).ShowPrintUIForWindowAsync)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ShowPrintUIForWindowAsync)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrinting3DManagerInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);

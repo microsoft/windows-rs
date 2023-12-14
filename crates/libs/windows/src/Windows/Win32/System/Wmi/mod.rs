@@ -3530,7 +3530,7 @@ impl IWbemClientConnectionTransport {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Open)(::windows_core::Interface::as_raw(self), straddresstype.into_param().abi(), abbinaryaddress.len().try_into().unwrap(), ::core::mem::transmute(abbinaryaddress.as_ptr()), strobject.into_param().abi(), struser.into_param().abi(), strpassword.into_param().abi(), strlocale.into_param().abi(), lflags, pctx.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__, ::core::mem::transmute(pcallres)).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Open)(::windows_core::Interface::as_raw(self), straddresstype.into_param().abi(), abbinaryaddress.len().try_into().unwrap(), ::core::mem::transmute(abbinaryaddress.as_ptr()), strobject.into_param().abi(), struser.into_param().abi(), strpassword.into_param().abi(), strlocale.into_param().abi(), lflags, pctx.into_param().abi(), &T::IID, &mut result__, ::core::mem::transmute(pcallres)).from_abi(result__)
     }
     pub unsafe fn OpenAsync<P0, P1, P2, P3, P4, P5, P6>(&self, straddresstype: P0, abbinaryaddress: &[u8], strobject: P1, struser: P2, strpassword: P3, strlocale: P4, lflags: i32, pctx: P5, riid: *const ::windows_core::GUID, presponsehandler: P6) -> ::windows_core::Result<()>
     where
@@ -3664,7 +3664,7 @@ impl IWbemConnectorLogin {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).ConnectorLogin)(::windows_core::Interface::as_raw(self), wsznetworkresource.into_param().abi(), wszpreferredlocale.into_param().abi(), lflags, pctx.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ConnectorLogin)(::windows_core::Interface::as_raw(self), wsznetworkresource.into_param().abi(), wszpreferredlocale.into_param().abi(), lflags, pctx.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemConnectorLogin, ::windows_core::IUnknown);

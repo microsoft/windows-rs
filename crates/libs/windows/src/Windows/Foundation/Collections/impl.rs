@@ -712,7 +712,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
 struct StockIterable<T>
 where
     T: ::windows_core::RuntimeType + 'static,
-    <T as ::windows_core::Type<T>>::Default: Clone,
+    T::Default: Clone,
 {
     values: Vec<T::Default>,
 }
@@ -720,7 +720,7 @@ where
 impl<T> IIterable_Impl<T> for StockIterable<T>
 where
     T: ::windows_core::RuntimeType,
-    <T as ::windows_core::Type<T>>::Default: Clone,
+    T::Default: Clone,
 {
     fn First(&self) -> ::windows_core::Result<IIterator<T>> {
         unsafe {
@@ -735,7 +735,7 @@ where
 struct StockIterator<T>
 where
     T: ::windows_core::RuntimeType + 'static,
-    <T as ::windows_core::Type<T>>::Default: Clone,
+    T::Default: Clone,
 {
     owner: IIterable<T>,
     current: ::std::sync::atomic::AtomicUsize,
@@ -744,7 +744,7 @@ where
 impl<T> IIterator_Impl<T> for StockIterator<T>
 where
     T: ::windows_core::RuntimeType,
-    <T as ::windows_core::Type<T>>::Default: Clone,
+    T::Default: Clone,
 {
     fn Current(&self) -> ::windows_core::Result<T> {
         let owner: &StockIterable<T> = unsafe { ::windows_core::AsImpl::as_impl(&self.owner) };
@@ -790,7 +790,7 @@ where
 impl<T> ::core::convert::TryFrom<Vec<T::Default>> for IIterable<T>
 where
     T: ::windows_core::RuntimeType,
-    <T as ::windows_core::Type<T>>::Default: Clone,
+    T::Default: Clone,
 {
     type Error = ::windows_core::Error;
     fn try_from(values: Vec<T::Default>) -> ::windows_core::Result<Self> {
@@ -803,8 +803,8 @@ struct StockMapView<K, V>
 where
     K: ::windows_core::RuntimeType + 'static,
     V: ::windows_core::RuntimeType + 'static,
-    <K as ::windows_core::Type<K>>::Default: Clone + Ord,
-    <V as ::windows_core::Type<V>>::Default: Clone,
+    K::Default: Clone + Ord,
+    V::Default: Clone,
 {
     map: std::collections::BTreeMap<K::Default, V::Default>,
 }
@@ -813,8 +813,8 @@ impl<K, V> IIterable_Impl<IKeyValuePair<K, V>> for StockMapView<K, V>
 where
     K: ::windows_core::RuntimeType,
     V: ::windows_core::RuntimeType,
-    <K as ::windows_core::Type<K>>::Default: Clone + Ord,
-    <V as ::windows_core::Type<V>>::Default: Clone,
+    K::Default: Clone + Ord,
+    V::Default: Clone,
 {
     fn First(&self) -> ::windows_core::Result<IIterator<IKeyValuePair<K, V>>> {
         unsafe {
@@ -829,8 +829,8 @@ impl<K, V> IMapView_Impl<K, V> for StockMapView<K, V>
 where
     K: ::windows_core::RuntimeType,
     V: ::windows_core::RuntimeType,
-    <K as ::windows_core::Type<K>>::Default: Clone + Ord,
-    <V as ::windows_core::Type<V>>::Default: Clone,
+    K::Default: Clone + Ord,
+    V::Default: Clone,
 {
     fn Lookup(&self, key: &K::Default) -> ::windows_core::Result<V> {
         let value = self.map.get(key).ok_or_else(|| ::windows_core::Error::from(::windows_core::imp::E_BOUNDS))?;
@@ -854,8 +854,8 @@ struct StockMapViewIterator<'a, K, V>
 where
     K: ::windows_core::RuntimeType + 'static,
     V: ::windows_core::RuntimeType + 'static,
-    <K as ::windows_core::Type<K>>::Default: Clone + Ord,
-    <V as ::windows_core::Type<V>>::Default: Clone,
+    K::Default: Clone + Ord,
+    V::Default: Clone,
 {
     _owner: IIterable<IKeyValuePair<K, V>>,
     current: ::std::sync::RwLock<std::collections::btree_map::Iter<'a, K::Default, V::Default>>,
@@ -865,8 +865,8 @@ impl<'a, K, V> IIterator_Impl<IKeyValuePair<K, V>> for StockMapViewIterator<'a, 
 where
     K: ::windows_core::RuntimeType,
     V: ::windows_core::RuntimeType,
-    <K as ::windows_core::Type<K>>::Default: Clone + Ord,
-    <V as ::windows_core::Type<V>>::Default: Clone,
+    K::Default: Clone + Ord,
+    V::Default: Clone,
 {
     fn Current(&self) -> ::windows_core::Result<IKeyValuePair<K, V>> {
         let mut current = self.current.read().unwrap().clone().peekable();
@@ -913,8 +913,8 @@ struct StockKeyValuePair<K, V>
 where
     K: ::windows_core::RuntimeType + 'static,
     V: ::windows_core::RuntimeType + 'static,
-    <K as ::windows_core::Type<K>>::Default: Clone,
-    <V as ::windows_core::Type<V>>::Default: Clone,
+    K::Default: Clone,
+    V::Default: Clone,
 {
     key: K::Default,
     value: V::Default,
@@ -924,8 +924,8 @@ impl<K, V> IKeyValuePair_Impl<K, V> for StockKeyValuePair<K, V>
 where
     K: ::windows_core::RuntimeType,
     V: ::windows_core::RuntimeType,
-    <K as ::windows_core::Type<K>>::Default: Clone,
-    <V as ::windows_core::Type<V>>::Default: Clone,
+    K::Default: Clone,
+    V::Default: Clone,
 {
     fn Key(&self) -> ::windows_core::Result<K> {
         K::from_default(&self.key)
@@ -939,8 +939,8 @@ impl<K, V> ::core::convert::TryFrom<std::collections::BTreeMap<K::Default, V::De
 where
     K: ::windows_core::RuntimeType,
     V: ::windows_core::RuntimeType,
-    <K as ::windows_core::Type<K>>::Default: Clone + Ord,
-    <V as ::windows_core::Type<V>>::Default: Clone,
+    K::Default: Clone + Ord,
+    V::Default: Clone,
 {
     type Error = ::windows_core::Error;
     fn try_from(map: std::collections::BTreeMap<K::Default, V::Default>) -> ::windows_core::Result<Self> {
@@ -952,7 +952,7 @@ where
 struct StockVectorView<T>
 where
     T: ::windows_core::RuntimeType + 'static,
-    <T as ::windows_core::Type<T>>::Default: Clone + PartialEq,
+    T::Default: Clone + PartialEq,
 {
     values: Vec<T::Default>,
 }
@@ -960,7 +960,7 @@ where
 impl<T> IIterable_Impl<T> for StockVectorView<T>
 where
     T: ::windows_core::RuntimeType,
-    <T as ::windows_core::Type<T>>::Default: Clone + PartialEq,
+    T::Default: Clone + PartialEq,
 {
     fn First(&self) -> ::windows_core::Result<IIterator<T>> {
         unsafe {
@@ -974,7 +974,7 @@ where
 impl<T> IVectorView_Impl<T> for StockVectorView<T>
 where
     T: ::windows_core::RuntimeType,
-    <T as ::windows_core::Type<T>>::Default: Clone + PartialEq,
+    T::Default: Clone + PartialEq,
 {
     fn GetAt(&self, index: u32) -> ::windows_core::Result<T> {
         let item = self.values.get(index as usize).ok_or_else(|| ::windows_core::Error::from(::windows_core::imp::E_BOUNDS))?;
@@ -1008,7 +1008,7 @@ where
 struct StockVectorViewIterator<T>
 where
     T: ::windows_core::RuntimeType + 'static,
-    <T as ::windows_core::Type<T>>::Default: Clone + PartialEq,
+    T::Default: Clone + PartialEq,
 {
     owner: IIterable<T>,
     current: ::std::sync::atomic::AtomicUsize,
@@ -1017,7 +1017,7 @@ where
 impl<T> IIterator_Impl<T> for StockVectorViewIterator<T>
 where
     T: ::windows_core::RuntimeType,
-    <T as ::windows_core::Type<T>>::Default: Clone + PartialEq,
+    T::Default: Clone + PartialEq,
 {
     fn Current(&self) -> ::windows_core::Result<T> {
         let owner: &StockVectorView<T> = unsafe { ::windows_core::AsImpl::as_impl(&self.owner) };
@@ -1063,7 +1063,7 @@ where
 impl<T> ::core::convert::TryFrom<Vec<T::Default>> for IVectorView<T>
 where
     T: ::windows_core::RuntimeType,
-    <T as ::windows_core::Type<T>>::Default: Clone + PartialEq,
+    T::Default: Clone + PartialEq,
 {
     type Error = ::windows_core::Error;
     fn try_from(values: Vec<T::Default>) -> ::windows_core::Result<Self> {

@@ -1256,7 +1256,7 @@ where
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_CoCreateInstance(rclsid : *const ::windows_core::GUID, punkouter : * mut::core::ffi::c_void, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    ImageList_CoCreateInstance(rclsid, punkouter.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    ImageList_CoCreateInstance(rclsid, punkouter.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn ImageList_Copy<P0, P1>(himldst: P0, idst: i32, himlsrc: P1, isrc: i32, uflags: IMAGE_LIST_COPY_FLAGS) -> super::super::Foundation::BOOL

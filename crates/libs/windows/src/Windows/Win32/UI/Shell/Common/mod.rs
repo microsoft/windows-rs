@@ -11,7 +11,7 @@ impl IObjectArray {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetAt)(::windows_core::Interface::as_raw(self), uiindex, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetAt)(::windows_core::Interface::as_raw(self), uiindex, &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IObjectArray, ::windows_core::IUnknown);
@@ -41,7 +41,7 @@ impl IObjectCollection {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.GetAt)(::windows_core::Interface::as_raw(self), uiindex, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetAt)(::windows_core::Interface::as_raw(self), uiindex, &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn AddObject<P0>(&self, punk: P0) -> ::windows_core::Result<()>
     where

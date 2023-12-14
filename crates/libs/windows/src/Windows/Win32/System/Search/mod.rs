@@ -2467,7 +2467,7 @@ impl ICondition {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetSubConditions)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSubConditions)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
@@ -2576,7 +2576,7 @@ impl ICondition2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.GetSubConditions)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetSubConditions)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
@@ -2760,7 +2760,7 @@ impl IConditionFactory2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateTrueFalse)(::windows_core::Interface::as_raw(self), fval.into_param().abi(), cco, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateTrueFalse)(::windows_core::Interface::as_raw(self), fval.into_param().abi(), cco, &T::IID, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2770,7 +2770,7 @@ impl IConditionFactory2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateNegation)(::windows_core::Interface::as_raw(self), pcsub.into_param().abi(), cco, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateNegation)(::windows_core::Interface::as_raw(self), pcsub.into_param().abi(), cco, &T::IID, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Search_Common\"`, `\"Win32_UI_Shell_Common\"`"]
     #[cfg(all(feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_Common"))]
@@ -2780,7 +2780,7 @@ impl IConditionFactory2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateCompoundFromObjectArray)(::windows_core::Interface::as_raw(self), ct, poasubs.into_param().abi(), cco, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateCompoundFromObjectArray)(::windows_core::Interface::as_raw(self), ct, poasubs.into_param().abi(), cco, &T::IID, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Search_Common\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Search_Common"))]
@@ -2789,7 +2789,7 @@ impl IConditionFactory2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateCompoundFromArray)(::windows_core::Interface::as_raw(self), ct, ::core::mem::transmute(ppcondsubs.as_ptr()), ppcondsubs.len().try_into().unwrap(), cco, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateCompoundFromArray)(::windows_core::Interface::as_raw(self), ct, ::core::mem::transmute(ppcondsubs.as_ptr()), ppcondsubs.len().try_into().unwrap(), cco, &T::IID, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Search_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(all(feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -2800,7 +2800,7 @@ impl IConditionFactory2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateStringLeaf)(::windows_core::Interface::as_raw(self), propkey, cop, pszvalue.into_param().abi(), pszlocalename.into_param().abi(), cco, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateStringLeaf)(::windows_core::Interface::as_raw(self), propkey, cop, pszvalue.into_param().abi(), pszlocalename.into_param().abi(), cco, &T::IID, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Search_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(all(feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -2809,7 +2809,7 @@ impl IConditionFactory2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateIntegerLeaf)(::windows_core::Interface::as_raw(self), propkey, cop, lvalue, cco, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateIntegerLeaf)(::windows_core::Interface::as_raw(self), propkey, cop, lvalue, cco, &T::IID, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Search_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(all(feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -2819,7 +2819,7 @@ impl IConditionFactory2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateBooleanLeaf)(::windows_core::Interface::as_raw(self), propkey, cop, fvalue.into_param().abi(), cco, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateBooleanLeaf)(::windows_core::Interface::as_raw(self), propkey, cop, fvalue.into_param().abi(), cco, &T::IID, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -2833,7 +2833,7 @@ impl IConditionFactory2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateLeaf)(::windows_core::Interface::as_raw(self), propkey, cop, propvar, pszsemantictype.into_param().abi(), pszlocalename.into_param().abi(), ppropertynameterm.into_param().abi(), poperationterm.into_param().abi(), pvalueterm.into_param().abi(), cco, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateLeaf)(::windows_core::Interface::as_raw(self), propkey, cop, propvar, pszsemantictype.into_param().abi(), pszlocalename.into_param().abi(), ppropertynameterm.into_param().abi(), poperationterm.into_param().abi(), pvalueterm.into_param().abi(), cco, &T::IID, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2843,7 +2843,7 @@ impl IConditionFactory2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).ResolveCondition)(::windows_core::Interface::as_raw(self), pc.into_param().abi(), sqro, ::core::mem::transmute(pstreferencetime.unwrap_or(::std::ptr::null())), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ResolveCondition)(::windows_core::Interface::as_raw(self), pc.into_param().abi(), sqro, ::core::mem::transmute(pstreferencetime.unwrap_or(::std::ptr::null())), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IConditionFactory2, ::windows_core::IUnknown, IConditionFactory);
@@ -3616,7 +3616,7 @@ impl IEntity {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Relationships)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Relationships)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRelationship<P0>(&self, pszrelationname: P0) -> ::windows_core::Result<IRelationship>
     where
@@ -3630,14 +3630,14 @@ impl IEntity {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).MetaData)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MetaData)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn NamedEntities<T>(&self) -> ::windows_core::Result<T>
     where
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).NamedEntities)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).NamedEntities)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNamedEntity<P0>(&self, pszvalue: P0) -> ::windows_core::Result<INamedEntity>
     where
@@ -4717,7 +4717,7 @@ impl IQueryParserManager {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateLoadedParser)(::windows_core::Interface::as_raw(self), pszcatalog.into_param().abi(), langidforkeywords, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateLoadedParser)(::windows_core::Interface::as_raw(self), pszcatalog.into_param().abi(), langidforkeywords, &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn InitializeOptions<P0, P1, P2>(&self, funderstandnqs: P0, fautowildcard: P1, pqueryparser: P2) -> ::windows_core::Result<()>
     where
@@ -4808,7 +4808,7 @@ impl IQuerySolution {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetErrors)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetErrors)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLexicalData(&self, ppszinputstring: ::core::option::Option<*mut ::windows_core::PWSTR>, pptokens: ::core::option::Option<*mut ::core::option::Option<ITokenCollection>>, plcid: ::core::option::Option<*mut u32>, ppwordbreaker: ::core::option::Option<*mut ::core::option::Option<::windows_core::IUnknown>>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLexicalData)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppszinputstring.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pptokens.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plcid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppwordbreaker.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -4919,7 +4919,7 @@ impl IRelationship {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).MetaData)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MetaData)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn DefaultPhrase(&self, ppszphrase: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DefaultPhrase)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppszphrase.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -6376,7 +6376,7 @@ impl ISchemaProvider {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Entities)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Entities)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn RootEntity(&self) -> ::windows_core::Result<IEntity> {
         let mut result__ = ::std::mem::zeroed();
@@ -6394,7 +6394,7 @@ impl ISchemaProvider {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).MetaData)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MetaData)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn Localize<P0>(&self, lcid: u32, pschemalocalizersupport: P0) -> ::windows_core::Result<()>
     where
@@ -6599,7 +6599,7 @@ impl ISearchCatalogManager {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetItemsChangedSink)(::windows_core::Interface::as_raw(self), pisearchnotifyinlinesite.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__, pguidcatalogresetsignature, pguidcheckpointsignature, pdwlastcheckpointnumber).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetItemsChangedSink)(::windows_core::Interface::as_raw(self), pisearchnotifyinlinesite.into_param().abi(), &T::IID, &mut result__, pguidcatalogresetsignature, pguidcheckpointsignature, pdwlastcheckpointnumber).from_abi(result__)
     }
     pub unsafe fn UnregisterViewForNotification(&self, dwcookie: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UnregisterViewForNotification)(::windows_core::Interface::as_raw(self), dwcookie).ok()
@@ -6779,7 +6779,7 @@ impl ISearchCatalogManager2 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.GetItemsChangedSink)(::windows_core::Interface::as_raw(self), pisearchnotifyinlinesite.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__, pguidcatalogresetsignature, pguidcheckpointsignature, pdwlastcheckpointnumber).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetItemsChangedSink)(::windows_core::Interface::as_raw(self), pisearchnotifyinlinesite.into_param().abi(), &T::IID, &mut result__, pguidcatalogresetsignature, pguidcheckpointsignature, pdwlastcheckpointnumber).from_abi(result__)
     }
     pub unsafe fn UnregisterViewForNotification(&self, dwcookie: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.UnregisterViewForNotification)(::windows_core::Interface::as_raw(self), dwcookie).ok()
@@ -7140,14 +7140,14 @@ impl ISearchLanguageSupport {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).LoadWordBreaker)(::windows_core::Interface::as_raw(self), lcid, &<T as ::windows_core::ComInterface>::IID, &mut result__, plcidused).from_abi(result__)
+        (::windows_core::Interface::vtable(self).LoadWordBreaker)(::windows_core::Interface::as_raw(self), lcid, &T::IID, &mut result__, plcidused).from_abi(result__)
     }
     pub unsafe fn LoadStemmer<T>(&self, lcid: u32, plcidused: *mut u32) -> ::windows_core::Result<T>
     where
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).LoadStemmer)(::windows_core::Interface::as_raw(self), lcid, &<T as ::windows_core::ComInterface>::IID, &mut result__, plcidused).from_abi(result__)
+        (::windows_core::Interface::vtable(self).LoadStemmer)(::windows_core::Interface::as_raw(self), lcid, &T::IID, &mut result__, plcidused).from_abi(result__)
     }
     pub unsafe fn IsPrefixNormalized(&self, pwcsquerytoken: &[u16], pwcsdocumenttoken: &[u16]) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();

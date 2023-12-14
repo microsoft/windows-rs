@@ -31,7 +31,7 @@ where
 {
     ::windows_targets::link!("ole32.dll" "system" fn CoGetInterfaceAndReleaseStream(pstm : * mut::core::ffi::c_void, iid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    CoGetInterfaceAndReleaseStream(pstm.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    CoGetInterfaceAndReleaseStream(pstm.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn CreateILockBytesOnHGlobal<P0, P1>(hglobal: P0, fdeleteonrelease: P1) -> ::windows_core::Result<ILockBytes>
@@ -739,7 +739,7 @@ where
 {
     ::windows_targets::link!("propsys.dll" "system" fn PropVariantToWinRTPropertyValue(propvar : *const PROPVARIANT, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    PropVariantToWinRTPropertyValue(propvar, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    PropVariantToWinRTPropertyValue(propvar, &T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn ReadClassStg<P0>(pstg: P0) -> ::windows_core::Result<::windows_core::GUID>

@@ -71,7 +71,7 @@ impl IActiveScript {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetScriptSite)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetScriptSite)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetScriptState(&self, ss: SCRIPTSTATE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetScriptState)(::windows_core::Interface::as_raw(self), ss).ok()

@@ -5,7 +5,7 @@ where
 {
     ::windows_targets::link!("dwrite.dll" "system" fn DWriteCreateFactory(factorytype : DWRITE_FACTORY_TYPE, iid : *const ::windows_core::GUID, factory : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    DWriteCreateFactory(factorytype, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    DWriteCreateFactory(factorytype, &T::IID, &mut result__).from_abi(result__)
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

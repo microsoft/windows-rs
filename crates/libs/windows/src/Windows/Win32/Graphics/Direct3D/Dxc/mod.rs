@@ -5,7 +5,7 @@ where
 {
     ::windows_targets::link!("dxcompiler.dll" "system" fn DxcCreateInstance(rclsid : *const ::windows_core::GUID, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    DxcCreateInstance(rclsid, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    DxcCreateInstance(rclsid, &T::IID, &mut result__).from_abi(result__)
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
@@ -17,7 +17,7 @@ where
 {
     ::windows_targets::link!("dxcompiler.dll" "system" fn DxcCreateInstance2(pmalloc : * mut::core::ffi::c_void, rclsid : *const ::windows_core::GUID, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    DxcCreateInstance2(pmalloc.into_param().abi(), rclsid, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    DxcCreateInstance2(pmalloc.into_param().abi(), rclsid, &T::IID, &mut result__).from_abi(result__)
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -291,14 +291,14 @@ impl IDxcCompiler3 {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Compile)(::windows_core::Interface::as_raw(self), psource, ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pincludehandler.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Compile)(::windows_core::Interface::as_raw(self), psource, ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pincludehandler.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn Disassemble<T>(&self, pobject: *const DxcBuffer) -> ::windows_core::Result<T>
     where
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Disassemble)(::windows_core::Interface::as_raw(self), pobject, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Disassemble)(::windows_core::Interface::as_raw(self), pobject, &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcCompiler3, ::windows_core::IUnknown);
@@ -451,7 +451,7 @@ impl IDxcExtraOutputs {
     where
         T: ::windows_core::ComInterface,
     {
-        (::windows_core::Interface::vtable(self).GetOutput)(::windows_core::Interface::as_raw(self), uindex, &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _, ::core::mem::transmute(ppoutputtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppoutputname.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows_core::Interface::vtable(self).GetOutput)(::windows_core::Interface::as_raw(self), uindex, &T::IID, result__ as *mut _ as *mut _, ::core::mem::transmute(ppoutputtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppoutputname.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcExtraOutputs, ::windows_core::IUnknown);
@@ -900,7 +900,7 @@ impl IDxcResult {
     where
         T: ::windows_core::ComInterface,
     {
-        (::windows_core::Interface::vtable(self).GetOutput)(::windows_core::Interface::as_raw(self), dxcoutkind, &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _, ::core::mem::transmute(ppoutputname)).ok()
+        (::windows_core::Interface::vtable(self).GetOutput)(::windows_core::Interface::as_raw(self), dxcoutkind, &T::IID, result__ as *mut _ as *mut _, ::core::mem::transmute(ppoutputname)).ok()
     }
     pub unsafe fn GetNumOutputs(&self) -> u32 {
         (::windows_core::Interface::vtable(self).GetNumOutputs)(::windows_core::Interface::as_raw(self))

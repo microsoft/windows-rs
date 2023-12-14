@@ -56,7 +56,7 @@ where
 {
     ::windows_targets::link!("windows.ui.dll" "cdecl" fn CreateControlInput(riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    CreateControlInput(&<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    CreateControlInput(&T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn CreateControlInputEx<P0, T>(pcorewindow: P0) -> ::windows_core::Result<T>
@@ -66,7 +66,7 @@ where
 {
     ::windows_targets::link!("windows.ui.dll" "cdecl" fn CreateControlInputEx(pcorewindow : * mut::core::ffi::c_void, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    CreateControlInputEx(pcorewindow.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    CreateControlInputEx(pcorewindow.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
 }
 #[doc = "Required features: `\"System\"`"]
 #[cfg(feature = "System")]
@@ -84,7 +84,7 @@ where
 {
     ::windows_targets::link!("api-ms-win-shcore-stream-winrt-l1-1-0.dll" "system" fn CreateRandomAccessStreamOnFile(filepath : ::windows_core::PCWSTR, accessmode : u32, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    CreateRandomAccessStreamOnFile(filepath.into_param().abi(), accessmode, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    CreateRandomAccessStreamOnFile(filepath.into_param().abi(), accessmode, &T::IID, &mut result__).from_abi(result__)
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
@@ -96,7 +96,7 @@ where
 {
     ::windows_targets::link!("api-ms-win-shcore-stream-winrt-l1-1-0.dll" "system" fn CreateRandomAccessStreamOverStream(stream : * mut::core::ffi::c_void, options : BSOS_OPTIONS, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    CreateRandomAccessStreamOverStream(stream.into_param().abi(), options, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    CreateRandomAccessStreamOverStream(stream.into_param().abi(), options, &T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn CreateStreamOverRandomAccessStream<P0, T>(randomaccessstream: P0) -> ::windows_core::Result<T>
@@ -106,7 +106,7 @@ where
 {
     ::windows_targets::link!("api-ms-win-shcore-stream-winrt-l1-1-0.dll" "system" fn CreateStreamOverRandomAccessStream(randomaccessstream : * mut::core::ffi::c_void, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    CreateStreamOverRandomAccessStream(randomaccessstream.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    CreateStreamOverRandomAccessStream(randomaccessstream.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn GetRestrictedErrorInfo() -> ::windows_core::Result<IRestrictedErrorInfo> {
@@ -187,7 +187,7 @@ where
 {
     ::windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoGetActivationFactory(activatableclassid : ::std::mem::MaybeUninit <::windows_core::HSTRING >, iid : *const ::windows_core::GUID, factory : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    RoGetActivationFactory(::core::mem::transmute_copy(activatableclassid), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    RoGetActivationFactory(::core::mem::transmute_copy(activatableclassid), &T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
 pub unsafe fn RoGetAgileReference<P0>(options: AgileReferenceOptions, riid: *const ::windows_core::GUID, punk: P0) -> ::windows_core::Result<IAgileReference>
@@ -477,7 +477,7 @@ impl IAccountsSettingsPaneInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn ShowManageAccountsForWindowAsync<P0, T>(&self, appwindow: P0) -> ::windows_core::Result<T>
     where
@@ -485,7 +485,7 @@ impl IAccountsSettingsPaneInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).ShowManageAccountsForWindowAsync)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ShowManageAccountsForWindowAsync)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn ShowAddAccountForWindowAsync<P0, T>(&self, appwindow: P0) -> ::windows_core::Result<T>
     where
@@ -493,7 +493,7 @@ impl IAccountsSettingsPaneInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).ShowAddAccountForWindowAsync)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ShowAddAccountForWindowAsync)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAccountsSettingsPaneInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -542,7 +542,7 @@ impl IAgileReference {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Resolve)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Resolve)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAgileReference, ::windows_core::IUnknown);
@@ -588,7 +588,7 @@ impl IAppServiceConnectionExtendedExecution {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).OpenForExtendedExecutionAsync)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OpenForExtendedExecutionAsync)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppServiceConnectionExtendedExecution, ::windows_core::IUnknown);
@@ -937,7 +937,7 @@ impl IDragDropManagerInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDragDropManagerInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -963,7 +963,7 @@ impl IHolographicSpaceInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateForWindow)(::windows_core::Interface::as_raw(self), window.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateForWindow)(::windows_core::Interface::as_raw(self), window.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHolographicSpaceInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -989,7 +989,7 @@ impl IInputPaneInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInputPaneInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -1160,7 +1160,7 @@ impl IPlayToManagerInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn ShowPlayToUIForWindow<P0>(&self, appwindow: P0) -> ::windows_core::Result<()>
     where
@@ -1243,7 +1243,7 @@ impl IShareWindowCommandSourceInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IShareWindowCommandSourceInterop, ::windows_core::IUnknown);
@@ -1269,7 +1269,7 @@ impl ISpatialInteractionManagerInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), window.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), window.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialInteractionManagerInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -1295,7 +1295,7 @@ impl ISystemMediaTransportControlsInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISystemMediaTransportControlsInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -1321,7 +1321,7 @@ impl IUIViewSettingsInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIViewSettingsInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -1347,7 +1347,7 @@ impl IUserActivityInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateSessionForWindow)(::windows_core::Interface::as_raw(self), window.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateSessionForWindow)(::windows_core::Interface::as_raw(self), window.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUserActivityInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -1373,7 +1373,7 @@ impl IUserActivityRequestManagerInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), window.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), window.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUserActivityRequestManagerInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -1420,7 +1420,7 @@ impl IUserConsentVerifierInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).RequestVerificationForWindowAsync)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), ::core::mem::transmute_copy(message), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).RequestVerificationForWindowAsync)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), ::core::mem::transmute_copy(message), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUserConsentVerifierInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -1445,7 +1445,7 @@ impl IWeakReference {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).Resolve)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Resolve)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWeakReference, ::windows_core::IUnknown);
@@ -1494,7 +1494,7 @@ impl IWebAuthenticationCoreManagerInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).RequestTokenForWindowAsync)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), request.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).RequestTokenForWindowAsync)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), request.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn RequestTokenWithWebAccountForWindowAsync<P0, P1, P2, T>(&self, appwindow: P0, request: P1, webaccount: P2) -> ::windows_core::Result<T>
     where
@@ -1504,7 +1504,7 @@ impl IWebAuthenticationCoreManagerInterop {
         T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).RequestTokenWithWebAccountForWindowAsync)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), request.into_param().abi(), webaccount.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).RequestTokenWithWebAccountForWindowAsync)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), request.into_param().abi(), webaccount.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWebAuthenticationCoreManagerInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
