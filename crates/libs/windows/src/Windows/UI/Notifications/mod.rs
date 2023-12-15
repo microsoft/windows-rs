@@ -1,6 +1,9 @@
 #[cfg(feature = "UI_Notifications_Management")]
 #[doc = "Required features: `\"UI_Notifications_Management\"`"]
 pub mod Management;
+#[cfg(feature = "UI_Notifications_Preview")]
+#[doc = "Required features: `\"UI_Notifications_Preview\"`"]
+pub mod Preview;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveNotificationContent(::windows_core::IUnknown);

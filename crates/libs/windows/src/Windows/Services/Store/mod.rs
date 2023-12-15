@@ -309,6 +309,30 @@ pub struct IStoreContext4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IStoreContext5(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IStoreContext5 {
+    type Vtable = IStoreContext5_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IStoreContext5 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6de6c52b_c43a_5953_b39a_71643c57d96e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IStoreContext5_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetUserPurchaseHistoryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productkinds: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetUserPurchaseHistoryAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetAssociatedStoreProductsByInAppOfferTokenAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inappoffertokens: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetAssociatedStoreProductsByInAppOfferTokenAsync: usize,
+    pub RequestPurchaseByInAppOfferTokenAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inappoffertoken: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreContextStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreContextStatics {
     type Vtable = IStoreContextStatics_Vtbl;
@@ -485,6 +509,24 @@ pub struct IStorePrice_Vtbl {
     pub SaleEndDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
     pub CurrencyCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub FormattedRecurrencePrice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IStorePrice2(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IStorePrice2 {
+    type Vtable = IStorePrice2_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IStorePrice2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf711573c_40e6_5641_b063_f1df42b2b12a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IStorePrice2_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub UnformattedBasePrice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub UnformattedPrice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub UnformattedRecurrencePrice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1652,6 +1694,37 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).SetInstallOrderForAssociatedStoreQueueItemsAsync)(::windows_core::Interface::as_raw(this), items.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetUserPurchaseHistoryAsync<P0>(&self, productkinds: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>
+    where
+        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+    {
+        let this = &::windows_core::ComInterface::cast::<IStoreContext5>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).GetUserPurchaseHistoryAsync)(::windows_core::Interface::as_raw(this), productkinds.try_into_param()?.abi(), &mut result__).from_abi(result__)
+        }
+    }
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetAssociatedStoreProductsByInAppOfferTokenAsync<P0>(&self, inappoffertokens: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>
+    where
+        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+    {
+        let this = &::windows_core::ComInterface::cast::<IStoreContext5>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).GetAssociatedStoreProductsByInAppOfferTokenAsync)(::windows_core::Interface::as_raw(this), inappoffertokens.try_into_param()?.abi(), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn RequestPurchaseByInAppOfferTokenAsync(&self, inappoffertoken: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
+        let this = &::windows_core::ComInterface::cast::<IStoreContext5>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).RequestPurchaseByInAppOfferTokenAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(inappoffertoken), &mut result__).from_abi(result__)
+        }
+    }
     pub fn GetDefault() -> ::windows_core::Result<StoreContext> {
         Self::IStoreContextStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
@@ -2022,6 +2095,27 @@ impl StorePrice {
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormattedRecurrencePrice)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn UnformattedBasePrice(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
+        let this = &::windows_core::ComInterface::cast::<IStorePrice2>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).UnformattedBasePrice)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn UnformattedPrice(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
+        let this = &::windows_core::ComInterface::cast::<IStorePrice2>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).UnformattedPrice)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn UnformattedRecurrencePrice(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
+        let this = &::windows_core::ComInterface::cast::<IStorePrice2>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).UnformattedRecurrencePrice)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }

@@ -1,6 +1,9 @@
 #[cfg(feature = "System_RemoteDesktop_Input")]
 #[doc = "Required features: `\"System_RemoteDesktop_Input\"`"]
 pub mod Input;
+#[cfg(feature = "System_RemoteDesktop_Provider")]
+#[doc = "Required features: `\"System_RemoteDesktop_Provider\"`"]
+pub mod Provider;
 #[doc(hidden)]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

@@ -110,6 +110,33 @@ pub struct IAudioEncodingPropertiesWithFormatUserData_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IAv1ProfileIdsStatics(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IAv1ProfileIdsStatics {
+    type Vtable = IAv1ProfileIdsStatics_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IAv1ProfileIdsStatics {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9105812b_7c09_5882_88a4_678008a5174d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAv1ProfileIdsStatics_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub MainChromaSubsampling420BitDepth8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainChromaSubsampling420BitDepth10: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainChromaSubsampling400BitDepth8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainChromaSubsampling400BitDepth10: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub HighChromaSubsampling444BitDepth8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub HighChromaSubsampling444BitDepth10: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub ProfessionalChromaSubsampling420BitDepth12: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub ProfessionalChromaSubsampling400BitDepth12: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub ProfessionalChromaSubsampling444BitDepth12: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub ProfessionalChromaSubsampling422BitDepth8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub ProfessionalChromaSubsampling422BitDepth10: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub ProfessionalChromaSubsampling422BitDepth12: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContainerEncodingProperties(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContainerEncodingProperties {
     type Vtable = IContainerEncodingProperties_Vtbl;
@@ -162,6 +189,43 @@ pub struct IH264ProfileIdsStatics_Vtbl {
     pub High444: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
     pub StereoHigh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
     pub MultiviewHigh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IHevcProfileIdsStatics(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IHevcProfileIdsStatics {
+    type Vtable = IHevcProfileIdsStatics_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IHevcProfileIdsStatics {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e50d280_2aa7_53c1_973f_2189fa656f53);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHevcProfileIdsStatics_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub MainChromaSubsampling420BitDepth8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainChromaSubsampling420BitDepth10: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainChromaSubsampling420BitDepth12: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainChromaSubsampling422BitDepth10: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainChromaSubsampling422BitDepth12: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainChromaSubsampling444BitDepth8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainChromaSubsampling444BitDepth10: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainChromaSubsampling444BitDepth12: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MonochromeBitDepth12: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MonochromeBitDepth16: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainIntraChromaSubsampling420BitDepth8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainIntraChromaSubsampling420BitDepth10: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainIntraChromaSubsampling420BitDepth12: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainIntraChromaSubsampling422BitDepth10: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainIntraChromaSubsampling422BitDepth12: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainIntraChromaSubsampling444BitDepth8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainIntraChromaSubsampling444BitDepth10: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainIntraChromaSubsampling444BitDepth12: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainIntraChromaSubsampling444BitDepth16: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainStillChromaSubsampling420BitDepth8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainStillChromaSubsampling444BitDepth8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MainStillChromaSubsampling444BitDepth16: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -387,6 +451,23 @@ pub struct IMediaEncodingProfileStatics3_Vtbl {
     pub CreateFlac: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, quality: AudioEncodingQuality, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateHevc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, quality: VideoEncodingQuality, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IMediaEncodingProfileStatics4(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IMediaEncodingProfileStatics4 {
+    type Vtable = IMediaEncodingProfileStatics4_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IMediaEncodingProfileStatics4 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6fafd7b5_9404_514a_81dd_c9444d648af0);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMediaEncodingProfileStatics4_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub CreateVp9: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, quality: VideoEncodingQuality, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAv1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, quality: VideoEncodingQuality, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaEncodingProperties(::windows_core::IUnknown);
@@ -582,6 +663,22 @@ pub struct IMediaEncodingSubtypesStatics6_Vtbl {
     pub Srt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Ssa: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub VobSub: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IMediaEncodingSubtypesStatics7(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IMediaEncodingSubtypesStatics7 {
+    type Vtable = IMediaEncodingSubtypesStatics7_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IMediaEncodingSubtypesStatics7 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92f2dca7_9937_52a1_b619_ddfad81cd99c);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMediaEncodingSubtypesStatics7_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Av1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -783,6 +880,41 @@ pub struct IVideoEncodingPropertiesStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateHevc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IVideoEncodingPropertiesStatics3(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IVideoEncodingPropertiesStatics3 {
+    type Vtable = IVideoEncodingPropertiesStatics3_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IVideoEncodingPropertiesStatics3 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65b46685_60da_5e51_91a2_b38c4763b872);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IVideoEncodingPropertiesStatics3_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub CreateVp9: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAv1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IVp9ProfileIdsStatics(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IVp9ProfileIdsStatics {
+    type Vtable = IVp9ProfileIdsStatics_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IVp9ProfileIdsStatics {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20311a55_fe06_5883_92d9_6080c97743e5);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IVp9ProfileIdsStatics_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Profile0ChromaSubsampling420BitDepth8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub Profile2ChromaSubsampling420BitDepth10: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub Profile2ChromaSubsampling420BitDepth12: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AudioEncodingProperties(::windows_core::IUnknown);
@@ -956,6 +1088,89 @@ impl ::windows_core::RuntimeName for AudioEncodingProperties {
 impl ::windows_core::CanTryInto<IMediaEncodingProperties> for AudioEncodingProperties {}
 unsafe impl ::core::marker::Send for AudioEncodingProperties {}
 unsafe impl ::core::marker::Sync for AudioEncodingProperties {}
+pub struct Av1ProfileIds;
+impl Av1ProfileIds {
+    pub fn MainChromaSubsampling420BitDepth8() -> ::windows_core::Result<i32> {
+        Self::IAv1ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling420BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainChromaSubsampling420BitDepth10() -> ::windows_core::Result<i32> {
+        Self::IAv1ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling420BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainChromaSubsampling400BitDepth8() -> ::windows_core::Result<i32> {
+        Self::IAv1ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling400BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainChromaSubsampling400BitDepth10() -> ::windows_core::Result<i32> {
+        Self::IAv1ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling400BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn HighChromaSubsampling444BitDepth8() -> ::windows_core::Result<i32> {
+        Self::IAv1ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).HighChromaSubsampling444BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn HighChromaSubsampling444BitDepth10() -> ::windows_core::Result<i32> {
+        Self::IAv1ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).HighChromaSubsampling444BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn ProfessionalChromaSubsampling420BitDepth12() -> ::windows_core::Result<i32> {
+        Self::IAv1ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).ProfessionalChromaSubsampling420BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn ProfessionalChromaSubsampling400BitDepth12() -> ::windows_core::Result<i32> {
+        Self::IAv1ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).ProfessionalChromaSubsampling400BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn ProfessionalChromaSubsampling444BitDepth12() -> ::windows_core::Result<i32> {
+        Self::IAv1ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).ProfessionalChromaSubsampling444BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn ProfessionalChromaSubsampling422BitDepth8() -> ::windows_core::Result<i32> {
+        Self::IAv1ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).ProfessionalChromaSubsampling422BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn ProfessionalChromaSubsampling422BitDepth10() -> ::windows_core::Result<i32> {
+        Self::IAv1ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).ProfessionalChromaSubsampling422BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn ProfessionalChromaSubsampling422BitDepth12() -> ::windows_core::Result<i32> {
+        Self::IAv1ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).ProfessionalChromaSubsampling422BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IAv1ProfileIdsStatics<R, F: FnOnce(&IAv1ProfileIdsStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<Av1ProfileIds, IAv1ProfileIdsStatics> = ::windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows_core::RuntimeName for Av1ProfileIds {
+    const NAME: &'static str = "Windows.Media.MediaProperties.Av1ProfileIds";
+}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContainerEncodingProperties(::windows_core::IUnknown);
@@ -1088,6 +1303,149 @@ impl H264ProfileIds {
 }
 impl ::windows_core::RuntimeName for H264ProfileIds {
     const NAME: &'static str = "Windows.Media.MediaProperties.H264ProfileIds";
+}
+pub struct HevcProfileIds;
+impl HevcProfileIds {
+    pub fn MainChromaSubsampling420BitDepth8() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling420BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainChromaSubsampling420BitDepth10() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling420BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainChromaSubsampling420BitDepth12() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling420BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainChromaSubsampling422BitDepth10() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling422BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainChromaSubsampling422BitDepth12() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling422BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainChromaSubsampling444BitDepth8() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling444BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainChromaSubsampling444BitDepth10() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling444BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainChromaSubsampling444BitDepth12() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling444BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MonochromeBitDepth12() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MonochromeBitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MonochromeBitDepth16() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MonochromeBitDepth16)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainIntraChromaSubsampling420BitDepth8() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling420BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainIntraChromaSubsampling420BitDepth10() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling420BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainIntraChromaSubsampling420BitDepth12() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling420BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainIntraChromaSubsampling422BitDepth10() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling422BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainIntraChromaSubsampling422BitDepth12() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling422BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainIntraChromaSubsampling444BitDepth8() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling444BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainIntraChromaSubsampling444BitDepth10() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling444BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainIntraChromaSubsampling444BitDepth12() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling444BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainIntraChromaSubsampling444BitDepth16() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling444BitDepth16)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainStillChromaSubsampling420BitDepth8() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainStillChromaSubsampling420BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainStillChromaSubsampling444BitDepth8() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainStillChromaSubsampling444BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn MainStillChromaSubsampling444BitDepth16() -> ::windows_core::Result<i32> {
+        Self::IHevcProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).MainStillChromaSubsampling444BitDepth16)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IHevcProfileIdsStatics<R, F: FnOnce(&IHevcProfileIdsStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<HevcProfileIds, IHevcProfileIdsStatics> = ::windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows_core::RuntimeName for HevcProfileIds {
+    const NAME: &'static str = "Windows.Media.MediaProperties.HevcProfileIds";
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1413,6 +1771,18 @@ impl MediaEncodingProfile {
             (::windows_core::Interface::vtable(this).CreateHevc)(::windows_core::Interface::as_raw(this), quality, &mut result__).from_abi(result__)
         })
     }
+    pub fn CreateVp9(quality: VideoEncodingQuality) -> ::windows_core::Result<MediaEncodingProfile> {
+        Self::IMediaEncodingProfileStatics4(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).CreateVp9)(::windows_core::Interface::as_raw(this), quality, &mut result__).from_abi(result__)
+        })
+    }
+    pub fn CreateAv1(quality: VideoEncodingQuality) -> ::windows_core::Result<MediaEncodingProfile> {
+        Self::IMediaEncodingProfileStatics4(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).CreateAv1)(::windows_core::Interface::as_raw(this), quality, &mut result__).from_abi(result__)
+        })
+    }
     #[doc(hidden)]
     pub fn IMediaEncodingProfileStatics<R, F: FnOnce(&IMediaEncodingProfileStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
         static SHARED: ::windows_core::imp::FactoryCache<MediaEncodingProfile, IMediaEncodingProfileStatics> = ::windows_core::imp::FactoryCache::new();
@@ -1426,6 +1796,11 @@ impl MediaEncodingProfile {
     #[doc(hidden)]
     pub fn IMediaEncodingProfileStatics3<R, F: FnOnce(&IMediaEncodingProfileStatics3) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
         static SHARED: ::windows_core::imp::FactoryCache<MediaEncodingProfile, IMediaEncodingProfileStatics3> = ::windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IMediaEncodingProfileStatics4<R, F: FnOnce(&IMediaEncodingProfileStatics4) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<MediaEncodingProfile, IMediaEncodingProfileStatics4> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1758,6 +2133,12 @@ impl MediaEncodingSubtypes {
             (::windows_core::Interface::vtable(this).VobSub)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
+    pub fn Av1() -> ::windows_core::Result<::windows_core::HSTRING> {
+        Self::IMediaEncodingSubtypesStatics7(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).Av1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
     #[doc(hidden)]
     pub fn IMediaEncodingSubtypesStatics<R, F: FnOnce(&IMediaEncodingSubtypesStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
         static SHARED: ::windows_core::imp::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics> = ::windows_core::imp::FactoryCache::new();
@@ -1786,6 +2167,11 @@ impl MediaEncodingSubtypes {
     #[doc(hidden)]
     pub fn IMediaEncodingSubtypesStatics6<R, F: FnOnce(&IMediaEncodingSubtypesStatics6) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
         static SHARED: ::windows_core::imp::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics6> = ::windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IMediaEncodingSubtypesStatics7<R, F: FnOnce(&IMediaEncodingSubtypesStatics7) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics7> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2249,6 +2635,18 @@ impl VideoEncodingProperties {
             (::windows_core::Interface::vtable(this).CreateHevc)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
+    pub fn CreateVp9() -> ::windows_core::Result<VideoEncodingProperties> {
+        Self::IVideoEncodingPropertiesStatics3(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).CreateVp9)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn CreateAv1() -> ::windows_core::Result<VideoEncodingProperties> {
+        Self::IVideoEncodingPropertiesStatics3(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).CreateAv1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
     #[doc(hidden)]
     pub fn IVideoEncodingPropertiesStatics<R, F: FnOnce(&IVideoEncodingPropertiesStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
         static SHARED: ::windows_core::imp::FactoryCache<VideoEncodingProperties, IVideoEncodingPropertiesStatics> = ::windows_core::imp::FactoryCache::new();
@@ -2257,6 +2655,11 @@ impl VideoEncodingProperties {
     #[doc(hidden)]
     pub fn IVideoEncodingPropertiesStatics2<R, F: FnOnce(&IVideoEncodingPropertiesStatics2) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
         static SHARED: ::windows_core::imp::FactoryCache<VideoEncodingProperties, IVideoEncodingPropertiesStatics2> = ::windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IVideoEncodingPropertiesStatics3<R, F: FnOnce(&IVideoEncodingPropertiesStatics3) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<VideoEncodingProperties, IVideoEncodingPropertiesStatics3> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2276,6 +2679,35 @@ impl ::windows_core::RuntimeName for VideoEncodingProperties {
 impl ::windows_core::CanTryInto<IMediaEncodingProperties> for VideoEncodingProperties {}
 unsafe impl ::core::marker::Send for VideoEncodingProperties {}
 unsafe impl ::core::marker::Sync for VideoEncodingProperties {}
+pub struct Vp9ProfileIds;
+impl Vp9ProfileIds {
+    pub fn Profile0ChromaSubsampling420BitDepth8() -> ::windows_core::Result<i32> {
+        Self::IVp9ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).Profile0ChromaSubsampling420BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn Profile2ChromaSubsampling420BitDepth10() -> ::windows_core::Result<i32> {
+        Self::IVp9ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).Profile2ChromaSubsampling420BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn Profile2ChromaSubsampling420BitDepth12() -> ::windows_core::Result<i32> {
+        Self::IVp9ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).Profile2ChromaSubsampling420BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IVp9ProfileIdsStatics<R, F: FnOnce(&IVp9ProfileIdsStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<Vp9ProfileIds, IVp9ProfileIdsStatics> = ::windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows_core::RuntimeName for Vp9ProfileIds {
+    const NAME: &'static str = "Windows.Media.MediaProperties.Vp9ProfileIds";
+}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioEncodingQuality(pub i32);

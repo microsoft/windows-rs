@@ -381,6 +381,23 @@ pub struct IActivitySensorTriggerDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IAdaptiveDimmingOptions(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IAdaptiveDimmingOptions {
+    type Vtable = IAdaptiveDimmingOptions_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IAdaptiveDimmingOptions {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3213cf7_89b5_5732_b2a0_aefe324f54e6);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAdaptiveDimmingOptions_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub AllowWhenExternalDisplayConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub SetAllowWhenExternalDisplayConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAltimeter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAltimeter {
     type Vtable = IAltimeter_Vtbl;
@@ -1162,7 +1179,26 @@ pub struct IHumanPresenceFeatures_Vtbl {
     SupportedWakeOrLockDistancesInMillimeters: usize,
     pub IsWakeOnApproachSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub IsLockOnLeaveSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    #[cfg(feature = "deprecated")]
     pub IsAttentionAwareDimmingSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    IsAttentionAwareDimmingSupported: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IHumanPresenceFeatures2(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IHumanPresenceFeatures2 {
+    type Vtable = IHumanPresenceFeatures2_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IHumanPresenceFeatures2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08a9cdda_d929_5ec2_81e2_940bafa089cf);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHumanPresenceFeatures2_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub IsAdaptiveDimmingSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1188,6 +1224,87 @@ pub struct IHumanPresenceSensor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IHumanPresenceSensor2(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IHumanPresenceSensor2 {
+    type Vtable = IHumanPresenceSensor2_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IHumanPresenceSensor2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf8833779_65fe_541a_b9d6_1e474a485e7a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHumanPresenceSensor2_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub IsPresenceSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsEngagementSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IHumanPresenceSensorExtension(::windows_core::IUnknown);
+impl IHumanPresenceSensorExtension {
+    pub fn Initialize(&self, deviceinterface: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).Initialize)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceinterface)).ok() }
+    }
+    pub fn Start(&self) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).Start)(::windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn ProcessReading<P0>(&self, reading: P0) -> ::windows_core::Result<HumanPresenceSensorReadingUpdate>
+    where
+        P0: ::windows_core::IntoParam<HumanPresenceSensorReading>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).ProcessReading)(::windows_core::Interface::as_raw(this), reading.into_param().abi(), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn ProcessReadingTimeoutExpired<P0>(&self, reading: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<HumanPresenceSensorReading>,
+    {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).ProcessReadingTimeoutExpired)(::windows_core::Interface::as_raw(this), reading.into_param().abi()).ok() }
+    }
+    pub fn Stop(&self) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).Stop)(::windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Uninitialize(&self) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).Uninitialize)(::windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Reset(&self) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).Reset)(::windows_core::Interface::as_raw(this)).ok() }
+    }
+}
+::windows_core::imp::interface_hierarchy!(IHumanPresenceSensorExtension, ::windows_core::IUnknown, ::windows_core::IInspectable);
+impl ::windows_core::RuntimeType for IHumanPresenceSensorExtension {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+unsafe impl ::windows_core::Interface for IHumanPresenceSensorExtension {
+    type Vtable = IHumanPresenceSensorExtension_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IHumanPresenceSensorExtension {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3e526a71_2d1d_5d43_8a8e_a434a8242ef0);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHumanPresenceSensorExtension_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceinterface: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ProcessReading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reading: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ProcessReadingTimeoutExpired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reading: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHumanPresenceSensorReading(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHumanPresenceSensorReading {
     type Vtable = IHumanPresenceSensorReading_Vtbl;
@@ -1203,6 +1320,25 @@ pub struct IHumanPresenceSensorReading_Vtbl {
     pub Presence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HumanPresence) -> ::windows_core::HRESULT,
     pub Engagement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HumanEngagement) -> ::windows_core::HRESULT,
     pub DistanceInMillimeters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IHumanPresenceSensorReading2(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IHumanPresenceSensorReading2 {
+    type Vtable = IHumanPresenceSensorReading2_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IHumanPresenceSensorReading2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4f0e950_3bff_53d6_a0f8_514ea3705c66);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHumanPresenceSensorReading2_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Properties: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1223,6 +1359,29 @@ pub struct IHumanPresenceSensorReadingChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IHumanPresenceSensorReadingUpdate(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IHumanPresenceSensorReadingUpdate {
+    type Vtable = IHumanPresenceSensorReadingUpdate_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IHumanPresenceSensorReadingUpdate {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42419c77_6d2f_55a0_9e01_c9cbe7b2d6df);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHumanPresenceSensorReadingUpdate_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Presence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetPresence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Engagement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetEngagement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DistanceInMillimeters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetDistanceInMillimeters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHumanPresenceSensorStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHumanPresenceSensorStatics {
     type Vtable = IHumanPresenceSensorStatics_Vtbl;
@@ -1237,6 +1396,23 @@ pub struct IHumanPresenceSensorStatics_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sensorid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IHumanPresenceSensorStatics2(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IHumanPresenceSensorStatics2 {
+    type Vtable = IHumanPresenceSensorStatics2_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IHumanPresenceSensorStatics2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5de35843_d260_5a87_995e_ace91326e1c4);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHumanPresenceSensorStatics2_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub FromId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sensorid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1264,8 +1440,34 @@ pub struct IHumanPresenceSettings_Vtbl {
     pub SetLockOnLeaveDistanceInMillimeters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub LockOnLeaveTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
     pub SetLockOnLeaveTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    #[cfg(feature = "deprecated")]
     pub IsAttentionAwareDimmingEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    IsAttentionAwareDimmingEnabled: usize,
+    #[cfg(feature = "deprecated")]
     pub SetIsAttentionAwareDimmingEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetIsAttentionAwareDimmingEnabled: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IHumanPresenceSettings2(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IHumanPresenceSettings2 {
+    type Vtable = IHumanPresenceSettings2_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IHumanPresenceSettings2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa26f705e_8696_5eb4_b9e1_26a508de1cd4);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHumanPresenceSettings2_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub IsAdaptiveDimmingEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub SetIsAdaptiveDimmingEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    pub WakeOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DimmingOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LockOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1721,6 +1923,23 @@ pub struct ILightSensorStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct ILockOnLeaveOptions(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ILockOnLeaveOptions {
+    type Vtable = ILockOnLeaveOptions_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for ILockOnLeaveOptions {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3c6bf8bd_04c1_5829_8d4e_70521755b8be);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ILockOnLeaveOptions_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub AllowWhenExternalDisplayConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub SetAllowWhenExternalDisplayConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2573,6 +2792,25 @@ pub struct ISimpleOrientationSensorStatics2_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IWakeOnApproachOptions(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IWakeOnApproachOptions {
+    type Vtable = IWakeOnApproachOptions_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IWakeOnApproachOptions {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0b87ae7_7e1f_5ea5_814d_6b7e07defc2b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWakeOnApproachOptions_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub AllowWhenExternalDisplayConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub SetAllowWhenExternalDisplayConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    pub DisableWhenBatterySaverOn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub SetDisableWhenBatterySaverOn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Accelerometer(::windows_core::IUnknown);
@@ -3153,6 +3391,37 @@ impl ::windows_core::RuntimeName for ActivitySensorTriggerDetails {
 ::windows_core::imp::interface_hierarchy!(ActivitySensorTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ActivitySensorTriggerDetails {}
 unsafe impl ::core::marker::Sync for ActivitySensorTriggerDetails {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct AdaptiveDimmingOptions(::windows_core::IUnknown);
+impl AdaptiveDimmingOptions {
+    pub fn AllowWhenExternalDisplayConnected(&self) -> ::windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).AllowWhenExternalDisplayConnected)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn SetAllowWhenExternalDisplayConnected(&self, value: bool) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).SetAllowWhenExternalDisplayConnected)(::windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::windows_core::RuntimeType for AdaptiveDimmingOptions {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
+}
+unsafe impl ::windows_core::Interface for AdaptiveDimmingOptions {
+    type Vtable = IAdaptiveDimmingOptions_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for AdaptiveDimmingOptions {
+    const IID: ::windows_core::GUID = <IAdaptiveDimmingOptions as ::windows_core::ComInterface>::IID;
+}
+impl ::windows_core::RuntimeName for AdaptiveDimmingOptions {
+    const NAME: &'static str = "Windows.Devices.Sensors.AdaptiveDimmingOptions";
+}
+::windows_core::imp::interface_hierarchy!(AdaptiveDimmingOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
+unsafe impl ::core::marker::Send for AdaptiveDimmingOptions {}
+unsafe impl ::core::marker::Sync for AdaptiveDimmingOptions {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Altimeter(::windows_core::IUnknown);
@@ -4285,11 +4554,20 @@ impl HumanPresenceFeatures {
             (::windows_core::Interface::vtable(this).IsLockOnLeaveSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
+    #[doc = "Required features: `\"deprecated\"`"]
+    #[cfg(feature = "deprecated")]
     pub fn IsAttentionAwareDimmingSupported(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsAttentionAwareDimmingSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn IsAdaptiveDimmingSupported(&self) -> ::windows_core::Result<bool> {
+        let this = &::windows_core::ComInterface::cast::<IHumanPresenceFeatures2>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).IsAdaptiveDimmingSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -4354,6 +4632,20 @@ impl HumanPresenceSensor {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveReadingChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
+    pub fn IsPresenceSupported(&self) -> ::windows_core::Result<bool> {
+        let this = &::windows_core::ComInterface::cast::<IHumanPresenceSensor2>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).IsPresenceSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn IsEngagementSupported(&self) -> ::windows_core::Result<bool> {
+        let this = &::windows_core::ComInterface::cast::<IHumanPresenceSensor2>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).IsEngagementSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
     pub fn GetDeviceSelector() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IHumanPresenceSensorStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
@@ -4372,9 +4664,26 @@ impl HumanPresenceSensor {
             (::windows_core::Interface::vtable(this).GetDefaultAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
+    pub fn FromId(sensorid: &::windows_core::HSTRING) -> ::windows_core::Result<HumanPresenceSensor> {
+        Self::IHumanPresenceSensorStatics2(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).FromId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(sensorid), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn GetDefault() -> ::windows_core::Result<HumanPresenceSensor> {
+        Self::IHumanPresenceSensorStatics2(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
     #[doc(hidden)]
     pub fn IHumanPresenceSensorStatics<R, F: FnOnce(&IHumanPresenceSensorStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
         static SHARED: ::windows_core::imp::FactoryCache<HumanPresenceSensor, IHumanPresenceSensorStatics> = ::windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IHumanPresenceSensorStatics2<R, F: FnOnce(&IHumanPresenceSensorStatics2) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<HumanPresenceSensor, IHumanPresenceSensorStatics2> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4425,6 +4734,15 @@ impl HumanPresenceSensorReading {
             (::windows_core::Interface::vtable(this).DistanceInMillimeters)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
+        let this = &::windows_core::ComInterface::cast::<IHumanPresenceSensorReading2>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
 }
 impl ::windows_core::RuntimeType for HumanPresenceSensorReading {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
@@ -4468,6 +4786,89 @@ impl ::windows_core::RuntimeName for HumanPresenceSensorReadingChangedEventArgs 
 ::windows_core::imp::interface_hierarchy!(HumanPresenceSensorReadingChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HumanPresenceSensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for HumanPresenceSensorReadingChangedEventArgs {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct HumanPresenceSensorReadingUpdate(::windows_core::IUnknown);
+impl HumanPresenceSensorReadingUpdate {
+    pub fn new() -> ::windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows_core::imp::IGenericFactory) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<HumanPresenceSensorReadingUpdate, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).Timestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn SetTimestamp<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+    {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).SetTimestamp)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+    }
+    pub fn Presence(&self) -> ::windows_core::Result<super::super::Foundation::IReference<HumanPresence>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).Presence)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn SetPresence<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<HumanPresence>>,
+    {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).SetPresence)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+    }
+    pub fn Engagement(&self) -> ::windows_core::Result<super::super::Foundation::IReference<HumanEngagement>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).Engagement)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn SetEngagement<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<HumanEngagement>>,
+    {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).SetEngagement)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+    }
+    pub fn DistanceInMillimeters(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).DistanceInMillimeters)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn SetDistanceInMillimeters<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<u32>>,
+    {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).SetDistanceInMillimeters)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+    }
+}
+impl ::windows_core::RuntimeType for HumanPresenceSensorReadingUpdate {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
+}
+unsafe impl ::windows_core::Interface for HumanPresenceSensorReadingUpdate {
+    type Vtable = IHumanPresenceSensorReadingUpdate_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for HumanPresenceSensorReadingUpdate {
+    const IID: ::windows_core::GUID = <IHumanPresenceSensorReadingUpdate as ::windows_core::ComInterface>::IID;
+}
+impl ::windows_core::RuntimeName for HumanPresenceSensorReadingUpdate {
+    const NAME: &'static str = "Windows.Devices.Sensors.HumanPresenceSensorReadingUpdate";
+}
+::windows_core::imp::interface_hierarchy!(HumanPresenceSensorReadingUpdate, ::windows_core::IUnknown, ::windows_core::IInspectable);
+unsafe impl ::core::marker::Send for HumanPresenceSensorReadingUpdate {}
+unsafe impl ::core::marker::Sync for HumanPresenceSensorReadingUpdate {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HumanPresenceSettings(::windows_core::IUnknown);
@@ -4544,6 +4945,8 @@ impl HumanPresenceSettings {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetLockOnLeaveTimeout)(::windows_core::Interface::as_raw(this), value).ok() }
     }
+    #[doc = "Required features: `\"deprecated\"`"]
+    #[cfg(feature = "deprecated")]
     pub fn IsAttentionAwareDimmingEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
@@ -4551,9 +4954,43 @@ impl HumanPresenceSettings {
             (::windows_core::Interface::vtable(this).IsAttentionAwareDimmingEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
+    #[doc = "Required features: `\"deprecated\"`"]
+    #[cfg(feature = "deprecated")]
     pub fn SetIsAttentionAwareDimmingEnabled(&self, value: bool) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIsAttentionAwareDimmingEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn IsAdaptiveDimmingEnabled(&self) -> ::windows_core::Result<bool> {
+        let this = &::windows_core::ComInterface::cast::<IHumanPresenceSettings2>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).IsAdaptiveDimmingEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn SetIsAdaptiveDimmingEnabled(&self, value: bool) -> ::windows_core::Result<()> {
+        let this = &::windows_core::ComInterface::cast::<IHumanPresenceSettings2>(self)?;
+        unsafe { (::windows_core::Interface::vtable(this).SetIsAdaptiveDimmingEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn WakeOptions(&self) -> ::windows_core::Result<WakeOnApproachOptions> {
+        let this = &::windows_core::ComInterface::cast::<IHumanPresenceSettings2>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).WakeOptions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn DimmingOptions(&self) -> ::windows_core::Result<AdaptiveDimmingOptions> {
+        let this = &::windows_core::ComInterface::cast::<IHumanPresenceSettings2>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).DimmingOptions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn LockOptions(&self) -> ::windows_core::Result<LockOnLeaveOptions> {
+        let this = &::windows_core::ComInterface::cast::<IHumanPresenceSettings2>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).LockOptions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
     }
     pub fn GetCurrentSettingsAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<HumanPresenceSettings>> {
         Self::IHumanPresenceSettingsStatics(|this| unsafe {
@@ -5187,6 +5624,37 @@ impl ::windows_core::RuntimeName for LightSensorReadingChangedEventArgs {
 ::windows_core::imp::interface_hierarchy!(LightSensorReadingChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LightSensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for LightSensorReadingChangedEventArgs {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct LockOnLeaveOptions(::windows_core::IUnknown);
+impl LockOnLeaveOptions {
+    pub fn AllowWhenExternalDisplayConnected(&self) -> ::windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).AllowWhenExternalDisplayConnected)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn SetAllowWhenExternalDisplayConnected(&self, value: bool) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).SetAllowWhenExternalDisplayConnected)(::windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::windows_core::RuntimeType for LockOnLeaveOptions {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
+}
+unsafe impl ::windows_core::Interface for LockOnLeaveOptions {
+    type Vtable = ILockOnLeaveOptions_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for LockOnLeaveOptions {
+    const IID: ::windows_core::GUID = <ILockOnLeaveOptions as ::windows_core::ComInterface>::IID;
+}
+impl ::windows_core::RuntimeName for LockOnLeaveOptions {
+    const NAME: &'static str = "Windows.Devices.Sensors.LockOnLeaveOptions";
+}
+::windows_core::imp::interface_hierarchy!(LockOnLeaveOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
+unsafe impl ::core::marker::Send for LockOnLeaveOptions {}
+unsafe impl ::core::marker::Sync for LockOnLeaveOptions {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Magnetometer(::windows_core::IUnknown);
@@ -6491,6 +6959,48 @@ impl ::windows_core::RuntimeName for SimpleOrientationSensorOrientationChangedEv
 ::windows_core::imp::interface_hierarchy!(SimpleOrientationSensorOrientationChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SimpleOrientationSensorOrientationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SimpleOrientationSensorOrientationChangedEventArgs {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct WakeOnApproachOptions(::windows_core::IUnknown);
+impl WakeOnApproachOptions {
+    pub fn AllowWhenExternalDisplayConnected(&self) -> ::windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).AllowWhenExternalDisplayConnected)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn SetAllowWhenExternalDisplayConnected(&self, value: bool) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).SetAllowWhenExternalDisplayConnected)(::windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn DisableWhenBatterySaverOn(&self) -> ::windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).DisableWhenBatterySaverOn)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn SetDisableWhenBatterySaverOn(&self, value: bool) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).SetDisableWhenBatterySaverOn)(::windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::windows_core::RuntimeType for WakeOnApproachOptions {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
+}
+unsafe impl ::windows_core::Interface for WakeOnApproachOptions {
+    type Vtable = IWakeOnApproachOptions_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for WakeOnApproachOptions {
+    const IID: ::windows_core::GUID = <IWakeOnApproachOptions as ::windows_core::ComInterface>::IID;
+}
+impl ::windows_core::RuntimeName for WakeOnApproachOptions {
+    const NAME: &'static str = "Windows.Devices.Sensors.WakeOnApproachOptions";
+}
+::windows_core::imp::interface_hierarchy!(WakeOnApproachOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
+unsafe impl ::core::marker::Send for WakeOnApproachOptions {}
+unsafe impl ::core::marker::Sync for WakeOnApproachOptions {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AccelerometerReadingType(pub i32);

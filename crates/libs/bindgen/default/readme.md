@@ -12,7 +12,7 @@ like [ILSpy](https://github.com/icsharpcode/ILSpy).
 
 ## Windows.winmd
 - Source: https://www.nuget.org/packages/Microsoft.Windows.SDK.Contracts
-- Version: 10.0.22621.755
+- Version: 10.0.22621.2428
 
 The `Windows.winmd` file was created by merging the .winmd files from the last nuget package as follows:
 

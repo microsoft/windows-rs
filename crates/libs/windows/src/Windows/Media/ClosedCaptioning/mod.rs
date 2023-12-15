@@ -34,6 +34,23 @@ pub struct IClosedCaptionPropertiesStatics_Vtbl {
     ComputedRegionColor: usize,
     pub RegionOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionOpacity) -> ::windows_core::HRESULT,
 }
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IClosedCaptionPropertiesStatics2(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IClosedCaptionPropertiesStatics2 {
+    type Vtable = IClosedCaptionPropertiesStatics2_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IClosedCaptionPropertiesStatics2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9de26870_37de_4197_8845_9a48dc5ac317);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IClosedCaptionPropertiesStatics2_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub PropertiesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemovePropertiesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+}
 pub struct ClosedCaptionProperties;
 impl ClosedCaptionProperties {
     pub fn FontColor() -> ::windows_core::Result<ClosedCaptionColor> {
@@ -114,9 +131,26 @@ impl ClosedCaptionProperties {
             (::windows_core::Interface::vtable(this).RegionOpacity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
+    pub fn PropertiesChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::EventHandler<::windows_core::IInspectable>>,
+    {
+        Self::IClosedCaptionPropertiesStatics2(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).PropertiesChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn RemovePropertiesChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
+        Self::IClosedCaptionPropertiesStatics2(|this| unsafe { (::windows_core::Interface::vtable(this).RemovePropertiesChanged)(::windows_core::Interface::as_raw(this), token).ok() })
+    }
     #[doc(hidden)]
     pub fn IClosedCaptionPropertiesStatics<R, F: FnOnce(&IClosedCaptionPropertiesStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
         static SHARED: ::windows_core::imp::FactoryCache<ClosedCaptionProperties, IClosedCaptionPropertiesStatics> = ::windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IClosedCaptionPropertiesStatics2<R, F: FnOnce(&IClosedCaptionPropertiesStatics2) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<ClosedCaptionProperties, IClosedCaptionPropertiesStatics2> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
