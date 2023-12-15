@@ -31,6 +31,84 @@ impl IStorageProviderItemPropertySource_Vtbl {
         *iid == <IStorageProviderItemPropertySource as ::windows_core::ComInterface>::IID
     }
 }
+pub trait IStorageProviderKnownFolderSyncInfoSource_Impl: Sized {
+    fn GetKnownFolderSyncInfo(&self) -> ::windows_core::Result<StorageProviderKnownFolderSyncInfo>;
+    fn KnownFolderSyncInfoChanged(&self, handler: ::core::option::Option<&super::super::Foundation::TypedEventHandler<IStorageProviderKnownFolderSyncInfoSource, ::windows_core::IInspectable>>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveKnownFolderSyncInfoChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()>;
+}
+impl ::windows_core::RuntimeName for IStorageProviderKnownFolderSyncInfoSource {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderKnownFolderSyncInfoSource";
+}
+impl IStorageProviderKnownFolderSyncInfoSource_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderKnownFolderSyncInfoSource_Impl, const OFFSET: isize>() -> IStorageProviderKnownFolderSyncInfoSource_Vtbl {
+        unsafe extern "system" fn GetKnownFolderSyncInfo<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderKnownFolderSyncInfoSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetKnownFolderSyncInfo() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
+                    ::core::mem::forget(ok__);
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn KnownFolderSyncInfoChanged<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderKnownFolderSyncInfoSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.KnownFolderSyncInfoChanged(::windows_core::from_raw_borrowed(&handler)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveKnownFolderSyncInfoChanged<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderKnownFolderSyncInfoSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.RemoveKnownFolderSyncInfoChanged(::core::mem::transmute(&token)).into()
+        }
+        Self {
+            base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IStorageProviderKnownFolderSyncInfoSource, OFFSET>(),
+            GetKnownFolderSyncInfo: GetKnownFolderSyncInfo::<Identity, Impl, OFFSET>,
+            KnownFolderSyncInfoChanged: KnownFolderSyncInfoChanged::<Identity, Impl, OFFSET>,
+            RemoveKnownFolderSyncInfoChanged: RemoveKnownFolderSyncInfoChanged::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageProviderKnownFolderSyncInfoSource as ::windows_core::ComInterface>::IID
+    }
+}
+pub trait IStorageProviderKnownFolderSyncInfoSourceFactory_Impl: Sized {
+    fn GetKnownFolderSyncInfoSource(&self) -> ::windows_core::Result<IStorageProviderKnownFolderSyncInfoSource>;
+}
+impl ::windows_core::RuntimeName for IStorageProviderKnownFolderSyncInfoSourceFactory {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderKnownFolderSyncInfoSourceFactory";
+}
+impl IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderKnownFolderSyncInfoSourceFactory_Impl, const OFFSET: isize>() -> IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl {
+        unsafe extern "system" fn GetKnownFolderSyncInfoSource<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderKnownFolderSyncInfoSourceFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetKnownFolderSyncInfoSource() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
+                    ::core::mem::forget(ok__);
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IStorageProviderKnownFolderSyncInfoSourceFactory, OFFSET>(),
+            GetKnownFolderSyncInfoSource: GetKnownFolderSyncInfoSource::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageProviderKnownFolderSyncInfoSourceFactory as ::windows_core::ComInterface>::IID
+    }
+}
 pub trait IStorageProviderPropertyCapabilities_Impl: Sized {
     fn IsPropertySupported(&self, propertycanonicalname: &::windows_core::HSTRING) -> ::windows_core::Result<bool>;
 }

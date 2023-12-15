@@ -109,6 +109,24 @@ pub struct ILampArray_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct ILampArray2(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ILampArray2 {
+    type Vtable = ILampArray2_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for ILampArray2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x050c181f_60a8_4711_a1af_1b1b4c658ea2);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ILampArray2_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub IsAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub AvailabilityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveAvailabilityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILampArrayStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILampArrayStatics {
     type Vtable = ILampArrayStatics_Vtbl;
@@ -488,6 +506,27 @@ impl LampArray {
             (::windows_core::Interface::vtable(this).RequestMessageAsync)(::windows_core::Interface::as_raw(this), messageid, &mut result__).from_abi(result__)
         }
     }
+    pub fn IsAvailable(&self) -> ::windows_core::Result<bool> {
+        let this = &::windows_core::ComInterface::cast::<ILampArray2>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).IsAvailable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn AvailabilityChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<LampArray, ::windows_core::IInspectable>>,
+    {
+        let this = &::windows_core::ComInterface::cast::<ILampArray2>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).AvailabilityChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn RemoveAvailabilityChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
+        let this = &::windows_core::ComInterface::cast::<ILampArray2>(self)?;
+        unsafe { (::windows_core::Interface::vtable(this).RemoveAvailabilityChanged)(::windows_core::Interface::as_raw(this), token).ok() }
+    }
     pub fn GetDeviceSelector() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::ILampArrayStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
@@ -659,6 +698,7 @@ impl LampArrayKind {
     pub const Wearable: Self = Self(8i32);
     pub const Furniture: Self = Self(9i32);
     pub const Art: Self = Self(10i32);
+    pub const Headset: Self = Self(11i32);
 }
 impl ::core::marker::Copy for LampArrayKind {}
 impl ::core::clone::Clone for LampArrayKind {

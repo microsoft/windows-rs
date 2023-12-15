@@ -292,6 +292,140 @@ pub struct IStorageProviderItemPropertySource_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IStorageProviderKnownFolderEntry(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IStorageProviderKnownFolderEntry {
+    type Vtable = IStorageProviderKnownFolderEntry_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IStorageProviderKnownFolderEntry {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeffa7db0_1d44_596b_8464_928800c5e2d8);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IStorageProviderKnownFolderEntry_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub KnownFolderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub SetKnownFolderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StorageProviderKnownFolderSyncStatus) -> ::windows_core::HRESULT,
+    pub SetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: StorageProviderKnownFolderSyncStatus) -> ::windows_core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IStorageProviderKnownFolderSyncInfo(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IStorageProviderKnownFolderSyncInfo {
+    type Vtable = IStorageProviderKnownFolderSyncInfo_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IStorageProviderKnownFolderSyncInfo {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98b017ce_ffc1_5b11_ae77_cc17afec1049);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IStorageProviderKnownFolderSyncInfo_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub ProviderDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetProviderDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub KnownFolderEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    KnownFolderEntries: usize,
+    pub SyncRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetSyncRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IStorageProviderKnownFolderSyncInfoSource(::windows_core::IUnknown);
+impl IStorageProviderKnownFolderSyncInfoSource {
+    pub fn GetKnownFolderSyncInfo(&self) -> ::windows_core::Result<StorageProviderKnownFolderSyncInfo> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).GetKnownFolderSyncInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn KnownFolderSyncInfoChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<IStorageProviderKnownFolderSyncInfoSource, ::windows_core::IInspectable>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).KnownFolderSyncInfoChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn RemoveKnownFolderSyncInfoChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).RemoveKnownFolderSyncInfoChanged)(::windows_core::Interface::as_raw(this), token).ok() }
+    }
+}
+::windows_core::imp::interface_hierarchy!(IStorageProviderKnownFolderSyncInfoSource, ::windows_core::IUnknown, ::windows_core::IInspectable);
+impl ::windows_core::RuntimeType for IStorageProviderKnownFolderSyncInfoSource {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+unsafe impl ::windows_core::Interface for IStorageProviderKnownFolderSyncInfoSource {
+    type Vtable = IStorageProviderKnownFolderSyncInfoSource_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IStorageProviderKnownFolderSyncInfoSource {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51359342_f7c0_53d0_bbb6_1cdc098ebda9);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IStorageProviderKnownFolderSyncInfoSource_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub GetKnownFolderSyncInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub KnownFolderSyncInfoChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveKnownFolderSyncInfoChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IStorageProviderKnownFolderSyncInfoSourceFactory(::windows_core::IUnknown);
+impl IStorageProviderKnownFolderSyncInfoSourceFactory {
+    pub fn GetKnownFolderSyncInfoSource(&self) -> ::windows_core::Result<IStorageProviderKnownFolderSyncInfoSource> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).GetKnownFolderSyncInfoSource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+}
+::windows_core::imp::interface_hierarchy!(IStorageProviderKnownFolderSyncInfoSourceFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
+impl ::windows_core::RuntimeType for IStorageProviderKnownFolderSyncInfoSourceFactory {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+unsafe impl ::windows_core::Interface for IStorageProviderKnownFolderSyncInfoSourceFactory {
+    type Vtable = IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IStorageProviderKnownFolderSyncInfoSourceFactory {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaaee03a7_a7f6_50be_a9b0_8e82d0c81082);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub GetKnownFolderSyncInfoSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IStorageProviderKnownFolderSyncRequestArgs(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IStorageProviderKnownFolderSyncRequestArgs {
+    type Vtable = IStorageProviderKnownFolderSyncRequestArgs_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IStorageProviderKnownFolderSyncRequestArgs {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeda6d569_b4e8_542f_ab8d_f3613f250a4a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IStorageProviderKnownFolderSyncRequestArgs_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub KnownFolders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    KnownFolders: usize,
+    pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorageProviderMoreInfoUI(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorageProviderMoreInfoUI {
     type Vtable = IStorageProviderMoreInfoUI_Vtbl;
@@ -1200,6 +1334,152 @@ impl ::windows_core::RuntimeName for StorageProviderItemPropertyDefinition {
 ::windows_core::imp::interface_hierarchy!(StorageProviderItemPropertyDefinition, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderItemPropertyDefinition {}
 unsafe impl ::core::marker::Sync for StorageProviderItemPropertyDefinition {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct StorageProviderKnownFolderEntry(::windows_core::IUnknown);
+impl StorageProviderKnownFolderEntry {
+    pub fn new() -> ::windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows_core::imp::IGenericFactory) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<StorageProviderKnownFolderEntry, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn KnownFolderId(&self) -> ::windows_core::Result<::windows_core::GUID> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).KnownFolderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn SetKnownFolderId(&self, value: ::windows_core::GUID) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).SetKnownFolderId)(::windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Status(&self) -> ::windows_core::Result<StorageProviderKnownFolderSyncStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn SetStatus(&self, value: StorageProviderKnownFolderSyncStatus) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).SetStatus)(::windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::windows_core::RuntimeType for StorageProviderKnownFolderEntry {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
+}
+unsafe impl ::windows_core::Interface for StorageProviderKnownFolderEntry {
+    type Vtable = IStorageProviderKnownFolderEntry_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for StorageProviderKnownFolderEntry {
+    const IID: ::windows_core::GUID = <IStorageProviderKnownFolderEntry as ::windows_core::ComInterface>::IID;
+}
+impl ::windows_core::RuntimeName for StorageProviderKnownFolderEntry {
+    const NAME: &'static str = "Windows.Storage.Provider.StorageProviderKnownFolderEntry";
+}
+::windows_core::imp::interface_hierarchy!(StorageProviderKnownFolderEntry, ::windows_core::IUnknown, ::windows_core::IInspectable);
+unsafe impl ::core::marker::Send for StorageProviderKnownFolderEntry {}
+unsafe impl ::core::marker::Sync for StorageProviderKnownFolderEntry {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct StorageProviderKnownFolderSyncInfo(::windows_core::IUnknown);
+impl StorageProviderKnownFolderSyncInfo {
+    pub fn new() -> ::windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows_core::imp::IGenericFactory) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<StorageProviderKnownFolderSyncInfo, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn ProviderDisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).ProviderDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn SetProviderDisplayName(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).SetProviderDisplayName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+    }
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn KnownFolderEntries(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<StorageProviderKnownFolderEntry>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).KnownFolderEntries)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn SyncRequested(&self) -> ::windows_core::Result<StorageProviderKnownFolderSyncRequestedHandler> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).SyncRequested)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn SetSyncRequested<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<StorageProviderKnownFolderSyncRequestedHandler>,
+    {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).SetSyncRequested)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+    }
+}
+impl ::windows_core::RuntimeType for StorageProviderKnownFolderSyncInfo {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
+}
+unsafe impl ::windows_core::Interface for StorageProviderKnownFolderSyncInfo {
+    type Vtable = IStorageProviderKnownFolderSyncInfo_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for StorageProviderKnownFolderSyncInfo {
+    const IID: ::windows_core::GUID = <IStorageProviderKnownFolderSyncInfo as ::windows_core::ComInterface>::IID;
+}
+impl ::windows_core::RuntimeName for StorageProviderKnownFolderSyncInfo {
+    const NAME: &'static str = "Windows.Storage.Provider.StorageProviderKnownFolderSyncInfo";
+}
+::windows_core::imp::interface_hierarchy!(StorageProviderKnownFolderSyncInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
+unsafe impl ::core::marker::Send for StorageProviderKnownFolderSyncInfo {}
+unsafe impl ::core::marker::Sync for StorageProviderKnownFolderSyncInfo {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct StorageProviderKnownFolderSyncRequestArgs(::windows_core::IUnknown);
+impl StorageProviderKnownFolderSyncRequestArgs {
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn KnownFolders(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::GUID>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).KnownFolders)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn Source(&self) -> ::windows_core::Result<super::StorageFolder> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).Source)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+}
+impl ::windows_core::RuntimeType for StorageProviderKnownFolderSyncRequestArgs {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
+}
+unsafe impl ::windows_core::Interface for StorageProviderKnownFolderSyncRequestArgs {
+    type Vtable = IStorageProviderKnownFolderSyncRequestArgs_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for StorageProviderKnownFolderSyncRequestArgs {
+    const IID: ::windows_core::GUID = <IStorageProviderKnownFolderSyncRequestArgs as ::windows_core::ComInterface>::IID;
+}
+impl ::windows_core::RuntimeName for StorageProviderKnownFolderSyncRequestArgs {
+    const NAME: &'static str = "Windows.Storage.Provider.StorageProviderKnownFolderSyncRequestArgs";
+}
+::windows_core::imp::interface_hierarchy!(StorageProviderKnownFolderSyncRequestArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+unsafe impl ::core::marker::Send for StorageProviderKnownFolderSyncRequestArgs {}
+unsafe impl ::core::marker::Sync for StorageProviderKnownFolderSyncRequestArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorageProviderMoreInfoUI(::windows_core::IUnknown);
@@ -2142,6 +2422,36 @@ impl ::windows_core::RuntimeType for StorageProviderInSyncPolicy {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StorageProviderKnownFolderSyncStatus(pub i32);
+impl StorageProviderKnownFolderSyncStatus {
+    pub const Available: Self = Self(0i32);
+    pub const Enrolling: Self = Self(1i32);
+    pub const Enrolled: Self = Self(2i32);
+}
+impl ::core::marker::Copy for StorageProviderKnownFolderSyncStatus {}
+impl ::core::clone::Clone for StorageProviderKnownFolderSyncStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StorageProviderKnownFolderSyncStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for StorageProviderKnownFolderSyncStatus {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for StorageProviderKnownFolderSyncStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderKnownFolderSyncStatus").field(&self.0).finish()
+    }
+}
+impl ::windows_core::RuntimeType for StorageProviderKnownFolderSyncStatus {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderKnownFolderSyncStatus;i4)");
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageProviderPopulationPolicy(pub i32);
 impl StorageProviderPopulationPolicy {
     pub const Full: Self = Self(1i32);
@@ -2351,6 +2661,78 @@ impl ::core::fmt::Debug for WriteActivationMode {
 }
 impl ::windows_core::RuntimeType for WriteActivationMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.WriteActivationMode;i4)");
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct StorageProviderKnownFolderSyncRequestedHandler(pub ::windows_core::IUnknown);
+impl StorageProviderKnownFolderSyncRequestedHandler {
+    pub fn new<F: FnMut(::core::option::Option<&StorageProviderKnownFolderSyncRequestArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+        let com = StorageProviderKnownFolderSyncRequestedHandlerBox::<F> { vtable: &StorageProviderKnownFolderSyncRequestedHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
+    }
+    pub fn Invoke<P0>(&self, args: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<StorageProviderKnownFolderSyncRequestArgs>,
+    {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), args.into_param().abi()).ok() }
+    }
+}
+#[repr(C)]
+struct StorageProviderKnownFolderSyncRequestedHandlerBox<F: FnMut(::core::option::Option<&StorageProviderKnownFolderSyncRequestArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static> {
+    vtable: *const StorageProviderKnownFolderSyncRequestedHandler_Vtbl,
+    invoke: F,
+    count: ::windows_core::imp::RefCount,
+}
+impl<F: FnMut(::core::option::Option<&StorageProviderKnownFolderSyncRequestArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static> StorageProviderKnownFolderSyncRequestedHandlerBox<F> {
+    const VTABLE: StorageProviderKnownFolderSyncRequestedHandler_Vtbl = StorageProviderKnownFolderSyncRequestedHandler_Vtbl {
+        base__: ::windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return ::windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <StorageProviderKnownFolderSyncRequestedHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if (*interface).is_null() {
+            ::windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            ::windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = ::std::boxed::Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        ((*this).invoke)(::windows_core::from_raw_borrowed(&args)).into()
+    }
+}
+unsafe impl ::windows_core::Interface for StorageProviderKnownFolderSyncRequestedHandler {
+    type Vtable = StorageProviderKnownFolderSyncRequestedHandler_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for StorageProviderKnownFolderSyncRequestedHandler {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4cbb4f5_13dd_5c8e_8b96_336fc30c629b);
+}
+impl ::windows_core::RuntimeType for StorageProviderKnownFolderSyncRequestedHandler {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct StorageProviderKnownFolderSyncRequestedHandler_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

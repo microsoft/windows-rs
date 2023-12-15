@@ -2267,6 +2267,60 @@ pub struct ICompositionTargetFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct ICompositionTexture(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICompositionTexture {
+    type Vtable = ICompositionTexture_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for ICompositionTexture {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x347d03a0_1c0a_4c0b_b232_8570b2b1a4ea);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICompositionTexture_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Graphics")]
+    pub SourceRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::RectInt32) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics"))]
+    SourceRect: usize,
+    #[cfg(feature = "Graphics")]
+    pub SetSourceRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Graphics::RectInt32) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics"))]
+    SetSourceRect: usize,
+    #[cfg(feature = "Graphics_DirectX")]
+    pub AlphaMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_DirectX"))]
+    AlphaMode: usize,
+    #[cfg(feature = "Graphics_DirectX")]
+    pub SetAlphaMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_DirectX"))]
+    SetAlphaMode: usize,
+    #[cfg(feature = "Graphics_DirectX")]
+    pub ColorSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::DirectX::DirectXColorSpace) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_DirectX"))]
+    ColorSpace: usize,
+    #[cfg(feature = "Graphics_DirectX")]
+    pub SetColorSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Graphics::DirectX::DirectXColorSpace) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_DirectX"))]
+    SetColorSpace: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct ICompositionTextureFactory(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICompositionTextureFactory {
+    type Vtable = ICompositionTextureFactory_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for ICompositionTextureFactory {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09d9523d_471c_5ab5_b053_b568ee46ebfb);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICompositionTextureFactory_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionTransform(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionTransform {
     type Vtable = ICompositionTransform_Vtbl;
@@ -15774,6 +15828,183 @@ impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for Composi
 impl ::windows_core::CanTryInto<CompositionObject> for CompositionTarget {}
 unsafe impl ::core::marker::Send for CompositionTarget {}
 unsafe impl ::core::marker::Sync for CompositionTarget {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct CompositionTexture(::windows_core::IUnknown);
+impl CompositionTexture {
+    pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<AnimationPropertyInfo>,
+    {
+        let this = &::windows_core::ComInterface::cast::<IAnimationObject>(self)?;
+        unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
+    }
+    pub fn Close(&self) -> ::windows_core::Result<()> {
+        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Compositor(&self) -> ::windows_core::Result<Compositor> {
+        let this = &::windows_core::ComInterface::cast::<ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).Compositor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    #[doc = "Required features: `\"UI_Core\"`"]
+    #[cfg(feature = "UI_Core")]
+    pub fn Dispatcher(&self) -> ::windows_core::Result<super::Core::CoreDispatcher> {
+        let this = &::windows_core::ComInterface::cast::<ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).Dispatcher)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn Properties(&self) -> ::windows_core::Result<CompositionPropertySet> {
+        let this = &::windows_core::ComInterface::cast::<ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows_core::HSTRING, animation: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::TryIntoParam<CompositionAnimation>,
+    {
+        let this = &::windows_core::ComInterface::cast::<ICompositionObject>(self)?;
+        unsafe { (::windows_core::Interface::vtable(this).StartAnimation)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi()).ok() }
+    }
+    pub fn StopAnimation(&self, propertyname: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
+        let this = &::windows_core::ComInterface::cast::<ICompositionObject>(self)?;
+        unsafe { (::windows_core::Interface::vtable(this).StopAnimation)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname)).ok() }
+    }
+    pub fn Comment(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
+        let this = &::windows_core::ComInterface::cast::<ICompositionObject2>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).Comment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn SetComment(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
+        let this = &::windows_core::ComInterface::cast::<ICompositionObject2>(self)?;
+        unsafe { (::windows_core::Interface::vtable(this).SetComment)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn ImplicitAnimations(&self) -> ::windows_core::Result<ImplicitAnimationCollection> {
+        let this = &::windows_core::ComInterface::cast::<ICompositionObject2>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).ImplicitAnimations)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn SetImplicitAnimations<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<ImplicitAnimationCollection>,
+    {
+        let this = &::windows_core::ComInterface::cast::<ICompositionObject2>(self)?;
+        unsafe { (::windows_core::Interface::vtable(this).SetImplicitAnimations)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+    }
+    pub fn StartAnimationGroup<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::TryIntoParam<ICompositionAnimationBase>,
+    {
+        let this = &::windows_core::ComInterface::cast::<ICompositionObject2>(self)?;
+        unsafe { (::windows_core::Interface::vtable(this).StartAnimationGroup)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+    }
+    pub fn StopAnimationGroup<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::TryIntoParam<ICompositionAnimationBase>,
+    {
+        let this = &::windows_core::ComInterface::cast::<ICompositionObject2>(self)?;
+        unsafe { (::windows_core::Interface::vtable(this).StopAnimationGroup)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+    }
+    #[doc = "Required features: `\"System\"`"]
+    #[cfg(feature = "System")]
+    pub fn DispatcherQueue(&self) -> ::windows_core::Result<super::super::System::DispatcherQueue> {
+        let this = &::windows_core::ComInterface::cast::<ICompositionObject3>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).DispatcherQueue)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn TryGetAnimationController(&self, propertyname: &::windows_core::HSTRING) -> ::windows_core::Result<AnimationController> {
+        let this = &::windows_core::ComInterface::cast::<ICompositionObject4>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).TryGetAnimationController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn StartAnimationWithController<P0, P1>(&self, propertyname: &::windows_core::HSTRING, animation: P0, animationcontroller: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::TryIntoParam<CompositionAnimation>,
+        P1: ::windows_core::IntoParam<AnimationController>,
+    {
+        let this = &::windows_core::ComInterface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
+    }
+    #[doc = "Required features: `\"Graphics\"`"]
+    #[cfg(feature = "Graphics")]
+    pub fn SourceRect(&self) -> ::windows_core::Result<super::super::Graphics::RectInt32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).SourceRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    #[doc = "Required features: `\"Graphics\"`"]
+    #[cfg(feature = "Graphics")]
+    pub fn SetSourceRect(&self, value: super::super::Graphics::RectInt32) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).SetSourceRect)(::windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[doc = "Required features: `\"Graphics_DirectX\"`"]
+    #[cfg(feature = "Graphics_DirectX")]
+    pub fn AlphaMode(&self) -> ::windows_core::Result<super::super::Graphics::DirectX::DirectXAlphaMode> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).AlphaMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    #[doc = "Required features: `\"Graphics_DirectX\"`"]
+    #[cfg(feature = "Graphics_DirectX")]
+    pub fn SetAlphaMode(&self, value: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).SetAlphaMode)(::windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[doc = "Required features: `\"Graphics_DirectX\"`"]
+    #[cfg(feature = "Graphics_DirectX")]
+    pub fn ColorSpace(&self) -> ::windows_core::Result<super::super::Graphics::DirectX::DirectXColorSpace> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).ColorSpace)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    #[doc = "Required features: `\"Graphics_DirectX\"`"]
+    #[cfg(feature = "Graphics_DirectX")]
+    pub fn SetColorSpace(&self, value: super::super::Graphics::DirectX::DirectXColorSpace) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).SetColorSpace)(::windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::windows_core::RuntimeType for CompositionTexture {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
+}
+unsafe impl ::windows_core::Interface for CompositionTexture {
+    type Vtable = ICompositionTexture_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for CompositionTexture {
+    const IID: ::windows_core::GUID = <ICompositionTexture as ::windows_core::ComInterface>::IID;
+}
+impl ::windows_core::RuntimeName for CompositionTexture {
+    const NAME: &'static str = "Windows.UI.Composition.CompositionTexture";
+}
+::windows_core::imp::interface_hierarchy!(CompositionTexture, ::windows_core::IUnknown, ::windows_core::IInspectable);
+impl ::windows_core::CanTryInto<IAnimationObject> for CompositionTexture {}
+impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for CompositionTexture {}
+impl ::windows_core::CanTryInto<ICompositionSurface> for CompositionTexture {}
+impl ::windows_core::CanTryInto<CompositionObject> for CompositionTexture {}
+unsafe impl ::core::marker::Send for CompositionTexture {}
+unsafe impl ::core::marker::Sync for CompositionTexture {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionTransform(::windows_core::IUnknown);
