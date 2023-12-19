@@ -19,7 +19,7 @@ impl HSTRING {
         self.0.is_none()
     }
 
-    /// Returns the length of the string.
+    /// Returns the length of the string. The length is measured in `u16`s, not including the terminating null character.
     pub fn len(&self) -> usize {
         if let Some(header) = self.get_header() {
             header.len as usize
