@@ -193,10 +193,10 @@ impl Writer {
                 quote! { *mut ::core::ffi::c_void }
             }
             metadata::Type::String => {
-                quote! { ::std::mem::MaybeUninit<::windows_core::HSTRING> }
+                quote! { ::core::mem::MaybeUninit<::windows_core::HSTRING> }
             }
             metadata::Type::BSTR => {
-                quote! { ::std::mem::MaybeUninit<::windows_core::BSTR> }
+                quote! { ::core::mem::MaybeUninit<::windows_core::BSTR> }
             }
             metadata::Type::Win32Array(kind, len) => {
                 let name = self.type_abi_name(kind);
@@ -214,7 +214,7 @@ impl Writer {
                     if metadata::type_def_is_blittable(*def) {
                         tokens
                     } else {
-                        quote! { ::std::mem::MaybeUninit<#tokens> }
+                        quote! { ::core::mem::MaybeUninit<#tokens> }
                     }
                 }
                 metadata::TypeKind::Delegate => {
@@ -616,10 +616,10 @@ impl Writer {
                     }
                 }
                 #features
-                impl<#constraints> ::std::future::Future for #ident {
+                impl<#constraints> ::core::future::Future for #ident {
                     type Output = ::windows_core::Result<#return_type>;
 
-                    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context<'_>) -> ::std::task::Poll<Self::Output> {
+                    fn poll(self: ::core::pin::Pin<&mut Self>, context: &mut ::core::task::Context<'_>) -> ::core::task::Poll<Self::Output> {
                         if self.Status()? == #namespace AsyncStatus::Started {
                             let waker = context.waker().clone();
 
@@ -628,9 +628,9 @@ impl Writer {
                                 Ok(())
                             }));
 
-                            ::std::task::Poll::Pending
+                            ::core::task::Poll::Pending
                         } else {
-                            ::std::task::Poll::Ready(self.GetResults())
+                            ::core::task::Poll::Ready(self.GetResults())
                         }
                     }
                 }
@@ -931,9 +931,9 @@ impl Writer {
                         }
                         metadata::SignatureParamKind::OptionalPointer => {
                             if flags.contains(metadata::ParamAttributes::Out) {
-                                quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null_mut())), }
+                                quote! { ::core::mem::transmute(#name.unwrap_or(::core::ptr::null_mut())), }
                             } else {
-                                quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null())), }
+                                quote! { ::core::mem::transmute(#name.unwrap_or(::core::ptr::null())), }
                             }
                         }
                         metadata::SignatureParamKind::ValueType => {
