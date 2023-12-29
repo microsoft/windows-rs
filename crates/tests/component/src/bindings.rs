@@ -73,8 +73,8 @@ pub mod Nested {
                 Method: Method::<Identity, Impl, OFFSET>,
             }
         }
-        pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-            *iid == <IThing as ::windows_core::ComInterface>::IID
+        pub fn matches(iid: &::windows_core::GUID) -> bool {
+            iid == &<IThing as ::windows_core::ComInterface>::IID
         }
     }
 }
@@ -639,7 +639,7 @@ impl IClass_Vtbl {
             Input: Input::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IClass as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IClass as ::windows_core::ComInterface>::IID
     }
 }
